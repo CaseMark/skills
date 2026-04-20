@@ -1,5 +1,6 @@
 ---
 name: analyzing-synergy-potential
+language: en
 description: Quantifies revenue and cost synergies with build-up methodology, realization timelines, and integration cost offsets. Use when estimating deal synergies, modeling cost savings, or building synergy cases for IC.
 tags:
   - analysis

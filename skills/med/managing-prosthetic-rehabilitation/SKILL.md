@@ -1,5 +1,6 @@
 ---
 name: managing-prosthetic-rehabilitation
+language: en
 description: Structures prosthetic evaluation with device selection, fitting documentation, and functional training. Use when managing prosthetic rehab, documenting device fitting, or tracking prosthetic training progress.
 tags:
   - management

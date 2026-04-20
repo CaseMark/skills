@@ -1,5 +1,6 @@
 ---
 name: expert-witness-report-analysis
+language: en
 description: Critiques opposing expert witness reports for admissibility challenges, disclosure deficiencies, and cross-examination vulnerabilities. Triggers when the user provides an expert report for analysis, needs Daubert/Frye assessment, requests a motion to exclude or limit expert testimony, or prepares deposition or trial cross-examination of an opposing expert.
 tags:
   - analysis

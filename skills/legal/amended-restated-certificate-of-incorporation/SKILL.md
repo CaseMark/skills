@@ -1,5 +1,6 @@
 ---
 name: amended-restated-certificate-of-incorporation
+language: en
 description: >-
   Drafts filing-ready Delaware Amended and Restated Certificates of
   Incorporation for venture-financing rounds. Converts term-sheet economics

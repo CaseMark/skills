@@ -1,5 +1,6 @@
 ---
 name: managing-cardiac-risk-preoperative
+language: en
 description: Applies ACC/AHA perioperative cardiac evaluation algorithm with functional capacity and risk indices. Use when performing cardiac preop evaluation, calculating RCRI, or assessing perioperative cardiac risk.
 tags:
   - management

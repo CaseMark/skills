@@ -1,5 +1,6 @@
 ---
 name: auth-packet-summary
+language: en
 description: Validates and summarizes the four required authorization forms in a personal injury matter (retainer, HIPAA release, insurance authorization, employment record release). Confirms signatures, dates, scope, and completeness to determine readiness for the investigation phase. Use when reviewing client onboarding packets, verifying authorization forms before discovery, or checking HIPAA and record-release compliance.
 ---
 

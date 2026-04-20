@@ -1,5 +1,6 @@
 ---
 name: inverse-condemnation-complaint
+language: en
 description: Drafts inverse condemnation complaints seeking just compensation for government takings without formal eminent domain. Use when a user needs a takings clause complaint, inverse condemnation pleading, or property rights constitutional claim involving physical, regulatory, or temporary takings.
 tags:
   - drafting

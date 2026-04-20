@@ -1,5 +1,6 @@
 ---
 name: managing-construction-loan-administration
+language: en
 description: Structures construction loan management with draw processing, inspection tracking, and budget monitoring. Use when administering construction loans, processing draw requests, or monitoring construction budgets.
 tags:
   - management

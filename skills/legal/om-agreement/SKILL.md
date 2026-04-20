@@ -1,5 +1,6 @@
 ---
 name: om-agreement
+language: en
 description: Drafts Operations and Maintenance agreements for energy facilities covering scope, performance standards, compensation, risk allocation, and regulatory compliance. Use when drafting O&M contracts, maintenance agreements for power plants, solar farms, wind projects, or energy infrastructure.
 ---
 

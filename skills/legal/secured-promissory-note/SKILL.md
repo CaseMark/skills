@@ -1,5 +1,6 @@
 ---
 name: secured-promissory-note
+language: en
 description: >-
   Drafts U.S. secured promissory notes for commercial lending with
   lender-protective terms, UCC Article 9 collateral grants, and state

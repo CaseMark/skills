@@ -1,5 +1,6 @@
 ---
 name: proration-schedule
+language: en
 description: Drafts a legally compliant proration schedule for real estate closings, allocating taxes, HOA fees, rent, utilities, and other obligations between buyer and seller. Triggered when preparing settlement documents, closing prorations, asset purchase closings, or real estate closing statements requiring expense allocation by closing date.
 tags:
   - agreement

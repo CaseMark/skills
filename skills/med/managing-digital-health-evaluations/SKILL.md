@@ -1,5 +1,6 @@
 ---
 name: managing-digital-health-evaluations
+language: en
 description: Evaluates digital health tools and apps with clinical evidence assessment and integration planning. Use when evaluating health apps, assessing digital therapeutics, or planning digital health integration.
 tags:
   - management

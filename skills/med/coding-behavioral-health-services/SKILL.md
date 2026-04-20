@@ -1,5 +1,6 @@
 ---
 name: coding-behavioral-health-services
+language: en
 description: Assigns behavioral health procedure codes with time-based requirements and modifier application. Use when coding therapy sessions, applying psychiatric codes, or documenting behavioral health services.
 tags:
   - coding

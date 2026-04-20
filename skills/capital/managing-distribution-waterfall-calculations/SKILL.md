@@ -1,5 +1,6 @@
 ---
 name: managing-distribution-waterfall-calculations
+language: en
 description: Executes distribution calculations through partnership waterfall with preferred return, GP catch-up, and carried interest allocation. Use when calculating distributions, processing waterfall mechanics, or determining carry payments.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: family-law-summons
+language: en
 description: Drafts procedurally compliant family law summons for dissolution, custody modification, support enforcement, and other domestic proceedings. Covers jurisdiction-specific formatting, mandatory statutory warnings (ATROs), response deadlines adjusted by service method, service of process instructions, and proof of service sections. Use when initiating family law litigation, preparing summons for service, or drafting notice documents for domestic relations cases.
 ---
 

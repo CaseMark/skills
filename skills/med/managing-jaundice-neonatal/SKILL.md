@@ -1,5 +1,6 @@
 ---
 name: managing-jaundice-neonatal
+language: en
 description: Applies AAP hyperbilirubinemia guidelines with phototherapy thresholds and Bhutani nomogram. Use when managing neonatal jaundice, interpreting bilirubin levels, or determining phototherapy need.
 tags:
   - management

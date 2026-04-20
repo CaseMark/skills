@@ -1,5 +1,6 @@
 ---
 name: charity-filing-thresholds
+language: en
 description: >
   Researches state-specific charitable solicitation filing requirements keyed to
   gross revenue, producing a citation-backed state-by-state compliance matrix of

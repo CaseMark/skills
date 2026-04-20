@@ -1,5 +1,6 @@
 ---
 name: license-assignment
+language: en
 description: Drafts Assignment of License agreements transferring rights and obligations under existing IP licenses from assignor to assignee. Covers patent, trademark, copyright, and software license transfers with consent management, assumption of obligations, and recording compliance. Use when drafting license assignments, IP transfer agreements, license novations, or assignor-assignee license documentation.
 ---
 

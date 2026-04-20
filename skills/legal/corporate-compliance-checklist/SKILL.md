@@ -1,5 +1,6 @@
 ---
 name: corporate-compliance-checklist
+language: en
 description: Drafts a U.S. corporate compliance program checklist anchored in DOJ ECCP, Federal Sentencing Guidelines Chapter 8, and SEC enforcement priorities. Covers governance, risk assessment, training, monitoring, reporting, domain-specific obligations, documentation, and phased implementation. Use when building, evaluating, or strengthening a compliance program, preparing for regulatory inquiry, or conducting annual program assessments.
 tags:
   - checklist

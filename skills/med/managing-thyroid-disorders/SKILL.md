@@ -1,5 +1,6 @@
 ---
 name: managing-thyroid-disorders
+language: en
 description: Guides thyroid evaluation with TSH interpretation, medication titration, and nodule workup protocols. Use when managing hypothyroidism, evaluating thyroid nodules, or adjusting levothyroxine.
 tags:
   - management

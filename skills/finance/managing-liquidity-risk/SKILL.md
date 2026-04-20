@@ -1,5 +1,6 @@
 ---
 name: managing-liquidity-risk
+language: en
 description: Structures liquidity risk management with cash flow projections, stress testing, and contingency planning. Use when managing liquidity risk, projecting cash needs, or developing liquidity contingency plans.
 tags:
   - management

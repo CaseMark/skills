@@ -1,5 +1,6 @@
 ---
 name: managing-home-health-rehabilitation
+language: en
 description: Structures home health therapy documentation with homebound status justification and discharge criteria. Use when documenting home health therapy, justifying homebound status, or planning home-based rehab.
 tags:
   - management

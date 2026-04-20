@@ -1,5 +1,6 @@
 ---
 name: reviewing-medication-safety
+language: en
 description: Identifies high-alert medication risks with ISMP guidelines and safety barriers. Use when reviewing high-risk medications, implementing safety checks, or preventing medication errors.
 tags:
   - review

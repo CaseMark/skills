@@ -1,5 +1,6 @@
 ---
 name: preparing-esg-and-impact-reporting
+language: en
 description: Structures ESG and impact reporting for fund investors with metric collection, framework alignment, and progress communication. Use when preparing ESG reports, collecting impact data, or aligning with reporting frameworks.
 tags:
   - preparation

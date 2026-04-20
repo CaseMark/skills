@@ -1,5 +1,6 @@
 ---
 name: structuring-first-lien-last-out-facilities
+language: en
 description: Designs FILO structures with tranche-level pricing, distribution waterfalls, and intercreditor provisions within unitranche financing. Use when structuring FILO tranches, analyzing split economics, or designing blended pricing.
 tags:
   - credit-and-institutional-lending

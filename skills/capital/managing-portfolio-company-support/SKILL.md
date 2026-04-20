@@ -1,5 +1,6 @@
 ---
 name: managing-portfolio-company-support
+language: en
 description: Structures portfolio company engagement with board preparation, hiring support, business development, and follow-on strategy. Use when supporting portfolio companies, preparing board meetings, or coordinating investor resources.
 tags:
   - management

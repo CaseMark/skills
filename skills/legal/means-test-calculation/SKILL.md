@@ -1,5 +1,6 @@
 ---
 name: means-test-calculation
+language: en
 description: Calculates the bankruptcy means test from paystub data to determine annualized gross income and compare against state median income thresholds. Covers the 6-month look-back period, YTD subtraction method, pro-rata adjustments, and median income comparison. Use when evaluating Chapter 7 eligibility, performing pre-filing income assessment, or preparing Form 122A-1.
 ---
 

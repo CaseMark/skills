@@ -1,5 +1,6 @@
 ---
 name: pledge-agreement-securities
+language: en
 description: Drafts perfected-security-interest Pledge Agreements for securities collateral under UCC Article 9. Use when drafting securities pledge agreements, stock pledge documents, collateral assignments, or security interest grants in investment property securing loans or credit facilities.
 tags:
   - agreement

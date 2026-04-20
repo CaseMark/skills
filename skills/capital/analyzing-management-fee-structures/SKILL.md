@@ -1,5 +1,6 @@
 ---
 name: analyzing-management-fee-structures
+language: en
 description: Evaluates management fee designs with commitment-period vs invested-capital bases, step-downs, and offset provisions. Use when analyzing fee structures, comparing fee levels, or modeling fee revenue for GPs.
 tags:
   - analysis

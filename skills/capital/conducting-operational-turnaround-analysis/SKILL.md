@@ -1,5 +1,6 @@
 ---
 name: conducting-operational-turnaround-analysis
+language: en
 description: Assesses operational improvement opportunities with cost rationalization, revenue stabilization, and management changes for distressed businesses. Use when evaluating turnaround plans, identifying operational improvements, or assessing management capability.
 tags:
   - process

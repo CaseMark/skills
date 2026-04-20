@@ -1,5 +1,6 @@
 ---
 name: managing-electroconvulsive-therapy
+language: en
 description: Documents ECT treatment parameters, seizure quality, and cognitive monitoring protocols. Use when managing ECT treatments, documenting treatment parameters, or monitoring ECT outcomes.
 tags:
   - management

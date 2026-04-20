@@ -1,5 +1,6 @@
 ---
 name: managing-sec-registration-processes
+language: en
 description: Coordinates SEC filing workflows with S-1/S-3 preparation, comment letter responses, and effectiveness timing. Use when managing SEC registration, responding to SEC comments, or tracking filing status.
 tags:
   - management

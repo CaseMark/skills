@@ -1,5 +1,6 @@
 ---
 name: guardian-nomination-minors
+language: en
 description: >-
   Drafts a US parental guardianship nomination for minor children aligned to
   state statute formalities and court best-interest standards. Covers primary

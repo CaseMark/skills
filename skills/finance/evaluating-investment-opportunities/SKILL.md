@@ -1,5 +1,6 @@
 ---
 name: evaluating-investment-opportunities
+language: en
 description: Structures PE/VC investment evaluation with business model assessment, market analysis, and return potential. Use when evaluating deals, screening investment opportunities, or assessing company fit.
 tags:
   - analysis

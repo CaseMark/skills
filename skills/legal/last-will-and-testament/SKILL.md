@@ -1,5 +1,6 @@
 ---
 name: last-will-and-testament
+language: en
 description: >-
   Drafts and structures U.S. Last Will and Testament documents. Trigger when
   the user needs to draft, revise, or review a will covering executor/guardian

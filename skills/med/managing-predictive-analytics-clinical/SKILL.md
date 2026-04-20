@@ -1,5 +1,6 @@
 ---
 name: managing-predictive-analytics-clinical
+language: en
 description: Evaluates and deploys clinical predictive models with validation, bias assessment, and monitoring. Use when evaluating prediction models, assessing algorithmic bias, or deploying clinical ML.
 tags:
   - management

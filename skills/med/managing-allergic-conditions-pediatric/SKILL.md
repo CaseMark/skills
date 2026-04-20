@@ -1,5 +1,6 @@
 ---
 name: managing-allergic-conditions-pediatric
+language: en
 description: Guides pediatric allergy evaluation with testing interpretation and immunotherapy considerations. Use when evaluating pediatric allergies, interpreting allergy testing, or managing food allergy action plans.
 tags:
   - management

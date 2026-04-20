@@ -1,5 +1,6 @@
 ---
 name: solar-site-lease
+language: en
 description: Drafts U.S. solar site lease agreements between landowners and solar developers for long-term ground leases of solar PV facilities. Covers option and lease terms, rent structures, easements, construction and operations rights, decommissioning security, insurance and indemnity, tax and REC allocation, assignment and lender protections, defaults, and memorandum of lease. Use when drafting solar farm land leases, solar PV site leases, renewable energy land leases, or solar facility ground lease agreements.
 metadata:
   author: casemark

@@ -1,5 +1,6 @@
 ---
 name: structuring-term-loan-b-facilities
+language: en
 description: Designs institutional term loan structures with amortization schedules, repricing protection, and soft call provisions. Use when structuring TLBs, analyzing institutional loan terms, or comparing bank vs institutional debt.
 tags:
   - debt-capital-markets

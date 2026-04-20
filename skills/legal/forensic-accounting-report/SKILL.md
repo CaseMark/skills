@@ -1,5 +1,6 @@
 ---
 name: forensic-accounting-report
+language: en
 description: Produces a litigation-ready forensic accounting investigation report structured for expert disclosure and evidentiary use. Covers financial irregularities, asset tracing, fraud analysis, quantified damages, and defensible conclusions with exhibits. Use when drafting a forensic accounting report, expert report, fraud investigation summary, asset concealment analysis, or pre-trial financial investigation materials.
 ---
 

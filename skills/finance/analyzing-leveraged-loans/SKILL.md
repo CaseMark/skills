@@ -1,5 +1,6 @@
 ---
 name: analyzing-leveraged-loans
+language: en
 description: Structures leveraged loan analysis with covenant assessment, amendment tracking, and repricing risk. Use when analyzing leveraged loans, reviewing loan covenants, or evaluating loan market dynamics.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: managing-good-clinical-practice
+language: en
 description: Applies GCP/ICH principles to clinical research operations with compliance monitoring. Use when ensuring GCP compliance, training on ICH guidelines, or auditing research practices.
 tags:
   - management

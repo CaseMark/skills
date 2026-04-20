@@ -1,5 +1,6 @@
 ---
 name: transcription
+language: en
 description: Transcribes audio and video files through case.dev with speaker diarization. Supports MP3, WAV, M4A, FLAC, OGG, WEBM, MP4 up to 5GB. Use when the user mentions "transcribe", "transcription", "deposition recording", "hearing audio", "speaker labels", or needs to convert audio/video to text.
 ---
 

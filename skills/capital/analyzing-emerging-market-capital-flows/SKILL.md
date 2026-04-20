@@ -1,5 +1,6 @@
 ---
 name: analyzing-emerging-market-capital-flows
+language: en
 description: Monitors EM capital flow dynamics with FDI, portfolio flows, reserve changes, and balance of payments analysis. Use when analyzing EM flows, tracking capital movement, or assessing EM investment conditions.
 tags:
   - analysis

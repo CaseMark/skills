@@ -1,5 +1,6 @@
 ---
 name: ground-lease
+language: en
 description: Drafts U.S. ground lease agreements for long-term land leases (49–99 years) where tenants construct improvements on landlord-retained fee property. Covers term structures, leasehold mortgage protections, rent escalation, improvement ownership/reversion, subordination, condemnation, and environmental allocation. Use when drafting, negotiating, or reviewing ground leases for commercial real estate (retail, office, hospitality, mixed-use, public-private partnerships).
 ---
 

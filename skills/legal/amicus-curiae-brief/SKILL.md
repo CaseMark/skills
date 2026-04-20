@@ -1,5 +1,6 @@
 ---
 name: amicus-curiae-brief
+language: en
 description: >
   Drafts filing-ready U.S. amicus curiae briefs with rule-anchored compliance,
   additive thesis selection, record-safe fact handling, and verified authority

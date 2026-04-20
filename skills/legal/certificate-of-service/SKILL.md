@@ -1,5 +1,6 @@
 ---
 name: certificate-of-service
+language: en
 description: Drafts certificates of service (proofs of service) for court filings. Use when a filing must be accompanied by proof that copies were served on all parties or counsel. Covers FRCP Rule 5, state equivalents, ECF/e-service, U.S. mail, hand delivery, and overnight courier methods.
 ---
 

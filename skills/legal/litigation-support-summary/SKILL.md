@@ -1,5 +1,6 @@
 ---
 name: litigation-support-summary
+language: en
 description: Generates structured management summaries of active commercial litigation matters. Covers case overview, procedural posture, strategy, deadlines, discovery status, budget, and risk analysis. Use when preparing case status reports, onboarding stakeholders to active litigation, or conducting periodic case reviews.
 ---
 

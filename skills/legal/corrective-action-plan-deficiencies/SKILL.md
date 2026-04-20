@@ -1,5 +1,6 @@
 ---
 name: corrective-action-plan-deficiencies
+language: en
 description: >-
   Drafts a regulator-ready Corrective Action Plan (CAP) for U.S. healthcare
   facilities responding to inspection, survey, or audit deficiencies. Covers

@@ -1,5 +1,6 @@
 ---
 name: settlement-summary
+language: en
 description: Generates structured summaries of settlement negotiations and agreements in commercial litigation. Use when summarizing settlement history, documenting negotiation timelines, analyzing settlement terms, preparing implementation checklists, or reviewing release and confidentiality provisions.
 ---
 

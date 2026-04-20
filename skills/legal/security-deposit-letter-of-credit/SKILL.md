@@ -1,5 +1,6 @@
 ---
 name: security-deposit-letter-of-credit
+language: en
 description: >-
   Drafts an irrevocable standby letter of credit securing a commercial lease
   deposit under ISP98 and UCC Article 5. Covers documentary draw conditions,

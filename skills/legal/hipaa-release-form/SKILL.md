@@ -1,5 +1,6 @@
 ---
 name: hipaa-release-form
+language: en
 description: >-
   Drafts HIPAA Release Authorization forms compliant with 45 CFR 164.508 for
   disclosure of protected health information. Typically used in estate planning

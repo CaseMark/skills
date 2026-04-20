@@ -1,5 +1,6 @@
 ---
 name: deposition-summarization
+language: en
 description: Summarizes deposition transcripts with precise page:line citations. Supports sequential, topic-based, and strategic deep-analysis formats. Use when a user provides a deposition transcript and requests a summary, depo digest, testimony analysis, or impeachment identification.
 ---
 

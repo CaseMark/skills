@@ -1,5 +1,6 @@
 ---
 name: rofr-co-sale
+language: en
 description: Drafts Right of First Refusal and Co-Sale Agreements for venture-backed and closely-held companies. Establishes ROFR mechanics, tag-along/co-sale rights, transfer restrictions, and permitted transfer carve-outs aligned with NVCA standards. Use when drafting ROFR agreements, co-sale agreements, tag-along rights, share transfer restrictions, or investor protective provisions in venture capital, private equity, or startup financing transactions.
 tags:
   - agreement

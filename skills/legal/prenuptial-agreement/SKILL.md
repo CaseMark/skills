@@ -1,5 +1,6 @@
 ---
 name: prenuptial-agreement
+language: en
 description: Drafts enforceable prenuptial and postnuptial agreements for US jurisdictions with financial disclosure schedules, property classification, spousal support provisions, estate waivers, and procedural fairness safeguards. Ensures compliance with UPAA/UPMAA frameworks. Use when drafting prenuptial agreements, postnuptial agreements, marital property agreements, premarital contracts, or antenuptial agreements.
 ---
 

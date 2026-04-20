@@ -1,5 +1,6 @@
 ---
 name: deposition-transcript-analyzer
+language: en
 description: >-
   Analyzes deposition transcripts to extract litigation work product including
   executive summaries, testimony indexes, admission compilations, impeachment

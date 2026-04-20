@@ -1,5 +1,6 @@
 ---
 name: discovery-and-bill-of-particulars
+language: en
 description: Drafts a combined Demand for Discovery and Bill of Particulars for U.S. criminal or civil litigation. Extracts case details, identifies underspecified allegations or evidence gaps, and produces numbered discovery requests paired with particularization demands. Use after initial pleadings or return date when charges or claims lack specificity, evidence is opaque, or trial-preparation disclosures are incomplete. Trigger keywords include discovery demand, bill of particulars, motion to compel, FRCP 16, FRCP 26, FRCP 33, FRCP 34, FRCP 37, particularity.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: managing-pelvic-floor-disorders
+language: en
 description: Guides pelvic floor assessment with POP-Q staging and treatment algorithm documentation. Use when evaluating pelvic organ prolapse, staging PFDs, or managing incontinence.
 tags:
   - management

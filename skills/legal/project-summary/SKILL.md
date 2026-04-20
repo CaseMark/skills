@@ -1,5 +1,6 @@
 ---
 name: project-summary
+language: en
 description: Generates structured legal project management summaries with RAG status indicators, budget variance analysis, and prioritized action items. Use when creating matter status reports, project updates, portfolio reviews, or resource allocation summaries for litigation, transactional, or regulatory matters.
 tags:
   - corporate

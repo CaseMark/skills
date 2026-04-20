@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-rehabilitation
+language: en
 description: Adapts rehabilitation assessment and intervention for pediatric developmental needs with family-centered approaches. Use when providing pediatric rehab, addressing developmental delays, or managing childhood rehabilitation.
 tags:
   - management

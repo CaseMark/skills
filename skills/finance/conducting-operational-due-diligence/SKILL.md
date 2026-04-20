@@ -1,5 +1,6 @@
 ---
 name: conducting-operational-due-diligence
+language: en
 description: Structures operational diligence with management assessment, systems evaluation, and integration planning. Use when evaluating target operations, assessing management capabilities, or planning post-close integration.
 tags:
   - process

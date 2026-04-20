@@ -1,5 +1,6 @@
 ---
 name: managing-regulatory-examinations
+language: en
 description: Structures regulatory exam preparation with document production, findings response, and remediation tracking. Use when preparing for regulatory exams, responding to examination findings, or managing exam timelines.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: jurisdictional-statement
+language: en
 description: Drafts jurisdictional statements for U.S. appellate courts establishing authority to hear an appeal, procedural compliance, and timeliness. Covers 28 U.S.C. §§ 1291/1292, FRAP Rule 4, state appellate rules, finality analysis, interlocutory exceptions, tolling, and cross-appeals. Use when preparing appellate filings, jurisdictional briefs, or responding to jurisdictional challenges.
 ---
 

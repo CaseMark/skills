@@ -1,5 +1,6 @@
 ---
 name: managing-model-portfolio-governance
+language: en
 description: Structures investment committee processes with model approval, modification, and compliance documentation. Use when managing model portfolios, documenting investment decisions, or tracking portfolio changes.
 tags:
   - management

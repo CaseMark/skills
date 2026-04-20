@@ -1,5 +1,6 @@
 ---
 name: change-in-control-agreement
+language: en
 description: Drafts U.S. executive Change in Control Agreements with double-trigger severance, equity acceleration, and 280G/409A compliance. Use when drafting or negotiating CIC agreements, change in control protections, executive severance in M&A, or golden parachute provisions.
 ---
 

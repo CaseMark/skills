@@ -1,5 +1,6 @@
 ---
 name: conducting-portfolio-rationalization
+language: en
 description: Structures portfolio review with strategic fit assessment, divestiture candidate identification, and proceeds redeployment analysis. Use when reviewing corporate portfolios, identifying divestiture candidates, or planning asset dispositions.
 tags:
   - process

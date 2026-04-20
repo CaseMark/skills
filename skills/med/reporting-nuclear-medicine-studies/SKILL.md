@@ -1,5 +1,6 @@
 ---
 name: reporting-nuclear-medicine-studies
+language: en
 description: Structures nuclear medicine and PET/CT interpretation with SUV measurement and staging correlation. Use when reading nuclear medicine studies, interpreting PET findings, or documenting radiotracer uptake.
 tags:
   - reporting

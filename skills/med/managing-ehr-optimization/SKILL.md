@@ -1,5 +1,6 @@
 ---
 name: managing-ehr-optimization
+language: en
 description: Identifies EHR optimization opportunities through usage analysis and workflow improvement. Use when optimizing EHR workflows, reducing click burden, or improving EHR usability.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: hearing-prep-summary
+language: en
 description: Produces a quick-reference hearing preparation summary synthesizing pleadings, evidence, witnesses, and governing law into issue matrices, exhibit cross-references, and procedural checklists. Use when preparing for motion hearings, evidentiary hearings, trials, administrative or arbitration hearings, or when asked for "hearing prep," "trial prep summary," "hearing brief," or "prep memo."
 ---
 

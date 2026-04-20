@@ -1,5 +1,6 @@
 ---
 name: managing-dei-metrics
+language: en
 description: Structures diversity, equity, and inclusion data collection with benchmarking and disclosure requirements. Use when analyzing DEI metrics, benchmarking diversity, or preparing DEI disclosures.
 tags:
   - management

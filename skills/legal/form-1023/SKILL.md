@@ -1,5 +1,6 @@
 ---
 name: form-1023
+language: en
 description: Drafts IRS Form 1023 applications for Section 501(c)(3) tax-exempt recognition. Analyzes organizing documents, finances, governance, and operations to produce a complete, internally consistent application. Use when forming non-profits, applying for tax-exempt status, seeking 501(c)(3) recognition, or preparing exemption applications.
 ---
 

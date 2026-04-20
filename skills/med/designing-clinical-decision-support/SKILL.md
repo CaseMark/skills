@@ -1,5 +1,6 @@
 ---
 name: designing-clinical-decision-support
+language: en
 description: Creates CDS rule specifications with trigger conditions, evidence base, and alert fatigue mitigation. Use when designing CDS alerts, specifying clinical rules, or optimizing alert systems.
 tags:
   - design

@@ -1,5 +1,6 @@
 ---
 name: managing-patient-portal-content
+language: en
 description: Creates patient-facing health information content with health literacy and accessibility standards. Use when developing portal content, writing patient communications, or managing digital health tools.
 tags:
   - management

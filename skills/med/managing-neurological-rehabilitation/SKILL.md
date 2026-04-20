@@ -1,5 +1,6 @@
 ---
 name: managing-neurological-rehabilitation
+language: en
 description: Structures neurorehab assessment with standardized scales (FIM, Barthel, NIHSS) and recovery tracking. Use when managing neurological rehab, documenting recovery progress, or applying neurorehab scales.
 tags:
   - management

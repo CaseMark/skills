@@ -1,5 +1,6 @@
 ---
 name: discovery-deficiency-tracker
+language: en
 description: >
   Builds and maintains a litigation-grade discovery deficiency and meet-and-confer
   tracker for compulsion motion practice. Use this skill when the user mentions

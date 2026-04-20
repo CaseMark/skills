@@ -1,5 +1,6 @@
 ---
 name: analyzing-investor-concentration-risk
+language: en
 description: Monitors LP base composition with concentration analysis, redemption risk, and re-up probability assessment. Use when analyzing investor concentration, assessing re-up risk, or managing LP base diversification.
 tags:
   - analysis

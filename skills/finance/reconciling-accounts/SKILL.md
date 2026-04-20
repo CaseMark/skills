@@ -1,5 +1,6 @@
 ---
 name: reconciling-accounts
+language: en
 description: Compares multiple data sources to produce reconciliation reports with break identification and aging analysis. Use when reconciling accounts, identifying breaks, or performing bank reconciliations.
 tags:
   - reconciliation

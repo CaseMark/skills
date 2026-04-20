@@ -1,5 +1,6 @@
 ---
 name: counterclaim-crossclaim
+language: en
 description: Drafts court-ready counterclaims and crossclaims for commercial litigation. Analyzes case documents, classifies compulsory vs. permissive counterclaims, ensures procedural compliance with federal/state rules, and structures causes of action with proper element pleading. Use when a defendant must assert affirmative claims against the plaintiff or crossclaims against co-defendants during pleadings.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: third-party-snt
+language: en
 description: >
   Drafts irrevocable third-party Special Needs Trusts funded by parents,
   grandparents, or other non-beneficiary parties to supplement government

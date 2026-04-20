@@ -1,5 +1,6 @@
 ---
 name: conducting-cross-border-due-diligence
+language: en
 description: Structures international DD with multi-jurisdictional legal review, regulatory assessment, and cultural integration analysis. Use when conducting international DD, managing multi-country processes, or evaluating cross-border operational risk.
 tags:
   - process

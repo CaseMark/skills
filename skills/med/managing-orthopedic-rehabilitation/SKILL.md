@@ -1,5 +1,6 @@
 ---
 name: managing-orthopedic-rehabilitation
+language: en
 description: Structures post-surgical and injury rehab protocols with phase-based progression and return-to-activity criteria. Use when managing orthopedic rehab, following surgical protocols, or determining return-to-sport readiness.
 tags:
   - management

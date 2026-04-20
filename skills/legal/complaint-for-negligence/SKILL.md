@@ -1,5 +1,6 @@
 ---
 name: complaint-for-negligence
+language: en
 description: Drafts a court-ready Complaint for Negligence establishing duty, breach, causation, and damages with jurisdiction-aware pleading standards (Twombly-Iqbal federal vs. state notice/fact pleading). Use when filing a negligence complaint, initiating a personal injury suit, or pleading tort claims such as motor vehicle collisions, premises liability, or professional negligence.
 ---
 

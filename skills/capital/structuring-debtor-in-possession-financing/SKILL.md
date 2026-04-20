@@ -1,5 +1,6 @@
 ---
 name: structuring-debtor-in-possession-financing
+language: en
 description: Designs DIP financing structures with priming liens, adequate protection, and budget milestones for Chapter 11 proceedings. Use when structuring DIP facilities, analyzing superpriority claims, or evaluating DIP terms.
 tags:
   - distressed-and-restructuring

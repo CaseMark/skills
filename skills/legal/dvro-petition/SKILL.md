@@ -1,5 +1,6 @@
 ---
 name: dvro-petition
+language: en
 description: Drafts court-ready Domestic Violence Restraining Order petitions compiling chronological abuse incidents into element-driven pleadings supporting ex parte TRO and permanent protective order relief. Covers personal conduct orders, stay-away orders, custody/visitation, move-out orders, property control, and firearms relinquishment. Use when drafting DVRO petitions, protective order requests, ex parte TRO applications, or domestic violence pleadings.
 metadata:
   author: casemark

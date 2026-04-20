@@ -1,5 +1,6 @@
 ---
 name: building-statistical-arbitrage-models
+language: en
 description: Constructs stat arb strategies with pair selection, signal generation, and portfolio optimization under market neutrality constraints. Use when building stat arb models, designing market-neutral strategies, or optimizing pair portfolios.
 tags:
   - modeling

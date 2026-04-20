@@ -1,5 +1,6 @@
 ---
 name: confidentiality-nda
+language: en
 description: Drafts enforceable confidentiality and non-disclosure agreements for corporate transactions, M&A, partnerships, and due diligence. Covers mutual and unilateral structures, defined-term confidential information, permitted disclosures, non-solicitation, standstill, return/destruction obligations, and equitable remedies. Use when drafting an NDA, confidentiality agreement, or mutual confidentiality agreement for business transactions.
 ---
 

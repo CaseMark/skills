@@ -1,5 +1,6 @@
 ---
 name: structuring-clo-reinvestment-periods
+language: en
 description: Designs CLO reinvestment criteria with portfolio quality tests, trading guidelines, and concentration limits. Use when structuring CLO reinvestment, setting portfolio constraints, or analyzing manager flexibility.
 tags:
   - structured-finance

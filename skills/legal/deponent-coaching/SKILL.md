@@ -1,5 +1,6 @@
 ---
 name: deponent-coaching
+language: en
 description: Generates behavioral coaching materials for deposition witnesses, covering the SHAQ method, golden rules, difficult question handling, composure techniques, and phrase scripts. Use when preparing a witness for deposition, running a witness prep session, or creating take-home coaching materials. Companion to deposition-witness-prep-session. Applies to U.S. federal and state civil litigation.
 ---
 

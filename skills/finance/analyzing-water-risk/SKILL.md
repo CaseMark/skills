@@ -1,5 +1,6 @@
 ---
 name: analyzing-water-risk
+language: en
 description: Structures water risk assessment with water stress mapping, usage analysis, and regulatory exposure evaluation. Use when analyzing water risk, mapping water stress, or evaluating water-related financial exposure.
 tags:
   - analysis

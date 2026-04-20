@@ -1,5 +1,6 @@
 ---
 name: analyzing-wealthtech-platforms
+language: en
 description: Evaluates wealth management technology with robo-advisory models, digital planning, and fee analysis. Use when analyzing wealthtech, evaluating robo-advisors, or assessing digital wealth platforms.
 tags:
   - analysis

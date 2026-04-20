@@ -1,5 +1,6 @@
 ---
 name: managing-lifestyle-advisory
+language: en
 description: Structures lifestyle advisory services with cash flow management, major purchase planning, and concierge coordination. Use when managing lifestyle expenses, planning major purchases, or coordinating advisory services.
 tags:
   - management

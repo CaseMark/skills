@@ -1,5 +1,6 @@
 ---
 name: managing-pharmacokinetic-dosing
+language: en
 description: Calculates individualized drug doses using pharmacokinetic parameters (vancomycin, aminoglycosides, phenytoin). Use when performing PK calculations, adjusting drug levels, or calculating loading/maintenance doses.
 tags:
   - management

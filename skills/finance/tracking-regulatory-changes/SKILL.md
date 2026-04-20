@@ -1,5 +1,6 @@
 ---
 name: tracking-regulatory-changes
+language: en
 description: Monitors regulatory developments with impact assessment, gap analysis, and implementation timeline planning. Use when tracking regulatory changes, assessing compliance gaps, or planning implementation.
 tags:
   - monitoring

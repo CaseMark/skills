@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-well-visits
+language: en
 description: Structures well-child visits with age-appropriate milestones, immunization tracking, and anticipatory guidance. Use when conducting pediatric checkups, tracking development, or documenting well-child exams.
 tags:
   - management

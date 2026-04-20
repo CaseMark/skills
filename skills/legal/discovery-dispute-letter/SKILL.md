@@ -1,5 +1,6 @@
 ---
 name: discovery-dispute-letter
+language: en
 description: Drafts discovery dispute resolution letters documenting meet-and-confer efforts and unresolved issues in U.S. litigation. Use when drafting meet-and-confer letters, discovery conference follow-ups, or pre-motion to compel correspondence during the discovery phase.
 tags:
   - drafting

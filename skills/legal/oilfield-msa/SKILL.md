@@ -1,5 +1,6 @@
 ---
 name: oilfield-msa
+language: en
 description: Drafts a Master Service Agreement for upstream oilfield services (Operator-Contractor). Covers knock-for-knock indemnification, anti-indemnity statute compliance (TX, LA, WY, NM), work order framework, HSE, insurance minimums, and IP/data ownership. Use when drafting oilfield MSAs, drilling service agreements, well service contracts, or upstream operator-contractor master agreements.
 tags:
   - agreement

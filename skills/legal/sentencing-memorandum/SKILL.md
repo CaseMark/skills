@@ -1,5 +1,6 @@
 ---
 name: sentencing-memorandum
+language: en
 description: Drafts defense sentencing memoranda for federal and state criminal proceedings. Covers USSG guidelines analysis, § 3553(a) factors, mitigating evidence, alternative sentencing proposals, and restitution. Use when advocating for a favorable sentence after conviction or guilty plea.
 ---
 

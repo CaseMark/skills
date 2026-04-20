@@ -1,5 +1,6 @@
 ---
 name: expert-witness-impeachment
+language: en
 description: Analyzes expert witness materials (reports, depositions, CVs, publications) to identify inconsistencies, opinion drift, and methodological failures for impeachment. Produces a prioritized inconsistency register, cross-examination questions, and Daubert/Frye challenge assessment. Use when challenging expert reliability or credibility during discovery, pre-trial, or trial in commercial litigation.
 tags:
   - analysis

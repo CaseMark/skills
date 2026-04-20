@@ -1,5 +1,6 @@
 ---
 name: modeling-j-curve-adjusted-pricing
+language: en
 description: Builds pricing models incorporating J-curve positioning with blind pool risk, early-vintage assessment, and age-weighted adjustments. Use when pricing early-vintage funds, analyzing J-curve risk, or adjusting for fund maturity.
 tags:
   - modeling

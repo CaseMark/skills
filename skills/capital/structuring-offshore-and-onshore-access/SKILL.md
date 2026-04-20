@@ -1,5 +1,6 @@
 ---
 name: structuring-offshore-and-onshore-access
+language: en
 description: Designs market access structures including QFII, Stock Connect, and GDR programs for restricted market entry. Use when structuring market access, evaluating access programs, or analyzing quota-based investment systems.
 tags:
   - cross-border-capital

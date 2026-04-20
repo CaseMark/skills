@@ -1,5 +1,6 @@
 ---
 name: depo-outline-hr-manager
+language: en
 description: Generates a strategically sequenced deposition outline for examining a defendant's HR Manager in employment litigation, covering witness background, policy compliance, employment history, termination pretext testing, document authentication, and comparator analysis. Use when preparing HR manager deposition, employment discrimination discovery, wrongful termination deposition prep, or structuring employment case examination.
 tags:
   - checklist

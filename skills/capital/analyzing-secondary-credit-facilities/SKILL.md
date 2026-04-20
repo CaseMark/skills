@@ -1,5 +1,6 @@
 ---
 name: analyzing-secondary-credit-facilities
+language: en
 description: Evaluates secondary-focused credit facilities with leverage terms, borrowing base mechanics, and portfolio pledging requirements. Use when analyzing secondary lending, structuring portfolio leverage, or evaluating fund finance options.
 tags:
   - analysis

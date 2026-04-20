@@ -1,5 +1,6 @@
 ---
 name: international-distribution-agreement
+language: en
 description: >-
   Drafts an international distribution agreement covering appointment, territory,
   exclusivity, Incoterms, export controls, sanctions, anti-corruption, IP

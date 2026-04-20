@@ -1,5 +1,6 @@
 ---
 name: managing-risk-transfer-analysis
+language: en
 description: Structures risk transfer evaluation with economic efficiency, capacity optimization, and alternative risk transfer assessment. Use when evaluating risk transfer, optimizing risk financing, or assessing captive/ART structures.
 tags:
   - management

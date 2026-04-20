@@ -1,5 +1,6 @@
 ---
 name: managing-adverse-event-reporting-research
+language: en
 description: Documents research adverse events with causality assessment and regulatory reporting timelines. Use when reporting research AEs, assessing causality, or managing safety reporting.
 tags:
   - management

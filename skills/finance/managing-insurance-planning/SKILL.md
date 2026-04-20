@@ -1,5 +1,6 @@
 ---
 name: managing-insurance-planning
+language: en
 description: Evaluates insurance needs with gap analysis, product comparison, and coverage adequacy assessment. Use when analyzing insurance needs, comparing insurance products, or identifying coverage gaps.
 tags:
   - management

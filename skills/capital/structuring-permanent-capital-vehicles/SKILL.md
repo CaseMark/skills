@@ -1,5 +1,6 @@
 ---
 name: structuring-permanent-capital-vehicles
+language: en
 description: Designs permanent capital structures including listed vehicles, evergreen funds, and non-traded REITs with perpetual-life governance. Use when structuring permanent capital, analyzing evergreen mechanics, or designing listed fund vehicles.
 tags:
   - fund-formation-and-structuring

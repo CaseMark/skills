@@ -1,5 +1,6 @@
 ---
 name: foreign-corporation-registration
+language: en
 description: >-
   Drafts a foreign corporation registration (Certificate of Authority) package
   to qualify a U.S. corporation for business in a new state. Extracts corporate

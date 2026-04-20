@@ -1,5 +1,6 @@
 ---
 name: ocr
+language: en
 description: Processes documents through case.dev OCR for text and table extraction. Supports PDF and image files up to 500MB with page-level and word-level output. Use when the user mentions "OCR", "text extraction", "scan document", "digitize", "extract text from PDF", or needs word-level positional data from documents.
 ---
 

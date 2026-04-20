@@ -1,5 +1,6 @@
 ---
 name: managing-dental-implant-planning
+language: en
 description: Structures implant evaluation with bone assessment, treatment planning, and surgical documentation. Use when planning dental implants, assessing bone adequacy, or documenting implant procedures.
 tags:
   - management

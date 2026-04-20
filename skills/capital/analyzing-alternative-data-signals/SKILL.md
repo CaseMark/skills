@@ -1,5 +1,6 @@
 ---
 name: analyzing-alternative-data-signals
+language: en
 description: Evaluates alternative data sources including satellite, NLP sentiment, web scraping, and geolocation for alpha signal generation. Use when analyzing alt data, evaluating new data sources, or integrating non-traditional signals.
 tags:
   - analysis

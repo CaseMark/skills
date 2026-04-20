@@ -1,5 +1,6 @@
 ---
 name: board-minutes
+language: en
 description: Drafts corporate board of directors meeting minutes. Triggers on "board minutes", "minutes of board meeting", "board of directors meeting minutes", "corporate minutes", "board resolutions", or "bylaws compliance".
 tags:
   - corporate

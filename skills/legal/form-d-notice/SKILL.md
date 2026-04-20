@@ -1,5 +1,6 @@
 ---
 name: form-d-notice
+language: en
 description: Drafts U.S. SEC Form D notice data sets for Regulation D exempt offerings (Rule 504, 506(b), 506(c)), ready for EDGAR submission. Use when preparing a Form D filing, notice of exempt offering, Reg D compliance, or unregistered securities offering notice.
 tags:
   - corporate

@@ -1,5 +1,6 @@
 ---
 name: analyzing-multi-asset-strategies
+language: en
 description: Evaluates multi-asset investment strategies with regime analysis and dynamic allocation models. Use when analyzing multi-asset funds, evaluating tactical allocation, or assessing regime-based strategies.
 tags:
   - analysis

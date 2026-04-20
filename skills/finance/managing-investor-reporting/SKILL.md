@@ -1,5 +1,6 @@
 ---
 name: managing-investor-reporting
+language: en
 description: Structures investor communications with performance reporting, capital account statements, and distribution notices. Use when creating investor reports, preparing capital statements, or distributing fund communications.
 tags:
   - management

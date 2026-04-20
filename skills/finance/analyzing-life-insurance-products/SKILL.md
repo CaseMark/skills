@@ -1,5 +1,6 @@
 ---
 name: analyzing-life-insurance-products
+language: en
 description: Evaluates life insurance product structures with cash value analysis, cost comparisons, and suitability assessment. Use when analyzing life products, comparing insurance costs, or assessing product suitability.
 tags:
   - analysis

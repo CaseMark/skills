@@ -1,5 +1,6 @@
 ---
 name: managing-health-data-governance
+language: en
 description: Structures health data governance programs with stewardship roles, policies, and data quality standards. Use when establishing data governance, defining data stewardship, or managing data policies.
 tags:
   - management

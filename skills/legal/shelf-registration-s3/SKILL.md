@@ -1,5 +1,6 @@
 ---
 name: shelf-registration-s3
+language: en
 description: Drafts SEC Form S-3 shelf registration statements for eligible U.S. public companies under the Securities Act of 1933. Verifies issuer eligibility (public float, investment grade, WKSI), structures all disclosure sections, and assembles exhibits for delayed or continuous offerings. Use when drafting Form S-3, shelf registration, securities registration, capital markets filings, or continuous offering documents.
 tags:
   - corporate

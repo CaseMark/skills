@@ -1,5 +1,6 @@
 ---
 name: documenting-mental-status-exams
+language: en
 description: Creates structured MSE documentation covering appearance, behavior, speech, mood, thought, cognition, and insight. Use when documenting mental status, writing MSE sections, or describing psychiatric findings.
 tags:
   - documentation

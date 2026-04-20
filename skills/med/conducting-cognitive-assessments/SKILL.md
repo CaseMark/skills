@@ -1,5 +1,6 @@
 ---
 name: conducting-cognitive-assessments
+language: en
 description: Administers and interprets cognitive screening tools (MoCA, MMSE, SLUMS) with dementia evaluation. Use when screening for cognitive impairment, administering MoCA/MMSE, or evaluating dementia.
 tags:
   - process

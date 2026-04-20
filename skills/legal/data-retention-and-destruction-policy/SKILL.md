@@ -1,5 +1,6 @@
 ---
 name: data-retention-and-destruction-policy
+language: en
 description: Drafts a law firm Data Retention and Destruction Policy covering practice-area retention schedules, secure destruction procedures, legal hold protocols, and compliance infrastructure. Trigger when establishing or updating records management frameworks, drafting retention schedules by matter type, or implementing secure destruction procedures for paper and electronic records.
 tags:
   - drafting

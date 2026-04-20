@@ -1,5 +1,6 @@
 ---
 name: managing-debt-covenant-compliance
+language: en
 description: Tracks financial covenant compliance with calculation methodology and certification requirements. Use when monitoring covenants, calculating compliance metrics, or preparing compliance certificates.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: calculating-performance-status
+language: en
 description: Documents ECOG and Karnofsky performance status with treatment eligibility implications. Use when assessing performance status, documenting ECOG scores, or evaluating treatment candidacy.
 tags:
   - analysis

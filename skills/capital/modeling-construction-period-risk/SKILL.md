@@ -1,5 +1,6 @@
 ---
 name: modeling-construction-period-risk
+language: en
 description: Analyzes construction risk with EPC contract review, delay and cost overrun scenarios, and completion guarantee structures. Use when modeling construction risk, evaluating EPC terms, or stress testing project timelines.
 tags:
   - modeling

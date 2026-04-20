@@ -1,5 +1,6 @@
 ---
 name: drafting-transaction-term-sheets
+language: en
 description: Structures preliminary transaction terms including price, consideration, conditions, reps/warranties, and indemnification. Use when drafting LOIs, preparing term sheets, or summarizing negotiated deal points.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: commercial-psa
+language: en
 description: Drafts Purchase and Sale Agreements for commercial real estate transactions (office, retail, industrial, multifamily). Triggers when the user needs a commercial PSA, purchase agreement, sale contract, or acquisition agreement. Extracts deal terms from uploaded documents and structures all major provisions.
 tags:
   - agreement

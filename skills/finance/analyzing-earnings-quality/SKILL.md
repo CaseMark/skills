@@ -1,5 +1,6 @@
 ---
 name: analyzing-earnings-quality
+language: en
 description: Assesses earnings quality through accruals analysis, cash conversion, and accounting red flag identification. Use when evaluating earnings quality, detecting accounting anomalies, or analyzing accruals.
 tags:
   - analysis

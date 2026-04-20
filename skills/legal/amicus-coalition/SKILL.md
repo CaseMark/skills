@@ -1,5 +1,6 @@
 ---
 name: amicus-coalition
+language: en
 description: >
   Manages end-to-end workflow for multi-organization amicus coalition briefs
   in appellate courts. Covers single-pen drafting governance, position alignment,

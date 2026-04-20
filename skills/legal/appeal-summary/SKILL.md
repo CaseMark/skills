@@ -1,5 +1,6 @@
 ---
 name: appeal-summary
+language: en
 description: Generates structured analytical summaries of appellate documents covering procedural posture, issues on appeal, standards of review, and strategic assessment. Use when onboarding to an appeal, preparing for oral argument, evaluating appellate risk, or summarizing the appellate record.
 tags:
   - litigation

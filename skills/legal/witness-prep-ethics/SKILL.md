@@ -1,5 +1,6 @@
 ---
 name: witness-prep-ethics
+language: en
 description: >-
   Evaluates witness preparation activities for ethical compliance under ABA
   Formal Opinion 508 and Model Rules 3.3, 3.4, 8.4. Distinguishes permissible

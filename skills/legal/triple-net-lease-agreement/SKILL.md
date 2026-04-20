@@ -1,5 +1,6 @@
 ---
 name: triple-net-lease-agreement
+language: en
 description: Drafts U.S. commercial triple-net (NNN) lease agreements from deal materials. Triggers on term sheets, LOIs, or due-diligence packets where rent, taxes, insurance, and maintenance allocate to the tenant. Produces an execution-ready lease covering expense pass-throughs, use controls, default/remedy architecture, transfer gates, indemnity/insurance, SNDA, and exhibits.
 tags:
   - agreement

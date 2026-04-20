@@ -167,6 +167,10 @@ jobs:
                   if invalid:
                       errors.append(f"**{skill_path}**: Invalid tags: {', '.join(invalid)}")
 
+              language = fm.get('language')
+              if language is not None and not (isinstance(language, str) and re.match(r'^[a-z]{2}$', language)):
+                  errors.append(f"**{skill_path}**: `language` must be an ISO 639-1 two-letter lowercase code (e.g., 'en', 'es')")
+
               line_count = len(body.strip().split('\n'))
               if line_count > 500:
                   errors.append(f"**{skill_path}**: Body exceeds 500 lines ({line_count})")

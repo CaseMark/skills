@@ -1,5 +1,6 @@
 ---
 name: technology-tutorial
+language: en
 description: Drafts a neutral, educational slide-deck technology tutorial for courts in patent litigation. Covers the technical problem, prior art, invention operation, and key terminology using plain language, analogies, and simplified diagrams. Use when preparing pre-trial or trial technology tutorials, claim construction primers, or judicial education presentations in IP disputes.
 tags:
   - brief

@@ -1,5 +1,6 @@
 ---
 name: answer-with-invalidity-contentions
+language: en
 description: Drafts a defendant's Answer with Invalidity Contentions responding to a U.S. patent infringement complaint. Covers FRCP 8(b) admissions/denials, affirmative defenses, and PLR 3-3 invalidity contentions with claim charts under 35 U.S.C. §§ 101, 102, 103, 112. Use when representing a defendant in the pleadings phase of federal patent litigation who must respond to an infringement suit and assert prior art, anticipation, obviousness, or § 112 defenses.
 tags:
   - drafting

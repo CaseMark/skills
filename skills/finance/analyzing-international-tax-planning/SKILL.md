@@ -1,5 +1,6 @@
 ---
 name: analyzing-international-tax-planning
+language: en
 description: Evaluates international tax structures with BEPS considerations, treaty analysis, and repatriation planning. Use when planning international tax, analyzing tax treaties, or structuring cross-border operations.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: analyzing-cornerstone-investor-structures
+language: en
 description: Evaluates cornerstone investment commitments with allocation guarantees, lock-up terms, and signaling value assessment. Use when structuring cornerstone tranches, analyzing anchor investors, or evaluating demand signals.
 tags:
   - analysis

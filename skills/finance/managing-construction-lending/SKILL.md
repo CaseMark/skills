@@ -1,5 +1,6 @@
 ---
 name: managing-construction-lending
+language: en
 description: Structures construction loan analysis with draw schedules, budget tracking, and completion risk assessment. Use when managing construction loans, tracking draw requests, or monitoring construction progress.
 tags:
   - management

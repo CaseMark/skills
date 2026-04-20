@@ -1,5 +1,6 @@
 ---
 name: conducting-health-equity-analyses
+language: en
 description: Analyzes health disparities with demographic stratification and equity-focused intervention planning. Use when analyzing health disparities, assessing equity, or designing health equity interventions.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: plan-of-liquidation
+language: en
 description: Drafts a Plan of Liquidation and Dissolution for U.S. corporations undergoing voluntary dissolution. Covers board/shareholder approvals, creditor notice, asset liquidation priority, distribution waterfalls, state dissolution filings, and IRS Form 966 compliance. Use when winding down a corporation, drafting dissolution plans, or preparing liquidation documents for corporate closings.
 ---
 

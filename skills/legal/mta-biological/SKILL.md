@@ -1,5 +1,6 @@
 ---
 name: mta-biological
+language: en
 description: Drafts Material Transfer Agreements for biological materials between research institutions and commercial entities. Covers material characterization (BSL levels, select agents, GMOs), permitted use, IP allocation, publication rights, and regulatory compliance (NIH Guidelines, Bayh-Dole, ITAR/EAR, select agent regulations). Use when drafting MTAs, biological material transfer terms, or research collaboration agreements involving biological specimens.
 ---
 

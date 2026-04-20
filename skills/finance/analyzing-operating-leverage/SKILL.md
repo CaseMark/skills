@@ -1,5 +1,6 @@
 ---
 name: analyzing-operating-leverage
+language: en
 description: Structures operating leverage analysis with fixed/variable cost decomposition and breakeven modeling. Use when analyzing operating leverage, modeling breakeven, or assessing cost structure.
 tags:
   - analysis

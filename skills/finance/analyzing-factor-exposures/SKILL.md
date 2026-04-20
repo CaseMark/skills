@@ -1,5 +1,6 @@
 ---
 name: analyzing-factor-exposures
+language: en
 description: Decomposes portfolio factor exposures (value, growth, momentum, quality, size) with benchmark relative analysis. Use when analyzing factor tilts, decomposing returns, or managing style exposure.
 tags:
   - analysis

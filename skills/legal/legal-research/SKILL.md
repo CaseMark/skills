@@ -1,5 +1,6 @@
 ---
 name: legal-research
+language: en
 description: >-
   Guides legal research from issue framing through authority collection,
   jurisdiction scoping, source prioritization, synthesis, and pre-filing

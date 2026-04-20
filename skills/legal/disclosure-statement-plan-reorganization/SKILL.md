@@ -1,5 +1,6 @@
 ---
 name: disclosure-statement-plan-reorganization
+language: en
 description: Drafts a Chapter 11 Disclosure Statement compliant with 11 U.S.C. § 1125 and FRBP 3016(b). Use when preparing the disclosure statement that accompanies a proposed reorganization plan, covering debtor background, class treatments, liquidation analysis, projections, risk factors, and voting procedures.
 tags:
   - drafting

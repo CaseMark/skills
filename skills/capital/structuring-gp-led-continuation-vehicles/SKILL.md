@@ -1,5 +1,6 @@
 ---
 name: structuring-gp-led-continuation-vehicles
+language: en
 description: Designs GP-led continuation fund structures with rollover mechanics, new money terms, and existing LP election options. Use when structuring continuation vehicles, designing rollover terms, or analyzing GP-led economics.
 tags:
   - secondaries-and-gp-led

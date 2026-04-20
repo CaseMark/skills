@@ -1,5 +1,6 @@
 ---
 name: reaffirmation-agreement
+language: en
 description: Drafts Reaffirmation Agreements under 11 U.S.C. § 524(c) for U.S. bankruptcy proceedings. Produces Official Form 240A-compliant documents with agreement summary, original/modified loan terms, debtor and attorney certifications, and court approval sections. Use when a debtor reaffirms a dischargeable debt to retain secured collateral such as vehicles or homes.
 ---
 

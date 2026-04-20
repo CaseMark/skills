@@ -1,5 +1,6 @@
 ---
 name: calculating-net-asset-value
+language: en
 description: Structures NAV calculation with security pricing, accruals, expense allocation, and reconciliation. Use when calculating fund NAV, pricing portfolios, or reconciling NAV components.
 tags:
   - analysis

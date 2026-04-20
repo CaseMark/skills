@@ -1,5 +1,6 @@
 ---
 name: analyzing-trade-finance-instruments
+language: en
 description: Evaluates trade finance structures with letters of credit, supply chain financing, and receivables factoring for cross-border commerce. Use when analyzing trade finance, evaluating LC structures, or assessing supply chain financing.
 tags:
   - analysis

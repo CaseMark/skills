@@ -1,5 +1,6 @@
 ---
 name: promo-materials-review-policy
+language: en
 description: Drafts an internal Promotional Materials Review Policy for life sciences and pharmaceutical companies under FDA oversight. Covers promotional review committee structure, fair balance requirements, substantiation standards, off-label prohibitions, recordkeeping, training, and auditing. Use when creating FDA promotional compliance governance frameworks, pharma advertising policies, or promotional review committee charters.
 tags:
   - drafting

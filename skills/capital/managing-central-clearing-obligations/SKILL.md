@@ -1,5 +1,6 @@
 ---
 name: managing-central-clearing-obligations
+language: en
 description: Coordinates central clearing requirements with CCP selection, margin optimization, and clearing threshold monitoring. Use when managing clearing obligations, optimizing CCP selection, or analyzing clearing economics.
 tags:
   - management

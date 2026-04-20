@@ -1,5 +1,6 @@
 ---
 name: interpreting-microbiology-cultures
+language: en
 description: Structures microbiology result interpretation with susceptibility patterns and resistance mechanisms. Use when reading culture results, interpreting susceptibility data, or identifying resistance patterns.
 tags:
   - analysis

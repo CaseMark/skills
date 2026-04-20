@@ -1,5 +1,6 @@
 ---
 name: managing-corporate-budgeting
+language: en
 description: Structures annual budget processes with bottom-up development, consolidation, and variance tracking. Use when managing budgeting processes, consolidating budget submissions, or tracking budget variances.
 tags:
   - management

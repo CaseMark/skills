@@ -1,5 +1,6 @@
 ---
 name: intercreditor-agreement
+language: en
 description: Drafts a first lien/second lien intercreditor agreement governing creditor priority, enforcement rights, and payment waterfalls over shared collateral. Follows LSTA and ABA market-standard conventions. Use when drafting intercreditor agreements, lien subordination agreements, first lien/second lien arrangements, or creditor priority documents in loan and financing transactions.
 ---
 

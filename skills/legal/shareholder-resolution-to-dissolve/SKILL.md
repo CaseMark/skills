@@ -1,5 +1,6 @@
 ---
 name: shareholder-resolution-to-dissolve
+language: en
 description: Drafts a shareholder resolution authorizing voluntary dissolution of a corporation with state-specific compliance, voting documentation, recitals, winding-up authorizations, and certification. Use when shareholders formally approve voluntary dissolution, corporate wind-down, or entity liquidation.
 ---
 

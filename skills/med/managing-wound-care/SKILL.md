@@ -1,5 +1,6 @@
 ---
 name: managing-wound-care
+language: en
 description: Guides wound assessment, classification, and treatment selection with documentation requirements. Use when managing surgical wounds, classifying wound types, or selecting wound care protocols.
 tags:
   - management

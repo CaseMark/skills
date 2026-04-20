@@ -1,5 +1,6 @@
 ---
 name: evaluating-timber-and-agriculture-assets
+language: en
 description: Assesses timberland and agricultural investments with biological growth rates, harvest economics, and land value appreciation. Use when evaluating timber investments, analyzing farmland, or assessing biological asset returns.
 tags:
   - analysis

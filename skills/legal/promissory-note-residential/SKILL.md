@@ -1,5 +1,6 @@
 ---
 name: promissory-note-residential
+language: en
 description: >-
   Drafts enforceable residential promissory notes with party identification,
   principal/interest terms, payment schedules, default/acceleration provisions,

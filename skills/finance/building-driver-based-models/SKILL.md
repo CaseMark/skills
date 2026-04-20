@@ -1,5 +1,6 @@
 ---
 name: building-driver-based-models
+language: en
 description: Constructs driver-based financial models with operational metric linkage and sensitivity analysis. Use when building driver-based forecasts, linking operational and financial metrics, or modeling business drivers.
 tags:
   - modeling

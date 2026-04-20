@@ -1,5 +1,6 @@
 ---
 name: separation-agreement
+language: en
 description: Drafts employer-side Employee Separation and Release Agreements with severance terms, general releases, ADEA/OWBPA compliance, restrictive covenants, and cooperation clauses. Use when drafting separation agreements, severance packages, release agreements, or termination settlements.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: managing-telemedicine-technology
+language: en
 description: Evaluates and implements telemedicine technology platforms with clinical workflow integration. Use when selecting telehealth platforms, integrating virtual care technology, or managing telemedicine infrastructure.
 tags:
   - management

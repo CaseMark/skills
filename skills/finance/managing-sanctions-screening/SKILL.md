@@ -1,5 +1,6 @@
 ---
 name: managing-sanctions-screening
+language: en
 description: Structures OFAC and global sanctions screening with match investigation and escalation protocols. Use when screening for sanctions, investigating potential matches, or managing sanctions compliance.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: certificate-of-withdrawal-foreign-corp
+language: en
 description: Drafts a Certificate of Withdrawal for a foreign corporation surrendering its authority to transact business in a US state. Use when a foreign corporation is withdrawing its certificate of authority, ceasing in-state operations, or completing dissolution in a non-home jurisdiction.
 tags:
   - corporate

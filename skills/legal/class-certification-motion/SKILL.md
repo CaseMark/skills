@@ -1,5 +1,6 @@
 ---
 name: class-certification-motion
+language: en
 description: Drafts a Motion for Class Certification under FRCP 23 or state equivalents, arguing numerosity, commonality, typicality, adequacy, predominance, and superiority from case materials. Use when drafting class certification motions, seeking class treatment, or preparing Rule 23 briefing in discovery or pre-trial phases.
 tags:
   - drafting

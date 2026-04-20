@@ -1,5 +1,6 @@
 ---
 name: managing-radiation-dose
+language: en
 description: Tracks and optimizes radiation exposure using reference levels and ALARA principles. Use when monitoring radiation dose, optimizing CT protocols, or documenting dose reduction efforts.
 tags:
   - management

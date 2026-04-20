@@ -1,5 +1,6 @@
 ---
 name: analyzing-vertical-integration-economics
+language: en
 description: Evaluates vertical integration decisions with make-vs-buy analysis, supply chain control benefits, and margin capture opportunity assessment. Use when analyzing vertical integration, evaluating supply chain strategy, or assessing integration economics.
 tags:
   - analysis

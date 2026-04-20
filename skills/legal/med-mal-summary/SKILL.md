@@ -1,5 +1,6 @@
 ---
 name: med-mal-summary
+language: en
 description: Produces structured medical malpractice case summaries from medical records for personal injury litigation. Extracts chronological care narratives, identifies potential standard-of-care breaches, traces causation, assesses damages, and flags expert needs and statute of limitations issues. Use when evaluating medical negligence claims, onboarding med-mal matters, or assessing case merits during pre-filing or discovery.
 tags:
   - analysis

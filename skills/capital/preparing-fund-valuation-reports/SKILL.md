@@ -1,5 +1,6 @@
 ---
 name: preparing-fund-valuation-reports
+language: en
 description: Structures fund NAV reporting with investment-level valuations, methodology disclosure, and fair value hierarchy classification. Use when preparing NAV reports, documenting valuation methodology, or presenting fair value analysis.
 tags:
   - preparation

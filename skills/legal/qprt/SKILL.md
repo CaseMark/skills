@@ -1,5 +1,6 @@
 ---
 name: qprt
+language: en
 description: Drafts an IRC §2702-compliant Qualified Personal Residence Trust agreement with safe harbor provisions under Rev. Proc. 2003-42 and Treas. Reg. §25.2702-5(c). Generates trust instrument, signature/notarization blocks, property exhibit, beneficiary schedule, and post-execution checklist. Use when drafting a QPRT for estate planning clients transferring a personal or secondary residence with a retained occupancy term to reduce gift tax valuation.
 tags:
   - agreement

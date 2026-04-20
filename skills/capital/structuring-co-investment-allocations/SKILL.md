@@ -1,5 +1,6 @@
 ---
 name: structuring-co-investment-allocations
+language: en
 description: Designs co-invest offerings with allocation methodology, LP terms, and fee/carry structure for direct investment opportunities. Use when structuring co-investments, allocating deal capacity, or managing LP co-invest programs.
 tags:
   - private-equity

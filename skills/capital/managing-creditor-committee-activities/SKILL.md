@@ -1,5 +1,6 @@
 ---
 name: managing-creditor-committee-activities
+language: en
 description: Structures official committee operations with financial advisor engagement, investigation scope, and plan negotiation strategy. Use when supporting creditor committees, coordinating committee advisors, or analyzing committee positions.
 tags:
   - management

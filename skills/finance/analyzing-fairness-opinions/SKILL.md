@@ -1,5 +1,6 @@
 ---
 name: analyzing-fairness-opinions
+language: en
 description: Evaluates fairness opinion analyses with valuation methodology review and conclusion assessment. Use when reviewing fairness opinions, analyzing board-level valuations, or evaluating transaction fairness.
 tags:
   - analysis

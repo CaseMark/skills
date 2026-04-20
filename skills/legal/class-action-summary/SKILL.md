@@ -1,5 +1,6 @@
 ---
 name: class-action-summary
+language: en
 description: >-
   Produces structured U.S. class action lawsuit summaries covering claims,
   class definition, Rule 23 analysis, procedural history, and outcomes. Use

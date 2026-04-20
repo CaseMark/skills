@@ -1,5 +1,6 @@
 ---
 name: easement-dispute-complaint
+language: en
 description: Drafts a plaintiff-side U.S. complaint for easement disputes covering interference, trespass, declaratory judgment, and injunctive relief. Triggers when user needs to initiate litigation to enforce, clarify, or establish easement rights against interference, blockage, or encroachment on real property.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: snda
+language: en
 description: Drafts a Subordination, Non-Disturbance, and Attornment Agreement (SNDA) for commercial real estate. Extracts key terms from lease and loan documents, structures tri-party protections balancing landlord, tenant, and lender interests. Trigger when new financing or refinancing requires subordinating tenant leases to lender liens, drafting non-disturbance protections, or preparing tri-party SNDA agreements.
 tags:
   - agreement

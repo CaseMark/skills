@@ -1,5 +1,6 @@
 ---
 name: interpreting-emergency-imaging
+language: en
 description: Structures systematic review of emergency CT, X-ray, and ultrasound findings. Use when interpreting emergent imaging, documenting critical findings, or communicating results to teams.
 tags:
   - analysis

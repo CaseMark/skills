@@ -1,5 +1,6 @@
 ---
 name: pricing-equity-options
+language: en
 description: Structures equity option pricing with Black-Scholes, binomial models, and implied volatility analysis. Use when pricing options, calculating Greeks, or analyzing implied volatility.
 tags:
   - valuation

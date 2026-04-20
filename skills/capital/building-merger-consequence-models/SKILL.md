@@ -1,5 +1,6 @@
 ---
 name: building-merger-consequence-models
+language: en
 description: Constructs accretion/dilution analysis with pro forma financials, synergy phasing, and purchase price allocation. Use when modeling merger outcomes, calculating EPS accretion, or analyzing deal structures.
 tags:
   - modeling

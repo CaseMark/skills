@@ -1,5 +1,6 @@
 ---
 name: contract-dispute-analysis
+language: en
 description: >-
   Produces a structured contract dispute analysis for U.S. commercial litigation.
   Use when asked to evaluate breach claims, assess merits, prepare for mediation,

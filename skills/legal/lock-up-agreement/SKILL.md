@@ -1,5 +1,6 @@
 ---
 name: lock-up-agreement
+language: en
 description: Drafts U.S. IPO/secondary offering lock-up agreements restricting securityholder transfers and hedging during the post-offering period. Trigger when drafting lock-up agreements, market stand-off letters, or underwriting lock-up exhibits in capital markets transactions.
 tags:
   - agreement

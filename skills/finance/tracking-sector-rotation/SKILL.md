@@ -1,5 +1,6 @@
 ---
 name: tracking-sector-rotation
+language: en
 description: Monitors sector performance rotation with factor exposure and macro sensitivity analysis. Use when tracking sector rotation, analyzing factor exposures, or identifying sector trends.
 tags:
   - monitoring

@@ -1,5 +1,6 @@
 ---
 name: viability-conflict-check-report
+language: en
 description: Drafts a pre-filing litigation intake memo combining conflict screening, legal/procedural viability, and economic triage for an accept-or-decline decision. Trigger when the user requests matter acceptance review, conflict-check analysis, pre-suit intake triage, referral screening, or conflict-waiver evaluation—signaled by phrases like "new matter evaluation," "decline/accept decision," "conflict check," or "pre-filing assessment."
 tags:
   - analysis

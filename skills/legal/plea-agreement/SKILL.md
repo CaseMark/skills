@@ -1,5 +1,6 @@
 ---
 name: plea-agreement
+language: en
 description: Drafts criminal defense plea agreements formalizing negotiated resolutions between defendant and prosecution. Covers charge specifications, factual basis, sentencing recommendations, rights waivers, cooperation terms, and breach provisions. Use when drafting plea deals, guilty plea agreements, no contest pleas, or cooperation agreements in criminal matters.
 tags:
   - agreement

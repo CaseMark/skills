@@ -1,5 +1,6 @@
 ---
 name: stock-purchase-agreement
+language: en
 description: >-
   Drafts a Stock Purchase Agreement for 100% stock acquisitions in
   middle-market M&A transactions. Covers purchase price with working capital

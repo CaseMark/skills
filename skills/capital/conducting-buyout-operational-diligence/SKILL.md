@@ -1,5 +1,6 @@
 ---
 name: conducting-buyout-operational-diligence
+language: en
 description: Evaluates target company operations with management assessment, systems review, process maturity, and improvement opportunity identification. Use when conducting ops DD, assessing operational risk, or identifying value creation levers.
 tags:
   - process

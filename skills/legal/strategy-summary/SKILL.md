@@ -1,5 +1,6 @@
 ---
 name: strategy-summary
+language: en
 description: >-
   Produces a litigation strategy summary aligning facts, legal theory,
   procedural tactics, discovery, and settlement posture into a single

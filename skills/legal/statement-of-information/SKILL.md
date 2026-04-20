@@ -1,5 +1,6 @@
 ---
 name: statement-of-information
+language: en
 description: Drafts a U.S. Statement of Information for periodic Secretary of State filing. Validates corporate name, officers, directors, registered agent, and addresses against source records. Triggers on annual/biennial compliance filings, officer or address updates, or good-standing maintenance tasks.
 tags:
   - corporate

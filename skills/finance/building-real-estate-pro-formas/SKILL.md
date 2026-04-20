@@ -1,5 +1,6 @@
 ---
 name: building-real-estate-pro-formas
+language: en
 description: Constructs property pro forma models with rent roll analysis, expense projections, and cash flow forecasting. Use when building real estate models, projecting property cash flows, or analyzing investment returns.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: managing-regulatory-fund-compliance
+language: en
 description: Coordinates fund regulatory requirements across SEC, AIFMD, and local jurisdiction registration, reporting, and compliance obligations. Use when managing fund compliance, navigating regulatory registration, or ensuring cross-border compliance.
 tags:
   - management

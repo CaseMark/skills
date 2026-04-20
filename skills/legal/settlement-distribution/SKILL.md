@@ -1,5 +1,6 @@
 ---
 name: settlement-distribution
+language: en
 description: Drafts settlement distribution statements for personal injury cases with itemized accounting of gross proceeds, attorney fees, litigation costs, lien satisfactions, and net client payout. Enforces trust accounting compliance and reconciliation checks per Rules of Professional Conduct. Use when closing a PI matter, preparing disbursement sheets, or generating final case accounting.
 ---
 

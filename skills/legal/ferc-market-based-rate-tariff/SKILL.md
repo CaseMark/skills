@@ -1,5 +1,6 @@
 ---
 name: ferc-market-based-rate-tariff
+language: en
 description: Drafts eTariff-ready FERC Market-Based Rate Tariffs for wholesale electric energy, capacity, and ancillary services sales. Use when preparing MBR tariff filings, structuring market-based rate authority documentation, or drafting wholesale power tariffs for FERC proceedings. Covers Order Nos. 697/697-A/860, Category 1/2 analysis, 18 CFR Part 35 formatting, and EQR/change-in-status reporting.
 tags:
   - agreement

@@ -1,5 +1,6 @@
 ---
 name: real-estate-transaction-summary
+language: en
 description: Generates structured summaries of real estate transactions from purchase agreements, addenda, disclosures, and closing documents. Extracts property details, financial terms, parties, dates, contingencies, title matters, and risk allocation. Use when summarizing a real estate deal, creating transaction overviews, onboarding to a new matter, or preparing closing checklists.
 tags:
   - summarization

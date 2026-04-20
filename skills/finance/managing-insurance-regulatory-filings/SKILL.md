@@ -1,5 +1,6 @@
 ---
 name: managing-insurance-regulatory-filings
+language: en
 description: Structures statutory filing preparation with SAP differences, risk-based capital, and annual statement schedules. Use when preparing statutory filings, calculating RBC, or managing regulatory submissions.
 tags:
   - management

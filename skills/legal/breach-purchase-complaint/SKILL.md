@@ -1,5 +1,6 @@
 ---
 name: breach-purchase-complaint
+language: en
 description: Drafts a state-court complaint for breach of a real property purchase agreement. Triggers when the user needs to initiate a lawsuit for breach of a real estate purchase contract, purchase agreement breach, or buyer/seller contract dispute. Covers caption, jurisdiction/venue, party allegations, chronological facts, contract elements, damages, and prayer for relief.
 tags:
   - drafting

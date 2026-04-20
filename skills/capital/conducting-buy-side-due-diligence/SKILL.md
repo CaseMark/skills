@@ -1,5 +1,6 @@
 ---
 name: conducting-buy-side-due-diligence
+language: en
 description: Structures comprehensive buy-side diligence across financial, legal, commercial, and operational workstreams. Use when coordinating DD processes, building diligence checklists, or synthesizing DD findings.
 tags:
   - process

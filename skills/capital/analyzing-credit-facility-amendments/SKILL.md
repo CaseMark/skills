@@ -1,5 +1,6 @@
 ---
 name: analyzing-credit-facility-amendments
+language: en
 description: Evaluates amendment and waiver requests with consent requirements, fee structures, and modified term impact analysis. Use when analyzing amendments, structuring consent solicitations, or evaluating covenant relief requests.
 tags:
   - analysis

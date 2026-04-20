@@ -1,5 +1,6 @@
 ---
 name: modeling-transaction-cost-analysis
+language: en
 description: Builds TCA frameworks with implementation shortfall, VWAP comparison, and market impact estimation across asset classes. Use when conducting TCA, measuring execution quality, or analyzing trading costs.
 tags:
   - modeling

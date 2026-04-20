@@ -1,5 +1,6 @@
 ---
 name: analyzing-embedded-finance
+language: en
 description: Evaluates embedded finance opportunities with distribution economics and regulatory framework analysis. Use when analyzing embedded finance, evaluating BaaS models, or assessing embedded lending/insurance.
 tags:
   - analysis

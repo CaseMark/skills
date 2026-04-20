@@ -1,5 +1,6 @@
 ---
 name: lien-resolution-summary
+language: en
 description: Generates a structured internal lien resolution summary for personal injury settlement cases. Triggers when resolving liens post-settlement, preparing settlement distribution statements, or auditing lien payoffs across health insurance subrogation, Medicare/Medicaid, hospital liens, workers' comp, and ERISA plans.
 tags:
   - litigation

@@ -1,5 +1,6 @@
 ---
 name: writing-equity-research-notes
+language: en
 description: Creates structured equity research notes with thesis, valuation, risks, and rating justification. Use when initiating coverage, updating research opinions, or writing investment notes.
 tags:
   - drafting

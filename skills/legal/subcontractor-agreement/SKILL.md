@@ -1,5 +1,6 @@
 ---
 name: subcontractor-agreement
+language: en
 description: Drafts enforceable U.S. subcontractor agreements governing general contractor/subcontractor relationships for construction and service projects. Covers scope of work, payment and retainage, insurance and bonding, indemnification, schedule compliance, termination, and dispute resolution with state-specific compliance. Use when drafting subcontracts, subcontractor agreements, construction service agreements, or contractor engagement documents.
 tags:
   - agreement

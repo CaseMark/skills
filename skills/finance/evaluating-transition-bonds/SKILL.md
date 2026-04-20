@@ -1,5 +1,6 @@
 ---
 name: evaluating-transition-bonds
+language: en
 description: Structures transition bond analysis with credibility assessment and transition plan evaluation. Use when evaluating transition bonds, assessing issuer transition plans, or analyzing climate transition financing.
 tags:
   - analysis

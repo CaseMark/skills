@@ -1,5 +1,6 @@
 ---
 name: policy-summary
+language: en
 description: Summarizes policy documents, regulations, and legislative materials into structured briefings with compliance insights. Triggers when the user needs a policy summary, regulatory overview, legislative breakdown, or compliance briefing from uploaded policy materials.
 tags:
   - analysis

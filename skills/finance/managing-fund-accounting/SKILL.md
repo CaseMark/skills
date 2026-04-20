@@ -1,5 +1,6 @@
 ---
 name: managing-fund-accounting
+language: en
 description: Structures fund accounting processes with trade recording, income allocation, and financial statement preparation. Use when managing fund books, recording investment transactions, or preparing fund financials.
 tags:
   - management

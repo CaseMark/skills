@@ -1,5 +1,6 @@
 ---
 name: analyzing-sustainable-debt-structures
+language: en
 description: Evaluates green bonds, sustainability-linked bonds, and social bonds with KPI selection, step-up mechanics, and framework assessment. Use when structuring ESG-linked debt, analyzing sustainability frameworks, or evaluating green bond eligibility.
 tags:
   - analysis

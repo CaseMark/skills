@@ -1,5 +1,6 @@
 ---
 name: managing-contrast-reactions
+language: en
 description: Guides contrast reaction grading, treatment, and premedication protocols for future studies. Use when managing contrast reactions, planning premedication, or documenting adverse contrast events.
 tags:
   - management

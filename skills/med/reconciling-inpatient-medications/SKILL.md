@@ -1,5 +1,6 @@
 ---
 name: reconciling-inpatient-medications
+language: en
 description: Compares admission, inpatient, and discharge medication lists to identify discrepancies. Use when performing medication reconciliation, identifying med changes, or verifying discharge prescriptions.
 tags:
   - reconciliation

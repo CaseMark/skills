@@ -1,5 +1,6 @@
 ---
 name: pricing-vanilla-equity-options
+language: en
 description: Calculates option values with Black-Scholes, binomial, and Monte Carlo methods including Greeks sensitivity analysis. Use when pricing equity options, calculating Greeks, or evaluating option strategies.
 tags:
   - valuation

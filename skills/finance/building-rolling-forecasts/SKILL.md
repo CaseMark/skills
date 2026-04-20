@@ -1,5 +1,6 @@
 ---
 name: building-rolling-forecasts
+language: en
 description: Structures rolling forecast process with driver-based projections and continuous planning methodology. Use when creating rolling forecasts, updating financial projections, or managing continuous planning.
 tags:
   - modeling

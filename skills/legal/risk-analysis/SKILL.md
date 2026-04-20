@@ -1,5 +1,6 @@
 ---
 name: risk-analysis
+language: en
 description: Generates structured risk analysis summaries for legal matters, identifying and evaluating risks by severity and likelihood with quantified exposures and mitigation strategies. Use when preparing risk assessments, exposure analyses, liability summaries, or pre-filing risk evaluations across litigation, regulatory, contractual, reputational, and operational domains.
 ---
 

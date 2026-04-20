@@ -1,5 +1,6 @@
 ---
 name: managing-endodontic-cases
+language: en
 description: Guides root canal evaluation and treatment documentation with pulp/periapical diagnosis and outcome assessment. Use when evaluating endodontic cases, documenting root canal treatments, or assessing treatment outcomes.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: subscription-agreement
+language: en
 description: Drafts U.S. corporate subscription agreements for SaaS and service relationships. Extracts deal terms and produces a balanced agreement covering scope, fees, term/renewal, IP, data protection, warranties, liability, and boilerplate. Use when drafting a "subscription agreement", "SaaS agreement", "service subscription", "membership agreement", "auto-renewal contract", or "SLA agreement".
 ---
 

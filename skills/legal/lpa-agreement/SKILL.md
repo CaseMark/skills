@@ -1,5 +1,6 @@
 ---
 name: lpa-agreement
+language: en
 description: Drafts institutional-quality Limited Partnership Agreements for PE/VC fund formation. Covers GP/LP terms, capital commitments, distribution waterfall, carried interest, LPAC governance, clawback, and tax provisions. Use when drafting LPA, fund formation agreement, limited partnership terms, or PE/VC fund documents.
 ---
 

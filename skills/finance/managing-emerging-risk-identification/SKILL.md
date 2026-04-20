@@ -1,5 +1,6 @@
 ---
 name: managing-emerging-risk-identification
+language: en
 description: Structures emerging risk scanning with horizon analysis and early warning indicator development. Use when identifying emerging risks, scanning for new threats, or developing early warning systems.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: litigation-case-strategy
+language: en
 description: >-
   Develops comprehensive litigation strategy across the full case lifecycle,
   from initial assessment through discovery, motion practice, trial

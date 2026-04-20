@@ -1,5 +1,6 @@
 ---
 name: interpreting-echocardiograms
+language: en
 description: Structures echocardiographic interpretation with chamber measurements, valve assessment, and functional parameters. Use when reading echo reports, documenting cardiac function, or evaluating valve disease.
 tags:
   - analysis

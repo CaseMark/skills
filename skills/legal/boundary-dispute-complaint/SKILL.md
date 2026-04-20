@@ -1,5 +1,6 @@
 ---
 name: boundary-dispute-complaint
+language: en
 description: Drafts a U.S. state-court complaint to establish the true boundary line between adjoining properties, with optional trespass/encroachment claims. Trigger when a user needs to initiate litigation over conflicting property descriptions, ambiguous deed language, or unauthorized encroachments by an adjoining landowner.
 tags:
   - drafting

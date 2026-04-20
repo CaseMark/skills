@@ -1,5 +1,6 @@
 ---
 name: safe-agreement
+language: en
 description: Drafts Simple Agreements for Future Equity (SAFE) for early-stage venture capital financing with valuation cap/discount mechanics, investor qualifications, and securities compliance. Use when drafting SAFEs, pre-seed investment documents, convertible equity instruments, or YC-style SAFE notes.
 tags:
   - agreement

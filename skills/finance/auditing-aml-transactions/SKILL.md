@@ -1,5 +1,6 @@
 ---
 name: auditing-aml-transactions
+language: en
 description: Screens transaction data for suspicious patterns using red flag typologies and structures SAR narrative elements. Use when reviewing transactions for AML, identifying suspicious activity, or drafting SAR narratives.
 tags:
   - compliance

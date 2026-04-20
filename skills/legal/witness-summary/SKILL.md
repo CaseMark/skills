@@ -1,5 +1,6 @@
 ---
 name: witness-summary
+language: en
 description: Generates structured summaries of witness statements for litigation, extracting chronological narratives, key facts, credibility indicators, and evidentiary value. Use when summarizing depositions, declarations, affidavits, or witness testimony during discovery, pre-trial, or trial preparation.
 ---
 

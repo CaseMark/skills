@@ -1,5 +1,6 @@
 ---
 name: modeling-prepayment-and-default-scenarios
+language: en
 description: Builds CPR/CDR/severity vectors with scenario analysis across interest rate and economic environments. Use when modeling prepayment behavior, projecting default scenarios, or stress testing pool performance.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: managing-revenue-recognition
+language: en
 description: Applies ASC 606 five-step model with contract analysis, performance obligation identification, and allocation documentation. Use when analyzing revenue contracts, applying ASC 606, or documenting revenue recognition.
 tags:
   - management

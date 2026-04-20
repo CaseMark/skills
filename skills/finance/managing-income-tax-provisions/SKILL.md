@@ -1,5 +1,6 @@
 ---
 name: managing-income-tax-provisions
+language: en
 description: Structures income tax provision calculation with current/deferred components and rate reconciliation. Use when calculating tax provisions, analyzing deferred taxes, or preparing rate reconciliations.
 tags:
   - management

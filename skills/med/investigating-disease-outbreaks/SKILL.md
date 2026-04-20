@@ -1,5 +1,6 @@
 ---
 name: investigating-disease-outbreaks
+language: en
 description: Guides outbreak investigation using CDC steps with case definition, epidemiologic curve, and control measures. Use when investigating outbreaks, analyzing epidemic curves, or implementing control measures.
 tags:
   - investigation

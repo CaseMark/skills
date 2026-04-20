@@ -1,5 +1,6 @@
 ---
 name: structuring-revolving-credit-commitments
+language: en
 description: Designs revolver structures with commitment sizing, utilization analysis, and availability management for credit fund portfolios. Use when structuring revolvers, sizing commitments, or managing availability exposure.
 tags:
   - credit-and-institutional-lending

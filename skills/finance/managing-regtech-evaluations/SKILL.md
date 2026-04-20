@@ -1,5 +1,6 @@
 ---
 name: managing-regtech-evaluations
+language: en
 description: Evaluates regulatory technology solutions with compliance efficiency and implementation cost-benefit analysis. Use when evaluating regtech, analyzing compliance automation, or assessing regulatory technology.
 tags:
   - management

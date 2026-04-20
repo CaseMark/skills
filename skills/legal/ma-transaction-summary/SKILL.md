@@ -1,5 +1,6 @@
 ---
 name: ma-transaction-summary
+language: en
 description: Generates structured M&A transaction summaries from deal documents. Triggers when the user needs to summarize a merger, acquisition, asset purchase, stock purchase, or divestiture, or when preparing board-level deal overviews from definitive agreements and due diligence materials.
 tags:
   - summarization

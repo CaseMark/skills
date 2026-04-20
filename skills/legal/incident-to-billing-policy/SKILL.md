@@ -1,5 +1,6 @@
 ---
 name: incident-to-billing-policy
+language: en
 description: Drafts Medicare incident-to billing compliance policies for healthcare practices. Covers eligibility criteria, direct supervision, documentation standards, audit programs, and FCA risk mitigation under 42 CFR 410.26, Medicare Benefit Policy Manual Ch. 15 §60.1, and 42 U.S.C. §1395x(s)(2)(A). Use when creating or updating incident-to policies, responding to OIG scrutiny, or establishing NPP billing compliance programs.
 ---
 

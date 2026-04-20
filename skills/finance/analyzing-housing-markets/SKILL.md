@@ -1,5 +1,6 @@
 ---
 name: analyzing-housing-markets
+language: en
 description: Structures housing market analysis with price trends, inventory dynamics, and affordability metrics. Use when analyzing housing data, tracking home prices, or assessing affordability.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: structuring-bond-offerings
+language: en
 description: Designs bond offering structures with tenor, coupon, call provisions, covenant packages, and pricing methodology. Use when structuring bond deals, selecting debt parameters, or comparing issuance alternatives.
 tags:
   - debt-capital-markets

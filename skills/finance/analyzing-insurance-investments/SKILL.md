@@ -1,5 +1,6 @@
 ---
 name: analyzing-insurance-investments
+language: en
 description: Evaluates insurance company investment portfolios with ALM considerations and regulatory constraints. Use when analyzing insurer investments, managing ALM, or evaluating portfolio compliance.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: informed-consent-form-clinical-trial
+language: en
 description: Drafts an IRB-ready Informed Consent Form (ICF) for FDA-regulated clinical trials compliant with 21 CFR 50.25, 50.27, and ICH-GCP. Use when drafting or revising consent documents for Phase I–IV trials, IND studies, or other FDA-regulated protocols requiring IRB submission.
 tags:
   - agreement

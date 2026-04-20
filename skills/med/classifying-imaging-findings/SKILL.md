@@ -1,5 +1,6 @@
 ---
 name: classifying-imaging-findings
+language: en
 description: Applies standardized classification systems (BI-RADS, LI-RADS, TI-RADS, Lung-RADS, PI-RADS) to imaging findings. Use when categorizing imaging findings, applying RADS classifications, or determining follow-up recommendations.
 tags:
   - radiology

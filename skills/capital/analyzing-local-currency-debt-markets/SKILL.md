@@ -1,5 +1,6 @@
 ---
 name: analyzing-local-currency-debt-markets
+language: en
 description: Evaluates local currency government and corporate bond markets with yield analysis, inflation dynamics, and FX carry assessment. Use when analyzing local currency debt, evaluating EM bond opportunities, or assessing carry strategies.
 tags:
   - analysis

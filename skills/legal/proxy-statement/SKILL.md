@@ -1,5 +1,6 @@
 ---
 name: proxy-statement
+language: en
 description: >-
   Drafts a SEC Regulation 14A / Rule 14a-3 compliant annual meeting proxy
   statement (DEF 14A) covering notice, governance, executive compensation,

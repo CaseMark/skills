@@ -1,5 +1,6 @@
 ---
 name: aviation-summary
+language: en
 description: >-
   Generates structured U.S. aviation-law summaries by synthesizing FAA, DOT,
   and TSA rules, treaties, and precedent into actionable legal analysis. Use

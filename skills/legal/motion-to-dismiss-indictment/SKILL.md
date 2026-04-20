@@ -1,5 +1,6 @@
 ---
 name: motion-to-dismiss-indictment
+language: en
 description: Drafts motions to dismiss criminal indictments in federal and state courts. Covers defective indictments, statute of limitations, speedy trial, double jeopardy, prosecutorial misconduct, and jurisdictional defects. Use when the agent needs to challenge the legal sufficiency of criminal charges or draft a pre-trial dismissal motion.
 tags:
   - drafting

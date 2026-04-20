@@ -1,5 +1,6 @@
 ---
 name: analyzing-labor-markets
+language: en
 description: Structures employment data analysis with payroll, wage, and participation rate interpretation. Use when analyzing employment, interpreting jobs data, or assessing labor market conditions.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: managing-transplant-evaluations
+language: en
 description: Guides transplant candidacy evaluation with organ-specific criteria and listing documentation. Use when evaluating transplant candidates, documenting listing criteria, or coordinating transplant workups.
 tags:
   - management

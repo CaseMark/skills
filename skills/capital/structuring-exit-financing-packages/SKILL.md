@@ -1,5 +1,6 @@
 ---
 name: structuring-exit-financing-packages
+language: en
 description: Designs emergence financing structures with exit term loans, ABL facilities, and capital structure optimization for reorganized entities. Use when structuring exit financing, analyzing emergence capital needs, or comparing financing alternatives.
 tags:
   - distressed-and-restructuring

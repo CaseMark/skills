@@ -1,5 +1,6 @@
 ---
 name: analyzing-investment-grade-issuance
+language: en
 description: Evaluates IG bond market conditions with spread analysis, maturity curve optimization, and investor demand assessment. Use when advising IG issuers, analyzing credit spreads, or timing IG bond offerings.
 tags:
   - analysis

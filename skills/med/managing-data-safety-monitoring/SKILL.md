@@ -1,5 +1,6 @@
 ---
 name: managing-data-safety-monitoring
+language: en
 description: Structures DSMB operations with interim analysis protocols and stopping rules. Use when managing DSMBs, conducting interim analyses, or implementing stopping criteria.
 tags:
   - management

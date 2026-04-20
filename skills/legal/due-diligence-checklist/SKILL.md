@@ -1,5 +1,6 @@
 ---
 name: due-diligence-checklist
+language: en
 description: Drafts due diligence checklists for U.S. corporate transactions (M&A, asset purchases, investments, JVs, restructurings). Covers corporate structure, financials, tax, contracts, IP, litigation, employment, benefits, insurance, and environmental compliance. Surfaces change-of-control triggers, consent requirements, and red flags. Use when preparing for deal closing, board presentations, or investor disclosure.
 ---
 

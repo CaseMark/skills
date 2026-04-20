@@ -1,5 +1,6 @@
 ---
 name: managing-consolidation-reporting
+language: en
 description: Structures multi-entity consolidation reporting with elimination entries and intercompany reconciliation. Use when consolidating financial results, managing eliminations, or preparing consolidated reports.
 tags:
   - management

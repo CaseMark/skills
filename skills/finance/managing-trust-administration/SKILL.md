@@ -1,5 +1,6 @@
 ---
 name: managing-trust-administration
+language: en
 description: Structures trust administration with distribution analysis, tax reporting, and beneficiary communication. Use when managing trusts, analyzing distribution decisions, or documenting trust administration.
 tags:
   - management

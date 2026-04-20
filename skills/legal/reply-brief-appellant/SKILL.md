@@ -1,5 +1,6 @@
 ---
 name: reply-brief-appellant
+language: en
 description: Drafts an appellant's Reply Brief that rebuts the appellee's response and reinforces the case for reversal. Triggers when drafting appellant reply briefs, appellate rebuttals, or the final pre-argument written submission.
 tags:
   - brief

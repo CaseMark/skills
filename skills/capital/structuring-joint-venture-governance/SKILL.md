@@ -1,5 +1,6 @@
 ---
 name: structuring-joint-venture-governance
+language: en
 description: Designs JV governance frameworks with decision-making rights, deadlock resolution, and exit mechanisms for corporate partnerships. Use when structuring JV governance, designing partnership agreements, or planning JV operations.
 tags:
   - capital-allocation-and-corporate-strategy

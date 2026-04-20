@@ -1,5 +1,6 @@
 ---
 name: managing-expatriate-financial-planning
+language: en
 description: Structures cross-border financial planning for expatriates with tax treaty, retirement, and estate considerations. Use when planning for expatriates, managing cross-border taxes, or coordinating international retirement planning.
 tags:
   - management

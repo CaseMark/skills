@@ -1,5 +1,6 @@
 ---
 name: managing-periodontal-assessments
+language: en
 description: Structures periodontal evaluation with probing depths, attachment levels, and disease classification. Use when conducting periodontal assessments, classifying gum disease, or documenting periodontal status.
 tags:
   - management

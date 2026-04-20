@@ -1,5 +1,6 @@
 ---
 name: structuring-investor-segmentation
+language: en
 description: Designs LP segmentation with tiered communication, access differentiation, and relationship management frameworks. Use when segmenting investor base, designing communication strategies, or managing LP relationships.
 tags:
   - investor-relations-and-lp-reporting

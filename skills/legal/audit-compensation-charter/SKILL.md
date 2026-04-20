@@ -1,5 +1,6 @@
 ---
 name: audit-compensation-charter
+language: en
 description: >-
   Drafts board-adopted charters establishing Audit and Compensation Committees
   for U.S. corporations, covering composition, independence, delegated powers,

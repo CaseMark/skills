@@ -1,5 +1,6 @@
 ---
 name: modeling-strip-and-tail-transactions
+language: en
 description: Builds strip and tail-end fund models with remaining portfolio analysis, unfunded obligation treatment, and duration-adjusted pricing. Use when modeling strip deals, evaluating tail-end portfolios, or analyzing remaining value.
 tags:
   - modeling

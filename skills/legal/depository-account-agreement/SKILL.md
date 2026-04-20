@@ -1,5 +1,6 @@
 ---
 name: depository-account-agreement
+language: en
 description: >-
   Drafts a U.S. Depository Account Agreement governing the institution–depositor
   relationship for checking, savings, money market, and CD accounts. Enforces

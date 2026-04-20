@@ -1,5 +1,6 @@
 ---
 name: intrastate-offering
+language: en
 description: >
   Produces a compliance memo and execution plan for U.S. intrastate securities
   offerings under Rule 147 or Rule 147A with state registration by qualification.

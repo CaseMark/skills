@@ -1,5 +1,6 @@
 ---
 name: drafting-offering-memoranda-debt
+language: en
 description: Creates debt offering memoranda with credit overview, financial analysis, industry section, and risk factors for investor marketing. Use when preparing debt OMs, writing credit marketing materials, or structuring lender presentations.
 tags:
   - drafting

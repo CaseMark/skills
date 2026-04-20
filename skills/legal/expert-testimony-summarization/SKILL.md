@@ -1,5 +1,6 @@
 ---
 name: expert-testimony-summarization
+language: en
 description: Produces structured expert witness analyses covering qualifications, opinions, methodology, admissibility (Daubert/Frye), and cross-examination vulnerabilities. Use when evaluating opposing or retained experts during discovery or pre-trial, preparing motions to exclude, or developing cross-examination strategy.
 ---
 

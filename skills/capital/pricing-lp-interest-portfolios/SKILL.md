@@ -1,5 +1,6 @@
 ---
 name: pricing-lp-interest-portfolios
+language: en
 description: Evaluates LP interest portfolios with fund-by-fund NAV assessment, J-curve positioning, and portfolio-level pricing methodology. Use when pricing secondary portfolios, evaluating LP interest bids, or analyzing fund vintages.
 tags:
   - valuation

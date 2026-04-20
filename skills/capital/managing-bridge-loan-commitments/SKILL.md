@@ -1,5 +1,6 @@
 ---
 name: managing-bridge-loan-commitments
+language: en
 description: Structures bridge financing with commitment terms, flex provisions, and permanent takeout analysis for acquisition financing. Use when arranging bridge facilities, analyzing flex economics, or managing bridge-to-bond transitions.
 tags:
   - management

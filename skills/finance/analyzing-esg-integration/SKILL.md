@@ -1,5 +1,6 @@
 ---
 name: analyzing-esg-integration
+language: en
 description: Integrates ESG factors into investment analysis with scoring methodology and impact measurement. Use when implementing ESG integration, scoring ESG factors, or measuring sustainability impact.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: answer-affirmative-defenses
+language: en
 description: >-
   Drafts U.S. civil litigation Answers with paragraph-by-paragraph
   admissions/denials, affirmative defenses, and counterclaim triage.

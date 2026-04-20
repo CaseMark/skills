@@ -1,5 +1,6 @@
 ---
 name: conducting-forensic-evaluations
+language: en
 description: Structures forensic psychiatric evaluations for competency, insanity, and civil commitment proceedings. Use when performing forensic evaluations, assessing competency, or documenting forensic opinions.
 tags:
   - process

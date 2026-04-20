@@ -1,5 +1,6 @@
 ---
 name: gas-gathering-agreement
+language: en
 description: Drafts a Gas Gathering Agreement for receipt, compression, dehydration, and transportation of natural gas from wellhead to delivery point. Enforces FERC compliance, AAPL form alignment, API/GPA measurement standards, and midstream risk allocation. Use when drafting or negotiating midstream gathering contracts, producer-gatherer agreements, dedicated acreage agreements, or gas transportation arrangements.
 tags:
   - agreement

@@ -1,5 +1,6 @@
 ---
 name: structuring-whole-business-securitizations
+language: en
 description: Designs whole business securitization with IP collateral, franchise cash flows, and operating covenant structures. Use when structuring WBS transactions, analyzing franchise securitizations, or evaluating non-traditional collateral.
 tags:
   - structured-finance

@@ -1,5 +1,6 @@
 ---
 name: conducting-working-capital-due-diligence
+language: en
 description: Analyzes target company working capital for M&A with normalization, peg calculation, and adjustment mechanics. Use when analyzing WC for transactions, calculating WC pegs, or structuring WC adjustment mechanisms.
 tags:
   - process

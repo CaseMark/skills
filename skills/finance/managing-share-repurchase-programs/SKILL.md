@@ -1,5 +1,6 @@
 ---
 name: managing-share-repurchase-programs
+language: en
 description: Structures buyback program analysis with timing, accretion impact, and regulatory compliance documentation. Use when analyzing buybacks, modeling EPS accretion, or documenting repurchase programs.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: analyzing-financial-conditions
+language: en
 description: Structures financial conditions index analysis with credit, equity, funding, and volatility component tracking. Use when analyzing financial conditions, tracking financial stress, or assessing market tightness.
 tags:
   - analysis

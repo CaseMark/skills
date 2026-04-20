@@ -1,5 +1,6 @@
 ---
 name: pharma-reg-summary
+language: en
 description: Generates structured pharmaceutical regulatory compliance summaries covering FDA approval pathways, patent/IP intersections (Orange Book, Hatch-Waxman), and marketing restrictions (off-label, DTC, Anti-Kickback). Use when preparing FDA compliance overviews, submission readiness assessments, or promotional compliance reviews.
 ---
 

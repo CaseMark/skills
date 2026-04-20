@@ -1,5 +1,6 @@
 ---
 name: franchise-transfer-agreement
+language: en
 description: >-
   Drafts a tripartite U.S. Franchise Transfer Agreement allocating rights,
   liabilities, and closing mechanics among franchisor, transferor, and

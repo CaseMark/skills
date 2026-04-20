@@ -1,5 +1,6 @@
 ---
 name: conducting-literature-reviews-systematic
+language: en
 description: Performs systematic literature review following PRISMA guidelines with search strategy documentation. Use when conducting systematic reviews, documenting search strategies, or performing PRISMA analyses.
 tags:
   - process

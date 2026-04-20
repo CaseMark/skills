@@ -1,5 +1,6 @@
 ---
 name: managing-dental-pharmacology
+language: en
 description: Guides dental prescribing with local anesthetic selection, antibiotic prophylaxis, and pain management. Use when prescribing dental medications, selecting local anesthetics, or managing dental pain.
 tags:
   - management

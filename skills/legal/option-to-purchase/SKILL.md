@@ -1,5 +1,6 @@
 ---
 name: option-to-purchase
+language: en
 description: Drafts Option to Purchase Real Estate agreements granting an optionee the exclusive right to buy property within a specified timeframe. Trigger when user needs a real estate option agreement, purchase option, right-to-purchase contract, or option-to-buy instrument for residential transactions.
 tags:
   - agreement

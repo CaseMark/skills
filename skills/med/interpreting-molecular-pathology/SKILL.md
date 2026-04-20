@@ -1,5 +1,6 @@
 ---
 name: interpreting-molecular-pathology
+language: en
 description: Structures molecular test interpretation including NGS panels, FISH, and PCR-based assays. Use when interpreting molecular results, reporting genetic variants, or documenting molecular findings.
 tags:
   - analysis

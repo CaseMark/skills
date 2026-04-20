@@ -1,5 +1,6 @@
 ---
 name: interpreting-cytology-specimens
+language: en
 description: Structures cytology interpretation with Bethesda system for cervical and other body site classifications. Use when reading cytology, applying Bethesda classifications, or documenting cytologic findings.
 tags:
   - analysis

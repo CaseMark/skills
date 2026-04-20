@@ -1,5 +1,6 @@
 ---
 name: scoring-esg-factors
+language: en
 description: Structures ESG scoring methodology with environmental, social, and governance pillar assessment. Use when scoring ESG, evaluating sustainability, or building ESG frameworks.
 tags:
   - assessment

@@ -1,5 +1,6 @@
 ---
 name: analyzing-yield-curves
+language: en
 description: Interprets yield curve shapes with term structure analysis and relative value identification. Use when analyzing yield curves, identifying curve trades, or interpreting interest rate expectations.
 tags:
   - analysis

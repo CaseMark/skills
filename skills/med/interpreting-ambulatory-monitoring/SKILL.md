@@ -1,5 +1,6 @@
 ---
 name: interpreting-ambulatory-monitoring
+language: en
 description: Structures Holter and event monitor interpretation with arrhythmia burden quantification. Use when reading Holter monitors, interpreting event recorders, or quantifying arrhythmia burden.
 tags:
   - analysis

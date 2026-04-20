@@ -1,5 +1,6 @@
 ---
 name: analyzing-term-sheet-economics
+language: en
 description: Deconstructs VC term sheets with liquidation preference waterfalls, anti-dilution mechanics, and option pool impact analysis. Use when analyzing term sheets, comparing investor terms, or modeling founder dilution.
 tags:
   - analysis

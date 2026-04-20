@@ -1,5 +1,6 @@
 ---
 name: finders-fee-agreement
+language: en
 description: >-
   Drafts U.S. corporate Finder's Fee Agreements that compensate introducers
   while constraining activities to avoid broker-dealer or agency status.

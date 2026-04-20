@@ -1,5 +1,6 @@
 ---
 name: closing-checklist
+language: en
 description: Drafts M&A closing checklists tracking documents, approvals, consents, and action items from signing through post-closing. Use when coordinating closings for mergers, acquisitions, stock purchases, asset deals, or any corporate transaction requiring multi-party document tracking and funds flow management.
 ---
 

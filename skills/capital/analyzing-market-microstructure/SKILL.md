@@ -1,5 +1,6 @@
 ---
 name: analyzing-market-microstructure
+language: en
 description: Evaluates market structure dynamics with order book analysis, spread decomposition, and information asymmetry assessment. Use when analyzing market structure, evaluating trading venues, or assessing execution quality.
 tags:
   - analysis

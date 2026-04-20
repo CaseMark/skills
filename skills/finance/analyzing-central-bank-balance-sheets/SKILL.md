@@ -1,5 +1,6 @@
 ---
 name: analyzing-central-bank-balance-sheets
+language: en
 description: Structures central bank balance sheet analysis with QE/QT impact assessment and reserve management. Use when analyzing central bank operations, evaluating QE effects, or tracking reserve management.
 tags:
   - analysis

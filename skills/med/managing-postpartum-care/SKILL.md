@@ -1,5 +1,6 @@
 ---
 name: managing-postpartum-care
+language: en
 description: Structures postpartum assessment with hemorrhage risk, lactation support, and mood screening. Use when managing postpartum recovery, screening for PPD, or documenting postpartum visits.
 tags:
   - management

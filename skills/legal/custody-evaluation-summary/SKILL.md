@@ -1,5 +1,6 @@
 ---
 name: custody-evaluation-summary
+language: en
 description: Summarizes custody evaluation reports into a structured memorandum covering evaluator credentials, methodology, parental findings, recommendations, and best-interests factor mapping. Use when reviewing custody evaluations, preparing for custody hearings or settlement conferences, or onboarding to contested parenting matters.
 tags:
   - litigation

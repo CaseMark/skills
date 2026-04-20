@@ -1,5 +1,6 @@
 ---
 name: modeling-event-driven-trading-analysis
+language: en
 description: Analyzes event-driven opportunities with catalyst identification, pricing efficiency assessment, and risk/reward evaluation. Use when analyzing event-driven situations, evaluating catalysts, or assessing event timing.
 tags:
   - modeling

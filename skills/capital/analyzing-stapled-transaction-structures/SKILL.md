@@ -1,5 +1,6 @@
 ---
 name: analyzing-stapled-transaction-structures
+language: en
 description: Evaluates stapled secondary structures combining primary commitment with secondary purchase in coordinated transactions. Use when analyzing stapled deals, structuring combined primary/secondary, or evaluating staple economics.
 tags:
   - analysis

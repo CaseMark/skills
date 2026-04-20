@@ -1,5 +1,6 @@
 ---
 name: analyzing-cross-border-insolvency
+language: en
 description: Evaluates multi-jurisdictional restructuring with Chapter 15 recognition, COMI analysis, and parallel proceeding coordination. Use when analyzing cross-border insolvency, assessing jurisdiction selection, or coordinating multi-country restructurings.
 tags:
   - analysis

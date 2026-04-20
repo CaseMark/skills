@@ -1,5 +1,6 @@
 ---
 name: managing-immunization-protocols
+language: en
 description: Guides immunization administration with screening, scheduling, and documentation requirements. Use when administering vaccines, screening for contraindications, or documenting immunizations.
 tags:
   - management

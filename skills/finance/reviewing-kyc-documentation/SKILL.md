@@ -1,5 +1,6 @@
 ---
 name: reviewing-kyc-documentation
+language: en
 description: Evaluates customer identification and verification documentation against CIP/CDD/EDD requirements. Use when reviewing KYC files, validating customer identification, or assessing customer risk.
 tags:
   - review

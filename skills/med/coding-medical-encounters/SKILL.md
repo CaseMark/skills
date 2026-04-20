@@ -1,5 +1,6 @@
 ---
 name: coding-medical-encounters
+language: en
 description: Assigns ICD-10-CM diagnosis codes and CPT/HCPCS procedure codes with supporting documentation validation. Use when coding medical visits, selecting diagnosis codes, or assigning procedure codes.
 tags:
   - coding

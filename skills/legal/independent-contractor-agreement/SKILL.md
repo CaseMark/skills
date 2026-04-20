@@ -1,5 +1,6 @@
 ---
 name: independent-contractor-agreement
+language: en
 description: Drafts a U.S. independent contractor agreement with misclassification guardrails, IP assignment, confidentiality, and 1099-NEC tax terms. Use when engaging freelancers, consultants, or service providers, or converting an employee to a contractor relationship.
 ---
 

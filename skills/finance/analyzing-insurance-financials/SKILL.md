@@ -1,5 +1,6 @@
 ---
 name: analyzing-insurance-financials
+language: en
 description: Structures insurance company financial analysis with combined ratio, reserve adequacy, and capital metrics. Use when analyzing insurance financials, evaluating combined ratios, or assessing reserve strength.
 tags:
   - analysis

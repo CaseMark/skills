@@ -1,5 +1,6 @@
 ---
 name: field-of-use-restriction
+language: en
 description: Drafts field-of-use restriction clauses for IP licensing agreements. Covers grant language, prohibited activities, audit rights, breach remedies, and dispute resolution. Use when drafting IP license restrictions, patent field-of-use limitations, technology licensing clauses, or licensee scope provisions.
 tags:
   - agreement

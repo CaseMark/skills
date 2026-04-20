@@ -1,5 +1,6 @@
 ---
 name: certificate-of-interested-persons
+language: en
 description: Drafts a FRAP 26.1-compliant Certificate of Interested Persons identifying all parties, entities, and affiliates with financial or legal interests in a federal appeal. Adapts to circuit-specific local rules. Use when filing appeals, corporate disclosure statements, or conflict-of-interest certificates in U.S. Courts of Appeals.
 tags:
   - drafting

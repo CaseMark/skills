@@ -1,5 +1,6 @@
 ---
 name: analyzing-high-yield-credit
+language: en
 description: Structures high-yield credit analysis with recovery rate estimation and distressed debt evaluation. Use when analyzing high-yield bonds, estimating recovery rates, or evaluating distressed credits.
 tags:
   - analysis

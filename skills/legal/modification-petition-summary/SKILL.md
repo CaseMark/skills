@@ -1,5 +1,6 @@
 ---
 name: modification-petition-summary
+language: en
 description: >-
   Produces structured summaries of U.S. family law modification petitions for
   attorney review. Captures existing order terms, requested changes, alleged

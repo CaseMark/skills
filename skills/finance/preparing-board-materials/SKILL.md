@@ -1,5 +1,6 @@
 ---
 name: preparing-board-materials
+language: en
 description: Creates board presentation materials with strategic analysis, financial performance, and transaction recommendations. Use when preparing board decks, creating governance presentations, or summarizing strategic options.
 tags:
   - preparation

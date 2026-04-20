@@ -1,5 +1,6 @@
 ---
 name: reporting-ct-scans
+language: en
 description: Structures CT scan interpretation by body region with standardized measurement and comparison techniques. Use when interpreting CT studies, creating CT reports, or documenting cross-sectional findings.
 tags:
   - reporting

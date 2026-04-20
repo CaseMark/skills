@@ -1,5 +1,6 @@
 ---
 name: assessing-drug-interactions
+language: en
 description: Identifies clinically significant drug-drug, drug-food, and drug-disease interactions with severity grading and management recommendations. Use when checking drug interactions, evaluating polypharmacy risks, or managing medication combinations.
 tags:
   - assessment

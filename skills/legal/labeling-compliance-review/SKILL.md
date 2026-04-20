@@ -1,5 +1,6 @@
 ---
 name: labeling-compliance-review
+language: en
 description: Conducts FDA labeling compliance reviews for drugs, foods, dietary supplements, and medical devices. Analyzes principal display panels and information panels against FDCA, 21 CFR, and FDA guidance to identify misbranding risks, claims violations, and mandatory disclosure gaps. Use when reviewing product labels, auditing FDA compliance, assessing labeling risk, or preparing for FDA submission.
 ---
 

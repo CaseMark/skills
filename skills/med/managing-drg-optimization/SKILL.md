@@ -1,5 +1,6 @@
 ---
 name: managing-drg-optimization
+language: en
 description: Optimizes MS-DRG assignment through accurate principal diagnosis selection and CC/MCC capture. Use when optimizing DRGs, capturing comorbidities, or improving case mix index.
 tags:
   - management

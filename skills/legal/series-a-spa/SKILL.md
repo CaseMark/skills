@@ -1,5 +1,6 @@
 ---
 name: series-a-spa
+language: en
 description: Drafts market-standard Series A Stock Purchase Agreements for venture capital financings. Covers preferred stock issuance, rep/warranty packages, indemnification, closing conditions, and securities law compliance. Coordinates with ancillary documents (IRA, Voting Agreement, ROFR/Co-Sale). Use when drafting SPA, stock purchase agreement, Series A financing, preferred stock purchase, venture capital closing documents, or equity financing agreements.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: trial-brief
+language: en
 description: Drafts persuasive trial briefs for commercial litigation. Triggers when the user needs a pre-trial brief to frame the case theory, secure favorable rulings, or establish evidentiary groundwork. Use during the pre-trial phase after dispositive motions are resolved.
 tags:
   - brief

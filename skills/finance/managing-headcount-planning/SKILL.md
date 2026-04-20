@@ -1,5 +1,6 @@
 ---
 name: managing-headcount-planning
+language: en
 description: Structures workforce planning with headcount budgeting, compensation modeling, and organizational analysis. Use when planning headcount, budgeting compensation, or modeling workforce scenarios.
 tags:
   - management

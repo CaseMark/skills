@@ -1,5 +1,6 @@
 ---
 name: expert-witness-omissions
+language: en
 description: Identifies medical records an expert witness failed to review, cite, or address by cross-referencing the expert's materials-reviewed list against the full case record set. Produces a tiered omissions register, methodology critique, bias analysis, and strategic recommendations for cross-examination and exclusion motions. Use in personal injury or medical malpractice litigation when challenging or defending expert credibility during discovery, pre-trial, or trial preparation.
 tags:
   - analysis

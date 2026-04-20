@@ -1,5 +1,6 @@
 ---
 name: due-diligence-report
+language: en
 description: >-
   Produces U.S. corporate/M&A due diligence reports summarizing legal risks
   across corporate records, contracts, liabilities, regulatory compliance, and

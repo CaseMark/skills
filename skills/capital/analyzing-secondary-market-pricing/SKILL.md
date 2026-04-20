@@ -1,5 +1,6 @@
 ---
 name: analyzing-secondary-market-pricing
+language: en
 description: Monitors secondary market pricing trends with discount/premium analysis, bid-ask spreads, and market-clearing dynamics. Use when analyzing secondary pricing, tracking market trends, or benchmarking transaction levels.
 tags:
   - analysis

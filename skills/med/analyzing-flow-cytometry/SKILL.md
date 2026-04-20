@@ -1,5 +1,6 @@
 ---
 name: analyzing-flow-cytometry
+language: en
 description: Interprets flow cytometry panels for hematologic malignancy classification and minimal residual disease. Use when analyzing flow cytometry, classifying lymphomas/leukemias, or documenting immunophenotyping.
 tags:
   - analysis

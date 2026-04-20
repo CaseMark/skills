@@ -1,5 +1,6 @@
 ---
 name: managing-insurance-fraud-detection
+language: en
 description: Structures insurance fraud detection with red flag identification, investigation protocols, and SIU referral documentation. Use when detecting insurance fraud, investigating suspicious claims, or documenting fraud indicators.
 tags:
   - management

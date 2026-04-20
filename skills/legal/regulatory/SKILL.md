@@ -1,5 +1,6 @@
 ---
 name: regulatory
+language: en
 description: Navigates regulatory compliance, government relations, and administrative law across financial services, healthcare, environmental, FDA, privacy, energy, government contracts, trade, and securities domains. Use when handling agency interactions, compliance programs, enforcement defense, rulemaking comments, or administrative proceedings.
 tags:
   - regulatory

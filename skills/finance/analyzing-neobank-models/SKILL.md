@@ -1,5 +1,6 @@
 ---
 name: analyzing-neobank-models
+language: en
 description: Structures neobank business analysis with customer economics, funding structure, and growth sustainability. Use when analyzing neobanks, evaluating digital bank models, or assessing challenger bank viability.
 tags:
   - analysis

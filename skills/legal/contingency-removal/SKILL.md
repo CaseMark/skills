@@ -1,5 +1,6 @@
 ---
 name: contingency-removal
+language: en
 description: Drafts residential real estate contingency removal forms that waive buyer contingencies from a purchase agreement. Handles inspection, financing, appraisal, and HOA contingencies with jurisdiction-specific compliance and earnest money forfeiture acknowledgments. Use when drafting contingency removal notices, waiver of contingencies, or notice of removal of contingencies in residential transactions.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: managing-fall-prevention
+language: en
 description: Implements fall risk assessment (Morse, Hendrich) with intervention protocols. Use when assessing fall risk, implementing prevention strategies, or documenting fall prevention measures.
 tags:
   - management

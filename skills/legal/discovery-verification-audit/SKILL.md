@@ -1,5 +1,6 @@
 ---
 name: discovery-verification-audit
+language: en
 description: >
   Produces an attorney-grade audit memorandum assessing whether written discovery
   responses are legally binding and timely. Use this skill when the user mentions

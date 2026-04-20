@@ -1,5 +1,6 @@
 ---
 name: modeling-carried-interest-mechanics
+language: en
 description: Builds carry waterfall models with preferred return hurdles, catch-up provisions, and clawback mechanics across deal-by-deal and whole-fund structures. Use when modeling carry economics, comparing waterfall structures, or analyzing GP incentive alignment.
 tags:
   - modeling

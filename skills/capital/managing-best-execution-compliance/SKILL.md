@@ -1,5 +1,6 @@
 ---
 name: managing-best-execution-compliance
+language: en
 description: Structures best execution monitoring with venue analysis, systematic internalization assessment, and regulatory compliance documentation. Use when managing best execution, documenting execution decisions, or conducting venue analysis.
 tags:
   - management

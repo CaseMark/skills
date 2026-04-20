@@ -1,5 +1,6 @@
 ---
 name: pre-hearing-statement
+language: en
 description: Drafts a Pre-Hearing Statement of Proof for personal injury litigation. Use when preparing prehearing statements, statements of proof, or evidentiary summaries for hearings before courts or administrative agencies.
 tags:
   - brief

@@ -1,5 +1,6 @@
 ---
 name: immigration-support-letter
+language: en
 description: Drafts formal immigration support letters from employers, family members, or community supporters for USCIS petitions, asylum claims, removal proceedings, hardship waivers, or naturalization. Use when drafting employment verification letters, family relationship letters, character references, or extreme hardship testimonials for any U.S. immigration matter.
 tags:
   - drafting

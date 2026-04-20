@@ -1,5 +1,6 @@
 ---
 name: managing-cybersecurity-healthcare
+language: en
 description: Structures healthcare cybersecurity programs with PHI protection, incident response, and risk assessment. Use when managing healthcare cybersecurity, protecting health data, or conducting security risk assessments.
 tags:
   - management

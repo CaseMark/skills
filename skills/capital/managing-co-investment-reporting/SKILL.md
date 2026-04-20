@@ -1,5 +1,6 @@
 ---
 name: managing-co-investment-reporting
+language: en
 description: Structures co-investment reporting with deal-level performance, fee/carry calculations, and co-invest program aggregate analysis. Use when reporting co-invest performance, tracking deal-level returns, or preparing co-invest summaries.
 tags:
   - management

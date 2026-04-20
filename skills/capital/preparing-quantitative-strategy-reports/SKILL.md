@@ -1,5 +1,6 @@
 ---
 name: preparing-quantitative-strategy-reports
+language: en
 description: Structures systematic strategy performance reporting with factor exposure, attribution, and risk analytics for investor communication. Use when preparing quant reports, documenting strategy performance, or presenting systematic strategy results.
 tags:
   - preparation

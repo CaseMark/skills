@@ -1,5 +1,6 @@
 ---
 name: managing-surgical-complications
+language: en
 description: Classifies and documents surgical complications using Clavien-Dindo grading with management protocols. Use when managing post-surgical complications, grading adverse events, or documenting complication management.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: intake-summary
+language: en
 description: >-
   Produces a structured U.S. corporate client intake summary from intake
   forms, consultation notes, and initial communications. Outputs an executive

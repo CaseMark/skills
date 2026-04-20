@@ -1,5 +1,6 @@
 ---
 name: preparing-growth-equity-exit-materials
+language: en
 description: Structures exit preparation with financial audit readiness, management presentation preparation, and buyer/IPO positioning. Use when preparing for exit, building exit marketing materials, or positioning companies for sale or IPO.
 tags:
   - preparation

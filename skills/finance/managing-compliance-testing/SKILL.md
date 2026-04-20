@@ -1,5 +1,6 @@
 ---
 name: managing-compliance-testing
+language: en
 description: Designs and executes compliance testing programs with sampling methodology and findings documentation. Use when conducting compliance testing, designing test procedures, or documenting testing results.
 tags:
   - management

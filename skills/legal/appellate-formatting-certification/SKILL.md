@@ -1,5 +1,6 @@
 ---
 name: appellate-formatting-certification
+language: en
 description: Generates appellate-brief TOC, TOA, and Certificate of Compliance with defensible word-count methodology. Triggers on TOC/TOA rebuilds, certificate of compliance drafting, FRAP 32(g) compliance, word-count certification, or final brief formatting before filing.
 tags:
   - analysis

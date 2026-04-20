@@ -1,5 +1,6 @@
 ---
 name: managing-treasury-management-services
+language: en
 description: Structures treasury management product analysis with cash management, payment solutions, and fee optimization. Use when evaluating treasury services, analyzing cash management needs, or optimizing banking relationships.
 tags:
   - management

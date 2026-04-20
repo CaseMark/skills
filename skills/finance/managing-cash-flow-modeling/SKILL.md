@@ -1,5 +1,6 @@
 ---
 name: managing-cash-flow-modeling
+language: en
 description: Models portfolio cash flows for liability-driven and income-oriented investment strategies. Use when modeling portfolio cash flows, planning income distributions, or managing liability matching.
 tags:
   - management

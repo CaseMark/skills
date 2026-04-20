@@ -1,5 +1,6 @@
 ---
 name: managing-investment-policy-statements
+language: en
 description: Creates and maintains IPS documents with objectives, constraints, and governance requirements. Use when writing investment policy statements, documenting investment guidelines, or updating policy parameters.
 tags:
   - management

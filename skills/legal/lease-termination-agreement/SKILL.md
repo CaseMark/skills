@@ -1,5 +1,6 @@
 ---
 name: lease-termination-agreement
+language: en
 description: Drafts a mutual early lease termination agreement for U.S. commercial and residential properties. Covers party identification, termination mechanics, property surrender, financial settlement (prorated rent, security deposit accounting), mutual release with carve-outs, and execution formalities. Use when landlord and tenant agree to end a lease before expiration, when negotiating buyout terms, or resolving disputes through consensual termination.
 ---
 

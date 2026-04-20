@@ -1,5 +1,6 @@
 ---
 name: managing-tmj-disorders
+language: en
 description: Structures TMD evaluation with clinical and imaging assessment, classification, and treatment protocols. Use when evaluating TMJ disorders, classifying TMD, or documenting TMJ treatment.
 tags:
   - management

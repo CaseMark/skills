@@ -1,5 +1,6 @@
 ---
 name: structuring-abs-transactions
+language: en
 description: Designs asset-backed securitization structures with tranche hierarchy, credit enhancement, and cash flow allocation mechanics. Use when structuring ABS deals, designing tranche waterfall, or analyzing credit enhancement levels.
 tags:
   - structured-finance

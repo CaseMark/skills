@@ -1,5 +1,6 @@
 ---
 name: motion-to-convert
+language: en
 description: Drafts a Motion to Convert Case for bankruptcy proceedings under 11 U.S.C. §§ 706, 1112, or 1307. Builds caption, factual background, statutory arguments, and prayer for relief from case documents. Use when the user needs a bankruptcy conversion motion between chapters (e.g., Chapter 7 to 13 or vice versa).
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: form-adv
+language: en
 description: >-
   Drafts SEC- or state-filed Form ADV Parts 1A/1B/2A/2B for investment adviser
   registration, producing IARD-ready responses, brochures, and supplements.

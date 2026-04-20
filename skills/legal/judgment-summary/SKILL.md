@@ -1,5 +1,6 @@
 ---
 name: judgment-summary
+language: en
 description: Produces structured U.S. litigation judgment summaries from court opinions or final orders. Use when summarizing a judgment, opinion, final decision, post-trial ruling, appeal outcome, or case disposition brief. Covers caption, procedural history, facts, issues, standards of review, holdings, precedent treatment, concurrences/dissents, disposition, and practical implications with pinpoint citations.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: expert-impeachment
+language: en
 description: >-
   Surfaces inconsistencies, opinion shifts, methodological flaws, and credential
   discrepancies across expert reports, transcripts, CVs, and publications for

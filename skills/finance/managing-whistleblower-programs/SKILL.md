@@ -1,5 +1,6 @@
 ---
 name: managing-whistleblower-programs
+language: en
 description: Structures whistleblower program operations with intake, investigation, and anti-retaliation documentation. Use when managing whistleblower reports, investigating complaints, or documenting anti-retaliation measures.
 tags:
   - management

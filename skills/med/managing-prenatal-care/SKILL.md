@@ -1,5 +1,6 @@
 ---
 name: managing-prenatal-care
+language: en
 description: Structures prenatal visit documentation with gestational age tracking, screening schedules, and risk assessment. Use when documenting prenatal visits, tracking pregnancy milestones, or managing prenatal screening.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: medical-director-agreement
+language: en
 description: Drafts a Medical Director Agreement between a healthcare organization and a physician, structured for Anti-Kickback Statute and Stark Law safe harbor compliance. Covers appointment, duties, FMV compensation, independent contractor status, restrictive covenants, HIPAA obligations, and regulatory safeguards for hospitals, ASCs, SNFs, and other facilities. Use when drafting medical director contracts, physician administrative services agreements, or healthcare leadership engagement letters.
 tags:
   - agreement

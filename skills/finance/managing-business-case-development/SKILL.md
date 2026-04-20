@@ -1,5 +1,6 @@
 ---
 name: managing-business-case-development
+language: en
 description: Structures business case documentation with financial impact, risk assessment, and decision criteria. Use when building business cases, justifying investments, or documenting project proposals.
 tags:
   - management

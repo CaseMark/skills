@@ -1,5 +1,6 @@
 ---
 name: managing-dental-infection-control
+language: en
 description: Implements OSHA and CDC dental infection control guidelines with sterilization monitoring documentation. Use when managing dental infection control, documenting sterilization, or maintaining infection prevention compliance.
 tags:
   - management

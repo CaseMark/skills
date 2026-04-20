@@ -1,5 +1,6 @@
 ---
 name: reporting-chest-radiographs
+language: en
 description: Structures systematic chest X-ray interpretation with standardized reporting and critical findings communication. Use when reading chest X-rays, creating radiology reports, or documenting CXR findings.
 tags:
   - reporting

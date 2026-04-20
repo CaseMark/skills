@@ -1,5 +1,6 @@
 ---
 name: conducting-risk-appetite-frameworks
+language: en
 description: Develops risk appetite statements with quantitative limits and qualitative boundaries documentation. Use when defining risk appetite, setting risk limits, or calibrating risk tolerances.
 tags:
   - process

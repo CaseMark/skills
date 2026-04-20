@@ -1,5 +1,6 @@
 ---
 name: eviction-complaint
+language: en
 description: Drafts jurisdiction-compliant Unlawful Detainer complaints for eviction proceedings covering non-payment, lease violations, and holdover tenancies. Assesses case facts, verifies statutory notice compliance, and formats pleadings to local court rules. Use when drafting eviction complaints, unlawful detainer pleadings, forcible entry and detainer actions, or possession recovery filings.
 ---
 

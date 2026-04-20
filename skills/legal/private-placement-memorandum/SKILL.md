@@ -1,5 +1,6 @@
 ---
 name: private-placement-memorandum
+language: en
 description: Drafts U.S. Regulation D Private Placement Memoranda (PPMs) with required legends, risk factors, capitalization, securities terms, and subscription procedures. Trigger when drafting a PPM, preparing a Reg D (506(b) or 506(c)) offering, building accredited-investor disclosure, or structuring private placement documents to minimize 10b-5 liability.
 tags:
   - corporate

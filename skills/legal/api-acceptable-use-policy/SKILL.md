@@ -1,5 +1,6 @@
 ---
 name: api-acceptable-use-policy
+language: en
 description: >
   Drafts a standalone API Acceptable Use Policy (AUP) for incorporation by
   reference into a master API license or terms-of-service agreement. Produces a

@@ -1,5 +1,6 @@
 ---
 name: structuring-revolving-credit-facilities
+language: en
 description: Designs revolver structures with commitment amounts, borrowing base mechanics, letter of credit sub-facilities, and pricing grids. Use when structuring revolvers, designing borrowing bases, or analyzing liquidity facilities.
 tags:
   - debt-capital-markets

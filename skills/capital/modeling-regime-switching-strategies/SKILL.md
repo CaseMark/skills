@@ -1,5 +1,6 @@
 ---
 name: modeling-regime-switching-strategies
+language: en
 description: Builds regime detection models with hidden Markov, threshold, and Bayesian change-point methodologies for strategy adaptation. Use when modeling regime changes, detecting market shifts, or adapting strategies to market conditions.
 tags:
   - modeling

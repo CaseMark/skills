@@ -1,5 +1,6 @@
 ---
 name: analyzing-commitment-pacing-models
+language: en
 description: Builds LP commitment pacing with deployment curves, distribution assumptions, and NAV projection for portfolio planning. Use when modeling commitment pacing, projecting LP cash flows, or planning new fund allocations.
 tags:
   - analysis

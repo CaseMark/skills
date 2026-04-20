@@ -1,5 +1,6 @@
 ---
 name: managing-emergency-preparedness
+language: en
 description: Structures public health emergency preparedness with hazard vulnerability and response planning. Use when planning emergency preparedness, conducting vulnerability assessments, or developing response plans.
 tags:
   - management

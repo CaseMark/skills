@@ -1,5 +1,6 @@
 ---
 name: managing-speech-therapy-assessments
+language: en
 description: Structures speech-language evaluation with articulation, language, swallowing, and cognitive-communication assessment. Use when conducting speech evaluations, assessing swallowing function, or documenting communication disorders.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: analyzing-section-363-asset-sales
+language: en
 description: Evaluates 363 sale processes with stalking horse protections, bid procedures, and credit bidding mechanics. Use when analyzing 363 sales, structuring stalking horse bids, or evaluating asset sale alternatives.
 tags:
   - analysis

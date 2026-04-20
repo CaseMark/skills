@@ -1,5 +1,6 @@
 ---
 name: analyzing-continuation-vehicles
+language: en
 description: Evaluates GP-led continuation fund structures with existing LP options and new investor terms. Use when analyzing continuation vehicles, structuring GP-led transactions, or evaluating tender offers.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: managing-conditions-of-participation
+language: en
 description: Monitors CMS Conditions of Participation compliance with survey readiness documentation. Use when preparing for CMS surveys, tracking CoP compliance, or managing survey readiness.
 tags:
   - management

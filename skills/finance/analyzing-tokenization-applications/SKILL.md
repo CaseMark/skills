@@ -1,5 +1,6 @@
 ---
 name: analyzing-tokenization-applications
+language: en
 description: Evaluates real-world asset tokenization with legal structure, market infrastructure, and liquidity analysis. Use when analyzing tokenization, evaluating security tokens, or assessing asset digitization.
 tags:
   - analysis

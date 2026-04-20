@@ -1,5 +1,6 @@
 ---
 name: appellate-mandate
+language: en
 description: Drafts formal appellate mandates that conclude the appeal process and direct trial courts to implement appellate decisions. Extracts disposition language, remand directives, and procedural history from appellate records to construct jurisdiction-specific mandate orders. Use when preparing mandate orders, returning jurisdiction to lower courts, or formalizing appellate dispositions after ruling.
 tags:
   - litigation

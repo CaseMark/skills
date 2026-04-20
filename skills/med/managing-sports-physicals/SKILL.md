@@ -1,5 +1,6 @@
 ---
 name: managing-sports-physicals
+language: en
 description: Structures pre-participation physical evaluations with cardiac screening and clearance decisions. Use when performing sports physicals, screening for cardiac conditions, or documenting athletic clearance.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-peripheral-vascular-disease
+language: en
 description: Guides PVD assessment with ABI interpretation and intervention referral criteria. Use when evaluating peripheral vascular disease, interpreting ABI studies, or managing claudication.
 tags:
   - management

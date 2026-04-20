@@ -1,5 +1,6 @@
 ---
 name: analyzing-cross-border-deal-structures
+language: en
 description: Evaluates cross-border transaction complexities including tax treaties, currency, regulatory approvals, and cultural factors. Use when structuring international deals, assessing cross-border risk, or navigating multi-jurisdiction closings.
 tags:
   - analysis

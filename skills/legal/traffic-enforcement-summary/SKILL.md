@@ -1,5 +1,6 @@
 ---
 name: traffic-enforcement-summary
+language: en
 description: Generates structured summaries of traffic law enforcement data covering DUI metrics, violation trends, enforcement outcomes, and resource allocation. Use when analyzing citation records, arrest statistics, violation reports, or preparing public safety strategic planning documents for law enforcement leadership.
 ---
 

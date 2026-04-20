@@ -1,5 +1,6 @@
 ---
 name: notice-of-assets-claims
+language: en
 description: Drafts a Notice of Assets and Request for Claims for probate estates. Triggers when administering an estate, publishing creditor notice, filing a probate notice of assets, or establishing claim bar dates. Handles jurisdictional research, asset disclosure, claim filing procedures, and execution requirements under state-specific probate codes.
 tags:
   - drafting

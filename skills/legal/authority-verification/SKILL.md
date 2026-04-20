@@ -1,5 +1,6 @@
 ---
 name: authority-verification
+language: en
 description: >-
   Verifies legal citations and retrieves source material using the case.dev
   Legal Research API and CLI. Use when validating a citation, confirming a case

@@ -1,5 +1,6 @@
 ---
 name: managing-fund-audit-preparation
+language: en
 description: Structures fund audit preparation with financial statement drafting, confirmation management, and workpaper organization. Use when preparing for fund audits, drafting fund financials, or managing audit confirmations.
 tags:
   - management

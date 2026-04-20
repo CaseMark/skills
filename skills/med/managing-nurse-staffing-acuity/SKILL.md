@@ -1,5 +1,6 @@
 ---
 name: managing-nurse-staffing-acuity
+language: en
 description: Applies patient acuity classification with staffing ratio calculations and resource allocation. Use when assessing patient acuity, calculating staffing needs, or managing nurse assignments.
 tags:
   - management

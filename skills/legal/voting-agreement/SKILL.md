@@ -1,5 +1,6 @@
 ---
 name: voting-agreement
+language: en
 description: >-
   Drafts enforceable shareholder Voting Agreements coordinating director
   elections, fundamental transactions, charter amendments, and other corporate

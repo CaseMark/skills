@@ -1,5 +1,6 @@
 ---
 name: analyzing-single-asset-continuation-vehicles
+language: en
 description: Evaluates single-asset GP-led transactions with stand-alone asset valuation, financing structure, and rolling LP vs cashing out analysis. Use when analyzing single-asset CVs, evaluating trophy asset transactions, or structuring single-asset rolls.
 tags:
   - analysis

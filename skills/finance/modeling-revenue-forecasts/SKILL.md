@@ -1,5 +1,6 @@
 ---
 name: modeling-revenue-forecasts
+language: en
 description: Builds bottom-up revenue models from segment-level drivers with assumption documentation. Use when forecasting revenue, modeling growth drivers, or building segment-level projections.
 tags:
   - modeling

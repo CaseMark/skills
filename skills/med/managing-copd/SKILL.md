@@ -1,5 +1,6 @@
 ---
 name: managing-copd
+language: en
 description: Guides COPD management using GOLD classification with inhaler selection and exacerbation prevention. Use when managing COPD, selecting inhalers, or preventing exacerbations.
 tags:
   - management

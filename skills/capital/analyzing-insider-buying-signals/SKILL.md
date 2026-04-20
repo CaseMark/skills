@@ -1,5 +1,6 @@
 ---
 name: analyzing-insider-buying-signals
+language: en
 description: Evaluates insider purchase patterns with cluster buying identification, historical signal analysis, and conviction scoring. Use when analyzing insider buying, assessing management confidence signals, or tracking insider activity patterns.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: annual-meeting-notice
+language: en
 description: Drafts legally compliant Notice of Annual Shareholders Meeting for US corporations, covering state-specific notice periods, record dates, quorum and voting thresholds, proxy procedures, and SEC Regulation 14A compliance for public companies. Use when preparing annual meeting notices, shareholder meeting notifications, or proxy notice and access mailings.
 ---
 

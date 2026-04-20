@@ -1,5 +1,6 @@
 ---
 name: chart-audit-protocol
+language: en
 description: Drafts healthcare chart audit protocols covering clinical documentation review, coding accuracy, and billing compliance. Aligns with Medicare CoPs, OIG Compliance Program Guidance, RAC preparedness, federal sentencing guidelines, and the 60-day overpayment rule. Use when drafting routine periodic audits, targeted risk reviews, proactive compliance measures, or post-regulatory-update assessments.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: interpreting-electrocardiograms
+language: en
 description: Systematically interprets 12-lead ECGs with rate, rhythm, axis, intervals, and morphology analysis. Use when reading ECGs, documenting EKG interpretations, or identifying cardiac arrhythmias.
 tags:
   - analysis

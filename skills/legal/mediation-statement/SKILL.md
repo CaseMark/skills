@@ -1,5 +1,6 @@
 ---
 name: mediation-statement
+language: en
 description: Drafts persuasive mediation statements for litigation, structuring narrative across liability, damages, medical evidence, experts, and settlement positioning for plaintiff or defense. Use when preparing mediation briefs, settlement statements, ADR submissions, or pre-mediation filings.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: legal-strategy-summary
+language: en
 description: Generates structured litigation strategy summaries synthesizing case facts, legal arguments, procedural tactics, and risk assessments into a unified roadmap. Use when aligning legal teams on case direction, preparing for strategy meetings, or onboarding stakeholders to litigation matters.
 ---
 

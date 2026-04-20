@@ -1,5 +1,6 @@
 ---
 name: medical-record-chronology
+language: en
 description: Creates chronological summaries of medical records for litigation. Extracts treatment timelines, provider details, diagnoses, medications, and causation evidence. Identifies gaps, inconsistencies, and missing records. Use when analyzing medical records in personal injury, medical malpractice, workers' compensation, or disability cases.
 ---
 

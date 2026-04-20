@@ -1,5 +1,6 @@
 ---
 name: managing-billing-compliance
+language: en
 description: Structures billing compliance programs with audit methodology and corrective action protocols. Use when auditing billing practices, managing compliance programs, or implementing corrective actions.
 tags:
   - management

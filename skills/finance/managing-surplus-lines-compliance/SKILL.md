@@ -1,5 +1,6 @@
 ---
 name: managing-surplus-lines-compliance
+language: en
 description: Structures surplus lines compliance with eligibility verification, tax filing, and reporting requirements. Use when managing surplus lines, verifying eligibility, or documenting E&S compliance.
 tags:
   - management

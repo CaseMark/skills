@@ -1,5 +1,6 @@
 ---
 name: plan-of-liquidation-and-dissolution
+language: en
 description: Drafts a U.S. corporate Plan of Liquidation and Dissolution for voluntary wind-downs. Triggers when inputs mention liquidation, voluntary dissolution, winding up, dissolution resolution, creditor claims period, Form 966, or shareholder distribution calculations. Use after board and shareholder authorization is complete.
 tags:
   - agreement

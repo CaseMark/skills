@@ -1,5 +1,6 @@
 ---
 name: subordination-agreement
+language: en
 description: Drafts debt subordination agreements establishing senior/junior creditor priority, payment waterfalls, standstill provisions, turnover obligations, and bankruptcy treatment. Use when drafting subordination agreements, intercreditor arrangements, creditor priority documents, or debt subordination terms during negotiation or closing.
 ---
 

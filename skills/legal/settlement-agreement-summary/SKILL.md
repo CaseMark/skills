@@ -1,5 +1,6 @@
 ---
 name: settlement-agreement-summary
+language: en
 description: Generates executive-ready summaries of multi-party U.S. commercial settlement agreements. Extracts payment structure, business conduct covenants, release and waiver provisions, tax obligations, and confidentiality terms into a structured legal memorandum. Use when summarizing fully executed settlement agreements, distilling multi-party commercial settlements for case management, or preparing client-facing settlement summaries for board or executive review.
 ---
 

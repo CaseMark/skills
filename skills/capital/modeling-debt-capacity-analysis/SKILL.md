@@ -1,5 +1,6 @@
 ---
 name: modeling-debt-capacity-analysis
+language: en
 description: Calculates borrower debt capacity with cash flow coverage, leverage multiples, and stress-tested servicing ability. Use when sizing debt facilities, analyzing leverage capacity, or determining optimal capital structure.
 tags:
   - modeling

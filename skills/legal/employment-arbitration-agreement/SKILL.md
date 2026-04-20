@@ -1,5 +1,6 @@
 ---
 name: employment-arbitration-agreement
+language: en
 description: Drafts enforceable mutual employment arbitration agreements under the FAA and state law. Covers claim scope, class/collective waivers, procedural fairness, cost allocation, PAGA carve-outs, and Armendariz compliance. Use when drafting new arbitration agreements, updating existing arbitration clauses, or adding ADR provisions to offer letters and employment contracts.
 tags:
   - agreement

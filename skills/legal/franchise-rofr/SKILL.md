@@ -1,5 +1,6 @@
 ---
 name: franchise-rofr
+language: en
 description: Drafts a First Right of Refusal Agreement for franchise relationships, granting the franchisor priority purchase rights on third-party offers for the franchised business. Covers notice procedures, exercise periods, bona fide offer requirements, covered transfers, excluded transfers, valuation mechanics, and closing procedures. Use when supplementing franchise agreements with ROFR provisions, protecting franchisor control over brand operators, or drafting transfer-restriction supplements.
 tags:
   - agreement

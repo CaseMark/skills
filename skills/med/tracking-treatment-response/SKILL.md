@@ -1,5 +1,6 @@
 ---
 name: tracking-treatment-response
+language: en
 description: Monitors treatment response using imaging criteria, biomarkers, and clinical assessment with documentation. Use when assessing treatment response, documenting disease status, or tracking progression.
 tags:
   - monitoring

@@ -1,5 +1,6 @@
 ---
 name: transactional
+language: en
 description: Routes and governs transactional legal work—contracts, deals, and business formations. Covers M&A, real estate, financing, franchise, employment, asset purchase, estate planning, IP licensing, and commercial leasing. Triggers on any transactional matter, deal structuring, contract drafting, or entity formation task.
 tags:
   - research

@@ -1,5 +1,6 @@
 ---
 name: trademark-clearance
+language: en
 description: Generates a trademark clearance search report evaluating mark availability and registrability across federal (USPTO TESS), state, common law, and international sources. Applies the Lanham Act likelihood-of-confusion multi-factor test. Use when conducting trademark clearance searches, pre-filing availability opinions, or infringement risk assessments.
 ---
 

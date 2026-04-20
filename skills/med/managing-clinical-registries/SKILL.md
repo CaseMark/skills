@@ -1,5 +1,6 @@
 ---
 name: managing-clinical-registries
+language: en
 description: Structures clinical registry data collection with quality measure calculation and reporting. Use when managing clinical registries, submitting registry data, or calculating quality measures.
 tags:
   - management

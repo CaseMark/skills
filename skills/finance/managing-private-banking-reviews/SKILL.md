@@ -1,5 +1,6 @@
 ---
 name: managing-private-banking-reviews
+language: en
 description: Structures private banking relationship reviews with service assessment, fee analysis, and strategy evaluation. Use when reviewing banking relationships, analyzing fees, or evaluating service quality.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: building-equity-valuation-models
+language: en
 description: Constructs DCF, comparable company, and precedent transaction valuation models with sensitivity analysis. Use when valuing public companies, building financial models, or estimating fair value ranges.
 tags:
   - modeling

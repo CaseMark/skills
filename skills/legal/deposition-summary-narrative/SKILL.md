@@ -1,5 +1,6 @@
 ---
 name: deposition-summary-narrative
+language: en
 description: Transforms deposition transcripts into topic-organized narrative memoranda with page-line citations, flagged admissions, contradictions, and credibility issues. Use when summarizing depositions, condensing transcripts for trial prep, or building case strategy during discovery or pre-trial phases.
 tags:
   - litigation

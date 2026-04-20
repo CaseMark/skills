@@ -1,5 +1,6 @@
 ---
 name: managing-stewardship-and-engagement
+language: en
 description: Structures shareholder engagement programs with escalation frameworks and outcome documentation. Use when managing stewardship, planning engagement, or documenting shareholder activism outcomes.
 tags:
   - management

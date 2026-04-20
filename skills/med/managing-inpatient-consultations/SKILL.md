@@ -1,5 +1,6 @@
 ---
 name: managing-inpatient-consultations
+language: en
 description: Structures consultation requests and responses with specific clinical questions and recommendations. Use when requesting consults, responding to consultations, or documenting specialist input.
 tags:
   - management

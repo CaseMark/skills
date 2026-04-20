@@ -1,5 +1,6 @@
 ---
 name: managing-sec-reporting
+language: en
 description: Structures SEC filing preparation with 10-K, 10-Q, 8-K content requirements and XBRL tagging. Use when preparing SEC filings, reviewing filing content, or managing XBRL tagging.
 tags:
   - management

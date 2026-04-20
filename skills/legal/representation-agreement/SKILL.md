@@ -1,5 +1,6 @@
 ---
 name: representation-agreement
+language: en
 description: >-
   Drafts a U.S. litigation representation agreement covering scope, fees,
   costs, duties, conflicts, and termination. Use when preparing an engagement

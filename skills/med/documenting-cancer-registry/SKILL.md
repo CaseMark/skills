@@ -1,5 +1,6 @@
 ---
 name: documenting-cancer-registry
+language: en
 description: Abstracts cancer cases for registry submission with required data elements and coding standards. Use when abstracting cancer cases, coding registry data, or documenting cancer reporting.
 tags:
   - documentation

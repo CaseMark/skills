@@ -1,5 +1,6 @@
 ---
 name: coding-emergency-services
+language: en
 description: Assigns ED-specific E/M codes with critical care time documentation and procedure coding. Use when coding ED visits, documenting critical care, or coding ED procedures.
 tags:
   - coding

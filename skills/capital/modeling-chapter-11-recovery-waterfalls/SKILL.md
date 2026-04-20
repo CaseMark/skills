@@ -1,5 +1,6 @@
 ---
 name: modeling-chapter-11-recovery-waterfalls
+language: en
 description: Builds recovery waterfall models with absolute priority, secured vs unsecured claims, and plan of reorganization distribution analysis. Use when modeling bankruptcy recoveries, analyzing claim priorities, or estimating creditor distributions.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: conducting-capacity-evaluations
+language: en
 description: Assesses medical decision-making capacity with Appelbaum criteria documentation. Use when evaluating decision-making capacity, documenting capacity assessments, or determining informed consent ability.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: managing-reinsurance-programs
+language: en
 description: Structures reinsurance program analysis with cession optimization, pricing, and counterparty evaluation. Use when analyzing reinsurance, optimizing cession structures, or evaluating reinsurer credit.
 tags:
   - management

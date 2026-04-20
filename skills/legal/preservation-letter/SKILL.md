@@ -1,5 +1,6 @@
 ---
 name: preservation-letter
+language: en
 description: Drafts litigation hold and document preservation letters under FRCP 37(e) and state equivalents. Covers custodian identification, ESI scope, hold implementation, and spoliation warnings. Use when sending preservation notices, litigation hold letters, spoliation notices, or evidence preservation demands.
 ---
 

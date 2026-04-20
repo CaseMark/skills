@@ -1,5 +1,6 @@
 ---
 name: analyzing-activist-campaign-strategies
+language: en
 description: Evaluates activist investor campaigns with thesis assessment, proposed changes, and likely outcome analysis. Use when analyzing activist situations, evaluating campaign theses, or assessing activist track records.
 tags:
   - analysis

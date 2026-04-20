@@ -1,5 +1,6 @@
 ---
 name: eor-agreement
+language: en
 description: Drafts a U.S.-compliant Exporter of Record (EOR) Agreement appointing a third party as USPPI for international export transactions. Allocates compliance obligations under EAR, ITAR, OFAC, and CBP with denied-party screening, AES/EEI filing, indemnification, and record retention. Use when drafting EOR appointments, export compliance service agreements, or logistics outsourcing for cross-border shipments.
 tags:
   - agreement

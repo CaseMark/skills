@@ -1,5 +1,6 @@
 ---
 name: analyzing-synthetic-securitization-structures
+language: en
 description: Evaluates synthetic CDO and CRT structures with credit default swap mechanics and funded/unfunded tranche analysis. Use when analyzing synthetic structures, evaluating credit risk transfer, or modeling CDS-based securitizations.
 tags:
   - analysis

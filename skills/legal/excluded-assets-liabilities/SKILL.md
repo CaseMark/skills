@@ -1,5 +1,6 @@
 ---
 name: excluded-assets-liabilities
+language: en
 description: Drafts a categorized schedule of excluded assets and liabilities as an exhibit to an asset purchase agreement. Delineates retained assets and unassumed liabilities by class. Use when drafting APA schedules, negotiating asset carve-outs, preparing closing exhibits, or defining exclusion scope in M&A asset sales.
 ---
 

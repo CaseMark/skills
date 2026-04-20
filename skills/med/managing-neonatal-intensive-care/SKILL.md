@@ -1,5 +1,6 @@
 ---
 name: managing-neonatal-intensive-care
+language: en
 description: Structures NICU documentation with ventilation parameters, feeding advancement, and discharge readiness criteria. Use when managing NICU patients, documenting ventilator settings, or tracking feeding progression.
 tags:
   - management

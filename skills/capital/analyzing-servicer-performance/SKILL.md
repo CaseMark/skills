@@ -1,5 +1,6 @@
 ---
 name: analyzing-servicer-performance
+language: en
 description: Evaluates master and special servicer performance with delinquency management, modification outcomes, and loss mitigation effectiveness. Use when assessing servicer quality, monitoring servicing metrics, or evaluating servicer transfers.
 tags:
   - analysis

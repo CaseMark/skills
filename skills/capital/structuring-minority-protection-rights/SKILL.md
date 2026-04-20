@@ -1,5 +1,6 @@
 ---
 name: structuring-minority-protection-rights
+language: en
 description: Designs minority investor protections including board seats, information rights, consent provisions, and anti-dilution mechanisms. Use when negotiating minority terms, structuring protective provisions, or analyzing governance rights.
 tags:
   - growth-equity

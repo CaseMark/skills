@@ -1,5 +1,6 @@
 ---
 name: security-agreement
+language: en
 description: Drafts UCC Article 9 security agreements granting first-priority liens on specified collateral. Covers party identification, collateral descriptions, representations/warranties, default/remedies, and perfection requirements. Use when drafting security agreements, granting liens, creating collateral pledges, or documenting secured financing transactions.
 ---
 

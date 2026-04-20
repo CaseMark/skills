@@ -1,5 +1,6 @@
 ---
 name: employee-separation-release
+language: en
 description: >-
   Drafts U.S. employee separation and release agreements exchanging severance
   consideration for a comprehensive release of employment-related claims, with

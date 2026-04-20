@@ -1,5 +1,6 @@
 ---
 name: post-settlement-correspondence
+language: en
 description: Drafts structured post-settlement correspondence memorializing negotiation history and final terms in commercial litigation. Use when producing settlement confirmation letters, post-mediation summaries, settlement memoranda, or implementation checklists after parties reach agreement.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: seller-disclosure-statement
+language: en
 description: Drafts a U.S. residential Seller Disclosure Statement covering property condition, system ages, defects, environmental hazards, title/HOA matters, and buyer acknowledgment. Triggered by requests for seller disclosures, property condition disclosure, TDS, SPDS, lead-based paint disclosure, or pre-close compliance in residential sales.
 tags:
   - agreement

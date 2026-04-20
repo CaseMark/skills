@@ -1,5 +1,6 @@
 ---
 name: legal-letter
+language: en
 description: Drafts professional legal letters for personal injury litigation including settlement demands, cease-and-desist, notice letters, and response correspondence. Tailors tone by recipient type. Use when drafting demand letters, pre-suit correspondence, insurance claim letters, cease-and-desist notices, or litigation response letters.
 ---
 

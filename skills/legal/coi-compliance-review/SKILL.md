@@ -1,5 +1,6 @@
 ---
 name: coi-compliance-review
+language: en
 description: Reviews CRE insurance certificates (ACORD 25) and endorsements against Access Agreement insurance requirements, producing a pass/fail compliance determination with broker-ready deficiency instructions. Verifies coverage limits, Additional Insured status, primary/non-contributory language, waiver of subrogation, umbrella alignment, and carrier qualifications. Use when reviewing COIs, ACORD forms, vendor or contractor insurance, site access insurance, or Additional Insured endorsements in commercial real estate transactions.
 tags:
   - analysis

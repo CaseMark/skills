@@ -1,5 +1,6 @@
 ---
 name: deposition-preparation
+language: en
 description: >
   Produces a comprehensive deposition preparation package for taking or defending
   depositions in U.S. civil litigation. Use this skill whenever the user mentions

@@ -1,5 +1,6 @@
 ---
 name: analyzing-synergy-cases
+language: en
 description: Structures revenue and cost synergy analysis with build-up methodology and realization timing. Use when estimating synergies, modeling cost savings, or analyzing revenue enhancement opportunities.
 tags:
   - analysis

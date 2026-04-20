@@ -1,5 +1,6 @@
 ---
 name: conducting-benchmarking-analysis
+language: en
 description: Structures financial and operational benchmarking against industry peers with gap identification. Use when benchmarking performance, comparing to industry metrics, or identifying improvement opportunities.
 tags:
   - process

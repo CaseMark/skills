@@ -1,5 +1,6 @@
 ---
 name: managing-denominator-effect-analysis
+language: en
 description: Evaluates LP portfolio rebalancing pressure from denominator effects with over-allocation analysis and pace adjustment recommendations. Use when analyzing denominator effects, assessing LP allocation constraints, or modeling portfolio rebalancing.
 tags:
   - management

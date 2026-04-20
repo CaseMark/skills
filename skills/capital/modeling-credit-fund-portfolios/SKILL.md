@@ -1,5 +1,6 @@
 ---
 name: modeling-credit-fund-portfolios
+language: en
 description: Builds credit fund portfolio models with yield attribution, default/recovery scenarios, and portfolio-level return analysis. Use when modeling credit funds, projecting portfolio returns, or analyzing yield components.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: summarize-files
+language: en
 description: Generates structured summaries of legal documents (contracts, pleadings, correspondence, transactional materials). Triggers when the user asks to summarize case files, agreements, pleadings, or any legal materials for review, onboarding, or status reporting.
 tags:
   - agreement

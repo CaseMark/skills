@@ -1,5 +1,6 @@
 ---
 name: conducting-disease-surveillance
+language: en
 description: Structures disease surveillance systems with case definitions, reporting requirements, and trend analysis. Use when monitoring disease trends, managing surveillance data, or analyzing reportable conditions.
 tags:
   - process

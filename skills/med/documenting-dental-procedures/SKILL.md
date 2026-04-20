@@ -1,5 +1,6 @@
 ---
 name: documenting-dental-procedures
+language: en
 description: Creates structured dental procedure notes with tooth-specific documentation and material specifications. Use when documenting dental procedures, recording treatment details, or creating dental records.
 tags:
   - documentation

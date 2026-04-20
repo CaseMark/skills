@@ -1,5 +1,6 @@
 ---
 name: analyzing-ai-in-financial-services
+language: en
 description: Evaluates AI/ML applications in financial services with model governance, bias assessment, and regulatory considerations. Use when analyzing AI in finance, evaluating ML models, or assessing AI governance.
 tags:
   - analysis

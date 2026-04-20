@@ -1,5 +1,6 @@
 ---
 name: adverse-event-reporting-policy
+language: en
 description: >
   Drafts an Adverse Event Reporting Policy compliant with 21 CFR 312.32
   (IND safety reporting), 21 CFR 314.80 (postmarketing), and ICH E2A, with

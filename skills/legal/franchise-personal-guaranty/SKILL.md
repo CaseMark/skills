@@ -1,5 +1,6 @@
 ---
 name: franchise-personal-guaranty
+language: en
 description: Drafts a Personal Guaranty binding individual principals to a corporate franchisee's obligations under a franchise agreement. Covers unconditional payment-and-performance guaranty, suretyship defense waivers, reinstatement, subordination, joint and several liability, financial disclosure covenants, and spousal consent. Use when drafting franchise guaranty agreements, personal guarantees for franchise transactions, or franchisor credit enhancement documents.
 tags:
   - agreement

@@ -1,5 +1,6 @@
 ---
 name: preparing-fundraising-pipeline-reports
+language: en
 description: Tracks fundraising progress with prospect pipeline, commitment tracking, and closing projection for fund formation processes. Use when monitoring fundraising, tracking LP commitments, or projecting fund closing timelines.
 tags:
   - preparation

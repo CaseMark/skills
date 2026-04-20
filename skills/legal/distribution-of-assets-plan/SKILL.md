@@ -1,5 +1,6 @@
 ---
 name: distribution-of-assets-plan
+language: en
 description: >-
   Drafts a corporate Distribution of Assets Plan for dissolution, restructuring,
   or wind-down, covering asset inventory with valuations, beneficiary designations,

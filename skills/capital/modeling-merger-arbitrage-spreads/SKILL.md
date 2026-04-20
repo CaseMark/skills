@@ -1,5 +1,6 @@
 ---
 name: modeling-merger-arbitrage-spreads
+language: en
 description: Calculates merger arb risk/reward with annualized spread, deal break probability, and downside scenario analysis. Use when analyzing merger arb, calculating spread returns, or evaluating deal completion probability.
 tags:
   - modeling

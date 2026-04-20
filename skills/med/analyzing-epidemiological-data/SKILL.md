@@ -1,5 +1,6 @@
 ---
 name: analyzing-epidemiological-data
+language: en
 description: Structures epidemiologic analysis with incidence, prevalence, rate calculations, and statistical inference. Use when calculating disease rates, analyzing epi data, or interpreting population statistics.
 tags:
   - analysis

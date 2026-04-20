@@ -1,5 +1,6 @@
 ---
 name: managing-hypertension
+language: en
 description: Guides JNC/ACC hypertension management with staging, treatment algorithms, and monitoring schedules. Use when managing blood pressure, titrating antihypertensives, or creating hypertension care plans.
 tags:
   - management

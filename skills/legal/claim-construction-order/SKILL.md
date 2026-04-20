@@ -1,5 +1,6 @@
 ---
 name: claim-construction-order
+language: en
 description: Drafts a U.S. federal court Claim Construction Order (Markman order) applying the Phillips v. AWH Corp. intrinsic/extrinsic evidence hierarchy to construe disputed patent claim terms. Use when drafting Markman orders, claim construction memoranda, or disputed-term rulings in U.S. patent litigation.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: employee-nda
+language: en
 description: >-
   Drafts U.S. employee non-disclosure/confidentiality agreements that protect
   employer trade secrets and proprietary information while preserving employee

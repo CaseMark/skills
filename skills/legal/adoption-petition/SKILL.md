@@ -1,5 +1,6 @@
 ---
 name: adoption-petition
+language: en
 description: Drafts a Petition for Adoption for U.S. family law courts (stepparent, relative, agency, independent). Use when drafting adoption petitions, initiating adoption proceedings, or preparing pre-filing adoption pleadings.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: conducting-risk-control-self-assessments
+language: en
 description: Designs and facilitates RCSA processes with risk identification, control evaluation, and action planning. Use when conducting RCSAs, evaluating internal controls, or identifying emerging risks.
 tags:
   - process

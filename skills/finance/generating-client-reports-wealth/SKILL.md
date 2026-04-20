@@ -1,5 +1,6 @@
 ---
 name: generating-client-reports-wealth
+language: en
 description: Creates wealth management client reports with performance, net worth, and planning progress documentation. Use when preparing client reviews, creating wealth reports, or documenting planning progress.
 tags:
   - wealth-management

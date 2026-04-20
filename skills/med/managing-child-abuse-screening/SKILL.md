@@ -1,5 +1,6 @@
 ---
 name: managing-child-abuse-screening
+language: en
 description: Guides child maltreatment assessment with mandatory reporting documentation and forensic considerations. Use when screening for child abuse, documenting suspicious injuries, or completing mandatory reports.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: tone-diplomatic
+language: en
 description: Applies measured, diplomatic tone to legal writing. Triggers when drafting demand letters, settlement communications, motions, briefs, judicial submissions, or opposing counsel correspondence requiring balanced persuasion and professional courtesy.
 tags:
   - brief

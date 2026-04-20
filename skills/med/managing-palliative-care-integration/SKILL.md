@@ -1,5 +1,6 @@
 ---
 name: managing-palliative-care-integration
+language: en
 description: Guides palliative care consultation timing and symptom management integration with curative therapy. Use when integrating palliative care, managing cancer symptoms, or coordinating concurrent curative and palliative treatment.
 tags:
   - management

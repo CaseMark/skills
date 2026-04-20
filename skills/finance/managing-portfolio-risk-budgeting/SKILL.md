@@ -1,5 +1,6 @@
 ---
 name: managing-portfolio-risk-budgeting
+language: en
 description: Allocates portfolio risk across asset classes and strategies with tracking error and VaR budgeting. Use when budgeting portfolio risk, managing tracking error, or allocating risk capital.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: conducting-collateral-pool-analysis
+language: en
 description: Assesses underlying asset pools with stratification, concentration analysis, historical performance, and credit quality distribution. Use when analyzing collateral pools, stratifying asset characteristics, or evaluating pool quality.
 tags:
   - process

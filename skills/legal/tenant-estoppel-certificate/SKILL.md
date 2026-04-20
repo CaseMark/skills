@@ -1,5 +1,6 @@
 ---
 name: tenant-estoppel-certificate
+language: en
 description: Drafts tenant estoppel certificates for commercial real estate acquisitions and financings. Produces numbered certifications binding tenants to lease representations for reliance by purchasers and lenders during due diligence. Covers lease terms, rent status, defaults, options, claims, and security deposits. Use when drafting estoppel certificates, tenant certifications, lease verification documents, or property acquisition due diligence instruments.
 tags:
   - agreement

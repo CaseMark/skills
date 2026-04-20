@@ -1,5 +1,6 @@
 ---
 name: request-for-admissions
+language: en
 description: Drafts Requests for Admissions under FRCP 36 or state equivalents for personal injury litigation. Extracts facts from case documents to produce numbered admission requests covering factual matters, document authentication, and law-to-fact application. Use when drafting RFAs, narrowing trial issues, authenticating exhibits, or preparing discovery requests.
 ---
 

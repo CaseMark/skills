@@ -1,5 +1,6 @@
 ---
 name: conducting-monte-carlo-portfolio-analysis
+language: en
 description: Runs Monte Carlo simulations for portfolio analysis with return distribution, tail risk, and path-dependent scenario evaluation. Use when running portfolio simulations, estimating tail risk, or analyzing return distributions.
 tags:
   - process

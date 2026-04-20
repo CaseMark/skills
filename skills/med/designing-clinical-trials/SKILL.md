@@ -1,5 +1,6 @@
 ---
 name: designing-clinical-trials
+language: en
 description: Structures clinical trial protocol design with study type selection, endpoint definition, and power calculation. Use when designing trials, writing protocols, or calculating sample sizes.
 tags:
   - design

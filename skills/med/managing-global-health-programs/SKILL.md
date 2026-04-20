@@ -1,5 +1,6 @@
 ---
 name: managing-global-health-programs
+language: en
 description: Structures international health program design with WHO guidelines and cross-cultural considerations. Use when managing global health initiatives, applying WHO frameworks, or designing international health programs.
 tags:
   - management

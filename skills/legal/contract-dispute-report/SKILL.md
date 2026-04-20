@@ -1,5 +1,6 @@
 ---
 name: contract-dispute-report
+language: en
 description: >-
   Generates a structured litigation analysis report for US commercial contract
   disputes, covering breach theories, defenses, remedies, and settlement

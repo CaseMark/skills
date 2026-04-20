@@ -1,5 +1,6 @@
 ---
 name: conflict-of-interest-policy
+language: en
 description: >-
   Drafts U.S. corporate and nonprofit conflict-of-interest policies with
   disclosure mechanics, review/recusal procedures, and enforcement controls

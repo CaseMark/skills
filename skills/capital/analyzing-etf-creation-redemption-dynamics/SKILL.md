@@ -1,5 +1,6 @@
 ---
 name: analyzing-etf-creation-redemption-dynamics
+language: en
 description: Evaluates ETF market mechanics with premium/discount analysis, authorized participant activity, and creation unit arbitrage. Use when analyzing ETF trading, evaluating NAV premiums, or understanding creation/redemption flows.
 tags:
   - analysis

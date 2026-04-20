@@ -1,5 +1,6 @@
 ---
 name: analyzing-inflation-dynamics
+language: en
 description: Structures inflation analysis with component decomposition, expectations tracking, and Phillips curve assessment. Use when analyzing inflation, decomposing CPI/PCE, or tracking inflation expectations.
 tags:
   - analysis

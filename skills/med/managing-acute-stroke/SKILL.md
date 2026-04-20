@@ -1,5 +1,6 @@
 ---
 name: managing-acute-stroke
+language: en
 description: Follows time-critical stroke pathway from door-to-needle with NIHSS scoring and tPA criteria. Use when managing stroke alerts, calculating NIHSS, or coordinating thrombolytic decisions.
 tags:
   - management

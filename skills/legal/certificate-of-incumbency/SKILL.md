@@ -1,5 +1,6 @@
 ---
 name: certificate-of-incumbency
+language: en
 description: Drafts a Certificate of Incumbency certifying current officers, directors, and signing authority for a U.S. corporation. Covers exact legal name matching, incumbency tables with specimen signatures, board resolution certification, authority limitations, reliance language, and execution formalities. Use when banks, lenders, investors, or counterparties require verification of corporate authority for closings, financings, or transactions.
 ---
 

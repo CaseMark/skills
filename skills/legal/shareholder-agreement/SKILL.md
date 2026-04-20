@@ -1,5 +1,6 @@
 ---
 name: shareholder-agreement
+language: en
 description: >-
   Drafts U.S. shareholder agreements governing ownership, control, transfers,
   valuation, and exits with enforceable governance and dispute frameworks. Use

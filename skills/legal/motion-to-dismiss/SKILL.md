@@ -1,5 +1,6 @@
 ---
 name: motion-to-dismiss
+language: en
 description: Drafts FRCP 12(b) motions to dismiss for commercial litigation. Triggers on requests to draft motions to dismiss, 12(b)(6) motions, jurisdictional challenges, venue motions, or pre-answer dispositive motions during the pleadings phase.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: analyzing-real-estate-secondaries
+language: en
 description: Evaluates real estate fund secondary transactions with NAV validation, property-level assessment, and sector/vintage analysis. Use when pricing RE secondaries, analyzing property portfolios, or evaluating REIT fund interests.
 tags:
   - analysis

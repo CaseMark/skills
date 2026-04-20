@@ -1,5 +1,6 @@
 ---
 name: attorneys-fees-motion
+language: en
 description: Drafts post-judgment motions for attorneys' fees using the lodestar method. Covers prevailing party analysis, rate justification, hours documentation, billing judgment, lodestar enhancements, and supporting declarations. Trigger when user needs a fee motion, fee petition, lodestar calculation, or post-trial fee application.
 tags:
   - drafting

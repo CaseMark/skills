@@ -1,5 +1,6 @@
 ---
 name: amicus-interest-statement
+language: en
 description: >
   Drafts the "Interest of Amicus Curiae" section of an amicus brief. Establishes
   institutional credibility, tethers the amicus's interest to the specific legal

@@ -1,5 +1,6 @@
 ---
 name: franchise-lease-rider
+language: en
 description: Drafts a U.S. franchise lease rider/recognition agreement establishing franchisor as third-party beneficiary with notice/cure, assignment, brand, IP, alteration, and exclusivity protections. Triggers on "lease rider", "recognition agreement", "franchise lease", "third-party beneficiary", "notice and cure", "assignment option", or franchise location lease addenda.
 tags:
   - agreement

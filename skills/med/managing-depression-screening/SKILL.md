@@ -1,5 +1,6 @@
 ---
 name: managing-depression-screening
+language: en
 description: Administers and interprets PHQ-9 with severity-based treatment pathways and safety assessment. Use when screening for depression, interpreting PHQ scores, or initiating mental health treatment.
 tags:
   - management

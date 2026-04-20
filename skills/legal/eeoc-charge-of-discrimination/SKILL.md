@@ -1,5 +1,6 @@
 ---
 name: eeoc-charge-of-discrimination
+language: en
 description: Drafts an EEOC Charge of Discrimination (Form 5) for federal administrative complaints under Title VII, ADEA, ADA, GINA, and EPA. Verifies jurisdiction and timeliness, builds a prima facie narrative from uploaded documents, and structures relief. Use when drafting employment discrimination, harassment, retaliation, failure-to-accommodate, or hostile work environment charges requiring EEOC filing before federal litigation.
 ---
 

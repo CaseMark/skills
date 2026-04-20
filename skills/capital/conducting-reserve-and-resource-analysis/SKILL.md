@@ -1,5 +1,6 @@
 ---
 name: conducting-reserve-and-resource-analysis
+language: en
 description: Evaluates mineral and hydrocarbon reserves with classification methodology, resource conversion rates, and valuation per unit analysis. Use when analyzing reserve reports, validating resource estimates, or assessing depletion profiles.
 tags:
   - process

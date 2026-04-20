@@ -1,5 +1,6 @@
 ---
 name: tila-consumer-loan-agreement
+language: en
 description: >-
   Drafts U.S. consumer loan agreements with integrated Truth in Lending
   (TILA/Reg Z) disclosures, including disclosure-box construction, APR and

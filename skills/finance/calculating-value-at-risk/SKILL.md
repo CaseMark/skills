@@ -1,5 +1,6 @@
 ---
 name: calculating-value-at-risk
+language: en
 description: Computes VaR using parametric, historical simulation, and Monte Carlo methods with backtesting validation. Use when calculating VaR, comparing risk methodologies, or backtesting risk models.
 tags:
   - analysis

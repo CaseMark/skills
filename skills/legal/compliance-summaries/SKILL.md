@@ -1,5 +1,6 @@
 ---
 name: compliance-summaries
+language: en
 description: >-
   Generates structured compliance summaries assessing regulatory posture, identifying
   gaps, and producing prioritized remediation roadmaps across finance (SEC, FINRA),

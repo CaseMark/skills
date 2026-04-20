@@ -1,5 +1,6 @@
 ---
 name: managing-portfolio-rebalancing
+language: en
 description: Structures rebalancing processes with drift monitoring, tax-aware trading, and transaction cost optimization. Use when rebalancing portfolios, managing allocation drift, or optimizing trading costs.
 tags:
   - management

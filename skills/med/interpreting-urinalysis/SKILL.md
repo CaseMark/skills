@@ -1,5 +1,6 @@
 ---
 name: interpreting-urinalysis
+language: en
 description: Structures complete urinalysis interpretation with microscopy correlation and clinical significance. Use when interpreting UA results, correlating microscopy findings, or evaluating renal function markers.
 tags:
   - analysis

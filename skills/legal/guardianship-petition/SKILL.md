@@ -1,5 +1,6 @@
 ---
 name: guardianship-petition
+language: en
 description: Drafts court-ready Petitions for Guardianship for US state courts, covering incapacity allegations, least-restrictive-alternative analysis, scope-of-authority requests, and statutory compliance. Use when drafting guardianship petitions, conservatorship filings, or petitions for appointment of guardian over incapacitated adults or minors.
 tags:
   - drafting

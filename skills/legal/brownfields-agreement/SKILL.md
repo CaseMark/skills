@@ -1,5 +1,6 @@
 ---
 name: brownfields-agreement
+language: en
 description: Drafts Brownfields Agreements for contaminated-property transactions under CERCLA, EPA brownfields programs, and state voluntary cleanup programs. Structures BFPP liability protections, All Appropriate Inquiries documentation, remediation obligations, institutional controls, cost allocation, and long-term stewardship covenants. Use when drafting brownfields purchase agreements, prospective purchaser agreements, voluntary cleanup MOAs, or environmental covenant frameworks.
 tags:
   - agreement

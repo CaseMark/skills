@@ -1,5 +1,6 @@
 ---
 name: preparing-equity-capital-markets-updates
+language: en
 description: Synthesizes ECM market conditions with recent pricing, sector performance, and pipeline activity for client communication. Use when preparing market updates, summarizing ECM activity, or advising on market timing.
 tags:
   - preparation

@@ -1,5 +1,6 @@
 ---
 name: epc-contract
+language: en
 description: Drafts turnkey Engineering, Procurement, and Construction (EPC) contracts for industrial facility projects. Covers scope of work, commercial terms, performance guarantees, risk allocation, warranties, and dispute resolution. Use when drafting EPC agreements, turnkey construction contracts, or energy infrastructure project contracts (power plants, petrochemical facilities, water treatment plants).
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: managing-strength-testing
+language: en
 description: Structures manual muscle testing and dynamometry with grading and functional correlation. Use when testing muscle strength, grading MMT, or documenting strength assessment.
 tags:
   - management

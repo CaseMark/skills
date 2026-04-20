@@ -1,5 +1,6 @@
 ---
 name: managing-blood-product-administration
+language: en
 description: Guides blood product administration with verification, monitoring, and transfusion reaction management. Use when administering blood products, monitoring transfusions, or managing transfusion reactions.
 tags:
   - management

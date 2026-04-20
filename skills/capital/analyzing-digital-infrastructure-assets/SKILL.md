@@ -1,5 +1,6 @@
 ---
 name: analyzing-digital-infrastructure-assets
+language: en
 description: Evaluates data centers, fiber networks, and tower assets with capacity analysis, tenant credit, and technology obsolescence risk. Use when analyzing digital infrastructure, evaluating tower portfolios, or assessing data center investments.
 tags:
   - analysis

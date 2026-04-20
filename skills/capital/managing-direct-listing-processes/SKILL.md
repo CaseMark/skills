@@ -1,5 +1,6 @@
 ---
 name: managing-direct-listing-processes
+language: en
 description: Structures direct listing execution with opening auction mechanics, reference price methodology, and market maker coordination. Use when executing direct listings, analyzing DL mechanics, or comparing DL vs IPO economics.
 tags:
   - management

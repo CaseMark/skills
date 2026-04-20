@@ -1,5 +1,6 @@
 ---
 name: analyzing-catastrophe-risk
+language: en
 description: Structures catastrophe risk assessment with model output interpretation and accumulation monitoring. Use when analyzing cat risk, interpreting cat model results, or managing cat exposure.
 tags:
   - analysis

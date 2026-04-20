@@ -1,5 +1,6 @@
 ---
 name: blue-sky-filings
+language: en
 description: >
   Produces a practitioner-grade Blue Sky compliance memorandum and execution plan
   for U.S. securities offerings. Analyzes NSMIA covered securities preemption,

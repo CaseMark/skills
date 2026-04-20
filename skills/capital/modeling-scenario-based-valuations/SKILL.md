@@ -1,5 +1,6 @@
 ---
 name: modeling-scenario-based-valuations
+language: en
 description: Builds probability-weighted valuation models with multiple exit scenarios, timing assumptions, and risk-adjusted returns. Use when building growth equity valuations, modeling scenario-weighted outcomes, or analyzing risk-adjusted returns.
 tags:
   - modeling

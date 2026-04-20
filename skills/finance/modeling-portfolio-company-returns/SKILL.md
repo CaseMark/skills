@@ -1,5 +1,6 @@
 ---
 name: modeling-portfolio-company-returns
+language: en
 description: Builds PE return models with entry/exit multiples, leverage analysis, and value creation attribution. Use when modeling PE returns, calculating IRR/MOIC, or attributing value creation drivers.
 tags:
   - modeling

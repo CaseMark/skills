@@ -1,5 +1,6 @@
 ---
 name: managing-medication-administration
+language: en
 description: Guides safe medication administration with rights verification, timing, and documentation requirements. Use when administering medications, documenting med administration, or managing medication timing.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-emtala-compliance
+language: en
 description: Evaluates emergency department practices against EMTALA requirements with documentation checklists. Use when assessing EMTALA compliance, reviewing MSE requirements, or documenting transfer obligations.
 tags:
   - management

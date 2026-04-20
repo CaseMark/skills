@@ -1,5 +1,6 @@
 ---
 name: expert-deposition
+language: en
 description: Guides taking or defending U.S. expert witness depositions with Daubert/Frye methodology testing, Rule 26(a)(2) compliance, and Rule 702/703 foundations. Use when building expert deposition outlines, preparing Daubert challenge records, defending expert prep sessions, reviewing expert reports for admissibility, or creating expert testimony lock-in strategies.
 ---
 

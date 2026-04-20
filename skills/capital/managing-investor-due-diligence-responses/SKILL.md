@@ -1,5 +1,6 @@
 ---
 name: managing-investor-due-diligence-responses
+language: en
 description: Coordinates DDQ completion with standardized responses, data room preparation, and reference call management for prospective LPs. Use when responding to LP DD, completing DDQs, or managing investor onboarding processes.
 tags:
   - management

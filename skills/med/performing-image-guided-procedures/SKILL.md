@@ -1,5 +1,6 @@
 ---
 name: performing-image-guided-procedures
+language: en
 description: Documents image-guided biopsy, drainage, and injection procedures with technique and specimens. Use when performing IR procedures, documenting image-guided interventions, or recording procedural details.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: board-meeting-summary
+language: en
 description: Produces a structured, objective summary of corporate board meetings covering metadata, quorum, attendance, conflicts, resolutions with vote counts, committee reports, and significant corporate actions. Use when summarizing board minutes, creating a corporate governance record, or preparing a post-meeting recap for officers, shareholders, or regulators.
 ---
 

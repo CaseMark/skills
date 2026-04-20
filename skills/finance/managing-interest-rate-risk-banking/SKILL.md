@@ -1,5 +1,6 @@
 ---
 name: managing-interest-rate-risk-banking
+language: en
 description: Structures bank interest rate risk analysis with EVE, NII sensitivity, and gap analysis. Use when managing bank IRR, modeling NII sensitivity, or analyzing repricing gaps.
 tags:
   - management

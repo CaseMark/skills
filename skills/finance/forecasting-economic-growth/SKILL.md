@@ -1,5 +1,6 @@
 ---
 name: forecasting-economic-growth
+language: en
 description: Structures GDP growth forecasting with component analysis, nowcasting techniques, and revision tracking. Use when forecasting GDP, analyzing growth components, or building economic projections.
 tags:
   - forecasting

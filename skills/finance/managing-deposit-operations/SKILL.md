@@ -1,5 +1,6 @@
 ---
 name: managing-deposit-operations
+language: en
 description: Structures deposit product analysis with pricing, retention analytics, and regulatory compliance. Use when analyzing deposits, evaluating pricing strategies, or managing deposit compliance.
 tags:
   - management

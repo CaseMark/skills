@@ -1,5 +1,6 @@
 ---
 name: preparing-transfer-summaries
+language: en
 description: Creates comprehensive transfer documentation for ICU-to-floor or facility-to-facility transitions. Use when transferring patients between units, preparing transfer notes, or coordinating level-of-care changes.
 tags:
   - preparation

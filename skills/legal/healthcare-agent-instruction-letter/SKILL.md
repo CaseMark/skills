@@ -1,5 +1,6 @@
 ---
 name: healthcare-agent-instruction-letter
+language: en
 description: >-
   Drafts a non-binding healthcare values/instruction letter for a designated health care agent to guide substituted-judgment decisions during incapacity. Use when a client needs a bedside document that harmonizes with a health care power of attorney, healthcare proxy, or advance directive and captures quality-of-life thresholds, treatment preferences, and conflict guidance. Trigger on requests for "instruction letter," "health care agent letter," "values letter," "legacy letter," "healthcare proxy," or "DPOA health care."
 tags:

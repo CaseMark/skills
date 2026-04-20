@@ -1,5 +1,6 @@
 ---
 name: import-compliance-manual
+language: en
 description: >-
   Drafts a U.S. import compliance manual demonstrating reasonable care under
   19 U.S.C. § 1484. Covers HTS classification, customs valuation (19 U.S.C.

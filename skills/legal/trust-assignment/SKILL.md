@@ -1,5 +1,6 @@
 ---
 name: trust-assignment
+language: en
 description: Drafts an Assignment of Property to Trust document transferring assets from a grantor into a revocable or irrevocable trust. Covers real property, financial accounts, business interests, personal property, and intellectual property with jurisdiction-specific execution formalities. Use when funding a trust, transferring assets to a living trust, assigning property to a trustee, or preparing trust funding documents.
 ---
 

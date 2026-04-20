@@ -1,5 +1,6 @@
 ---
 name: directed-share-program
+language: en
 description: Drafts a Directed Share Program (DSP) agreement governing share allocation and purchase by designated participants in a U.S. public offering or IPO. Covers eligibility, allocation methodology, pricing, settlement, lock-up, indemnification, and SEC/FINRA compliance. Use when preparing DSP documentation for underwritten public offerings, IPO directed share programs, or controlled share purchase programs for employees, directors, and business associates.
 ---
 

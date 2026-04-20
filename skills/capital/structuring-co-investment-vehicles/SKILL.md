@@ -1,5 +1,6 @@
 ---
 name: structuring-co-investment-vehicles
+language: en
 description: Designs co-investment fund structures with deal-specific and programmatic formats, fee terms, and allocation methodology. Use when structuring co-invest programs, designing deal-specific vehicles, or analyzing co-invest economics.
 tags:
   - fund-formation-and-structuring

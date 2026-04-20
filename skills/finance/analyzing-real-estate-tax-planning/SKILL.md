@@ -1,5 +1,6 @@
 ---
 name: analyzing-real-estate-tax-planning
+language: en
 description: Evaluates real estate tax strategies including 1031 exchanges, opportunity zones, and cost segregation. Use when planning real estate tax, structuring 1031 exchanges, or analyzing cost segregation studies.
 tags:
   - analysis

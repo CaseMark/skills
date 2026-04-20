@@ -1,5 +1,6 @@
 ---
 name: transition-services-plan
+language: en
 description: Drafts a Transition Services Plan exhibit to an Asset Purchase Agreement, organizing post-closing seller-to-buyer support by functional area with scope, duration, contacts, and deliverables. Triggers on requests for TSA exhibits, transition plans, post-closing support schedules, or operational handover documents in asset purchase transactions.
 tags:
   - agreement

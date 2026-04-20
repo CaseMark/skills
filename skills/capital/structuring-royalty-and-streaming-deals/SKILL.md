@@ -1,5 +1,6 @@
 ---
 name: structuring-royalty-and-streaming-deals
+language: en
 description: Designs royalty and streaming agreements with volume projections, delivery schedules, and implied return analysis. Use when structuring royalty deals, analyzing stream economics, or evaluating passive resource exposure.
 tags:
   - real-assets-and-natural-resources

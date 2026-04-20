@@ -1,5 +1,6 @@
 ---
 name: expert-omissions-analysis
+language: en
 description: Analyzes expert witness reports against complete medical record sets to identify omissions, bias patterns, and methodology gaps. Generates impeachment-ready reports with pin-cited findings and strategic recommendations. Triggers when the user needs to review opposing expert reports, prepare cross-examination, support Daubert/Frye motions, or retain rebuttal experts in personal injury or medical malpractice litigation.
 tags:
   - analysis

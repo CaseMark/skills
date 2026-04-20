@@ -1,5 +1,6 @@
 ---
 name: analyzing-spac-transaction-structures
+language: en
 description: Evaluates SPAC de-SPAC transaction economics with sponsor dilution, redemption risk, PIPE analysis, and warrant impact. Use when analyzing SPAC deals, evaluating sponsor economics, or modeling de-SPAC outcomes.
 tags:
   - analysis

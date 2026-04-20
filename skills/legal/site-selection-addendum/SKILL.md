@@ -1,5 +1,6 @@
 ---
 name: site-selection-addendum
+language: en
 description: >-
   Drafts a Site Selection Addendum for franchise real estate transactions,
   establishing objective site criteria, sequential approval processes,

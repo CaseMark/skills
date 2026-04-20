@@ -1,5 +1,6 @@
 ---
 name: analyzing-decommissioning-obligations
+language: en
 description: Evaluates asset retirement and decommissioning liabilities with cost estimation, timing analysis, and funding adequacy assessment. Use when analyzing decommissioning costs, evaluating ARO exposure, or assessing abandonment liability.
 tags:
   - analysis

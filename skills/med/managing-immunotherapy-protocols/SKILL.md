@@ -1,5 +1,6 @@
 ---
 name: managing-immunotherapy-protocols
+language: en
 description: Guides immune checkpoint inhibitor management with irAE recognition and grading. Use when managing immunotherapy, monitoring for irAEs, or treating immune-related toxicity.
 tags:
   - management

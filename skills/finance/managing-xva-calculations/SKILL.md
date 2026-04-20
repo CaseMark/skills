@@ -1,5 +1,6 @@
 ---
 name: managing-xva-calculations
+language: en
 description: Structures CVA, DVA, FVA, and KVA calculation with methodology selection and counterparty exposure modeling. Use when calculating XVA, pricing counterparty credit risk, or analyzing funding valuation adjustments.
 tags:
   - management

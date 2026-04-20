@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-dermatology
+language: en
 description: Identifies and manages common pediatric skin conditions with visual diagnosis and treatment protocols. Use when evaluating pediatric rashes, managing eczema, or treating common skin conditions in children.
 tags:
   - management

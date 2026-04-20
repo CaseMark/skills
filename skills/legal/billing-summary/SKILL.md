@@ -1,5 +1,6 @@
 ---
 name: billing-summary
+language: en
 description: >-
   Produces privilege-safe U.S. corporate legal billing summaries from time and
   expense data. Converts entries into client-friendly narratives with categorized

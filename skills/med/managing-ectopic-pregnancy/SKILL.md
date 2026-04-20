@@ -1,5 +1,6 @@
 ---
 name: managing-ectopic-pregnancy
+language: en
 description: Guides ectopic pregnancy evaluation with beta-hCG trending and management algorithms. Use when evaluating ectopic pregnancy, trending beta-hCG, or managing ectopic treatment decisions.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: gdpr-data-processing-addendum
+language: en
 description: >-
   Drafts an Article 28-aligned GDPR Data Processing Addendum (DPA) as an
   attachable annex for SaaS, cloud, or outsourcing agreements. Outputs

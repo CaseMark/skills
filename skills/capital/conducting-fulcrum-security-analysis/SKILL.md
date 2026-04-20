@@ -1,5 +1,6 @@
 ---
 name: conducting-fulcrum-security-analysis
+language: en
 description: Identifies fulcrum securities in distressed capital structures with enterprise value allocation and recovery sensitivity analysis. Use when analyzing fulcrum securities, estimating recovery ranges, or determining value breaks.
 tags:
   - process

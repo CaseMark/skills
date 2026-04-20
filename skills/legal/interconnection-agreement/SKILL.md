@@ -1,5 +1,6 @@
 ---
 name: interconnection-agreement
+language: en
 description: >-
   Drafts U.S. telecommunications Interconnection Agreements (ICAs) under
   47 U.S.C. §§ 251-252 and FCC Part 51, covering POIs, traffic classification,

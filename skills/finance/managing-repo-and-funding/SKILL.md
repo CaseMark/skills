@@ -1,5 +1,6 @@
 ---
 name: managing-repo-and-funding
+language: en
 description: Structures repo market analysis with collateral valuation, haircut assessment, and funding cost optimization. Use when managing repo positions, evaluating collateral, or optimizing funding costs.
 tags:
   - management

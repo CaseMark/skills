@@ -1,5 +1,6 @@
 ---
 name: director-officer-questionnaire
+language: en
 description: Drafts Director and Officer (D&O) questionnaires for SEC disclosure compliance under Reg S-K Items 401, 402, 404, and 407. Covers biographical data, board service, conflicts of interest, related party transactions, legal proceedings, and beneficial ownership. Use when preparing annual proxy questionnaires, pre-IPO governance documentation, M&A due diligence packages, or independence assessments.
 ---
 

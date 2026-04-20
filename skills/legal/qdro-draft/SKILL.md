@@ -1,5 +1,6 @@
 ---
 name: qdro-draft
+language: en
 description: Drafts Qualified Domestic Relations Orders (QDROs) compliant with ERISA §206(d)(3) and IRC §414(p) to divide retirement benefits in divorce. Covers defined benefit pensions, 401(k)s, and defined contribution plans with plan-specific division formulas and alternate payee protections. Use when drafting QDROs, dividing retirement assets post-judgment, or preparing domestic relations orders for plan administrator review.
 ---
 

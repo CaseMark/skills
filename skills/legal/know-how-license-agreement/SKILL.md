@@ -1,5 +1,6 @@
 ---
 name: know-how-license-agreement
+language: en
 description: >-
   Drafts U.S. know-how (trade secret) license agreements covering scope,
   exclusivity, field-of-use, territory, consideration, confidentiality,

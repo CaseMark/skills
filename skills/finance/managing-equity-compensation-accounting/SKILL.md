@@ -1,5 +1,6 @@
 ---
 name: managing-equity-compensation-accounting
+language: en
 description: Structures stock-based compensation accounting with fair value measurement and expense recognition. Use when accounting for equity comp, calculating Black-Scholes values, or documenting share-based payments.
 tags:
   - management

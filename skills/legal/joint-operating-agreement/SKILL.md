@@ -1,5 +1,6 @@
 ---
 name: joint-operating-agreement
+language: en
 description: >-
   Drafts U.S. Joint Operating Agreements (JOA) for oil and gas exploration,
   development, and production. Covers party structure, operator authority, AFE

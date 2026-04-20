@@ -1,5 +1,6 @@
 ---
 name: coordinating-multidisciplinary-cancer-care
+language: en
 description: Synthesizes surgical, medical, and radiation oncology inputs into coordinated treatment timelines. Use when coordinating multimodal treatment, scheduling sequential therapies, or managing treatment timelines.
 tags:
   - coordination

@@ -1,5 +1,6 @@
 ---
 name: managing-block-trade-execution
+language: en
 description: Coordinates large block execution with market impact minimization, counterparty selection, and crossing network utilization. Use when executing block trades, managing large orders, or minimizing market footprint.
 tags:
   - management

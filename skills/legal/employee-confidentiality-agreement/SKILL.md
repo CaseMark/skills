@@ -1,5 +1,6 @@
 ---
 name: employee-confidentiality-agreement
+language: en
 description: Drafts enforceable Employee Confidentiality and Security Agreements protecting trade secrets, proprietary information, and digital assets. Incorporates DTSA whistleblower notice, state-specific enforceability, NLRA carveouts, and data privacy compliance. Use when onboarding employees, updating confidentiality policies, or creating security agreements for data privacy and cybersecurity contexts.
 ---
 

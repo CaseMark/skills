@@ -1,5 +1,6 @@
 ---
 name: bankruptcy-interest-calculation
+language: en
 description: Calculates pre-petition interest for bankruptcy proofs of claim and produces a filing-ready worksheet. Covers rate source hierarchy, day-count conventions, simple interest formulas, post-petition rules under 11 U.S.C. § 506(b), and fee inclusion standards. Use when preparing interest components of a proof of claim, calculating creditor claim amounts, or verifying interest calculations.
 ---
 

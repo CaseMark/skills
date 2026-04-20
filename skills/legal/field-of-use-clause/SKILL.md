@@ -1,5 +1,6 @@
 ---
 name: field-of-use-clause
+language: en
 description: Drafts field-of-use restriction clauses for U.S. IP licensing agreements, limiting licensee exploitation to a defined permitted field by industry, application, geography, or customer type. Use when drafting or negotiating permitted use clauses, field-of-use limitations, or technology licensing scope provisions.
 tags:
   - agreement

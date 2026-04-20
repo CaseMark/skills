@@ -1,5 +1,6 @@
 ---
 name: managing-specimen-integrity
+language: en
 description: Evaluates specimen adequacy and rejection criteria with pre-analytical quality documentation. Use when assessing specimen quality, documenting rejection reasons, or managing pre-analytical errors.
 tags:
   - management

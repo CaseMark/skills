@@ -1,5 +1,6 @@
 ---
 name: managing-portfolio-company-reporting
+language: en
 description: Structures portfolio company monitoring with KPI tracking, budget variance, and management assessment. Use when monitoring portfolio companies, tracking financial performance, or preparing portfolio reviews.
 tags:
   - management

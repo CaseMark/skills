@@ -1,5 +1,6 @@
 ---
 name: lease-summary
+language: en
 description: Summarizes U.S. commercial lease agreements into structured transactional abstracts. Use when asked for a commercial lease summary, lease abstract, key lease terms, rent schedule review, default/termination analysis, or lease handoff. Produces party-to-obligation mappings, financial mechanics, risk flags, and critical date calendars.
 tags:
   - summarization

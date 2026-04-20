@@ -1,5 +1,6 @@
 ---
 name: building-quantitative-trading-models
+language: en
 description: Structures systematic trading strategy development with signal generation, backtesting, and validation. Use when building quant models, backtesting strategies, or validating trading signals.
 tags:
   - modeling

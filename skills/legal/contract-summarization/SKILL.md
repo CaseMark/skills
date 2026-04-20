@@ -1,5 +1,6 @@
 ---
 name: contract-summarization
+language: en
 description: Generates structured summaries of U.S. contracts capturing parties, business terms, legal provisions, termination, and dispute resolution. Flags one-sided, ambiguous, or missing standard provisions. Use when summarizing agreements for due diligence, contract review, compliance monitoring, or transaction management — including multi-document sets with exhibits, schedules, and amendments.
 ---
 

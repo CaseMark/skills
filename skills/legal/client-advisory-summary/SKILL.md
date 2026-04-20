@@ -1,5 +1,6 @@
 ---
 name: client-advisory-summary
+language: en
 description: >-
   Produces client-ready U.S. regulatory advisory summaries translating legal
   developments into actionable impacts with effective-date tracking and Bluebook

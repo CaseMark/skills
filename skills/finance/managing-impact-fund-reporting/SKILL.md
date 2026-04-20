@@ -1,5 +1,6 @@
 ---
 name: managing-impact-fund-reporting
+language: en
 description: Structures impact fund reporting with IRIS+ metrics, theory of change alignment, and additionality assessment. Use when reporting impact metrics, using IRIS+ indicators, or measuring fund impact.
 tags:
   - management

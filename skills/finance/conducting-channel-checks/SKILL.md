@@ -1,5 +1,6 @@
 ---
 name: conducting-channel-checks
+language: en
 description: Structures industry channel check findings with data normalization and trend identification. Use when synthesizing channel check data, analyzing industry indicators, or documenting field research.
 tags:
   - process

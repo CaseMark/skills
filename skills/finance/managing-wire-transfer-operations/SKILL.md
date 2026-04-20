@@ -1,5 +1,6 @@
 ---
 name: managing-wire-transfer-operations
+language: en
 description: Structures wire transfer processing with verification, OFAC screening, and exception handling. Use when processing wires, managing wire operations, or handling wire exceptions.
 tags:
   - management

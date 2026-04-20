@@ -1,5 +1,6 @@
 ---
 name: executing-month-end-close
+language: en
 description: Structures month-end close procedures with journal entry preparation, reconciliation, and variance analysis. Use when performing month-end close, preparing close checklists, or analyzing period variances.
 tags:
   - accounting

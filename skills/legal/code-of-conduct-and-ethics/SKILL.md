@@ -1,5 +1,6 @@
 ---
 name: code-of-conduct-and-ethics
+language: en
 description: >-
   Drafts a U.S. corporate Code of Business Conduct and Ethics with governance
   controls, enforcement mechanics, and implementation artifacts. Triggers on

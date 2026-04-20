@@ -1,5 +1,6 @@
 ---
 name: analyzing-oilfield-services-economics
+language: en
 description: Evaluates OFS sector investments with rig count sensitivity, day rate analysis, and technology adoption curves. Use when analyzing oilfield services, evaluating service company economics, or assessing technology uptake.
 tags:
   - analysis

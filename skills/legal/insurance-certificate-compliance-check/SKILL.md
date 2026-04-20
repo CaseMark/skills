@@ -1,5 +1,6 @@
 ---
 name: insurance-certificate-compliance-check
+language: en
 description: >-
   Performs contract-driven compliance review of insurance certificates and
   endorsements against CRE/site-access and vendor agreement requirements.

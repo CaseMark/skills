@@ -1,5 +1,6 @@
 ---
 name: analyzing-global-capital-flows
+language: en
 description: Structures capital flow analysis with BOP interpretation, hot money tracking, and flow dynamics assessment. Use when analyzing capital flows, interpreting BOP data, or tracking cross-border investment.
 tags:
   - analysis

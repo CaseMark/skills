@@ -1,5 +1,6 @@
 ---
 name: related-party-transaction-policy
+language: en
 description: Drafts a board-adoptable Related Party Transaction Policy for U.S. corporations governing identification, Audit Committee review, approval, and disclosure of related party transactions. Enforces SEC Item 404(a)/Regulation S-K compliance and stock exchange listing standards. Use when creating or updating RPT policies for public or private companies, or when drafting corporate governance documents addressing conflicts of interest.
 ---
 

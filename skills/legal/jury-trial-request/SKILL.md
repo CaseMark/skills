@@ -1,5 +1,6 @@
 ---
 name: jury-trial-request
+language: en
 description: Drafts a formal Request for Jury Trial invoking Sixth Amendment (criminal) or Seventh Amendment (civil) rights. Covers federal FRCP Rule 38, FRCrP Rule 23, state procedural variations, filing deadlines, jury fees, and waiver avoidance. Use when filing a jury demand, requesting jury trial, electing jury over bench trial, or preserving jury rights during pleadings or pre-trial phases.
 tags:
   - drafting

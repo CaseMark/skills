@@ -1,5 +1,6 @@
 ---
 name: managing-growth-equity-board-governance
+language: en
 description: Structures board engagement for growth equity investments with meeting cadence, committee design, and information rights. Use when establishing board governance, preparing board materials, or managing investor board relationships.
 tags:
   - management

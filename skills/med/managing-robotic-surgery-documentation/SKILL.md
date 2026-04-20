@@ -1,5 +1,6 @@
 ---
 name: managing-robotic-surgery-documentation
+language: en
 description: Documents robotic-assisted procedures with system setup, docking, console time, and conversion criteria. Use when documenting robotic procedures, recording system parameters, or noting robotic-specific complications.
 tags:
   - management

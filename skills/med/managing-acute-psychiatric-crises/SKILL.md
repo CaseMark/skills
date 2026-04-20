@@ -1,5 +1,6 @@
 ---
 name: managing-acute-psychiatric-crises
+language: en
 description: Guides acute agitation management with de-escalation and emergency medication protocols. Use when managing psychiatric crises, treating acute agitation, or implementing emergency interventions.
 tags:
   - management

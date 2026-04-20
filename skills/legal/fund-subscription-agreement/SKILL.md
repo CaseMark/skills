@@ -1,5 +1,6 @@
 ---
 name: fund-subscription-agreement
+language: en
 description: >-
   Drafts U.S. investment fund subscription agreements aligned to PPM/LPA terms
   and securities law compliance. Use when preparing subscription documents for

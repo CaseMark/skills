@@ -1,5 +1,6 @@
 ---
 name: managing-working-capital
+language: en
 description: Optimizes working capital with DSO, DPO, and DIO analysis and improvement initiative tracking. Use when managing working capital, analyzing cash conversion cycle, or improving collection/payment terms.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: insider-trading-policy
+language: en
 description: >-
   Drafts a U.S. financial-services insider trading policy covering MNPI
   definitions, preclearance, blackout windows, 10b5-1 plan governance,

@@ -1,5 +1,6 @@
 ---
 name: byod-policy
+language: en
 description: Drafts a Bring Your Own Device (BYOD) policy for U.S. employers governing personal device access to company systems. Covers MDM enrollment, encryption, remote wipe authority, privacy expectations, data classification, and regulatory overlays (HIPAA, GLBA, SOX, GDPR). Use when creating or updating BYOD policies, mobile device security policies, or personal device programs.
 ---
 

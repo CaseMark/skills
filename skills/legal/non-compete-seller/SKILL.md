@@ -1,5 +1,6 @@
 ---
 name: non-compete-seller
+language: en
 description: Drafts a Non-Competition and Non-Solicitation Agreement for a seller principal in an asset purchase transaction. Use when drafting ancillary restrictive covenant agreements for M&A closings, asset purchases, or business acquisitions. Covers non-compete, customer/employee non-solicitation, restricted period/territory, injunctive relief, blue-pencil reformation, and tolling.
 tags:
   - agreement

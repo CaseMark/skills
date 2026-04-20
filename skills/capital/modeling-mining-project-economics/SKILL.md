@@ -1,5 +1,6 @@
 ---
 name: modeling-mining-project-economics
+language: en
 description: Builds mining project financial models with resource estimation, mine plan integration, and commodity price sensitivity analysis. Use when modeling mining investments, analyzing feasibility studies, or evaluating mineral assets.
 tags:
   - modeling

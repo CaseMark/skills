@@ -1,5 +1,6 @@
 ---
 name: managing-community-reinvestment
+language: en
 description: Structures CRA compliance monitoring with lending, investment, and service test analysis. Use when managing CRA compliance, analyzing lending patterns, or documenting community investment.
 tags:
   - management

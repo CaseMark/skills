@@ -1,5 +1,6 @@
 ---
 name: modeling-waterfall-distribution-mechanics
+language: en
 description: Builds distribution waterfall models with European vs American style carry, preferred return accrual, and GP clawback calculation. Use when modeling distribution waterfalls, comparing carry structures, or calculating LP distributions.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: space-law-case-summary
+language: en
 description: Generates structured summaries of space law cases involving satellite deployment, space debris, orbital conflicts, launch licensing, and international treaty disputes. Synthesizes the Outer Space Treaty, Liability Convention, U.S. Commercial Space Launch Act, FCC/FAA regulations, and ITAR/EAR export controls. Use when summarizing space law disputes, debris liability claims, orbital slot conflicts, or regulatory matters.
 ---
 

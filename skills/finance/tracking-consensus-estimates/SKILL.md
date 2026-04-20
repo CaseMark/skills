@@ -1,5 +1,6 @@
 ---
 name: tracking-consensus-estimates
+language: en
 description: Monitors sell-side consensus estimates with revision tracking and surprise analysis. Use when tracking estimate revisions, analyzing consensus changes, or monitoring analyst expectations.
 tags:
   - monitoring

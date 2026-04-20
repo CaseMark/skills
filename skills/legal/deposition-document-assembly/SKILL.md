@@ -1,5 +1,6 @@
 ---
 name: deposition-document-assembly
+language: en
 description: Assembles and organizes documents for deposition preparation, producing a document inventory, exhibit list, impeachment index, and gap analysis. Use before building a deposition outline for any deponent type (fact witness, party, corporate rep/30(b)(6), expert) in US federal or state litigation.
 ---
 

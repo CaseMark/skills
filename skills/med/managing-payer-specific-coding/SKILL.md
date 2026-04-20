@@ -1,5 +1,6 @@
 ---
 name: managing-payer-specific-coding
+language: en
 description: Adapts coding practices for payer-specific requirements (Medicare, Medicaid, commercial) and LCD/NCD compliance. Use when navigating payer-specific rules, checking LCD/NCD coverage, or managing payer variations.
 tags:
   - management

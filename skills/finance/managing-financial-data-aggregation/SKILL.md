@@ -1,5 +1,6 @@
 ---
 name: managing-financial-data-aggregation
+language: en
 description: Structures data aggregation analysis with connectivity, accuracy assessment, and consumer consent frameworks. Use when evaluating data aggregation, analyzing financial data APIs, or assessing account linking.
 tags:
   - management

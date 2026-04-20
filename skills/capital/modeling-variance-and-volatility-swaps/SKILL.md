@@ -1,5 +1,6 @@
 ---
 name: modeling-variance-and-volatility-swaps
+language: en
 description: Prices variance and volatility swaps with replication methodology, convexity adjustment, and discrete monitoring analysis. Use when pricing vol products, modeling variance swaps, or evaluating volatility strategies.
 tags:
   - modeling

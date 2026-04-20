@@ -1,5 +1,6 @@
 ---
 name: analyzing-sector-investment-theses
+language: en
 description: Develops PE sector theses with industry mapping, secular trends, fragmentation opportunity, and target universe identification. Use when building sector strategies, mapping investment themes, or identifying subsector opportunities.
 tags:
   - analysis

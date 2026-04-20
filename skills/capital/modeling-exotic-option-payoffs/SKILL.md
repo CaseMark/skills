@@ -1,5 +1,6 @@
 ---
 name: modeling-exotic-option-payoffs
+language: en
 description: Builds pricing models for barrier, Asian, lookback, and other path-dependent options with Monte Carlo simulation. Use when pricing exotic options, modeling complex payoffs, or evaluating structured product components.
 tags:
   - modeling

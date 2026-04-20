@@ -1,5 +1,6 @@
 ---
 name: conducting-pre-ipo-readiness-assessments
+language: en
 description: Evaluates IPO preparedness across financial reporting, governance, compliance, and operational maturity dimensions. Use when assessing IPO readiness, identifying pre-IPO gaps, or planning public market transitions.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: donation-agreement
+language: en
 description: Drafts a U.S. Donation Agreement governing charitable transfers of cash, property, or securities from a donor to a 501(c)(3) nonprofit. Enforces IRC § 170 tax compliance, IRS substantiation thresholds, restricted/unrestricted use terms, and cy pres fallback. Use when documenting charitable gifts, restricted endowments, naming-rights donations, or conditional pledges requiring formal memorialization.
 ---
 

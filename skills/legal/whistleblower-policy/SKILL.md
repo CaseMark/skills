@@ -1,5 +1,6 @@
 ---
 name: whistleblower-policy
+language: en
 description: Drafts board-adoptable whistleblower protection policies for public companies and non-profits. Covers SOX, Dodd-Frank, and state statute compliance, reporting channels, investigation procedures, anti-retaliation, and governance oversight. Use when drafting whistleblower policies, ethics reporting procedures, or compliance programs.
 tags:
   - corporate

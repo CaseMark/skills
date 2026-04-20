@@ -1,5 +1,6 @@
 ---
 name: piia
+language: en
 description: Drafts a Proprietary Information and Inventions Agreement (PIIA) for employment or consulting relationships. Covers confidentiality, invention assignment with state-law carve-outs, DTSA immunity notice, and prior inventions disclosure. Trigger when onboarding employees/consultants, drafting IP assignment agreements, or creating confidentiality and invention assignment contracts.
 tags:
   - agreement

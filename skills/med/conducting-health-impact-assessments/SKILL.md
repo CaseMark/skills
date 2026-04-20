@@ -1,5 +1,6 @@
 ---
 name: conducting-health-impact-assessments
+language: en
 description: Structures health impact assessment with exposure evaluation and risk characterization. Use when assessing health impacts, evaluating environmental exposures, or characterizing population risk.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: managing-gait-analysis
+language: en
 description: Structures observational and instrumented gait analysis with deviation identification and intervention planning. Use when analyzing gait patterns, documenting gait deviations, or planning gait interventions.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: analyzing-gp-commitment-structures
+language: en
 description: Evaluates GP capital commitment levels with co-invest obligations, management company funding, and alignment assessment. Use when analyzing GP commitment, assessing alignment, or structuring GP capital contributions.
 tags:
   - analysis

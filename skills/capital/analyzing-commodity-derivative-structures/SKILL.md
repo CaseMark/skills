@@ -1,5 +1,6 @@
 ---
 name: analyzing-commodity-derivative-structures
+language: en
 description: Evaluates commodity swaps, options, and exotic structures with seasonality, convenience yield, and storage cost analysis. Use when pricing commodity derivatives, analyzing energy structures, or evaluating commodity hedging.
 tags:
   - analysis

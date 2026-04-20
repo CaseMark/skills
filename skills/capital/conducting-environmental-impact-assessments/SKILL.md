@@ -1,5 +1,6 @@
 ---
 name: conducting-environmental-impact-assessments
+language: en
 description: Evaluates environmental compliance requirements with permitting risk, mitigation obligations, and ESG assessment for infrastructure investments. Use when assessing environmental risk, evaluating permitting timelines, or analyzing environmental compliance.
 tags:
   - process

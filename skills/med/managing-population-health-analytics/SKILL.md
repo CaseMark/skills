@@ -1,5 +1,6 @@
 ---
 name: managing-population-health-analytics
+language: en
 description: Structures population health analysis with risk stratification and care gap identification. Use when analyzing population health, stratifying patient risk, or identifying care gaps.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: commission-plan-agreement
+language: en
 description: Drafts U.S. commission plan agreements establishing compensation terms for agents, salespeople, or affiliates. Covers flat/tiered/hybrid structures, payment mechanics, clawbacks, territory definitions, termination effects, independent contractor classification, and restrictive covenants. Use when drafting or negotiating commission-based compensation in employment, consulting, or affiliate contexts.
 ---
 

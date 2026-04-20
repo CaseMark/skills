@@ -1,5 +1,6 @@
 ---
 name: managing-out-of-court-workout-processes
+language: en
 description: Structures exchange offers, consent solicitations, and amend-and-extend transactions as Chapter 11 alternatives. Use when managing out-of-court workouts, designing exchange offers, or structuring pre-negotiated deals.
 tags:
   - management

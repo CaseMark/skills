@@ -1,5 +1,6 @@
 ---
 name: analyzing-institutional-investor-demand
+language: en
 description: Maps institutional investor targeting with AUM analysis, sector allocation preferences, and historical participation patterns. Use when targeting investors, analyzing demand profiles, or building investor marketing lists.
 tags:
   - analysis

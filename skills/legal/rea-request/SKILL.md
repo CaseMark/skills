@@ -1,5 +1,6 @@
 ---
 name: rea-request
+language: en
 description: Drafts a Request for Equitable Adjustment (REA) for U.S. federal government contracts under FAR provisions. Enforces element-driven cost/schedule narratives, FAR Part 31 cost structures, FAR 52.233-1 certification, and contemporaneous evidence marshaling. Use when a contractor seeks contract modification relief due to government-directed changes, differing site conditions, defective specifications, or government-caused delays.
 tags:
   - drafting

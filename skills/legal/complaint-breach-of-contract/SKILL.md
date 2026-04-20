@@ -1,5 +1,6 @@
 ---
 name: complaint-breach-of-contract
+language: en
 description: Drafts a U.S. plaintiff-side breach of contract complaint with caption, jurisdiction/venue, four-element cause of action, and prayer for relief. Trigger when user needs to draft a breach of contract complaint for state or federal court filing.
 tags:
   - drafting

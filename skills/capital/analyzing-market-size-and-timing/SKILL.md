@@ -1,5 +1,6 @@
 ---
 name: analyzing-market-size-and-timing
+language: en
 description: Structures TAM/SAM/SOM analysis with bottom-up and top-down methodology and market timing assessment. Use when sizing markets, validating market opportunity, or assessing timing risk.
 tags:
   - analysis

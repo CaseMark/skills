@@ -1,5 +1,6 @@
 ---
 name: analyzing-midstream-infrastructure-assets
+language: en
 description: Evaluates midstream assets with throughput analysis, fee-based vs commodity-exposed revenue, and contract structure assessment. Use when analyzing midstream investments, evaluating pipeline assets, or assessing gathering systems.
 tags:
   - analysis

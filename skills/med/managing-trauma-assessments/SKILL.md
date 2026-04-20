@@ -1,5 +1,6 @@
 ---
 name: managing-trauma-assessments
+language: en
 description: Conducts structured primary and secondary trauma surveys following ATLS methodology. Use when assessing trauma patients, documenting trauma workups, or coordinating trauma team activations.
 tags:
   - management

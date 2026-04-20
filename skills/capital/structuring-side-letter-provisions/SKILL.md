@@ -1,5 +1,6 @@
 ---
 name: structuring-side-letter-provisions
+language: en
 description: Designs side letter accommodations with MFN rights, capacity reservations, co-invest rights, and reporting enhancements. Use when negotiating side letters, analyzing MFN obligations, or structuring LP-specific terms.
 tags:
   - fund-formation-and-structuring

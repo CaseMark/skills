@@ -1,5 +1,6 @@
 ---
 name: atm-equity-distribution-agreement
+language: en
 description: Drafts a market-standard At-The-Market (ATM) Equity Distribution Agreement for public issuers conducting continuous shelf offerings under Rule 415(a)(4). Use when establishing or renewing an ATM program under an effective Form S-3, drafting a sales agent agreement, or structuring a continuous equity offering program.
 tags:
   - agreement

@@ -1,5 +1,6 @@
 ---
 name: analyzing-payment-flows
+language: en
 description: Structures payment system analysis with transaction flow mapping, interchange economics, and settlement timing. Use when analyzing payment systems, mapping transaction flows, or understanding interchange.
 tags:
   - analysis

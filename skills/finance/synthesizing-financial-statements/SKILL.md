@@ -1,5 +1,6 @@
 ---
 name: synthesizing-financial-statements
+language: en
 description: Analyzes 10-K/10-Q filings to extract key metrics, identify trends, and create structured YoY comparisons. Use when analyzing SEC filings, comparing financial statements, or tracking company financial trends.
 tags:
   - synthesis

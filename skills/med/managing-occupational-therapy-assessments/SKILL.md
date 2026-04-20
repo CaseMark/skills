@@ -1,5 +1,6 @@
 ---
 name: managing-occupational-therapy-assessments
+language: en
 description: Structures OT evaluation with ADL assessment, adaptive equipment needs, and work readiness evaluation. Use when conducting OT assessments, evaluating ADL independence, or recommending adaptive equipment.
 tags:
   - management

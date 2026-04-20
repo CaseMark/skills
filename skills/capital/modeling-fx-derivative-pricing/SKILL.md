@@ -1,5 +1,6 @@
 ---
 name: modeling-fx-derivative-pricing
+language: en
 description: Prices FX options and exotic structures with Garman-Kohlhagen, local volatility, and stochastic volatility models. Use when pricing FX derivatives, evaluating FX options, or modeling cross-currency products.
 tags:
   - modeling

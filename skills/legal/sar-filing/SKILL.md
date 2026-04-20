@@ -1,5 +1,6 @@
 ---
 name: sar-filing
+language: en
 description: Drafts FinCEN Suspicious Activity Reports (Form 111) for BSA/AML regulatory filing. Compiles subject identification, transaction timelines, red-flag analysis, and activity classifications. Use when a financial institution detects suspicious transactions requiring mandatory SAR filing, continuing activity reports, or BSA compliance documentation.
 ---
 

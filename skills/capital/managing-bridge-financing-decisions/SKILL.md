@@ -1,5 +1,6 @@
 ---
 name: managing-bridge-financing-decisions
+language: en
 description: Evaluates bridge round scenarios with insider dynamics, signal risk, and term structuring for existing portfolio companies. Use when considering bridge financing, structuring insider rounds, or analyzing pay-to-play provisions.
 tags:
   - management

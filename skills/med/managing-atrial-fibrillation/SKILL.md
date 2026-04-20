@@ -1,5 +1,6 @@
 ---
 name: managing-atrial-fibrillation
+language: en
 description: Structures AF management with CHA2DS2-VASc scoring, anticoagulation selection, and rate/rhythm control strategies. Use when managing AFib, calculating stroke risk, or selecting anticoagulation.
 tags:
   - management

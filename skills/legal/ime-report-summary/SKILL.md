@@ -1,5 +1,6 @@
 ---
 name: ime-report-summary
+language: en
 description: Critically analyzes defense IME reports by auditing record completeness, comparing findings against treating physician records, and surfacing bias indicators and cross-examination vulnerabilities. Triggers when reviewing an IME report, preparing for defense expert deposition, or building a rebuttal strategy in personal injury litigation.
 tags:
   - analysis

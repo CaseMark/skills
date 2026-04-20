@@ -1,5 +1,6 @@
 ---
 name: consent-letter
+language: en
 description: >-
   Drafts enforceable third-party consent letters for transactional matters
   such as asset purchases and deal closings. Identifies parties, transaction

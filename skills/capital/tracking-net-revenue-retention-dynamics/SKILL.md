@@ -1,5 +1,6 @@
 ---
 name: tracking-net-revenue-retention-dynamics
+language: en
 description: Monitors NRR components with expansion, contraction, and churn decomposition across customer segments and cohorts. Use when analyzing revenue retention, decomposing NRR drivers, or assessing expansion revenue quality.
 tags:
   - monitoring

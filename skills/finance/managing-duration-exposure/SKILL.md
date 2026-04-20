@@ -1,5 +1,6 @@
 ---
 name: managing-duration-exposure
+language: en
 description: Structures portfolio duration management with hedging strategies and benchmark tracking. Use when managing interest rate risk, hedging duration, or optimizing portfolio duration.
 tags:
   - management

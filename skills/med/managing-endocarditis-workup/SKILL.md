@@ -1,5 +1,6 @@
 ---
 name: managing-endocarditis-workup
+language: en
 description: Guides endocarditis evaluation using modified Duke criteria with blood culture timing and imaging. Use when evaluating for endocarditis, applying Duke criteria, or coordinating endocarditis workup.
 tags:
   - management

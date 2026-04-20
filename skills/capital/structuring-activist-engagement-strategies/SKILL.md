@@ -1,5 +1,6 @@
 ---
 name: structuring-activist-engagement-strategies
+language: en
 description: Designs constructive engagement approaches with value creation proposals, governance improvements, and strategic change recommendations. Use when planning activist engagement, designing value creation proposals, or structuring board discussions.
 tags:
   - activist-and-event-driven-investing

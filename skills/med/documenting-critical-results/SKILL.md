@@ -1,5 +1,6 @@
 ---
 name: documenting-critical-results
+language: en
 description: Structures critical result communication with documentation requirements and closed-loop verification. Use when communicating critical findings, documenting urgent results, or verifying critical result acknowledgment.
 tags:
   - documentation

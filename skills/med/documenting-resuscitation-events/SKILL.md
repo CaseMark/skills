@@ -1,5 +1,6 @@
 ---
 name: documenting-resuscitation-events
+language: en
 description: Creates structured code documentation with timestamps, interventions, and ROSC criteria. Use when documenting cardiac arrests, recording resuscitation timelines, or completing code sheets.
 tags:
   - documentation

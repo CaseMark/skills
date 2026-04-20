@@ -1,5 +1,6 @@
 ---
 name: summary-judgment-brief
+language: en
 description: Drafts FRCP 56 summary judgment motion briefs for U.S. commercial litigation. Synthesizes discovery evidence with controlling authority to show no genuine dispute of material fact. Use when drafting MSJ briefs, dispositive motions, or partial summary judgment papers post-discovery.
 tags:
   - brief

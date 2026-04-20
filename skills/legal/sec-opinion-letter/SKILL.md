@@ -1,5 +1,6 @@
 ---
 name: sec-opinion-letter
+language: en
 description: Drafts Opinion of Counsel letters for SEC registration statements, covering due incorporation, valid issuance, fully-paid and non-assessable opinions, and Reg S-K Item 601(b)(5) consent language. Use when drafting Exhibit 5.1 opinions for S-1/S-3 filings, shelf offerings, or securities issuance transactions.
 tags:
   - corporate

@@ -1,5 +1,6 @@
 ---
 name: performing-autopsy-protocols
+language: en
 description: Structures autopsy examination with organ system review, cause-of-death determination, and documentation. Use when performing autopsies, documenting autopsy findings, or determining cause of death.
 tags:
   - process

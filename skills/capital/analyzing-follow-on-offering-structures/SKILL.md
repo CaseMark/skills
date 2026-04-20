@@ -1,5 +1,6 @@
 ---
 name: analyzing-follow-on-offering-structures
+language: en
 description: Evaluates secondary offering types including overnight blocks, marketed deals, ATMs, and bought deals with dilution analysis. Use when analyzing follow-on options, structuring secondary offerings, or evaluating dilution impact.
 tags:
   - analysis

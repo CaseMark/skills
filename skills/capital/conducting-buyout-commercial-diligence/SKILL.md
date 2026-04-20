@@ -1,5 +1,6 @@
 ---
 name: conducting-buyout-commercial-diligence
+language: en
 description: Structures CDD with market sizing, customer concentration, competitive dynamics, and growth sustainability analysis. Use when conducting commercial DD, validating market assumptions, or assessing revenue durability.
 tags:
   - process

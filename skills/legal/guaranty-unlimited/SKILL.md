@@ -1,5 +1,6 @@
 ---
 name: guaranty-unlimited
+language: en
 description: Drafts a U.S. Unlimited Guaranty for commercial lending transactions. Triggers when user needs an uncapped personal or entity guaranty, credit enhancement, or unlimited recourse instrument for a loan closing. Produces an absolute guaranty of payment (not collection) with comprehensive waivers, subrogation subordination, and continuing-guaranty coverage.
 tags:
   - agreement

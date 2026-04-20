@@ -1,5 +1,6 @@
 ---
 name: managing-climate-risk
+language: en
 description: Structures climate risk assessment with physical and transition risk analysis and scenario modeling. Use when assessing climate risk, modeling transition scenarios, or evaluating environmental exposure.
 tags:
   - management

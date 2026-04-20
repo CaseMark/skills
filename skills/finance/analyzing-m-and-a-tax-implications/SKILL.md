@@ -1,5 +1,6 @@
 ---
 name: analyzing-m-and-a-tax-implications
+language: en
 description: Evaluates tax implications of acquisition structures with 338(h)(10), 368 reorganization, and step-up analysis. Use when analyzing deal tax, structuring tax-efficient acquisitions, or evaluating tax-free reorganizations.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: pi-demand-summary
+language: en
 description: Generates structured personal injury demand summaries covering liability analysis, chronological injury documentation, itemized damages, and settlement positioning. Covers MVA, premises liability, product defect, and medical malpractice claims. Use when preparing settlement packages, demand letters, pre-trial evaluations, or insurance adjuster negotiations for plaintiff-side PI matters.
 ---
 

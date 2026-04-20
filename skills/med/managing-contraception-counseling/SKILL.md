@@ -1,5 +1,6 @@
 ---
 name: managing-contraception-counseling
+language: en
 description: Guides contraception selection with medical eligibility criteria (MEC) and effectiveness counseling. Use when counseling on contraception, applying MEC categories, or selecting appropriate methods.
 tags:
   - management

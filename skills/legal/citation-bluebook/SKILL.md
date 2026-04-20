@@ -1,5 +1,6 @@
 ---
 name: citation-bluebook
+language: en
 description: Formats legal citations per The Bluebook (21st ed.) using Bluepages practitioner conventions. Use when citing authority in court filings, checking citation format, drafting briefs or memoranda, or formatting a table of authorities.
 ---
 

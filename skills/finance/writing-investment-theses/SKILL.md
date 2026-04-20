@@ -1,5 +1,6 @@
 ---
 name: writing-investment-theses
+language: en
 description: Formulates structured bull/bear investment theses with variant perception and key risk identification. Use when developing investment theses, articulating variant views, or structuring bull/bear arguments.
 tags:
   - drafting

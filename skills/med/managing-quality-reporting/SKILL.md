@@ -1,5 +1,6 @@
 ---
 name: managing-quality-reporting
+language: en
 description: Structures CMS quality reporting (MIPS, HEDIS, CQMs) with measure specification and data validation. Use when reporting quality measures, managing MIPS submissions, or validating quality data.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: bail-hearing-summary
+language: en
 description: Generates structured bail hearing summaries from transcripts and case documents, extracting charges, arguments, conditions, and rulings. Use when summarizing bail hearings, pretrial detention decisions, bond hearings, or release condition orders.
 tags:
   - litigation

@@ -1,5 +1,6 @@
 ---
 name: analyzing-middle-market-lending-dynamics
+language: en
 description: Evaluates middle-market lending environment with competition analysis, spread trends, and deal structure evolution. Use when analyzing middle-market lending, tracking competitive dynamics, or assessing market conditions.
 tags:
   - analysis

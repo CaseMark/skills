@@ -1,5 +1,6 @@
 ---
 name: modeling-energy-transition-infrastructure
+language: en
 description: Assesses energy transition investments with battery storage, grid modernization, EV charging, and hydrogen infrastructure analysis. Use when modeling energy transition assets, evaluating storage economics, or analyzing grid infrastructure.
 tags:
   - modeling

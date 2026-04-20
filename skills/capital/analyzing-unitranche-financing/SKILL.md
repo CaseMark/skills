@@ -1,5 +1,6 @@
 ---
 name: analyzing-unitranche-financing
+language: en
 description: Evaluates unitranche structures with first-out/last-out splits, blended pricing, and agreement among lenders provisions. Use when analyzing unitranche options, comparing unitranche vs traditional structures, or modeling blended costs.
 tags:
   - analysis

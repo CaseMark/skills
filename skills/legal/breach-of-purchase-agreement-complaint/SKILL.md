@@ -1,5 +1,6 @@
 ---
 name: breach-of-purchase-agreement-complaint
+language: en
 description: >-
   Drafts a filing-ready U.S. complaint for breach of a purchase agreement.
   Trigger when the user requests a breach-of-contract complaint, forum-selection

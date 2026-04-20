@@ -1,5 +1,6 @@
 ---
 name: bill-of-costs-on-appeal
+language: en
 description: >-
   Drafts a verified U.S. appellate Bill of Costs itemizing taxable costs under
   FRAP 39 or state analogs. Trigger when the user needs to prepare, file, or

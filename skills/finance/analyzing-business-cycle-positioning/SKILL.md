@@ -1,5 +1,6 @@
 ---
 name: analyzing-business-cycle-positioning
+language: en
 description: Structures business cycle analysis with phase identification, leading indicator tracking, and sector implications. Use when identifying cycle phase, tracking business cycles, or assessing cyclical positioning.
 tags:
   - analysis

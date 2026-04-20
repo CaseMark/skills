@@ -1,5 +1,6 @@
 ---
 name: building-restructuring-plan-models
+language: en
 description: Constructs plan of reorganization models with debt-for-equity conversion, new money injection, and emergence capital structure. Use when modeling restructuring plans, designing emergence capital structures, or analyzing plan feasibility.
 tags:
   - modeling

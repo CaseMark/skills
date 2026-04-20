@@ -1,5 +1,6 @@
 ---
 name: conducting-stress-testing
+language: en
 description: Designs and executes portfolio and enterprise stress tests with scenario specification and result analysis. Use when stress testing portfolios, designing stress scenarios, or analyzing stress test results.
 tags:
   - process

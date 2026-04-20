@@ -1,5 +1,6 @@
 ---
 name: dischargeability-complaint
+language: en
 description: Drafts a U.S. bankruptcy adversary complaint under 11 U.S.C. §523 to determine non-dischargeability of debt. Use when a creditor, assignee, or subrogee needs a complaint for Bankruptcy Court with §523 theories (fraud, fiduciary defalcation, willful/malicious injury). Trigger when inputs include debtor case data, petition/§341 dates, transaction facts, and target §523 subsections.
 tags:
   - drafting

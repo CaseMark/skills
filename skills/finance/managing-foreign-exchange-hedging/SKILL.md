@@ -1,5 +1,6 @@
 ---
 name: managing-foreign-exchange-hedging
+language: en
 description: Structures FX hedging programs with exposure identification, instrument selection, and hedge effectiveness testing. Use when managing FX risk, designing hedge programs, or testing hedge effectiveness.
 tags:
   - management

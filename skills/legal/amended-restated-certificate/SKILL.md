@@ -1,5 +1,6 @@
 ---
 name: amended-restated-certificate
+language: en
 description: Drafts a Delaware Amended and Restated Certificate of Incorporation implementing VC term sheet economics and governance into DGCL-compliant charter provisions. Use when drafting or revising a Delaware A&R certificate, preferred stock charter terms, Series Seed/A/B financing charter, blank check preferred authority, or implementing cap structure from a term sheet or SPA.
 ---
 

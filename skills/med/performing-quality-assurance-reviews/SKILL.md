@@ -1,5 +1,6 @@
 ---
 name: performing-quality-assurance-reviews
+language: en
 description: Structures radiology peer review and quality assurance with discrepancy classification. Use when conducting peer review, classifying discrepancies, or documenting QA findings.
 tags:
   - process

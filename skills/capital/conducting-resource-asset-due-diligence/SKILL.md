@@ -1,5 +1,6 @@
 ---
 name: conducting-resource-asset-due-diligence
+language: en
 description: Structures technical and commercial DD for resource assets with geological review, operational assessment, and regulatory evaluation. Use when conducting resource DD, evaluating technical reports, or assessing operational risk.
 tags:
   - process

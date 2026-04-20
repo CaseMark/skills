@@ -1,5 +1,6 @@
 ---
 name: managing-middle-office-operations
+language: en
 description: Structures middle office functions with trade matching, position reconciliation, and P&L verification. Use when managing middle office, reconciling positions, or verifying P&L calculations.
 tags:
   - management

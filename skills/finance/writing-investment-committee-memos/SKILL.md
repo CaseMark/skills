@@ -1,5 +1,6 @@
 ---
 name: writing-investment-committee-memos
+language: en
 description: Creates IC presentation materials with deal thesis, risk analysis, and recommendation structure. Use when preparing IC memos, presenting deal opportunities, or documenting investment decisions.
 tags:
   - drafting

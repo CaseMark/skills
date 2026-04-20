@@ -1,5 +1,6 @@
 ---
 name: trademark-license-agreement
+language: en
 description: Drafts a U.S. Trademark License Agreement governing a licensor's grant of rights to a licensee for authorized use of registered or common law marks. Covers exclusivity, field of use, territory, quality control, royalties, audit rights, and termination. Use when drafting IP licensing deals, brand licensing arrangements, co-branding agreements, or any transaction requiring controlled trademark use by a third party.
 tags:
   - agreement

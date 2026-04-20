@@ -1,5 +1,6 @@
 ---
 name: e-discovery-protocol-agreement
+language: en
 description: Drafts court-ready ESI Protocol Agreements governing electronically stored information exchange in U.S. federal litigation. Covers FRCP 26(f)/34 compliance, FRE 502(d) clawback, TAR methodology, privilege logs, and production format specs. Use when drafting e-discovery stipulations, ESI protocols, meet-and-confer agreements, or joint discovery plans.
 ---
 

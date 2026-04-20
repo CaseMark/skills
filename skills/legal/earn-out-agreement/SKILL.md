@@ -1,5 +1,6 @@
 ---
 name: earn-out-agreement
+language: en
 description: Drafts U.S. M&A earn-out agreements as exhibits to purchase agreements, covering earn-out period, metrics, covenants, reporting, dispute resolution, payment mechanics, tax treatment, and change-of-control outcomes. Use when drafting earn-out provisions, contingent purchase price schedules, post-closing performance payments, EBITDA or revenue targets, earn-out statements, or purchase agreement exhibits.
 tags:
   - agreement

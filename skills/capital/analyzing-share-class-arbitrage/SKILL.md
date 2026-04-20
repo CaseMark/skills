@@ -1,5 +1,6 @@
 ---
 name: analyzing-share-class-arbitrage
+language: en
 description: Evaluates dual-class share structures with discount analysis, unification catalysts, and governance reform probability assessment. Use when analyzing share class spreads, evaluating unification likelihood, or assessing dual-class dynamics.
 tags:
   - analysis

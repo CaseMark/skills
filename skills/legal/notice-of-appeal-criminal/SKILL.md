@@ -1,5 +1,6 @@
 ---
 name: notice-of-appeal-criminal
+language: en
 description: Drafts Notices of Appeal for criminal matters with strict compliance to FRAP 4(b) deadlines, jurisdictional statements, transcript requests, and service requirements. Use when filing a criminal appeal, initiating appellate review after conviction or sentencing, or preparing post-trial appellate filings.
 tags:
   - drafting

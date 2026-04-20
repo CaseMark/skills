@@ -1,5 +1,6 @@
 ---
 name: managing-range-of-motion-assessments
+language: en
 description: Documents goniometric measurements with active/passive ROM and comparison to normative values. Use when measuring joint ROM, documenting mobility assessments, or tracking ROM progress.
 tags:
   - management

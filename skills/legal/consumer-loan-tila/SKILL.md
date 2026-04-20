@@ -1,5 +1,6 @@
 ---
 name: consumer-loan-tila
+language: en
 description: Drafts TILA-compliant consumer loan agreements with Regulation Z disclosure boxes, APR/finance charge calculations, and enforceable terms for secured and unsecured consumer credit. Use when drafting consumer loan agreements, TILA disclosure documents, promissory notes for consumer credit, or Reg Z compliant financing contracts.
 tags:
   - agreement

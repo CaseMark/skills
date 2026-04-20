@@ -1,5 +1,6 @@
 ---
 name: managing-real-estate-tax-considerations
+language: en
 description: Structures real estate tax planning with 1031 exchange, depreciation, and opportunity zone analysis. Use when planning real estate taxes, structuring 1031 exchanges, or analyzing tax implications.
 tags:
   - management

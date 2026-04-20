@@ -1,5 +1,6 @@
 ---
 name: motion-for-temporary-relief
+language: en
 description: Drafts a Motion for Temporary Relief (Pendente Lite) in U.S. family law cases seeking interim orders for custody, support, property use, and fees. Use when filing for temporary orders at the outset of a dissolution, separation, or custody matter to stabilize rights and obligations during pendency.
 ---
 

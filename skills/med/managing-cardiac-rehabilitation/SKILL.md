@@ -1,5 +1,6 @@
 ---
 name: managing-cardiac-rehabilitation
+language: en
 description: Structures cardiac rehab prescriptions with exercise parameters and risk stratification. Use when prescribing cardiac rehab, setting exercise targets, or monitoring rehab progress.
 tags:
   - management

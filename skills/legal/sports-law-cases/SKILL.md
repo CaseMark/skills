@@ -1,5 +1,6 @@
 ---
 name: sports-law-cases
+language: en
 description: Generates structured summaries of sports law cases covering contract disputes, doping violations, and governance controversies. Use when summarizing sports litigation, researching athlete contract disputes, anti-doping arbitration, league antitrust challenges, NCAA eligibility cases, or CAS proceedings.
 ---
 

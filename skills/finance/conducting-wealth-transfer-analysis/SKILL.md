@@ -1,5 +1,6 @@
 ---
 name: conducting-wealth-transfer-analysis
+language: en
 description: Structures intergenerational wealth transfer with gifting strategies, trust design, and tax impact modeling. Use when planning wealth transfer, modeling gift strategies, or designing transfer structures.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: analyzing-international-regulatory-arbitrage
+language: en
 description: Evaluates regulatory differences across jurisdictions with comparative framework analysis and optimal domicile selection. Use when analyzing regulatory environments, comparing jurisdiction frameworks, or selecting fund domiciles.
 tags:
   - analysis

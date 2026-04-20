@@ -1,5 +1,6 @@
 ---
 name: modeling-cap-table-scenarios
+language: en
 description: Builds cap table models with round-by-round dilution, option pool, and exit waterfall analysis. Use when modeling cap tables, calculating ownership dilution, or projecting exit proceeds.
 tags:
   - modeling

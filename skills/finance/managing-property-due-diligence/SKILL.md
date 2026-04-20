@@ -1,5 +1,6 @@
 ---
 name: managing-property-due-diligence
+language: en
 description: Structures real estate due diligence with physical inspection, environmental review, and title analysis coordination. Use when conducting property DD, reviewing environmental reports, or coordinating due diligence workstreams.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-nutrition-support
+language: en
 description: Assesses nutritional status and coordinates enteral/parenteral nutrition protocols. Use when evaluating nutritional needs, initiating feeding protocols, or managing TPN orders.
 tags:
   - management

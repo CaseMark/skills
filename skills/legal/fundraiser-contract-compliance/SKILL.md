@@ -1,5 +1,6 @@
 ---
 name: fundraiser-contract-compliance
+language: en
 description: >-
   Audits professional solicitor, fundraising counsel, and commercial co-venturer
   contracts for state charitable solicitation compliance. Classifies relationships,

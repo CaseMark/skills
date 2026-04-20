@@ -1,5 +1,6 @@
 ---
 name: managing-collateral-and-margining
+language: en
 description: Structures CSA terms analysis with initial/variation margin calculation and collateral optimization. Use when managing collateral, calculating margin requirements, or optimizing posting strategies.
 tags:
   - management

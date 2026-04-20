@@ -1,5 +1,6 @@
 ---
 name: analyzing-cyber-insurance
+language: en
 description: Structures cyber insurance evaluation with coverage assessment, limit adequacy, and claims scenario analysis. Use when evaluating cyber coverage, analyzing policy terms, or assessing cyber insurance adequacy.
 tags:
   - analysis

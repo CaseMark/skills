@@ -1,5 +1,6 @@
 ---
 name: recall-plan
+language: en
 description: Drafts FDA product recall plans compliant with 21 CFR Part 7, covering Recall Committee governance, health hazard evaluation, recall classification, notification protocols, effectiveness checks, product disposition, and termination procedures. Use when developing recall SOPs, updating recall procedures, drafting recall readiness plans, or preparing FDA-regulated product recall documentation.
 ---
 

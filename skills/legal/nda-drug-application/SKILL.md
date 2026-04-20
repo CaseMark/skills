@@ -1,5 +1,6 @@
 ---
 name: nda-drug-application
+language: en
 description: Drafts an eCTD-compliant New Drug Application (NDA) for FDA submission under 21 CFR Part 314. Compiles clinical trial data, CMC documentation, nonclinical studies, pharmacokinetics, integrated safety analyses, and proposed labeling into five-module eCTD structure. Use when preparing an NDA, FDA drug approval submission, pharmaceutical regulatory filing, or eCTD assembly for a new molecular entity.
 tags:
   - analysis

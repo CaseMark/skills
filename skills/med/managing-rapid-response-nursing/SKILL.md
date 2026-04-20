@@ -1,5 +1,6 @@
 ---
 name: managing-rapid-response-nursing
+language: en
 description: Structures rapid response team activation criteria and nursing documentation during rapid response events. Use when activating rapid response, documenting RRT events, or recognizing deterioration.
 tags:
   - management

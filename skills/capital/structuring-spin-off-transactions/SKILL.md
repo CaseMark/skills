@@ -1,5 +1,6 @@
 ---
 name: structuring-spin-off-transactions
+language: en
 description: Designs corporate spin-off execution with Remainco/SpinCo capitalization, Form 10 preparation, and tax-free qualification analysis. Use when structuring spin-offs, analyzing separation mechanics, or evaluating Remainco impact.
 tags:
   - capital-allocation-and-corporate-strategy

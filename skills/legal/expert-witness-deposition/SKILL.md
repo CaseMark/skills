@@ -1,5 +1,6 @@
 ---
 name: expert-witness-deposition
+language: en
 description: >-
   Drafts litigation-ready expert witness deposition workflows for U.S. federal
   and state matters, covering preparation, examination, and defense strategy.

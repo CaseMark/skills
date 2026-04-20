@@ -1,5 +1,6 @@
 ---
 name: analyzing-esoteric-abs-collateral
+language: en
 description: Evaluates non-traditional securitization collateral including solar, data centers, digital infrastructure, and IP royalties. Use when analyzing esoteric ABS, evaluating non-standard collateral, or structuring novel asset classes.
 tags:
   - analysis

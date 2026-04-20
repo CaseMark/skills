@@ -1,5 +1,6 @@
 ---
 name: conducting-infrastructure-due-diligence
+language: en
 description: Structures infrastructure DD with technical assessment, regulatory review, environmental analysis, and community impact evaluation. Use when conducting infra DD, evaluating asset condition, or assessing regulatory risk.
 tags:
   - process

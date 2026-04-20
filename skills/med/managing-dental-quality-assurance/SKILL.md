@@ -1,5 +1,6 @@
 ---
 name: managing-dental-quality-assurance
+language: en
 description: Structures dental practice quality assessment with peer review and outcomes tracking. Use when conducting dental QA, performing peer review, or tracking treatment outcomes.
 tags:
   - management

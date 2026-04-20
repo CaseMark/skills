@@ -1,5 +1,6 @@
 ---
 name: consumer-loan-agreement
+language: en
 description: Drafts a TILA-compliant U.S. consumer loan agreement with Regulation Z federal disclosure box, APR/finance charge calculations, payment schedules, default provisions, and required consumer notices. Applies 15 U.S.C. § 1601 et seq. and 12 CFR Part 1026. Use when drafting consumer installment loan agreements, personal loan contracts, or any consumer credit transaction requiring federal disclosure compliance.
 tags:
   - transactional

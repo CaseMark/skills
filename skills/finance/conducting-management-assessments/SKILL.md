@@ -1,5 +1,6 @@
 ---
 name: conducting-management-assessments
+language: en
 description: Structures executive evaluation with leadership capabilities, organizational gaps, and bench strength analysis. Use when assessing management teams, evaluating CEO/CFO capabilities, or identifying talent gaps.
 tags:
   - process

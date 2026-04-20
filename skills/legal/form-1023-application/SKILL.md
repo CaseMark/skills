@@ -1,5 +1,6 @@
 ---
 name: form-1023-application
+language: en
 description: >-
   Drafts IRS Form 1023 (Application for Recognition of Exemption) packages for
   501(c)(3) applicants. Use when preparing Form 1023 filings, nonprofit

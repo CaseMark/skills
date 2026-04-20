@@ -1,5 +1,6 @@
 ---
 name: conducting-growth-due-diligence
+language: en
 description: Structures growth-focused DD with revenue quality, customer concentration, technology scalability, and organizational readiness. Use when conducting growth DD, validating revenue sustainability, or assessing scale capability.
 tags:
   - process

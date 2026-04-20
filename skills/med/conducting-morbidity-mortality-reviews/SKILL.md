@@ -1,5 +1,6 @@
 ---
 name: conducting-morbidity-mortality-reviews
+language: en
 description: Structures surgical M&M conference presentations with case analysis and system improvement recommendations. Use when presenting M&M cases, analyzing surgical outcomes, or documenting quality improvement.
 tags:
   - process

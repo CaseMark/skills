@@ -1,5 +1,6 @@
 ---
 name: search
+language: en
 description: Searches the web, legal databases, case law, patents, and case.dev knowledge base via the casedev CLI. Use when the user mentions "search", "legal research", "find cases", "case law", "patent search", "web search", "fetch URL", "webfetch", "legal skills", or needs to research legal topics, find similar cases, or retrieve web content.
 ---
 

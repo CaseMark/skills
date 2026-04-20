@@ -1,5 +1,6 @@
 ---
 name: document-retention-policy
+language: en
 description: Drafts board-adoptable document retention policies for nonprofit organizations with IRS-grounded retention schedules, destruction protocols, and litigation hold procedures. Use when creating retention policies, records management governance, document destruction schedules, or compliance frameworks for 501(c)(3) and other tax-exempt entities.
 ---
 

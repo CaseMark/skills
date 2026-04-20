@@ -1,5 +1,6 @@
 ---
 name: interrogatories-to-defendant
+language: en
 description: Drafts plaintiff's interrogatories to defendant in personal injury litigation with caption, definitions, instructions, and substantive questions. Triggers when user needs to draft interrogatories, written discovery requests to a defendant, or PI discovery sets. Enforces numerical limits, subpart counting, and contention interrogatory practices.
 tags:
   - drafting

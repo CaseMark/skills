@@ -1,5 +1,6 @@
 ---
 name: answer-to-harassment-complaint
+language: en
 description: Drafts a defendant employer's Answer to a workplace harassment complaint. Responds paragraph-by-paragraph to allegations, asserts Faragher-Ellerth and other affirmative defenses, and follows federal/state civil procedure rules. Use when defending employers at the pleadings phase against Title VII, state FEHA, or other employment harassment claims.
 ---
 

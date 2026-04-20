@@ -1,5 +1,6 @@
 ---
 name: managing-board-financial-reporting
+language: en
 description: Structures board-level financial packages with executive summary, strategic metrics, and forward outlook. Use when preparing board packages, creating executive financial summaries, or presenting financial results.
 tags:
   - management

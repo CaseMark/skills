@@ -1,5 +1,6 @@
 ---
 name: managing-adhd-assessments
+language: en
 description: Structures ADHD evaluation with symptom scales, behavioral observation, and differential diagnosis. Use when evaluating ADHD, administering rating scales, or documenting ADHD assessments.
 tags:
   - management

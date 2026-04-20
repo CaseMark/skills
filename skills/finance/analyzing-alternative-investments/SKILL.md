@@ -1,5 +1,6 @@
 ---
 name: analyzing-alternative-investments
+language: en
 description: Evaluates alternative investment strategies (hedge funds, real assets, private markets) with risk-return and liquidity analysis. Use when analyzing alternatives, evaluating fund strategies, or assessing illiquidity premiums.
 tags:
   - analysis

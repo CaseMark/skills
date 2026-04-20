@@ -1,5 +1,6 @@
 ---
 name: managing-sell-side-auction-processes
+language: en
 description: Coordinates competitive auction workflows from teaser distribution through definitive agreement execution. Use when running sell-side processes, managing bid rounds, or tracking buyer engagement.
 tags:
   - management

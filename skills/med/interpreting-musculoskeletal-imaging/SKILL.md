@@ -1,5 +1,6 @@
 ---
 name: interpreting-musculoskeletal-imaging
+language: en
 description: Structures MSK imaging interpretation with fracture classification and joint assessment protocols. Use when reading MSK imaging, classifying fractures, or documenting orthopedic findings.
 tags:
   - analysis

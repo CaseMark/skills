@@ -1,5 +1,6 @@
 ---
 name: policy-brief
+language: en
 description: Generates structured public policy briefs analyzing legislation across economic, social, legal, and implementation dimensions. Use when drafting legislative impact analyses, policy summaries, regulatory briefs, or government affairs memoranda for lawmakers, lobbyists, or civic organizations.
 ---
 

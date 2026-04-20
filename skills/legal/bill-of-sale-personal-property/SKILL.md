@@ -1,5 +1,6 @@
 ---
 name: bill-of-sale-personal-property
+language: en
 description: >-
   Drafts a U.S. CRE personal property Bill of Sale transferring equipment, fixtures, FF&E,
   inventory, and other tangible assets. Handles inclusion/exclusion schedules, price allocation,

@@ -1,5 +1,6 @@
 ---
 name: healthcare-poa
+language: en
 description: >-
   Drafts a state-compliant Healthcare Power of Attorney (HCPOA) designating an
   agent to make medical decisions for an incapacitated principal. Covers scope

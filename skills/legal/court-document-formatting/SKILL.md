@@ -1,5 +1,6 @@
 ---
 name: court-document-formatting
+language: en
 description: >-
   Builds a filing-ready formatting blueprint for U.S. litigation pleadings,
   motions, and briefs by applying caption, spacing, pagination, certificate,

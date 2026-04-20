@@ -1,5 +1,6 @@
 ---
 name: warranty-timeline
+language: en
 description: Generates a chronological timeline of warranty requests, claims, and complaints for product defect litigation, regulatory proceedings, or internal investigations. Analyzes complaint patterns, establishes manufacturer notice dates, and calculates defect statistics. Use when building warranty claim timelines, product defect chronologies, complaint pattern analysis, discovery summaries, expert report exhibits, or trial timeline exhibits.
 ---
 

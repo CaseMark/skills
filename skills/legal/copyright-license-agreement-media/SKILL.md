@@ -1,5 +1,6 @@
 ---
 name: copyright-license-agreement-media
+language: en
 description: Drafts a Copyright License Agreement for media content between a Licensor and Licensee. Covers exclusive/non-exclusive grants, enumerated §106 rights, territory, term, compensation, audit rights, attribution, termination, and sell-off periods. Use when the user needs an IP license for media assets (images, video, music, software, written works, multimedia).
 tags:
   - agreement

@@ -1,5 +1,6 @@
 ---
 name: executive-employment-agreement
+language: en
 description: >-
   Drafts U.S. executive employment agreements covering compensation, equity,
   severance, and restrictive covenants tailored to jurisdictional enforceability.

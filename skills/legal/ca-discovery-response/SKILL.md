@@ -1,5 +1,6 @@
 ---
 name: ca-discovery-response
+language: en
 description: >
   Drafts code-compliant California responses to Requests for Production (CCP
   § 2031.010 et seq.) for Superior Court. Use when the user mentions California

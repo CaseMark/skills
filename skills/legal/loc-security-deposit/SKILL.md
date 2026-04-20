@@ -1,5 +1,6 @@
 ---
 name: loc-security-deposit
+language: en
 description: Drafts irrevocable standby letters of credit serving as security deposits in commercial lease transactions. Use when a tenant provides an LOC alternative to a cash deposit, when drafting standby LOC instruments for lease security, or when structuring bank guarantees for tenant obligations under UCC Article 5 and ISP98.
 tags:
   - drafting

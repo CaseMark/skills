@@ -1,5 +1,6 @@
 ---
 name: managing-management-commentary
+language: en
 description: Structures MD&A-style management commentary with narrative quality and metric alignment. Use when writing management commentary, preparing earnings narratives, or documenting financial performance.
 tags:
   - management

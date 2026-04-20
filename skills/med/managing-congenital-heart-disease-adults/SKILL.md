@@ -1,5 +1,6 @@
 ---
 name: managing-congenital-heart-disease-adults
+language: en
 description: Structures ACHD evaluation with lesion-specific monitoring and pregnancy risk assessment. Use when managing adult congenital heart disease, evaluating ACHD patients, or assessing pregnancy risk in CHD.
 tags:
   - management

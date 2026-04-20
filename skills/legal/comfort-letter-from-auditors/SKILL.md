@@ -1,5 +1,6 @@
 ---
 name: comfort-letter-from-auditors
+language: en
 description: Drafts PCAOB AS 6101-compliant auditor comfort letters (cold comfort letters) providing negative assurance on unaudited financial information for underwriters in U.S. securities offerings. Use when drafting comfort letters for underwriting agreements, capital markets closings, IPOs, secondary offerings, or any securities transaction requiring auditor negative assurance at signing or closing.
 tags:
   - corporate

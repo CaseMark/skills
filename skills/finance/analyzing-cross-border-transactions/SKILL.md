@@ -1,5 +1,6 @@
 ---
 name: analyzing-cross-border-transactions
+language: en
 description: Evaluates cross-border M&A considerations including currency, tax, regulatory, and cultural factors. Use when analyzing international deals, assessing cross-border risks, or structuring multinational transactions.
 tags:
   - analysis

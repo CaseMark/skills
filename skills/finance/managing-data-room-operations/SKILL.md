@@ -1,5 +1,6 @@
 ---
 name: managing-data-room-operations
+language: en
 description: Structures virtual data room organization with document indexing, access management, and Q&A tracking. Use when managing VDR operations, organizing deal documents, or tracking buyer questions.
 tags:
   - management

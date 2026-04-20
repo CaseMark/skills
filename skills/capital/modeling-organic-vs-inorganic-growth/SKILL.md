@@ -1,5 +1,6 @@
 ---
 name: modeling-organic-vs-inorganic-growth
+language: en
 description: Compares build vs buy alternatives with risk-adjusted returns, time-to-value, and execution probability assessment. Use when evaluating growth strategies, comparing M&A vs organic investment, or analyzing make-vs-buy decisions.
 tags:
   - modeling

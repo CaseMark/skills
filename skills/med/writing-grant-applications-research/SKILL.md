@@ -1,5 +1,6 @@
 ---
 name: writing-grant-applications-research
+language: en
 description: Structures NIH/foundation grant applications with specific aims, significance, and innovation sections. Use when writing research grants, preparing NIH applications, or structuring grant proposals.
 tags:
   - drafting

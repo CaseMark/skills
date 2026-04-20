@@ -1,5 +1,6 @@
 ---
 name: modeling-tax-attribute-preservation
+language: en
 description: Analyzes NOL and tax attribute preservation strategies under Section 382 limitations in ownership change scenarios. Use when modeling tax attribute preservation, analyzing 382 limitations, or structuring ownership change thresholds.
 tags:
   - modeling

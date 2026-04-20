@@ -1,5 +1,6 @@
 ---
 name: managing-pension-fund-obligations
+language: en
 description: Structures pension analysis with funded status, actuarial assumptions, and contribution planning. Use when analyzing pension obligations, reviewing actuarial reports, or planning pension contributions.
 tags:
   - management

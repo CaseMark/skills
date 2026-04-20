@@ -1,5 +1,6 @@
 ---
 name: analyzing-insider-transactions
+language: en
 description: Structures insider trading analysis with pattern identification and significance assessment. Use when tracking insider activity, analyzing Form 4 filings, or evaluating insider buying/selling patterns.
 tags:
   - analysis

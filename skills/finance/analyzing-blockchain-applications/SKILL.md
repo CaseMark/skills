@@ -1,5 +1,6 @@
 ---
 name: analyzing-blockchain-applications
+language: en
 description: Evaluates blockchain use cases in financial services with DLT assessment and implementation feasibility. Use when analyzing blockchain applications, evaluating DLT solutions, or assessing crypto infrastructure.
 tags:
   - analysis

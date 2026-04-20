@@ -1,5 +1,6 @@
 ---
 name: regulatory-summary
+language: en
 description: Generates structured, citation-grounded summaries of regulatory documents (agency rules, guidance, enforcement actions, compliance frameworks). Extracts provisions, requirements, deadlines, penalties, safe harbors, and compliance actions with pinpoint citations. Use when summarizing regulations, rulemaking notices, enforcement orders, or administrative decisions.
 ---
 

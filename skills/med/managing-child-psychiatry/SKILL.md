@@ -1,5 +1,6 @@
 ---
 name: managing-child-psychiatry
+language: en
 description: Adapts psychiatric evaluation and treatment for pediatric patients with developmental considerations. Use when evaluating children psychiatrically, managing pediatric medications, or documenting child psychiatric assessments.
 tags:
   - management

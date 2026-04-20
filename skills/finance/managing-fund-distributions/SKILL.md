@@ -1,5 +1,6 @@
 ---
 name: managing-fund-distributions
+language: en
 description: Structures fund distribution processes with allocation methodology, tax lot selection, and distribution notice preparation. Use when processing distributions, allocating fund income, or preparing distribution notices.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: flsa-conditional-certification
+language: en
 description: Drafts a Motion for Conditional Certification under FLSA § 216(b) for wage and hour collective actions. Applies the two-stage certification framework with similarly-situated analysis and proposed notice plan. Use when filing for conditional certification, FLSA collective action notice, opt-in certification, or wage and hour class-wide claims in federal court.
 tags:
   - drafting

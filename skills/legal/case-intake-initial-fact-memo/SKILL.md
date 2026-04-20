@@ -1,5 +1,6 @@
 ---
 name: case-intake-initial-fact-memo
+language: en
 description: Generates a structured attorney work product memorandum from an initial client consultation for commercial litigation. Extracts verifiable facts from uploaded documents, builds a chronological narrative, identifies parties and contracts, flags preliminary legal claims and defenses, and produces a prioritized action plan. Triggers at matter intake when a business client needs a foundational case evaluation document for a pre-filing commercial dispute.
 tags:
   - analysis

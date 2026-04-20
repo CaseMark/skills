@@ -1,5 +1,6 @@
 ---
 name: structuring-debt-financing
+language: en
 description: Designs acquisition financing structures with leverage analysis, covenant negotiation, and capital structure optimization. Use when structuring deal financing, analyzing debt capacity, or negotiating loan terms.
 tags:
   - investment-banking

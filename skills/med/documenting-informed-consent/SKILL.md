@@ -1,5 +1,6 @@
 ---
 name: documenting-informed-consent
+language: en
 description: Structures informed consent documentation with risks, benefits, alternatives, and patient understanding confirmation. Use when obtaining informed consent, documenting consent discussions, or verifying consent completeness.
 tags:
   - documentation

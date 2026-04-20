@@ -1,5 +1,6 @@
 ---
 name: structuring-asset-based-lending
+language: en
 description: Designs ABL facilities with borrowing base calculations, collateral eligibility criteria, and field exam requirements. Use when structuring ABL facilities, calculating borrowing availability, or analyzing collateral pools.
 tags:
   - debt-capital-markets

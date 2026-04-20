@@ -1,5 +1,6 @@
 ---
 name: drafting-transaction-opinions
+language: en
 description: Structures transaction opinion analysis with solvency, capital adequacy, and reasonably equivalent value assessment. Use when preparing transaction opinions, evaluating solvency, or assessing transaction fairness.
 tags:
   - drafting

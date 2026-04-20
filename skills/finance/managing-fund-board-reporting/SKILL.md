@@ -1,5 +1,6 @@
 ---
 name: managing-fund-board-reporting
+language: en
 description: Structures fund board reporting with compliance summaries, performance review, and governance documentation. Use when preparing board reports, summarizing fund compliance, or documenting governance items.
 tags:
   - management

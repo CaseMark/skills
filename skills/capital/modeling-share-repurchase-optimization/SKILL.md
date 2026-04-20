@@ -1,5 +1,6 @@
 ---
 name: modeling-share-repurchase-optimization
+language: en
 description: Analyzes buyback program design with timing optimization, price sensitivity, and EPS accretion impact modeling. Use when optimizing buybacks, modeling repurchase economics, or comparing return-of-capital alternatives.
 tags:
   - modeling

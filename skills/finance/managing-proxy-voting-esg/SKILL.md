@@ -1,5 +1,6 @@
 ---
 name: managing-proxy-voting-esg
+language: en
 description: Structures ESG-informed proxy voting with resolution analysis, voting rationale, and disclosure. Use when making ESG proxy decisions, analyzing shareholder resolutions, or documenting vote rationale.
 tags:
   - management

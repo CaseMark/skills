@@ -1,5 +1,6 @@
 ---
 name: managing-chronic-kidney-disease
+language: en
 description: Tracks CKD staging with eGFR trends, nephrology referral criteria, and medication adjustments. Use when managing CKD, monitoring renal function, or adjusting renally-dosed medications.
 tags:
   - management

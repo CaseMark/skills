@@ -1,5 +1,6 @@
 ---
 name: analyzing-renewable-energy-project-finance
+language: en
 description: Evaluates renewable energy project economics with PPA structures, merchant tail risk, and production profile analysis. Use when analyzing wind/solar projects, evaluating PPA terms, or modeling renewable energy cash flows.
 tags:
   - analysis

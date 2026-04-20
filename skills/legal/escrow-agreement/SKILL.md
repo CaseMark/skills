@@ -1,5 +1,6 @@
 ---
 name: escrow-agreement
+language: en
 description: Drafts tripartite U.S. escrow agreements for M&A and commercial closings, covering escrow property, deposit mechanics, release conditions, dispute handling, agent duties/limits, indemnity, fees, and termination. Use when asked to draft an escrow agreement, escrow instructions, holdback/indemnity escrow, closing escrow, or escrow agent agreement.
 tags:
   - agreement

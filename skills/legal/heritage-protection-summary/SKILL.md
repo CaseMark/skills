@@ -1,5 +1,6 @@
 ---
 name: heritage-protection-summary
+language: en
 description: Generates structured legal briefings on cultural heritage protection developments. Synthesizes judicial decisions, legislation, treaty updates, and regulatory changes across repatriation, trafficking, armed conflict, underwater heritage, intangible cultural heritage, and indigenous rights. Trigger when producing periodic briefings, policy digests, or thematic research for governments, NGOs, cultural institutions, or international organizations working in cultural property law.
 tags:
   - regulatory

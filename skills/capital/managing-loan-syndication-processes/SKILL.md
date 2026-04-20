@@ -1,5 +1,6 @@
 ---
 name: managing-loan-syndication-processes
+language: en
 description: Coordinates leveraged loan syndication from mandate through closing with lender marketing, commitment tracking, and flex analysis. Use when syndicating loans, managing lender groups, or tracking commitment levels.
 tags:
   - management

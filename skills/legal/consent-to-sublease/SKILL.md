@@ -1,5 +1,6 @@
 ---
 name: consent-to-sublease
+language: en
 description: Drafts a Landlord's Consent to Sublease for commercial leasing transactions, producing recitals identifying the master lease and sublease, operative consent provisions, and protective conditions safeguarding landlord interests. Use when a tenant requests landlord approval to sublet premises, sublease consent, commercial subletting, or assignment of leasehold.
 tags:
   - agreement

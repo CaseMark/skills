@@ -1,5 +1,6 @@
 ---
 name: conducting-credit-committee-presentations
+language: en
 description: Structures credit committee packages with borrower analysis, risk assessment, structuring proposal, and recommendation documentation. Use when preparing credit committee materials, presenting loan opportunities, or documenting credit decisions.
 tags:
   - process

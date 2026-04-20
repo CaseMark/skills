@@ -1,5 +1,6 @@
 ---
 name: managing-psychiatric-consultation-liaison
+language: en
 description: Structures C-L psychiatry assessments for medical-surgical inpatients with delirium, capacity, and behavioral concerns. Use when performing psych consults on medical floors, assessing delirium, or managing behavioral issues in medical patients.
 tags:
   - management

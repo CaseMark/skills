@@ -1,5 +1,6 @@
 ---
 name: conducting-peer-benchmarking-analysis
+language: en
 description: Evaluates fund performance against peer universes with vintage year comparison, quartile ranking, and strategy-specific benchmarking. Use when benchmarking fund performance, analyzing vintage comparisons, or assessing relative positioning.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: tracking-hospital-acquired-conditions
+language: en
 description: Monitors and documents hospital-acquired infections, pressure injuries, and other preventable conditions. Use when tracking HACs, documenting nosocomial events, or reporting patient safety indicators.
 tags:
   - monitoring

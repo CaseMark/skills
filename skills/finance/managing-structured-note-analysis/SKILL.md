@@ -1,5 +1,6 @@
 ---
 name: managing-structured-note-analysis
+language: en
 description: Structures structured note evaluation with payoff analysis, embedded option decomposition, and fair value assessment. Use when analyzing structured notes, decomposing embedded options, or evaluating note pricing.
 tags:
   - management

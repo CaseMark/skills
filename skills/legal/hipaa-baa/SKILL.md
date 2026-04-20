@@ -1,5 +1,6 @@
 ---
 name: hipaa-baa
+language: en
 description: >-
   Drafts HIPAA/HITECH-compliant Business Associate Agreements governing PHI/ePHI
   handling between covered entities and business associates. Covers Privacy Rule

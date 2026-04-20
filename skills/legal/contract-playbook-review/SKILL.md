@@ -1,5 +1,6 @@
 ---
 name: contract-playbook-review
+language: en
 description: >-
   Reviews contracts clause-by-clause against a defined negotiation playbook,
   grading each clause as acceptable, needs review, or unacceptable and

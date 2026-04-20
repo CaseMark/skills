@@ -1,5 +1,6 @@
 ---
 name: objection-to-proof-of-claim
+language: en
 description: Drafts Objections to Proof of Claim for U.S. bankruptcy courts under 11 U.S.C. § 502. Extracts case facts, identifies evidentiary deficiencies, and articulates grounds for disallowance or reduction. Use when a debtor, trustee, or party in interest challenges a creditor's proof of claim, claim classification, or insufficient documentation.
 tags:
   - drafting

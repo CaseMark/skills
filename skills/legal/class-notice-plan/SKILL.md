@@ -1,5 +1,6 @@
 ---
 name: class-notice-plan
+language: en
 description: >-
   Drafts a Rule 23 class notice communication plan for U.S. federal class
   actions, covering notice content, delivery methods, timelines, budgets, and

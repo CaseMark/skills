@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-dental-care
+language: en
 description: Adapts dental evaluation and treatment for pediatric patients with behavior management documentation. Use when treating pediatric dental patients, managing child behavior, or documenting pediatric dental care.
 tags:
   - management

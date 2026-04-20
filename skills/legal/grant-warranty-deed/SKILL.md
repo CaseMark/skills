@@ -1,5 +1,6 @@
 ---
 name: grant-warranty-deed
+language: en
 description: >-
   Drafts execution-ready Grant Deeds and Warranty Deeds for residential real
   property transfers, enforcing state-specific granting language, legal

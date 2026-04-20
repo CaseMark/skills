@@ -1,5 +1,6 @@
 ---
 name: bad-actor-disqualification-review
+language: en
 description: >
   Produces a Rule 506(d) bad actor disqualification review for private securities
   offerings, including a covered persons register, tailored questionnaires mapping

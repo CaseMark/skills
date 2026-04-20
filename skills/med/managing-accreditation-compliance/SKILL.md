@@ -1,5 +1,6 @@
 ---
 name: managing-accreditation-compliance
+language: en
 description: Tracks Joint Commission/HFAP/DNV accreditation standards compliance with survey preparation. Use when preparing for accreditation, tracking standards compliance, or managing survey readiness.
 tags:
   - management

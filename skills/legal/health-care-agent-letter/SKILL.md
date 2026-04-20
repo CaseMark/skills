@@ -1,5 +1,6 @@
 ---
 name: health-care-agent-letter
+language: en
 description: >
   Drafts a non-binding instruction letter (values letter / legacy letter) from a
   client to their designated health care agent, translating personal values,

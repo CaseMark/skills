@@ -1,5 +1,6 @@
 ---
 name: managing-alternative-fund-operations
+language: en
 description: Structures operational processes for hedge fund, PE, and real estate fund specific workflows. Use when managing alternative fund ops, processing capital calls, or handling commitment tracking.
 tags:
   - management

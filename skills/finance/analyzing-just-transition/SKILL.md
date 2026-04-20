@@ -1,5 +1,6 @@
 ---
 name: analyzing-just-transition
+language: en
 description: Evaluates just transition implications of decarbonization with workforce impact and community assessment. Use when analyzing just transition, assessing workforce impacts, or evaluating community effects.
 tags:
   - analysis

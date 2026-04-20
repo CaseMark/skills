@@ -1,5 +1,6 @@
 ---
 name: cda-certified-claim
+language: en
 description: >-
   Drafts U.S. Contract Disputes Act (CDA) certified claims for federal
   government contracts, covering FAR Part 33 compliance, entitlement/quantum

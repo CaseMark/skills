@@ -1,5 +1,6 @@
 ---
 name: modeling-payment-in-kind-structures
+language: en
 description: Builds PIK and PIK toggle models with compound interest analysis, cash vs PIK election scenarios, and leverage impact assessment. Use when modeling PIK instruments, analyzing toggle mechanics, or evaluating accrued interest impact.
 tags:
   - modeling

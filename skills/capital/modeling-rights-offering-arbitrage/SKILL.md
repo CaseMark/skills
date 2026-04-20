@@ -1,5 +1,6 @@
 ---
 name: modeling-rights-offering-arbitrage
+language: en
 description: Analyzes rights offering dynamics with theoretical ex-rights price, subscription premium, and nil-paid value calculation. Use when evaluating rights offerings, modeling TERP, or analyzing subscription arbitrage.
 tags:
   - modeling

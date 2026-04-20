@@ -1,5 +1,6 @@
 ---
 name: lead-paint-disclosure
+language: en
 description: Drafts execution-ready lead-based paint disclosure documents compliant with 42 U.S.C. § 4852d and 24 CFR Part 35 for sales or leases of pre-1978 residential properties. Covers seller/landlord hazard disclosures, buyer/tenant acknowledgments, inspection waivers, agent certifications, and attachment schedules. Use when drafting lead paint disclosures, pre-1978 property transactions, residential lease hazard disclosures, or EPA Section 1018 compliance documents.
 tags:
   - agreement

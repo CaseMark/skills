@@ -1,5 +1,6 @@
 ---
 name: analyzing-activist-investor-vulnerabilities
+language: en
 description: Evaluates corporate vulnerability to shareholder activism with governance assessment, valuation gaps, and operational improvement opportunities. Use when assessing activist risk, identifying vulnerabilities, or preparing defensive analyses.
 tags:
   - analysis

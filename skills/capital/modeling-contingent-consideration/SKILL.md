@@ -1,5 +1,6 @@
 ---
 name: modeling-contingent-consideration
+language: en
 description: Structures earnout and contingent payment mechanisms with milestone definitions, measurement periods, and payout scenarios. Use when modeling earnouts, designing milestone-based payments, or valuing contingent consideration.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: aml-compliance-program
+language: en
 description: >-
   Drafts board-ready Anti-Money Laundering compliance programs for U.S.
   financial institutions under BSA/FinCEN requirements. Covers CIP, CDD, EDD,

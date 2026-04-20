@@ -1,5 +1,6 @@
 ---
 name: managing-deal-processes
+language: en
 description: Structures M&A process management with timeline tracking, bid analysis, and negotiation documentation. Use when managing sell-side auctions, tracking bid processes, or coordinating deal timelines.
 tags:
   - management

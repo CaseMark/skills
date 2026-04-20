@@ -1,5 +1,6 @@
 ---
 name: managing-research-compliance
+language: en
 description: Monitors research compliance with federal regulations (21 CFR, 45 CFR 46) and institutional policies. Use when ensuring research compliance, managing regulatory requirements, or conducting compliance reviews.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: financial-affidavit
+language: en
 description: Drafts sworn financial affidavits and mandatory disclosure statements for family law proceedings. Produces jurisdiction-compliant financial statements covering income, expenses, assets, and liabilities with verification language. Use when preparing financial disclosures, sworn financial statements, domestic relations financial affidavits, or mandatory discovery responses in divorce, child support, spousal maintenance, or property division matters.
 tags:
   - drafting

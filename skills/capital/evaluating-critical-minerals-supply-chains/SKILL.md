@@ -1,5 +1,6 @@
 ---
 name: evaluating-critical-minerals-supply-chains
+language: en
 description: Assesses critical mineral investments with supply chain mapping, geopolitical risk, and processing infrastructure analysis. Use when evaluating critical minerals, analyzing lithium/cobalt supply, or assessing rare earth investments.
 tags:
   - analysis

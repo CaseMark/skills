@@ -1,5 +1,6 @@
 ---
 name: managing-investor-onboarding
+language: en
 description: Structures investor onboarding with subscription documentation, AML/KYC, and suitability verification. Use when onboarding investors, processing subscriptions, or managing investor documentation.
 tags:
   - management

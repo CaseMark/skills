@@ -1,5 +1,6 @@
 ---
 name: documenting-ultrasound-obstetric
+language: en
 description: Structures obstetric ultrasound reporting with biometry, anatomy survey, and growth assessment. Use when reporting OB ultrasounds, documenting fetal anatomy, or tracking fetal growth.
 tags:
   - documentation

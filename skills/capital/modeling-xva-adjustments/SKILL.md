@@ -1,5 +1,6 @@
 ---
 name: modeling-xva-adjustments
+language: en
 description: Calculates comprehensive XVA including CVA, DVA, FVA, KVA, and MVA with portfolio-level analysis and hedging strategies. Use when computing XVA, modeling valuation adjustments, or analyzing funding costs.
 tags:
   - modeling

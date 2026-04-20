@@ -1,5 +1,6 @@
 ---
 name: managing-aortic-disease
+language: en
 description: Guides aortic aneurysm and dissection evaluation with surveillance intervals and intervention thresholds. Use when monitoring aortic aneurysms, evaluating aortic dissection, or determining intervention timing.
 tags:
   - management

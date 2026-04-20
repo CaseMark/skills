@@ -1,5 +1,6 @@
 ---
 name: managing-credit-and-lending-wealth
+language: en
 description: Structures wealth-based lending analysis with securities-backed, real estate, and art lending evaluation. Use when evaluating wealth lending, analyzing pledge portfolios, or structuring high-net-worth credit.
 tags:
   - management

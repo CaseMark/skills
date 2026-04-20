@@ -1,5 +1,6 @@
 ---
 name: expert-witness-summary
+language: en
 description: Generates structured, citation-anchored summaries of expert witness reports for depositions, hearings, and trial preparation. Distills qualifications, methodology, opinions, assumptions, and quantitative findings into a navigable reference. Use when summarizing expert witness reports, retained expert disclosures, or rebuttal expert reports in US litigation.
 ---
 

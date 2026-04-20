@@ -1,5 +1,6 @@
 ---
 name: data-breach-consumer-notice
+language: en
 description: Drafts U.S. consumer data breach notification letters satisfying multi-state breach-notice content rules and sector regimes (HIPAA, GLBA, PCI). Produces compliance scoping tables, data-element disclosures, remediation summaries, and consumer protection guidance tailored to incident facts and recipient cohorts. Use for multi-state breach letters, consumer breach notification, security incident notice, PII exposure notice, or sector-specific breach compliance.
 tags:
   - drafting

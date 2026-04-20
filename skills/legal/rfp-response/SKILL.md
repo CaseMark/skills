@@ -1,5 +1,6 @@
 ---
 name: rfp-response
+language: en
 description: Drafts evaluation-ready U.S. federal RFP responses across all standard proposal volumes (cover letter, technical, cost/price, reps and certs). Enforces FAR compliance, CPARS references, and Section L/M alignment. Use when preparing federal solicitation submissions, responding to government RFPs, or drafting procurement bids.
 tags:
   - drafting

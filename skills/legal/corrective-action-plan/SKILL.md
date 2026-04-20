@@ -1,5 +1,6 @@
 ---
 name: corrective-action-plan
+language: en
 description: Drafts healthcare Corrective Action Plans (CAPs) responding to CMS survey deficiencies, Joint Commission findings, state inspection citations, or internal audit results. Structures root cause analysis, remediation steps, accountability, timelines, and monitoring. Use when drafting plans of correction, responding to immediate jeopardy findings, condition-level citations, or standard-level deficiencies.
 tags:
   - drafting

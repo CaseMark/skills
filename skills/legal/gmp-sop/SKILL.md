@@ -1,5 +1,6 @@
 ---
 name: gmp-sop
+language: en
 description: >-
   Drafts inspection-ready GMP standard operating procedures for regulated
   manufacturing. Covers document control, role accountability, process controls,

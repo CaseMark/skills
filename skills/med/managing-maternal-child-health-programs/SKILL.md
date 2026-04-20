@@ -1,5 +1,6 @@
 ---
 name: managing-maternal-child-health-programs
+language: en
 description: Structures MCH program management with Title V indicators and outcome tracking. Use when managing MCH programs, tracking perinatal outcomes, or monitoring child health indicators.
 tags:
   - management

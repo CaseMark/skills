@@ -1,5 +1,6 @@
 ---
 name: managing-charge-capture
+language: en
 description: Reviews charge capture completeness with missed charge identification and revenue recovery. Use when auditing charge capture, identifying missing charges, or improving revenue integrity.
 tags:
   - management

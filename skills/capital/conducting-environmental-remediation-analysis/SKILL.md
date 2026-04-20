@@ -1,5 +1,6 @@
 ---
 name: conducting-environmental-remediation-analysis
+language: en
 description: Evaluates environmental liability exposure with remediation cost estimation, regulatory compliance requirements, and insurance coverage assessment. Use when analyzing environmental liabilities, estimating cleanup costs, or assessing environmental risk.
 tags:
   - process

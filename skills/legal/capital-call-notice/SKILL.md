@@ -1,5 +1,6 @@
 ---
 name: capital-call-notice
+language: en
 description: Drafts U.S. capital call notices for PE, VC, or fund-managed LLCs aligned to LPA/operating agreement procedures and side letters. Use when drafting a capital call notice, drawdown notice, capital contribution demand, unfunded commitment call, or LP/GP capital call letter.
 ---
 

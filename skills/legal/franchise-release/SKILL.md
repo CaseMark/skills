@@ -1,5 +1,6 @@
 ---
 name: franchise-release
+language: en
 description: Drafts a General Release for termination or expiration of a franchise agreement with broad release language, unknown-claims waivers (Cal. Civ. Code § 1542), covenants not to sue, and carve-outs preserving post-termination obligations. Use when finalizing franchise relationships, drafting termination or expiration releases, or settling franchise disputes.
 tags:
   - agreement

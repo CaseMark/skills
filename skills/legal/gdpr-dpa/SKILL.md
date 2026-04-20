@@ -1,5 +1,6 @@
 ---
 name: gdpr-dpa
+language: en
 description: >-
   Drafts GDPR Article 28-compliant Data Processing Addenda with schedules
   ready for execution. Use when drafting or updating a DPA, vendor GDPR

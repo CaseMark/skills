@@ -1,5 +1,6 @@
 ---
 name: managing-trade-finance-instruments
+language: en
 description: Structures letter of credit, bankers acceptance, and documentary collection processing and analysis. Use when managing LCs, processing trade documents, or evaluating trade finance instruments.
 tags:
   - management

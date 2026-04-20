@@ -1,5 +1,6 @@
 ---
 name: managing-workplace-safety-healthcare
+language: en
 description: Tracks OSHA healthcare requirements including bloodborne pathogen, TB, and violence prevention programs. Use when managing OSHA compliance, implementing safety programs, or documenting exposure incidents.
 tags:
   - management

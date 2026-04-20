@@ -1,5 +1,6 @@
 ---
 name: construction-defect-complaint
+language: en
 description: Drafts U.S. construction defect complaints against contractors, developers, and design professionals with pre-suit notice compliance, defect-specific allegations, and element-based causes of action. Use when drafting a construction defect complaint, defective construction lawsuit, builder defect pleading, or Right to Repair/NOR compliant complaint.
 ---
 

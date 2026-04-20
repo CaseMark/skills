@@ -1,5 +1,6 @@
 ---
 name: labor-violation-summary
+language: en
 description: Produces structured summaries of labor law violation investigations with categorized findings, evidence citations, affected worker counts, and remedial recommendations. Covers wage/hour (FLSA), OSHA safety, and worker rights (NLRA) violations. Use when summarizing labor investigations, compliance audits, OSHA inspections, wage theft findings, or workplace safety enforcement actions.
 ---
 

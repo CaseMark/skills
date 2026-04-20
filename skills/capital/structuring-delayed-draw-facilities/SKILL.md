@@ -1,5 +1,6 @@
 ---
 name: structuring-delayed-draw-facilities
+language: en
 description: Designs delayed-draw term loan structures with commitment fees, draw conditions, and availability period mechanics. Use when structuring DDTL facilities, designing draw-down mechanisms, or analyzing delayed-draw economics.
 tags:
   - credit-and-institutional-lending

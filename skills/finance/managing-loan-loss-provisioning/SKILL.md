@@ -1,5 +1,6 @@
 ---
 name: managing-loan-loss-provisioning
+language: en
 description: Structures CECL/ACL estimation with model methodology, qualitative factors, and forecast integration. Use when calculating loan loss provisions, implementing CECL, or estimating credit losses.
 tags:
   - management

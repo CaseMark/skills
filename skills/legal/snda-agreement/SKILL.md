@@ -1,5 +1,6 @@
 ---
 name: snda-agreement
+language: en
 description: Drafts a tri-party Subordination, Non-Disturbance, and Attornment Agreement (SNDA) for commercial real estate. Use when a lender requires lease subordination, a tenant needs foreclosure protection, or parties are negotiating non-disturbance terms in new financing, refinancing, or lease priority disputes.
 tags:
   - agreement

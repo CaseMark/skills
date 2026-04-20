@@ -1,5 +1,6 @@
 ---
 name: loan-forbearance
+language: en
 description: >-
   Drafts lender-protective U.S. commercial loan forbearance agreements that
   temporarily suspend remedies while preserving all lender rights, capturing

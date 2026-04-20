@@ -1,5 +1,6 @@
 ---
 name: ca-discovery-verification
+language: en
 description: >
   Drafts California Superior Court discovery verification pages under CCP §§ 2030.250
   and 2031.250 with proper CCP § 2015.5 perjury declarations. Trigger when the user

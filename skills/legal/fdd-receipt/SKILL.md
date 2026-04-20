@@ -1,5 +1,6 @@
 ---
 name: fdd-receipt
+language: en
 description: Drafts a Receipt of Franchise Disclosure Document proving FTC Franchise Rule compliance under 16 C.F.R. § 436. Produces an execution-ready acknowledgment with franchisee identification, delivery date, FDD version, exhibit inventory, and dual signature blocks. Use when creating FDD receipts, franchise disclosure acknowledgments, or Item 19 FPR attestations.
 tags:
   - agreement

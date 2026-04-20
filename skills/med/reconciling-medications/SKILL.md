@@ -1,5 +1,6 @@
 ---
 name: reconciling-medications
+language: en
 description: Compares medication lists across care settings to identify discrepancies, duplications, and omissions. Use when performing medication reconciliation, identifying med discrepancies, or verifying discharge prescriptions.
 tags:
   - reconciliation

@@ -1,5 +1,6 @@
 ---
 name: written-consent-in-lieu-of-meeting
+language: en
 description: Drafts U.S. corporate written-consent instruments (board, shareholder, member) as substitutes for formal meetings. Triggers when counsel requests board consent, shareholder written consent, unanimous consent, consent-in-lieu approvals, or "action without meeting" for contracts, financing, equity issuance, officer delegation, or governing-document amendments. Produces jurisdiction-aware approval records with threshold validation and execution mechanics.
 tags:
   - agreement

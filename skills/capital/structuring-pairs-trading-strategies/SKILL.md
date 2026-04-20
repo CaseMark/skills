@@ -1,5 +1,6 @@
 ---
 name: structuring-pairs-trading-strategies
+language: en
 description: Designs statistical arbitrage pairs with cointegration analysis, spread dynamics, and entry/exit signal calibration. Use when building pairs trades, analyzing cointegration, or designing mean-reversion strategies.
 tags:
   - public-markets-and-trading

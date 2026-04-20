@@ -1,5 +1,6 @@
 ---
 name: final-settlement-approval
+language: en
 description: Drafts a Motion for Final Approval of Class Action Settlement under FRCP 23(e) or state equivalents, covering fairness analysis, notice compliance, fee requests, and supporting declarations. Use when seeking final court endorsement after preliminary approval, preparing for a Rule 23(e) fairness hearing, or drafting a settlement approval motion.
 tags:
   - drafting

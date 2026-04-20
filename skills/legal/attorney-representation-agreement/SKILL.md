@@ -1,5 +1,6 @@
 ---
 name: attorney-representation-agreement
+language: en
 description: >-
   Drafts U.S. litigation attorney representation agreements for client
   onboarding, covering scope, fees, retainers, confidentiality, conflicts,

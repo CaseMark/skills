@@ -1,5 +1,6 @@
 ---
 name: record-designation
+language: en
 description: Drafts a Record Designation on Appeal identifying trial court materials for transmission to the appellate court. Covers appellant designations and appellee counter-designations with transcript requests, exhibit lists, cost allocation, and compliance guidance. Use when filing a designation of record, counter-designation, transcript designation, or preparing the appellate record after a notice of appeal.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: real-estate-agency-disclosure
+language: en
 description: Drafts state-compliant real estate agency disclosure documents for residential transactions. Triggers at first substantive contact with buyers or sellers, when preparing pre-transaction disclosure forms, or when establishing representation relationships and fiduciary duties among transaction parties.
 tags:
   - agreement

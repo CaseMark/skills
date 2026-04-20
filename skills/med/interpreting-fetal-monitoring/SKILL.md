@@ -1,5 +1,6 @@
 ---
 name: interpreting-fetal-monitoring
+language: en
 description: Interprets electronic fetal monitoring using NICHD nomenclature with category classification and intervention criteria. Use when reading fetal heart tracings, classifying EFM patterns, or documenting intrapartum monitoring.
 tags:
   - analysis

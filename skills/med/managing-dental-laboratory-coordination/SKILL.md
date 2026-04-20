@@ -1,5 +1,6 @@
 ---
 name: managing-dental-laboratory-coordination
+language: en
 description: Structures dental lab communications with prescription specifications and quality assessment. Use when coordinating with dental labs, writing lab prescriptions, or evaluating lab work quality.
 tags:
   - management

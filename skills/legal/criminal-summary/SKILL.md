@@ -1,5 +1,6 @@
 ---
 name: criminal-summary
+language: en
 description: Generates structured U.S. criminal case summaries from docket materials, filings, transcripts, and exhibits. Covers charge history, evidentiary posture, procedural timeline, plea/trial outcome, and sentencing. Use when asked to summarize a criminal matter, produce a case recap, compile a charge-to-sentencing timeline, or create a neutral case brief.
 ---
 

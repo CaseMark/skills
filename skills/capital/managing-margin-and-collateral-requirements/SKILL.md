@@ -1,5 +1,6 @@
 ---
 name: managing-margin-and-collateral-requirements
+language: en
 description: Tracks margin requirements with initial/variation margin, portfolio margin optimization, and collateral eligibility analysis. Use when managing margin, optimizing collateral, or analyzing portfolio margin impact.
 tags:
   - management

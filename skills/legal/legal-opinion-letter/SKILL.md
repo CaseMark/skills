@@ -1,5 +1,6 @@
 ---
 name: legal-opinion-letter
+language: en
 description: Drafts formal legal opinion letters for corporate and transactional matters with jurisdiction-specific analysis, calibrated conclusion language, and comprehensive qualifications. Use when drafting closing opinion letters, third-party reliance opinions, enforceability opinions, or corporate authority opinions for mergers, acquisitions, financings, or regulatory compliance.
 ---
 

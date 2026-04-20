@@ -1,5 +1,6 @@
 ---
 name: conducting-scenario-planning
+language: en
 description: Structures financial scenario analysis with assumption modeling, sensitivity testing, and decision frameworks. Use when modeling scenarios, testing assumptions, or evaluating strategic options.
 tags:
   - process

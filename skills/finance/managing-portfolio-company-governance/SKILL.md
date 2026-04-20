@@ -1,5 +1,6 @@
 ---
 name: managing-portfolio-company-governance
+language: en
 description: Structures board governance for portfolio companies with reporting cadence and strategic oversight documentation. Use when managing portfolio boards, structuring governance frameworks, or documenting board practices.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: reg-bi-policy
+language: en
 description: Drafts board-ready Suitability and Best Interest policies for broker-dealers under FINRA Rule 2111 and SEC Regulation Best Interest (Reg BI). Covers the four Reg BI component obligations, suitability framework, Form CRS integration, supervision, and recordkeeping. Use when drafting Reg BI compliance policies, suitability procedures, or best interest obligation frameworks for financial services firms.
 ---
 

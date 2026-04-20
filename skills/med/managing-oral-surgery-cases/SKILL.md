@@ -1,5 +1,6 @@
 ---
 name: managing-oral-surgery-cases
+language: en
 description: Structures oral surgery documentation with extraction complexity assessment and complication management. Use when documenting extractions, assessing surgical complexity, or managing oral surgery complications.
 tags:
   - management

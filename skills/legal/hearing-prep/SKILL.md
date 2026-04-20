@@ -1,5 +1,6 @@
 ---
 name: hearing-prep
+language: en
 description: Generates structured hearing preparation briefings from case documents, evidence, authorities, and procedural details. Use when preparing for court hearings, administrative hearings, arbitrations, trials, motion hearings, evidentiary hearings, or status conferences.
 ---
 

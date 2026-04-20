@@ -1,5 +1,6 @@
 ---
 name: stock-ledger-certificates
+language: en
 description: >-
   Drafts stock ledger and certificate packages for U.S. corporations,
   including master equity ledger, certificate templates, transfer procedures,

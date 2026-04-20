@@ -1,5 +1,6 @@
 ---
 name: managing-acute-coronary-syndromes
+language: en
 description: Guides ACS management pathways with TIMI/GRACE scoring and intervention timing. Use when managing STEMI/NSTEMI, risk-stratifying ACS, or coordinating cath lab activation.
 tags:
   - management

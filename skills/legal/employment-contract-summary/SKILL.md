@@ -1,5 +1,6 @@
 ---
 name: employment-contract-summary
+language: en
 description: Produces structured U.S. employment contract summaries with section-level citations, capturing key terms, obligations, risks, and notable omissions. Use when summarizing an employment contract, executive employment agreement, offer letter, or consulting agreement. Triggers on "employment contract summary," "employment agreement," "compensation," "severance," "non-compete," "non-solicit," "confidentiality," or "restrictive covenant."
 ---
 

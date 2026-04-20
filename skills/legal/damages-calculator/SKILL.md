@@ -1,5 +1,6 @@
 ---
 name: damages-calculator
+language: en
 description: >
   Builds auditable personal injury damages calculations separating special damages
   (medical, wage loss, out-of-pocket) from general damages (pain and suffering)

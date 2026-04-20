@@ -1,5 +1,6 @@
 ---
 name: director-indemnification-agreement
+language: en
 description: >-
   Drafts U.S. director indemnification agreements maximizing protection under
   state corporate law, with advancement of expenses and determination

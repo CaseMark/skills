@@ -1,5 +1,6 @@
 ---
 name: vendor-security-assessment
+language: en
 description: Drafts a Vendor Security Assessment Questionnaire evaluating third-party cybersecurity posture, data handling, and regulatory compliance. Vendor responses become binding contractual representations with executive certification. Use during vendor due diligence, third-party risk management, procurement security review, or subprocessor evaluation.
 ---
 

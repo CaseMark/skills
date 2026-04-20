@@ -1,5 +1,6 @@
 ---
 name: analyzing-dutch-auction-tender-strategies
+language: en
 description: Evaluates Dutch auction mechanics with optimal pricing strategy, odd-lot proration, and shareholder base analysis. Use when analyzing Dutch auctions, modeling tender strategies, or evaluating self-tender economics.
 tags:
   - analysis

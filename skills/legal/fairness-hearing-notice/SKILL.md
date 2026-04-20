@@ -1,5 +1,6 @@
 ---
 name: fairness-hearing-notice
+language: en
 description: Drafts FRCP 23(e)-compliant class action fairness hearing notices. Extracts settlement terms, class definition, deadlines, and court-mandated language from case documents to produce plain-language notices satisfying due process. Use when drafting settlement notices, fairness hearing notices, class action notice of proposed settlement, or CAFA notices.
 ---
 

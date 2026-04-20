@@ -1,5 +1,6 @@
 ---
 name: certificate-of-origin
+language: en
 description: Drafts USMCA/NAFTA Certificates of Origin for preferential tariff treatment on US-Mexico-Canada goods. Verifies origin criteria, HS classifications, and regional value content. Use when preparing trade certificates, customs origin documentation, duty preference claims, or cross-border shipment certifications.
 tags:
   - drafting

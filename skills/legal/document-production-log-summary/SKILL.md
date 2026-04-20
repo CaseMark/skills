@@ -1,5 +1,6 @@
 ---
 name: document-production-log-summary
+language: en
 description: Generates a structured log and strategic summary of opposing-party document productions in U.S. litigation discovery. Categorizes by type, date, custodian, and relevance; flags hot documents; tracks privilege assertions per FRCP 26(b)(5); identifies production gaps. Use when organizing voluminous productions, surfacing critical evidence, assessing completeness, or supporting meet-and-confer and motion to compel decisions.
 tags:
   - analysis

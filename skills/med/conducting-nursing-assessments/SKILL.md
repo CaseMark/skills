@@ -1,5 +1,6 @@
 ---
 name: conducting-nursing-assessments
+language: en
 description: Structures head-to-toe nursing assessments with system-by-system documentation and abnormal findings. Use when performing nursing assessments, documenting patient evaluations, or creating assessment narratives.
 tags:
   - process

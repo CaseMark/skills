@@ -1,5 +1,6 @@
 ---
 name: finra-4512-customer-account
+language: en
 description: Drafts FINRA Rule 4512-compliant customer account records for broker-dealers. Use when onboarding customers, updating account information, or preparing for regulatory examinations. Triggers on requests involving customer account documentation, CIP/AML obligations, trusted contact designations, suitability profiling, or SEC Rule 17a-3 recordkeeping in broker-dealer contexts.
 tags:
   - checklist

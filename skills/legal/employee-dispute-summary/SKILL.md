@@ -1,5 +1,6 @@
 ---
 name: employee-dispute-summary
+language: en
 description: Produces a structured, source-cited summary of U.S. employment disputes for HR and litigation review. Trigger when asked to summarize an employee dispute, employment litigation, HR investigation, EEOC/agency matter, discrimination, harassment, retaliation, wrongful termination, wage-hour dispute, or grievance/arbitration file.
 tags:
   - litigation

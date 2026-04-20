@@ -1,5 +1,6 @@
 ---
 name: managing-bundling-rules
+language: en
 description: Navigates NCCI edits and CMS bundling policies with correct coding initiative compliance. Use when checking bundling rules, resolving NCCI edits, or managing component coding.
 tags:
   - management

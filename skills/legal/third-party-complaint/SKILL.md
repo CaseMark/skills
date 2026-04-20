@@ -1,5 +1,6 @@
 ---
 name: third-party-complaint
+language: en
 description: Drafts a Third-Party Complaint (impleader) under FRCP 14 or state equivalents. Use when a defendant needs to implead a party for indemnification, contribution, subrogation, or breach of warranty during the pleadings phase.
 tags:
   - drafting

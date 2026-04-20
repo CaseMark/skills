@@ -1,5 +1,6 @@
 ---
 name: conducting-country-risk-analysis
+language: en
 description: Structures sovereign and country risk assessment with economic, political, and financial system evaluation. Use when assessing country risk, evaluating sovereign creditworthiness, or analyzing political risk.
 tags:
   - process

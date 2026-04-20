@@ -1,5 +1,6 @@
 ---
 name: structuring-cross-border-investments
+language: en
 description: Designs international investment structures with holding company selection, treaty benefits, and repatriation pathway optimization. Use when structuring cross-border deals, optimizing holding structures, or planning repatriation strategies.
 tags:
   - cross-border-capital

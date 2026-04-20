@@ -1,5 +1,6 @@
 ---
 name: modeling-venture-cap-tables
+language: en
 description: Builds cap table models with round-by-round dilution, ESOP expansion, convertible note conversion, and exit waterfall analysis. Use when modeling cap tables, projecting ownership dilution, or calculating exit proceeds distribution.
 tags:
   - modeling

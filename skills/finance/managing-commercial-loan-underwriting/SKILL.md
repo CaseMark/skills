@@ -1,5 +1,6 @@
 ---
 name: managing-commercial-loan-underwriting
+language: en
 description: Structures commercial loan underwriting with financial spreading, cash flow analysis, and risk rating. Use when underwriting commercial loans, analyzing borrower financials, or assigning risk ratings.
 tags:
   - management

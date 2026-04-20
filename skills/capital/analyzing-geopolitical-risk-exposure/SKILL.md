@@ -1,5 +1,6 @@
 ---
 name: analyzing-geopolitical-risk-exposure
+language: en
 description: Evaluates geopolitical risk impact on investment portfolios with sanctions exposure, conflict risk, and supply chain disruption analysis. Use when analyzing geopolitical risk, assessing sanctions impact, or evaluating political event exposure.
 tags:
   - analysis

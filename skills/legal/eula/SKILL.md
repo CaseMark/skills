@@ -1,5 +1,6 @@
 ---
 name: eula
+language: en
 description: Drafts enforceable End-User License Agreements for software licensors across desktop, mobile, SaaS, and cloud models. Covers click-wrap formation, IP ownership, liability limitations, data privacy compliance (GDPR/CCPA/COPPA), and export controls. Use when drafting software license agreements, app store terms, SaaS subscription agreements, or trial/freemium license terms.
 ---
 

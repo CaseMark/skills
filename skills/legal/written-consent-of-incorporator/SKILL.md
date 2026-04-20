@@ -1,5 +1,6 @@
 ---
 name: written-consent-of-incorporator
+language: en
 description: Drafts a U.S. corporate Action by Written Consent of Incorporator for post-formation organizational actions (adopting bylaws, appointing directors, transitioning authority to board). Use when the prompt mentions "written consent," "incorporator," "formation filing," "adopt bylaws," "appoint initial directors," or "organize corporation."
 tags:
   - agreement

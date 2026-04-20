@@ -1,5 +1,6 @@
 ---
 name: evaluating-social-bonds
+language: en
 description: Structures social bond analysis with eligible population targeting, impact metrics, and SBP alignment. Use when evaluating social bonds, assessing social bond frameworks, or measuring social outcomes.
 tags:
   - analysis

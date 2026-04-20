@@ -1,5 +1,6 @@
 ---
 name: power-purchase-agreement
+language: en
 description: >-
   Drafts U.S. power purchase agreements (PPAs) between generators and offtakers
   covering delivery, pricing, metering, performance guarantees, RECs/carbon

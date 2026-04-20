@@ -1,5 +1,6 @@
 ---
 name: gambling-law-summary
+language: en
 description: >-
   Produces jurisdiction-specific U.S. gambling law regulatory summaries covering
   legal status, licensing, taxes, enforcement, and pending reforms. Use when

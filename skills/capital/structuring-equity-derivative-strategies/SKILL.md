@@ -1,5 +1,6 @@
 ---
 name: structuring-equity-derivative-strategies
+language: en
 description: Designs equity derivative strategies with call spreads, put spreads, straddles, and ratio combinations for investment and hedging. Use when structuring equity strategies, designing option combinations, or evaluating strategy payoffs.
 tags:
   - derivatives-and-structured-products

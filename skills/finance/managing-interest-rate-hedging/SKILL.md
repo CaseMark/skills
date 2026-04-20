@@ -1,5 +1,6 @@
 ---
 name: managing-interest-rate-hedging
+language: en
 description: Structures interest rate hedging with swap, cap, and collar analysis and hedge accounting documentation. Use when hedging interest rate risk, selecting hedging instruments, or documenting hedge relationships.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: case-summary
+language: en
 description: Summarize a large case from a pile of files. Use when a user arrives with a folder, zip, or vault of case documents and asks for a case summary, case evaluation, litigation package, or "can you summarize this case for me." Teaches the agent to ingest the corpus into a case.dev vault, OCR anything non-searchable, iteratively search the vault across the dimensions that matter (parties, timeline, injuries, liability, damages, liens), and synthesize an attorney-ready memo.
 tags:
   - litigation

@@ -1,5 +1,6 @@
 ---
 name: managing-climate-scenario-analysis
+language: en
 description: Structures TCFD-aligned climate scenario analysis with transition and physical risk modeling. Use when conducting climate scenarios, modeling transition risk, or analyzing physical climate exposure.
 tags:
   - management

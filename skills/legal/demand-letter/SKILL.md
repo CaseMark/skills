@@ -1,5 +1,6 @@
 ---
 name: demand-letter
+language: en
 description: >
   Drafts litigation-ready U.S. pre-suit demand letters that function as settlement
   instruments and defensible future exhibits. Enforces element-driven narratives,

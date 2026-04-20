@@ -1,5 +1,6 @@
 ---
 name: legal-article-summary
+language: en
 description: Produces structured summaries of legal scholarship capturing thesis, methodology, key authorities, arguments, and significance. Use when summarizing law review articles, journal articles, case notes, or scholarship for research triage, case preparation, literature reviews, or CLE.
 ---
 

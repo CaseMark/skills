@@ -1,5 +1,6 @@
 ---
 name: managing-commercial-real-estate-lending
+language: en
 description: Structures CRE loan underwriting with property valuation, cash flow analysis, and environmental review. Use when underwriting CRE loans, analyzing property cash flows, or evaluating loan collateral.
 tags:
   - management

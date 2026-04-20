@@ -1,5 +1,6 @@
 ---
 name: policy-manual
+language: en
 description: Generates structured policy manual summaries that distill complex legal policies and compliance guidelines into employee-facing reference documents organized by functional area. Use when creating compliance manuals, employee policy guides, regulatory summaries, onboarding compliance materials, or organizational procedure handbooks.
 ---
 

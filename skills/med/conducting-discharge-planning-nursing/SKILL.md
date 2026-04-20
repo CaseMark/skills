@@ -1,5 +1,6 @@
 ---
 name: conducting-discharge-planning-nursing
+language: en
 description: Coordinates nursing discharge planning with medication teaching, follow-up scheduling, and resource coordination. Use when planning discharge, coordinating post-discharge care, or documenting discharge teaching.
 tags:
   - process

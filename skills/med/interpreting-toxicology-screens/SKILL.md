@@ -1,5 +1,6 @@
 ---
 name: interpreting-toxicology-screens
+language: en
 description: Structures drug screen interpretation with confirmation testing and clinical correlation. Use when interpreting drug screens, managing confirmatory testing, or documenting toxicology results.
 tags:
   - analysis

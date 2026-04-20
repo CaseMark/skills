@@ -1,5 +1,6 @@
 ---
 name: eeoc-position-statement
+language: en
 description: Drafts employer Position Statements responding to EEOC charges of discrimination. Builds a factual, strategically favorable narrative from charge documents, personnel files, policies, and comparator evidence. Covers Title VII, ADA, ADEA claims including disparate treatment, harassment, and retaliation defenses. Use when responding to an EEOC charge, drafting a position statement, defending against employment discrimination allegations, or preparing an agency investigation response.
 tags:
   - drafting

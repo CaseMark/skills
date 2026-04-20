@@ -1,5 +1,6 @@
 ---
 name: managing-philanthropy-strategy
+language: en
 description: Structures philanthropic strategy with impact measurement, vehicle selection, and giving policy documentation. Use when developing philanthropy strategy, measuring charitable impact, or creating giving policies.
 tags:
   - management

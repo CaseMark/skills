@@ -1,5 +1,6 @@
 ---
 name: managing-medical-staff-credentialing
+language: en
 description: Structures credentialing verification with primary source documentation and privilege delineation. Use when processing credentials, verifying qualifications, or managing privilege requests.
 tags:
   - management

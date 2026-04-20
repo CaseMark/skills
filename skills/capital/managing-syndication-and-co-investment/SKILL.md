@@ -1,5 +1,6 @@
 ---
 name: managing-syndication-and-co-investment
+language: en
 description: Coordinates multi-investor rounds with allocation, lead/follow dynamics, and information rights structuring. Use when syndicating rounds, managing co-investor relationships, or structuring investor groups.
 tags:
   - management

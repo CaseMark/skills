@@ -1,5 +1,6 @@
 ---
 name: managing-proficiency-testing
+language: en
 description: Tracks proficiency testing results with remediation for unacceptable performance. Use when managing PT programs, analyzing PT results, or documenting corrective actions for PT failures.
 tags:
   - management

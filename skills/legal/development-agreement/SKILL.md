@@ -1,5 +1,6 @@
 ---
 name: development-agreement
+language: en
 description: Drafts U.S. commercial real estate owner-developer agreements covering scope, entitlements, schedule, pricing (fixed, GMP, cost-plus), change orders, payment and retainage, insurance, indemnity, IP, confidentiality, termination, and disputes. Use when user mentions "development agreement", "owner-developer agreement", "project development contract", "real estate development", "GMP", "cost-plus", "milestones", or "change orders".
 tags:
   - agreement

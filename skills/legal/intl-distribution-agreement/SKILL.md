@@ -1,5 +1,6 @@
 ---
 name: intl-distribution-agreement
+language: en
 description: Drafts international distribution agreements for cross-border supplier–distributor relationships. Covers appointment/territory, Incoterms, pricing/payment, export controls, sanctions, FCPA/UKBA, data protection, IP licensing, termination, and international arbitration. Trigger when drafting distribution agreements, cross-border supply contracts, dealer agreements, or exclusive distributor appointments.
 tags:
   - agreement

@@ -1,5 +1,6 @@
 ---
 name: board-meeting-minutes
+language: en
 description: >-
   Drafts U.S. corporate board-of-directors meeting minutes into formal,
   defensible records documenting valid corporate action and governance process.

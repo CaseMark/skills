@@ -1,5 +1,6 @@
 ---
 name: conducting-compliance-risk-assessments
+language: en
 description: Structures compliance risk assessment with regulatory inventory and inherent/residual risk evaluation. Use when assessing compliance risk, inventorying regulatory obligations, or prioritizing compliance resources.
 tags:
   - process

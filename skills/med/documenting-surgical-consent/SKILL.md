@@ -1,5 +1,6 @@
 ---
 name: documenting-surgical-consent
+language: en
 description: Structures surgical consent documentation with procedure-specific risks, alternatives, and patient understanding. Use when obtaining surgical consent, documenting risk discussions, or verifying consent elements.
 tags:
   - documentation

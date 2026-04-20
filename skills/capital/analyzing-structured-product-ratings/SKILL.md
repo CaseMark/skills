@@ -1,5 +1,6 @@
 ---
 name: analyzing-structured-product-ratings
+language: en
 description: Evaluates rating agency methodology application with loss model inputs, correlation assumptions, and tranche-level credit assessment. Use when analyzing structured product ratings, comparing agency methodologies, or assessing rating sensitivity.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: coordinating-care-transitions
+language: en
 description: Manages post-hospitalization follow-up with medication reconciliation and readmission prevention. Use when following up after discharge, preventing readmissions, or coordinating transitional care.
 tags:
   - coordination

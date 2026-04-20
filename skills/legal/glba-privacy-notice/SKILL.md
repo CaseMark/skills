@@ -1,5 +1,6 @@
 ---
 name: glba-privacy-notice
+language: en
 description: Drafts GLBA-compliant privacy notices using the 16 CFR Part 313 Appendix A model form safe harbor. Use when creating or updating Regulation P privacy notices, annual consumer disclosures, or NPI sharing notices for banks, credit unions, securities firms, insurers, or other covered entities under 15 U.S.C. §§ 6801–6809.
 tags:
   - drafting

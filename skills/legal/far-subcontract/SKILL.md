@@ -1,5 +1,6 @@
 ---
 name: far-subcontract
+language: en
 description: Drafts FAR-compliant subcontract agreements between prime contractors and subcontractors under U.S. federal government prime contracts. Handles mandatory flow-down of FAR/DFARS/agency clauses, contract-type pricing, security/clearance, IP/data rights, and termination. Use when drafting government subcontracts, FAR flow-down clauses, or prime-sub agreements.
 tags:
   - agreement

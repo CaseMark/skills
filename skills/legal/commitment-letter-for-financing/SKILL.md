@@ -1,5 +1,6 @@
 ---
 name: commitment-letter-for-financing
+language: en
 description: Drafts a U.S. financing commitment letter memorializing a lender's binding agreement to fund under specified economic terms, conditions precedent, and fees. Covers commercial real estate acquisition, construction, business expansion, and general commercial lending. Use when drafting loan commitment letters, lender commitment letters, financing commitments, or pre-closing funding commitments.
 tags:
   - drafting

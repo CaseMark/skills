@@ -1,5 +1,6 @@
 ---
 name: managing-third-party-risk
+language: en
 description: Structures vendor and third-party risk assessment with due diligence, monitoring, and concentration analysis. Use when assessing vendor risk, conducting third-party due diligence, or monitoring outsourcing risk.
 tags:
   - management

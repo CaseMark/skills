@@ -1,5 +1,6 @@
 ---
 name: analyzing-cryptocurrency-tax
+language: en
 description: Structures cryptocurrency tax analysis with cost basis tracking, gain classification, and reporting requirements. Use when analyzing crypto tax, tracking digital asset basis, or classifying crypto transactions.
 tags:
   - analysis

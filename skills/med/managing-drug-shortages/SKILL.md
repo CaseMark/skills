@@ -1,5 +1,6 @@
 ---
 name: managing-drug-shortages
+language: en
 description: Identifies therapeutic alternatives during drug shortages with clinical equivalence assessment. Use when managing drug shortages, finding alternative therapies, or implementing shortage protocols.
 tags:
   - management

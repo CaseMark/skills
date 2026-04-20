@@ -1,5 +1,6 @@
 ---
 name: litigation
+language: en
 description: Root reference for litigation practice spanning civil, criminal, and administrative proceedings. Provides sub-area taxonomy, core principles, and routing guidance. Use when classifying litigation work, routing to a sub-practice skill, or applying general litigation standards.
 ---
 

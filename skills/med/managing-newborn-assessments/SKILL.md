@@ -1,5 +1,6 @@
 ---
 name: managing-newborn-assessments
+language: en
 description: Structures newborn examination with Apgar scoring, gestational age assessment, and initial screening. Use when examining newborns, documenting birth assessments, or performing initial newborn evaluations.
 tags:
   - management

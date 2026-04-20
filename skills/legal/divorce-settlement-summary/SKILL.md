@@ -1,5 +1,6 @@
 ---
 name: divorce-settlement-summary
+language: en
 description: Produces structured summaries of U.S. divorce settlement agreements (MSAs), extracting material terms across property, custody, support, taxes, insurance, fees, and deadlines. Triggers on requests for divorce settlement summary, MSA summary, marital settlement agreement, property division, child custody, parenting plan, child support, or alimony extraction.
 tags:
   - litigation

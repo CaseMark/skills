@@ -1,5 +1,6 @@
 ---
 name: complaint-for-copyright-infringement
+language: en
 description: >-
   Drafts a federal court complaint for copyright infringement under 17 U.S.C. § 101 et seq.
   Produces a Twombly/Iqbal-plausible pleading with caption, jurisdiction (28 U.S.C. §§ 1331, 1338(a)),

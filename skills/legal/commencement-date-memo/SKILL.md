@@ -1,5 +1,6 @@
 ---
 name: commencement-date-memo
+language: en
 description: Drafts a Commencement Date Memorandum confirming when obligations take effect under an executed agreement. Triggers when formalizing lease commencement dates, documenting condition-precedent satisfaction, or recording the effective date of contractual obligations post-execution.
 tags:
   - drafting

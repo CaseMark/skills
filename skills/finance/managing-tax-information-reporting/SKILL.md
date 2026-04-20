@@ -1,5 +1,6 @@
 ---
 name: managing-tax-information-reporting
+language: en
 description: Structures Form 1099, W-2, and other information reporting with classification and filing requirements. Use when managing tax reporting, classifying payments, or ensuring filing compliance.
 tags:
   - management

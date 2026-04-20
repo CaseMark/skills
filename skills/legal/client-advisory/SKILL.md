@@ -1,5 +1,6 @@
 ---
 name: client-advisory
+language: en
 description: Drafts client advisory memoranda translating legal developments into actionable guidance with impact analysis, Bluebook citations, and compliance recommendations. Use when preparing client alerts, regulatory updates, legal bulletins, or proactive advisory summaries.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: court-order-summaries
+language: en
 description: Generates structured summaries of court orders and decisions, extracting obligations, deadlines, monetary awards, injunctive relief, and procedural requirements into an action-oriented reference. Flags ambiguities for attorney review. Converts relative timeframes to calendar dates. Use when summarizing court orders, judgments, injunctions, consent decrees, or compliance orders.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: managing-underwriting-analysis
+language: en
 description: Structures underwriting evaluation with risk assessment, pricing analysis, and terms documentation. Use when evaluating underwriting risk, analyzing pricing adequacy, or documenting underwriting decisions.
 tags:
   - management

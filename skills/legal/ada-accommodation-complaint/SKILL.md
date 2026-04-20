@@ -1,5 +1,6 @@
 ---
 name: ada-accommodation-complaint
+language: en
 description: Drafts an ADA failure-to-accommodate complaint for federal or state court filing. Covers Title I employment (42 U.S.C. § 12112) and Title III public accommodations (42 U.S.C. § 12182), including EEOC exhaustion, interactive process failures, and prayer for relief. Use when drafting an ADA complaint, disability discrimination pleading, failure-to-accommodate lawsuit, or right-to-sue complaint.
 ---
 

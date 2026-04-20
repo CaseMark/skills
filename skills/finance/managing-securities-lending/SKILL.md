@@ -1,5 +1,6 @@
 ---
 name: managing-securities-lending
+language: en
 description: Structures securities lending operations with borrower management, collateral monitoring, and revenue optimization. Use when managing sec lending, monitoring loan collateral, or optimizing lending revenue.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: terms-of-service
+language: en
 description: Drafts enforceable U.S. Terms of Service agreements for websites, apps, platforms, and SaaS with acceptance mechanics, liability limits, dispute resolution, IP/content rules, and privacy hooks. Use when asked to draft "terms of service", "terms of use", "TOS", "user agreement", "platform terms", "website terms", "app terms", or "SaaS terms".
 ---
 

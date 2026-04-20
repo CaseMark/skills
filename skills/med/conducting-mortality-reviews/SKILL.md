@@ -1,5 +1,6 @@
 ---
 name: conducting-mortality-reviews
+language: en
 description: Structures mortality case reviews with root cause analysis and system improvement recommendations. Use when conducting M&M reviews, analyzing adverse outcomes, or documenting mortality cases.
 tags:
   - process

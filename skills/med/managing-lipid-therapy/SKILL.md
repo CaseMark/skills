@@ -1,5 +1,6 @@
 ---
 name: managing-lipid-therapy
+language: en
 description: Guides statin selection and intensity with ASCVD risk calculation and LDL targets. Use when managing lipids, calculating cardiovascular risk, or optimizing lipid-lowering therapy.
 tags:
   - management

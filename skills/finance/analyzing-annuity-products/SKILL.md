@@ -1,5 +1,6 @@
 ---
 name: analyzing-annuity-products
+language: en
 description: Evaluates annuity structures with guaranteed benefit analysis, fee comparison, and surrender value modeling. Use when analyzing annuities, comparing guaranteed benefits, or evaluating annuity products.
 tags:
   - analysis

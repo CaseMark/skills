@@ -1,5 +1,6 @@
 ---
 name: preparing-strategic-alternatives-board-materials
+language: en
 description: Creates board presentation materials with strategic options analysis, financial impact, and recommendation framework for corporate transformation decisions. Use when preparing board strategy materials, presenting alternatives, or documenting strategic recommendations.
 tags:
   - preparation

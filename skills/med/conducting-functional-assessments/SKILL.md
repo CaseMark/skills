@@ -1,5 +1,6 @@
 ---
 name: conducting-functional-assessments
+language: en
 description: Structures functional capacity evaluation with standardized measures and activity limitation documentation. Use when assessing functional status, measuring mobility, or documenting activity levels.
 tags:
   - process

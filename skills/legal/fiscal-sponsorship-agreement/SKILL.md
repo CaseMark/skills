@@ -1,5 +1,6 @@
 ---
 name: fiscal-sponsorship-agreement
+language: en
 description: Drafts a Fiscal Sponsorship Agreement between a 501(c)(3) sponsor and an unincorporated or non-exempt project. Enforces IRS compliance via sponsor control, variance power, separate accounting, and donor substantiation under IRC § 170. Use when forming fiscal sponsorship arrangements, onboarding sponsored projects, or drafting charitable project funding agreements.
 tags:
   - agreement

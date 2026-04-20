@@ -1,5 +1,6 @@
 ---
 name: managing-dental-medical-integration
+language: en
 description: Evaluates medical-dental interactions with systemic disease impact on dental treatment planning. Use when managing medically complex dental patients, adjusting treatment for systemic disease, or coordinating medical-dental care.
 tags:
   - management

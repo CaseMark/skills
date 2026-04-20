@@ -1,5 +1,6 @@
 ---
 name: managing-acute-chest-pain
+language: en
 description: Guides chest pain workup following ACS pathways with troponin timing and disposition criteria. Use when evaluating chest pain, running ACS protocols, or determining observation vs. discharge.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: modeling-default-and-recovery-analysis
+language: en
 description: Builds default probability and recovery rate models with industry data, structural analysis, and loss-given-default estimation. Use when modeling credit losses, estimating recovery values, or analyzing default scenarios.
 tags:
   - modeling

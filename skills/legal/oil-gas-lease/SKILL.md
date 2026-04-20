@@ -1,5 +1,6 @@
 ---
 name: oil-gas-lease
+language: en
 description: Drafts enforceable U.S. Oil and Gas Leases conveying subsurface mineral rights from lessor to lessee while reserving surface rights, royalty interests, and environmental obligations. Handles grant clauses, royalty structures, pooling/unitization, habendum terms, and state-specific regulatory compliance. Use when preparing leases for exploration, extraction, production, mineral rights conveyance, delay rentals, shut-in royalties, or energy law transactional matters.
 metadata:
   author: casemark

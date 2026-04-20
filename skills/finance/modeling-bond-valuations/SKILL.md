@@ -1,5 +1,6 @@
 ---
 name: modeling-bond-valuations
+language: en
 description: Calculates bond pricing with duration, convexity, OAS, and Z-spread analysis. Use when pricing bonds, calculating risk metrics, or evaluating relative value.
 tags:
   - modeling

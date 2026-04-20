@@ -1,5 +1,6 @@
 ---
 name: building-custom-factor-definitions
+language: en
 description: Constructs proprietary factor definitions with signal specification, universe application, and orthogonalization methodology. Use when defining custom factors, creating proprietary signals, or building factor libraries.
 tags:
   - modeling

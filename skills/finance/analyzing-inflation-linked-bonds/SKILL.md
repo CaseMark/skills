@@ -1,5 +1,6 @@
 ---
 name: analyzing-inflation-linked-bonds
+language: en
 description: Evaluates TIPS and inflation-linked securities with breakeven analysis and real yield assessment. Use when analyzing inflation bonds, calculating breakeven inflation, or evaluating real return.
 tags:
   - analysis

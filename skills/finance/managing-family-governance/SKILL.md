@@ -1,5 +1,6 @@
 ---
 name: managing-family-governance
+language: en
 description: Structures family governance frameworks with meeting protocols, decision-making, and succession planning. Use when establishing family governance, planning family meetings, or documenting succession.
 tags:
   - management

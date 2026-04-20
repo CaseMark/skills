@@ -1,5 +1,6 @@
 ---
 name: trademark-cease-desist
+language: en
 description: Drafts U.S. trademark cease-and-desist letters asserting ownership, documenting infringement, and issuing cure demands with deadlines. Trigger when the user needs a cease-and-desist letter, trademark infringement notice, brand enforcement demand, Lanham Act notice, or a demand to stop use of a confusingly similar mark.
 tags:
   - drafting

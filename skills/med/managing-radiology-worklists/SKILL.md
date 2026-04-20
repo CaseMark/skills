@@ -1,5 +1,6 @@
 ---
 name: managing-radiology-worklists
+language: en
 description: Prioritizes and triages radiology worklists based on clinical urgency and study type. Use when managing reading worklists, prioritizing urgent studies, or optimizing radiology workflow.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-fund-compliance-monitoring
+language: en
 description: Structures investment compliance testing with guideline monitoring and breach reporting. Use when monitoring investment guidelines, testing compliance, or reporting breaches.
 tags:
   - management

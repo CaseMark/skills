@@ -1,5 +1,6 @@
 ---
 name: building-multi-factor-equity-models
+language: en
 description: Constructs multi-factor models with value, momentum, quality, size, and volatility factor definitions and portfolio construction rules. Use when building factor models, designing systematic strategies, or constructing factor portfolios.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: managing-dental-radiograph-interpretation
+language: en
 description: Structures dental radiograph interpretation with caries detection, bone level assessment, and pathology identification. Use when reading dental X-rays, identifying radiographic pathology, or documenting dental imaging findings.
 tags:
   - management

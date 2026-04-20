@@ -1,5 +1,6 @@
 ---
 name: managing-trade-surveillance
+language: en
 description: Monitors trading activity for market manipulation, insider trading, and best execution compliance. Use when conducting trade surveillance, investigating suspicious trading, or monitoring execution quality.
 tags:
   - management

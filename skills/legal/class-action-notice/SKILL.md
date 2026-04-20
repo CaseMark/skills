@@ -1,5 +1,6 @@
 ---
 name: class-action-notice
+language: en
 description: Drafts Rule 23-compliant class action notices to absent class members for certification or settlement. Agent uses this skill when drafting class action notices, class member notifications, settlement notices, opt-out notices, or fairness hearing notices.
 tags:
   - drafting

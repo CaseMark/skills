@@ -1,5 +1,6 @@
 ---
 name: royalty-report
+language: en
 description: Drafts auditable royalty report forms for IP licensing agreements, calculating tiered royalties, minimum guarantees, and advance recoupments from governing license terms. Use when preparing licensee royalty reports, royalty payment calculations, license compliance filings, or periodic royalty submissions.
 ---
 

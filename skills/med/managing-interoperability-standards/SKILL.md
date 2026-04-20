@@ -1,5 +1,6 @@
 ---
 name: managing-interoperability-standards
+language: en
 description: Tracks and implements healthcare interoperability standards (ONC, TEFCA, Information Blocking). Use when ensuring interoperability compliance, implementing TEFCA, or managing information blocking rules.
 tags:
   - management

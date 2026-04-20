@@ -1,5 +1,6 @@
 ---
 name: summarizing-earnings-calls
+language: en
 description: Transforms earnings call transcripts into structured summaries with financial guidance, KPI changes, management sentiment, and analyst Q&A highlights. Use when processing quarterly earnings calls, preparing investment research, or tracking company performance narratives.
 tags:
   - summarization

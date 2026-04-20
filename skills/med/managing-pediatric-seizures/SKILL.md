@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-seizures
+language: en
 description: Structures seizure evaluation with EEG interpretation and anticonvulsant selection for pediatric populations. Use when evaluating pediatric seizures, interpreting pediatric EEGs, or selecting anticonvulsants for children.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: telecom-law-summary
+language: en
 description: Generates executive-level summaries of recent US telecommunications law developments covering spectrum rights, network access, privacy, infrastructure, and enforcement. Structures analysis by topic with compliance deadlines and business impact. Use when briefing counsel, regulatory teams, or executives on FCC rulemakings, net neutrality, CPNI, 5G deployment, robocall enforcement, or the broader telecom legal landscape.
 ---
 

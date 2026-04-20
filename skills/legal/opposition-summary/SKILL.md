@@ -1,5 +1,6 @@
 ---
 name: opposition-summary
+language: en
 description: Generates structured analytical summaries of trademark opposition proceedings before the TTAB. Use when summarizing opposition filings, analyzing TTAB dispute posture, evaluating settlement options, or assessing trademark conflict strength.
 ---
 

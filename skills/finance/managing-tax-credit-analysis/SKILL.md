@@ -1,5 +1,6 @@
 ---
 name: managing-tax-credit-analysis
+language: en
 description: Identifies and structures tax credit opportunities including R&D, energy, and employment credits. Use when analyzing tax credits, quantifying R&D credits, or evaluating credit eligibility.
 tags:
   - management

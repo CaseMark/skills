@@ -1,5 +1,6 @@
 ---
 name: interpreting-genetic-testing
+language: en
 description: Structures genetic test result interpretation with variant classification (ACMG criteria) and clinical actionability. Use when interpreting genetic results, classifying variants, or documenting genetic findings.
 tags:
   - analysis

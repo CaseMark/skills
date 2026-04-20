@@ -1,5 +1,6 @@
 ---
 name: equity-term-sheet
+language: en
 description: >-
   Drafts a U.S. equity financing term sheet for preferred stock rounds
   (Series A/B/C), structured as a non-binding framework with binding

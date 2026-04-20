@@ -1,5 +1,6 @@
 ---
 name: analyzing-corporate-tax-structures
+language: en
 description: Structures corporate tax analysis with entity selection, state nexus, and effective tax rate optimization. Use when analyzing tax structures, selecting entity types, or optimizing corporate tax positions.
 tags:
   - analysis

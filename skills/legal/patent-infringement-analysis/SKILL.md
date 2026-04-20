@@ -1,5 +1,6 @@
 ---
 name: patent-infringement-analysis
+language: en
 description: Generates a structured patent infringement analysis mapping claims to accused product features via claim charts. Covers Phillips claim construction, literal infringement, doctrine of equivalents, validity defenses, damages, and strategic recommendations. Use when analyzing patent infringement, preparing claim charts, evaluating IP litigation risk, or assessing licensing and design-around options.
 ---
 

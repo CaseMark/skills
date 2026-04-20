@@ -1,5 +1,6 @@
 ---
 name: managing-occupational-health-surveillance
+language: en
 description: Structures workplace health surveillance with exposure monitoring, screening programs, and OSHA reporting. Use when managing occupational health, monitoring workplace exposures, or tracking occupational injuries.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-critical-laboratory-values
+language: en
 description: Tracks critical value notification with documentation requirements and clinical correlation. Use when reporting critical lab values, verifying notification, or documenting critical result acknowledgment.
 tags:
   - management

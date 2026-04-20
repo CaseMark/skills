@@ -1,5 +1,6 @@
 ---
 name: managing-due-diligence-processes
+language: en
 description: Structures buy-side and sell-side due diligence with workstream coordination and findings documentation. Use when managing due diligence, coordinating DD workstreams, or documenting diligence findings.
 tags:
   - management

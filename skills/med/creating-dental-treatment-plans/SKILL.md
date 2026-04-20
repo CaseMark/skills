@@ -1,5 +1,6 @@
 ---
 name: creating-dental-treatment-plans
+language: en
 description: Structures dental treatment planning with phasing, cost estimation, and alternative options presentation. Use when creating treatment plans, phasing dental work, or presenting treatment options.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: analyzing-liability-management-transactions
+language: en
 description: Evaluates uptier exchanges, drop-down transactions, and covenant-stripping maneuvers as aggressive liability management tools. Use when analyzing LMTs, evaluating creditor-on-creditor violence, or assessing cooperation agreement strategies.
 tags:
   - analysis

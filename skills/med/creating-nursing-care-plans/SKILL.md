@@ -1,5 +1,6 @@
 ---
 name: creating-nursing-care-plans
+language: en
 description: Develops NANDA-I nursing care plans with nursing diagnoses, outcomes (NOC), and interventions (NIC). Use when creating care plans, selecting nursing diagnoses, or planning nursing interventions.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: saas-license-agreement
+language: en
 description: Drafts SaaS License Agreements for cloud-based software subscriptions covering access-based licensing, fees, SLAs, IP, data protection, indemnification, and liability caps. Triggers when the user needs a SaaS agreement, software subscription contract, cloud service license, or technology subscription terms.
 tags:
   - agreement

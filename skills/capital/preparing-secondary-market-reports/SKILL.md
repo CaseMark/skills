@@ -1,5 +1,6 @@
 ---
 name: preparing-secondary-market-reports
+language: en
 description: Synthesizes secondary market activity with volume trends, pricing benchmarks, and deal type composition for market participants. Use when preparing market reports, analyzing secondary volumes, or tracking market evolution.
 tags:
   - preparation

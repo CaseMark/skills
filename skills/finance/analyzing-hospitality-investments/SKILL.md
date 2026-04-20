@@ -1,5 +1,6 @@
 ---
 name: analyzing-hospitality-investments
+language: en
 description: Structures hotel and hospitality investment analysis with RevPAR, ADR, and operational benchmarking. Use when analyzing hotel investments, benchmarking hospitality metrics, or evaluating hotel performance.
 tags:
   - analysis

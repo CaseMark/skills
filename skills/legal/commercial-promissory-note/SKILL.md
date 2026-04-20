@@ -1,5 +1,6 @@
 ---
 name: commercial-promissory-note
+language: en
 description: Drafts UCC-compliant U.S. Commercial Promissory Notes for commercial real estate finance transactions. Produces negotiable instruments with principal, interest, payment, default, and enforcement provisions protecting lender interests. Use when drafting promissory notes secured by real property, deed of trust, or mortgage in commercial lending.
 tags:
   - agreement

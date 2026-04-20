@@ -1,5 +1,6 @@
 ---
 name: marital-settlement-agreement
+language: en
 description: Drafts Marital Settlement Agreements for divorce proceedings covering property division, spousal support, child custody, and enforceability provisions. Triggers on requests to draft MSAs, divorce settlement agreements, property settlement agreements, or marital dissolution contracts.
 tags:
   - agreement

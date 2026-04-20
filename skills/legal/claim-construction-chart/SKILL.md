@@ -1,5 +1,6 @@
 ---
 name: claim-construction-chart
+language: en
 description: Drafts Joint Claim Construction Charts for patent litigation Markman hearings in US federal courts. Organizes disputed claim terms with competing party constructions, intrinsic/extrinsic evidence citations, and agreement status. Use when preparing claim construction charts, Markman hearing exhibits, or joint prehearing statements in IP litigation.
 ---
 

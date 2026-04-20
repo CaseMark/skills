@@ -1,5 +1,6 @@
 ---
 name: economic-loss-report
+language: en
 description: >-
   Generates a Lost Wage & Economic Loss Report for personal injury litigation.
   Calculates past/future lost wages, diminished earning capacity, medical

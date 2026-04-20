@@ -1,5 +1,6 @@
 ---
 name: consent-decree-epa
+language: en
 description: Drafts EPA Consent Decrees resolving federal environmental enforcement actions under CWA, CAA, RCRA, or CERCLA. Covers case caption, jurisdictional recitals, compliance obligations, civil penalties, stipulated penalties, dispute resolution, force majeure, covenants not to sue, and public comment requirements. Use when settling EPA enforcement actions, drafting environmental consent judgments, or preparing judicial settlement agreements with the EPA.
 ---
 

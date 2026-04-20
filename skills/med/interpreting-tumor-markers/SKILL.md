@@ -1,5 +1,6 @@
 ---
 name: interpreting-tumor-markers
+language: en
 description: Tracks tumor marker trends with diagnostic and monitoring interpretive frameworks. Use when tracking tumor markers, interpreting biomarker trends, or monitoring treatment response.
 tags:
   - analysis

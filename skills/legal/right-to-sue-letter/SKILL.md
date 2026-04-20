@@ -1,5 +1,6 @@
 ---
 name: right-to-sue-letter
+language: en
 description: Drafts EEOC Notice of Right to Sue letters that close the administrative process and authorize employment discrimination litigation. Ensures compliance with Title VII, ADA, ADEA, GINA, and EPA filing requirements. Use when drafting right-to-sue notices, EEOC closure letters, or administrative exhaustion documents.
 tags:
   - drafting

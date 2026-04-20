@@ -1,5 +1,6 @@
 ---
 name: analyzing-social-infrastructure-investments
+language: en
 description: Evaluates social infrastructure including healthcare, education, and government facilities with availability-based revenue structures. Use when analyzing social infrastructure, evaluating availability payments, or assessing government-backed projects.
 tags:
   - analysis

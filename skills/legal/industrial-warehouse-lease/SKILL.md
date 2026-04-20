@@ -1,5 +1,6 @@
 ---
 name: industrial-warehouse-lease
+language: en
 description: Drafts NNN-structured U.S. Industrial or Warehouse Lease agreements. Covers base rent escalations, operating expense pass-throughs, hazardous materials compliance, loading dock rights, SNDA provisions, and casualty/condemnation procedures. Use when drafting leases for industrial parks, warehouses, distribution centers, light manufacturing, or R&D facilities.
 ---
 

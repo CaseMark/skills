@@ -1,5 +1,6 @@
 ---
 name: interpreting-genomic-profiling
+language: en
 description: Structures comprehensive genomic profiling interpretation with actionable mutations and matched therapies. Use when reviewing genomic test results, identifying targeted therapy options, or interpreting NGS panels.
 tags:
   - analysis

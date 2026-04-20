@@ -1,5 +1,6 @@
 ---
 name: managing-payment-compliance
+language: en
 description: Structures payment regulatory compliance with PCI-DSS, money transmitter licensing, and BSA requirements. Use when managing payment compliance, assessing PCI requirements, or navigating MTL licensing.
 tags:
   - management

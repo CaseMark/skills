@@ -1,5 +1,6 @@
 ---
 name: managing-value-creation-plans
+language: en
 description: Structures 100-day and long-term value creation plans with initiative tracking and KPI targets. Use when building value creation plans, tracking improvement initiatives, or managing post-acquisition integration.
 tags:
   - management

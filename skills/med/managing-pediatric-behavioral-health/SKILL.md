@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-behavioral-health
+language: en
 description: Screens for and manages common pediatric behavioral and emotional conditions with school coordination. Use when screening pediatric mental health, coordinating with schools, or managing behavioral concerns.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: structuring-inflation-derivatives
+language: en
 description: Designs inflation swap and option structures with zero-coupon and year-on-year mechanics and seasonal adjustment analysis. Use when structuring inflation derivatives, pricing inflation swaps, or evaluating inflation hedging.
 tags:
   - derivatives-and-structured-products

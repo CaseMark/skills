@@ -1,5 +1,6 @@
 ---
 name: at-will-employment-offer-letter
+language: en
 description: Drafts a U.S. at-will employment offer letter with unambiguous at-will language, FLSA-compliant compensation terms, benefits disclaimers, and conditions precedent. Use when extending formal job offers, issuing written employment offers, or drafting offer letters for new hires in U.S. jurisdictions.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: analyzing-fairness-opinion-valuations
+language: en
 description: Evaluates fairness opinion methodologies across DCF, trading comps, and precedent transactions for board-level decisions. Use when reviewing fairness opinions, preparing board materials, or analyzing transaction fairness.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: suppress-evidence
+language: en
 description: Drafts a Motion to Suppress Evidence for criminal defense, challenging admissibility under the Fourth, Fifth, or Sixth Amendment. Trigger when the user needs a suppression motion, exclusionary rule brief, or pre-trial evidence challenge involving warrantless searches, Miranda violations, consent disputes, warrant defects, or fruit of the poisonous tree.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: protest-notice
+language: en
 description: Drafts a formal Notice of Intent to Protest Award for federal contracts under FAR 33.103, 33.104, and 4 C.F.R. Part 21. Use when a client receives an adverse contract award decision and must preserve GAO protest rights within the 10-day jurisdictional deadline. Covers bid protests, stay of performance requests, and contracting officer notifications.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: managing-capital-structure
+language: en
 description: Analyzes optimal capital structure with WACC minimization, rating implications, and financing alternatives. Use when optimizing capital structure, analyzing debt capacity, or evaluating leverage targets.
 tags:
   - management

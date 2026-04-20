@@ -1,5 +1,6 @@
 ---
 name: conducting-institutional-credit-analysis
+language: en
 description: Structures credit underwriting with financial ratio analysis, cash flow quality assessment, and downside scenario modeling. Use when underwriting credit, analyzing borrower quality, or writing credit opinions.
 tags:
   - process

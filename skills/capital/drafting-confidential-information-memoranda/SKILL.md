@@ -1,5 +1,6 @@
 ---
 name: drafting-confidential-information-memoranda
+language: en
 description: Creates sell-side CIMs with business description, financial overview, growth drivers, and investment highlights. Use when preparing sell-side marketing materials, writing CIMs, or positioning companies for sale.
 tags:
   - drafting

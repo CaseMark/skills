@@ -1,5 +1,6 @@
 ---
 name: confidentiality-agreement
+language: en
 description: Drafts corporate NDAs and confidentiality agreements for M&A, due diligence, partnerships, JVs, and licensing negotiations. Handles mutual vs. unilateral structuring, CI definitions and exclusions, compelled-disclosure procedures, standstill and non-solicit provisions, return/destroy obligations, and equitable relief. Use when initiating any pre-deal evaluation or sensitive business discussion requiring enforceable confidentiality protections.
 ---
 

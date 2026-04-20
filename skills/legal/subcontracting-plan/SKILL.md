@@ -1,5 +1,6 @@
 ---
 name: subcontracting-plan
+language: en
 description: Drafts a FAR 52.219-9-compliant Small Business Subcontracting Plan for federal prime contractors. Sets percentage goals for SB, SDB, WOSB, HUBZone, VOSB, and SDVOSB with market-based justifications, outreach strategies, and eSRS reporting. Use when preparing subcontracting plans for federal proposals, responding to FAR 52.219-9, or updating existing subcontracting commitments.
 ---
 

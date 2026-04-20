@@ -1,5 +1,6 @@
 ---
 name: conducting-profitability-analysis
+language: en
 description: Structures product, customer, and segment profitability analysis with cost allocation methodology. Use when analyzing profitability, allocating costs, or evaluating segment performance.
 tags:
   - process

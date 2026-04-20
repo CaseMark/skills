@@ -1,5 +1,6 @@
 ---
 name: structuring-deferred-payment-mechanisms
+language: en
 description: Designs deferred and contingent payment structures for secondary transactions with earnout mechanics and escrow arrangements. Use when structuring deferred payments, designing earnout mechanisms, or managing payment timing.
 tags:
   - secondaries-and-gp-led

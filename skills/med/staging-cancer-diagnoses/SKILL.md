@@ -1,5 +1,6 @@
 ---
 name: staging-cancer-diagnoses
+language: en
 description: Applies AJCC 8th edition TNM staging with pathologic and clinical stage documentation. Use when staging cancers, applying TNM classifications, or documenting cancer stage.
 tags:
   - oncology

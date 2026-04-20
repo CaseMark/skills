@@ -1,5 +1,6 @@
 ---
 name: wrongful-termination-complaint
+language: en
 description: Drafts wrongful termination complaints for employment litigation. Covers at-will exceptions, statutory claims (Title VII, ADA, ADEA, FMLA, state equivalents), public policy violations, and whistleblower protections. Use when drafting or filing a wrongful termination complaint or related employment discharge claim.
 tags:
   - drafting

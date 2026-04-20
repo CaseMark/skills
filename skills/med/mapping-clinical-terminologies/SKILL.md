@@ -1,5 +1,6 @@
 ---
 name: mapping-clinical-terminologies
+language: en
 description: Maps between clinical terminologies (ICD-10, SNOMED CT, LOINC, RxNorm) with semantic equivalence validation. Use when mapping medical codes, converting between terminologies, or validating code mappings.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: franchise-agreement
+language: en
 description: Drafts FTC-compliant U.S. Franchise Agreements covering rights grants, territory, fees, operational standards, IP protection, transfer restrictions, default/termination, and post-term obligations. Flags state relationship and registration law issues. Use when drafting initial or renewal franchise agreements, negotiating franchise terms, or expanding a franchise system.
 ---
 

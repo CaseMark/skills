@@ -1,5 +1,6 @@
 ---
 name: final-tax-return-corporate
+language: en
 description: Prepares IRS-compliant final tax returns for dissolving C-corps (Form 1120), S-corps (Form 1120-S), and partnerships (Form 1065). Covers short-year reporting, liquidating distributions, K-1 issuance, and dissolution-period deadlines. Trigger when drafting or reviewing a final return for a dissolving corporation, winding-up entity, or corporate liquidation closing.
 tags:
   - analysis

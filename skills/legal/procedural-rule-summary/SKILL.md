@@ -1,5 +1,6 @@
 ---
 name: procedural-rule-summary
+language: en
 description: Generates structured, stage-organized summaries of procedural rules from federal, state, local, or administrative sources with deadlines, responsibilities, and non-compliance consequences. Extracts rules from uploaded texts, court orders, and standing orders. Use when summarizing FRCP, FRCrP, state civil/criminal procedure, local rules, administrative hearing procedures, or building procedural compliance checklists for case preparation and motion practice.
 tags:
   - litigation

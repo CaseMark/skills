@@ -1,5 +1,6 @@
 ---
 name: analyzing-credit-ratings
+language: en
 description: Interprets and anticipates credit rating actions with methodology analysis and surveillance monitoring. Use when analyzing credit ratings, predicting rating changes, or understanding rating methodology.
 tags:
   - analysis

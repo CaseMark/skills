@@ -1,5 +1,6 @@
 ---
 name: articles-of-incorporation-nonprofit
+language: en
 description: Drafts filing-ready Articles of Incorporation for U.S. non-profit corporations satisfying state corporate law and the IRS organizational test under IRC § 501(c)(3). Enforces mandatory exempt-purpose language, private inurement prohibition, dissolution clause, and political activity limitations. Use when forming a new non-profit, charitable corporation, or tax-exempt entity seeking 501(c)(3) recognition.
 tags:
   - agreement

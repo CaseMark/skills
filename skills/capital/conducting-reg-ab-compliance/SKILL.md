@@ -1,5 +1,6 @@
 ---
 name: conducting-reg-ab-compliance
+language: en
 description: Structures Regulation AB II compliance with asset-level data requirements, servicer reporting, and shelf registration eligibility. Use when ensuring Reg AB compliance, preparing ABS reporting, or structuring shelf eligibility.
 tags:
   - process

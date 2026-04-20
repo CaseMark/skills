@@ -1,5 +1,6 @@
 ---
 name: analyzing-scenario-analysis
+language: en
 description: Structures forward-looking scenario analysis with macroeconomic assumptions and portfolio impact assessment. Use when conducting scenario analysis, modeling macro scenarios, or assessing portfolio vulnerability.
 tags:
   - analysis

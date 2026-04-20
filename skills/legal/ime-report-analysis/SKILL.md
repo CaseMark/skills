@@ -1,5 +1,6 @@
 ---
 name: ime-report-analysis
+language: en
 description: >-
   Analyzes defense Independent Medical Examination (IME) reports for personal
   injury litigation, producing a plaintiff-side strategic memorandum with

@@ -1,5 +1,6 @@
 ---
 name: parenting-plan
+language: en
 description: Drafts jurisdiction-compliant parenting plans covering custody frameworks, time-sharing schedules, decision-making allocation, financial provisions, relocation, and dispute resolution. Adapts terminology and structure to state-specific statutory requirements. Use when drafting custody agreements, parenting time schedules, time-sharing plans, or co-parenting arrangements in family law proceedings.
 tags:
   - agreement

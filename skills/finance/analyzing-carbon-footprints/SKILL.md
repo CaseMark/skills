@@ -1,5 +1,6 @@
 ---
 name: analyzing-carbon-footprints
+language: en
 description: Structures carbon footprint analysis with Scope 1/2/3 measurement and intensity benchmarking. Use when measuring carbon emissions, analyzing Scope 3, or benchmarking carbon intensity.
 tags:
   - analysis

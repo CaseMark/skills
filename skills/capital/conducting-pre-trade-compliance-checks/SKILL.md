@@ -1,5 +1,6 @@
 ---
 name: conducting-pre-trade-compliance-checks
+language: en
 description: Structures pre-trade compliance with restricted list screening, position limits, and regulatory constraint verification. Use when running pre-trade compliance, screening restricted securities, or verifying trading limits.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: managing-fund-formation-processes
+language: en
 description: Coordinates fundraising execution with PPM preparation, DDQ completion, legal documentation, and closing mechanics. Use when managing fund launches, coordinating formation processes, or tracking fundraising milestones.
 tags:
   - management

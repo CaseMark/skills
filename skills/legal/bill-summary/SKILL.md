@@ -1,5 +1,6 @@
 ---
 name: bill-summary
+language: en
 description: >-
   Produces neutral, section-pinned U.S. legislative bill summaries translating
   statutory language into plain terms with identifying data, provisions, fiscal

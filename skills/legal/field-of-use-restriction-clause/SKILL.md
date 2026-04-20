@@ -1,5 +1,6 @@
 ---
 name: field-of-use-restriction-clause
+language: en
 description: >-
   Drafts enforceable Field of Use restriction clauses for U.S. IP licensing
   agreements (patent, software, trade secret, know-how). Covers permitted and

@@ -1,5 +1,6 @@
 ---
 name: managing-international-withholding-tax
+language: en
 description: Structures withholding tax analysis with treaty benefit claims and QI/QDD compliance. Use when managing withholding tax, claiming treaty benefits, or ensuring QI compliance.
 tags:
   - management

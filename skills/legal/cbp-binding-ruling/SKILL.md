@@ -1,5 +1,6 @@
 ---
 name: cbp-binding-ruling
+language: en
 description: Drafts U.S. Customs and Border Protection binding ruling requests under 19 CFR Part 177 for tariff classification, valuation, origin, and marking determinations. Trigger when input mentions "binding ruling," "CBP ruling request," "19 CFR Part 177," "classification request," "HTSUS analysis," "transaction value," "country of origin," or "marking for import."
 tags:
   - drafting

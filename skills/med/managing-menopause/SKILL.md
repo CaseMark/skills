@@ -1,5 +1,6 @@
 ---
 name: managing-menopause
+language: en
 description: Structures menopause evaluation and hormone therapy decision-making with risk-benefit analysis. Use when managing menopausal symptoms, evaluating HRT candidacy, or documenting menopause management.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: class-claim-form
+language: en
 description: >-
   Drafts U.S. class action settlement claim forms compliant with FRCP 23 and
   court approval orders. Triggers on claim form drafting, settlement

@@ -1,5 +1,6 @@
 ---
 name: managing-credit-portfolio-risk
+language: en
 description: Structures credit portfolio analysis with concentration metrics, correlation assessment, and stress testing. Use when managing credit portfolios, measuring concentration risk, or stress testing credit exposure.
 tags:
   - management

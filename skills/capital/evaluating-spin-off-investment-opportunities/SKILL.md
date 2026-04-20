@@ -1,5 +1,6 @@
 ---
 name: evaluating-spin-off-investment-opportunities
+language: en
 description: Assesses spin-off equity with forced selling dynamics, orphaned security identification, and standalone valuation analysis. Use when evaluating spin-off investments, identifying forced-sell situations, or analyzing newly public entities.
 tags:
   - analysis

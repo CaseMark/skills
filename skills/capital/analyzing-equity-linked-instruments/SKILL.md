@@ -1,5 +1,6 @@
 ---
 name: analyzing-equity-linked-instruments
+language: en
 description: Evaluates convertible bond and mandatory convertible structures with equity sensitivity, credit floor, and Greeks analysis. Use when analyzing convertible offerings, pricing equity-linked instruments, or modeling conversion economics.
 tags:
   - analysis

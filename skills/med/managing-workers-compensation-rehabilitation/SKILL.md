@@ -1,5 +1,6 @@
 ---
 name: managing-workers-compensation-rehabilitation
+language: en
 description: Structures workers comp rehab documentation with functional capacity evaluation and return-to-work planning. Use when managing work injury rehab, performing FCEs, or documenting return-to-work status.
 tags:
   - management

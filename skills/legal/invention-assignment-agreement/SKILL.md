@@ -1,5 +1,6 @@
 ---
 name: invention-assignment-agreement
+language: en
 description: >-
   Drafts a U.S. Confidentiality and Invention Assignment Agreement (CIAA/PIIA)
   for employee or contractor onboarding. Covers confidential information,

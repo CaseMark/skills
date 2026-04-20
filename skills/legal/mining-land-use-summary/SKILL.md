@@ -1,5 +1,6 @@
 ---
 name: mining-land-use-summary
+language: en
 description: Generates structured legal and regulatory summaries for mining and land use projects covering permits, environmental compliance, mineral rights, stakeholder obligations, and risk assessment. Use when summarizing mining regulations, land use permits, environmental compliance, mineral rights, natural resource extraction, reclamation obligations, or split estate disputes.
 tags:
   - analysis

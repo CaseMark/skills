@@ -1,5 +1,6 @@
 ---
 name: sentencing-guidelines
+language: en
 description: Calculates federal and state sentencing guideline ranges with precise USSG citations, including base offense levels, specific offense characteristics, Chapter 3 adjustments, criminal history categories, departures, variances, and § 3553(a) factors. Use when calculating sentencing ranges, preparing sentencing memoranda, analyzing presentence reports, or developing sentencing advocacy strategy.
 ---
 

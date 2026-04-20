@@ -1,5 +1,6 @@
 ---
 name: modeling-secondary-share-purchases
+language: en
 description: Structures secondary direct transactions with pricing methodology, transfer restriction analysis, and ROFR navigation. Use when modeling secondary purchases, pricing founder/employee shares, or structuring tender offers.
 tags:
   - modeling

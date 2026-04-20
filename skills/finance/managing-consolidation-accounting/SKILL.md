@@ -1,5 +1,6 @@
 ---
 name: managing-consolidation-accounting
+language: en
 description: Structures consolidation procedures with intercompany elimination, minority interest, and foreign currency translation. Use when performing consolidations, eliminating intercompany transactions, or translating foreign subsidiaries.
 tags:
   - management

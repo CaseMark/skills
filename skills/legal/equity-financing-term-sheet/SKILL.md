@@ -1,5 +1,6 @@
 ---
 name: equity-financing-term-sheet
+language: en
 description: >-
   Drafts a U.S. venture equity term sheet from deal facts into a
   negotiation-ready, investor-grade document. Use when counsel or founders

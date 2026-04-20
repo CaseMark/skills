@@ -1,5 +1,6 @@
 ---
 name: managing-proxy-voting
+language: en
 description: Structures proxy voting processes with policy application, vote execution, and disclosure requirements. Use when managing proxy votes, applying voting policies, or documenting vote rationale.
 tags:
   - management

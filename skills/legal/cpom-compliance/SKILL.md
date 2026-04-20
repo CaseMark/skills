@@ -1,5 +1,6 @@
 ---
 name: cpom-compliance
+language: en
 description: Drafts Corporate Practice of Medicine (CPOM) compliance structure documents for healthcare entities. Covers compliant organizational models (PC/PA, MSO, friendly PC), MSA architecture, operational compliance checklists, and state-specific regulatory analysis. Use when structuring healthcare operations, reviewing CPOM compliance, drafting MSO/MSA arrangements, or advising on physician practice ownership in CPOM-restricted jurisdictions.
 ---
 

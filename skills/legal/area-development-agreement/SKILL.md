@@ -1,5 +1,6 @@
 ---
 name: area-development-agreement
+language: en
 description: Drafts Area Development Agreements granting exclusive multi-unit franchise territory rights with phased development schedules. Use when drafting area development agreements, multi-unit franchise expansions, territorial franchise grants, or phased development commitments. Enforces FTC Franchise Rule compliance and state registration requirements.
 tags:
   - agreement

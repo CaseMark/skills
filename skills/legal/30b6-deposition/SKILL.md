@@ -1,5 +1,6 @@
 ---
 name: 30b6-deposition
+language: en
 description: >-
   Guides taking and defending Rule 30(b)(6) corporate representative
   depositions. Drafts topic lists with reasonable particularity, builds

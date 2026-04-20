@@ -1,5 +1,6 @@
 ---
 name: analyzing-intercreditor-agreements
+language: en
 description: Evaluates intercreditor and subordination provisions with lien priority, payment waterfall, and enforcement rights analysis. Use when analyzing intercreditor terms, evaluating subordination structures, or assessing lender priority.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: asset-liability-summaries
+language: en
 description: >-
   Produces structured asset and liability summaries from financial documents for
   legal proceedings. Extracts valuations, ownership classifications, and

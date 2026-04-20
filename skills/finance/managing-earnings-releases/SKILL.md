@@ -1,5 +1,6 @@
 ---
 name: managing-earnings-releases
+language: en
 description: Structures earnings release preparation with GAAP/non-GAAP reconciliation and forward guidance documentation. Use when preparing earnings releases, reconciling non-GAAP measures, or drafting press releases.
 tags:
   - management

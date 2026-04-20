@@ -1,5 +1,6 @@
 ---
 name: modeling-fresh-start-accounting
+language: en
 description: Structures fresh-start accounting analysis with reorganization value allocation, new basis determination, and emergence balance sheet. Use when modeling fresh-start accounting, preparing emergence financials, or allocating reorganization value.
 tags:
   - modeling

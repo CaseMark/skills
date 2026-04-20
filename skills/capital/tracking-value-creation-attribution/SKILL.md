@@ -1,5 +1,6 @@
 ---
 name: tracking-value-creation-attribution
+language: en
 description: Decomposes PE returns into revenue growth, margin expansion, multiple expansion, leverage paydown, and multiple contraction components. Use when attributing value creation, analyzing return drivers, or preparing exit case studies.
 tags:
   - monitoring

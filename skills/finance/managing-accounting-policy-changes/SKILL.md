@@ -1,5 +1,6 @@
 ---
 name: managing-accounting-policy-changes
+language: en
 description: Evaluates new accounting standard impacts with transition planning and disclosure preparation. Use when implementing new standards, assessing ASU impacts, or planning accounting transitions.
 tags:
   - management

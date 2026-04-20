@@ -1,5 +1,6 @@
 ---
 name: modeling-portfolio-optimization
+language: en
 description: Builds mean-variance, Black-Litterman, and risk parity optimization models with constraint management and rebalancing rules. Use when optimizing portfolios, implementing risk parity, or applying Black-Litterman views.
 tags:
   - modeling

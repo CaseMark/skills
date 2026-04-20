@@ -1,5 +1,6 @@
 ---
 name: term-loan-agreement
+language: en
 description: >-
   Drafts U.S. corporate finance term loan agreements covering economic terms,
   covenants, collateral, events of default, and enforcement mechanics. Trigger

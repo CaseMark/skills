@@ -1,5 +1,6 @@
 ---
 name: analyzing-infrastructure-asset-valuations
+language: en
 description: Values infrastructure assets with DCF, regulated asset base, and comparable transaction methodologies adjusted for regulatory and contractual frameworks. Use when valuing infrastructure assets, analyzing regulated utilities, or benchmarking infra transactions.
 tags:
   - analysis

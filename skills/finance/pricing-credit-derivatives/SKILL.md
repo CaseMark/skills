@@ -1,5 +1,6 @@
 ---
 name: pricing-credit-derivatives
+language: en
 description: Structures credit derivative pricing with hazard rate calibration and default probability estimation. Use when pricing CDS, calculating credit spreads, or modeling default risk.
 tags:
   - valuation

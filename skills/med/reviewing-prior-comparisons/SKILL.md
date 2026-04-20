@@ -1,5 +1,6 @@
 ---
 name: reviewing-prior-comparisons
+language: en
 description: Structures comparison with prior imaging studies to identify interval changes and trends. Use when comparing imaging studies, identifying interval changes, or tracking disease progression.
 tags:
   - review

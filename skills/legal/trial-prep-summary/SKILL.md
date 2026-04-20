@@ -1,5 +1,6 @@
 ---
 name: trial-prep-summary
+language: en
 description: Generates a structured courtroom-ready trial preparation summary synthesizing procedural history, facts, legal issues, evidence, witnesses, and strategy into a quick-reference document. Trigger when preparing trial binders, pre-trial review documents, courtroom reference materials, or trial strategy memos in commercial litigation.
 tags:
   - litigation

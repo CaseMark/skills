@@ -1,5 +1,6 @@
 ---
 name: nonprofit-board-minutes
+language: en
 description: Drafts legally compliant non-profit board meeting minutes with attendance, quorum, resolutions, conflict-of-interest recusals, and executive session notation. Formats output for IRS Form 990 audit, state AG scrutiny, and permanent corporate records. Use when drafting official board minutes, recording board resolutions, or creating non-profit governance records.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: deed-of-gift
+language: en
 description: >-
   Drafts a recordable U.S. Deed of Gift for voluntary, no-consideration
   transfers of real or personal property. Enforces party identification,

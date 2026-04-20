@@ -1,5 +1,6 @@
 ---
 name: analyzing-sponsor-backed-credit
+language: en
 description: Evaluates PE sponsor-backed credit with sponsor track record, equity contribution, and governance assessment. Use when analyzing sponsor-backed loans, assessing sponsor quality, or evaluating sponsor support dynamics.
 tags:
   - analysis

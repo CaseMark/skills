@@ -1,5 +1,6 @@
 ---
 name: managing-fair-value-measurement
+language: en
 description: Applies ASC 820 fair value framework with hierarchy classification and valuation technique documentation. Use when measuring fair values, classifying in the fair value hierarchy, or documenting valuation approaches.
 tags:
   - management

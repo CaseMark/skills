@@ -1,5 +1,6 @@
 ---
 name: managing-debt-private-placements
+language: en
 description: Coordinates private placement execution with investor targeting, NAIC designation analysis, and shelf registration requirements. Use when managing PP offerings, targeting insurance company investors, or structuring private notes.
 tags:
   - management

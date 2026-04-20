@@ -1,5 +1,6 @@
 ---
 name: analyzing-factor-timing-signals
+language: en
 description: Evaluates factor timing strategies with macro regime indicators, valuation spreads, and momentum signals for factor rotation. Use when analyzing factor timing, evaluating rotation signals, or designing tactical factor allocation.
 tags:
   - analysis

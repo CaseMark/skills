@@ -1,5 +1,6 @@
 ---
 name: designing-observational-studies
+language: en
 description: Structures observational study designs (cohort, case-control, cross-sectional) with bias mitigation strategies. Use when designing observational research, mitigating bias, or planning epidemiologic studies.
 tags:
   - design

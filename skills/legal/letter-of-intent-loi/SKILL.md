@@ -1,5 +1,6 @@
 ---
 name: letter-of-intent-loi
+language: en
 description: >-
   Drafts U.S. corporate transaction Letters of Intent (LOI) for mergers,
   acquisitions, investments, and strategic alliances. Separates non-binding

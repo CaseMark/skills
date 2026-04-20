@@ -1,5 +1,6 @@
 ---
 name: closing-disclosure
+language: en
 description: Drafts and reviews TRID-compliant U.S. residential Closing Disclosures, assembling all five pages, comparing to Loan Estimates, checking tolerance buckets, and flagging re-disclosure triggers. Use when working with closing disclosures, CDs, TRID, Regulation Z, LE comparison, tolerance cures, cash-to-close, settlement statements, or closing compliance review.
 ---
 

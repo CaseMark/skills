@@ -1,5 +1,6 @@
 ---
 name: managing-chronic-disease-programs
+language: en
 description: Structures chronic disease prevention programs with evidence-based intervention selection and outcome tracking. Use when managing chronic disease programs, selecting prevention interventions, or tracking population outcomes.
 tags:
   - management

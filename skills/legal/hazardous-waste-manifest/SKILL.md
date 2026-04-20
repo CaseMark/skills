@@ -1,5 +1,6 @@
 ---
 name: hazardous-waste-manifest
+language: en
 description: Drafts a Uniform Hazardous Waste Manifest (EPA Form 8700-22) compliant with RCRA, EPA, and DOT requirements. Assembles generator, transporter, and TSDF chain-of-custody data with 40 CFR Parts 261–265 waste coding, DOT classification under 49 CFR Parts 171–180, certification language, and discrepancy reporting. Use when preparing manifest packages for hazardous waste shipments, RCRA tracking documents, or waste disposal compliance filings.
 tags:
   - drafting

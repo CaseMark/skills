@@ -1,5 +1,6 @@
 ---
 name: fcpa-compliance-policy
+language: en
 description: Drafts an implementable Foreign Corrupt Practices Act (FCPA) Compliance Policy for U.S.-jurisdictional corporations with international operations. Covers anti-bribery provisions (15 U.S.C. §§ 78dd-1 through -3), accounting provisions (15 U.S.C. §§ 78m(b)(2)(A)-(B)), gift thresholds, tiered third-party due diligence, internal controls, training, and whistleblower protections. Incorporates DOJ/SEC Resource Guide guidance. Use when drafting or updating an FCPA policy, anti-bribery compliance program, corporate ethics policy, or international corruption risk framework.
 tags:
   - drafting

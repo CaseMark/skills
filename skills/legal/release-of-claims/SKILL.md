@@ -1,5 +1,6 @@
 ---
 name: release-of-claims
+language: en
 description: Drafts enforceable Release of All Claims documents for personal injury settlement resolution. Produces general releases with broad discharge language, unknown-claims waivers (including Cal. Civ. Code § 1542), consideration recitals, protective representations, and execution formalities. Use when drafting settlement releases, general releases, claim waivers, discharge agreements, or mutual release documents in personal injury litigation.
 tags:
   - agreement

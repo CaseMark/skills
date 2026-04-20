@@ -1,5 +1,6 @@
 ---
 name: analyzing-lease-structures
+language: en
 description: Evaluates commercial lease terms with net effective rent, concession analysis, and tenant credit assessment. Use when analyzing leases, calculating effective rents, or comparing lease structures.
 tags:
   - analysis

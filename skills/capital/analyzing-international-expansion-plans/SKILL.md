@@ -1,5 +1,6 @@
 ---
 name: analyzing-international-expansion-plans
+language: en
 description: Evaluates geographic expansion strategies with market entry sequencing, localization requirements, and international unit economics. Use when analyzing expansion plans, assessing international readiness, or modeling geo-expansion costs.
 tags:
   - analysis

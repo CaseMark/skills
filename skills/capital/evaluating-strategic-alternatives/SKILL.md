@@ -1,5 +1,6 @@
 ---
 name: evaluating-strategic-alternatives
+language: en
 description: Structures strategic alternatives analysis with status quo, sale, merger, spin-off, and recapitalization scenario comparison. Use when evaluating strategic options, preparing board-level alternatives, or analyzing corporate transformations.
 tags:
   - analysis

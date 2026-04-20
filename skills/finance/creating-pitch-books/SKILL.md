@@ -1,5 +1,6 @@
 ---
 name: creating-pitch-books
+language: en
 description: Builds client pitch materials with market overview, strategic rationale, valuation analysis, and transaction positioning. Use when creating pitch books, preparing client presentations, or building deal marketing materials.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: managing-portfolio-transitions
+language: en
 description: Structures portfolio transitions with legacy position analysis, rebalancing path, and transition cost management. Use when transitioning portfolios, managing manager changes, or planning portfolio restructuring.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: jury-instructions
+language: en
 description: Drafts complete proposed jury instruction sets for U.S. litigation, including preliminary charges, elements, burden of proof, evidence evaluation, and verdict forms. Adapts to jurisdiction-specific pattern instructions. Use when drafting jury instructions, jury charges, verdict forms, or special interrogatories during trial preparation.
 ---
 

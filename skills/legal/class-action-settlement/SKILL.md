@@ -1,5 +1,6 @@
 ---
 name: class-action-settlement
+language: en
 description: >-
   Drafts class action settlement agreements for court approval under FRCP 23(e),
   covering settlement fund terms, class definitions, release provisions, allocation

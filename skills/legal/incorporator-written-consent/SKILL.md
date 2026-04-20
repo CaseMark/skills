@@ -1,5 +1,6 @@
 ---
 name: incorporator-written-consent
+language: en
 description: >-
   Drafts an Action by Written Consent of Incorporator for newly formed U.S.
   corporations. Trigger when the user needs to formalize post-incorporation

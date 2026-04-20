@@ -1,5 +1,6 @@
 ---
 name: managing-concentrated-positions
+language: en
 description: Structures diversification strategies for concentrated single-stock positions with tax and risk considerations. Use when managing concentrated holdings, planning diversification, or evaluating exchange funds.
 tags:
   - management

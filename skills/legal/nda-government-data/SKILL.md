@@ -1,5 +1,6 @@
 ---
 name: nda-government-data
+language: en
 description: Drafts Non-Disclosure Agreements for protecting sensitive government data across classified, CUI, SBU, and PII categories with federal regulatory compliance (FOIA, FISMA, NIST, Privacy Act, Trade Secrets Act). Covers security clearance requirements, mandatory disclosure protocols, NISPOM-compliant destruction, and government-specific remedies. Use when drafting NDAs for government contractors, federal data sharing agreements, or confidentiality agreements involving government entities.
 metadata:
   author: casemark

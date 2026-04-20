@@ -1,5 +1,6 @@
 ---
 name: franchise-agreement-summary
+language: en
 description: Summarizes US franchise agreements into a structured overview of parties, term, territory, fees, operations, IP, transfer, termination, covenants, dispute resolution, and risks. Triggers when the user asks to summarize a franchise agreement, franchise contract, or franchisor-franchisee terms, or to extract deal terms for review, diligence, or negotiation.
 ---
 

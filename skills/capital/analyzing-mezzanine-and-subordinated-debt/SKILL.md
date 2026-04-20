@@ -1,5 +1,6 @@
 ---
 name: analyzing-mezzanine-and-subordinated-debt
+language: en
 description: Evaluates mezzanine structures with PIK toggle, equity kickers, and intercreditor subordination mechanics. Use when analyzing mezzanine financing, comparing subordinated debt terms, or modeling layered capital structures.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: insurance-policy-summary
+language: en
 description: >-
   Produces structured, citation-backed summaries of U.S. insurance policies,
   endorsements, claims files, and coverage correspondence for coverage analysis

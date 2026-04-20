@@ -1,5 +1,6 @@
 ---
 name: analyzing-unit-economics
+language: en
 description: Structures unit economic analysis with CAC, LTV, payback period, and cohort-based measurement. Use when analyzing unit economics, calculating LTV/CAC, or evaluating customer economics.
 tags:
   - analysis

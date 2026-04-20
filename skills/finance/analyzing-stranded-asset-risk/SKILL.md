@@ -1,5 +1,6 @@
 ---
 name: analyzing-stranded-asset-risk
+language: en
 description: Evaluates stranded asset exposure for fossil fuel and carbon-intensive investments with transition modeling. Use when analyzing stranded assets, evaluating fossil fuel exposure, or modeling transition risk.
 tags:
   - analysis

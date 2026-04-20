@@ -1,5 +1,6 @@
 ---
 name: managing-failure-to-thrive
+language: en
 description: Structures FTT evaluation with growth curve analysis, caloric calculations, and workup algorithms. Use when evaluating poor growth, calculating caloric needs, or managing failure to thrive.
 tags:
   - management

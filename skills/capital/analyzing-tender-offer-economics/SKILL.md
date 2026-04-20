@@ -1,5 +1,6 @@
 ---
 name: analyzing-tender-offer-economics
+language: en
 description: Evaluates tender offer structures with premium analysis, proration risk, and conditional tender strategies. Use when analyzing tender offers, calculating tender economics, or evaluating proration scenarios.
 tags:
   - analysis

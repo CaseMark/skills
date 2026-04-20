@@ -1,5 +1,6 @@
 ---
 name: screening-adolescent-health
+language: en
 description: Structures adolescent well-visit with HEEADSSS assessment and confidential health screening. Use when conducting adolescent visits, performing HEEADSSS screening, or managing teen health concerns.
 tags:
   - screening

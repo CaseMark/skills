@@ -1,5 +1,6 @@
 ---
 name: analyzing-geopolitical-risk
+language: en
 description: Structures geopolitical risk assessment with scenario planning, market impact analysis, and portfolio implications. Use when analyzing geopolitical events, assessing political risk, or evaluating conflict scenarios.
 tags:
   - analysis

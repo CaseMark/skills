@@ -1,5 +1,6 @@
 ---
 name: historic-preservation-law-summary
+language: en
 description: Produces a structured U.S. historic preservation law summary covering federal, state, and local authorities, key cases, takings analysis, designation procedures, enforcement, and zoning intersections. Use when asked about historic preservation law, NHPA, Section 106, preservation ordinances, landmark designation, demolition review, takings challenges, or Penn Central analysis.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: conducting-infrastructure-secondary-analysis
+language: en
 description: Assesses infrastructure fund secondaries with asset-level cash flow analysis, concession period evaluation, and regulatory risk assessment. Use when analyzing infra secondaries, evaluating infrastructure assets, or pricing infra fund interests.
 tags:
   - process

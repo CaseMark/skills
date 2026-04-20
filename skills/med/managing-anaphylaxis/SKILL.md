@@ -1,5 +1,6 @@
 ---
 name: managing-anaphylaxis
+language: en
 description: Guides anaphylaxis recognition and epinephrine-first treatment protocol with observation timing. Use when managing allergic reactions, treating anaphylaxis, or planning post-anaphylaxis observation.
 tags:
   - management

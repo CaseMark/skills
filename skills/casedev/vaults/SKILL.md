@@ -1,5 +1,6 @@
 ---
 name: vaults
+language: en
 description: Manages case.dev encrypted document vaults for legal workflows. Creates vaults, uploads files and directories, lists and downloads objects, and runs semantic search across vault contents. Use when the user mentions "vault", "upload documents", "document storage", "download files", "vault search", or needs to manage case files and discovery documents.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: analyzing-pharmacovigilance-data
+language: en
 description: Structures post-marketing safety surveillance with signal detection and PSUR reporting. Use when analyzing safety signals, preparing PSURs, or managing pharmacovigilance data.
 tags:
   - analysis

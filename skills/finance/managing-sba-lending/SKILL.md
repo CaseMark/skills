@@ -1,5 +1,6 @@
 ---
 name: managing-sba-lending
+language: en
 description: Structures SBA loan origination with eligibility verification, packaging requirements, and guarantee documentation. Use when processing SBA loans, verifying eligibility, or preparing SBA packages.
 tags:
   - management

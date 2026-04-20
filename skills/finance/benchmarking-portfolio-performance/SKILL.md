@@ -1,5 +1,6 @@
 ---
 name: benchmarking-portfolio-performance
+language: en
 description: Conducts portfolio performance measurement with benchmark comparison, attribution, and risk-adjusted metrics. Use when measuring portfolio performance, calculating Sharpe/Sortino ratios, or conducting performance attribution.
 tags:
   - asset-management

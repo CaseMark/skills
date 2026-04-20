@@ -1,5 +1,6 @@
 ---
 name: hipaa-release
+language: en
 description: Drafts a HIPAA Release Authorization form compliant with 45 CFR § 164.508 for authorizing disclosure of protected health information. Use when drafting HIPAA authorizations, PHI release forms, medical records releases, or healthcare privacy waivers alongside healthcare powers of attorney or advance directives.
 ---
 

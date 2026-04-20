@@ -1,5 +1,6 @@
 ---
 name: generating-client-portfolio-reports
+language: en
 description: Creates client-facing portfolio reports with performance, allocation, commentary, and outlook. Use when producing client reports, preparing quarterly reviews, or creating portfolio summaries.
 tags:
   - asset-management

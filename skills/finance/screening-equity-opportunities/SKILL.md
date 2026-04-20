@@ -1,5 +1,6 @@
 ---
 name: screening-equity-opportunities
+language: en
 description: Applies quantitative and qualitative screens to filter investable equity universe by financial and strategic criteria. Use when screening stocks, filtering investment candidates, or building watchlists.
 tags:
   - screening

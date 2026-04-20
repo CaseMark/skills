@@ -1,5 +1,6 @@
 ---
 name: coding-laboratory-services
+language: en
 description: Assigns laboratory CPT codes with panel construction and specimen-specific modifiers. Use when coding lab tests, building lab panels, or applying laboratory modifiers.
 tags:
   - coding

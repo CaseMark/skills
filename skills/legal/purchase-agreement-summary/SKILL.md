@@ -1,5 +1,6 @@
 ---
 name: purchase-agreement-summary
+language: en
 description: Produces structured operational summaries from fully executed residential purchase agreements for title closers and processors. Extracts parties, property identifiers, price/EMD, financing, contingencies, title/survey, HOA, closing costs, prorations, possession, and critical deadlines into scannable tables with source pointers. Flags missing data, document conflicts, unusual clauses, and tight deadlines. Use when summarizing a purchase agreement, opening a title file, preparing escrow instructions, or reviewing contract terms for closing.
 ---
 

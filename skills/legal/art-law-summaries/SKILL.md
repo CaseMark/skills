@@ -1,5 +1,6 @@
 ---
 name: art-law-summaries
+language: en
 description: Generates structured U.S. art law summaries with Bluebook citations, doctrinal analysis, and stakeholder guidance. Use when researching art law precedents, advising on art transactions, preparing for art market litigation, or surveying a doctrine or statute across ownership, provenance, copyright, VARA, NAGPRA, authentication, NFTs, or AI-generated art.
 ---
 

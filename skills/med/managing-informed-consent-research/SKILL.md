@@ -1,5 +1,6 @@
 ---
 name: managing-informed-consent-research
+language: en
 description: Structures research consent documentation with required elements and vulnerable population protections. Use when creating research consents, managing consent processes, or documenting informed consent.
 tags:
   - management

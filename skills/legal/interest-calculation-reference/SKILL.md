@@ -1,5 +1,6 @@
 ---
 name: interest-calculation-reference
+language: en
 description: Calculates and validates pre-petition interest for U.S. bankruptcy creditor proofs of claim. Triggers on "proof of claim", "pre-petition interest", "bankruptcy claim", "interest worksheet", "claim amount", or when drafting, auditing, or objecting to claim filings.
 tags:
   - analysis

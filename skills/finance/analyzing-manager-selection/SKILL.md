@@ -1,5 +1,6 @@
 ---
 name: analyzing-manager-selection
+language: en
 description: Evaluates and selects investment managers with quantitative screening and qualitative assessment. Use when selecting fund managers, conducting manager due diligence, or evaluating strategy fit.
 tags:
   - analysis

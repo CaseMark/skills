@@ -1,5 +1,6 @@
 ---
 name: managing-regulation-best-interest
+language: en
 description: Evaluates compliance with Regulation Best Interest including disclosure, care, and conflict obligations. Use when implementing Reg BI, reviewing recommendation practices, or documenting BI compliance.
 tags:
   - management

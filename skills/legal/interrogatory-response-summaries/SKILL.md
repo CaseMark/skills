@@ -1,5 +1,6 @@
 ---
 name: interrogatory-response-summaries
+language: en
 description: Generates structured summaries of interrogatory responses in commercial litigation, extracting key facts, objections, evasions, patterns, and inconsistencies per interrogatory. Use when analyzing opposing party interrogatory answers, spotting discovery gaps, or preparing for depositions.
 tags:
   - analysis

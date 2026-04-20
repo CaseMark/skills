@@ -1,5 +1,6 @@
 ---
 name: managing-internal-audit
+language: en
 description: Structures internal audit planning and execution with risk assessment, testing, and findings documentation. Use when planning internal audits, conducting audit testing, or documenting audit findings.
 tags:
   - management

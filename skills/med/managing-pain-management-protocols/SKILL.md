@@ -1,5 +1,6 @@
 ---
 name: managing-pain-management-protocols
+language: en
 description: Structures multimodal pain management with non-opioid-first approaches and patient-controlled analgesia. Use when managing acute pain, implementing PCA protocols, or designing multimodal pain regimens.
 tags:
   - management

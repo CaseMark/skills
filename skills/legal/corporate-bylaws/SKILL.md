@@ -1,5 +1,6 @@
 ---
 name: corporate-bylaws
+language: en
 description: Drafts complete U.S. corporate bylaws harmonized with Articles of Incorporation and tailored to state statute (Delaware GCL, MBCA, or state-specific). Use for new corporation formations, governance overhauls, or updating existing bylaws for closely-held or emerging-growth corporations.
 tags:
   - agreement

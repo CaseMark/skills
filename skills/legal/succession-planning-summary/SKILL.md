@@ -1,5 +1,6 @@
 ---
 name: succession-planning-summary
+language: en
 description: Synthesizes wills, trusts, beneficiary designations, powers of attorney, and healthcare directives into a unified estate succession reference document. Covers asset distribution maps, trust structures, fiduciary appointments, special provisions, and administration timelines. Use when onboarding to an estate matter, preparing executor guides, summarizing estate plans, or bridging complex instruments with practical implementation steps.
 tags:
   - summarization

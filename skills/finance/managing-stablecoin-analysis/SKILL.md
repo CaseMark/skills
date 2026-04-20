@@ -1,5 +1,6 @@
 ---
 name: managing-stablecoin-analysis
+language: en
 description: Structures stablecoin evaluation with reserve backing, redemption mechanics, and regulatory classification. Use when analyzing stablecoins, evaluating reserve adequacy, or assessing stablecoin risk.
 tags:
   - management

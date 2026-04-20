@@ -1,5 +1,6 @@
 ---
 name: managing-fundraising-processes
+language: en
 description: Structures PE/VC fundraising with LP outreach, DDQ completion, and closing documentation. Use when managing fund raises, completing due diligence questionnaires, or preparing fundraising materials.
 tags:
   - management

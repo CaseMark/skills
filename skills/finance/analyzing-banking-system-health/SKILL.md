@@ -1,5 +1,6 @@
 ---
 name: analyzing-banking-system-health
+language: en
 description: Structures banking system assessment with capital adequacy, asset quality, and systemic risk evaluation. Use when analyzing banking systems, assessing financial stability, or evaluating systemic risk.
 tags:
   - analysis

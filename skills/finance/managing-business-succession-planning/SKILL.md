@@ -1,5 +1,6 @@
 ---
 name: managing-business-succession-planning
+language: en
 description: Structures business exit and succession planning with valuation, buyer identification, and tax strategy. Use when planning business succession, valuing private businesses, or structuring ownership transitions.
 tags:
   - management

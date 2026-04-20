@@ -1,5 +1,6 @@
 ---
 name: hipaa-privacy-notice
+language: en
 description: Drafts a HIPAA-compliant Notice of Privacy Practices per 45 CFR § 164.520 for covered entities. Produces patient-accessible documents covering permitted PHI uses/disclosures, individual rights, breach notification, and complaint procedures. Use when drafting HIPAA privacy notices, NPP documents, patient privacy disclosures, or covered entity privacy practice notices.
 ---
 

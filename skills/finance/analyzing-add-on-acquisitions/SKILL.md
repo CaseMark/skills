@@ -1,5 +1,6 @@
 ---
 name: analyzing-add-on-acquisitions
+language: en
 description: Evaluates platform add-on opportunities with strategic fit, synergy potential, and return contribution. Use when analyzing add-on M&A, evaluating bolt-on targets, or building platform acquisition strategies.
 tags:
   - analysis

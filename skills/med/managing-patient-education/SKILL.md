@@ -1,5 +1,6 @@
 ---
 name: managing-patient-education
+language: en
 description: Structures patient/family education with teach-back verification and health literacy assessment. Use when providing patient education, documenting teaching, or assessing learning comprehension.
 tags:
   - management

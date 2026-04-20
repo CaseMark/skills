@@ -1,5 +1,6 @@
 ---
 name: managing-crypto-asset-analysis
+language: en
 description: Structures cryptocurrency and digital asset analysis with protocol evaluation and market assessment. Use when analyzing crypto assets, evaluating blockchain protocols, or assessing digital asset markets.
 tags:
   - management

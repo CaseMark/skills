@@ -1,5 +1,6 @@
 ---
 name: managing-esg-reporting-standards
+language: en
 description: Structures ESG disclosure with TCFD, SASB, GRI, and ISSB framework alignment and gap analysis. Use when preparing ESG disclosures, aligning to reporting frameworks, or analyzing ESG reporting gaps.
 tags:
   - management

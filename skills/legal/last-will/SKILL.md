@@ -1,5 +1,6 @@
 ---
 name: last-will
+language: en
 description: >
   Drafts a state-compliant Last Will and Testament covering declarations,
   revocation of prior instruments, specific bequests, residuary disposition,

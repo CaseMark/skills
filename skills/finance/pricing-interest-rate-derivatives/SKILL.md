@@ -1,5 +1,6 @@
 ---
 name: pricing-interest-rate-derivatives
+language: en
 description: Structures interest rate swap, cap, floor, and swaption pricing with curve construction and valuation. Use when pricing IR derivatives, building yield curves, or valuing swap portfolios.
 tags:
   - valuation

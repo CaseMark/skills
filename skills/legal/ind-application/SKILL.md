@@ -1,5 +1,6 @@
 ---
 name: ind-application
+language: en
 description: Drafts FDA Investigational New Drug (IND) applications under 21 CFR Part 312, including Form 1571, Investigator's Brochure, clinical protocols, CMC sections, and nonclinical data packages. Use when preparing IND submissions, pre-IND packages, IND amendments, or clinical trial authorization documents.
 tags:
   - drafting

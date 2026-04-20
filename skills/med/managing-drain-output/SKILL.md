@@ -1,5 +1,6 @@
 ---
 name: managing-drain-output
+language: en
 description: Tracks surgical drain output with removal criteria and complication recognition. Use when monitoring drains, documenting drain output, or determining drain removal timing.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: analyzing-fx-derivatives
+language: en
 description: Structures FX option and forward pricing with cross-currency basis analysis and volatility assessment. Use when pricing FX derivatives, analyzing currency options, or evaluating cross-currency basis.
 tags:
   - analysis

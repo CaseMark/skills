@@ -1,5 +1,6 @@
 ---
 name: revolving-credit-agreement
+language: en
 description: Drafts a market-standard U.S. revolving credit agreement for bilateral or syndicated facilities. Covers facility structure, SOFR/base rate interest, borrowing base, LC sublimits, collateral, guarantees, covenants, conditions precedent, events of default, and remedies. Use when drafting or negotiating revolving credit facilities, asset-based lending agreements, or syndicated loan documents.
 ---
 

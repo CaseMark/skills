@@ -1,5 +1,6 @@
 ---
 name: paternity-petition
+language: en
 description: Drafts a Petition to Establish Paternity for family court filings. Covers court captions, standing allegations, factual bases, and relief requests with state-specific statutory requirements. Use when initiating paternity actions, child support petitions tied to parentage, custody filings requiring parentage determination, or birth certificate amendments.
 tags:
   - drafting

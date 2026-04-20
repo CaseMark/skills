@@ -1,5 +1,6 @@
 ---
 name: tax-clearance-request
+language: en
 description: Drafts formal request letters for Tax Clearance Certificates from state tax authorities on behalf of corporate entities. Triggers on tax clearance requests, pre-dissolution tax letters, business sale tax certification, merger tax compliance, asset transfer clearance, or license renewal tax documentation.
 tags:
   - corporate

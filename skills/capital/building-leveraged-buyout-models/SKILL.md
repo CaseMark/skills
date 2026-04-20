@@ -1,5 +1,6 @@
 ---
 name: building-leveraged-buyout-models
+language: en
 description: Constructs LBO models with sources/uses, debt schedules, operating projections, and returns analysis across entry/exit scenarios. Use when modeling leveraged buyouts, calculating sponsor returns, or analyzing leverage capacity.
 tags:
   - modeling

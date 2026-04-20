@@ -1,5 +1,6 @@
 ---
 name: managing-vestibular-rehabilitation
+language: en
 description: Structures vestibular assessment with positional testing and customized exercise programs. Use when evaluating vestibular disorders, performing Dix-Hallpike testing, or designing vestibular exercise programs.
 tags:
   - management

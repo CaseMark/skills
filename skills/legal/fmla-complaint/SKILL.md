@@ -1,5 +1,6 @@
 ---
 name: fmla-complaint
+language: en
 description: Drafts litigation-ready FMLA violation complaints under 29 U.S.C. § 2617 for federal court or DOL filing. Covers eligibility, interference, retaliation, notice timelines, and damages. Use when drafting FMLA complaints, family medical leave interference claims, FMLA retaliation pleadings, or employment leave violation actions.
 tags:
   - drafting

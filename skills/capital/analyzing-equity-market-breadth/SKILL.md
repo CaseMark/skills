@@ -1,5 +1,6 @@
 ---
 name: analyzing-equity-market-breadth
+language: en
 description: Evaluates market breadth with advance-decline analysis, new high/low tracking, and sector participation assessment. Use when analyzing market breadth, assessing rally quality, or identifying divergences.
 tags:
   - analysis

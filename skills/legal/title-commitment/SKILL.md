@@ -1,5 +1,6 @@
 ---
 name: title-commitment
+language: en
 description: Drafts ALTA-compliant Title Commitment documents for commercial real estate transactions including Schedule A, Schedule B Parts I and II. Use when preparing title commitments, preliminary title reports, title insurance policies, or pre-closing title documents.
 tags:
   - agreement

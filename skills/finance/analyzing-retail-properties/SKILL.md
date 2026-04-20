@@ -1,5 +1,6 @@
 ---
 name: analyzing-retail-properties
+language: en
 description: Structures retail property analysis with tenant sales productivity, co-tenancy evaluation, and redevelopment potential. Use when analyzing retail properties, evaluating tenant performance, or assessing redevelopment.
 tags:
   - analysis

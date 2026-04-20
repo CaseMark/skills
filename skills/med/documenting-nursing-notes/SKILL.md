@@ -1,5 +1,6 @@
 ---
 name: documenting-nursing-notes
+language: en
 description: Structures nursing progress notes with SBAR communication and clinical narrative documentation. Use when writing nursing notes, documenting patient updates, or creating SBAR communications.
 tags:
   - documentation

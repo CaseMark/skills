@@ -1,5 +1,6 @@
 ---
 name: gsa-schedule-contract
+language: en
 description: >-
   Drafts FAR/GSAR-compliant GSA Schedule (MAS/FSS) contracts with clause
   matrices, SIN scope, pricing/PRC/EPA mechanics, IFF reporting, TAA,

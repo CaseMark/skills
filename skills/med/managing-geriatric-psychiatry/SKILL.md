@@ -1,5 +1,6 @@
 ---
 name: managing-geriatric-psychiatry
+language: en
 description: Addresses psychiatric care in elderly patients with medical comorbidity and polypharmacy considerations. Use when managing psychiatric conditions in elderly, evaluating behavioral disturbances, or adjusting geriatric psychotropics.
 tags:
   - management

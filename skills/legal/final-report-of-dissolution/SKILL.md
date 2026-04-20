@@ -1,5 +1,6 @@
 ---
 name: final-report-of-dissolution
+language: en
 description: >-
   Drafts a filing-grade final report of dissolution for U.S. corporate or LLC
   closings, documenting winding-up actions, creditor handling, asset
