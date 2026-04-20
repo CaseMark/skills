@@ -21,6 +21,14 @@ A demand letter is simultaneously a settlement instrument and a future exhibit. 
 
 ---
 
+## Related skills
+
+- `legal-research` — verify the statutory regime for the letter's state/claim type and cite-check any case law
+- `citations` — Bluebook format + good-law status on cases referenced
+- `generating-documents`, `docx`, `pdf` — produce the final letter in the format the attorney actually sends
+
+---
+
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
 Ask every time unless the user says "use defaults" or "just draft." Gather:
@@ -162,16 +170,3 @@ If no answer, recommend verifying recipient entity and notice method (most commo
 **Ethics:** Model Rule 3.1 (meritorious claims), 4.1 (truthfulness), 8.4 (no criminal threats as leverage). FDCPA compliance when applicable.
 
 **ATTORNEY REVIEW REQUIRED** — No demand letter produced by this skill may be sent without attorney review and approval.
-
----
-
-Key changes from the original:
-
-- **Description**: Tightened to lead with capability + guardrails, then trigger keywords. Removed redundant "Enforces element-driven narratives" detail that duplicates body content.
-- **Overview**: Collapsed "Why This Skill Exists" (two paragraphs) into a single dense paragraph that preserves the settlement-instrument/exhibit duality, statutory-waiver risk, and quality standard.
-- **Checkpoint A defaults**: Reformatted as inline list with "Label all defaults explicitly" instruction, cutting a full sentence.
-- **Step 4 (Damages)**: Converted prose list to table for faster scanning while preserving all categories and requirements.
-- **Step 5 (Preservation)**: Replaced the full blockquote sample text with a concise instruction — the agent knows how to write litigation-hold language.
-- **Step 7**: Collapsed four bullets into tighter phrasing; removed parenthetical explanation of "state analogues" after Model Rule 8.4.
-- **Guidelines**: Added `[VERIFY]` markers to jurisdiction-specific citations per spec convention. Collapsed three separate ethics bullets into one inline sentence. Removed the separate "Ethics" header since it's now a single line.
-- **Overall**: ~145 lines (down from ~183), reduced token count while preserving every legal requirement, checkpoint, and guardrail.
