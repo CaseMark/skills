@@ -1,5 +1,6 @@
 ---
 name: managing-subsidiary-financing
+language: en
 description: Structures subsidiary-level financing with upstream guarantee analysis and structural subordination considerations. Use when financing subsidiaries, analyzing guarantee structures, or evaluating structural subordination.
 tags:
   - management

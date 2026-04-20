@@ -1,5 +1,6 @@
 ---
 name: insurance-claim-summaries
+language: en
 description: >-
   Generates structured summaries of U.S. insurance claim files covering
   identification, incident narrative, party positions, coverage analysis,

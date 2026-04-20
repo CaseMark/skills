@@ -1,5 +1,6 @@
 ---
 name: response-dissolution
+language: en
 description: Drafts a Response to Petition for Dissolution of Marriage addressing each allegation with admit/deny/lack-of-information responses and stating positions on custody, support, property, and fees. Triggers when user needs to respond to a divorce petition, file an answer to dissolution, or avoid default judgment in family law proceedings.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: assessing-suicide-risk
+language: en
 description: Applies Columbia Suicide Severity Rating Scale and structured risk assessment frameworks. Use when assessing suicide risk, documenting safety evaluations, or creating safety plans.
 tags:
   - assessment

@@ -1,5 +1,6 @@
 ---
 name: parole-hearing-summary
+language: en
 description: Summarizes parole hearing transcripts into structured analytical documents covering case identification, inmate testimony, victim impact, evidence review, board decision, and strategic analysis. Use when summarizing parole hearings, board decisions, parole denials, parole grant conditions, or preparing for future hearings and post-conviction strategy.
 ---
 

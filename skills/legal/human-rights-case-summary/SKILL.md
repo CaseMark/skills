@@ -1,5 +1,6 @@
 ---
 name: human-rights-case-summary
+language: en
 description: >-
   Produces structured, citation-ready summaries of human rights decisions.
   Trigger when the user requests a human rights case summary, tribunal decision

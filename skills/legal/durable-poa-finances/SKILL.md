@@ -1,5 +1,6 @@
 ---
 name: durable-poa-finances
+language: en
 description: Drafts state-specific Durable Power of Attorney for Finances documents authorizing an agent to manage a principal's financial affairs during incapacity. Use when a user needs a financial POA, DPOA, attorney-in-fact authorization, or incapacity planning document. Triggers on requests involving durable power of attorney, financial agency designation, or springing power of attorney drafting.
 tags:
   - agreement

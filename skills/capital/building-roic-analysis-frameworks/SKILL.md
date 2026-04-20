@@ -1,5 +1,6 @@
 ---
 name: building-roic-analysis-frameworks
+language: en
 description: Constructs ROIC decomposition with invested capital measurement, operating return analysis, and value creation vs destruction assessment. Use when analyzing ROIC, building capital return frameworks, or assessing value creation.
 tags:
   - modeling

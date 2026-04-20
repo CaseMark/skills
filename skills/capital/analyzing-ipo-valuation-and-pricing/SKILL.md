@@ -1,5 +1,6 @@
 ---
 name: analyzing-ipo-valuation-and-pricing
+language: en
 description: Evaluates IPO pricing with comparable company analysis, IPO discount estimation, and investor demand assessment. Use when pricing IPOs, determining offering ranges, or analyzing IPO valuation methodologies.
 tags:
   - analysis

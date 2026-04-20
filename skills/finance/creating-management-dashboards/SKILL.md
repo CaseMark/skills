@@ -1,5 +1,6 @@
 ---
 name: creating-management-dashboards
+language: en
 description: Designs management reporting dashboards with KPI selection, visualization, and drill-down structure. Use when building financial dashboards, selecting KPIs, or designing management reports.
 tags:
   - drafting

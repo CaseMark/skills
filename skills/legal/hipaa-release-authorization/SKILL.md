@@ -1,5 +1,6 @@
 ---
 name: hipaa-release-authorization
+language: en
 description: >-
   Drafts HIPAA-compliant PHI release authorizations for estate-planning
   workflows under 45 CFR §164.508. Use when drafting release forms,

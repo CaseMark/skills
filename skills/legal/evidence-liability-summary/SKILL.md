@@ -1,5 +1,6 @@
 ---
 name: evidence-liability-summary
+language: en
 description: Generates a structured evidence and liability summary for plaintiff-side personal injury negligence claims. Triggers when the user needs liability analysis, negligence element breakdowns, evidence cataloging with gap identification, discovery assessment, or pre-trial case evaluation.
 tags:
   - analysis

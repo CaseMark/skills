@@ -1,5 +1,6 @@
 ---
 name: parking-license-agreement
+language: en
 description: Drafts a revocable Parking License Agreement for commercial office tenancies that avoids creating a lease, easement, or bailment. Trigger when user needs parking licenses, parking privileges, parking access agreements, or ancillary parking documents tied to commercial leases.
 tags:
   - agreement

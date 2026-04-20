@@ -1,5 +1,6 @@
 ---
 name: guaranty-agreement
+language: en
 description: >-
   Drafts U.S. commercial guaranty agreements securing a debtor's obligations to
   a creditor. Covers payment/collection elections, scope, caps, waivers,

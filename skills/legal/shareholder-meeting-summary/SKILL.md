@@ -1,5 +1,6 @@
 ---
 name: shareholder-meeting-summary
+language: en
 description: Generates structured, record-quality summaries of shareholder meetings from minutes, transcripts, and related materials. Triggers when the user provides shareholder meeting documents and requests a summary, minute-book entry, or governance record covering metadata, resolutions, voting outcomes, and dissents.
 tags:
   - corporate

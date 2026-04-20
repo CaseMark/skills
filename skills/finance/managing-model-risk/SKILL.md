@@ -1,5 +1,6 @@
 ---
 name: managing-model-risk
+language: en
 description: Structures model validation with independent testing, limitation documentation, and ongoing monitoring. Use when validating risk models, documenting model limitations, or managing model governance.
 tags:
   - management

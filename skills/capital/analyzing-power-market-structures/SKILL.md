@@ -1,5 +1,6 @@
 ---
 name: analyzing-power-market-structures
+language: en
 description: Evaluates electricity market design with capacity payments, energy margins, ancillary services, and renewable intermittency management. Use when analyzing power markets, evaluating merchant exposure, or assessing capacity market dynamics.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: measuring-tumor-response
+language: en
 description: Applies RECIST 1.1 and iRECIST criteria for tumor measurement and treatment response assessment. Use when measuring tumor response, applying RECIST criteria, or documenting treatment effects.
 tags:
   - radiology

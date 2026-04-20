@@ -1,5 +1,6 @@
 ---
 name: deposition-notice
+language: en
 description: >-
   Drafts U.S. deposition notices (party, non-party subpoena, Rule 30(b)(6)),
   cover letters, scheduling letters, and proofs of service. Use when preparing

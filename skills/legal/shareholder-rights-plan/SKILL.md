@@ -1,5 +1,6 @@
 ---
 name: shareholder-rights-plan
+language: en
 description: >-
   Drafts a U.S. shareholder rights plan (poison pill) package including rights
   agreement, certificate of designations, board memo, Form 8-K, and press

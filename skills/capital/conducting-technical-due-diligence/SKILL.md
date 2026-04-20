@@ -1,5 +1,6 @@
 ---
 name: conducting-technical-due-diligence
+language: en
 description: Structures technology diligence with architecture review, code quality assessment, scalability analysis, and technical debt evaluation. Use when evaluating startup technology, assessing engineering teams, or reviewing technical infrastructure.
 tags:
   - process

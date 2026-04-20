@@ -1,5 +1,6 @@
 ---
 name: analyzing-commodity-price-risk
+language: en
 description: Evaluates commodity price exposure with forward curve analysis, hedging strategies, and break-even price sensitivity. Use when analyzing commodity risk, designing hedging programs, or stress testing price assumptions.
 tags:
   - analysis

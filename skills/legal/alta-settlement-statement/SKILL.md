@@ -1,5 +1,6 @@
 ---
 name: alta-settlement-statement
+language: en
 description: >-
   Drafts a mathematically balanced ALTA Settlement Statement for U.S. real
   estate closings, allocating debits and credits between buyer and seller with

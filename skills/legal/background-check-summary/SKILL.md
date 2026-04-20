@@ -1,5 +1,6 @@
 ---
 name: background-check-summary
+language: en
 description: Summarizes raw background check data into structured executive reports with risk categorization (GREEN/YELLOW/RED). Use when processing criminal records, court filings, employment/education verification, sanctions screening, or adverse media for pre-employment screening, executive due diligence, or investment-grade investigations.
 ---
 

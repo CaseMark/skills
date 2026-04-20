@@ -1,5 +1,6 @@
 ---
 name: managing-clinical-imaging-informatics
+language: en
 description: Structures radiology informatics workflows with PACS integration and DICOM standards. Use when managing imaging informatics, integrating PACS systems, or implementing DICOM workflows.
 tags:
   - management

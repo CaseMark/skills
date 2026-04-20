@@ -1,5 +1,6 @@
 ---
 name: analyzing-water-rights-and-allocation
+language: en
 description: Evaluates water rights valuation with seniority analysis, regulatory framework assessment, and allocation risk for resource investments. Use when analyzing water rights, evaluating water allocation, or assessing water risk.
 tags:
   - analysis

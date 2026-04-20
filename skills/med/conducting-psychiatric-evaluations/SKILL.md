@@ -1,5 +1,6 @@
 ---
 name: conducting-psychiatric-evaluations
+language: en
 description: Structures comprehensive psychiatric evaluation with MSE, diagnostic formulation, and risk assessment. Use when performing psychiatric assessments, documenting mental status exams, or creating diagnostic formulations.
 tags:
   - process

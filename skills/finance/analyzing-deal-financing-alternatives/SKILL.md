@@ -1,5 +1,6 @@
 ---
 name: analyzing-deal-financing-alternatives
+language: en
 description: Compares financing alternatives including debt, equity, convertibles, and hybrid instruments for transactions. Use when evaluating financing options, comparing capital structure alternatives, or optimizing deal funding.
 tags:
   - analysis

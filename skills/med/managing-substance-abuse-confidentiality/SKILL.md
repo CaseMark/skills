@@ -1,5 +1,6 @@
 ---
 name: managing-substance-abuse-confidentiality
+language: en
 description: Applies 42 CFR Part 2 substance abuse confidentiality requirements with consent and disclosure protocols. Use when managing SUD records, applying Part 2 requirements, or handling substance abuse confidentiality.
 tags:
   - management

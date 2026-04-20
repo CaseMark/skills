@@ -1,5 +1,6 @@
 ---
 name: tax-summary-spousal-support
+language: en
 description: Produces structured financial summaries from tax returns, W-2s, 1099s, K-1s, and business filings for spousal support proceedings. Trigger when preparing income analyses for alimony discovery, settlement negotiations, pre-trial, or court filings in family law matters.
 tags:
   - analysis

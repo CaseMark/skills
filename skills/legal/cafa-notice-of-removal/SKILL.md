@@ -1,5 +1,6 @@
 ---
 name: cafa-notice-of-removal
+language: en
 description: Drafts a Notice of Removal under the Class Action Fairness Act (CAFA), 28 U.S.C. § 1332(d), transferring a state court class action to federal court. Covers minimal diversity, aggregate amount in controversy exceeding $5 million, 100+ class members, CAFA exceptions, unanimity, timeliness, and required exhibits. Use when a defendant needs to remove a state-filed class action to federal court within 30 days of service.
 ---
 

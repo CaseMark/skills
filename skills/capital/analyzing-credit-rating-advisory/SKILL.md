@@ -1,5 +1,6 @@
 ---
 name: analyzing-credit-rating-advisory
+language: en
 description: Prepares credit rating agency presentations with methodology alignment, peer positioning, and target rating analysis. Use when advising on credit ratings, preparing rating agency meetings, or analyzing rating methodology impact.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: qualification-to-do-business
+language: en
 description: >-
   Drafts U.S. foreign-corporation qualification filings (Certificate of
   Authority) for a target state. Use when registering a corporation to transact

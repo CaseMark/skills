@@ -1,5 +1,6 @@
 ---
 name: order-judgment-appeal
+language: en
 description: Drafts a U.S. appellate Order and Judgment memorializing disposition after review of a lower-court ruling. Covers captioning, jurisdictional recitals, standards of review, issue-by-issue holdings, remand directives, costs, and mandate language. Use when preparing an appellate order, judgment, disposition, affirm/reverse/remand order, or mandate-ready directive.
 ---
 

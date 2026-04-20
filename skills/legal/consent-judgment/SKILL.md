@@ -1,5 +1,6 @@
 ---
 name: consent-judgment
+language: en
 description: Drafts enforceable consent judgments with injunctive relief for IP litigation settlement. Triggers when drafting consent judgments, agreed judgments, permanent injunctions, settlement judgments, or stipulated orders resolving disputes without trial.
 tags:
   - agreement

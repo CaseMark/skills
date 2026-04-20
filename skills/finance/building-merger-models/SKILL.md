@@ -1,5 +1,6 @@
 ---
 name: building-merger-models
+language: en
 description: Constructs merger consequence analysis with accretion/dilution, pro forma financials, and synergy assumptions. Use when modeling mergers, calculating accretion/dilution, or analyzing deal structures.
 tags:
   - modeling

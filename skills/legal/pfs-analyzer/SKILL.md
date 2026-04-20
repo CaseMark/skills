@@ -1,5 +1,6 @@
 ---
 name: pfs-analyzer
+language: en
 description: >
   Extracts and reconciles medical provider, wage-loss, and insurance/lien data
   from personal injury plaintiff fact sheets and initial disclosures against

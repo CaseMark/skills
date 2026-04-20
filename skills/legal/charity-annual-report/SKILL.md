@@ -1,5 +1,6 @@
 ---
 name: charity-annual-report
+language: en
 description: Drafts filing-ready Annual Reports for State Charity Bureaus with certified financials, governance disclosures, and required attachments. Extracts organizational, financial, and programmatic data from uploaded documents, researches state-specific filing requirements, and produces a penalty-of-perjury-certified report. Use when drafting charity bureau annual reports, nonprofit compliance filings, charitable solicitation renewals, or state charity registration renewals.
 ---
 

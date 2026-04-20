@@ -1,5 +1,6 @@
 ---
 name: appellant-brief
+language: en
 description: >-
   Drafts the appellant's opening brief challenging a lower court decision in
   federal or state appellate courts. Covers issue selection, standard of review

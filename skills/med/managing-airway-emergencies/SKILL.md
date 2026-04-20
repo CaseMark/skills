@@ -1,5 +1,6 @@
 ---
 name: managing-airway-emergencies
+language: en
 description: Follows difficult airway algorithm with RSI protocols and backup airway planning. Use when managing difficult airways, planning rapid sequence intubation, or documenting airway management.
 tags:
   - management

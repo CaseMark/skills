@@ -1,5 +1,6 @@
 ---
 name: managing-fund-formation-documents
+language: en
 description: Reviews fund offering documents with LPA terms, side letter analysis, and compliance requirement extraction. Use when reviewing fund documents, analyzing LPA terms, or managing side letter provisions.
 tags:
   - management

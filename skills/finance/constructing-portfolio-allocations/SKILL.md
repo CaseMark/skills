@@ -1,5 +1,6 @@
 ---
 name: constructing-portfolio-allocations
+language: en
 description: Builds strategic and tactical asset allocation models with risk-return optimization and constraint management. Use when constructing portfolios, optimizing asset allocation, or building model portfolios.
 tags:
   - asset-management

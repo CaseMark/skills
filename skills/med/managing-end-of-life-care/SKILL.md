@@ -1,5 +1,6 @@
 ---
 name: managing-end-of-life-care
+language: en
 description: Guides end-of-life transitions with hospice referral criteria, comfort care protocols, and family communication. Use when transitioning to end-of-life care, initiating hospice, or managing comfort-focused treatment.
 tags:
   - management

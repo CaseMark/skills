@@ -1,5 +1,6 @@
 ---
 name: articles-of-incorporation
+language: en
 description: Drafts jurisdiction-compliant U.S. Articles of Incorporation for corporate entity formation. Analyzes formation documents, term sheets, and cap tables to produce a filing-ready charter with name, purpose, capital structure, registered agent, and governance provisions. Use when forming a new corporation, drafting a charter document, or structuring equity for venture-backed or closely held companies.
 tags:
   - agreement

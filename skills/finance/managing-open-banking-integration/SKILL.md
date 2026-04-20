@@ -1,5 +1,6 @@
 ---
 name: managing-open-banking-integration
+language: en
 description: Structures open banking API integration with data sharing, consent management, and security requirements. Use when implementing open banking, managing API integrations, or evaluating data sharing frameworks.
 tags:
   - management

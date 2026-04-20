@@ -1,5 +1,6 @@
 ---
 name: managing-foreign-currency-accounting
+language: en
 description: Structures foreign currency transaction and translation accounting with hedge documentation. Use when accounting for FX transactions, translating foreign operations, or documenting FX hedges.
 tags:
   - management

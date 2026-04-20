@@ -1,5 +1,6 @@
 ---
 name: police-report-summary
+language: en
 description: Summarizes police reports and incident documentation into structured, source-attributed legal work product. Extracts incident details, chronological narrative, involved parties, evidence, and officer conclusions. Flags discrepancies, Brady material, procedural issues, and exculpatory evidence. Use when summarizing police reports, arrest reports, officer narratives, or law enforcement documentation for criminal defense, personal injury, civil rights, or insurance litigation.
 ---
 

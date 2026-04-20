@@ -1,5 +1,6 @@
 ---
 name: analyzing-biodiversity-risk
+language: en
 description: Structures biodiversity risk assessment with nature-related dependency mapping and TNFD alignment. Use when analyzing biodiversity risk, mapping nature dependencies, or implementing TNFD disclosure.
 tags:
   - analysis

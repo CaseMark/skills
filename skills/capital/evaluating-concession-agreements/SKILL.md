@@ -1,5 +1,6 @@
 ---
 name: evaluating-concession-agreements
+language: en
 description: Analyzes concession terms with revenue sharing, performance requirements, hand-back conditions, and termination provisions. Use when evaluating concessions, analyzing PPP contracts, or assessing concession economics.
 tags:
   - analysis

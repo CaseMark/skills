@@ -1,5 +1,6 @@
 ---
 name: managing-clinical-trial-eligibility
+language: en
 description: Screens patients against clinical trial inclusion/exclusion criteria with documentation. Use when screening trial candidates, checking eligibility criteria, or documenting trial enrollment decisions.
 tags:
   - management

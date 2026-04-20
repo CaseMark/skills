@@ -1,5 +1,6 @@
 ---
 name: managing-prosthodontic-cases
+language: en
 description: Structures prosthodontic evaluation with crown, bridge, and denture planning documentation. Use when planning prosthetic restorations, documenting impression techniques, or managing prosthetic treatment.
 tags:
   - management

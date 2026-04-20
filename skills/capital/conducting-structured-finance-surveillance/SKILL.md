@@ -1,5 +1,6 @@
 ---
 name: conducting-structured-finance-surveillance
+language: en
 description: Monitors structured product performance with collateral deterioration triggers, coverage test tracking, and credit migration analysis. Use when conducting ABS surveillance, monitoring CLO performance, or tracking structured product credit.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: cultural-heritage-summary
+language: en
 description: >-
   Produces structured, citation-ready summaries of legal developments in
   cultural heritage protection covering repatriation, site protection, illicit

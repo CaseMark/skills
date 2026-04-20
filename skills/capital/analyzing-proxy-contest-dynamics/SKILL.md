@@ -1,5 +1,6 @@
 ---
 name: analyzing-proxy-contest-dynamics
+language: en
 description: Evaluates proxy fight mechanics with shareholder base analysis, ISS/Glass Lewis recommendations, and vote probability modeling. Use when analyzing proxy contests, assessing vote outcomes, or evaluating director nomination campaigns.
 tags:
   - analysis

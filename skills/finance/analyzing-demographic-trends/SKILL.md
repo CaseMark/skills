@@ -1,5 +1,6 @@
 ---
 name: analyzing-demographic-trends
+language: en
 description: Structures demographic analysis with population projections, dependency ratios, and economic impact assessment. Use when analyzing demographics, projecting population trends, or assessing demographic economic impact.
 tags:
   - analysis

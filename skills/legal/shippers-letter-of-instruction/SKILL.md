@@ -1,5 +1,6 @@
 ---
 name: shippers-letter-of-instruction
+language: en
 description: Drafts a U.S.-focused Shipper's Letter of Instruction (SLI) authorizing a freight forwarder, capturing EEI/AES filing intent, and documenting export-control classifications. Use when drafting SLIs, authorizing forwarders, preparing EEI/AES filings, or documenting ECCN/ITAR/EAR99 classifications for international exports.
 ---
 

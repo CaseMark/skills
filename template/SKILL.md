@@ -1,5 +1,6 @@
 ---
 name: skill-name
+language: en
 description: Replace with a specific description of what this skill does and when to use it. Include keywords that help agents identify relevant tasks.
 ---
 

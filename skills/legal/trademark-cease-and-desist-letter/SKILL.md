@@ -1,5 +1,6 @@
 ---
 name: trademark-cease-and-desist-letter
+language: en
 description: Drafts a U.S. trademark cease-and-desist letter for pre-litigation enforcement. Converts case facts into a demand letter that establishes standing, documents likelihood-of-confusion or dilution exposure, sets cure demands, and preserves Lanham Act remedies. Use when drafting a "trademark cease and desist", "pre-suit trademark demand", "trademark infringement notice", or "notice before litigation".
 ---
 

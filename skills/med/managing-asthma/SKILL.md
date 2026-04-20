@@ -1,5 +1,6 @@
 ---
 name: managing-asthma
+language: en
 description: Structures asthma management per NAEPP guidelines with stepwise therapy and action plans. Use when managing asthma, adjusting controller medications, or creating asthma action plans.
 tags:
   - management

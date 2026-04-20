@@ -1,5 +1,6 @@
 ---
 name: bill-of-lading
+language: en
 description: >-
   Drafts a U.S. ocean Bill of Lading (B/L) functioning as receipt, contract of
   carriage, and document of title under COGSA or Hague-Visby. Covers negotiable

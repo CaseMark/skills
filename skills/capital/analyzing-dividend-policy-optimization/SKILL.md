@@ -1,5 +1,6 @@
 ---
 name: analyzing-dividend-policy-optimization
+language: en
 description: Evaluates dividend policy with payout sustainability, peer comparison, and investor preference analysis across growth and value contexts. Use when analyzing dividend policy, evaluating payout ratios, or designing dividend programs.
 tags:
   - analysis

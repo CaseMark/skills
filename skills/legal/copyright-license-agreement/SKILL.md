@@ -1,5 +1,6 @@
 ---
 name: copyright-license-agreement
+language: en
 description: Drafts a U.S. Copyright License Agreement for media content (film, music, photography, video, software, artwork). Structures reproduction, distribution, display, performance, and derivative works grants with scope, territory, term, and compensation. Use when drafting IP licensing agreements, media content licenses, sync licenses, editorial or commercial use agreements, or royalty-bearing copyright deals.
 tags:
   - agreement

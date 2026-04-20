@@ -1,5 +1,6 @@
 ---
 name: managing-cardiac-devices
+language: en
 description: Interprets pacemaker and ICD interrogation data with programming optimization documentation. Use when reviewing device interrogations, managing pacemaker settings, or documenting ICD therapies.
 tags:
   - management

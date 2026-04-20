@@ -1,5 +1,6 @@
 ---
 name: managing-loan-trading-and-settlement
+language: en
 description: Coordinates loan trading with LSTA standard documentation, delayed settlement compensation, and trade settlement mechanics. Use when managing loan trades, processing LSTA documentation, or coordinating trade settlement.
 tags:
   - management

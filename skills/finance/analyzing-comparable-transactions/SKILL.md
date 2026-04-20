@@ -1,5 +1,6 @@
 ---
 name: analyzing-comparable-transactions
+language: en
 description: Structures precedent transaction analysis with deal multiples, premium calculation, and transaction characteristic comparison. Use when analyzing M&A precedents, calculating transaction multiples, or benchmarking deal terms.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: structuring-deal-consideration
+language: en
 description: Evaluates cash vs stock vs mixed consideration structures with tax, accounting, and shareholder impact analysis. Use when structuring deal terms, comparing consideration alternatives, or analyzing tax-efficient structures.
 tags:
   - mergers-and-acquisitions

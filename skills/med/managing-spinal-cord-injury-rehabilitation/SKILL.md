@@ -1,5 +1,6 @@
 ---
 name: managing-spinal-cord-injury-rehabilitation
+language: en
 description: Structures SCI rehab with ASIA classification, functional expectations, and complication prevention. Use when managing SCI rehab, documenting ASIA scores, or planning SCI recovery goals.
 tags:
   - management

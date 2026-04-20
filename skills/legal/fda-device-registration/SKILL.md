@@ -1,5 +1,6 @@
 ---
 name: fda-device-registration
+language: en
 description: Drafts FDA Establishment Registration and Device Listing documents compliant with 21 CFR Part 807. Structures filings with establishment details, owner/operator information, device inventories, compliance certifications, and signature blocks mirroring FDA Form 2830. Triggers on initial registrations, annual renewals, listing updates, or foreign establishment filings requiring US agent designations.
 tags:
   - regulatory

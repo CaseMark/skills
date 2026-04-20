@@ -1,5 +1,6 @@
 ---
 name: documenting-surgical-pathology-requests
+language: en
 description: Structures surgical pathology requisitions with clinical history, specimen description, and specific diagnostic questions. Use when submitting pathology specimens, writing pathology requisitions, or requesting special studies.
 tags:
   - documentation

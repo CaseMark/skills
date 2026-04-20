@@ -1,5 +1,6 @@
 ---
 name: finra-4512-customer-info
+language: en
 description: >-
   Drafts a FINRA Rule 4512 customer account information checklist for
   broker-dealers covering identification, trusted contact, affiliations,

@@ -1,5 +1,6 @@
 ---
 name: ip-portfolio-summary
+language: en
 description: Summarizes and analyzes a U.S. corporate IP portfolio covering patents, trademarks, copyrights, and trade secrets. Use when conducting an IP audit, due diligence review, M&A assessment, licensing strategy, executive briefing, or portfolio optimization.
 ---
 

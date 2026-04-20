@@ -1,5 +1,6 @@
 ---
 name: conducting-anti-kickback-analysis
+language: en
 description: Evaluates payment arrangements against Anti-Kickback Statute safe harbors with documentation. Use when analyzing AKS compliance, evaluating compensation arrangements, or documenting safe harbor applicability.
 tags:
   - process

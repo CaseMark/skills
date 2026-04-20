@@ -1,5 +1,6 @@
 ---
 name: transitional-services-agreement
+language: en
 description: Drafts a Transitional Services Agreement (TSA) for post-closing seller-to-buyer service delivery in U.S. M&A transactions. Use when a corporate acquisition requires temporary operational support or seller-provided service continuity after closing.
 tags:
   - agreement

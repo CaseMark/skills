@@ -1,5 +1,6 @@
 ---
 name: analyzing-high-yield-bond-structures
+language: en
 description: Evaluates high-yield issuance with call schedules, change of control puts, and restricted payment baskets. Use when analyzing HY bonds, comparing HY vs leveraged loan terms, or assessing issuer flexibility.
 tags:
   - analysis

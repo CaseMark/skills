@@ -1,5 +1,6 @@
 ---
 name: modeling-interest-rate-and-basis-risk
+language: en
 description: Analyzes structural interest rate exposure with fixed/floating mismatch, basis risk, and cap/floor adequacy assessment. Use when modeling structural rate risk, analyzing basis risk, or evaluating interest rate hedging needs.
 tags:
   - modeling

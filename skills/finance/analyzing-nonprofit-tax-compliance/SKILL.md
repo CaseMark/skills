@@ -1,5 +1,6 @@
 ---
 name: analyzing-nonprofit-tax-compliance
+language: en
 description: Evaluates tax-exempt organization compliance with Form 990, UBIT, and private foundation requirements. Use when managing nonprofit tax, reviewing Form 990, or analyzing UBIT exposure.
 tags:
   - analysis

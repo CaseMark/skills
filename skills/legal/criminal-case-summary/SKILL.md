@@ -1,5 +1,6 @@
 ---
 name: criminal-case-summary
+language: en
 description: >-
   Produces structured U.S. criminal case summaries covering charges, statutes,
   evidence, procedural history, disposition, and sentencing. Trigger when the

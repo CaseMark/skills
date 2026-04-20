@@ -1,5 +1,6 @@
 ---
 name: modeling-purchase-price-allocation
+language: en
 description: Structures PPA analysis with tangible/intangible asset identification, useful life estimation, and goodwill calculation. Use when modeling purchase accounting, allocating deal price, or estimating amortization impact.
 tags:
   - modeling

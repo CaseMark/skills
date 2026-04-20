@@ -1,5 +1,6 @@
 ---
 name: evaluating-abdominal-emergencies
+language: en
 description: Structures abdominal pain workups with differential by quadrant and surgical consultation criteria. Use when assessing acute abdomen, determining imaging needs, or identifying surgical emergencies.
 tags:
   - analysis

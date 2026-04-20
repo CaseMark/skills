@@ -1,5 +1,6 @@
 ---
 name: managing-insurance-capital-modeling
+language: en
 description: Structures insurance capital model analysis with economic capital, regulatory capital, and rating agency capital comparison. Use when modeling insurance capital, comparing capital frameworks, or assessing capital adequacy.
 tags:
   - management

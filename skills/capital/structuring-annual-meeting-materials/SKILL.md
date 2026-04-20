@@ -1,5 +1,6 @@
 ---
 name: structuring-annual-meeting-materials
+language: en
 description: Prepares annual meeting presentations with fund performance review, market outlook, pipeline discussion, and LP Q&A preparation. Use when preparing AGM materials, structuring LP presentations, or coordinating annual meetings.
 tags:
   - investor-relations-and-lp-reporting

@@ -1,5 +1,6 @@
 ---
 name: chapter-11-reorg-plan
+language: en
 description: >-
   Drafts a Chapter 11 Plan of Reorganization under 11 U.S.C. §§ 1121–1129
   with claim classification, treatment provisions, distribution mechanics,

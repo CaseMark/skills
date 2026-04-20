@@ -1,5 +1,6 @@
 ---
 name: modeling-scenario-planning-frameworks
+language: en
 description: Builds corporate scenario planning models with macro assumption sets, strategic response options, and contingency plan development. Use when building scenario frameworks, planning strategic responses, or developing contingency strategies.
 tags:
   - modeling

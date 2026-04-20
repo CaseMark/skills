@@ -1,5 +1,6 @@
 ---
 name: managing-anticoagulation-therapy
+language: en
 description: Guides anticoagulation selection, dosing, monitoring, and bridging protocols. Use when managing warfarin, DOACs, or heparin therapy, or planning periprocedural anticoagulation.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-fever
+language: en
 description: Guides age-stratified fever evaluation with Rochester, Philadelphia, and step-by-step protocols. Use when evaluating febrile infants, applying fever protocols, or managing pediatric fever workup.
 tags:
   - management

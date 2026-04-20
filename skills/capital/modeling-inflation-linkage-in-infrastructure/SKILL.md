@@ -1,5 +1,6 @@
 ---
 name: modeling-inflation-linkage-in-infrastructure
+language: en
 description: Analyzes inflation protection mechanisms in infrastructure with CPI-linked revenues, index-based contracts, and real return modeling. Use when modeling inflation linkage, analyzing CPI adjustment, or evaluating real return profiles.
 tags:
   - modeling

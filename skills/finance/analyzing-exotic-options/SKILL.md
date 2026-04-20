@@ -1,5 +1,6 @@
 ---
 name: analyzing-exotic-options
+language: en
 description: Structures exotic option analysis with barrier, Asian, lookback, and digital option pricing methodologies. Use when pricing exotic options, modeling path-dependent payoffs, or analyzing exotic structures.
 tags:
   - analysis

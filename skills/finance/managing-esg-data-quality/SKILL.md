@@ -1,5 +1,6 @@
 ---
 name: managing-esg-data-quality
+language: en
 description: Structures ESG data quality assessment with source comparison, estimation methodology, and disclosure gaps. Use when evaluating ESG data, comparing data providers, or assessing data quality.
 tags:
   - management

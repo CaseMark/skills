@@ -1,5 +1,6 @@
 ---
 name: managing-cyber-risk-financial
+language: en
 description: Structures financial sector cyber risk assessment with scenario quantification and insurance evaluation. Use when assessing cyber risk, quantifying cyber exposure, or evaluating cyber insurance.
 tags:
   - management

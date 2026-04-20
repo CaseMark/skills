@@ -1,5 +1,6 @@
 ---
 name: structuring-fund-level-credit-facilities
+language: en
 description: Designs subscription credit facilities with LP commitment-based lending, borrowing base mechanics, and advance rate analysis. Use when structuring fund lines, analyzing subscription facilities, or evaluating fund-level leverage.
 tags:
   - fund-formation-and-structuring

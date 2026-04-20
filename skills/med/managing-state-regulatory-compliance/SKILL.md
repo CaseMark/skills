@@ -1,5 +1,6 @@
 ---
 name: managing-state-regulatory-compliance
+language: en
 description: Monitors state-specific healthcare regulatory requirements including licensing, reporting, and scope of practice. Use when tracking state regulations, managing licensure requirements, or monitoring regulatory changes.
 tags:
   - management

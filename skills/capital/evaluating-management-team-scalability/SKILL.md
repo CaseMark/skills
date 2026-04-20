@@ -1,5 +1,6 @@
 ---
 name: evaluating-management-team-scalability
+language: en
 description: Assesses leadership team capacity to scale with organizational design review, key person risk, and executive bench analysis. Use when evaluating management scalability, identifying talent gaps, or assessing organizational readiness.
 tags:
   - analysis

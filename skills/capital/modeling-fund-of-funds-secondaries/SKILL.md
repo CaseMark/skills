@@ -1,5 +1,6 @@
 ---
 name: modeling-fund-of-funds-secondaries
+language: en
 description: Evaluates fund-of-funds secondary transactions with layer-on-layer fee analysis, double-carry impact, and net return adjustment. Use when pricing FoF secondaries, analyzing fee drag, or modeling net LP economics.
 tags:
   - modeling

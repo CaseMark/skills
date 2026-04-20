@@ -1,5 +1,6 @@
 ---
 name: nonprofit-compliance-summary
+language: en
 description: Generates a structured regulatory compliance summary for U.S. 501(c)(3) nonprofit organizations covering federal tax-exempt status, multi-state charitable registration, and governance. Use when conducting compliance audits, preparing for IRS or state AG examinations, onboarding to a nonprofit matter, or producing board-level compliance reports.
 ---
 

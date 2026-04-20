@@ -1,5 +1,6 @@
 ---
 name: managing-investor-roadshow-logistics
+language: en
 description: Coordinates roadshow scheduling with institutional investor targeting, presentation materials, and feedback tracking. Use when managing roadshows, organizing investor meetings, or tracking investor engagement.
 tags:
   - management

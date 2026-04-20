@@ -1,5 +1,6 @@
 ---
 name: asset-enforcement-report
+language: en
 description: Generates a post-judgment asset and enforcement report synthesizing debtor asset investigations, exemption analysis, fraudulent transfer assessment, and prioritized collection strategies. Use when preparing judgment enforcement plans, debtor asset profiles, collection status reports, or post-trial recovery analysis.
 tags:
   - analysis

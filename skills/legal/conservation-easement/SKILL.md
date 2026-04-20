@@ -1,5 +1,6 @@
 ---
 name: conservation-easement
+language: en
 description: Drafts recordable conservation easement documents that permanently restrict land use to protect conservation values while preserving landowner rights. Ensures IRC §170(h) qualified conservation contribution compliance and state enabling statute conformity. Use when drafting conservation easements, land preservation agreements, perpetual restrictions, or qualified conservation contributions for tax deduction purposes.
 tags:
   - agreement

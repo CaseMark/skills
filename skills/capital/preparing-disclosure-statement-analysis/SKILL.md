@@ -1,5 +1,6 @@
 ---
 name: preparing-disclosure-statement-analysis
+language: en
 description: Evaluates Chapter 11 disclosure statements with plan description adequacy, feasibility projections, and liquidation analysis comparison. Use when reviewing disclosure statements, analyzing plan feasibility, or preparing objections.
 tags:
   - preparation

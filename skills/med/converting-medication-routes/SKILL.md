@@ -1,5 +1,6 @@
 ---
 name: converting-medication-routes
+language: en
 description: Calculates IV-to-oral conversions and opioid equianalgesic dosing. Use when converting medication routes, calculating equianalgesic doses, or transitioning IV to oral therapy.
 tags:
   - pharmacy

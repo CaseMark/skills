@@ -1,5 +1,6 @@
 ---
 name: rules-and-regulations-exhibit
+language: en
 description: Drafts enforceable Rules and Regulations Exhibits for attachment to commercial leases and transactional agreements. Triggers when preparing lease exhibits, property rules, building regulations, CC&R supplements, or operational conduct standards for real estate transactions.
 tags:
   - agreement

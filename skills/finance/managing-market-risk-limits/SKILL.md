@@ -1,5 +1,6 @@
 ---
 name: managing-market-risk-limits
+language: en
 description: Structures market risk limit frameworks with VaR, sensitivity, and notional-based limits and escalation protocols. Use when setting market risk limits, managing limit breaches, or calibrating risk parameters.
 tags:
   - management

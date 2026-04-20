@@ -1,5 +1,6 @@
 ---
 name: first-right-of-refusal-agreement
+language: en
 description: >-
   Drafts a U.S. franchise first right of refusal (ROFR) agreement as an
   addendum or schedule to an existing Franchise Agreement. Trigger when a

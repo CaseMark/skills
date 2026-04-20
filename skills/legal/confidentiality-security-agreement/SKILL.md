@@ -1,5 +1,6 @@
 ---
 name: confidentiality-security-agreement
+language: en
 description: >-
   Drafts enforceable U.S. Employee Confidentiality and Security Agreements
   protecting proprietary information, trade secrets, and digital assets, with

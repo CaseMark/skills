@@ -1,5 +1,6 @@
 ---
 name: modeling-stub-value-analysis
+language: en
 description: Calculates stub equity value with subsidiary attribution, holding company discount, and sum-of-parts residual analysis. Use when analyzing stub values, evaluating holding company discounts, or identifying negative stub situations.
 tags:
   - modeling

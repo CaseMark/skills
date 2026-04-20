@@ -1,5 +1,6 @@
 ---
 name: modeling-debt-maturity-profiles
+language: en
 description: Structures debt maturity analysis with refinancing risk, market access assumptions, and liability management opportunities. Use when analyzing maturity walls, planning refinancing, or optimizing debt tenor.
 tags:
   - modeling

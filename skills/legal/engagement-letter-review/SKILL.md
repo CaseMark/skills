@@ -1,5 +1,6 @@
 ---
 name: engagement-letter-review
+language: en
 description: Reviews attorney engagement letters for completeness, fee clarity, scope definition, and potential client-side risks. Flags missing provisions, ambiguous terms, and unusual fee arrangements. Use when the user mentions "engagement letter", "retainer agreement", "fee agreement review", "scope of representation", or needs to evaluate terms before signing or sending an engagement letter.
 tags:
   - transactional

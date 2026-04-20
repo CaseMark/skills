@@ -1,5 +1,6 @@
 ---
 name: managing-gynecologic-screening
+language: en
 description: Applies ASCCP cervical cancer screening guidelines with HPV co-testing and colposcopy indications. Use when managing cervical screening, applying ASCCP guidelines, or determining colposcopy need.
 tags:
   - management

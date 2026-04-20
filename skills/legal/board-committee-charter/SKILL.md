@@ -1,5 +1,6 @@
 ---
 name: board-committee-charter
+language: en
 description: Drafts board committee charters for Audit and Compensation Committees tailored to public/private status, exchange listing (NYSE/NASDAQ), and governance requirements. Covers composition, independence, authority, meeting procedures, and reporting. Use when creating or updating audit committee charters, compensation committee charters, or corporate oversight committee formations.
 ---
 

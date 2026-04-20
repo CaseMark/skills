@@ -1,5 +1,6 @@
 ---
 name: closing-disclosure-timing-reference
+language: en
 description: Provides TRID Closing Disclosure timing compliance rules under 12 CFR § 1026.19(f). Covers the three-business-day receipt rule, dual business-day definitions, delivery deemed-receipt rules, re-disclosure triggers, waiver procedures, and post-consummation deadlines. Use when calculating CD delivery deadlines, determining earliest permitted closing dates, evaluating whether a change triggers a new waiting period, or advising on emergency waiver procedures.
 ---
 

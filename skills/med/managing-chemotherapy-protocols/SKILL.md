@@ -1,5 +1,6 @@
 ---
 name: managing-chemotherapy-protocols
+language: en
 description: Verifies chemotherapy orders against regimen protocols with dose calculations and toxicity monitoring. Use when reviewing chemo orders, calculating BSA-based doses, or tracking treatment toxicity.
 tags:
   - management

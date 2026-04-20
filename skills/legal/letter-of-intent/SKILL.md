@@ -1,5 +1,6 @@
 ---
 name: letter-of-intent
+language: en
 description: Drafts corporate Letters of Intent for M&A and business transactions, structuring binding vs. non-binding provisions, deal terms, exclusivity, and confidentiality. Use when drafting LOIs, preliminary term sheets, deal memoranda, or pre-definitive agreement correspondence.
 ---
 

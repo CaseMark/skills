@@ -1,5 +1,6 @@
 ---
 name: managing-next-generation-planning
+language: en
 description: Structures next-generation wealth education and involvement with financial literacy and responsibility programs. Use when preparing next generation, designing wealth education, or managing family learning programs.
 tags:
   - management

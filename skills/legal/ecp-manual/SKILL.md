@@ -1,5 +1,6 @@
 ---
 name: ecp-manual
+language: en
 description: Drafts an audit-ready Export Compliance Program manual covering EAR, ITAR, and OFAC requirements. Use when creating or updating an export compliance policy, international trade compliance program, or preparing enforcement defense documentation for regulatory review.
 ---
 

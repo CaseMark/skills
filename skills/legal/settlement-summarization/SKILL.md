@@ -1,5 +1,6 @@
 ---
 name: settlement-summarization
+language: en
 description: Summarizes settlement negotiations and agreements in litigation. Extracts key terms, payment structures, release provisions, negotiation chronology, and compliance obligations for both two-party and complex multi-party settlements. Use when the user needs a settlement summary, settlement analysis, negotiation history, or settlement term review.
 ---
 

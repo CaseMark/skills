@@ -1,5 +1,6 @@
 ---
 name: structuring-development-finance-instruments
+language: en
 description: Designs blended finance structures with DFI participation, concessional capital, and catalytic funding for emerging market investments. Use when structuring DFI co-investments, designing blended finance, or analyzing concessional terms.
 tags:
   - cross-border-capital

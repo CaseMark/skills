@@ -1,5 +1,6 @@
 ---
 name: managing-senior-investor-protection
+language: en
 description: Structures senior and vulnerable investor protection programs with exploitation identification and hold protocols. Use when protecting senior investors, identifying financial exploitation, or implementing hold procedures.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: interpreting-hematology-smears
+language: en
 description: Structures peripheral blood smear review with morphologic descriptions and differential correlation. Use when reading blood smears, describing cell morphology, or correlating with CBC findings.
 tags:
   - analysis

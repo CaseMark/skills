@@ -1,5 +1,6 @@
 ---
 name: structuring-real-asset-fund-vehicles
+language: en
 description: Designs fund structures for real asset strategies with long-dated commitments, NAV-based mechanics, and co-investment programs. Use when structuring resource funds, designing natural resource vehicles, or analyzing real asset fund terms.
 tags:
   - real-assets-and-natural-resources

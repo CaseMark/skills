@@ -1,5 +1,6 @@
 ---
 name: royalty-deed
+language: en
 description: Drafts U.S. oil and gas royalty deeds conveying NPRI or participating royalty interests with fractional interest, land description, lease burden, cost allocation, and warranty language suitable for recording. Trigger when drafting royalty deeds, NPRI conveyances, mineral royalty transfers, or oil and gas royalty assignments.
 tags:
   - agreement

@@ -1,5 +1,6 @@
 ---
 name: incident-report-summary
+language: en
 description: >-
   Generates structured, litigation-ready summaries from police reports,
   crash reports, workplace incident reports, or investigative documents.

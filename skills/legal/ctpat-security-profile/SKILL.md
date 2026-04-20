@@ -1,5 +1,6 @@
 ---
 name: ctpat-security-profile
+language: en
 description: >-
   Drafts a submission-ready C-TPAT Security Profile from verified company
   records for U.S. CBP enrollment, recertification, or validation prep.

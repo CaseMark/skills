@@ -1,5 +1,6 @@
 ---
 name: managing-postoperative-pain
+language: en
 description: Structures multimodal pain management with ERAS protocols and opioid stewardship documentation. Use when managing post-surgical pain, implementing ERAS pathways, or tracking opioid use.
 tags:
   - management

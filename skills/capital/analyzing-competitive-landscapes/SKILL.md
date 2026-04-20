@@ -1,5 +1,6 @@
 ---
 name: analyzing-competitive-landscapes
+language: en
 description: Maps competitive dynamics with market positioning, feature comparison, funding histories, and differentiation assessment. Use when analyzing startup competition, mapping market landscapes, or identifying competitive threats.
 tags:
   - analysis

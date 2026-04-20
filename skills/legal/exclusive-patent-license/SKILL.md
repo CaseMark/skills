@@ -1,5 +1,6 @@
 ---
 name: exclusive-patent-license
+language: en
 description: >-
   Drafts an Exclusive Patent License Agreement granting a Licensee exclusive
   rights to commercialize Licensed Patents within a defined Territory and Field

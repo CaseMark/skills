@@ -1,5 +1,6 @@
 ---
 name: managing-risk-reporting
+language: en
 description: Structures risk reporting dashboards with limit utilization, risk metric trends, and exception documentation. Use when creating risk reports, designing risk dashboards, or documenting risk positions.
 tags:
   - management

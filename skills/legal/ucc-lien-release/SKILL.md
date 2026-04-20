@@ -1,5 +1,6 @@
 ---
 name: ucc-lien-release
+language: en
 description: Drafts Evidence of UCC Lien Release documents proving termination of security interests perfected under the Uniform Commercial Code. Extracts UCC-1 filing numbers, party information, and collateral descriptions from uploaded documents for compliant drafting. Use for UCC lien releases, UCC-3 termination evidence, security interest discharge certificates, or asset purchase closings requiring proof of clear title.
 metadata:
   author: casemark

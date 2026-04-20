@@ -1,5 +1,6 @@
 ---
 name: analyzing-distressed-credit-situations
+language: en
 description: Evaluates distressed debt opportunities with recovery analysis, liquidity assessment, and potential restructuring outcomes. Use when screening distressed situations, analyzing stressed credits, or evaluating workout scenarios.
 tags:
   - analysis

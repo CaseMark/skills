@@ -1,5 +1,6 @@
 ---
 name: documenting-trauma-surgery
+language: en
 description: Creates trauma surgery documentation with injury severity scoring and damage control principles. Use when documenting trauma operations, calculating ISS, or recording damage control sequences.
 tags:
   - documentation

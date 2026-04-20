@@ -1,5 +1,6 @@
 ---
 name: managing-pelvic-pain
+language: en
 description: Structures pelvic pain evaluation with differential diagnosis and endometriosis assessment. Use when evaluating chronic pelvic pain, assessing for endometriosis, or managing pelvic pain workup.
 tags:
   - management

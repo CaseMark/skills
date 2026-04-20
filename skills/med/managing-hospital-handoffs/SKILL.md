@@ -1,5 +1,6 @@
 ---
 name: managing-hospital-handoffs
+language: en
 description: Creates structured handoff communications using I-PASS methodology for shift transitions. Use when performing sign-outs, creating handoff documents, or transitioning patient care between providers.
 tags:
   - management

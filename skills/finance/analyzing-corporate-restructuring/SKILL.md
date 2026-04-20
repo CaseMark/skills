@@ -1,5 +1,6 @@
 ---
 name: analyzing-corporate-restructuring
+language: en
 description: Evaluates restructuring alternatives with debt-for-equity analysis, 363 sale considerations, and recovery analysis. Use when analyzing restructurings, evaluating Chapter 11 options, or modeling recovery scenarios.
 tags:
   - analysis

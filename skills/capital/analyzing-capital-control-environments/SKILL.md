@@ -1,5 +1,6 @@
 ---
 name: analyzing-capital-control-environments
+language: en
 description: Evaluates capital control regimes with repatriation restrictions, investment caps, and regulatory approval requirements. Use when assessing capital controls, evaluating repatriation risk, or analyzing investment restrictions.
 tags:
   - analysis

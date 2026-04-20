@@ -1,5 +1,6 @@
 ---
 name: managing-tax-provision-preparation
+language: en
 description: Structures income tax provision calculations with ASC 740 requirements and rate reconciliation. Use when preparing tax provisions, calculating deferred taxes, or analyzing ETR components.
 tags:
   - management

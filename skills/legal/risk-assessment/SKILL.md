@@ -1,5 +1,6 @@
 ---
 name: risk-assessment
+language: en
 description: Generates structured legal risk assessment reports with categorized risks, 5x5 scoring matrices, and mitigation strategies. Use when preparing risk assessments, due diligence reports, transaction risk reviews, venture analysis, or board-level risk summaries.
 ---
 

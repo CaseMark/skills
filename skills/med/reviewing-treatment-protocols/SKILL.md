@@ -1,5 +1,6 @@
 ---
 name: reviewing-treatment-protocols
+language: en
 description: Evaluates NCCN guideline-concordant treatment plans with evidence levels and alternatives. Use when reviewing cancer treatment plans, checking NCCN compliance, or evaluating treatment options.
 tags:
   - review

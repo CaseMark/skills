@@ -1,5 +1,6 @@
 ---
 name: summarizing-discharge-notes
+language: en
 description: Transforms hospital discharge paperwork into structured patient summaries with medications, follow-up appointments, activity restrictions, and warning signs. Use when processing discharge documents, creating patient handoffs, or preparing transition-of-care summaries.
 tags:
   - summarization

@@ -1,5 +1,6 @@
 ---
 name: customs-power-of-attorney
+language: en
 description: >-
   Drafts a U.S. Customs Power of Attorney authorizing a licensed customs broker
   to transact customs business on behalf of an importer or exporter under

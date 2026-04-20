@@ -1,5 +1,6 @@
 ---
 name: patent-summary
+language: en
 description: Generates structured, prosecution-ready summaries of patent applications covering bibliographic data, claims analysis, and strategic observations. Use when summarizing patent filings, preparing for prosecution, conducting portfolio review, licensing negotiations, or freedom-to-operate analysis.
 ---
 

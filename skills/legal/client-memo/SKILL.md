@@ -1,5 +1,6 @@
 ---
 name: client-memo
+language: en
 description: >-
   Drafts structured client memoranda translating legal analysis and strategic
   recommendations into plain language for non-lawyer audiences. Covers corporate

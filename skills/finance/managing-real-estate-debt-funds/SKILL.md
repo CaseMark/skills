@@ -1,5 +1,6 @@
 ---
 name: managing-real-estate-debt-funds
+language: en
 description: Structures real estate debt fund analysis with loan origination, portfolio management, and credit metrics. Use when analyzing RE debt funds, evaluating loan portfolios, or managing debt fund performance.
 tags:
   - management

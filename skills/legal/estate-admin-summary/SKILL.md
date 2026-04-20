@@ -1,5 +1,6 @@
 ---
 name: estate-admin-summary
+language: en
 description: >-
   Produces structured status summaries of U.S. estate administration
   proceedings from probate filings, wills, asset inventories, creditor claims,

@@ -1,5 +1,6 @@
 ---
 name: product-liability-summary
+language: en
 description: Generates structured summaries of product liability cases covering liability theories, outcomes, and strategic implications. Use when summarizing defective product litigation, manufacturing or design defect claims, failure to warn cases, breach of warranty disputes, or personal injury product cases.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: ir-tabletop-exercise
+language: en
 description: Drafts a tabletop exercise script to stress-test an organization's Incident Response Plan against cybersecurity threats and breach notification obligations (GDPR, CCPA, HIPAA, GLBA, PCI DSS, NERC CIP, DFARS, SEC). Produces scenario injects, participant role assignments, facilitation guides, and after-action report frameworks. Use when creating IR tabletop exercises, cybersecurity drills, breach response simulations, or incident preparedness assessments.
 tags:
   - checklist

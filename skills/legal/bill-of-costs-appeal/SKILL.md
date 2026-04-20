@@ -1,5 +1,6 @@
 ---
 name: bill-of-costs-appeal
+language: en
 description: Drafts an itemized Bill of Costs on Appeal under FRAP 39 or state equivalent for the prevailing party to recover allowable appellate expenses. Triggers on appellate cost bill drafting, post-judgment cost recovery filings, or prevailing party cost submissions.
 tags:
   - drafting

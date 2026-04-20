@@ -1,5 +1,6 @@
 ---
 name: deposition-employment-supplement
+language: en
 description: Supplies claim-specific deposition frameworks for employment litigation (discrimination, harassment, retaliation, wrongful termination, wage/hour). Triggers when preparing or conducting depositions in employment cases under Title VII, ADA, ADEA, FLSA, or state equivalents. Use alongside @deposition-preparation.
 tags:
   - analysis

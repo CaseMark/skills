@@ -1,5 +1,6 @@
 ---
 name: oci-mitigation-plan
+language: en
 description: Drafts FAR 9.5-compliant Organizational Conflict of Interest mitigation plans for federal government contractors. Analyzes unequal access, impaired objectivity, and biased ground rules conflicts, then produces firewalls, recusals, compliance architecture, and certifications. Use when responding to solicitations with OCI concerns, preparing proposals requiring OCI disclosure, or drafting conflict mitigation documents.
 ---
 

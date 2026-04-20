@@ -1,5 +1,6 @@
 ---
 name: eir-summary
+language: en
 description: Produces legally focused summaries of Environmental Impact Reports (EIRs) and Environmental Impact Statements (EISs), extracting impacts, mitigation, alternatives, and compliance vulnerabilities. Triggers on requests for EIR/EIS summary, CEQA/NEPA review, mitigation analysis, alternatives analysis, cumulative impacts review, permit challenge prep, or administrative record review.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: preparing-quarterly-lp-reports
+language: en
 description: Creates comprehensive quarterly LP reporting packages with fund performance, portfolio updates, and market commentary. Use when preparing quarterly reports, building LP update packages, or structuring fund communications.
 tags:
   - preparation

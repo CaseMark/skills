@@ -1,5 +1,6 @@
 ---
 name: lease-guaranty
+language: en
 description: Drafts unconditional guaranty agreements for commercial lease obligations, maximizing landlord protection with enforceable payment-and-performance guarantees. Use when securing personal or corporate guarantees alongside commercial leases, preparing continuing guaranty documents, or drafting guarantor waiver and liability provisions.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: assessing-credit-risk
+language: en
 description: Evaluates borrower creditworthiness using financial analysis, industry assessment, and qualitative factors with structured credit opinions. Use when assessing credit risk, writing credit opinions, or evaluating borrower quality.
 tags:
   - assessment

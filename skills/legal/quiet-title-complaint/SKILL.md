@@ -1,5 +1,6 @@
 ---
 name: quiet-title-complaint
+language: en
 description: Drafts a court-ready Complaint to Quiet Title for real property disputes. Guides through intake, chain-of-title verification, adverse claim identification, and strategic pleading. Use when drafting quiet title complaints, clearing title defects, challenging adverse possession, resolving boundary disputes, removing invalid liens, or establishing superior title.
 ---
 

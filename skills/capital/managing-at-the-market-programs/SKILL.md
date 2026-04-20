@@ -1,5 +1,6 @@
 ---
 name: managing-at-the-market-programs
+language: en
 description: Structures ATM offering programs with sales agent selection, volume limitations, and disclosure requirements. Use when establishing ATM programs, managing ongoing equity issuance, or optimizing capital raising timing.
 tags:
   - management

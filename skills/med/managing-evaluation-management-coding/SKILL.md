@@ -1,5 +1,6 @@
 ---
 name: managing-evaluation-management-coding
+language: en
 description: Applies 2021+ E/M guidelines with medical decision-making or time-based code selection. Use when coding E/M services, determining MDM level, or selecting E/M codes.
 tags:
   - management

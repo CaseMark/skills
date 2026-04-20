@@ -1,5 +1,6 @@
 ---
 name: analyzing-execution-implementation-shortfall
+language: en
 description: Measures implementation shortfall with paper portfolio comparison, delay cost attribution, and execution quality assessment. Use when measuring implementation shortfall, analyzing execution quality, or attributing trading costs.
 tags:
   - analysis

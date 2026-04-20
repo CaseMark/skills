@@ -1,5 +1,6 @@
 ---
 name: assignment-and-assumption-of-leases
+language: en
 description: Drafts an Assignment and Assumption of Leases transferring tenant leases from seller (Assignor) to buyer (Assignee) as a closing document to a commercial property PSA. Trigger when closing a commercial property sale with existing tenant leases or when a user needs lease assignment/assumption language for a real estate transaction.
 tags:
   - agreement

@@ -1,5 +1,6 @@
 ---
 name: deficiency-corrective-action-plan
+language: en
 description: Drafts U.S. healthcare corrective action plans (CAPs / plans of correction) responding to survey deficiencies, audits, or inspections. Produces deficiency statements, root cause analysis, corrective actions, accountability assignments, timelines, monitoring, and validation aligned to CMS, Joint Commission, and state health department standards. Triggers on CAP, plan of correction, statement of deficiencies, survey findings, accreditation response, regulatory remediation, QAPI corrective action.
 tags:
   - drafting

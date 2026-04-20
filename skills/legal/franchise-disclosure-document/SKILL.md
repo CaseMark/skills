@@ -1,5 +1,6 @@
 ---
 name: franchise-disclosure-document
+language: en
 description: >-
   Drafts U.S. Franchise Disclosure Documents compliant with the FTC Franchise
   Rule (16 C.F.R. Part 436) and state franchise laws. Produces Items 1–23,

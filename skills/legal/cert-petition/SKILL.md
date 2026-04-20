@@ -1,5 +1,6 @@
 ---
 name: cert-petition
+language: en
 description: Drafts a Petition for Writ of Certiorari to the U.S. Supreme Court under Rules 10, 13, 14, and 33. Enforces Rule 10 criteria (circuit splits, precedent conflicts, important federal questions), jurisdictional verification under 28 U.S.C. §§ 1254/1257, timeliness, document structure, and booklet formatting. Use when seeking discretionary Supreme Court review, filing a cert petition, or drafting a writ of certiorari.
 ---
 

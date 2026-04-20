@@ -1,5 +1,6 @@
 ---
 name: managing-transfer-agency
+language: en
 description: Structures transfer agency operations with shareholder servicing, registration, and distribution management. Use when managing transfer agency, processing shareholder transactions, or maintaining shareholder records.
 tags:
   - management

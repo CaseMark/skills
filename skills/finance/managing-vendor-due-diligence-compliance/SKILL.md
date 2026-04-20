@@ -1,5 +1,6 @@
 ---
 name: managing-vendor-due-diligence-compliance
+language: en
 description: Structures regulatory vendor due diligence with risk assessment and ongoing monitoring requirements. Use when conducting vendor DD, assessing outsourcing risk, or managing third-party compliance.
 tags:
   - management

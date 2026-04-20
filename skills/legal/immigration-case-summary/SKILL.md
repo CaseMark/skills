@@ -1,5 +1,6 @@
 ---
 name: immigration-case-summary
+language: en
 description: >-
   Produces structured U.S. immigration case summaries covering applicant
   background, legal basis, procedural history, posture, and outcomes. Use when

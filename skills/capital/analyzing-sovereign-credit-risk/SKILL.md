@@ -1,5 +1,6 @@
 ---
 name: analyzing-sovereign-credit-risk
+language: en
 description: Evaluates sovereign creditworthiness with fiscal analysis, external vulnerability, political risk, and institutional quality assessment. Use when analyzing sovereign risk, assessing country credit, or evaluating government bond exposure.
 tags:
   - analysis

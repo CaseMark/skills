@@ -1,5 +1,6 @@
 ---
 name: novation-agreement
+language: en
 description: Drafts tripartite U.S. novation agreements substituting an incoming party for the original obligor with full release. Use when drafting novation agreements, party substitution agreements, or contract assumption documents requiring complete obligor discharge. Covers government contracts (FAR 42.12), M&A substitutions, and commercial restructurings.
 tags:
   - agreement

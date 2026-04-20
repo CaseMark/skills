@@ -1,5 +1,6 @@
 ---
 name: evaluating-green-bonds
+language: en
 description: Structures green bond analysis with use-of-proceeds verification, impact reporting, and ICMA alignment. Use when evaluating green bonds, verifying green credentials, or analyzing sustainable debt.
 tags:
   - analysis

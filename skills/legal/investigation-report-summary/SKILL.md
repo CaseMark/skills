@@ -1,5 +1,6 @@
 ---
 name: investigation-report-summary
+language: en
 description: Generates executive-level summaries of investigative reports covering workplace incidents, misconduct, fraud, or personal injury. Distills findings, evidence, methodology, and recommendations into a structured briefing. Use when summarizing investigation reports, incident reports, fraud investigations, or preparing litigation decision-maker briefings.
 tags:
   - litigation

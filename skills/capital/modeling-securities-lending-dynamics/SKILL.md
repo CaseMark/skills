@@ -1,5 +1,6 @@
 ---
 name: modeling-securities-lending-dynamics
+language: en
 description: Analyzes securities lending market with borrow cost, short interest dynamics, and fail-to-deliver monitoring. Use when analyzing lending markets, tracking borrow costs, or evaluating short selling dynamics.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: managing-equipment-financing
+language: en
 description: Structures equipment finance analysis with asset valuation, residual estimation, and lease vs. buy comparison. Use when analyzing equipment financing, estimating residuals, or comparing financing alternatives.
 tags:
   - management

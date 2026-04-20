@@ -1,5 +1,6 @@
 ---
 name: analyzing-cross-border-tax-structuring
+language: en
 description: Evaluates international tax structures with treaty networks, withholding rates, and permanent establishment risk analysis. Use when structuring cross-border tax, analyzing treaty benefits, or evaluating tax-efficient structuring.
 tags:
   - analysis

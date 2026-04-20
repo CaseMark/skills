@@ -1,5 +1,6 @@
 ---
 name: class-certification-order
+language: en
 description: Drafts a federal or state court order certifying a class action under Rule 23. Triggers when formalizing class certification after a granted motion, drafting certification orders, or preparing rulings for appellate review. Covers Rule 23(a) findings, Rule 23(b) analysis, class definition, counsel appointment under Rule 23(g), and notice provisions.
 tags:
   - drafting

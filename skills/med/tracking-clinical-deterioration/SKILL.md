@@ -1,5 +1,6 @@
 ---
 name: tracking-clinical-deterioration
+language: en
 description: Implements early warning score monitoring (NEWS, MEWS) with escalation criteria. Use when monitoring clinical deterioration, calculating early warning scores, or triggering rapid response criteria.
 tags:
   - monitoring

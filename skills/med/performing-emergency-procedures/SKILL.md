@@ -1,5 +1,6 @@
 ---
 name: performing-emergency-procedures
+language: en
 description: Documents procedural indications, consent, technique, and complications for ED procedures. Use when performing emergency procedures, documenting procedural notes, or recording bedside procedures.
 tags:
   - process

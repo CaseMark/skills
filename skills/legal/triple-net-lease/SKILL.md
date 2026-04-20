@@ -1,5 +1,6 @@
 ---
 name: triple-net-lease
+language: en
 description: >-
   Drafts U.S. triple net (NNN) commercial lease agreements allocating taxes,
   insurance, and maintenance to the tenant. Trigger when the user needs an NNN

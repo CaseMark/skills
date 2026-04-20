@@ -1,5 +1,6 @@
 ---
 name: cross-examination-summaries
+language: en
 description: Generates thematic cross-examination summaries from deposition transcripts, sworn statements, and discovery materials with precise page-and-line citations. Highlights inconsistencies, impeachable admissions, and favorable concessions in a trial-ready format. Use when preparing witness cross-examination, building impeachment strategy, or synthesizing testimony across multiple witnesses.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: invasive-testing-consent-letter
+language: en
 description: >
   Drafts a Phase II invasive testing consent letter that limits scope, locations,
   timing, data control, restoration, security, and risk allocation under an existing

@@ -1,5 +1,6 @@
 ---
 name: building-venture-return-models
+language: en
 description: Constructs venture return models with entry valuation, follow-on reserve, multiple scenario exits, and portfolio-level fund math. Use when modeling VC returns, calculating fund economics, or projecting portfolio outcomes.
 tags:
   - modeling

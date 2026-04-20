@@ -1,5 +1,6 @@
 ---
 name: managing-clinical-trial-budgets
+language: en
 description: Structures trial budget development with per-patient costs, site fees, and sponsor negotiations. Use when budgeting clinical trials, negotiating site contracts, or tracking research expenditures.
 tags:
   - management

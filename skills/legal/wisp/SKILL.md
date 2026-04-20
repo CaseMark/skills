@@ -1,5 +1,6 @@
 ---
 name: wisp
+language: en
 description: >-
   Drafts a Written Information Security Program compliant with Massachusetts
   201 CMR 17.00 and supplementary frameworks (GDPR, CCPA, HIPAA, GLBA,

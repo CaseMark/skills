@@ -1,5 +1,6 @@
 ---
 name: managing-telemetry-monitoring
+language: en
 description: Interprets telemetry rhythm strips with documentation requirements and escalation criteria. Use when monitoring telemetry, documenting rhythm interpretations, or recognizing alarm conditions.
 tags:
   - management

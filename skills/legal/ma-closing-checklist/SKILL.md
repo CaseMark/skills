@@ -1,5 +1,6 @@
 ---
 name: ma-closing-checklist
+language: en
 description: Drafts a party-coded M&A closing checklist for U.S. stock purchases, asset deals, and mergers. Generates a status-tracked matrix covering corporate authorizations, transaction documents, consents, regulatory clearances, funds flow, and post-closing obligations. Use when coordinating closing for any M&A transaction.
 ---
 

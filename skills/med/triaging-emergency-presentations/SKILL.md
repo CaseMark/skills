@@ -1,5 +1,6 @@
 ---
 name: triaging-emergency-presentations
+language: en
 description: Applies ESI triage methodology to assign acuity levels based on presenting complaints, vital signs, and resource needs. Use when triaging ED patients, assigning acuity scores, or prioritizing emergency cases.
 tags:
   - emergency-medicine

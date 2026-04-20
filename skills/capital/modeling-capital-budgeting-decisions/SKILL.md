@@ -1,5 +1,6 @@
 ---
 name: modeling-capital-budgeting-decisions
+language: en
 description: Builds NPV, IRR, and payback models for capital investment decisions with hurdle rate calibration and risk adjustment. Use when evaluating capital investments, comparing project returns, or building capital allocation frameworks.
 tags:
   - modeling

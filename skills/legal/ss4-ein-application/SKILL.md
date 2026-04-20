@@ -1,5 +1,6 @@
 ---
 name: ss4-ein-application
+language: en
 description: Drafts IRS Form SS-4 (EIN Application) by extracting entity details from formation documents. Use when forming a new business entity, applying for a federal tax ID, or preparing EIN applications for corporations, LLCs, partnerships, or sole proprietorships.
 tags:
   - corporate

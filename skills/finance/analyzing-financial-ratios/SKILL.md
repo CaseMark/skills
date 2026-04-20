@@ -1,5 +1,6 @@
 ---
 name: analyzing-financial-ratios
+language: en
 description: Computes and interprets liquidity, profitability, leverage, and efficiency ratios with peer benchmarking. Use when analyzing financial statements, building comparable analyses, or evaluating company health metrics.
 tags:
   - analysis

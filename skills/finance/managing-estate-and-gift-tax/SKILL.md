@@ -1,5 +1,6 @@
 ---
 name: managing-estate-and-gift-tax
+language: en
 description: Structures estate and gift tax planning with valuation, exemption utilization, and generation-skipping analysis. Use when planning estate tax, analyzing gift tax, or structuring generational transfers.
 tags:
   - management

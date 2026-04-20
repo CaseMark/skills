@@ -1,5 +1,6 @@
 ---
 name: conducting-secondary-due-diligence
+language: en
 description: Structures buy-side DD for secondary transactions with underlying fund analysis, manager assessment, and portfolio-level risk evaluation. Use when conducting secondary DD, evaluating fund managers, or analyzing underlying portfolios.
 tags:
   - process

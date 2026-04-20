@@ -1,5 +1,6 @@
 ---
 name: drafting-investment-committee-memos
+language: en
 description: Creates VC IC presentation materials with deal thesis, market analysis, team assessment, competitive landscape, and return scenarios. Use when preparing IC memos, presenting investment opportunities, or documenting investment decisions.
 tags:
   - drafting

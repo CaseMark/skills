@@ -1,5 +1,6 @@
 ---
 name: dd-form-254
+language: en
 description: Drafts DD Form 254 Contract Security Classification Specifications for classified government contracts. Use when preparing security classification specs for prime contractors, subcontractors, SAP/SCI access, or facility clearance documentation per NISPOM (32 CFR Part 117) and DCSA regulations.
 tags:
   - agreement

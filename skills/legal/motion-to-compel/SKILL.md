@@ -1,5 +1,6 @@
 ---
 name: motion-to-compel
+language: en
 description: >-
   Drafts filing-ready motions to compel discovery in civil litigation with
   deficiency matrix, declaration, memorandum, and proposed order. Covers

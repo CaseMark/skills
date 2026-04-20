@@ -1,5 +1,6 @@
 ---
 name: managing-sox-compliance
+language: en
 description: Structures SOX compliance with control documentation, testing, and deficiency evaluation. Use when managing SOX compliance, testing internal controls, or evaluating control deficiencies.
 tags:
   - management

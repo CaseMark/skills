@@ -1,5 +1,6 @@
 ---
 name: managing-radiation-therapy-planning
+language: en
 description: Structures radiation treatment planning documentation with dose constraints and target volumes. Use when documenting radiation plans, reviewing dose constraints, or coordinating radiation therapy.
 tags:
   - management

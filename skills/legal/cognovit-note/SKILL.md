@@ -1,5 +1,6 @@
 ---
 name: cognovit-note
+language: en
 description: Drafts cognovit promissory notes with confession of judgment provisions, gated by mandatory jurisdictional enforceability research, usury compliance, and statutory disclosure requirements. Advises on alternatives where cognovit clauses are prohibited. Use when drafting cognovit notes, confession of judgment instruments, or loan documents requiring waiver-of-defense provisions.
 ---
 

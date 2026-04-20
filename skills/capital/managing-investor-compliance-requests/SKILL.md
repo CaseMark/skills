@@ -1,5 +1,6 @@
 ---
 name: managing-investor-compliance-requests
+language: en
 description: Coordinates regulatory and compliance information requests from institutional LPs including FOIA, regulatory filings, and audit support. Use when responding to compliance requests, managing FOIA inquiries, or supporting LP audit processes.
 tags:
   - management

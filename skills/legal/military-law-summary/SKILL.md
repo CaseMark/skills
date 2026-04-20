@@ -1,5 +1,6 @@
 ---
 name: military-law-summary
+language: en
 description: Generates structured summaries of military law matters including courts-martial, UCMJ disciplinary actions, administrative separations, and appellate decisions. Trigger when a user needs a reference summary of a military justice proceeding, CAAF/CCA opinion, Article 15 action, or service regulation issue for JAG officers, command staff, or military legal practitioners.
 tags:
   - analysis

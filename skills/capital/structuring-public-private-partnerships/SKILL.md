@@ -1,5 +1,6 @@
 ---
 name: structuring-public-private-partnerships
+language: en
 description: Designs PPP structures with risk allocation, availability payment mechanisms, and value-for-money analysis for public sponsors. Use when structuring PPPs, analyzing risk allocation, or evaluating VfM for public sector clients.
 tags:
   - infrastructure-and-project-finance

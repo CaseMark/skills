@@ -1,5 +1,6 @@
 ---
 name: employee-arbitration-agreement
+language: en
 description: Drafts a mutual, enforceable Employee Arbitration Agreement for binding arbitration of employment disputes. Covers FAA compliance, state-law enforceability (Armendariz factors, PAGA carve-outs), class/collective action waivers, cost allocation, and agency carve-outs. Use when onboarding new hires, updating arbitration policy, or replacing existing dispute resolution procedures.
 tags:
   - agreement

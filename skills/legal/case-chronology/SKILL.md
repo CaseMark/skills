@@ -1,5 +1,6 @@
 ---
 name: case-chronology
+language: en
 description: Produces U.S. litigation case chronologies with dated timelines, executive summaries, source attribution, gap analysis, and investigation recommendations. Use when asked for a chronology, timeline, case summary, or executive summary of a legal matter, or during case intake, deposition prep, or trial prep.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: expert-report-summary
+language: en
 description: >-
   Produces structured, citation-ready summaries of U.S. expert witness reports
   for litigation. Captures qualifications, assignment, methodology, materials,

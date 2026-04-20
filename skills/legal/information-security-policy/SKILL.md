@@ -1,5 +1,6 @@
 ---
 name: information-security-policy
+language: en
 description: >-
   Drafts a board-approvable Information Security Policy covering data classification, access controls,
   encryption, incident response, breach notification, and enforcement. Tailored by industry and

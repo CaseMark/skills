@@ -1,5 +1,6 @@
 ---
 name: analyzing-regulatory-event-impacts
+language: en
 description: Evaluates regulatory decision impact with approval probability, timeline analysis, and outcome scenario modeling for event-driven positions. Use when analyzing regulatory events, evaluating FDA/FCC/DOJ decisions, or modeling regulatory outcomes.
 tags:
   - analysis

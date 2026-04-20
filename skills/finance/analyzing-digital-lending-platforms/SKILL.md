@@ -1,5 +1,6 @@
 ---
 name: analyzing-digital-lending-platforms
+language: en
 description: Evaluates digital lending models with credit model assessment, funding structure, and regulatory analysis. Use when analyzing online lenders, evaluating credit models, or assessing lending platform risk.
 tags:
   - analysis

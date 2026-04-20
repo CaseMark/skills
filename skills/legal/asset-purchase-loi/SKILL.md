@@ -1,5 +1,6 @@
 ---
 name: asset-purchase-loi
+language: en
 description: >-
   Drafts a U.S. asset purchase letter of intent (LOI) separating binding from
   non-binding terms and capturing deal points, diligence, exclusivity, and

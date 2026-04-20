@@ -1,5 +1,6 @@
 ---
 name: structuring-tracking-stock-arrangements
+language: en
 description: Designs tracking stock structures with attributed business economics, intergroup arrangements, and value realization mechanics. Use when evaluating tracking stocks, analyzing attributed value structures, or assessing partial separation alternatives.
 tags:
   - capital-allocation-and-corporate-strategy

@@ -1,5 +1,6 @@
 ---
 name: quality-control-provisions
+language: en
 description: Drafts Quality Control Provisions as an exhibit to a Trademark License Agreement, covering quality standards, inspection rights, sample approval, non-compliance remedies, and recall obligations. Use when drafting trademark license QC exhibits, brand standards compliance annexes, or IP licensing quality schedules. Protects licensor rights and prevents abandonment under the Lanham Act.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: corporate-resolution-bank-account
+language: en
 description: Drafts a board resolution authorizing the opening and management of corporate bank accounts, including signatory designation, account types, borrowing authority, and secretary certification. Triggers when a financial institution requires formal board authorization to establish or manage accounts, when updating authorized signatories, or when documenting banking authority during entity formation or reorganization.
 tags:
   - corporate

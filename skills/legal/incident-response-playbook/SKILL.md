@@ -1,5 +1,6 @@
 ---
 name: incident-response-playbook
+language: en
 description: >-
   Drafts incident response plans and scenario playbooks for U.S. legal
   organizations, aligning NIST SP 800-61 Rev. 2 phases with ABA Model Rules

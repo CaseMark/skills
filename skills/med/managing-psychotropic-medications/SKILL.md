@@ -1,5 +1,6 @@
 ---
 name: managing-psychotropic-medications
+language: en
 description: Guides psychotropic prescribing with evidence-based selection, monitoring, and titration schedules. Use when selecting psychotropics, managing medication trials, or documenting psychiatric pharmacotherapy.
 tags:
   - management

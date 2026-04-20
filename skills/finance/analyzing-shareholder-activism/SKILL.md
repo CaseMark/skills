@@ -1,5 +1,6 @@
 ---
 name: analyzing-shareholder-activism
+language: en
 description: Tracks activist investor campaigns with thesis analysis and outcome assessment. Use when monitoring activist situations, analyzing proxy fights, or evaluating activist theses.
 tags:
   - analysis

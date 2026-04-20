@@ -1,5 +1,6 @@
 ---
 name: clinical-trial-investigator-agreement
+language: en
 description: >-
   Drafts U.S. clinical trial Investigator Agreements between sponsors/CROs and
   principal investigators or institutions for FDA-regulated drug, biologic, or

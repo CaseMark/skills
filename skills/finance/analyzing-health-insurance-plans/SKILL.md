@@ -1,5 +1,6 @@
 ---
 name: analyzing-health-insurance-plans
+language: en
 description: Evaluates health insurance plan structures with actuarial value, network analysis, and cost projection. Use when analyzing health plans, comparing coverage, or projecting healthcare costs.
 tags:
   - analysis

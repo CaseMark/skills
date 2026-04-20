@@ -1,5 +1,6 @@
 ---
 name: managing-risk-governance
+language: en
 description: Structures risk governance frameworks with committee charters, escalation protocols, and reporting cadences. Use when designing risk governance, structuring risk committees, or documenting governance frameworks.
 tags:
   - management

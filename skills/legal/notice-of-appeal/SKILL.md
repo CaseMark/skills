@@ -1,5 +1,6 @@
 ---
 name: notice-of-appeal
+language: en
 description: Drafts a Notice of Appeal to initiate appellate review of a trial court judgment or order in US federal and state courts. Use when filing a notice of appeal, commencing appellate review, or preserving appellate jurisdiction after an adverse ruling.
 ---
 

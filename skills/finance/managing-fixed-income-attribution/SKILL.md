@@ -1,5 +1,6 @@
 ---
 name: managing-fixed-income-attribution
+language: en
 description: Structures fixed income performance attribution across duration, credit, and sector allocation effects. Use when attributing fixed income returns, analyzing portfolio performance, or decomposing return drivers.
 tags:
   - management

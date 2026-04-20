@@ -1,5 +1,6 @@
 ---
 name: managing-orthodontic-assessments
+language: en
 description: Structures orthodontic evaluation with classification, treatment options, and progress documentation. Use when evaluating orthodontic needs, classifying malocclusion, or documenting treatment progress.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: analyzing-investor-advisory-committees
+language: en
 description: Structures IAC/LPAC design with composition, authority scope, conflict review protocols, and valuation oversight. Use when designing advisory committees, defining LPAC authority, or structuring conflict resolution processes.
 tags:
   - analysis

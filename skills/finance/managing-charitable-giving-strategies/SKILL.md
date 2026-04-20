@@ -1,5 +1,6 @@
 ---
 name: managing-charitable-giving-strategies
+language: en
 description: Structures charitable planning with vehicle selection, tax benefit optimization, and legacy impact analysis. Use when planning charitable giving, evaluating donor-advised funds, or structuring foundation contributions.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: conducting-investor-day-preparation
+language: en
 description: Structures investor day content with long-term strategy presentation, financial targets, and capital allocation framework communication. Use when preparing investor days, designing strategy presentations, or building financial target frameworks.
 tags:
   - process

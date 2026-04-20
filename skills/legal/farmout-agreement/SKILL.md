@@ -1,5 +1,6 @@
 ---
 name: farmout-agreement
+language: en
 description: Drafts U.S. upstream oil and gas farmout agreements transferring working interests through earn-in obligations. Use when drafting farmout/farm-in agreements, defining earning well requirements, negotiating farmee/farmor terms, integrating JOA/AMI provisions, or handling reassignment and reversion mechanics.
 tags:
   - agreement

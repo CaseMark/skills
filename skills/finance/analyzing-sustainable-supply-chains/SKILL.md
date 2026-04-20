@@ -1,5 +1,6 @@
 ---
 name: analyzing-sustainable-supply-chains
+language: en
 description: Structures supply chain sustainability assessment with Scope 3 attribution and risk identification. Use when analyzing supply chain ESG, mapping supplier risk, or assessing supply chain sustainability.
 tags:
   - analysis

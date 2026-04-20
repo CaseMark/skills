@@ -1,5 +1,6 @@
 ---
 name: managing-intercompany-transactions
+language: en
 description: Structures intercompany pricing with transfer pricing documentation and arm's-length analysis. Use when managing transfer pricing, documenting intercompany transactions, or ensuring arm's-length compliance.
 tags:
   - management

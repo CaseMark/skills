@@ -1,5 +1,6 @@
 ---
 name: notice-of-appearance
+language: en
 description: Drafts a Notice of Appearance of Counsel for federal or state court with caption formatting, bar admission verification, e-filing signatures, and certificate of service. Use when an attorney is entering, substituting, or joining as counsel of record in litigation.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: analyzing-covenant-compliance
+language: en
 description: Reviews financial covenant compliance calculations with cure provisions and default trigger analysis. Use when checking covenant compliance, calculating coverage ratios, or evaluating covenant headroom.
 tags:
   - analysis

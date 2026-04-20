@@ -1,5 +1,6 @@
 ---
 name: insurance-correspondence-summarization
+language: en
 description: Produces structured summaries of insurance claims correspondence including coverage letters, reservation of rights (ROR), denial letters, and claim file documents. Extracts policy details, coverage positions, claims chronology, settlement posture, and liability exposure. Use when summarizing claim files, coverage disputes, ROR letters, denial letters, or multi-document insurance correspondence threads.
 ---
 

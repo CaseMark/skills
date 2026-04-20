@@ -124,6 +124,7 @@ jobs:
               content: body,
               tags: frontmatter.tags || [],
               license: frontmatter.license || 'Apache-2.0',
+              language: frontmatter.language || 'en',
             };
           }
 
@@ -142,8 +143,8 @@ jobs:
             const embeddingStr = `[${embedding.join(',')}]`;
 
             await sql`
-              INSERT INTO content.skills (slug, name, summary, content, embedding, tags, license, domain, visibility, version, created_at, updated_at)
-              VALUES (${skill.slug}, ${skill.name}, ${skill.summary}, ${skill.content}, ${embeddingStr}::vector, ${skill.tags}, ${skill.license}, ${domain}, 'public', 1, NOW(), NOW())
+              INSERT INTO content.skills (slug, name, summary, content, embedding, tags, license, language, domain, visibility, version, created_at, updated_at)
+              VALUES (${skill.slug}, ${skill.name}, ${skill.summary}, ${skill.content}, ${embeddingStr}::vector, ${skill.tags}, ${skill.license}, ${skill.language}, ${domain}, 'public', 1, NOW(), NOW())
               ON CONFLICT (slug, domain) DO UPDATE SET
                 name = EXCLUDED.name,
                 summary = EXCLUDED.summary,
@@ -151,6 +152,7 @@ jobs:
                 embedding = EXCLUDED.embedding,
                 tags = EXCLUDED.tags,
                 license = EXCLUDED.license,
+                language = EXCLUDED.language,
                 version = content.skills.version + 1,
                 visibility = 'public',
                 updated_at = NOW()

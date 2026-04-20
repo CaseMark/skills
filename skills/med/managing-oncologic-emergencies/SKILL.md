@@ -1,5 +1,6 @@
 ---
 name: managing-oncologic-emergencies
+language: en
 description: Guides recognition and management of spinal cord compression, tumor lysis, SVC syndrome, and hypercalcemia. Use when managing oncologic emergencies, treating tumor lysis, or recognizing cord compression.
 tags:
   - management

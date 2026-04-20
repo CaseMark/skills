@@ -1,5 +1,6 @@
 ---
 name: advance-health-care-directive
+language: en
 description: >
   Drafts jurisdiction-specific Advance Health Care Directive packages with agent
   appointment, living will instructions, HIPAA authorization bridge, organ

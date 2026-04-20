@@ -1,5 +1,6 @@
 ---
 name: project-management-summary
+language: en
 description: Produces U.S. legal project management summaries consolidating objectives, scope, timeline, budget, resources, risks, and next steps into a stakeholder-ready document. Use when asked for project management summary, matter status, LPM report, budget tracking, timeline update, milestone review, or portfolio status.
 ---
 

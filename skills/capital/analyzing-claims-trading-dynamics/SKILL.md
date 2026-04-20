@@ -1,5 +1,6 @@
 ---
 name: analyzing-claims-trading-dynamics
+language: en
 description: Evaluates claims trading market with trading levels, holder identification, and blocking position analysis. Use when analyzing claims markets, tracking distressed debt trading, or evaluating ad hoc group dynamics.
 tags:
   - analysis

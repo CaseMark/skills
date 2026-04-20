@@ -1,5 +1,6 @@
 ---
 name: drafting-offering-memoranda
+language: en
 description: Creates confidential information memoranda (CIM) for sell-side M&A with business description and financial presentation. Use when preparing CIMs, writing sell-side materials, or creating offering documents.
 tags:
   - drafting

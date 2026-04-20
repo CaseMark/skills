@@ -1,5 +1,6 @@
 ---
 name: conducting-debt-market-conditions-analysis
+language: en
 description: Synthesizes DCM market activity with new issue spreads, fund flows, and market technical analysis for issuance timing. Use when analyzing debt market windows, timing bond issuance, or assessing market receptivity.
 tags:
   - process

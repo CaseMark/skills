@@ -1,5 +1,6 @@
 ---
 name: discovery-response-summary
+language: en
 description: >
   Synthesizes interrogatories, RFPs, RFAs, deposition transcripts, and privilege
   logs into a thematic, issue-based analytical memorandum with gap analysis and

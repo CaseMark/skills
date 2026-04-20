@@ -1,5 +1,6 @@
 ---
 name: lien-foreclosure
+language: en
 description: Drafts a mechanic's lien foreclosure complaint to enforce unpaid construction liens through court-ordered property sale. Covers jurisdictional allegations, lien validity, breach of contract, and unjust enrichment counts. Use when drafting lien foreclosure complaints, mechanic's lien enforcement actions, or construction payment disputes requiring judicial sale.
 tags:
   - drafting

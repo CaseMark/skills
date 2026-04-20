@@ -1,5 +1,6 @@
 ---
 name: managing-cmbs-analysis
+language: en
 description: Evaluates CMBS structures with loan-level analysis, subordination assessment, and special servicing monitoring. Use when analyzing CMBS deals, reviewing loan pools, or monitoring CMBS performance.
 tags:
   - management

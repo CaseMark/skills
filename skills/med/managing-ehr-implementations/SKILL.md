@@ -1,5 +1,6 @@
 ---
 name: managing-ehr-implementations
+language: en
 description: Structures EHR implementation planning with workflow analysis, data migration, and go-live readiness. Use when planning EHR deployments, managing system migrations, or preparing for go-live events.
 tags:
   - management

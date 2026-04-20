@@ -1,5 +1,6 @@
 ---
 name: adverse-possession-claim
+language: en
 description: Drafts adverse possession complaints and quiet title pleadings. Structures jurisdictional foundations, legal property descriptions, and element-by-element proof of actual, open, continuous, exclusive, and hostile possession. Use when filing adverse possession claims, quiet title actions, or prescriptive ownership pleadings.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: deposition-ip
+language: en
 description: Supplements general deposition preparation with IP-specific examination frameworks for patent, trademark, copyright, and trade secret cases. Covers witness strategies for inventors, accused infringers, licensing witnesses, and experts. Use alongside @deposition-preparation and @deposition-expert-witness when planning IP depositions, drafting outlines, or analyzing witness strategy.
 ---
 

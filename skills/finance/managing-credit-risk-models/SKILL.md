@@ -1,5 +1,6 @@
 ---
 name: managing-credit-risk-models
+language: en
 description: Evaluates and monitors credit risk models (PD, LGD, EAD) with calibration and discrimination metrics. Use when validating credit models, assessing model performance, or calibrating default models.
 tags:
   - management

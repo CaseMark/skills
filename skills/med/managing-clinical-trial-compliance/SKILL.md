@@ -1,5 +1,6 @@
 ---
 name: managing-clinical-trial-compliance
+language: en
 description: Evaluates clinical trial regulatory compliance with FDA/IRB requirements and audit readiness. Use when auditing trial compliance, preparing for FDA inspections, or managing regulatory requirements.
 tags:
   - management

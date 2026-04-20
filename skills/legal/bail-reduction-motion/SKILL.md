@@ -1,5 +1,6 @@
 ---
 name: bail-reduction-motion
+language: en
 description: Drafts a Motion for Bail Reduction for criminal defense pretrial proceedings. Argues current bail is excessive under the Eighth Amendment using defendant financial circumstances, community ties, and flight-risk factors adapted to jurisdictional bail standards. Use when seeking bail modification, bail reduction, pretrial release, or excessive bail challenges.
 ---
 

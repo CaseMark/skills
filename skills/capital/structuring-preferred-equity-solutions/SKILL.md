@@ -1,5 +1,6 @@
 ---
 name: structuring-preferred-equity-solutions
+language: en
 description: Designs NAV-based and structured preferred equity facilities with overcollateralization, coverage tests, and waterfall mechanics. Use when structuring preferred equity, analyzing NAV lending, or evaluating fund-level leverage.
 tags:
   - secondaries-and-gp-led

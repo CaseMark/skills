@@ -1,5 +1,6 @@
 ---
 name: collateral-valuation
+language: en
 description: >-
   Values collateral and allocates secured vs. unsecured claim portions under
   U.S. bankruptcy standards, applying Chapter 7 liquidation value, Chapter 13

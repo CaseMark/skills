@@ -1,5 +1,6 @@
 ---
 name: sellers-counsel-opinion
+language: en
 description: Drafts Opinion of Seller's Counsel letters for APA closings per ABA Legal Opinion Accord standards. Use when drafting closing opinion letters, seller's counsel opinions, third-party legal opinions, or APA closing deliverables in M&A asset purchase transactions.
 ---
 

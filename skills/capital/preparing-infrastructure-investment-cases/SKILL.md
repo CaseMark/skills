@@ -1,5 +1,6 @@
 ---
 name: preparing-infrastructure-investment-cases
+language: en
 description: Structures infrastructure investment recommendations with regulatory analysis, cash flow modeling, and risk assessment for IC presentation. Use when preparing infra investment cases, building IC materials, or documenting infrastructure opportunities.
 tags:
   - preparation

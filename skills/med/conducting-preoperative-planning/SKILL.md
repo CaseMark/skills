@@ -1,5 +1,6 @@
 ---
 name: conducting-preoperative-planning
+language: en
 description: Structures surgical planning with imaging review, risk stratification, and equipment/team requirements. Use when planning surgeries, reviewing preoperative imaging, or coordinating surgical teams.
 tags:
   - process

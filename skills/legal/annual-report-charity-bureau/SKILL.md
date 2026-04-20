@@ -1,5 +1,6 @@
 ---
 name: annual-report-charity-bureau
+language: en
 description: >
   Generates a cross-referenced U.S. nonprofit annual filing package for state
   charity-bureau registration. Produces Full Compliance Package, Form-Field Mode,

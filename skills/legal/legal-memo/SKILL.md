@@ -1,5 +1,6 @@
 ---
 name: legal-memo
+language: en
 description: >-
   Drafts U.S. internal legal memoranda using IRAC structure to analyze issues,
   synthesize authority, assess risks, and recommend strategy. Use when asked to

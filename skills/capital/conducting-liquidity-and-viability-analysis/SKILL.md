@@ -1,5 +1,6 @@
 ---
 name: conducting-liquidity-and-viability-analysis
+language: en
 description: Assesses going-concern viability with 13-week cash flow models, liquidity runway, and critical vendor analysis. Use when evaluating liquidity crises, building 13-week models, or assessing near-term solvency.
 tags:
   - process

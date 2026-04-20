@@ -1,5 +1,6 @@
 ---
 name: assessing-community-health-needs
+language: en
 description: Conducts community health needs assessment with data collection, analysis, and priority identification. Use when assessing community health, prioritizing health needs, or planning health interventions.
 tags:
   - assessment

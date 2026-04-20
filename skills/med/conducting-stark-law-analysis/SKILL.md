@@ -1,5 +1,6 @@
 ---
 name: conducting-stark-law-analysis
+language: en
 description: Evaluates physician self-referral arrangements against Stark Law exceptions with documentation. Use when analyzing Stark compliance, evaluating referral arrangements, or documenting exception applicability.
 tags:
   - process

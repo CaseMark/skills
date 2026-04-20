@@ -1,5 +1,6 @@
 ---
 name: analyzing-tax-reform-impacts
+language: en
 description: Evaluates legislative tax changes with modeling, transition planning, and compliance requirement analysis. Use when assessing tax reform, modeling legislative changes, or planning compliance transitions.
 tags:
   - analysis

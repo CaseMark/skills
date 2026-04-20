@@ -1,5 +1,6 @@
 ---
 name: construction-case-summary
+language: en
 description: Produces structured U.S. construction law case summaries with timelines, holdings, damages, and risk takeaways. Triggers on construction case summaries, defect analyses, payment dispute summaries, bond or mechanic's lien reviews, OSHA violation briefs, or construction precedent digests.
 tags:
   - analysis

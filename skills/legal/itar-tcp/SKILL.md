@@ -1,5 +1,6 @@
 ---
 name: itar-tcp
+language: en
 description: Drafts ITAR Technology Control Plans (TCPs) for managing USML defense articles and technical data under 22 CFR Parts 120-130. Covers DDTC registration, classification, access controls, deemed export prevention, secure handling, training, audits, and incident response. Use when creating or updating export control compliance plans, technology control plans, or DDTC submission documents.
 ---
 

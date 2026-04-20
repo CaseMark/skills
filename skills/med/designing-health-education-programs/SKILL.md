@@ -1,5 +1,6 @@
 ---
 name: designing-health-education-programs
+language: en
 description: Structures health education program design with behavior change theory and outcome evaluation. Use when designing health education, planning health promotion, or evaluating educational programs.
 tags:
   - design

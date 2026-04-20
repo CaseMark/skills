@@ -1,5 +1,6 @@
 ---
 name: advance-directive-vs-polst
+language: en
 description: >
   Produces a plain-language comparison of advance directives and POLST/MOLST forms,
   covering legal status, clinician signatures, emergency precedence, clinical

@@ -1,5 +1,6 @@
 ---
 name: writing-discharge-instructions-surgical
+language: en
 description: Creates procedure-specific discharge instructions with activity restrictions, wound care, and return precautions. Use when writing post-surgical discharge instructions, creating patient education materials, or documenting surgical aftercare.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: deposition-notice-subpoena
+language: en
 description: >
   Drafts federal civil deposition notices (FRCP 30(b)(1), 30(b)(6)) and Rule 45
   subpoenas for testimony and/or documents. Use when the user mentions deposition

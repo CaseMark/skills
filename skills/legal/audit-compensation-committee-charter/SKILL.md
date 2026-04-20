@@ -1,5 +1,6 @@
 ---
 name: audit-compensation-committee-charter
+language: en
 description: >-
   Drafts a combined Audit and Compensation Committee charter for U.S. boards,
   tailored for public or private companies with listing-standard compliance,

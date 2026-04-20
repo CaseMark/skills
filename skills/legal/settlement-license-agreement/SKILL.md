@@ -1,5 +1,6 @@
 ---
 name: settlement-license-agreement
+language: en
 description: Drafts a dual-purpose Settlement and License Agreement resolving IP litigation while establishing an ongoing licensing framework. Covers mutual releases, covenants not to sue, IP license grants, royalty structures, confidentiality, indemnification, and post-termination rights. Use when drafting IP settlement agreements, litigation resolution with license-back provisions, or combined release-and-license instruments.
 tags:
   - litigation

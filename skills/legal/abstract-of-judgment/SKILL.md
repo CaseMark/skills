@@ -1,5 +1,6 @@
 ---
 name: abstract-of-judgment
+language: en
 description: Drafts a recordable Abstract of Judgment to create a judgment lien on a debtor's real property. Extracts party names, monetary components, and judgment details from case documents, then applies jurisdiction-specific formatting and certification requirements. Use post-judgment in commercial litigation when enforcing monetary awards, perfecting judgment liens, or preparing lien filings with the county recorder.
 tags:
   - drafting

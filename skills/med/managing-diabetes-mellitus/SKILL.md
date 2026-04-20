@@ -1,5 +1,6 @@
 ---
 name: managing-diabetes-mellitus
+language: en
 description: Structures diabetes management with ADA standards including A1c targets, medication algorithms, and complication screening. Use when managing diabetes, adjusting insulin regimens, or tracking glycemic control.
 tags:
   - management

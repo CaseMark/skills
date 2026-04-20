@@ -1,5 +1,6 @@
 ---
 name: deposition-outline-hr-manager
+language: en
 description: Creates strategically organized deposition outlines for examining HR managers in employment litigation. Covers hiring practices, personnel files, complaint investigations, termination procedures, comparative treatment, policy compliance, and impeachment preparation. Use when deposing an employer's HR representative or preparing for HR manager examination.
 ---
 

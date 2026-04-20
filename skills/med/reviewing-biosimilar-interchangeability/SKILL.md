@@ -1,5 +1,6 @@
 ---
 name: reviewing-biosimilar-interchangeability
+language: en
 description: Evaluates biosimilar products for therapeutic interchange with clinical evidence review. Use when evaluating biosimilars, planning therapeutic switches, or analyzing biosimilar evidence.
 tags:
   - review

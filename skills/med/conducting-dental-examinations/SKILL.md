@@ -1,5 +1,6 @@
 ---
 name: conducting-dental-examinations
+language: en
 description: Structures comprehensive dental examinations with periodontal charting, caries assessment, and oral cancer screening. Use when performing dental exams, documenting oral findings, or creating dental records.
 tags:
   - process

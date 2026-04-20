@@ -1,5 +1,6 @@
 ---
 name: analyzing-bond-structures
+language: en
 description: Deconstructs bond indenture terms including covenants, call provisions, and credit support features. Use when analyzing bond structures, reviewing indentures, or evaluating bond terms.
 tags:
   - analysis

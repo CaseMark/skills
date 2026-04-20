@@ -1,5 +1,6 @@
 ---
 name: child-support-worksheet
+language: en
 description: Drafts a child support guidelines worksheet by extracting financial data, applying jurisdiction-specific guideline models, and calculating obligations. Triggers when preparing child support calculations, modification filings, or guideline worksheets for court submission.
 tags:
   - checklist

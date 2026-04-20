@@ -1,5 +1,6 @@
 ---
 name: coding-surgical-procedures
+language: en
 description: Assigns CPT surgical codes with modifier selection and bundling/unbundling rules. Use when coding surgeries, applying surgical modifiers, or navigating NCCI edits.
 tags:
   - coding

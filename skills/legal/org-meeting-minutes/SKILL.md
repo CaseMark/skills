@@ -1,5 +1,6 @@
 ---
 name: org-meeting-minutes
+language: en
 description: Drafts organizational meeting minutes for newly formed corporations or LLCs, covering quorum, bylaws/OA adoption, elections, capitalization, banking, and tax elections. Use when forming a new entity, drafting initial board minutes, or completing corporate organization post-filing.
 tags:
   - corporate

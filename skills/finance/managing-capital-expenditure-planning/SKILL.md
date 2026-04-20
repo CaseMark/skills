@@ -1,5 +1,6 @@
 ---
 name: managing-capital-expenditure-planning
+language: en
 description: Structures capex evaluation with ROI analysis, approval workflows, and project tracking. Use when evaluating capital projects, analyzing investment returns, or managing capex budgets.
 tags:
   - management

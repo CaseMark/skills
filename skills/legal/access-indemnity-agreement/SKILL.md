@@ -1,5 +1,6 @@
 ---
 name: access-indemnity-agreement
+language: en
 description: >-
   Drafts U.S. commercial real estate access and indemnity (right-of-entry)
   agreements for pre-closing due diligence. Covers license grants, non-invasive

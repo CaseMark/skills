@@ -1,5 +1,6 @@
 ---
 name: abstracting-clinical-documentation
+language: en
 description: Extracts codeable diagnoses and procedures from clinical notes with specificity capture. Use when abstracting medical records, identifying codeable conditions, or capturing documentation specificity.
 tags:
   - medical-coding-and-billing

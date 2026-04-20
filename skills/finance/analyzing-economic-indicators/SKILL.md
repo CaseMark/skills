@@ -1,5 +1,6 @@
 ---
 name: analyzing-economic-indicators
+language: en
 description: Structures economic indicator analysis with leading, coincident, and lagging indicator interpretation. Use when analyzing economic data, interpreting economic releases, or tracking macro indicators.
 tags:
   - analysis

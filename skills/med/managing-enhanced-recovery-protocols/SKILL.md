@@ -1,5 +1,6 @@
 ---
 name: managing-enhanced-recovery-protocols
+language: en
 description: Implements ERAS pathway elements with compliance tracking across preop, intraop, and postop phases. Use when applying ERAS protocols, tracking pathway compliance, or optimizing surgical recovery.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: drafting-credit-memos
+language: en
 description: Creates structured credit memos with borrower analysis, risk assessment, and recommendation justification. Use when writing credit memos, documenting credit decisions, or presenting credit recommendations.
 tags:
   - drafting

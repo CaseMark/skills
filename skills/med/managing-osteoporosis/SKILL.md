@@ -1,5 +1,6 @@
 ---
 name: managing-osteoporosis
+language: en
 description: Applies FRAX scoring with DXA interpretation and treatment algorithms for bone health. Use when assessing fracture risk, interpreting bone density, or selecting osteoporosis treatment.
 tags:
   - management

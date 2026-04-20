@@ -1,5 +1,6 @@
 ---
 name: employee-complaint-summaries
+language: en
 description: Generates structured attorney-review memos from employee complaints, extracting parties, timeline, claims, evidence, defenses, and risk flags. Covers Title VII, ADA, ADEA, FMLA, FLSA, and state analogs. Use when summarizing initial complaints, EEOC charges, investigation reports, or personnel files to assess litigation risk and develop response strategy.
 ---
 

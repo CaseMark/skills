@@ -1,5 +1,6 @@
 ---
 name: verdict-judgment-summary
+language: en
 description: Produces structured post-trial verdict and judgment analysis memoranda for commercial litigation. Triggers when summarizing a jury verdict, bench trial decision, post-trial motion assessment, or appellate viability review. Covers liability determinations, damages breakdowns, critical rulings, and post-trial strategy.
 tags:
   - analysis

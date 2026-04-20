@@ -1,5 +1,6 @@
 ---
 name: writing-admission-orders
+language: en
 description: Generates structured admission order sets with diagnosis-specific protocols and safety checks. Use when admitting patients, creating admission orders, or setting up inpatient care plans.
 tags:
   - drafting

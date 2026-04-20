@@ -1,5 +1,6 @@
 ---
 name: managing-wound-assessment-nursing
+language: en
 description: Structures wound assessment with measurement, staging, and treatment plan documentation. Use when assessing wounds, staging pressure injuries, or documenting wound care.
 tags:
   - management

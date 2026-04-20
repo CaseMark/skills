@@ -1,5 +1,6 @@
 ---
 name: merit-review
+language: en
 description: >
   Analyzes state merit review for non-covered securities offerings, applying
   NASAA Statements of Policy to cheap stock, promoter equity investment, voting

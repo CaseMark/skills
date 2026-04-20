@@ -1,5 +1,6 @@
 ---
 name: managing-informed-consent-compliance
+language: en
 description: Evaluates informed consent practices against state law requirements and institutional policies. Use when auditing consent processes, reviewing consent form adequacy, or managing consent compliance.
 tags:
   - management

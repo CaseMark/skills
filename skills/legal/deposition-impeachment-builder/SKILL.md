@@ -1,5 +1,6 @@
 ---
 name: deposition-impeachment-builder
+language: en
 description: >
   Drafts deposition-ready impeachment sequences using the Commit–Credit–Confront
   (CCC) method. Use this skill when the user mentions impeachment preparation,

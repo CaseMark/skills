@@ -1,5 +1,6 @@
 ---
 name: pipeline-easement
+language: en
 description: Drafts pipeline easement agreements granting construction, operation, and maintenance rights across private property. Balances Grantor protections with Grantee operational needs. Use when drafting pipeline easements, right-of-way agreements, energy infrastructure easements, or utility corridor grants.
 ---
 

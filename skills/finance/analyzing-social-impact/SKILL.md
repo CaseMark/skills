@@ -1,5 +1,6 @@
 ---
 name: analyzing-social-impact
+language: en
 description: Structures social impact measurement with theory of change, outcome metrics, and stakeholder analysis. Use when measuring social impact, designing impact metrics, or evaluating social outcomes.
 tags:
   - analysis

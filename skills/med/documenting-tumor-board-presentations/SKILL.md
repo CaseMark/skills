@@ -1,5 +1,6 @@
 ---
 name: documenting-tumor-board-presentations
+language: en
 description: Structures multidisciplinary tumor board case presentations with radiology, pathology, and treatment synthesis. Use when preparing tumor board cases, presenting MDT discussions, or documenting consensus recommendations.
 tags:
   - documentation

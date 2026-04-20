@@ -1,5 +1,6 @@
 ---
 name: analyzing-convertible-instrument-terms
+language: en
 description: Evaluates SAFE, convertible note, and KISS structures with conversion mechanics, caps, discounts, and MFN provisions. Use when analyzing convertible instruments, comparing SAFE vs note terms, or modeling conversion scenarios.
 tags:
   - analysis

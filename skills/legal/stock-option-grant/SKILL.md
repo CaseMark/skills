@@ -1,5 +1,6 @@
 ---
 name: stock-option-grant
+language: en
 description: Drafts Stock Option Grant Agreements for ISOs or NQSOs under a company's equity incentive plan. Covers vesting, exercise mechanics, termination, tax (IRC §422/§409A), securities compliance, and change-in-control provisions. Use when drafting option grants, equity compensation agreements, or stock option award letters.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: managing-psychological-trauma-assessments
+language: en
 description: Guides trauma-informed assessment with PTSD screening and trauma history documentation. Use when assessing trauma exposure, screening for PTSD, or documenting trauma history.
 tags:
   - management

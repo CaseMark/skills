@@ -27,6 +27,7 @@ Skills live under one of two top-level directories:
 ```yaml
 ---
 name: skill-name
+language: en
 description: What this skill does and when to use it.
 ---
 ```
@@ -35,6 +36,7 @@ description: What this skill does and when to use it.
 |-------|----------|-------------|
 | `name` | Yes | Max 64 chars. Lowercase letters, numbers, hyphens only. Must match the parent directory name. |
 | `description` | Yes | Max 1024 chars. Non-empty. Third person. Describes what the skill does and when to use it. |
+| `language` | No | ISO 639-1 two-letter code for the skill's primary language (`en`, `es`, `fr`, …). Defaults to `en`. |
 | `license` | No | License identifier or reference to bundled file. |
 | `tags` | No | Flat array of canonical tags from the controlled vocabulary (see [Legal Skills: Tags](#legal-skills-tags)) |
 

@@ -1,5 +1,6 @@
 ---
 name: cognovit-promissory-note
+language: en
 description: >-
   Drafts a U.S. cognovit promissory note with confession of judgment clause,
   enforceability gate, and execution formalities. Use when preparing a

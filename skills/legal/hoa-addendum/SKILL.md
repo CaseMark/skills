@@ -1,5 +1,6 @@
 ---
 name: hoa-addendum
+language: en
 description: Drafts an HOA Addendum to a residential purchase agreement covering mandatory membership, financial obligations, governing documents, use restrictions, and buyer acknowledgments. Use when drafting HOA addenda, HOA disclosure forms, purchase addenda for HOA-governed properties, or CC&R disclosure documents.
 tags:
   - agreement

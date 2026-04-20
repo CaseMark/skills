@@ -1,5 +1,6 @@
 ---
 name: managing-ipo-execution-processes
+language: en
 description: Structures IPO execution from organizational meeting through pricing with workstream coordination and timeline management. Use when managing IPOs, coordinating offering processes, or tracking ECM execution milestones.
 tags:
   - management

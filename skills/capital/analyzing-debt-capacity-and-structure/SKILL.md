@@ -1,5 +1,6 @@
 ---
 name: analyzing-debt-capacity-and-structure
+language: en
 description: Evaluates target leverage capacity with cash flow coverage, stress testing, and optimal debt structure across term loans, revolver, and mezzanine. Use when analyzing debt capacity, structuring acquisition financing, or stress testing leverage.
 tags:
   - analysis

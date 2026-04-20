@@ -1,5 +1,6 @@
 ---
 name: structuring-structured-equity-instruments
+language: en
 description: Designs structured equity with participating preferred, PIK dividends, conversion mechanics, and downside protection features. Use when structuring growth equity instruments, designing preference terms, or modeling structured returns.
 tags:
   - growth-equity

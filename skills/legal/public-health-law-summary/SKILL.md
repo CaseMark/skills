@@ -1,5 +1,6 @@
 ---
 name: public-health-law-summary
+language: en
 description: Generates structured, plain-language summaries of public health legislation and case law with Bluebook citations. Use when summarizing health statutes, vaccination mandates, emergency health powers, disease surveillance law, health equity legislation, or healthcare regulations for agencies, providers, or policy advisors.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: screening-acquisition-targets
+language: en
 description: Filters potential acquisition targets against strategic criteria including size, geography, capability gaps, and synergy potential. Use when building target lists, screening M&A pipelines, or identifying bolt-on candidates.
 tags:
   - screening

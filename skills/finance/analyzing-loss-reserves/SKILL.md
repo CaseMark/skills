@@ -1,5 +1,6 @@
 ---
 name: analyzing-loss-reserves
+language: en
 description: Evaluates loss reserve adequacy with development triangle analysis and actuarial methods. Use when analyzing reserves, interpreting loss triangles, or assessing reserve adequacy.
 tags:
   - analysis

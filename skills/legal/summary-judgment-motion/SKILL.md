@@ -1,5 +1,6 @@
 ---
 name: summary-judgment-motion
+language: en
 description: Drafts a Motion for Summary Judgment package for personal injury litigation under FRCP 56 or state equivalent. Trigger when the user needs an MSJ, summary judgment brief, dispositive motion, no-genuine-dispute motion, or judgment-as-a-matter-of-law motion during pre-trial or discovery phases.
 tags:
   - drafting

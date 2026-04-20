@@ -1,5 +1,6 @@
 ---
 name: reporting-ultrasound-studies
+language: en
 description: Structures ultrasound interpretation with measurement protocols and ACR guidelines. Use when reading ultrasound exams, documenting sonographic findings, or creating US reports.
 tags:
   - reporting

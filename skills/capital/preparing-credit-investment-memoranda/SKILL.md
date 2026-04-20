@@ -1,5 +1,6 @@
 ---
 name: preparing-credit-investment-memoranda
+language: en
 description: Creates credit investment memos with borrower analysis, structural assessment, risk evaluation, and relative value positioning. Use when writing credit memos, documenting loan decisions, or presenting credit opportunities.
 tags:
   - preparation

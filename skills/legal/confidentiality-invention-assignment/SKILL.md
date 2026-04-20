@@ -1,5 +1,6 @@
 ---
 name: confidentiality-invention-assignment
+language: en
 description: >-
   Drafts U.S. Confidentiality and Invention Assignment Agreements (PIIA/CIIA)
   for employees or contractors. Covers DTSA immunity notice, present-tense

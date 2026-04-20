@@ -1,5 +1,6 @@
 ---
 name: managing-pain-rehabilitation
+language: en
 description: Structures chronic pain rehabilitation with functional restoration and multidisciplinary coordination. Use when managing pain rehab, implementing functional restoration, or coordinating pain programs.
 tags:
   - management

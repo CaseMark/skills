@@ -1,5 +1,6 @@
 ---
 name: analyzing-reit-financials
+language: en
 description: Evaluates REIT financial performance with FFO, AFFO, NAV, and leverage metrics. Use when analyzing REITs, calculating FFO/AFFO, or comparing REIT valuations.
 tags:
   - analysis

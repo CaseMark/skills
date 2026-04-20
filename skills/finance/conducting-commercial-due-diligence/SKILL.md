@@ -1,5 +1,6 @@
 ---
 name: conducting-commercial-due-diligence
+language: en
 description: Structures commercial diligence with market sizing, competitive dynamics, and customer reference analysis. Use when conducting CDD, analyzing target markets, or validating commercial assumptions.
 tags:
   - process

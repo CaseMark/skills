@@ -1,5 +1,6 @@
 ---
 name: managing-compliance-audits
+language: en
 description: Structures coding compliance audit programs with sampling methodology and corrective action plans. Use when conducting compliance audits, designing audit samples, or implementing corrective actions.
 tags:
   - management

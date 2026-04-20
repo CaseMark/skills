@@ -1,5 +1,6 @@
 ---
 name: managing-sponsor-portfolio-reporting
+language: en
 description: Structures portfolio company monitoring with monthly financial packages, KPI dashboards, and management assessment frameworks. Use when monitoring portfolio companies, building reporting templates, or tracking financial performance.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: whistleblower-protection-policy
+language: en
 description: >-
   Drafts a U.S. whistleblower-protection policy for corporate and nonprofit
   organizations. Triggers when the user needs a whistleblower policy,

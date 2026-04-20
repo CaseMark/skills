@@ -1,5 +1,6 @@
 ---
 name: employee-handbook
+language: en
 description: >-
   Drafts a U.S. employee handbook and acknowledgement form preserving at-will
   status. Covers required workplace policies, leave and wage-hour rules,

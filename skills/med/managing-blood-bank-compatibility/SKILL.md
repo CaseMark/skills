@@ -1,5 +1,6 @@
 ---
 name: managing-blood-bank-compatibility
+language: en
 description: Guides blood product compatibility testing with antibody identification and crossmatch protocols. Use when managing blood bank testing, resolving antibody workups, or selecting compatible products.
 tags:
   - management

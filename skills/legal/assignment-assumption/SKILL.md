@@ -1,5 +1,6 @@
 ---
 name: assignment-assumption
+language: en
 description: >-
   Drafts Assignment and Assumption Agreements transferring contractual rights
   and obligations from assignor to assignee in asset purchase transactions.

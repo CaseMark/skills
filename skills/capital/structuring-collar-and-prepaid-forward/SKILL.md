@@ -1,5 +1,6 @@
 ---
 name: structuring-collar-and-prepaid-forward
+language: en
 description: Designs equity monetization structures with zero-cost collars, prepaid variable forwards, and exchange fund alternatives. Use when structuring equity monetization, designing collars, or evaluating concentrated stock solutions.
 tags:
   - derivatives-and-structured-products

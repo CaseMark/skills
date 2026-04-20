@@ -1,5 +1,6 @@
 ---
 name: charitable-solicitation-registration
+language: en
 description: Prepares jurisdiction-specific charitable solicitation registration packages for U.S. nonprofits. Covers multi-state nexus analysis, exemption eligibility, URS filing strategy, financial disclosures, and professional fundraiser documentation. Use when a nonprofit plans fundraising campaigns, online donation drives, direct mail, telephone solicitation, or any cross-state charitable solicitation.
 ---
 

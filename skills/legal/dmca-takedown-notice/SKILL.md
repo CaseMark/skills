@@ -1,5 +1,6 @@
 ---
 name: dmca-takedown-notice
+language: en
 description: Drafts a DMCA takedown notice compliant with 17 U.S.C. § 512(c)(3) for removing infringing content from online service providers. Enforces all six statutory elements, good faith and perjury statements, and exact infringing URL identification. Use when drafting DMCA notices, copyright takedown requests, or pre-suit infringement enforcement letters against platforms or hosts.
 ---
 

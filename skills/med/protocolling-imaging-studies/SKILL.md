@@ -1,5 +1,6 @@
 ---
 name: protocolling-imaging-studies
+language: en
 description: Selects appropriate imaging protocols based on clinical indication and patient factors. Use when choosing imaging protocols, selecting contrast parameters, or determining appropriate study type.
 tags:
   - radiology

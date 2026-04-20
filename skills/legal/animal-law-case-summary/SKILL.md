@@ -1,5 +1,6 @@
 ---
 name: animal-law-case-summary
+language: en
 description: >
   Produces litigation-grade case summaries for animal law disputes including
   cruelty/neglect prosecutions, ownership/custody, dangerous animal designations,

@@ -1,5 +1,6 @@
 ---
 name: tri-form-r
+language: en
 description: Drafts EPA Toxic Release Inventory (Form R) reports under EPCRA Section 313 and 40 CFR Part 372. Covers facility identification, chemical threshold determinations, release quantification, off-site transfers, source reduction, and certification. Use when preparing TRI filings, Form R reports, toxic chemical release disclosures, or annual EPCRA Section 313 submissions.
 ---
 

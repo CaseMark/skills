@@ -1,5 +1,6 @@
 ---
 name: class-settlement-preliminary-approval
+language: en
 description: Drafts a Motion for Preliminary Approval of Class Action Settlement under Rule 23(e), covering settlement class certification, notice plan, claims administration, fairness analysis, and proposed scheduling order. Use when drafting preliminary approval motions, class action settlement filings, or Rule 23(e) submissions.
 tags:
   - drafting

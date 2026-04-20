@@ -1,5 +1,6 @@
 ---
 name: managing-loan-documentation-review
+language: en
 description: Reviews loan agreements with covenant extraction, terms analysis, and compliance requirement identification. Use when reviewing loan documents, extracting covenants, or analyzing credit agreement terms.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: evaluating-marketplace-business-models
+language: en
 description: Assesses marketplace dynamics with take rate analysis, liquidity metrics, supply/demand balance, and network effect strength. Use when evaluating marketplaces, analyzing take rates, or assessing network effect moats.
 tags:
   - analysis

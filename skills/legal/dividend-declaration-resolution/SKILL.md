@@ -1,5 +1,6 @@
 ---
 name: dividend-declaration-resolution
+language: en
 description: Drafts a board of directors resolution authorizing a cash, stock, or property dividend to shareholders. Enforces solvency testing (equity and balance sheet), WHEREAS/RESOLVED clause structure, critical date triad (declaration/record/payment), officer authorization, and Secretary certification under Delaware DGCL §170 or equivalent state statute. Use when documenting board approval of a dividend distribution or when corporate governance records require a formal profit-distribution authorization.
 tags:
   - corporate

@@ -1,5 +1,6 @@
 ---
 name: deposition-questioning-techniques
+language: en
 description: Generates deposition question sequences using six core examination techniques (Funnel, Boxing-In, Looping, Three C's impeachment, evasive witness handling, admission ladders). Use when preparing deposition outlines, building question sequences for specific topics, impeaching with prior inconsistent statements, or controlling evasive witnesses.
 tags:
   - analysis

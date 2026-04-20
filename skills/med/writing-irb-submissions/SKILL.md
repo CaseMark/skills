@@ -1,5 +1,6 @@
 ---
 name: writing-irb-submissions
+language: en
 description: Creates IRB submission packages with protocol summaries, consent forms, and risk-benefit analysis. Use when submitting to IRB, preparing ethics applications, or writing consent documents.
 tags:
   - drafting

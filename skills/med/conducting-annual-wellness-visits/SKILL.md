@@ -1,5 +1,6 @@
 ---
 name: conducting-annual-wellness-visits
+language: en
 description: Structures Medicare Annual Wellness Visit documentation with HRA, prevention plan, and advance care planning. Use when performing wellness visits, documenting AWVs, or creating personalized prevention plans.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: managing-digital-wallet-operations
+language: en
 description: Structures digital wallet analysis with stored value, regulatory classification, and risk assessment. Use when analyzing digital wallets, evaluating stored value products, or managing wallet compliance.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-medication-use-evaluations
+language: en
 description: Structures medication use evaluations with criteria development, data collection, and intervention tracking. Use when conducting MUEs, evaluating prescribing patterns, or measuring medication use quality.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-syndicated-loan-operations
+language: en
 description: Structures syndicated loan participation with allocation, settlement, and agent bank coordination. Use when managing syndicated loans, processing loan allocations, or coordinating agent bank functions.
 tags:
   - management

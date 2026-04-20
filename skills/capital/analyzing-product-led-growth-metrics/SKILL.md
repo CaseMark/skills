@@ -1,5 +1,6 @@
 ---
 name: analyzing-product-led-growth-metrics
+language: en
 description: Evaluates PLG dynamics with viral coefficients, freemium conversion, product-qualified leads, and expansion revenue mechanics. Use when analyzing PLG companies, assessing virality, or evaluating product-driven acquisition.
 tags:
   - analysis

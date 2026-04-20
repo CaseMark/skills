@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-asthma
+language: en
 description: Applies stepwise pediatric asthma management with age-appropriate device selection and action plans. Use when managing childhood asthma, selecting pediatric inhalers, or creating asthma action plans.
 tags:
   - management

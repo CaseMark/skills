@@ -1,5 +1,6 @@
 ---
 name: managing-counterparty-risk
+language: en
 description: Structures counterparty credit risk assessment with exposure calculation and mitigation monitoring. Use when assessing counterparty risk, calculating potential future exposure, or managing collateral.
 tags:
   - management

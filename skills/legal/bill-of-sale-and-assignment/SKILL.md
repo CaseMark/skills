@@ -1,5 +1,6 @@
 ---
 name: bill-of-sale-and-assignment
+language: en
 description: Drafts a Bill of Sale, Assignment and Assumption Agreement for M&A asset purchase closings. Transfers purchased assets (tangible and intangible) from seller to buyer and memorializes assumption of specified liabilities. Use when drafting closing deliverables for asset purchase transactions, including IP assignments, contract rights transfers, and goodwill conveyances.
 ---
 

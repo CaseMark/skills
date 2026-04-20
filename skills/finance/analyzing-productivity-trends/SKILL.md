@@ -1,5 +1,6 @@
 ---
 name: analyzing-productivity-trends
+language: en
 description: Structures productivity analysis with labor productivity, TFP estimation, and growth accounting decomposition. Use when analyzing productivity, estimating TFP, or decomposing growth drivers.
 tags:
   - analysis

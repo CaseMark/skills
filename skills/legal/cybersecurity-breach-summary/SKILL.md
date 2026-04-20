@@ -1,5 +1,6 @@
 ---
 name: cybersecurity-breach-summary
+language: en
 description: >-
   Produces structured cybersecurity breach summary documents for regulatory
   and compliance use. Use when drafting breach summaries, incident response

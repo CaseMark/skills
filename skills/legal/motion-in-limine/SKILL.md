@@ -1,5 +1,6 @@
 ---
 name: motion-in-limine
+language: en
 description: Drafts criminal defense motions in limine to exclude prejudicial, irrelevant, or inadmissible evidence before trial. Covers FRE 401-403 relevance/prejudice, FRE 404(b) character/prior-acts, FRE 801-807 hearsay, and FRE 702-703 expert testimony. Use when drafting pre-trial exclusion motions, evidentiary objection briefs, or motions to preclude testimony in criminal defense matters.
 tags:
   - drafting

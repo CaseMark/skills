@@ -1,5 +1,6 @@
 ---
 name: medical-treatment-summary
+language: en
 description: Generates litigation-ready narrative medical treatment summaries for personal injury cases. Triggers when summarizing medical records, preparing demand packages, drafting treatment narratives, or building medical damages presentations for settlement or trial.
 tags:
   - litigation

@@ -1,5 +1,6 @@
 ---
 name: conducting-customer-reference-checks
+language: en
 description: Structures customer diligence with interview guides, NPS analysis, switching cost assessment, and usage pattern evaluation. Use when conducting customer references, validating product-market fit, or assessing customer satisfaction.
 tags:
   - process

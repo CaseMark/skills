@@ -1,5 +1,6 @@
 ---
 name: structuring-infrastructure-fund-terms
+language: en
 description: Designs infrastructure fund structures with longer fund lives, NAV-based distributions, and co-investment programs for illiquid assets. Use when structuring infra funds, designing open-ended vehicles, or analyzing infrastructure fund terms.
 tags:
   - infrastructure-and-project-finance

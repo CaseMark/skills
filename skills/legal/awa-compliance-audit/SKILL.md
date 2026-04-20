@@ -1,5 +1,6 @@
 ---
 name: awa-compliance-audit
+language: en
 description: >-
   Produces an enforcement-aware Animal Welfare Act compliance audit for
   USDA/APHIS-regulated facilities. Maps Form 7002 inspection citations to

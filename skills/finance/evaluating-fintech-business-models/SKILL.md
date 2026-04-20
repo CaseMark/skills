@@ -1,5 +1,6 @@
 ---
 name: evaluating-fintech-business-models
+language: en
 description: Structures fintech company analysis with unit economics, customer acquisition, and regulatory moat assessment. Use when evaluating fintech companies, analyzing unit economics, or assessing fintech business models.
 tags:
   - analysis

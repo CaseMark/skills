@@ -1,5 +1,6 @@
 ---
 name: auditing-coding-accuracy
+language: en
 description: Reviews coded encounters for accuracy using OIG compliance guidelines and CMS documentation requirements. Use when auditing medical codes, reviewing coding accuracy, or conducting compliance audits.
 tags:
   - audit

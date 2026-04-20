@@ -1,5 +1,6 @@
 ---
 name: data-processing-addendum
+language: en
 description: Drafts a GDPR Article 28-compliant Data Processing Addendum (DPA) between data controllers and processors. Extracts party details, processing scope, and service terms from uploaded documents. Produces an execution-ready DPA with all mandatory Art. 28(3) elements and four schedules. Use when supplementing a service agreement with data protection terms, negotiating processor contracts, or establishing GDPR-compliant EU data processing relationships.
 tags:
   - agreement

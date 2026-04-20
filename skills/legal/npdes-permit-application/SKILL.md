@@ -1,5 +1,6 @@
 ---
 name: npdes-permit-application
+language: en
 description: Drafts NPDES permit applications under the Clean Water Act (33 U.S.C. § 1342) for facilities discharging pollutants into U.S. waters. Covers initial, renewal, and modification applications with discharge characterization, treatment descriptions, water quality analysis, and monitoring programs. Use when drafting NPDES permits, discharge authorizations, point source permits, or CWA compliance filings.
 tags:
   - drafting

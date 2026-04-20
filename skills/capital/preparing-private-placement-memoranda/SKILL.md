@@ -1,5 +1,6 @@
 ---
 name: preparing-private-placement-memoranda
+language: en
 description: Creates fund PPM documentation with investment strategy, risk factors, fee disclosure, and regulatory compliance for fund marketing. Use when preparing PPMs, drafting fund marketing materials, or structuring offering documentation.
 tags:
   - preparation

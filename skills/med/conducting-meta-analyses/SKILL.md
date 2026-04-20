@@ -1,5 +1,6 @@
 ---
 name: conducting-meta-analyses
+language: en
 description: Performs meta-analysis with heterogeneity assessment, forest plot generation, and GRADE evidence grading. Use when conducting meta-analyses, assessing heterogeneity, or grading evidence quality.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: managing-fund-reporting
+language: en
 description: Structures LP fund reporting with NAV calculation, performance attribution, and portfolio updates. Use when preparing LP reports, calculating fund performance, or creating quarterly updates.
 tags:
   - management

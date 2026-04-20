@@ -1,5 +1,6 @@
 ---
 name: tracking-portfolio-company-metrics
+language: en
 description: Monitors portfolio company KPIs including burn rate, runway, MRR growth, CAC/LTV, and cohort performance. Use when tracking portfolio metrics, assessing company health, or preparing portfolio reviews.
 tags:
   - monitoring

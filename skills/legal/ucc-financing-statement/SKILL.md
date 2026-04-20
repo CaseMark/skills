@@ -1,5 +1,6 @@
 ---
 name: ucc-financing-statement
+language: en
 description: Drafts UCC-1 Financing Statements and UCC-3 Amendments to perfect security interests under Article 9 of the Uniform Commercial Code. Handles debtor identification, collateral descriptions, filing jurisdiction, continuations, terminations, and assignments. Use when drafting UCC-1 filings, UCC-3 amendments, continuation statements, or any secured transaction perfection document.
 ---
 

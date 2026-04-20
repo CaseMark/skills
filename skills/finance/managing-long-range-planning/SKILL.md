@@ -1,5 +1,6 @@
 ---
 name: managing-long-range-planning
+language: en
 description: Structures long-range financial planning (3-5 year) with strategic initiative integration and investment phasing. Use when building long-range plans, modeling strategic scenarios, or projecting multi-year financials.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: know-how-license
+language: en
 description: Drafts Know-How License Agreements for licensing trade secrets, confidential processes, and proprietary methodologies where value derives from secrecy rather than patents. Reviews transaction documents to extract deal terms, financial structures, and exclusivity provisions. Use when drafting know-how licenses, trade secret licenses, technology transfer agreements, or confidential information licensing agreements.
 tags:
   - agreement

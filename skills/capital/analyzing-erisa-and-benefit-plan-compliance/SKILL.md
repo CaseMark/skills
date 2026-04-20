@@ -1,5 +1,6 @@
 ---
 name: analyzing-erisa-and-benefit-plan-compliance
+language: en
 description: Evaluates ERISA plan asset rules with 25% test, VCOC/REOC exemptions, and benefit plan investor tracking. Use when analyzing ERISA compliance, structuring plan asset exemptions, or managing benefit plan investor thresholds.
 tags:
   - analysis

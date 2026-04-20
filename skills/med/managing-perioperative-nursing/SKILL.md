@@ -1,5 +1,6 @@
 ---
 name: managing-perioperative-nursing
+language: en
 description: Structures perioperative nursing documentation with pre/intra/post-operative assessments and counts. Use when documenting OR nursing care, performing surgical counts, or managing perioperative documentation.
 tags:
   - management

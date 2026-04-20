@@ -1,5 +1,6 @@
 ---
 name: appellee-response-brief
+language: en
 description: Drafts appellee response briefs for federal and state appellate courts, exploiting standards of review and record evidence to defend trial court decisions. Trigger when the user needs to respond to an appellant's opening brief or defend a favorable lower court ruling on appeal.
 tags:
   - brief

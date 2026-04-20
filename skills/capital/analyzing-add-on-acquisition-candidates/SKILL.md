@@ -1,5 +1,6 @@
 ---
 name: analyzing-add-on-acquisition-candidates
+language: en
 description: Evaluates bolt-on acquisitions for existing platforms with strategic fit, synergy quantification, and return contribution analysis. Use when screening add-on targets, building platform acquisition strategies, or modeling tuck-in economics.
 tags:
   - analysis

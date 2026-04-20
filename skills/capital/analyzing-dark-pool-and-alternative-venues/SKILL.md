@@ -1,5 +1,6 @@
 ---
 name: analyzing-dark-pool-and-alternative-venues
+language: en
 description: Evaluates alternative trading systems with fill rate analysis, information leakage assessment, and venue toxicity measurement. Use when analyzing dark pools, evaluating ATS venues, or assessing execution venue quality.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: seller-disclosure
+language: en
 description: >-
   Drafts residential Seller Disclosure Statements for U.S. real estate
   transactions covering structural systems, environmental hazards, title

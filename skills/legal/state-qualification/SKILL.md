@@ -1,5 +1,6 @@
 ---
 name: state-qualification
+language: en
 description: Drafts an Application for Certificate of Authority to qualify a foreign corporation in a target U.S. state. Use when a corporation needs foreign qualification, certificate of authority, interstate expansion compliance, or out-of-state business registration.
 tags:
   - agreement

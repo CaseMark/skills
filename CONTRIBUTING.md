@@ -29,6 +29,7 @@ We welcome contributions to both legal and case.dev platform skills.
 
 2. **Edit `SKILL.md`**:
    - Set `name` to match your directory name (lowercase, hyphens, max 64 chars)
+   - Set `language` to the ISO 639-1 two-letter code for the skill's primary language (`en`, `es`, `fr`, …). Defaults to `en` if omitted.
    - Write a `description` in third person (max 1024 chars) that explains what it does AND when to use it
    - Write clear, concise instructions in the body
 

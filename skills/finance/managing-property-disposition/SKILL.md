@@ -1,5 +1,6 @@
 ---
 name: managing-property-disposition
+language: en
 description: Structures property sale processes with broker opinion of value, marketing strategy, and bid analysis. Use when managing property sales, evaluating offers, or coordinating disposition processes.
 tags:
   - management

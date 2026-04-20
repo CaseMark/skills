@@ -1,5 +1,6 @@
 ---
 name: enterprise-api-addendum
+language: en
 description: >
   Negotiates bespoke enterprise API addenda that override standard click-wrap
   terms for high-value partners. Covers document precedence, indemnification

@@ -1,5 +1,6 @@
 ---
 name: commencement-date-memorandum
+language: en
 description: Drafts a U.S. commencement-date memorandum for commercial leases and related agreements, confirming the operative start date and its evidentiary basis. Use when users request a defensible record of "commencement date," "effective date," "lease start," conditions precedent satisfaction, or timing of rent, termination, or performance triggers — typically after execution, at closing, or during post-signature administration.
 ---
 

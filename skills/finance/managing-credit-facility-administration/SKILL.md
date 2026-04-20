@@ -1,5 +1,6 @@
 ---
 name: managing-credit-facility-administration
+language: en
 description: Tracks revolving credit facility compliance with borrowing base, covenant calculations, and amendment documentation. Use when managing credit facilities, calculating borrowing availability, or tracking covenants.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: body-camera-incident-summary
+language: en
 description: >-
   Transforms police body camera transcripts into structured 10-section legal
   summaries with timestamp-cited verbatim statements, constitutional issue

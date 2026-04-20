@@ -1,5 +1,6 @@
 ---
 name: managing-chronic-pain
+language: en
 description: Guides multimodal chronic pain management with opioid risk assessment and functional goals. Use when managing chronic pain, assessing opioid risk, or creating pain management plans.
 tags:
   - management

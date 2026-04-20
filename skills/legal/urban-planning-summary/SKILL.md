@@ -1,5 +1,6 @@
 ---
 name: urban-planning-summary
+language: en
 description: Summarizes legal issues in urban development projects covering zoning, land use disputes, and environmental compliance. Generates structured briefings for municipalities, developers, and legal counsel. Use when reviewing zoning ordinances, land use applications, environmental impact statements, or comprehensive plans before development or planning decisions.
 ---
 

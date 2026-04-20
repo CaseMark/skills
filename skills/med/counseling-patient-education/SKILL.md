@@ -1,5 +1,6 @@
 ---
 name: counseling-patient-education
+language: en
 description: Structures medication counseling with key points, administration instructions, and adherence strategies. Use when counseling patients on medications, creating medication guides, or preparing patient education materials.
 tags:
   - counseling

@@ -1,5 +1,6 @@
 ---
 name: evaluating-sum-of-parts-activism
+language: en
 description: Assesses conglomerate break-up activism with segment valuation, separation feasibility, and tax-free qualification analysis. Use when evaluating SOTP activism, analyzing break-up proposals, or modeling separation value.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: managing-labor-and-delivery
+language: en
 description: Structures labor documentation with cervical change tracking, partogram management, and delivery summary. Use when managing labor progress, documenting cervical exams, or creating delivery summaries.
 tags:
   - management

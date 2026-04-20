@@ -1,5 +1,6 @@
 ---
 name: analyzing-industry-supply-chains
+language: en
 description: Maps industry supply chain dynamics with upstream/downstream exposure and competitive positioning. Use when analyzing supply chains, assessing industry structure, or evaluating competitive moats.
 tags:
   - analysis

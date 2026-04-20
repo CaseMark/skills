@@ -1,5 +1,6 @@
 ---
 name: analyzing-emerging-markets
+language: en
 description: Structures EM economic analysis with growth, inflation, external vulnerability, and political risk assessment. Use when analyzing emerging markets, assessing EM risk, or evaluating developing economy outlook.
 tags:
   - analysis

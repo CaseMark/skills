@@ -1,5 +1,6 @@
 ---
 name: code-of-conduct
+language: en
 description: Drafts a Code of Business Conduct and Ethics satisfying SEC, SOX §406, and exchange listing requirements. Incorporates company-specific values and regulatory context into an enforceable ethical framework. Use when drafting corporate governance documents, ethics codes, compliance policies, or business ethics frameworks for public companies or regulated industries.
 ---
 

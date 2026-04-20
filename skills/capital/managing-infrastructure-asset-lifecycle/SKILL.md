@@ -1,5 +1,6 @@
 ---
 name: managing-infrastructure-asset-lifecycle
+language: en
 description: Tracks infrastructure asset performance with maintenance planning, capital expenditure optimization, and end-of-life valuation. Use when managing infrastructure portfolios, planning capex, or evaluating asset condition.
 tags:
   - management

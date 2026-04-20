@@ -1,5 +1,6 @@
 ---
 name: amicus-brief
+language: en
 description: Drafts and analyzes U.S. appellate amicus curiae briefs for non-parties with Rule 29/Rule 37 compliance, unique perspective development, and Bluebook-ready citations. Use when asked to draft or review an amicus brief, friend-of-the-court brief, non-party brief, or anything involving FRAP 29, Supreme Court Rule 37, or appellate amicus practice.
 ---
 

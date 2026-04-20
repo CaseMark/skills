@@ -1,5 +1,6 @@
 ---
 name: managing-dental-emergencies
+language: en
 description: Guides emergency dental assessment with triage protocols and immediate management documentation. Use when managing dental emergencies, triaging urgent dental conditions, or documenting emergency dental care.
 tags:
   - management

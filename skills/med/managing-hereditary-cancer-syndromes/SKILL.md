@@ -1,5 +1,6 @@
 ---
 name: managing-hereditary-cancer-syndromes
+language: en
 description: Guides hereditary cancer risk assessment with genetic testing criteria and management recommendations. Use when evaluating hereditary cancer risk, ordering genetic testing, or managing high-risk patients.
 tags:
   - management

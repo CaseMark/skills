@@ -1,5 +1,6 @@
 ---
 name: track-deposits
+language: en
 description: Traces deposits from receipt through disbursement across bank statements and financial records, producing transaction matrices, fund-flow timelines, and evidentiary chains of custody. Flags structuring, commingling, trust account violations, and unexplained gaps. Use when tracking deposits, tracing funds, auditing trust accounts, or analyzing bank statements during discovery.
 ---
 

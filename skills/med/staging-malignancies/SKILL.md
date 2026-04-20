@@ -1,5 +1,6 @@
 ---
 name: staging-malignancies
+language: en
 description: Applies AJCC/UICC TNM staging with pathologic parameters and prognostic groupings. Use when staging cancers, applying TNM criteria, or documenting pathologic staging.
 tags:
   - pathology

@@ -1,5 +1,6 @@
 ---
 name: structuring-fund-of-funds-vehicles
+language: en
 description: Designs fund-of-funds structures with layer-on-layer economics, allocation methodology, and portfolio construction guidelines. Use when structuring FoF vehicles, analyzing layered fee impact, or designing multi-manager programs.
 tags:
   - fund-formation-and-structuring

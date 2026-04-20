@@ -1,5 +1,6 @@
 ---
 name: managing-fund-tax-reporting
+language: en
 description: Structures fund tax reporting with K-1 preparation, PFIC reporting, and investor tax package coordination. Use when preparing K-1s, managing fund tax reporting, or coordinating investor tax packages.
 tags:
   - management

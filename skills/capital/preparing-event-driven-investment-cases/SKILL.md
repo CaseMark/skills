@@ -1,5 +1,6 @@
 ---
 name: preparing-event-driven-investment-cases
+language: en
 description: Structures event-driven investment recommendations with catalyst identification, timeline analysis, and risk/reward framework for portfolio allocation. Use when preparing event-driven cases, documenting catalyst theses, or presenting special situation opportunities.
 tags:
   - preparation

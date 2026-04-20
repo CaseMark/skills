@@ -1,5 +1,6 @@
 ---
 name: managing-regulatory-submissions
+language: en
 description: Structures FDA/EMA regulatory submission packages with CTD format compliance. Use when preparing regulatory submissions, organizing CTD modules, or compiling FDA packages.
 tags:
   - management

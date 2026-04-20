@@ -1,5 +1,6 @@
 ---
 name: insurance-certificate-compliance
+language: en
 description: >
   Produces requirement-by-requirement CRE insurance certificate compliance reviews
   by analyzing ACORD 25 certificates and endorsements against Access Agreement terms.

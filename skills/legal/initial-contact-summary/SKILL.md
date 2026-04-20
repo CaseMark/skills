@@ -1,5 +1,6 @@
 ---
 name: initial-contact-summary
+language: en
 description: Generates a structured initial contact summary memorandum from a potential client's first interaction with the firm. Captures case facts, liability indicators, damages, insurance details, and screening criteria. Use during client intake to support conflict checks, case evaluation, and engagement decisions.
 tags:
   - litigation

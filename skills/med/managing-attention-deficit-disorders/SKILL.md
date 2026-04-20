@@ -1,5 +1,6 @@
 ---
 name: managing-attention-deficit-disorders
+language: en
 description: Structures ADHD evaluation in children with behavioral rating scales and medication trials. Use when evaluating pediatric ADHD, interpreting Vanderbilt/Conners scales, or managing stimulant therapy.
 tags:
   - management

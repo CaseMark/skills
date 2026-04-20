@@ -1,5 +1,6 @@
 ---
 name: prenuptial-postnuptial-agreement
+language: en
 description: Drafts U.S. prenuptial or postnuptial agreements with enforceability-focused disclosures, property/debt allocation, spousal support treatment, estate waivers, and execution formalities. Trigger when the user requests a prenup, postnup, premarital agreement, marital agreement, spousal support waiver, property division agreement, or disclosure schedule in a U.S. jurisdiction.
 tags:
   - agreement

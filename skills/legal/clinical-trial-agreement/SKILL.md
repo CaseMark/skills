@@ -1,5 +1,6 @@
 ---
 name: clinical-trial-agreement
+language: en
 description: >-
   Drafts U.S. clinical trial agreements governing sponsor–site–investigator
   relationships under FDA rules (21 CFR Parts 50, 56, 312) and ICH-GCP E6(R2).

@@ -1,5 +1,6 @@
 ---
 name: nydfs-infosec-program
+language: en
 description: >-
   Drafts a comprehensive Information Security Program compliant with NYDFS
   Cybersecurity Regulation (23 NYCRR 500). Covers CISO designation, risk

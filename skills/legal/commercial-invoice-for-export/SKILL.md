@@ -1,5 +1,6 @@
 ---
 name: commercial-invoice-for-export
+language: en
 description: Drafts a compliant Commercial Invoice for Export satisfying customs, banking (L/C), logistics, and insurance requirements. Enforces Incoterms 2020, HS tariff classification, country-of-origin determination, export control referencing, and certification language. Use when preparing export invoices for customs authorities, freight forwarders, banks, or insurance underwriters.
 tags:
   - agreement

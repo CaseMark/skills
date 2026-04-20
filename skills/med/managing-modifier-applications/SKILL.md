@@ -1,5 +1,6 @@
 ---
 name: managing-modifier-applications
+language: en
 description: Guides appropriate modifier use (25, 59, 76, 77, etc.) with documentation requirements. Use when applying CPT modifiers, justifying modifier use, or resolving modifier-related denials.
 tags:
   - management

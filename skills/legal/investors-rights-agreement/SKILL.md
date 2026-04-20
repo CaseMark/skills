@@ -1,5 +1,6 @@
 ---
 name: investors-rights-agreement
+language: en
 description: >-
   Drafts a U.S. Investors' Rights Agreement for VC/private equity financings,
   covering registration rights, information/management rights, pro rata rights,

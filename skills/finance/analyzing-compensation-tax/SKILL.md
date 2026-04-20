@@ -1,5 +1,6 @@
 ---
 name: analyzing-compensation-tax
+language: en
 description: Evaluates executive compensation tax with Section 409A, 280G golden parachute, and equity comp treatment. Use when analyzing compensation tax, evaluating 409A compliance, or structuring equity compensation.
 tags:
   - analysis

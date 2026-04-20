@@ -1,5 +1,6 @@
 ---
 name: managing-chemotherapy-toxicity
+language: en
 description: Grades treatment toxicity using CTCAE v5.0 with dose modification and supportive care protocols. Use when grading chemo toxicity, applying CTCAE criteria, or managing treatment side effects.
 tags:
   - management

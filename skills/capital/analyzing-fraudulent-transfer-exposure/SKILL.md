@@ -1,5 +1,6 @@
 ---
 name: analyzing-fraudulent-transfer-exposure
+language: en
 description: Evaluates fraudulent conveyance risk for leveraged transactions with solvency analysis and reasonably equivalent value assessment. Use when analyzing fraudulent transfer risk, conducting solvency tests, or evaluating historical transactions.
 tags:
   - analysis

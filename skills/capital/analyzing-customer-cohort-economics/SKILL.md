@@ -1,5 +1,6 @@
 ---
 name: analyzing-customer-cohort-economics
+language: en
 description: Deconstructs customer cohort behavior with retention curves, LTV progression, and vintage-over-vintage comparison analysis. Use when analyzing cohort data, assessing customer quality, or modeling lifetime value trajectories.
 tags:
   - analysis

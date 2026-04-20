@@ -1,5 +1,6 @@
 ---
 name: expert-medical-record-omissions
+language: en
 description: Analyzes expert witness reports, depositions, and testimony to identify gaps in medical record review, map conflicts to the full record set, and produce impeachment and admissibility analysis with pinpoint citations. Use when reviewing expert reports for missing medical records, selective review patterns, Daubert/Frye challenges, cross-examination prep, motions to exclude or limit, or rebuttal expert focus in personal injury or medical malpractice litigation.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: structuring-corporate-hedging-programs
+language: en
 description: Designs enterprise hedging strategies for commodity, FX, and interest rate exposures with hedge accounting qualification. Use when designing hedge programs, selecting hedging instruments, or structuring hedge documentation.
 tags:
   - derivatives-and-structured-products

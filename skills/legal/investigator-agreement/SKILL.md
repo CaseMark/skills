@@ -1,5 +1,6 @@
 ---
 name: investigator-agreement
+language: en
 description: Drafts Investigator Agreements for FDA-regulated clinical trials between sponsors and principal investigators. Covers 21 CFR Parts 50, 56, 312/812, ICH GCP E6(R2), IRB governance, data integrity, IP, indemnification, financial terms, and termination. Use when preparing clinical trial investigator agreements, site agreements, PI agreements, or sponsor-investigator contracts for drug, biologic, or device studies.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: managing-foreign-currency-exposure
+language: en
 description: Structures FX hedging strategies for international portfolios with natural hedge identification, instrument selection, and cost analysis. Use when managing currency risk, designing FX hedges, or analyzing translation exposure.
 tags:
   - management

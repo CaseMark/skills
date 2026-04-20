@@ -1,5 +1,6 @@
 ---
 name: witness-prep-session
+language: en
 description: Runs ethics-compliant deposition witness-prep workflows for US civil litigation. Use when preparing party, fact, expert, or 30(b)(6) witnesses for deposition, including mock cross-examination, exhibit review, vulnerability mapping, day-of logistics, and post-deposition debrief. Covers intake through deposition day under FRCP 30.
 ---
 

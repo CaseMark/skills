@@ -1,5 +1,6 @@
 ---
 name: bill-of-sale
+language: en
 description: Drafts a U.S. Bill of Sale for transferring personal property ownership from seller to buyer. Covers vehicles, equipment, watercraft, firearms, business assets, and general personal property. Enforces party identification, property description, consideration, condition representations, title warranty, lien disclosure, and jurisdiction-specific execution requirements. Use when drafting a bill of sale, asset transfer document, or ownership transfer instrument.
 ---
 

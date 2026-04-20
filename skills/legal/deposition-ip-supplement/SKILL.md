@@ -1,5 +1,6 @@
 ---
 name: deposition-ip-supplement
+language: en
 description: Provides IP-specific deposition examination frameworks for patent, trademark, copyright, and trade secret cases. Covers inventor, infringer, licensing, and expert witnesses with question maps for claim construction, prior art, willfulness, Georgia-Pacific factors, likelihood of confusion, and trade secret identification. Use when preparing IP litigation depositions alongside @deposition-preparation and @deposition-expert-witness.
 ---
 

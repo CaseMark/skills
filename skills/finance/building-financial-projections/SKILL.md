@@ -1,5 +1,6 @@
 ---
 name: building-financial-projections
+language: en
 description: Constructs integrated three-statement financial models with scenario analysis and assumption documentation. Use when building financial models, projecting financial statements, or creating forecast scenarios.
 tags:
   - modeling

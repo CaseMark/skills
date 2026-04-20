@@ -1,5 +1,6 @@
 ---
 name: written-consent
+language: en
 description: Drafts Written Consents in Lieu of Meeting for corporate boards or shareholders. Ensures compliance with state corporate law (e.g., DGCL §§141(f), 228), bylaws, and governing documents. Use when drafting board consent, shareholder consent, unanimous written consent, action by written consent, or consent in lieu of meeting.
 ---
 

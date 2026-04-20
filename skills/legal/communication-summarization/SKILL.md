@@ -1,5 +1,6 @@
 ---
 name: communication-summarization
+language: en
 description: Generates structured memorandum-style summaries of legal communications (email threads, meeting notes, correspondence, negotiation records). Captures decisions, commitments, deadlines, party positions, and legally significant language. Triggers when the user asks to summarize communication chains for corporate matters, discovery review, settlement negotiations, or matter file management.
 tags:
   - corporate

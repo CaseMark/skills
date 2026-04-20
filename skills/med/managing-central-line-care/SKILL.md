@@ -1,5 +1,6 @@
 ---
 name: managing-central-line-care
+language: en
 description: Structures central line maintenance with bundle compliance and infection prevention documentation. Use when managing central lines, documenting line care, or tracking bundle compliance.
 tags:
   - management

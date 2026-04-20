@@ -1,5 +1,6 @@
 ---
 name: deposition-summary
+language: en
 description: Generates topic-based deposition summaries for commercial litigation with exhibit cross-referencing. Produces a two-column table (page:line | neutral summary) with embedded exhibit citations. Use when summarizing depositions, creating deposition digests, indexing exhibits, or preparing witness testimony summaries during discovery.
 ---
 

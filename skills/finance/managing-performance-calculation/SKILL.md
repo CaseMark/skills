@@ -1,5 +1,6 @@
 ---
 name: managing-performance-calculation
+language: en
 description: Structures portfolio performance calculation with GIPS compliance, composite management, and attribution. Use when calculating returns, managing GIPS composites, or performing attribution analysis.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-co-investment-processes
+language: en
 description: Structures co-investment offerings with allocation, terms, and LP communication documentation. Use when managing co-investments, structuring co-invest terms, or documenting LP allocations.
 tags:
   - management

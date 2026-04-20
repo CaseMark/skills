@@ -1,5 +1,6 @@
 ---
 name: conducting-industry-credit-analysis
+language: en
 description: Structures industry-level credit assessment with cyclicality analysis, regulatory risk, and sector-specific credit metrics. Use when analyzing industry credit conditions, evaluating sector risk, or building industry-level views.
 tags:
   - process

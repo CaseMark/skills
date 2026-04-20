@@ -1,5 +1,6 @@
 ---
 name: documenting-procedure-notes
+language: en
 description: Creates structured procedure documentation with indications, technique, findings, and complications. Use when documenting inpatient procedures, recording procedural details, or writing procedure notes.
 tags:
   - documentation

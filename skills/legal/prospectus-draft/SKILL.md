@@ -1,5 +1,6 @@
 ---
 name: prospectus-draft
+language: en
 description: Drafts SEC-compliant prospectuses for securities offerings, structuring company data, financials, risk factors, and offering terms into a regulatory disclosure document. Use when preparing prospectuses, S-1 registration statements, offering memoranda, or primary disclosure documents for public or private issuances.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: 510k-premarket-notification
+language: en
 description: Drafts FDA 510(k) Premarket Notification submissions demonstrating substantial equivalence under 21 CFR Part 807. Supports Traditional, Special, and Abbreviated pathways. Use when preparing Class II medical device regulatory filings, substantial equivalence analyses, or FDA premarket submissions.
 tags:
   - drafting

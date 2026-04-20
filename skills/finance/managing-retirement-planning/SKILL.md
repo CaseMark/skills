@@ -1,5 +1,6 @@
 ---
 name: managing-retirement-planning
+language: en
 description: Structures retirement income analysis with Social Security optimization, distribution sequencing, and longevity modeling. Use when planning retirement income, optimizing Social Security, or modeling retirement spending.
 tags:
   - management

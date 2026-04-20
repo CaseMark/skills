@@ -1,5 +1,6 @@
 ---
 name: coordinating-social-work-needs
+language: en
 description: Identifies psychosocial barriers to discharge and coordinates social work interventions. Use when assessing social needs, coordinating community resources, or planning post-discharge support.
 tags:
   - coordination

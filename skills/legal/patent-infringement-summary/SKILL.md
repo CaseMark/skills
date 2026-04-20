@@ -1,5 +1,6 @@
 ---
 name: patent-infringement-summary
+language: en
 description: Generates structured summaries of patent infringement cases covering parties, patents-at-issue, infringement theories, claim construction, damages, and outcomes. Use when summarizing patent disputes, creating case digests for IP portfolios, or onboarding to patent litigation matters.
 ---
 

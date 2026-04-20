@@ -1,5 +1,6 @@
 ---
 name: employee-retention-agreement
+language: en
 description: Drafts enforceable U.S. Employee Retention Agreements (ERAs) for M&A, restructurings, and leadership transitions. Covers cash/equity/hybrid incentives, 409A compliance, termination scenarios, change-in-control triggers, restrictive covenants, and 280G golden parachute analysis. Trigger when drafting retention bonus agreements, executive compensation packages, or key-employee continuity contracts for business transitions.
 tags:
   - agreement

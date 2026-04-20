@@ -1,5 +1,6 @@
 ---
 name: rehearing-en-banc
+language: en
 description: Drafts a Petition for Rehearing En Banc under FRAP 35 or state equivalents. Guides threshold analysis for precedent conflicts and exceptional importance, enforces formatting/word limits, and includes required certifications. Use when seeking full appellate court reconsideration of a panel decision, raising circuit splits, or challenging panel holdings that conflict with controlling authority.
 tags:
   - drafting

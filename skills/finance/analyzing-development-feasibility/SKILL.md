@@ -1,5 +1,6 @@
 ---
 name: analyzing-development-feasibility
+language: en
 description: Evaluates real estate development projects with cost analysis, return projections, and risk assessment. Use when analyzing development deals, projecting development returns, or assessing feasibility.
 tags:
   - analysis

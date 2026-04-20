@@ -1,5 +1,6 @@
 ---
 name: managing-investor-portal-content
+language: en
 description: Structures investor portal organization with document hierarchy, access permissions, and communication archive management. Use when managing investor portals, organizing LP documentation, or maintaining investor communication records.
 tags:
   - management

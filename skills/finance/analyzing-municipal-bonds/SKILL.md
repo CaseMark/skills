@@ -1,5 +1,6 @@
 ---
 name: analyzing-municipal-bonds
+language: en
 description: Evaluates municipal credit with revenue source analysis, tax considerations, and state/local economic assessment. Use when analyzing municipal bonds, evaluating GO vs revenue bonds, or assessing muni credit.
 tags:
   - analysis

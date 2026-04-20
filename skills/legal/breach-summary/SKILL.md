@@ -1,5 +1,6 @@
 ---
 name: breach-summary
+language: en
 description: >-
   Summarizes cybersecurity breach incidents into structured legal and compliance
   records. Trigger when synthesizing incident reports, forensics, logs, or

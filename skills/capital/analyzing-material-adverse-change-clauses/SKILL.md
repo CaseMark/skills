@@ -1,5 +1,6 @@
 ---
 name: analyzing-material-adverse-change-clauses
+language: en
 description: Evaluates MAC clause scope, carve-outs, and enforceability standards in acquisition agreements. Use when reviewing MAC provisions, assessing deal certainty, or analyzing interim covenant protections.
 tags:
   - analysis

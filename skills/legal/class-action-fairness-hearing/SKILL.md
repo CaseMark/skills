@@ -1,5 +1,6 @@
 ---
 name: class-action-fairness-hearing
+language: en
 description: Drafts FRCP 23(e)-compliant fairness hearing notices for class action settlements. Covers settlement terms, opt-out rights, objection procedures, and hearing logistics. Use when notifying class members of a proposed settlement pending court approval.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: trid-tolerance
+language: en
 description: Classifies closing costs into zero, 10% cumulative, and unlimited tolerance buckets under 12 CFR § 1026.19(e)(3). Validates changed circumstances for revised Loan Estimates and computes cure amounts. Use when reviewing a Closing Disclosure against a Loan Estimate, calculating tolerance variances, determining whether a revised LE is permitted, or computing cure amounts for tolerance violations.
 ---
 

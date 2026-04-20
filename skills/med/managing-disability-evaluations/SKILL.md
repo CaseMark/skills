@@ -1,5 +1,6 @@
 ---
 name: managing-disability-evaluations
+language: en
 description: Structures psychiatric disability assessments with functional limitations and work capacity documentation. Use when evaluating psychiatric disability, documenting functional limitations, or completing disability forms.
 tags:
   - management

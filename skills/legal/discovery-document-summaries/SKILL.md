@@ -1,5 +1,6 @@
 ---
 name: discovery-document-summaries
+language: en
 description: Summarizes discovery documents (depositions, emails, contracts, interrogatories, medical/financial records) with Bates citations, impeachment flags, timeline extraction, and privilege alerts. Use when summarizing produced documents during discovery or pre-trial phases of U.S. commercial litigation.
 ---
 

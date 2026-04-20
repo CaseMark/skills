@@ -1,5 +1,6 @@
 ---
 name: analyzing-monetary-policy
+language: en
 description: Structures central bank policy analysis with rate decision assessment, forward guidance interpretation, and market impact. Use when analyzing Fed policy, interpreting FOMC statements, or assessing monetary policy impact.
 tags:
   - analysis

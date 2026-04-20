@@ -1,5 +1,6 @@
 ---
 name: interpreting-emergency-ecgs
+language: en
 description: Analyzes 12-lead ECGs for acute findings requiring emergent intervention. Use when reading emergency ECGs, identifying STEMI patterns, or flagging critical arrhythmias.
 tags:
   - analysis

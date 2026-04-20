@@ -1,5 +1,6 @@
 ---
 name: structuring-portfolio-trading-strategies
+language: en
 description: Designs portfolio transition strategies with trade list optimization, crossing opportunities, and execution timeline planning. Use when planning portfolio transitions, managing rebalancing trades, or optimizing transition costs.
 tags:
   - public-markets-and-trading

@@ -1,5 +1,6 @@
 ---
 name: side-letter
+language: en
 description: Drafts U.S. venture capital and private equity side letter agreements that supplement a primary agreement without formal amendment. Use when drafting a side letter, supplemental letter, investor side letter, MFN carve-out, or special-rights letter tied to an existing agreement.
 ---
 

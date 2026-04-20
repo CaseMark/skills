@@ -1,5 +1,6 @@
 ---
 name: pi-intake-form
+language: en
 description: >-
   Drafts a structured personal injury client intake form for initial
   consultations covering client identification, incident details,

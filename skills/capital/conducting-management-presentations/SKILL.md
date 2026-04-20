@@ -1,5 +1,6 @@
 ---
 name: conducting-management-presentations
+language: en
 description: Structures management presentation materials for buyer meetings with business overview, strategy, and financial deep-dives. Use when preparing management presentations, coaching management teams, or organizing buyer meetings.
 tags:
   - process

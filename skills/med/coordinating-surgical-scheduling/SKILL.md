@@ -1,5 +1,6 @@
 ---
 name: coordinating-surgical-scheduling
+language: en
 description: Manages surgical scheduling with block time utilization, equipment needs, and team coordination. Use when scheduling surgeries, managing OR block time, or coordinating surgical resources.
 tags:
   - coordination

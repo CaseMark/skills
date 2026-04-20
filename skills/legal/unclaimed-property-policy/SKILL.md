@@ -1,5 +1,6 @@
 ---
 name: unclaimed-property-policy
+language: en
 description: Drafts an enterprise Escheatment and Unclaimed Property Policy covering property identification, dormancy matrices, due diligence notices, NAUPA-format reporting, remittance, recordkeeping, and audit preparedness across all US state jurisdictions. Use when establishing or updating an unclaimed property compliance framework, preparing for state audits, or evaluating voluntary disclosure programs.
 tags:
   - drafting

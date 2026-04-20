@@ -1,5 +1,6 @@
 ---
 name: preparing-real-asset-investment-cases
+language: en
 description: Structures real asset investment recommendations with commodity thesis, asset-level analysis, and risk assessment for IC presentation. Use when preparing resource investment cases, building IC materials, or documenting real asset opportunities.
 tags:
   - preparation

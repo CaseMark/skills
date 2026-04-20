@@ -1,5 +1,6 @@
 ---
 name: elder-law-summary
+language: en
 description: Generates structured elder law summaries covering estate planning, elder abuse, healthcare rights, Medicaid eligibility, and guardianship with prioritized action plans. Triggers when the user requests an elderly client matter summary, elder care legal overview, long-term care planning review, or guardianship assessment.
 tags:
   - analysis

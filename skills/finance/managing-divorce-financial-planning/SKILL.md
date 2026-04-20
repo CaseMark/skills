@@ -1,5 +1,6 @@
 ---
 name: managing-divorce-financial-planning
+language: en
 description: Structures divorce financial analysis with asset division, support calculations, and post-divorce financial planning. Use when analyzing divorce finances, projecting settlement impacts, or planning post-divorce finances.
 tags:
   - management

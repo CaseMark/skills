@@ -1,5 +1,6 @@
 ---
 name: demand-package-compilation
+language: en
 description: Compiles pre-suit and settlement demand packages for U.S. commercial litigation plaintiff matters. Assembles demand letter with chronological facts, liability theories, itemized damages, and indexed exhibits. Use when drafting pre-filing demand packages, settlement demand letters with exhibit bundles, or structured pre-litigation claim presentations.
 ---
 

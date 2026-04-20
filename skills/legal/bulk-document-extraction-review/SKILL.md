@@ -1,5 +1,6 @@
 ---
 name: bulk-document-extraction-review
+language: en
 description: >-
   Extracts structured data from large sets of legal documents into tabular
   format for review, analysis, and reporting. Processes contracts, agreements,

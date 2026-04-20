@@ -1,5 +1,6 @@
 ---
 name: form-10-q
+language: en
 description: >-
   Drafts SEC-compliant Form 10-Q quarterly reports covering Part I financials,
   MD&A, market risk, controls, Part II updates, exhibits, and SOX

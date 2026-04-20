@@ -1,5 +1,6 @@
 ---
 name: managing-substance-use-disorders
+language: en
 description: Structures SUD assessment with ASAM criteria placement, MAT protocols, and recovery planning. Use when assessing substance use, applying ASAM criteria, or managing medication-assisted treatment.
 tags:
   - management

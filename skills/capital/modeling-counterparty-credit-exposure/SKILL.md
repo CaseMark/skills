@@ -1,5 +1,6 @@
 ---
 name: modeling-counterparty-credit-exposure
+language: en
 description: Calculates potential future exposure and CVA with simulation-based approaches and netting agreement analysis. Use when modeling counterparty exposure, calculating CVA/DVA, or assessing counterparty risk.
 tags:
   - modeling

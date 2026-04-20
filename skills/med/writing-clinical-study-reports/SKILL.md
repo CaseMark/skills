@@ -1,5 +1,6 @@
 ---
 name: writing-clinical-study-reports
+language: en
 description: Creates ICH E3-compliant clinical study reports with required sections and data presentation. Use when writing CSRs, formatting study reports, or preparing regulatory submissions.
 tags:
   - drafting

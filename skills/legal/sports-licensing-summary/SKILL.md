@@ -1,5 +1,6 @@
 ---
 name: sports-licensing-summary
+language: en
 description: Summarizes sports licensing agreements (merchandise, broadcasting, endorsement) into structured frameworks extracting parties, financials, IP rights, obligations, compliance, and risks. Use when an agent reviews a sports licensing contract, broadcasting rights deal, athlete endorsement agreement, or merchandise licensing arrangement.
 tags:
   - agreement

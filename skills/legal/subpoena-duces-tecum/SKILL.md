@@ -1,5 +1,6 @@
 ---
 name: subpoena-duces-tecum
+language: en
 description: Drafts a Subpoena Duces Tecum compelling document production without testimony under Federal Rule 45 or state equivalents. Covers recipient designation, records scoping, production format, privilege notices, and service certification. Trigger when drafting records-only subpoenas, third-party document discovery, or duces tecum commands in litigation.
 tags:
   - drafting

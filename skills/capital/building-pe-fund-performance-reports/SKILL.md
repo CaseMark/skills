@@ -1,5 +1,6 @@
 ---
 name: building-pe-fund-performance-reports
+language: en
 description: Constructs fund-level performance reporting with IRR, MOIC, DPI, RVPI, PME, and vintage year benchmarking. Use when building fund reports, calculating performance metrics, or preparing LP reporting packages.
 tags:
   - modeling

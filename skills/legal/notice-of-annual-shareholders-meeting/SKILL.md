@@ -1,5 +1,6 @@
 ---
 name: notice-of-annual-shareholders-meeting
+language: en
 description: Drafts a U.S. corporate annual shareholders meeting notice enforcing record-date accuracy, notice timing, quorum/vote thresholds, proxy logistics, and agenda disclosures under charter/bylaws and state statutes. Triggers on requests involving annual meeting notice, shareholder meeting notice, record date, quorum, proxy voting, or annual meeting agenda.
 tags:
   - corporate

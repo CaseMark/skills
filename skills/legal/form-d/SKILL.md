@@ -1,5 +1,6 @@
 ---
 name: form-d
+language: en
 description: Drafts SEC Form D Notice of Exempt Offering for EDGAR filing under Regulation D. Captures issuer details, related persons, offering structure, exemption basis (Rule 504, 506(b), 506(c)), sales compensation, and use of proceeds. Use when filing Form D, preparing an exempt offering notice, or handling Regulation D compliance for unregistered securities.
 tags:
   - corporate

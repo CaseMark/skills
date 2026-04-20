@@ -1,5 +1,6 @@
 ---
 name: article-summary
+language: en
 description: Generates structured 500-800 word summaries of legal articles distilling thesis, methodology, arguments, authorities, conclusions, and significance. Triggers when summarizing legal scholarship, reviewing law review articles, preparing literature reviews, or triaging articles for full reading.
 tags:
   - analysis

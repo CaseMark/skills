@@ -1,5 +1,6 @@
 ---
 name: modeling-portfolio-risk-decomposition
+language: en
 description: Decomposes portfolio risk with factor attribution, idiosyncratic risk, and marginal contribution to risk analysis. Use when decomposing portfolio risk, attributing risk sources, or analyzing factor risk contribution.
 tags:
   - modeling

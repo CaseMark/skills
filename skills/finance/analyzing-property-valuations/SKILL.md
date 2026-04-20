@@ -1,5 +1,6 @@
 ---
 name: analyzing-property-valuations
+language: en
 description: Structures real estate valuation with income, comparable sales, and cost approaches. Use when valuing properties, performing appraisal analysis, or comparing valuation methodologies.
 tags:
   - analysis

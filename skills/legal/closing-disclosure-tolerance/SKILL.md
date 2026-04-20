@@ -1,5 +1,6 @@
 ---
 name: closing-disclosure-tolerance
+language: en
 description: Applies U.S. TRID tolerance rules to compare a residential mortgage Closing Disclosure (CD) against the controlling Loan Estimate (LE). Classifies fees by tolerance bucket, validates changed-circumstance resets, computes violations, and calculates cure amounts. Use when reviewing LE-CD variance, 10% tolerance, revised LE validity, changed circumstances, tolerance cure, or pre-closing compliance QA.
 ---
 

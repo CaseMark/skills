@@ -1,5 +1,6 @@
 ---
 name: nda-summary
+language: en
 description: Generates structured summaries of Non-Disclosure Agreements, extracting parties, confidential information scope, permitted disclosures, term/survival, breach remedies, and risk flags. Use when summarizing NDAs, reviewing confidentiality agreements, distilling NDA obligations, or onboarding stakeholders to NDA terms.
 ---
 

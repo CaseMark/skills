@@ -1,5 +1,6 @@
 ---
 name: modeling-management-case-scenarios
+language: en
 description: Builds base, upside, and downside operating scenarios with key assumption sensitivity and return distribution analysis. Use when building operating cases, stress testing projections, or presenting scenario analysis.
 tags:
   - modeling

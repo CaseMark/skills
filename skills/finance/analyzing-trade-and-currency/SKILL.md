@@ -1,5 +1,6 @@
 ---
 name: analyzing-trade-and-currency
+language: en
 description: Structures trade balance analysis with currency dynamics, competitiveness assessment, and tariff impact modeling. Use when analyzing trade data, evaluating currency trends, or assessing trade policy impact.
 tags:
   - analysis

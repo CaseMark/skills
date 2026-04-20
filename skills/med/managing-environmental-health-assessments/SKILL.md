@@ -1,5 +1,6 @@
 ---
 name: managing-environmental-health-assessments
+language: en
 description: Structures environmental health evaluations with exposure assessment and risk communication. Use when assessing environmental health risks, evaluating contamination, or communicating environmental findings.
 tags:
   - management

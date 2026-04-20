@@ -1,5 +1,6 @@
 ---
 name: managing-broker-dealer-compliance
+language: en
 description: Structures BD compliance monitoring with supervision, registration, and reporting requirements. Use when managing BD compliance, reviewing supervisory procedures, or monitoring registration requirements.
 tags:
   - management

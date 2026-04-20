@@ -1,5 +1,6 @@
 ---
 name: medical-billing-analysis
+language: en
 description: >
   Analyzes medical records and billing data for personal injury litigation,
   producing a chronological report with treatment details, costs, causation

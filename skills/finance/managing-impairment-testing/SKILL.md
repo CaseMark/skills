@@ -1,5 +1,6 @@
 ---
 name: managing-impairment-testing
+language: en
 description: Structures goodwill and long-lived asset impairment testing with fair value estimation and documentation. Use when testing for impairment, estimating fair values, or documenting impairment analysis.
 tags:
   - management

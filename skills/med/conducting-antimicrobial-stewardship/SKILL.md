@@ -1,5 +1,6 @@
 ---
 name: conducting-antimicrobial-stewardship
+language: en
 description: Reviews antibiotic appropriateness with spectrum optimization, de-escalation, and duration recommendations. Use when reviewing antibiotic use, recommending de-escalation, or conducting antibiotic time-outs.
 tags:
   - process

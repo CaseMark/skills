@@ -1,5 +1,6 @@
 ---
 name: analyzing-conglomerate-discount-dynamics
+language: en
 description: Evaluates conglomerate discount with SOTP analysis, segment-level valuation, and separation benefit quantification. Use when analyzing conglomerate value, building SOTP models, or evaluating break-up scenarios.
 tags:
   - analysis

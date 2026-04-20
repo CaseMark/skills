@@ -1,5 +1,6 @@
 ---
 name: managing-sales-tax-compliance
+language: en
 description: Structures sales tax analysis with nexus determination, taxability classification, and exemption management. Use when managing sales tax, determining nexus, or analyzing taxability.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: validating-clinical-data-quality
+language: en
 description: Structures data quality assessment with completeness, accuracy, and consistency validation. Use when auditing clinical data, assessing data quality, or validating data integrity.
 tags:
   - validation

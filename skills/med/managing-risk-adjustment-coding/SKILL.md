@@ -1,5 +1,6 @@
 ---
 name: managing-risk-adjustment-coding
+language: en
 description: Captures HCC codes for risk adjustment with annual assessment and documentation requirements. Use when coding for risk adjustment, capturing HCC conditions, or managing RAF scores.
 tags:
   - management

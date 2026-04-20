@@ -1,5 +1,6 @@
 ---
 name: managing-cybersecurity-compliance
+language: en
 description: Evaluates cybersecurity programs against SEC, FINRA, and state regulatory requirements. Use when assessing cybersecurity compliance, implementing security frameworks, or responding to cyber requirements.
 tags:
   - management

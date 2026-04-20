@@ -1,5 +1,6 @@
 ---
 name: analyzing-spin-off-transactions
+language: en
 description: Evaluates corporate spin-off and separation transactions with standalone valuation and Remainco impact. Use when analyzing spin-offs, modeling separations, or evaluating corporate breakup value.
 tags:
   - analysis

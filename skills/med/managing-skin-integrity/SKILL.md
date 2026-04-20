@@ -1,5 +1,6 @@
 ---
 name: managing-skin-integrity
+language: en
 description: Conducts Braden scale assessment with pressure injury prevention interventions and documentation. Use when assessing skin integrity, calculating Braden scores, or implementing pressure injury prevention.
 tags:
   - management

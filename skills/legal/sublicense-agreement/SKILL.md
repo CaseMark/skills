@@ -1,5 +1,6 @@
 ---
 name: sublicense-agreement
+language: en
 description: Drafts Sublicense Agreements for IP licensing transactions, ensuring compliance with the underlying Master License Agreement. Covers grant of rights, territory, field-of-use, term, royalty structures on Net Sales, flow-down obligations, and termination tied to master license. Use when a licensee (Sublicensor) grants derivative rights to a third party (Sublicensee), for IP sublicensing or derivative license agreements.
 ---
 

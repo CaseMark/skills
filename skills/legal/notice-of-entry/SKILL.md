@@ -1,5 +1,6 @@
 ---
 name: notice-of-entry
+language: en
 description: >
   Drafts contract-compliant Notice of Property Entry letters that satisfy Access
   Agreement advance-notice, scope, and delivery requirements. Trigger when the

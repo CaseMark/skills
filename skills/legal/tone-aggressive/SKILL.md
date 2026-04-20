@@ -1,5 +1,6 @@
 ---
 name: tone-aggressive
+language: en
 description: Applies aggressive advocacy tone to legal writing with forceful, adversarial prose, strong declarative framing, and minimal hedging. Use when drafting opposition briefs, responses to bad-faith conduct, compliance demands, trial briefs, or any document requiring zealous positional advocacy.
 ---
 

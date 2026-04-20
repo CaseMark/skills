@@ -1,5 +1,6 @@
 ---
 name: analyzing-competitive-dynamics
+language: en
 description: Maps competitive landscapes with market share tracking and Porter's Five Forces analysis. Use when analyzing competition, assessing market structure, or evaluating competitive threats.
 tags:
   - analysis

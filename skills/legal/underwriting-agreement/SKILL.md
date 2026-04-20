@@ -1,5 +1,6 @@
 ---
 name: underwriting-agreement
+language: en
 description: >-
   Drafts a firm-commitment underwriting agreement for SEC-registered U.S.
   public offerings, covering purchase terms, greenshoe, reps and warranties,

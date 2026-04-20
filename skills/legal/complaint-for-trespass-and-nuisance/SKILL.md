@@ -1,5 +1,6 @@
 ---
 name: complaint-for-trespass-and-nuisance
+language: en
 description: Drafts a U.S. civil complaint asserting trespass and private nuisance causes of action in real property disputes. Use when initiating litigation for unauthorized property entry, encroachment, excessive noise, odors, pollution, vibration, or other conduct substantially interfering with use and enjoyment of real property.
 tags:
   - drafting

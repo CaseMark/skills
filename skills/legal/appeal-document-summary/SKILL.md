@@ -1,5 +1,6 @@
 ---
 name: appeal-document-summary
+language: en
 description: >-
   Produces structured U.S. appellate document summaries mapping procedural
   posture, issues on appeal, standards of review, and competing arguments

@@ -1,5 +1,6 @@
 ---
 name: modeling-transaction-cost-optimization
+language: en
 description: Builds transaction cost models with market impact estimation, optimal trade scheduling, and turnover-adjusted returns. Use when modeling trading costs, optimizing turnover, or evaluating net-of-cost alpha.
 tags:
   - modeling

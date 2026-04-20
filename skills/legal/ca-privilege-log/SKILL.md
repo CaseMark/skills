@@ -1,5 +1,6 @@
 ---
 name: ca-privilege-log
+language: en
 description: >
   Generates California-compliant privilege logs for withheld or redacted discovery
   materials under CCP 2031.240. Use when the user mentions privilege log drafting,

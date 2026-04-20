@@ -1,5 +1,6 @@
 ---
 name: managing-survivorship-care
+language: en
 description: Creates survivorship care plans with surveillance schedules, late effects monitoring, and wellness recommendations. Use when creating survivorship plans, scheduling cancer surveillance, or documenting long-term follow-up.
 tags:
   - management

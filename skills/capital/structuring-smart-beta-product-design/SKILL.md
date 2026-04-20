@@ -1,5 +1,6 @@
 ---
 name: structuring-smart-beta-product-design
+language: en
 description: Designs systematic investment products with transparent methodology, rebalancing rules, and index construction specifications. Use when designing smart beta products, creating index methodologies, or structuring systematic funds.
 tags:
   - quantitative-capital-strategies

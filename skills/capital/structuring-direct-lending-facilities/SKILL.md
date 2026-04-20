@@ -1,5 +1,6 @@
 ---
 name: structuring-direct-lending-facilities
+language: en
 description: Designs direct lending structures with pricing, covenant packages, and documentation tailored for middle-market borrowers. Use when structuring direct loans, designing covenant packages, or analyzing direct lending terms.
 tags:
   - credit-and-institutional-lending

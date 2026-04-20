@@ -1,5 +1,6 @@
 ---
 name: analyzing-convertible-bonds
+language: en
 description: Evaluates convertible bond structures with equity sensitivity, credit floor, and Greeks calculation. Use when analyzing convertibles, calculating conversion premiums, or evaluating hybrid instruments.
 tags:
   - analysis

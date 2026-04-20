@@ -1,5 +1,6 @@
 ---
 name: managing-risk-management-healthcare
+language: en
 description: Structures healthcare risk management with incident investigation, claims analysis, and loss prevention strategies. Use when managing healthcare risk, investigating incidents, or developing loss prevention programs.
 tags:
   - management

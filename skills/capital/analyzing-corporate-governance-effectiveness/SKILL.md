@@ -1,5 +1,6 @@
 ---
 name: analyzing-corporate-governance-effectiveness
+language: en
 description: Evaluates board composition, compensation alignment, and governance practices with proxy advisory and institutional investor standards. Use when analyzing governance, evaluating board effectiveness, or assessing shareholder alignment.
 tags:
   - analysis

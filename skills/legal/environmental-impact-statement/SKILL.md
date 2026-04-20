@@ -1,5 +1,6 @@
 ---
 name: environmental-impact-statement
+language: en
 description: Drafts NEPA-compliant Environmental Impact Statements (EIS) under 42 U.S.C. § 4321 and CEQ regulations (40 C.F.R. Parts 1500–1508). Covers purpose and need, alternatives analysis, affected environment, environmental consequences, mitigation, and public involvement. Use when preparing federal EIS documents, NEPA compliance analyses, or environmental impact assessments for proposed federal actions.
 ---
 

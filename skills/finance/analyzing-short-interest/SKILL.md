@@ -1,5 +1,6 @@
 ---
 name: analyzing-short-interest
+language: en
 description: Monitors short interest dynamics with days-to-cover calculations and squeeze risk assessment. Use when tracking short interest, analyzing borrowing costs, or assessing short squeeze risk.
 tags:
   - analysis

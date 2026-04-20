@@ -1,5 +1,6 @@
 ---
 name: modeling-currency-hedging-programs
+language: en
 description: Builds currency hedging models with rolling forward programs, option-based strategies, and cross-hedge analysis for international portfolios. Use when designing hedge programs, analyzing hedge ratios, or evaluating FX protection costs.
 tags:
   - modeling

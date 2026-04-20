@@ -1,5 +1,6 @@
 ---
 name: managing-business-combinations
+language: en
 description: Structures acquisition accounting with purchase price allocation, fair value measurement, and goodwill calculation. Use when accounting for acquisitions, allocating purchase price, or measuring fair values.
 tags:
   - management

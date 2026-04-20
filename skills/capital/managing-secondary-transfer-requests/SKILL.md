@@ -1,5 +1,6 @@
 ---
 name: managing-secondary-transfer-requests
+language: en
 description: Processes LP interest transfer requests with GP consent evaluation, ROFR administration, and transfer documentation requirements. Use when managing LP transfers, evaluating transfer requests, or coordinating interest assignments.
 tags:
   - management

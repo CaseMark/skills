@@ -1,5 +1,6 @@
 ---
 name: aviation-law-summary
+language: en
 description: Produces structured aviation law summaries with Bluebook citations covering U.S. and international regulatory frameworks, treaties, and case law. Use when drafting an aviation law summary, FAA/DOT/TSA compliance overview, Montreal/Warsaw Convention liability analysis, air service agreement review, accident liability synopsis, or aviation regulatory research memo.
 ---
 

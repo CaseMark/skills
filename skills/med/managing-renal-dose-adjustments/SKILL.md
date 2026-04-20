@@ -1,5 +1,6 @@
 ---
 name: managing-renal-dose-adjustments
+language: en
 description: Adjusts medication doses based on renal function using CrCl/eGFR calculations. Use when adjusting for renal impairment, calculating CrCl-based doses, or managing medications in kidney disease.
 tags:
   - management

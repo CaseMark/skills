@@ -1,5 +1,6 @@
 ---
 name: plea-agreement-summary
+language: en
 description: Generates structured summaries of criminal plea agreements. Triggers when summarizing plea deals, preparing for plea colloquy, or creating quick-reference digests of negotiated resolutions in criminal defense matters.
 tags:
   - litigation

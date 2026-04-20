@@ -1,5 +1,6 @@
 ---
 name: structuring-fund-vehicle-architecture
+language: en
 description: Designs fund legal structures with master-feeder, parallel fund, and blocker entity configurations for tax-efficient investor access. Use when designing fund structures, selecting vehicle types, or optimizing multi-jurisdictional access.
 tags:
   - fund-formation-and-structuring

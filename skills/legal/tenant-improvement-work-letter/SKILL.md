@@ -1,5 +1,6 @@
 ---
 name: tenant-improvement-work-letter
+language: en
 description: >-
   Drafts a U.S. commercial lease Tenant Improvement Work Letter exhibit
   governing design approvals, construction standards, TI allowance funding,

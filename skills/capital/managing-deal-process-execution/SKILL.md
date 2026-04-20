@@ -1,5 +1,6 @@
 ---
 name: managing-deal-process-execution
+language: en
 description: Coordinates buy-side deal execution from LOI through closing with workstream tracking, timeline management, and closing conditions. Use when managing deal processes, tracking closing conditions, or coordinating deal teams.
 tags:
   - management

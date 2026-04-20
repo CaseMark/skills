@@ -1,5 +1,6 @@
 ---
 name: managing-cardiac-rehabilitation-therapy
+language: en
 description: Structures cardiac rehab exercise prescription with monitoring parameters and progression criteria. Use when prescribing cardiac rehab exercise, monitoring exercise response, or documenting rehab progression.
 tags:
   - management

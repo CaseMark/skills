@@ -1,5 +1,6 @@
 ---
 name: mortgage-deed-of-trust
+language: en
 description: Drafts recording-ready residential Mortgages or Deeds of Trust with jurisdiction-appropriate instrument selection, uniform covenants, default/foreclosure provisions, and execution formalities. Use when drafting mortgage instruments, deeds of trust, security instruments for home loans, or real estate financing documents.
 ---
 

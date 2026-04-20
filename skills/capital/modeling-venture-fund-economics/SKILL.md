@@ -1,5 +1,6 @@
 ---
 name: modeling-venture-fund-economics
+language: en
 description: Builds LP-level fund models with management fees, carried interest, clawback provisions, and waterfall distributions. Use when modeling fund economics, projecting LP returns, or analyzing fund terms.
 tags:
   - modeling

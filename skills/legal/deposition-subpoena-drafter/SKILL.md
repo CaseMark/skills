@@ -1,5 +1,6 @@
 ---
 name: deposition-subpoena-drafter
+language: en
 description: >-
   Drafts U.S. federal deposition notices and subpoenas under FRCP 30(b)(1),
   30(b)(6), and 45. Trigger when the user needs a deposition notice, 30(b)(6)

@@ -1,5 +1,6 @@
 ---
 name: witness-prep
+language: en
 description: Guides attorneys through deposition witness preparation using a two-session model with document review, practice examination, and day-of logistics. Covers party witnesses, fact witnesses, 30(b)(6) corporate representatives, and experts. Produces preparation memos, document review lists, topic summaries, and day-of checklists. Enforces ABA Opinion 508 ethical boundaries. Use when preparing any witness for deposition, scheduling prep sessions, or building witness preparation materials.
 tags:
   - analysis

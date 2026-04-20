@@ -1,5 +1,6 @@
 ---
 name: dsar-form
+language: en
 description: Drafts a GDPR- and CCPA-compliant Data Subject Access Request (DSAR) intake form for collecting requester information and processing privacy rights. Use when drafting DSAR forms, privacy rights request templates, or data subject rights workflows for EU/US-regulated organizations.
 tags:
   - drafting

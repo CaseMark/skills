@@ -1,5 +1,6 @@
 ---
 name: discovery-summary
+language: en
 description: Generates structured, citeable summaries of discovery documents (interrogatories, RFPs, RFAs, depositions, productions). Extracts admissions, inconsistencies, evidentiary gaps, and objections with precise source citations. Use when summarizing discovery responses, preparing for depositions, identifying discovery gaps, or building trial preparation materials.
 ---
 

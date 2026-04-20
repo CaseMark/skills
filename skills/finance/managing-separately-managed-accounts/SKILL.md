@@ -1,5 +1,6 @@
 ---
 name: managing-separately-managed-accounts
+language: en
 description: Structures SMA operations with customization, compliance overlay, and performance composites. Use when managing SMAs, implementing custom portfolios, or maintaining performance composites.
 tags:
   - management

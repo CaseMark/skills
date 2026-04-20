@@ -1,5 +1,6 @@
 ---
 name: modeling-project-finance-structures
+language: en
 description: Builds project finance models with construction period draws, operational cash flows, DSCR covenants, and sculpted debt repayment. Use when modeling project finance, calculating debt service coverage, or structuring project lending.
 tags:
   - modeling

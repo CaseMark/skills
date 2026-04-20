@@ -1,5 +1,6 @@
 ---
 name: writing-operative-reports
+language: en
 description: Creates structured operative notes with findings, technique, specimens, and estimated blood loss. Use when dictating operative reports, documenting surgical procedures, or recording intraoperative findings.
 tags:
   - drafting

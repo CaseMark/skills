@@ -1,5 +1,6 @@
 ---
 name: managing-biospecimen-protocols
+language: en
 description: Documents biospecimen collection, processing, storage, and tracking with chain-of-custody requirements. Use when managing biospecimens, designing collection protocols, or tracking samples.
 tags:
   - management

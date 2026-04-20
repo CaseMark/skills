@@ -1,5 +1,6 @@
 ---
 name: nonprofit-bylaws
+language: en
 description: >-
   Drafts U.S. nonprofit corporation bylaws aligned to state nonprofit corporation
   acts and IRC §501(c)(3) requirements, covering governance structure, membership,

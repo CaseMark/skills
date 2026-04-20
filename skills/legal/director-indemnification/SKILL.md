@@ -1,5 +1,6 @@
 ---
 name: director-indemnification
+language: en
 description: Drafts indemnification agreements between corporations and directors covering expense advancement, indemnification determinations, D&O insurance coordination, and successor obligations. Use when drafting director indemnification agreements, expense advancement provisions, or D&O indemnity contracts.
 tags:
   - agreement

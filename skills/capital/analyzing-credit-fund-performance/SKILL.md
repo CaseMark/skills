@@ -1,5 +1,6 @@
 ---
 name: analyzing-credit-fund-performance
+language: en
 description: Evaluates credit fund returns with yield attribution, mark-to-market dynamics, and performance comparison across credit strategies. Use when analyzing credit fund performance, decomposing returns, or benchmarking credit strategies.
 tags:
   - analysis

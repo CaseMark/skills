@@ -1,5 +1,6 @@
 ---
 name: taxpayer-correspondence
+language: en
 description: Drafts structured taxpayer correspondence summarizing tax records, income, deductions, credits, and tax positions. Covers IRS/state inquiry responses, audit preparation, advisor-client communications, and filing support. Use when drafting tax summary letters, responding to tax authority notices, preparing audit defense correspondence, or organizing client tax records into structured summaries.
 tags:
   - analysis

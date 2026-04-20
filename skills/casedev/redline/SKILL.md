@@ -1,5 +1,6 @@
 ---
 name: redline
+language: en
 description: Compares two document versions and produces AI-powered redline analysis with structured change summaries, risk flags, and clause-by-clause breakdowns. Use when the user mentions "redline", "compare documents", "what changed", "version comparison", "contract diff", "track changes", or needs to understand differences between document versions.
 ---
 

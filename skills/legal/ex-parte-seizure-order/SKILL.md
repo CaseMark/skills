@@ -1,5 +1,6 @@
 ---
 name: ex-parte-seizure-order
+language: en
 description: Drafts U.S. ex parte seizure orders authorizing immediate property or asset seizure without notice. Enforces the four-factor ex parte standard, FRCP 65, Lanham Act seizure provisions (15 U.S.C. § 1116(d)), bond requirements, and due process safeguards. Use when drafting ex parte seizure orders, TRO-based asset seizure, or IP counterfeiting seizure orders in federal or state court.
 ---
 

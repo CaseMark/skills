@@ -1,5 +1,6 @@
 ---
 name: deposition-errata-sheet
+language: en
 description: Guides the FRCP 30(e) errata sheet process — submitting corrections for your witness and challenging improper opposing corrections. Covers change permissibility, jurisdictional splits, errata formatting, motions to strike, and impeachment use. Use when reviewing a deposition transcript for corrections, responding to an opposing errata sheet, or preparing cross-examination on changed testimony.
 ---
 

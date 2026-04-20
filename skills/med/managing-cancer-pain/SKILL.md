@@ -1,5 +1,6 @@
 ---
 name: managing-cancer-pain
+language: en
 description: Structures cancer pain assessment with WHO ladder application and breakthrough dosing. Use when managing cancer pain, titrating opioids, or implementing cancer pain protocols.
 tags:
   - management

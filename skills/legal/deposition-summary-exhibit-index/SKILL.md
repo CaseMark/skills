@@ -1,5 +1,6 @@
 ---
 name: deposition-summary-exhibit-index
+language: en
 description: Produces a topic-based U.S. deposition summary with page/line citations and a keyed exhibit index linking testimony to documents. Use when creating deposition digests, exhibit-linked summaries, key document indexes, or discovery testimony maps in commercial litigation.
 tags:
   - analysis

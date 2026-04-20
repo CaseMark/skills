@@ -1,5 +1,6 @@
 ---
 name: managing-childhood-obesity
+language: en
 description: Guides pediatric weight management with BMI percentile tracking and family-based interventions. Use when managing childhood obesity, tracking BMI percentiles, or implementing weight management plans.
 tags:
   - management

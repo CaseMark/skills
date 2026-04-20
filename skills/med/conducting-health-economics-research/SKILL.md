@@ -1,5 +1,6 @@
 ---
 name: conducting-health-economics-research
+language: en
 description: Structures cost-effectiveness and health economic analyses with QALY calculations and model validation. Use when conducting health economics research, calculating QALYs, or building economic models.
 tags:
   - process

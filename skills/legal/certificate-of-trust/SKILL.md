@@ -1,5 +1,6 @@
 ---
 name: certificate-of-trust
+language: en
 description: Drafts a Certificate of Trust (Abstract/Memorandum of Trust) that verifies trustee authority for third-party reliance without disclosing full trust terms. Use when preparing trust certificates for real estate closings, bank account openings, business transactions, or any context requiring trustee authority verification with UTC-compliant, privacy-preserving disclosure.
 tags:
   - drafting

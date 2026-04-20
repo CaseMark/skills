@@ -1,5 +1,6 @@
 ---
 name: managing-abnormal-uterine-bleeding
+language: en
 description: Guides AUB evaluation using PALM-COEIN classification with workup algorithms. Use when evaluating abnormal bleeding, applying PALM-COEIN classification, or managing AUB workup.
 tags:
   - management

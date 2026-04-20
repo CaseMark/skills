@@ -1,5 +1,6 @@
 ---
 name: legal-memorandum
+language: en
 description: Drafts objective internal legal memoranda using the CREAC method with structured header, questions presented, brief answers, statement of facts, analysis, and strategic recommendations. Use when drafting legal memos, research memoranda, pre-trial analysis, or any objective internal legal analysis document.
 ---
 

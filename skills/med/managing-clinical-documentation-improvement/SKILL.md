@@ -1,5 +1,6 @@
 ---
 name: managing-clinical-documentation-improvement
+language: en
 description: Designs CDI programs with NLP-assisted query generation and documentation quality metrics. Use when implementing CDI programs, designing documentation queries, or measuring documentation quality.
 tags:
   - management

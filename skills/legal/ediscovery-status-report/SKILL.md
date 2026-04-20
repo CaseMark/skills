@@ -1,5 +1,6 @@
 ---
 name: ediscovery-status-report
+language: en
 description: Generates a structured internal e-discovery status report tracking ESI from collection through attorney review. Covers custodian volumes, search term hit rates, review coding statistics, reviewer productivity, and projected timelines. Use when counsel, case managers, or clients need a progress report during the discovery phase of U.S. commercial litigation.
 ---
 

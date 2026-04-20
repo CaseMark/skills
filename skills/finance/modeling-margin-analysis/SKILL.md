@@ -1,5 +1,6 @@
 ---
 name: modeling-margin-analysis
+language: en
 description: Deconstructs gross, operating, and net margin trends with driver attribution and normalization. Use when analyzing profitability, attributing margin changes, or benchmarking margins.
 tags:
   - modeling

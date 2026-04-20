@@ -1,5 +1,6 @@
 ---
 name: conducting-backtest-validation
+language: en
 description: Structures backtesting methodology with out-of-sample testing, cross-validation, and overfitting detection techniques. Use when validating backtests, detecting overfitting, or ensuring backtest robustness.
 tags:
   - process

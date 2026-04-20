@@ -1,5 +1,6 @@
 ---
 name: coding-telehealth-services
+language: en
 description: Assigns telehealth-specific codes with place of service, modifier, and technology requirements. Use when coding virtual visits, applying telehealth modifiers, or documenting telemedicine services.
 tags:
   - coding

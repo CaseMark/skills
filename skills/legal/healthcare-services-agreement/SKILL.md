@@ -1,5 +1,6 @@
 ---
 name: healthcare-services-agreement
+language: en
 description: Drafts professional services agreements for healthcare providers and clients, covering HIPAA/HITECH compliance, BAA requirements, Anti-Kickback and Stark Law guardrails, credentialing warranties, malpractice insurance mandates, and patient care continuity on termination. Use when drafting healthcare provider contracts, medical services agreements, physician independent contractor agreements, or healthcare consulting engagements.
 ---
 

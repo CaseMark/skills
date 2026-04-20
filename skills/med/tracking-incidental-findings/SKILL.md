@@ -1,5 +1,6 @@
 ---
 name: tracking-incidental-findings
+language: en
 description: Manages incidental finding follow-up using ACR White Paper recommendations. Use when tracking incidentalomas, scheduling follow-up imaging, or managing unexpected findings.
 tags:
   - monitoring

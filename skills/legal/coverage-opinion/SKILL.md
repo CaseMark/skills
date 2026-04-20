@@ -1,5 +1,6 @@
 ---
 name: coverage-opinion
+language: en
 description: Drafts structured insurance coverage opinions analyzing duty to defend and duty to indemnify for carriers. Applies eight corners rule, policy exclusion analysis, and state-specific law. Use when a carrier receives a claim or lawsuit, needs a coverage determination, reservation of rights analysis, or defense obligation assessment.
 ---
 

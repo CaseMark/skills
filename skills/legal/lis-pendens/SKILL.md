@@ -1,5 +1,6 @@
 ---
 name: lis-pendens
+language: en
 description: >-
   Drafts a U.S. Lis Pendens (Notice of Pending Action) for recording against
   real property. Covers intake, statutory authority mapping, legal description,

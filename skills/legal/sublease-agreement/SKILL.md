@@ -1,5 +1,6 @@
 ---
 name: sublease-agreement
+language: en
 description: Drafts commercial sublease agreements subordinate to a master lease, with tripartite protections for sublessor, sublessee, and landlord. Reviews master lease for consent requirements, use restrictions, and subletting conditions before generating. Use when drafting sublease agreements, commercial subleases, subletting contracts, or subtenancy agreements.
 tags:
   - agreement

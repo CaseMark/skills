@@ -1,5 +1,6 @@
 ---
 name: articles-of-dissolution
+language: en
 description: Drafts Articles of Dissolution (Certificate of Dissolution) for U.S. corporations to terminate legal existence via state filing. Reviews articles of incorporation, bylaws, board resolutions, and shareholder consents for jurisdiction-specific compliance. Use when preparing dissolution filings, terminating a corporation, or drafting dissolution certificates for Secretary of State submission.
 tags:
   - analysis

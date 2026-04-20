@@ -1,5 +1,6 @@
 ---
 name: evaluating-founder-team-dynamics
+language: en
 description: Assesses founding team composition, complementarity, equity split rationale, and execution capability. Use when evaluating founding teams, assessing management risk, or conducting reference checks.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: ediscovery-review-summary
+language: en
 description: >-
   Produces an internal U.S. litigation e-discovery status summary covering ESI
   collection, processing, search-term hits, review throughput, relevance and

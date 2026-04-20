@@ -1,5 +1,6 @@
 ---
 name: analyzing-state-income-tax
+language: en
 description: Evaluates multi-state income tax positions with apportionment, nexus, and combined reporting analysis. Use when analyzing state tax, calculating apportionment, or managing multi-state filing.
 tags:
   - analysis

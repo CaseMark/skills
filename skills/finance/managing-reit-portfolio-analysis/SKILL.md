@@ -1,5 +1,6 @@
 ---
 name: managing-reit-portfolio-analysis
+language: en
 description: Structures REIT portfolio evaluation with property-level analysis, geographic diversification, and tenant concentration. Use when analyzing REIT portfolios, evaluating property mix, or assessing concentration risk.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-coding-denials
+language: en
 description: Analyzes claim denials and structures appeal documentation with supporting clinical evidence. Use when appealing denied claims, analyzing denial patterns, or preparing appeal documentation.
 tags:
   - management

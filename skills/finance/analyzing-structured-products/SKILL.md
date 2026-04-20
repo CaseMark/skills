@@ -1,5 +1,6 @@
 ---
 name: analyzing-structured-products
+language: en
 description: Evaluates ABS, MBS, CLO, and CDO structures with cash flow waterfall and subordination analysis. Use when analyzing structured products, modeling cash flow waterfalls, or evaluating tranche risk.
 tags:
   - analysis

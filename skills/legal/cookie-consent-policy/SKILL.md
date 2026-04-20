@@ -1,5 +1,6 @@
 ---
 name: cookie-consent-policy
+language: en
 description: Drafts publication-ready cookie policies, banner copy, and consent-flow language under GDPR/ePrivacy, CCPA/CPRA, and major U.S. state privacy laws. Converts a verified cookie inventory into enforceable policy sections with lawful-basis mapping, granular opt-in controls, withdrawal mechanics, and user-rights handling. Use when asked for cookie policy, cookie banner, tracking notice, consent management, do-not-sell notice, or privacy rights messaging.
 tags:
   - drafting

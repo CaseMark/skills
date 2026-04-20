@@ -1,5 +1,6 @@
 ---
 name: managing-alternative-investments-wealth
+language: en
 description: Evaluates alternative investment suitability for wealthy clients with liquidity analysis and portfolio fit assessment. Use when recommending alternatives, assessing suitability, or evaluating illiquid investments.
 tags:
   - management

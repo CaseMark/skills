@@ -1,5 +1,6 @@
 ---
 name: building-value-creation-plans
+language: en
 description: Structures 100-day and long-term value creation plans with revenue growth, margin improvement, and capital efficiency initiatives. Use when building value creation plans, tracking improvement initiatives, or preparing operating partner reviews.
 tags:
   - modeling

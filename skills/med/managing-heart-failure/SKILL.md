@@ -1,5 +1,6 @@
 ---
 name: managing-heart-failure
+language: en
 description: Guides GDMT optimization for HFrEF and HFpEF with medication titration and monitoring schedules. Use when managing heart failure, titrating GDMT, or optimizing HF medications.
 tags:
   - management

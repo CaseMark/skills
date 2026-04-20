@@ -1,5 +1,6 @@
 ---
 name: teaming-agreement
+language: en
 description: Drafts Teaming Agreements for prime-sub pursuit of U.S. government contracts. Covers proposal-phase and post-award obligations with FAR compliance. Use when drafting teaming agreements, prime-sub teaming arrangements, or federal solicitation collaboration agreements.
 ---
 

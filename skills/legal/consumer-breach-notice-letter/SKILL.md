@@ -1,5 +1,6 @@
 ---
 name: consumer-breach-notice-letter
+language: en
 description: >-
   Drafts U.S. consumer-facing data breach notification letters compliant with
   state statutes. Use when a security incident involving personal information

@@ -1,5 +1,6 @@
 ---
 name: managing-derivatives-portfolio-risk
+language: en
 description: Structures derivatives portfolio risk with Greek sensitivities, scenario analysis, and hedging strategies. Use when managing derivatives risk, analyzing Greek exposures, or designing hedge strategies.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-gestational-diabetes
+language: en
 description: Guides GDM screening, glucose monitoring, and insulin therapy with delivery timing criteria. Use when managing gestational diabetes, interpreting glucose logs, or planning GDM delivery timing.
 tags:
   - management

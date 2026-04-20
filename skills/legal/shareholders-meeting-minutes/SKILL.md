@@ -1,5 +1,6 @@
 ---
 name: shareholders-meeting-minutes
+language: en
 description: >-
   Drafts minute-book-ready U.S. corporate shareholders meeting minutes covering
   notice, record date, quorum, attendance, reports, votes, and resolutions. Use

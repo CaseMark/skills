@@ -1,5 +1,6 @@
 ---
 name: analyzing-correlation-trading
+language: en
 description: Structures correlation analysis with index vs. tranche pricing and correlation skew assessment. Use when analyzing correlation products, pricing tranches, or evaluating dispersion trades.
 tags:
   - analysis

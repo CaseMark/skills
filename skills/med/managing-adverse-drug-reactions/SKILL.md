@@ -1,5 +1,6 @@
 ---
 name: managing-adverse-drug-reactions
+language: en
 description: Classifies and documents adverse drug reactions with causality assessment (Naranjo) and reporting. Use when evaluating ADRs, assessing drug causality, or reporting adverse events.
 tags:
   - management

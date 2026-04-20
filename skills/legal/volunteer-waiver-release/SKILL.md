@@ -1,5 +1,6 @@
 ---
 name: volunteer-waiver-release
+language: en
 description: Drafts a Volunteer Waiver and Release of Liability Agreement covering assumption of risk, liability release, indemnification, medical authorization, and minor/guardian provisions. Enforces conspicuous formatting and state-law compliance. Use when drafting volunteer waivers, assumption-of-risk agreements, or volunteer liability releases for nonprofits or corporate volunteer programs.
 tags:
   - agreement

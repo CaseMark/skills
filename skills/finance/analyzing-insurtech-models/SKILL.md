@@ -1,5 +1,6 @@
 ---
 name: analyzing-insurtech-models
+language: en
 description: Evaluates insurtech business models with distribution innovation, underwriting technology, and claims automation. Use when analyzing insurtech, evaluating digital insurance, or assessing insurance technology.
 tags:
   - analysis

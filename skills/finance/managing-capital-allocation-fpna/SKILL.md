@@ -1,5 +1,6 @@
 ---
 name: managing-capital-allocation-fpna
+language: en
 description: Structures capital allocation analysis with project prioritization, ROI evaluation, and portfolio optimization. Use when prioritizing investments, evaluating capital projects, or managing capital budgets.
 tags:
   - management

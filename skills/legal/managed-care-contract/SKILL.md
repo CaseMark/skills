@@ -1,5 +1,6 @@
 ---
 name: managed-care-contract
+language: en
 description: Drafts managed care contracts between MCOs and healthcare providers covering payment methodology (FFS/capitation), credentialing, utilization management, HIPAA compliance, quality assurance (HEDIS/CAHPS), termination, indemnification, and dispute resolution. Ensures compliance with Anti-Kickback Statute, Stark Law, CMS MA/Medicaid guidelines, state insurance laws, and NCQA/URAC standards. Use when establishing provider networks, onboarding providers, updating managed care agreements, or negotiating MCO-provider contracts.
 tags:
   - agreement

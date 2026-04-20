@@ -1,5 +1,6 @@
 ---
 name: managing-restraint-documentation
+language: en
 description: Documents restraint use with clinical justification, monitoring requirements, and regular reassessment. Use when documenting restraint use, monitoring restrained patients, or justifying restraint continuation.
 tags:
   - management

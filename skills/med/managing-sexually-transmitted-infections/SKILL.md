@@ -1,5 +1,6 @@
 ---
 name: managing-sexually-transmitted-infections
+language: en
 description: Guides STI screening, treatment, and partner notification using CDC guidelines. Use when managing STIs, selecting treatment regimens, or documenting STI screening.
 tags:
   - management

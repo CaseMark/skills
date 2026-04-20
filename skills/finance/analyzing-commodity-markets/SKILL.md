@@ -1,5 +1,6 @@
 ---
 name: analyzing-commodity-markets
+language: en
 description: Structures commodity market analysis with supply/demand balances, inventory dynamics, and price driver attribution. Use when analyzing commodities, evaluating supply/demand, or forecasting commodity prices.
 tags:
   - analysis

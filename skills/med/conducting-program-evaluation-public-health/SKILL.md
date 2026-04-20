@@ -1,5 +1,6 @@
 ---
 name: conducting-program-evaluation-public-health
+language: en
 description: Structures program evaluation using CDC framework with process, outcome, and impact assessment. Use when evaluating public health programs, measuring program effectiveness, or conducting logic model analysis.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: convertible-note-purchase-agreement
+language: en
 description: Drafts a company-side Convertible Note Purchase Agreement for U.S. early-stage convertible debt financings. Structures note economics, conversion mechanics, reps and warranties, closing conditions, covenants, default provisions, and miscellaneous terms. Use when drafting a convertible note purchase agreement, bridge note, convertible debt financing, or SAFE alternative for a startup or early-stage company.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: adoption-summary
+language: en
 description: >-
   Produces structured U.S. adoption-law summaries for litigation and
   client-facing use. Use when asked to summarize adoption law, draft

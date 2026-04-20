@@ -1,5 +1,6 @@
 ---
 name: habeas-corpus-petition
+language: en
 description: >-
   Drafts federal and state habeas corpus petitions challenging unlawful
   detention on constitutional grounds under 28 U.S.C. §§ 2241, 2254, 2255

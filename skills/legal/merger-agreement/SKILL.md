@@ -1,5 +1,6 @@
 ---
 name: merger-agreement
+language: en
 description: >-
   Drafts U.S. merger agreements for M&A transactions covering merger structure
   and mechanics, consideration, equity treatment, reps and warranties,

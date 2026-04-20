@@ -1,5 +1,6 @@
 ---
 name: incident-response-plan
+language: en
 description: Drafts incident response plans and playbooks for legal organizations, adapting NIST SP 800-61 to law firm contexts including privilege preservation, ethics obligations, and state breach notification compliance. Use when creating IR plans, cybersecurity playbooks, breach response policies, or data incident procedures for law firms or legal departments.
 ---
 

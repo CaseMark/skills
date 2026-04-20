@@ -1,5 +1,6 @@
 ---
 name: telemedicine-consent
+language: en
 description: >
   Drafts dual-purpose telemedicine consent and policy documents covering informed
   consent, HIPAA privacy architecture, prescribing limitations, clinical scope

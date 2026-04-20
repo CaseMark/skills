@@ -1,5 +1,6 @@
 ---
 name: pretrial-statement
+language: en
 description: >-
   Drafts U.S. commercial litigation pre-trial statements and joint pretrial
   reports presenting stipulated facts, contested issues, witness/exhibit lists,

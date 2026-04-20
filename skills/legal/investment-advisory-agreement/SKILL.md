@@ -1,5 +1,6 @@
 ---
 name: investment-advisory-agreement
+language: en
 description: Drafts a U.S. Investment Advisory Agreement (IAA) for SEC- or state-registered advisers under the Investment Advisers Act of 1940, SEC Rules 204-3, 206(4)-2, and 206(4)-3. Use when onboarding an advisory client, establishing a new advisory relationship, or updating an existing IAA.
 tags:
   - agreement

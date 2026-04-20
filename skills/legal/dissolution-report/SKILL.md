@@ -1,5 +1,6 @@
 ---
 name: dissolution-report
+language: en
 description: Drafts a Final Report of Dissolution for corporations, LLCs, and partnerships with statutory compliance. Use when finalizing corporate dissolutions, drafting winding-up reports, or creating official dissolution records to protect officers/directors from future liability.
 tags:
   - analysis

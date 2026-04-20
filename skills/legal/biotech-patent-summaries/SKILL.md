@@ -1,5 +1,6 @@
 ---
 name: biotech-patent-summaries
+language: en
 description: >-
   Summarizes biotech patent families and disputes into litigation-ready
   intelligence briefs. Trigger when the user provides patent applications,

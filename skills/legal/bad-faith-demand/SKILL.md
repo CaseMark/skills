@@ -1,5 +1,6 @@
 ---
 name: bad-faith-demand
+language: en
 description: >
   Drafts time-limited policy-limits demand letters that create an opportunity-to-settle
   record for third-party bad faith exposure. Use when the user mentions time-limited demand,

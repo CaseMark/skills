@@ -1,5 +1,6 @@
 ---
 name: analyzing-leveraged-loan-markets
+language: en
 description: Monitors leveraged loan market conditions with new issue activity, technical dynamics, and CLO demand analysis. Use when analyzing loan markets, tracking CLO activity, or assessing market technical conditions.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: endowment-policy-statement
+language: en
 description: Drafts a Board-ready Endowment Fund Investment and Spending Policy Statement for 501(c)(3) nonprofits, covering UPMIFA compliance, asset allocation, spending methodology, underwater fund treatment, and fiduciary roles. Use when creating or updating endowment governance policies, institutional fund stewardship documents, or board-adoption investment and spending guidelines.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: consulting-services-agreement
+language: en
 description: Drafts a U.S. Consulting Services Agreement covering scope, compensation (hourly, fixed, retainer, hybrid), independent contractor classification, IP ownership, confidentiality, indemnification, liability caps, insurance, and dispute resolution. Use when drafting consulting contracts, professional services agreements, or independent contractor agreements.
 ---
 

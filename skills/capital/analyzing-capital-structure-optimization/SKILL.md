@@ -1,5 +1,6 @@
 ---
 name: analyzing-capital-structure-optimization
+language: en
 description: Evaluates optimal leverage with WACC minimization, rating impact, and financial flexibility assessment across market conditions. Use when optimizing capital structure, analyzing target leverage, or evaluating rating implications.
 tags:
   - analysis

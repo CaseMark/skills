@@ -1,5 +1,6 @@
 ---
 name: retail-lease-agreement
+language: en
 description: >-
   Drafts a U.S. retail lease agreement for shopping center or commercial
   property tenancies, covering base rent, percentage rent with gross sales

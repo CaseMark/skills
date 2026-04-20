@@ -1,5 +1,6 @@
 ---
 name: drafting-limited-partnership-agreements
+language: en
 description: Structures LPA terms with investment period, harvesting period, key person provisions, and investor governance rights. Use when preparing LPA terms, negotiating fund documents, or summarizing partnership provisions.
 tags:
   - drafting

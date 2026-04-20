@@ -1,5 +1,6 @@
 ---
 name: summary-judgment
+language: en
 description: Produces structured summaries of summary judgment motions, orders, and decisions. Use when the user needs to summarize an MSJ ruling, prepare a case status report, evaluate appeal posture, or brief a client on a dispositive motion outcome.
 tags:
   - analysis

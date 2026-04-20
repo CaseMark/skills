@@ -1,5 +1,6 @@
 ---
 name: franchise-nda
+language: en
 description: >-
   Drafts a U.S. franchise-focused confidentiality and non-disclosure agreement
   protecting franchisor trade secrets, operational manuals, financial data,

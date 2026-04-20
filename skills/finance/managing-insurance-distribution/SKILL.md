@@ -1,5 +1,6 @@
 ---
 name: managing-insurance-distribution
+language: en
 description: Structures insurance distribution analysis with channel economics, producer management, and compensation modeling. Use when analyzing distribution, evaluating producer performance, or modeling commission structures.
 tags:
   - management

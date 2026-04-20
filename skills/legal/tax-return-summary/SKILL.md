@@ -1,5 +1,6 @@
 ---
 name: tax-return-summary
+language: en
 description: Produces structured, citation-backed summaries of tax returns (Form 1040, schedules, W-2s, 1099s) for divorce, personal injury, and bankruptcy litigation. Extracts income sources, deductions, credits, and flags anomalies. Use when summarizing tax returns, analyzing financial discovery, assessing earning capacity, reviewing 1040s, or preparing financial profiles for litigation.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: newsletter-summary
+language: en
 description: >-
   Produces concise, actionable U.S. legal newsletter summaries of recent
   developments organized by practice area. Use when asked for a legal news

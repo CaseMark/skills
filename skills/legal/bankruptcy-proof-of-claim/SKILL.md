@@ -1,5 +1,6 @@
 ---
 name: bankruptcy-proof-of-claim
+language: en
 description: Drafts filing-ready proofs of claim for U.S. bankruptcy proceedings using Official Form B 410 under FRBP 3001. Handles secured, unsecured priority, and general unsecured claims with proper valuation, documentation, and bar date compliance. Use when a creditor needs to file or amend a proof of claim in a bankruptcy case.
 tags:
   - drafting

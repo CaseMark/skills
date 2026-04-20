@@ -1,5 +1,6 @@
 ---
 name: analyzing-going-private-transactions
+language: en
 description: Evaluates management buyouts and take-private proposals with fairness assessment, minority squeeze-out mechanics, and appraisal rights analysis. Use when analyzing going-private deals, evaluating MBO fairness, or assessing minority shareholder protections.
 tags:
   - analysis

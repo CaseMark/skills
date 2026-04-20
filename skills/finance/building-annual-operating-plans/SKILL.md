@@ -1,5 +1,6 @@
 ---
 name: building-annual-operating-plans
+language: en
 description: Structures annual operating plan development with revenue, expense, and capital budget integration. Use when building annual budgets, creating operating plans, or developing financial targets.
 tags:
   - modeling

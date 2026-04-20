@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-diabetes
+language: en
 description: Guides type 1 diabetes management in children with insulin adjustment algorithms and school plans. Use when managing pediatric T1DM, adjusting insulin doses, or creating diabetes school plans.
 tags:
   - management

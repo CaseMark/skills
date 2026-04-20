@@ -1,5 +1,6 @@
 ---
 name: validating-new-laboratory-tests
+language: en
 description: Structures test validation with precision, accuracy, linearity, and reference range establishment. Use when validating new assays, documenting method comparisons, or establishing reference ranges.
 tags:
   - validation

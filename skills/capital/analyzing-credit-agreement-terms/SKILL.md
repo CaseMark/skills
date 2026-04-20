@@ -1,5 +1,6 @@
 ---
 name: analyzing-credit-agreement-terms
+language: en
 description: Evaluates credit agreement provisions with borrower flexibility, lender protections, and documentation comparison analysis. Use when reviewing credit agreements, analyzing doc terms, or comparing loan documentation.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: managing-corporate-actions
+language: en
 description: Processes corporate action events with election management, entitlement calculation, and position adjustment. Use when managing corporate actions, processing dividends, or handling stock splits.
 tags:
   - management

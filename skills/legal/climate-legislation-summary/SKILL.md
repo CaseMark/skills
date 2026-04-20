@@ -1,5 +1,6 @@
 ---
 name: climate-legislation-summary
+language: en
 description: Produces structured, citation-ready summaries of climate change legislation for compliance and policy analysis. Use when summarizing climate laws, carbon pricing (tax, cap-and-trade), emissions targets, renewable mandates, adaptation requirements, or international climate agreements.
 ---
 

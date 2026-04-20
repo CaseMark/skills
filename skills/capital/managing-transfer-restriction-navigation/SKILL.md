@@ -1,5 +1,6 @@
 ---
 name: managing-transfer-restriction-navigation
+language: en
 description: Navigates LP transfer requirements including GP consent, ROFR compliance, and partnership agreement transfer provisions. Use when managing LP transfers, obtaining GP consent, or navigating transfer restrictions.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: managing-tender-offer-processes
+language: en
 description: Coordinates tender offer execution with offer terms, election mechanics, proration, and transfer documentation for LP interests. Use when managing tender offers, structuring LP elections, or coordinating interest transfers.
 tags:
   - management

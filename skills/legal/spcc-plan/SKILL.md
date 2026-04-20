@@ -1,5 +1,6 @@
 ---
 name: spcc-plan
+language: en
 description: Drafts a Spill Prevention, Control, and Countermeasure (SPCC) Plan compliant with 40 CFR Part 112 under the Clean Water Act. Covers facility characterization, oil storage inventory, secondary containment, prevention measures, response procedures, training, and PE certification language. Use when drafting SPCC plans, oil spill prevention documents, or EPA compliance submissions.
 ---
 

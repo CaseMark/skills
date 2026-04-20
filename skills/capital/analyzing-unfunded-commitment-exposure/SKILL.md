@@ -1,5 +1,6 @@
 ---
 name: analyzing-unfunded-commitment-exposure
+language: en
 description: Evaluates unfunded commitment obligations with call probability, pacing models, and portfolio-level exposure management. Use when analyzing unfunded exposure, managing commitment pacing, or stress testing capital calls.
 tags:
   - analysis

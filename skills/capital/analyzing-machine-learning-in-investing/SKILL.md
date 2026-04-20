@@ -1,5 +1,6 @@
 ---
 name: analyzing-machine-learning-in-investing
+language: en
 description: Evaluates ML applications in investment with feature engineering, model selection, and implementation considerations for alpha generation. Use when evaluating ML for investing, designing ML pipelines, or assessing ML strategy feasibility.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: pet-custody-best-interest
+language: en
 description: >
   Produces a jurisdiction-aware best-interests analysis for companion animal
   disputes in domestic dissolutions. Classifies the governing framework

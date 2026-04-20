@@ -1,5 +1,6 @@
 ---
 name: limited-partnership-agreement
+language: en
 description: >-
   Drafts U.S. private equity and venture capital Limited Partnership Agreements
   (LPAs) covering GP/LP governance, capital commitments, distribution waterfalls,

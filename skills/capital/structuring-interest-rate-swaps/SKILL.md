@@ -1,5 +1,6 @@
 ---
 name: structuring-interest-rate-swaps
+language: en
 description: Designs IRS structures with fixed/float mechanics, day count conventions, and mark-to-market valuation analysis. Use when structuring rate swaps, analyzing swap economics, or evaluating hedging alternatives.
 tags:
   - derivatives-and-structured-products

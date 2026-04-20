@@ -1,5 +1,6 @@
 ---
 name: managing-obesity
+language: en
 description: Guides comprehensive obesity management with BMI tracking, lifestyle interventions, medication options, and surgical referral criteria. Use when managing weight, counseling on obesity, or evaluating bariatric surgery candidacy.
 tags:
   - management

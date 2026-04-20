@@ -1,5 +1,6 @@
 ---
 name: managing-estimated-tax-planning
+language: en
 description: Structures quarterly estimated tax planning with safe harbor calculations and penalty avoidance strategies. Use when planning estimated taxes, calculating safe harbor payments, or avoiding underpayment penalties.
 tags:
   - management

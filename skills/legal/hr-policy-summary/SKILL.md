@@ -1,5 +1,6 @@
 ---
 name: hr-policy-summary
+language: en
 description: >-
   Summarizes U.S. HR policies and employee handbooks into plain-language,
   topic-organized briefs covering employee rights, obligations, and procedures

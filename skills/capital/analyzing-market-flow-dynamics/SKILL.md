@@ -1,5 +1,6 @@
 ---
 name: analyzing-market-flow-dynamics
+language: en
 description: Evaluates institutional flow patterns with fund flow analysis, positioning data, and sentiment indicator synthesis. Use when analyzing market flows, tracking institutional positioning, or assessing market sentiment.
 tags:
   - analysis

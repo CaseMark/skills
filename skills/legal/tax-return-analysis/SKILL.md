@@ -1,5 +1,6 @@
 ---
 name: tax-return-analysis
+language: en
 description: Produces litigation-ready financial memoranda from multi-year tax returns, covering income trends, filing status changes, deduction patterns, red flags, and trustee considerations. Use when reviewing Form 1040s for bankruptcy means testing, family law support calculations, personal injury damages, or financial discovery analysis.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: bank-account-resolution
+language: en
 description: >-
   Drafts U.S. corporate board resolutions authorizing bank account opening,
   signatory designation, transaction limits, and related banking documents

@@ -1,5 +1,6 @@
 ---
 name: analyzing-secondary-transactions
+language: en
 description: Evaluates secondary market transactions with NAV assessment, discount/premium analysis, and portfolio evaluation. Use when analyzing secondary deals, pricing LP interests, or evaluating GP-led secondaries.
 tags:
   - analysis

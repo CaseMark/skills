@@ -1,5 +1,6 @@
 ---
 name: analyzing-covenant-packages
+language: en
 description: Evaluates financial and incurrence covenant packages with headroom analysis, definition review, and covenant-lite comparison. Use when analyzing loan covenants, negotiating covenant levels, or assessing borrower flexibility.
 tags:
   - analysis

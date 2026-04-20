@@ -1,5 +1,6 @@
 ---
 name: structuring-commercial-mortgage-securitization
+language: en
 description: Designs CMBS structures with property-level underwriting, DSCR analysis, and loan-level credit assessment. Use when structuring CMBS deals, underwriting commercial mortgage pools, or analyzing property cash flows.
 tags:
   - structured-finance

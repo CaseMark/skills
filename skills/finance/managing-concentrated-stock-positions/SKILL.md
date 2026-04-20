@@ -1,5 +1,6 @@
 ---
 name: managing-concentrated-stock-positions
+language: en
 description: Evaluates strategies for concentrated equity positions with tax-efficient diversification and hedging analysis. Use when managing concentrated positions, planning diversification, or evaluating hedging strategies.
 tags:
   - management

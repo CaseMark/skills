@@ -1,5 +1,6 @@
 ---
 name: analyzing-structured-note-payoffs
+language: en
 description: Deconstructs structured note payoffs with embedded option identification, issuer credit risk, and all-in cost analysis. Use when analyzing structured notes, evaluating embedded options, or assessing structured product costs.
 tags:
   - analysis

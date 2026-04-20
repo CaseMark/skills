@@ -1,5 +1,6 @@
 ---
 name: investigation-summary
+language: en
 description: Produces structured antitrust investigation summaries for executives and counsel. Triggers on FTC/DOJ probes, state AG investigations, foreign competition authority inquiries, merger investigations, CIDs, subpoenas, or dawn-raid responses.
 tags:
   - regulatory

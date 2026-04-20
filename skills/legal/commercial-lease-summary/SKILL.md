@@ -1,5 +1,6 @@
 ---
 name: commercial-lease-summary
+language: en
 description: >-
   Produces structured U.S. commercial lease abstracts covering business terms,
   financial obligations, operating covenants, risk allocation, and deadlines.

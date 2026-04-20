@@ -1,5 +1,6 @@
 ---
 name: managing-health-ai-governance
+language: en
 description: Structures AI/ML governance for healthcare applications with validation, monitoring, and ethical frameworks. Use when governing health AI, validating clinical models, or managing AI ethics in healthcare.
 tags:
   - management

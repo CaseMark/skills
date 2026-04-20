@@ -1,5 +1,6 @@
 ---
 name: managing-code-of-ethics-compliance
+language: en
 description: Monitors personal trading, outside activities, and gift/entertainment compliance with documentation. Use when reviewing personal trading, monitoring outside activities, or managing ethics compliance.
 tags:
   - management

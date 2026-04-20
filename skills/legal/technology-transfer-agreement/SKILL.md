@@ -1,5 +1,6 @@
 ---
 name: technology-transfer-agreement
+language: en
 description: Drafts Technology Transfer Agreements governing IP rights, license grants, royalties, and commercialization obligations between licensors and licensees. Triggers when drafting technology licenses, university tech transfer deals, IP licensing, or know-how transfers in biotech, software, or clean energy sectors.
 tags:
   - agreement

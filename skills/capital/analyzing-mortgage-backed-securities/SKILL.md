@@ -1,5 +1,6 @@
 ---
 name: analyzing-mortgage-backed-securities
+language: en
 description: Evaluates MBS structures with prepayment modeling (CPR/CDR), collateral analysis, and tranche-level credit risk assessment. Use when analyzing MBS, modeling prepayment scenarios, or evaluating residential mortgage pools.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: analyzing-capital-allocation
+language: en
 description: Evaluates management capital allocation decisions across M&A, buybacks, dividends, and reinvestment. Use when assessing capital allocation, analyzing ROIC, or evaluating shareholder return strategies.
 tags:
   - analysis

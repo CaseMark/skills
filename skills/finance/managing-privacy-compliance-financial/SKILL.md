@@ -1,5 +1,6 @@
 ---
 name: managing-privacy-compliance-financial
+language: en
 description: Evaluates data privacy practices against GLBA, CCPA, and state privacy requirements. Use when assessing financial privacy compliance, managing opt-out requirements, or documenting data practices.
 tags:
   - management

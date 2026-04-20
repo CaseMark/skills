@@ -1,5 +1,6 @@
 ---
 name: managing-estate-planning
+language: en
 description: Structures estate plan analysis with trust review, tax efficiency, and legacy documentation. Use when analyzing estate plans, reviewing trust structures, or planning wealth transfer.
 tags:
   - management

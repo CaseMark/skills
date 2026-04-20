@@ -1,5 +1,6 @@
 ---
 name: bulk-sales-compliance
+language: en
 description: Drafts U.S. bulk sales compliance packages for asset purchase transactions outside the ordinary course, including UCC Article 6 jurisdictional analysis, creditor schedules, notice of intended bulk sale, seller affidavit, escrow framework, and closing checklist. Use when handling bulk sale, bulk transfer, inventory sale, asset purchase compliance, creditor notice, or successor liability avoidance.
 ---
 

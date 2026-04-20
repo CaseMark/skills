@@ -1,5 +1,6 @@
 ---
 name: grant-agreement
+language: en
 description: Drafts U.S. grant agreements for philanthropic fund transfers between grantors and nonprofit grantees. Enforces IRC § 4945 expenditure responsibility, 501(c)(3) compliance, permitted-use restrictions, milestone disbursements, reporting obligations, and clawback rights. Use when drafting grant award letters, corporate giving agreements, nonprofit funding agreements, or foundation grant contracts.
 tags:
   - agreement

@@ -1,5 +1,6 @@
 ---
 name: analyzing-public-to-private-transactions
+language: en
 description: Evaluates take-private feasibility with premium analysis, financing capacity, governance considerations, and regulatory requirements. Use when analyzing take-private opportunities, modeling go-private premiums, or assessing delisting mechanics.
 tags:
   - analysis

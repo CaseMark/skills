@@ -1,5 +1,6 @@
 ---
 name: managing-loan-underwriting-real-estate
+language: en
 description: Structures commercial real estate loan underwriting with DSCR, LTV, and debt yield analysis. Use when underwriting CRE loans, calculating coverage ratios, or evaluating loan terms.
 tags:
   - management

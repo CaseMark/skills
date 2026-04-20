@@ -1,5 +1,6 @@
 ---
 name: protective-order
+language: en
 description: Drafts a Stipulated Protective Order for federal litigation discovery under FRCP 26(c), covering confidentiality designation tiers, access restrictions, challenge procedures, clawback protocols, and disposition terms. Use when drafting protective orders, confidentiality stipulations, or discovery confidentiality agreements.
 ---
 

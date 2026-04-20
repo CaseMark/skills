@@ -1,5 +1,6 @@
 ---
 name: documenting-psychotherapy-notes
+language: en
 description: Structures psychotherapy documentation meeting billing and clinical requirements. Use when documenting therapy sessions, writing progress notes, or recording psychotherapy interventions.
 tags:
   - documentation

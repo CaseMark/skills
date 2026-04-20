@@ -1,5 +1,6 @@
 ---
 name: preparing-deal-attribution-analysis
+language: en
 description: Structures investment-level performance attribution with return decomposition, timing analysis, and value driver identification. Use when preparing deal attribution, analyzing investment returns, or building exit case studies.
 tags:
   - preparation

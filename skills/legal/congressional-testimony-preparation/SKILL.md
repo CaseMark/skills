@@ -1,5 +1,6 @@
 ---
 name: congressional-testimony-preparation
+language: en
 description: Prepares witnesses for U.S. congressional hearings with committee member profiling, predicted question matrices, mock Q&A rounds, and procedural guidance. Use when executives or organizational representatives face House or Senate testimony in oversight, regulatory, or public controversy proceedings.
 tags:
   - analysis

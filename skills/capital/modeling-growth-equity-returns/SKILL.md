@@ -1,5 +1,6 @@
 ---
 name: modeling-growth-equity-returns
+language: en
 description: Builds growth equity return models with minority/majority economics, participation rights, and preference stack analysis. Use when modeling growth equity returns, projecting minority investment outcomes, or analyzing preference structures.
 tags:
   - modeling

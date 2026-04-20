@@ -1,5 +1,6 @@
 ---
 name: managing-trade-operations
+language: en
 description: Structures trade lifecycle management with confirmation, settlement, and exception processing. Use when managing trade operations, processing confirmations, or resolving settlement exceptions.
 tags:
   - management

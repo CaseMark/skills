@@ -1,5 +1,6 @@
 ---
 name: loan-and-security-agreement
+language: en
 description: Drafts a U.S. secured Loan and Security Agreement with UCC Article 9 security interests, perfection mechanics, covenants, and enforcement remedies. Use when documenting secured commercial loans, acquisition financing, working capital facilities, or equipment financing requiring perfected lien documentation.
 ---
 

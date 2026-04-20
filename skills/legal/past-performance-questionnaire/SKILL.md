@@ -1,5 +1,6 @@
 ---
 name: past-performance-questionnaire
+language: en
 description: Drafts a Past Performance Questionnaire for evaluating legal service providers or contractors in government contract contexts. Trigger when the user needs vendor evaluation instruments, contractor performance reviews, past performance assessments, or due diligence questionnaires aligned with FAR requirements.
 tags:
   - checklist

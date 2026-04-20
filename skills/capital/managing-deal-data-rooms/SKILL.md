@@ -1,5 +1,6 @@
 ---
 name: managing-deal-data-rooms
+language: en
 description: Organizes virtual data room structure with document indexing, access permissions, activity tracking, and Q&A management. Use when setting up VDRs, managing document production, or tracking buyer diligence activity.
 tags:
   - management

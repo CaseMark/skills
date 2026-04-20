@@ -1,5 +1,6 @@
 ---
 name: managing-follow-on-investment-decisions
+language: en
 description: Evaluates pro-rata and follow-on investment decisions with portfolio construction, signaling effects, and reserve management. Use when making follow-on decisions, managing reserves, or evaluating pro-rata rights.
 tags:
   - management

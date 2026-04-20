@@ -1,5 +1,6 @@
 ---
 name: asset-purchase-agreement
+language: en
 description: >-
   Drafts a U.S. Asset Purchase Agreement for deals where a buyer acquires
   specified business assets while avoiding unwanted liabilities. Enforces

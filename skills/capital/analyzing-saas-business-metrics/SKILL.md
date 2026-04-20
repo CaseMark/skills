@@ -1,5 +1,6 @@
 ---
 name: analyzing-saas-business-metrics
+language: en
 description: Deconstructs SaaS operating metrics including ARR, NRR, gross retention, magic number, rule of 40, and cohort economics. Use when analyzing SaaS businesses, benchmarking software metrics, or evaluating subscription model health.
 tags:
   - analysis

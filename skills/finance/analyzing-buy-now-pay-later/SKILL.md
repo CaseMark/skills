@@ -1,5 +1,6 @@
 ---
 name: analyzing-buy-now-pay-later
+language: en
 description: Evaluates BNPL business models with credit performance, merchant economics, and regulatory treatment. Use when analyzing BNPL, evaluating installment products, or assessing consumer lending innovation.
 tags:
   - analysis

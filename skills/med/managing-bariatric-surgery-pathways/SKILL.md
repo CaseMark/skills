@@ -1,5 +1,6 @@
 ---
 name: managing-bariatric-surgery-pathways
+language: en
 description: Structures bariatric surgery evaluation with insurance requirements, preoperative optimization, and post-surgical nutrition protocols. Use when evaluating bariatric candidates, documenting insurance criteria, or managing post-bariatric care.
 tags:
   - management

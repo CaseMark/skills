@@ -1,5 +1,6 @@
 ---
 name: modeling-portfolio-rebalancing-rules
+language: en
 description: Designs rebalancing triggers with calendar-based, threshold-based, and hybrid approaches with tax and cost optimization. Use when designing rebalancing rules, optimizing rebalancing frequency, or modeling turnover impact.
 tags:
   - modeling

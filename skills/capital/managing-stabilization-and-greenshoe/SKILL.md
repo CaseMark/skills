@@ -1,5 +1,6 @@
 ---
 name: managing-stabilization-and-greenshoe
+language: en
 description: Structures post-offering stabilization with overallotment option exercise, market support, and penalty bid mechanisms. Use when managing stabilization, exercising greenshoe options, or analyzing aftermarket support.
 tags:
   - management

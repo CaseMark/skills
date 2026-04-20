@@ -1,5 +1,6 @@
 ---
 name: summons-service-packet
+language: en
 description: Drafts court-ready summons and service packets for civil personal injury litigation. Produces civil cover sheet, summons, complaint shell, service instructions, proof of service, and filing checklist with federal/state jurisdictional compliance. Use when preparing initial filing packages, commencing lawsuits, drafting summons forms, or assembling service of process documents.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: managing-length-of-stay
+language: en
 description: Tracks admission milestones against expected LOS benchmarks with barrier identification. Use when managing length of stay, identifying discharge barriers, or optimizing bed utilization.
 tags:
   - management

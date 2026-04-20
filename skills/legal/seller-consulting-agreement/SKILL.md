@@ -1,5 +1,6 @@
 ---
 name: seller-consulting-agreement
+language: en
 description: >-
   Drafts a U.S. seller consulting agreement for post-closing transition
   services in M&A and asset purchase transactions. Use when a seller must

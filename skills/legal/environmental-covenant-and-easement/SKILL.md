@@ -1,5 +1,6 @@
 ---
 name: environmental-covenant-and-easement
+language: en
 description: Drafts recordable environmental covenants and easements imposing run-with-the-land use restrictions after contamination, remediation, or regulatory settlement under UECA, CERCLA, RCRA, and state law. Use when drafting institutional controls, land use restrictions, environmental easements, or post-remediation covenants required by EPA or state environmental agencies.
 tags:
   - agreement

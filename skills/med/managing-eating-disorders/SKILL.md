@@ -1,5 +1,6 @@
 ---
 name: managing-eating-disorders
+language: en
 description: Guides eating disorder assessment with medical stability criteria and treatment level determination. Use when evaluating eating disorders, assessing medical stability, or determining treatment level.
 tags:
   - management

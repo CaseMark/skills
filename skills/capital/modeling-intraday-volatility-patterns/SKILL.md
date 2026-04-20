@@ -1,5 +1,6 @@
 ---
 name: modeling-intraday-volatility-patterns
+language: en
 description: Analyzes intraday volatility dynamics with open/close effects, lunch-time patterns, and event-driven volatility estimation. Use when modeling intraday volatility, timing order execution, or analyzing time-of-day effects.
 tags:
   - modeling

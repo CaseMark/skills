@@ -1,5 +1,6 @@
 ---
 name: markman-hearing-brief
+language: en
 description: Drafts Markman Hearing Briefs for patent claim construction under the Phillips framework. Structures disputed-term analysis from intrinsic evidence (claims, specification, prosecution history) with local-rule-compliant formatting. Use when preparing claim construction briefs, Markman hearing submissions, or patent claim interpretation arguments in US federal court.
 tags:
   - brief

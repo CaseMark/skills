@@ -1,5 +1,6 @@
 ---
 name: guardianship-nomination
+language: en
 description: Drafts jurisdiction-specific Nomination of Guardian for Minor Children documents for estate planning. Gathers parent and child details, applies state guardianship statutes and execution formalities, and produces a professionally formatted nomination designating primary and alternate guardians. Use when drafting guardian nominations, minor guardianship documents, parental nomination of guardians, or estate planning for children.
 tags:
   - agreement

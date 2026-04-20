@@ -1,5 +1,6 @@
 ---
 name: analyzing-private-credit-market-dynamics
+language: en
 description: Monitors private credit market evolution with AUM growth, competitive dynamics, and spread convergence with broadly syndicated markets. Use when analyzing private credit trends, tracking market evolution, or assessing competitive positioning.
 tags:
   - analysis

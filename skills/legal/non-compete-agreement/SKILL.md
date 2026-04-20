@@ -1,5 +1,6 @@
 ---
 name: non-compete-agreement
+language: en
 description: Drafts enforceable non-compete, non-solicitation, and confidentiality agreements tailored to U.S. state law. Performs jurisdictional analysis of reformation rules, consideration requirements, and statutory restrictions. Use when drafting restrictive covenant agreements, non-compete clauses, non-solicitation provisions, or enforcement-ready employment contracts.
 ---
 

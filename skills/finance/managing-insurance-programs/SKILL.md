@@ -1,5 +1,6 @@
 ---
 name: managing-insurance-programs
+language: en
 description: Structures corporate insurance program analysis with coverage adequacy and renewal documentation. Use when managing insurance programs, analyzing coverage, or documenting insurance renewals.
 tags:
   - management

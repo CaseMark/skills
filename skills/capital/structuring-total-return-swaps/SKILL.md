@@ -1,5 +1,6 @@
 ---
 name: structuring-total-return-swaps
+language: en
 description: Designs TRS structures with reference asset selection, financing rate mechanics, and collateral arrangements. Use when structuring TRS, analyzing synthetic exposure, or evaluating unfunded exposure alternatives.
 tags:
   - derivatives-and-structured-products

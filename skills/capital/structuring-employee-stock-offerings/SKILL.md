@@ -1,5 +1,6 @@
 ---
 name: structuring-employee-stock-offerings
+language: en
 description: Designs ESPP and directed share programs with eligibility, pricing mechanics, and regulatory compliance requirements. Use when structuring employee offerings, designing share purchase plans, or managing directed share allocations.
 tags:
   - equity-capital-markets

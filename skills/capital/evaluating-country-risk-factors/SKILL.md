@@ -1,5 +1,6 @@
 ---
 name: evaluating-country-risk-factors
+language: en
 description: Assesses country-level investment risk with political stability, rule of law, corruption indices, and expropriation history analysis. Use when evaluating country risk, assessing political exposure, or scoring sovereign investment environments.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: conducting-equity-market-windows-analysis
+language: en
 description: Assesses market receptivity for equity issuance with sector sentiment, volatility, and comparable recent offering performance. Use when timing equity offerings, analyzing market windows, or evaluating issuance conditions.
 tags:
   - process

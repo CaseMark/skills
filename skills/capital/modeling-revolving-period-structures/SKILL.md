@@ -1,5 +1,6 @@
 ---
 name: modeling-revolving-period-structures
+language: en
 description: Builds revolving securitization models with replenishment criteria, early amortization triggers, and portfolio composition limits. Use when modeling revolving structures, analyzing credit card ABS, or evaluating asset purchase criteria.
 tags:
   - modeling

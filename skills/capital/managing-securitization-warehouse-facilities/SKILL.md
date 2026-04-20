@@ -1,5 +1,6 @@
 ---
 name: managing-securitization-warehouse-facilities
+language: en
 description: Structures warehouse lending for securitization programs with advance rates, eligibility criteria, and ramp-up analysis. Use when managing warehouse lines, structuring ramp facilities, or analyzing warehouse economics.
 tags:
   - management

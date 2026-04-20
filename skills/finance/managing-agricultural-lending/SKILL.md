@@ -1,5 +1,6 @@
 ---
 name: managing-agricultural-lending
+language: en
 description: Structures agricultural loan analysis with crop budget evaluation, collateral assessment, and seasonal patterns. Use when underwriting agricultural loans, evaluating farm financials, or analyzing crop budgets.
 tags:
   - management

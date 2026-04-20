@@ -1,5 +1,6 @@
 ---
 name: managing-education-funding
+language: en
 description: Structures education savings analysis with 529 plans, financial aid impact, and funding strategy comparison. Use when planning education funding, analyzing 529 options, or projecting college costs.
 tags:
   - management

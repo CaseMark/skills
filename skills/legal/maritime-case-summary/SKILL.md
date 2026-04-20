@@ -1,5 +1,6 @@
 ---
 name: maritime-case-summary
+language: en
 description: Produces structured summaries of maritime law cases covering admiralty jurisdiction, collisions, liens, salvage, cargo damage, charter parties, and personal injury aboard vessels. Extracts facts, legal issues, holdings, and practical implications using maritime-specific doctrines. Use when summarizing admiralty opinions, collision rulings, Jones Act claims, charter party disputes, or maritime lien enforcement.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: analyzing-exit-strategies
+language: en
 description: Evaluates exit alternatives (IPO, strategic sale, secondary, recapitalization) with timing and return analysis. Use when planning exits, evaluating exit routes, or modeling exit scenarios.
 tags:
   - analysis

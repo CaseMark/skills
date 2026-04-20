@@ -1,5 +1,6 @@
 ---
 name: analyzing-vital-statistics
+language: en
 description: Structures vital records analysis with birth, death, and demographic trend reporting. Use when analyzing vital statistics, interpreting mortality data, or reporting demographic trends.
 tags:
   - analysis

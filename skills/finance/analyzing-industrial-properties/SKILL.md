@@ -1,5 +1,6 @@
 ---
 name: analyzing-industrial-properties
+language: en
 description: Structures industrial real estate analysis with logistics market assessment and tenant credit evaluation. Use when analyzing industrial properties, evaluating warehouse investments, or assessing logistics demand.
 tags:
   - analysis

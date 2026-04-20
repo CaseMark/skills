@@ -1,5 +1,6 @@
 ---
 name: analyzing-burn-multiple-efficiency
+language: en
 description: Evaluates capital efficiency with burn multiple, net new ARR per dollar burned, and path to profitability analysis. Use when analyzing burn efficiency, assessing capital needs, or modeling runway scenarios.
 tags:
   - analysis

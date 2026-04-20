@@ -1,5 +1,6 @@
 ---
 name: adr-outcomes-summary
+language: en
 description: Generates structured summaries of mediation and arbitration proceedings, extracting outcomes, settlement terms, monetary amounts, obligations, releases, and enforcement steps. Trigger when the user needs to document mediation settlements, arbitration awards, or partial ADR resolutions from transcripts, agreements, mediator reports, or awards.
 tags:
   - analysis

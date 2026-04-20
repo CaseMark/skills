@@ -1,5 +1,6 @@
 ---
 name: reporting-mri-studies
+language: en
 description: Structures MRI interpretation with sequence-specific analysis and standardized reporting. Use when reading MRI studies, creating MRI reports, or analyzing multisequence findings.
 tags:
   - reporting

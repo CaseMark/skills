@@ -1,5 +1,6 @@
 ---
 name: managing-tax-controversy
+language: en
 description: Structures tax controversy management with audit defense, protest, and appeals documentation. Use when managing tax audits, preparing protest letters, or documenting audit defense positions.
 tags:
   - management

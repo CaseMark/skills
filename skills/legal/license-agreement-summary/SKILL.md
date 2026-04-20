@@ -1,5 +1,6 @@
 ---
 name: license-agreement-summary
+language: en
 description: >-
   Produces a structured U.S. IP license agreement summary covering parties,
   grant scope, exclusivity, territory, financial terms, restrictions, IP

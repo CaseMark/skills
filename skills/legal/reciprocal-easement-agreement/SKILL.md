@@ -1,5 +1,6 @@
 ---
 name: reciprocal-easement-agreement
+language: en
 description: Drafts recordable Reciprocal Easement Agreements (REAs) with perpetual cross-easements and operating covenants between adjacent commercial parcels. Use when drafting REAs, cross-easement agreements, or shared-use covenants for shopping centers, mixed-use projects, office parks, or integrated commercial developments.
 ---
 

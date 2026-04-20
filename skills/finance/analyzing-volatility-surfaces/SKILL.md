@@ -1,5 +1,6 @@
 ---
 name: analyzing-volatility-surfaces
+language: en
 description: Constructs and interprets implied volatility surfaces with skew analysis and term structure assessment. Use when analyzing vol surfaces, interpreting skew, or modeling volatility dynamics.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: planning-exit-timing-and-strategy
+language: en
 description: Evaluates exit alternatives (strategic sale, IPO, secondary, continuation) with market conditions, buyer universe, and return optimization. Use when planning exits, evaluating exit timing, or comparing exit routes.
 tags:
   - planning

@@ -1,5 +1,6 @@
 ---
 name: evaluating-platform-acquisition-targets
+language: en
 description: Assesses platform investment opportunities with industry positioning, management quality, organic growth potential, and add-on runway. Use when evaluating platform deals, screening PE investments, or analyzing industry leaders.
 tags:
   - analysis

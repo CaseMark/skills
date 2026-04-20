@@ -1,5 +1,6 @@
 ---
 name: managing-cash-flow-forecasting
+language: en
 description: Structures short and long-term cash flow forecasting with variance analysis and liquidity planning. Use when forecasting cash flows, planning liquidity, or analyzing cash flow variances.
 tags:
   - management

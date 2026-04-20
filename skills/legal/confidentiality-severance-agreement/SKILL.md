@@ -1,5 +1,6 @@
 ---
 name: confidentiality-severance-agreement
+language: en
 description: >-
   Drafts U.S. employment confidentiality and severance agreements combining
   separation compensation, broad claim releases, post-employment restrictions,

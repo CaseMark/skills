@@ -1,5 +1,6 @@
 ---
 name: payoff-letter-request
+language: en
 description: >-
   Drafts formal payoff letter requests to lenders for the precise amount needed
   to satisfy a loan obligation on a given date. Extracts loan details from

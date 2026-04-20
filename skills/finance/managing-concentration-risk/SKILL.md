@@ -1,5 +1,6 @@
 ---
 name: managing-concentration-risk
+language: en
 description: Identifies and monitors portfolio concentration across counterparties, sectors, geographies, and instruments. Use when analyzing concentration risk, setting exposure limits, or monitoring concentration breaches.
 tags:
   - management

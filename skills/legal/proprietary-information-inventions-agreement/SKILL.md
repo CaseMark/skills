@@ -1,5 +1,6 @@
 ---
 name: proprietary-information-inventions-agreement
+language: en
 description: Drafts U.S. Proprietary Information and Inventions Agreements (PIIA) for employee or consultant onboarding. Use when drafting a PIIA, inventions assignment, proprietary information agreement, or onboarding confidentiality/IP paperwork. Covers invention assignment, DTSA immunity, prior inventions disclosure, and state-specific carve-outs.
 tags:
   - agreement

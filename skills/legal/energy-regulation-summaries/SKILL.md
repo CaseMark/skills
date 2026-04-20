@@ -1,5 +1,6 @@
 ---
 name: energy-regulation-summaries
+language: en
 description: Generates structured summaries of U.S. energy sector regulations and landmark cases with compliance-focused analysis. Use when summarizing FERC orders, state PUC decisions, renewable energy incentives, NEPA compliance, environmental review requirements, or energy case law for legal professionals, policymakers, or industry stakeholders.
 ---
 

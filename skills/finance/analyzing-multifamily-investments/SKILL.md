@@ -1,5 +1,6 @@
 ---
 name: analyzing-multifamily-investments
+language: en
 description: Structures multifamily property analysis with rent comps, expense benchmarking, and value-add assessment. Use when analyzing apartment investments, comparing rent levels, or evaluating value-add opportunities.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: analyzing-venture-deal-terms
+language: en
 description: Evaluates VC term sheet provisions with economic and control analysis and cap table impact. Use when analyzing term sheets, negotiating deal terms, or modeling cap table outcomes.
 tags:
   - analysis

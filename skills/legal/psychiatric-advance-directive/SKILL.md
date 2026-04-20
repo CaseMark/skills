@@ -1,5 +1,6 @@
 ---
 name: psychiatric-advance-directive
+language: en
 description: >
   Drafts jurisdiction-specific Psychiatric Advance Directives (PADs) capturing
   treatment preferences, agent authority, and crisis plans for psychiatric

@@ -1,5 +1,6 @@
 ---
 name: preparing-derivative-risk-reports
+language: en
 description: Structures derivative portfolio risk reporting with Greeks aggregation, scenario analysis, and limit monitoring. Use when preparing derivative risk reports, aggregating portfolio Greeks, or monitoring risk limits.
 tags:
   - preparation

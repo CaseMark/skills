@@ -1,5 +1,6 @@
 ---
 name: opt-out-form
+language: en
 description: Drafts opt-out forms and notices of exclusion for class actions, settlements, arbitration clauses, and privacy programs. Covers party identification, election language, consequence statements, signature blocks, and submission instructions per governing orders or contracts (FRCP 23, arbitration windows, CCPA/GDPR). Use when preparing opt-out paperwork, notices of exclusion, settlement opt-outs, or arbitration opt-out letters.
 ---
 

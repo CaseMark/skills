@@ -1,5 +1,6 @@
 ---
 name: managing-segment-reporting
+language: en
 description: Structures segment reporting with operating segment identification, measurement, and disclosure requirements. Use when preparing segment disclosures, identifying operating segments, or allocating intersegment items.
 tags:
   - management

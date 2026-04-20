@@ -1,5 +1,6 @@
 ---
 name: preparing-venture-exit-analyses
+language: en
 description: Evaluates exit scenarios including IPO, M&A, secondary sale, and recapitalization with timing and return analysis. Use when planning exits, comparing exit routes, or modeling exit outcomes for portfolio companies.
 tags:
   - preparation

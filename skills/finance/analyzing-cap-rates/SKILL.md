@@ -1,5 +1,6 @@
 ---
 name: analyzing-cap-rates
+language: en
 description: Structures capitalization rate analysis with market comparison, risk premium decomposition, and trend assessment. Use when analyzing cap rates, comparing market yields, or assessing pricing trends.
 tags:
   - analysis

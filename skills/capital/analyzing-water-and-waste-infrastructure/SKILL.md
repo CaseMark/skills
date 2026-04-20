@@ -1,5 +1,6 @@
 ---
 name: analyzing-water-and-waste-infrastructure
+language: en
 description: Evaluates water treatment, waste management, and environmental services assets with regulatory compliance and growth drivers. Use when analyzing water infrastructure, evaluating waste assets, or assessing utility investments.
 tags:
   - analysis

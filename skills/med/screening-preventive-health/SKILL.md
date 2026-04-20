@@ -1,5 +1,6 @@
 ---
 name: screening-preventive-health
+language: en
 description: Applies USPSTF screening recommendations by age, sex, and risk factors. Use when ordering preventive screenings, creating screening schedules, or applying evidence-based prevention guidelines.
 tags:
   - screening

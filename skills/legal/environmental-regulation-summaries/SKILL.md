@@ -1,5 +1,6 @@
 ---
 name: environmental-regulation-summaries
+language: en
 description: Generates structured summaries of U.S. environmental laws, compliance obligations, and permitting requirements for specific industries or projects. Covers federal statutes (CAA, CWA, RCRA, CERCLA, NEPA, ESA, TSCA), state analogs, and local requirements. Maps regulations to business activities including permitting, reporting, monitoring, and penalties. Use when advising on environmental compliance, assessing regulatory exposure, onboarding to a regulated industry, or building compliance programs for manufacturing, energy, construction, agriculture, mining, or waste management.
 ---
 

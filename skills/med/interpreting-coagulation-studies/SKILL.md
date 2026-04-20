@@ -1,5 +1,6 @@
 ---
 name: interpreting-coagulation-studies
+language: en
 description: Structures coagulation test interpretation with mixing studies and inhibitor identification. Use when interpreting coag panels, evaluating bleeding disorders, or analyzing mixing study results.
 tags:
   - analysis

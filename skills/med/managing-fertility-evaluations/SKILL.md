@@ -1,5 +1,6 @@
 ---
 name: managing-fertility-evaluations
+language: en
 description: Structures infertility workup with ovarian reserve testing, semen analysis, and treatment algorithms. Use when evaluating infertility, ordering fertility workup, or managing reproductive planning.
 tags:
   - management

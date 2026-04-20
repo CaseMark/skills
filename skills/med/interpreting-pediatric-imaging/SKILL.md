@@ -1,5 +1,6 @@
 ---
 name: interpreting-pediatric-imaging
+language: en
 description: Adapts imaging interpretation for pediatric anatomy with age-appropriate normal variants. Use when reading pediatric imaging, differentiating normal variants, or documenting pediatric-specific findings.
 tags:
   - analysis

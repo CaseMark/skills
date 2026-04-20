@@ -1,5 +1,6 @@
 ---
 name: audit-summary
+language: en
 description: >-
   Produces structured U.S. legal audit summaries that distill compliance
   findings into executive-ready risk prioritization and remediation plans,

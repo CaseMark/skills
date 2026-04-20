@@ -1,5 +1,6 @@
 ---
 name: analyzing-competitive-moat-durability
+language: en
 description: Evaluates competitive advantage sustainability with switching costs, network effects, data assets, and brand strength analysis. Use when assessing competitive moats, analyzing defensibility, or evaluating long-term positioning.
 tags:
   - analysis

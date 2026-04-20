@@ -1,5 +1,6 @@
 ---
 name: dip-financing-motion
+language: en
 description: Drafts U.S. bankruptcy DIP financing motions under 11 U.S.C. §§ 361-364, including superpriority claims, priming liens, and adequate protection. Use when preparing a DIP financing motion, Section 364(c)/(d) motion, priming lien motion, or emergency post-petition financing request.
 ---
 

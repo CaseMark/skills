@@ -1,5 +1,6 @@
 ---
 name: analyzing-total-return-swaps
+language: en
 description: Structures TRS analysis with funding benefit, counterparty exposure, and economic equivalence assessment. Use when analyzing TRS, evaluating synthetic exposure, or comparing TRS to cash positions.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: jnov-motion
+language: en
 description: Drafts a Motion for Judgment Notwithstanding the Verdict (JNOV) under FRCP 50(b) or state equivalents, with alternative new-trial request. Builds element-by-element evidentiary insufficiency arguments using transcript citations and preserves the appellate record. Use when drafting JNOV motions, post-trial motions, renewed judgment as a matter of law, or challenging jury verdicts for insufficient evidence.
 tags:
   - drafting

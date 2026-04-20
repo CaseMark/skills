@@ -1,5 +1,6 @@
 ---
 name: managing-dodd-frank-reporting
+language: en
 description: Structures Dodd-Frank derivatives reporting with trade reporting, position limits, and SEF compliance. Use when managing DFA reporting, submitting trade reports, or ensuring SEF compliance.
 tags:
   - management

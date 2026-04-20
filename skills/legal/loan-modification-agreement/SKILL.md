@@ -1,5 +1,6 @@
 ---
 name: loan-modification-agreement
+language: en
 description: Drafts a U.S. commercial Loan Modification Agreement amending existing loan terms (interest rates, payment schedules, maturity dates, covenants) while preserving enforceability of original loan documents, security interests, and guarantees without novation. Use when restructuring commercial loans, extending maturities, modifying covenants, formalizing forbearance, or documenting workout arrangements.
 ---
 

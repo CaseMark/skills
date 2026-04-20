@@ -1,5 +1,6 @@
 ---
 name: modeling-resource-depletion-economics
+language: en
 description: Builds depletion models with production decline, reserve replacement economics, and terminal value analysis for finite-life assets. Use when modeling depletion, analyzing resource longevity, or evaluating reserve life economics.
 tags:
   - modeling

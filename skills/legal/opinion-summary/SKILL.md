@@ -1,5 +1,6 @@
 ---
 name: opinion-summary
+language: en
 description: Summarizes U.S. transactional legal opinions into executive-ready briefs preserving issues, analysis, conclusions, qualifications, and key authorities. Triggers when asked to summarize a legal opinion, opinion memorandum, legal analysis memo, or produce an executive opinion recap.
 tags:
   - summarization

@@ -1,5 +1,6 @@
 ---
 name: api-constraints-exhibit
+language: en
 description: >-
   Extracts technical API constraints from OpenAPI/Swagger specs and developer
   docs into a contract-ready API Access & Constraints Schedule with source

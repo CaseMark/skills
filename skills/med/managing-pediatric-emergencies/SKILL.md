@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-emergencies
+language: en
 description: Adapts emergency protocols for pediatric patients using weight-based dosing and Broselow methodology. Use when treating pediatric emergencies, calculating pediatric doses, or managing pediatric resuscitations.
 tags:
   - management

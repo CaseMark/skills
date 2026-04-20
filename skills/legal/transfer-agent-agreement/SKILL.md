@@ -1,5 +1,6 @@
 ---
 name: transfer-agent-agreement
+language: en
 description: >-
   Drafts U.S. transfer agent agreements between issuers and SEC-registered
   transfer agents covering appointment, stock ledger, transfer processing,

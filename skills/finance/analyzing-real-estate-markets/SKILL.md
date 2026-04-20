@@ -1,5 +1,6 @@
 ---
 name: analyzing-real-estate-markets
+language: en
 description: Structures real estate market analysis with supply/demand dynamics, absorption rates, and rent growth projections. Use when analyzing real estate markets, forecasting market conditions, or evaluating market fundamentals.
 tags:
   - analysis

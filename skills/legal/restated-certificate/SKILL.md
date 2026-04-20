@@ -1,5 +1,6 @@
 ---
 name: restated-certificate
+language: en
 description: Drafts an Amended and Restated Certificate of Incorporation for Delaware corporations in preferred stock financing rounds. Covers authorized capital, preferred stock rights (dividends, liquidation, conversion, anti-dilution), protective provisions, and DGCL compliance. Use when drafting charter documents, restated certificates, venture financing corporate documents, or Delaware certificate amendments from term sheets and cap tables.
 ---
 

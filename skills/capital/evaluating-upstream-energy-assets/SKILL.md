@@ -1,5 +1,6 @@
 ---
 name: evaluating-upstream-energy-assets
+language: en
 description: Assesses upstream oil and gas assets with reserve estimation, production decline curves, and net asset value modeling. Use when evaluating E&P assets, analyzing reserve reports, or modeling upstream economics.
 tags:
   - analysis

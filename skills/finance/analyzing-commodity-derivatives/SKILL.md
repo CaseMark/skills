@@ -1,5 +1,6 @@
 ---
 name: analyzing-commodity-derivatives
+language: en
 description: Structures commodity derivative pricing with forward curve construction and convenience yield estimation. Use when pricing commodity derivatives, analyzing forward curves, or modeling commodity markets.
 tags:
   - analysis

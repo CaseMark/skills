@@ -1,5 +1,6 @@
 ---
 name: managing-debt-and-equity-issuance
+language: en
 description: Structures accounting for debt and equity issuances with classification, measurement, and issuance cost treatment. Use when accounting for debt issuance, recording equity offerings, or classifying hybrid instruments.
 tags:
   - management

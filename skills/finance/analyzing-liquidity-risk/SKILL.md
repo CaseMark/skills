@@ -1,5 +1,6 @@
 ---
 name: analyzing-liquidity-risk
+language: en
 description: Assesses portfolio liquidity with redemption stress testing and market impact estimation. Use when analyzing liquidity risk, stress testing redemptions, or evaluating market impact.
 tags:
   - analysis

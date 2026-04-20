@@ -1,5 +1,6 @@
 ---
 name: managing-cross-border-payment-analysis
+language: en
 description: Structures cross-border payment evaluation with corridor analysis, pricing, and regulatory requirements. Use when analyzing cross-border payments, evaluating remittance services, or assessing international payment solutions.
 tags:
   - management

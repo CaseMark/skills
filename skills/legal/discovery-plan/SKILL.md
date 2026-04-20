@@ -1,5 +1,6 @@
 ---
 name: discovery-plan
+language: en
 description: Drafts Joint Discovery Plans and Proposed Scheduling Orders under FRCP 26(f) or state equivalents. Analyzes pleadings, court requirements, and case complexity to produce discovery timelines, ESI protocols, privilege procedures, and scheduling deadlines. Use when preparing Rule 26(f) reports, proposed scheduling orders, case management plans, or discovery frameworks after meet-and-confer.
 tags:
   - drafting

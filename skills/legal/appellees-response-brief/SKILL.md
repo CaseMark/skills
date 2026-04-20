@@ -1,5 +1,6 @@
 ---
 name: appellees-response-brief
+language: en
 description: Drafts an Appellee's Response Brief defending the trial court's judgment and arguing for affirmance. Covers standard of review analysis, record-based rebuttal, authority distinction, and procedural compliance. Trigger when drafting appellee briefs, response briefs, answering briefs, or defending trial court judgments on appeal.
 tags:
   - brief

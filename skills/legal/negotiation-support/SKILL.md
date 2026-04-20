@@ -1,5 +1,6 @@
 ---
 name: negotiation-support
+language: en
 description: >-
   Generates a strategic negotiation support document with leverage analysis,
   BATNA assessment, risk matrix, and issue-by-issue tactical planning. Use

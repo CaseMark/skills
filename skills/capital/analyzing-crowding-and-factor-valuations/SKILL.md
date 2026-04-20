@@ -1,5 +1,6 @@
 ---
 name: analyzing-crowding-and-factor-valuations
+language: en
 description: Evaluates factor crowding with positioning analysis, valuation spread monitoring, and unwind risk assessment. Use when analyzing factor crowding, assessing unwind risk, or monitoring factor valuation extremes.
 tags:
   - analysis

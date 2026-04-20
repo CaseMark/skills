@@ -1,5 +1,6 @@
 ---
 name: private-placement-memo
+language: en
 description: >
   Drafts a legally compliant Private Placement Memorandum for Regulation D
   offerings (Rule 506(b)/506(c)), covering full disclosure framework including

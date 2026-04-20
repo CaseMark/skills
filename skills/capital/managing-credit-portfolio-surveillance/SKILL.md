@@ -1,5 +1,6 @@
 ---
 name: managing-credit-portfolio-surveillance
+language: en
 description: Monitors credit portfolio health with rating migration tracking, watchlist management, and early warning indicator analysis. Use when conducting portfolio surveillance, managing credit watchlists, or tracking credit migration.
 tags:
   - management

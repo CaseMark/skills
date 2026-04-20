@@ -1,5 +1,6 @@
 ---
 name: conference-summary
+language: en
 description: >-
   Produces structured legal conference summaries capturing session substance,
   speaker credentials, cited authorities, and practical takeaways. Use when

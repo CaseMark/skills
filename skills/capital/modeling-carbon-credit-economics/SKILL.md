@@ -1,5 +1,6 @@
 ---
 name: modeling-carbon-credit-economics
+language: en
 description: Builds carbon credit models with offset generation analysis, verification costs, and market pricing dynamics for carbon-linked investments. Use when modeling carbon credits, analyzing offset economics, or evaluating carbon market exposure.
 tags:
   - modeling

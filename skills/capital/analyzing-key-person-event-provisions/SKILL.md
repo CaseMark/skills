@@ -1,5 +1,6 @@
 ---
 name: analyzing-key-person-event-provisions
+language: en
 description: Evaluates key person clause triggers, consequences, and cure mechanics in partnership documentation. Use when analyzing key person provisions, assessing management stability risk, or structuring departure protections.
 tags:
   - analysis

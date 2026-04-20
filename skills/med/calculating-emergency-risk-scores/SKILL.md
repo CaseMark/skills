@@ -1,5 +1,6 @@
 ---
 name: calculating-emergency-risk-scores
+language: en
 description: Computes validated risk scores (HEART, PERC, Wells, Ottawa, CURB-65) from clinical data. Use when calculating clinical decision scores, risk-stratifying ED patients, or applying clinical prediction rules.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: managing-contact-tracing
+language: en
 description: Structures contact tracing operations with case investigation, contact identification, and monitoring protocols. Use when conducting contact tracing, managing case investigations, or monitoring exposed contacts.
 tags:
   - management

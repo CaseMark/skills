@@ -1,5 +1,6 @@
 ---
 name: evaluating-startup-business-models
+language: en
 description: Assesses startup viability through business model canvas analysis, unit economics validation, and market timing evaluation. Use when evaluating startup pitches, analyzing business model sustainability, or assessing product-market fit.
 tags:
   - analysis

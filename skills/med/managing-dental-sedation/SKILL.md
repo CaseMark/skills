@@ -1,5 +1,6 @@
 ---
 name: managing-dental-sedation
+language: en
 description: Documents conscious sedation with patient selection, monitoring parameters, and recovery assessment. Use when providing dental sedation, documenting sedation monitoring, or managing sedation recovery.
 tags:
   - management

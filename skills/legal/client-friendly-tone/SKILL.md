@@ -1,5 +1,6 @@
 ---
 name: client-friendly-tone
+language: en
 description: Rewrites legal communications in plain-language, client-friendly tone. Triggers when drafting or revising engagement letters, status updates, strategy memos, settlement recommendations, invoice cover letters, or any client-facing correspondence. Replaces jargon, leads with conclusions, and highlights action items.
 tags:
   - drafting

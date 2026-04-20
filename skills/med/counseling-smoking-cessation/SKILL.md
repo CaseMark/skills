@@ -1,5 +1,6 @@
 ---
 name: counseling-smoking-cessation
+language: en
 description: Structures 5As smoking cessation intervention with pharmacotherapy selection and motivational interviewing. Use when counseling on tobacco use, prescribing cessation aids, or documenting quit attempts.
 tags:
   - counseling

@@ -1,5 +1,6 @@
 ---
 name: writ-of-execution
+language: en
 description: Drafts writs of execution and supporting levy instructions for post-judgment enforcement of money judgments. Covers application for writ, interest calculation, asset-specific levy methods, exemption analysis, and multi-state domestication. Use when enforcing a money judgment through asset seizure, bank levy, or keeper levy.
 tags:
   - drafting

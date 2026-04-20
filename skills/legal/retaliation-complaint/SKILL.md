@@ -1,5 +1,6 @@
 ---
 name: retaliation-complaint
+language: en
 description: >-
   Drafts U.S. employment-retaliation complaints with jurisdiction, causation,
   and remedy sections aligned to the governing statute. Use when counsel needs

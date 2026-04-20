@@ -1,5 +1,6 @@
 ---
 name: asbestos-abatement-plan
+language: en
 description: Drafts an asbestos abatement plan compliant with OSHA 29 CFR 1926.1101 and EPA NESHAP 40 CFR 61 Subpart M. Extracts facility details from uploaded surveys and contractor documents to produce a regulatory filing and operational guide. Use when preparing pre-abatement regulatory submissions, contractor work plans, or facility owner compliance documentation for asbestos removal projects.
 tags:
   - checklist

@@ -1,5 +1,6 @@
 ---
 name: managing-dividend-policy
+language: en
 description: Evaluates dividend policy options with payout ratio analysis, sustainability assessment, and shareholder return comparison. Use when setting dividend policy, analyzing payout sustainability, or comparing return alternatives.
 tags:
   - management

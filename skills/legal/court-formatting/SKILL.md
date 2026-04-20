@@ -1,5 +1,6 @@
 ---
 name: court-formatting
+language: en
 description: >-
   Standardizes U.S. court-filing formatting for pleadings, motions, and briefs.
   Enforces caption structure, margins, fonts, spacing, pagination, line

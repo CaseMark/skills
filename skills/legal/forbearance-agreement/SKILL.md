@@ -1,5 +1,6 @@
 ---
 name: forbearance-agreement
+language: en
 description: Drafts loan forbearance agreements that temporarily suspend lender enforcement rights during borrower default. Triggers when drafting forbearance agreements, loan workout documents, payment modification agreements, or temporary enforcement suspension arrangements in commercial lending.
 tags:
   - agreement

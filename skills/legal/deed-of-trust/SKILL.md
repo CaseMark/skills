@@ -1,5 +1,6 @@
 ---
 name: deed-of-trust
+language: en
 description: Drafts combined Deed of Trust and Security Agreement instruments creating real property and UCC Article 9 personal property security interests for commercial financing. Use when drafting trust deeds, security agreements, commercial real estate financing documents, or combined real/personal property security instruments.
 ---
 

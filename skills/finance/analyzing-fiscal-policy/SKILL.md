@@ -1,5 +1,6 @@
 ---
 name: analyzing-fiscal-policy
+language: en
 description: Evaluates government fiscal policy with budget impact, multiplier effects, and deficit/debt trajectory analysis. Use when analyzing fiscal policy, evaluating budget proposals, or assessing government spending impact.
 tags:
   - analysis

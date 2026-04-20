@@ -1,5 +1,6 @@
 ---
 name: legal-research-summary
+language: en
 description: >-
   Synthesizes U.S. statutes, case law, and regulatory guidance into
   attorney-ready litigation research summaries with counterarguments and

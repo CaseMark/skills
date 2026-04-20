@@ -1,5 +1,6 @@
 ---
 name: managing-parenteral-nutrition
+language: en
 description: Structures TPN order review with macronutrient calculations, compatibility checks, and monitoring protocols. Use when reviewing TPN orders, calculating nutrition requirements, or managing parenteral feeding.
 tags:
   - management

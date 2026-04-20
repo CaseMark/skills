@@ -1,5 +1,6 @@
 ---
 name: evaluating-growth-stage-companies
+language: en
 description: Assesses scaling companies with product-market fit validation, unit economics maturity, and growth trajectory sustainability analysis. Use when evaluating growth-stage investments, analyzing scaling businesses, or assessing expansion readiness.
 tags:
   - analysis

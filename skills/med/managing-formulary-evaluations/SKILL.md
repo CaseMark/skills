@@ -1,5 +1,6 @@
 ---
 name: managing-formulary-evaluations
+language: en
 description: Structures drug formulary reviews with efficacy, safety, cost-effectiveness, and therapeutic interchange analysis. Use when evaluating formulary additions, conducting P&T reviews, or analyzing therapeutic alternatives.
 tags:
   - management

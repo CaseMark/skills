@@ -1,5 +1,6 @@
 ---
 name: tender-letter
+language: en
 description: Drafts formal legal tender letters serving as official notice of payment or performance of contractual obligations. Grounds the letter in contracts, invoices, and correspondence to protect the sender's legal position. Use when drafting tender of payment letters, tender of performance notices, or formal fulfillment communications in litigation or pre-litigation contexts.
 ---
 

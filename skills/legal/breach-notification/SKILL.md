@@ -1,5 +1,6 @@
 ---
 name: breach-notification
+language: en
 description: Drafts legally compliant data breach notification letters to affected consumers under multi-state and federal statutes (HIPAA, GLBA, state AG requirements). Use when drafting breach notices, security incident consumer notifications, or data compromise letters.
 ---
 

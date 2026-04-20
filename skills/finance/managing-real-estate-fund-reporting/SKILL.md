@@ -1,5 +1,6 @@
 ---
 name: managing-real-estate-fund-reporting
+language: en
 description: Structures real estate fund reporting with property-level performance, valuation updates, and distribution analysis. Use when preparing real estate fund reports, calculating fund returns, or documenting property performance.
 tags:
   - management

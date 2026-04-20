@@ -1,5 +1,6 @@
 ---
 name: purchase-agreement-breach-complaint
+language: en
 description: >-
   Drafts a U.S. civil complaint for breach of a real estate purchase agreement,
   covering jurisdiction, venue, parties, contract terms, breach allegations,

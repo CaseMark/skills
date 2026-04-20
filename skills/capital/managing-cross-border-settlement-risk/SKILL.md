@@ -1,5 +1,6 @@
 ---
 name: managing-cross-border-settlement-risk
+language: en
 description: Evaluates settlement risk in cross-border transactions with time zone analysis, CLS participation, and Herstatt risk mitigation. Use when managing settlement risk, analyzing CLS eligibility, or evaluating cross-currency settlement.
 tags:
   - management

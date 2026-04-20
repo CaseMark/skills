@@ -1,5 +1,6 @@
 ---
 name: analyzing-esg-strategy-and-value-creation
+language: en
 description: Evaluates ESG strategy with materiality assessment, stakeholder analysis, and value creation linkage for corporate decision-making. Use when analyzing ESG strategy, assessing material ESG factors, or linking sustainability to value.
 tags:
   - analysis

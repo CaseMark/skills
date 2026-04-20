@@ -1,5 +1,6 @@
 ---
 name: cip-policy
+language: en
 description: >-
   Drafts a U.S. Customer Identification Program (CIP) policy compliant with
   USA PATRIOT Act Section 326 and 31 CFR 1020.220. Covers identity collection,

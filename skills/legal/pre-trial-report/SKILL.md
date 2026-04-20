@@ -1,5 +1,6 @@
 ---
 name: pre-trial-report
+language: en
 description: Drafts objective pre-trial reports for insurance carriers in personal injury defense litigation. Covers liability analysis, damages evaluation, venue/jury analysis, cost projections, expert testimony, settlement recommendations, and trial outcome predictions (~60 days before trial). Use when preparing carrier pre-trial reports, defense trial assessments, or settlement recommendation memos.
 tags:
   - drafting

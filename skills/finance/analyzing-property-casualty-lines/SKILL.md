@@ -1,5 +1,6 @@
 ---
 name: analyzing-property-casualty-lines
+language: en
 description: Evaluates P&C insurance lines with market cycle analysis, loss cost trending, and competitive assessment. Use when analyzing P&C markets, tracking insurance cycles, or evaluating line profitability.
 tags:
   - analysis

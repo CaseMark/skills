@@ -1,5 +1,6 @@
 ---
 name: managing-nursing-quality-metrics
+language: en
 description: Tracks nursing quality indicators (NDNQI, HCAHPS) with performance improvement documentation. Use when monitoring nursing quality, tracking NDNQI metrics, or managing quality improvement.
 tags:
   - management

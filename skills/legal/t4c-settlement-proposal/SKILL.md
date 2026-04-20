@@ -1,5 +1,6 @@
 ---
 name: t4c-settlement-proposal
+language: en
 description: Drafts a Termination for Convenience Settlement Proposal under FAR Part 49. Trigger when a contractor must submit a formal settlement claim after government T4C, prepare FAR 49.602 fixed-price or FAR 49.603 total-cost-basis proposals, or handle inventory disposition under a terminated contract.
 tags:
   - agreement

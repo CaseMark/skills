@@ -1,5 +1,6 @@
 ---
 name: managing-redemption-processing
+language: en
 description: Structures redemption processing with NAV calculation, gate provisions, and liquidity management. Use when processing redemptions, managing liquidity, or applying gate provisions.
 tags:
   - management

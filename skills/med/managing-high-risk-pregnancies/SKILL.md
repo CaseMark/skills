@@ -1,5 +1,6 @@
 ---
 name: managing-high-risk-pregnancies
+language: en
 description: Guides management of preeclampsia, gestational diabetes, and other high-risk conditions with monitoring protocols. Use when managing high-risk pregnancies, monitoring preeclampsia, or managing GDM.
 tags:
   - management

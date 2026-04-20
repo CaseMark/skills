@@ -1,5 +1,6 @@
 ---
 name: api-license-agreement
+language: en
 description: >-
   Drafts a clickwrap-ready US API License Agreement for companies licensing
   proprietary APIs to third-party developers. Use when drafting API terms of

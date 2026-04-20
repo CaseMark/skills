@@ -1,5 +1,6 @@
 ---
 name: managing-pulmonary-rehabilitation
+language: en
 description: Structures pulmonary rehab with exercise prescription, dyspnea management, and outcome measurement. Use when managing pulmonary rehab, prescribing breathing exercises, or tracking respiratory outcomes.
 tags:
   - management

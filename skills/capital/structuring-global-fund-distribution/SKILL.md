@@ -1,5 +1,6 @@
 ---
 name: structuring-global-fund-distribution
+language: en
 description: Designs international fund distribution with UCITS/AIFMD compliance, passporting, and local registration requirements. Use when planning international distribution, structuring cross-border fund access, or navigating regulatory requirements.
 tags:
   - cross-border-capital

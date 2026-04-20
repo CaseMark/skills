@@ -1,5 +1,6 @@
 ---
 name: managing-portfolio-construction-secondaries
+language: en
 description: Structures secondary portfolio construction with vintage diversification, strategy mix, and geographic allocation optimization. Use when building secondary portfolios, managing allocation targets, or optimizing portfolio composition.
 tags:
   - management

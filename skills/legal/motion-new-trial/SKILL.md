@@ -1,5 +1,6 @@
 ---
 name: motion-new-trial
+language: en
 description: Drafts a post-verdict Motion for New Trial in criminal defense cases. Structures arguments around recognized grounds (weight-of-evidence, newly discovered evidence, prosecutorial misconduct, juror misconduct, IAC, judicial error) with record citations. Use when filing a motion for new trial, post-conviction motion, or requesting the court set aside a criminal verdict.
 tags:
   - drafting

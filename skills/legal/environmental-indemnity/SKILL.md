@@ -1,5 +1,6 @@
 ---
 name: environmental-indemnity
+language: en
 description: Drafts Environmental Indemnity Agreements allocating contamination, remediation, and regulatory liabilities between indemnitor (borrower/owner) and indemnitee (lender/secured party) in CRE and lending transactions. Covers CERCLA, RCRA, state statutes, survival provisions, and enforcement mechanisms. Use when drafting environmental indemnities, contamination risk allocation, or lender environmental protections in acquisition or financing deals.
 tags:
   - agreement

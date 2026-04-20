@@ -1,5 +1,6 @@
 ---
 name: deposition-summary-index
+language: en
 description: >-
   Creates topic-based deposition summaries with exhibit-to-transcript citation
   mapping for U.S. commercial litigation. Use when a user provides a deposition

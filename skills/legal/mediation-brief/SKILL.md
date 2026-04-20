@@ -1,5 +1,6 @@
 ---
 name: mediation-brief
+language: en
 description: Drafts mediation briefs for commercial litigation that educate the mediator on facts, law, damages, and litigation risks while advancing settlement. Use when preparing for mediation sessions, drafting pre-mediation submissions, or creating settlement briefs.
 ---
 

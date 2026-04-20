@@ -1,5 +1,6 @@
 ---
 name: managing-privacy-breach-response
+language: en
 description: Guides HIPAA breach investigation with risk assessment, notification requirements, and remediation documentation. Use when managing data breaches, assessing breach risk, or documenting breach response.
 tags:
   - management

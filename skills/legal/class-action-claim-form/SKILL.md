@@ -1,5 +1,6 @@
 ---
 name: class-action-claim-form
+language: en
 description: Drafts official class action claim forms balancing plain-language accessibility with FRCP 23 enforceability. Trigger when creating settlement claim forms, proof-of-claim documents, or class member claim submissions.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: managing-code-status-discussions
+language: en
 description: Documents goals-of-care conversations with code status decisions and advance directive alignment. Use when discussing code status, documenting goals-of-care, or recording advance directive conversations.
 tags:
   - management

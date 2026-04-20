@@ -1,5 +1,6 @@
 ---
 name: modeling-interest-rate-hedging-strategies
+language: en
 description: Structures interest rate hedging programs with swap analysis, cap/floor evaluation, and hedge accounting documentation. Use when designing rate hedges, comparing hedging instruments, or analyzing hedge effectiveness.
 tags:
   - modeling

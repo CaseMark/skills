@@ -1,5 +1,6 @@
 ---
 name: managing-hepatic-dose-adjustments
+language: en
 description: Guides medication adjustments for hepatic impairment using Child-Pugh classification. Use when adjusting for liver disease, evaluating hepatic metabolism, or managing medications in cirrhosis.
 tags:
   - management

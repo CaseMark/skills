@@ -1,5 +1,6 @@
 ---
 name: analyzing-clinical-trial-data
+language: en
 description: Structures clinical trial data analysis with primary endpoint evaluation and safety reporting. Use when analyzing trial results, evaluating endpoints, or preparing statistical reports.
 tags:
   - analysis

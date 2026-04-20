@@ -1,5 +1,6 @@
 ---
 name: analyzing-break-up-fees-and-protections
+language: en
 description: Evaluates deal protection mechanisms including break-up fees, no-shop clauses, matching rights, and force-the-vote provisions. Use when analyzing deal protections, negotiating break fees, or assessing termination provisions.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: analyzing-private-market-allocations
+language: en
 description: Structures private market allocation strategy with commitment pacing, J-curve modeling, and liquidity planning. Use when allocating to private markets, modeling commitment pacing, or planning illiquid allocations.
 tags:
   - analysis

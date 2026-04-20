@@ -1,5 +1,6 @@
 ---
 name: structuring-joint-venture-investments
+language: en
 description: Designs cross-border JV structures with governance frameworks, exit mechanisms, and dispute resolution for international partnerships. Use when structuring international JVs, designing governance frameworks, or planning exit mechanics.
 tags:
   - cross-border-capital

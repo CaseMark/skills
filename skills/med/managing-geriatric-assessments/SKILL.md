@@ -1,5 +1,6 @@
 ---
 name: managing-geriatric-assessments
+language: en
 description: Conducts comprehensive geriatric assessment covering cognition, function, falls, polypharmacy, and goals. Use when evaluating elderly patients, performing geriatric assessments, or managing complex older adults.
 tags:
   - management

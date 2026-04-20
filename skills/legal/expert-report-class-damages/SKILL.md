@@ -1,5 +1,6 @@
 ---
 name: expert-report-class-damages
+language: en
 description: Drafts a litigation-ready expert report on class-wide damages for class action proceedings. Structures analysis to satisfy Daubert/FRE 702 admissibility and FRCP 23(b)(3) predominance. Use when retaining or preparing a damages expert for class certification, merits, or trial phases.
 tags:
   - analysis

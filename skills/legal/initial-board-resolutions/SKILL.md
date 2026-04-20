@@ -1,5 +1,6 @@
 ---
 name: initial-board-resolutions
+language: en
 description: Drafts initial board resolutions (organizational meeting minutes) for newly formed U.S. corporations. Covers bylaw adoption, officer elections, banking, stock issuance, IP assignment, tax elections, and corporate formalities. Use when forming a corporation and establishing governance records for banks, investors, or regulators.
 ---
 

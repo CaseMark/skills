@@ -1,5 +1,6 @@
 ---
 name: managing-compliance-programs
+language: en
 description: Structures OIG-model compliance program elements with effectiveness measurement and reporting. Use when building compliance programs, implementing OIG guidance, or measuring program effectiveness.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: analyzing-partnership-tax-structures
+language: en
 description: Evaluates partnership tax arrangements with allocation waterfall, basis tracking, and carried interest treatment. Use when analyzing partnership tax, modeling distribution waterfalls, or tracking outside basis.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: contract-abstracts
+language: en
 description: Generates structured contract abstracts distilling key terms, obligations, rights, and liabilities from agreements into a standardized reference. Flags ambiguities, non-standard provisions, and missing terms. Use when abstracting commercial contracts, NDAs, licensing agreements, M&A ancillaries, or any multi-page agreement requiring rapid comprehension, due diligence, or portfolio management.
 ---
 

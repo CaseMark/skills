@@ -1,5 +1,6 @@
 ---
 name: expungement-petition
+language: en
 description: Drafts jurisdiction-specific petitions for expungement or sealing of criminal records. Covers caption construction, statutory eligibility analysis, rehabilitation narratives, and prayer for relief. Use when drafting expungement petitions, record-sealing motions, set-aside petitions, or certificates of rehabilitation in post-conviction proceedings.
 tags:
   - drafting

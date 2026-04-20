@@ -1,5 +1,6 @@
 ---
 name: managing-laboratory-quality-control
+language: en
 description: Tracks QC data with Westgard rules and corrective action documentation. Use when managing lab QC, interpreting Westgard violations, or documenting corrective actions.
 tags:
   - management

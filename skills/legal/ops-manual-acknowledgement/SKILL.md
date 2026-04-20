@@ -1,5 +1,6 @@
 ---
 name: ops-manual-acknowledgement
+language: en
 description: >-
   Drafts an enforceable Operations Manual Acknowledgement form recording an
   employee's or franchisee's receipt, understanding, and agreement to comply

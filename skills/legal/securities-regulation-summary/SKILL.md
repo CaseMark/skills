@@ -1,5 +1,6 @@
 ---
 name: securities-regulation-summary
+language: en
 description: Generates thematic compliance summaries of US securities regulation developments. Triggered when a user needs briefings on SEC rulemaking, enforcement trends, FINRA guidance, or emerging areas (SPACs, ESG, cybersecurity, digital assets). Also use for securities compliance updates or regulatory development summaries for senior audiences.
 tags:
   - analysis

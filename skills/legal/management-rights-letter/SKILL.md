@@ -1,5 +1,6 @@
 ---
 name: management-rights-letter
+language: en
 description: Drafts management rights letters for VC/PE equity investment closings, granting investors contractual consultation, inspection, and information rights. Ensures VCOC qualification under ERISA plan asset regulations (29 CFR § 2510.3-101). Use when drafting management rights letters, VCOC qualification letters, or investor side letters at closing.
 tags:
   - corporate

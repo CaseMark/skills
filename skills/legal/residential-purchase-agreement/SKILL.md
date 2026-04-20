@@ -1,5 +1,6 @@
 ---
 name: residential-purchase-agreement
+language: en
 description: Drafts enforceable U.S. Residential Purchase Agreements covering parties, property description, price/earnest money, financing contingencies, inspection/due diligence, seller disclosures, closing, default remedies, and dispute resolution. Use when drafting home purchase contracts, residential real estate sale agreements, or property transfer agreements. Trigger on "purchase agreement," "home sale contract," "residential sale," or "property purchase."
 tags:
   - agreement

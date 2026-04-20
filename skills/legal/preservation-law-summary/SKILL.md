@@ -1,5 +1,6 @@
 ---
 name: preservation-law-summary
+language: en
 description: Generates structured legal memoranda on historic preservation law covering NHPA, Penn Central takings analysis, designation processes, and state-local regulatory frameworks. Use when summarizing preservation jurisprudence, Section 106 review, landmark regulations, cultural resource protection, or takings challenges to preservation ordinances.
 ---
 

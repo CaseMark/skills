@@ -1,5 +1,6 @@
 ---
 name: ccpa-policy
+language: en
 description: >-
   Drafts a CCPA/CPRA-compliant privacy policy covering all required statutory
   disclosures under Cal. Civil Code §§ 1798.100–1798.199. Use when drafting or

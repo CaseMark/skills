@@ -1,5 +1,6 @@
 ---
 name: creating-rehabilitation-treatment-plans
+language: en
 description: Develops rehabilitation treatment plans with goals, interventions, and measurable outcome milestones. Use when creating rehab plans, setting therapy goals, or planning intervention progressions.
 tags:
   - drafting

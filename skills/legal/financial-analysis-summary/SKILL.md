@@ -1,5 +1,6 @@
 ---
 name: financial-analysis-summary
+language: en
 description: Generates structured summaries of financial analyses for commercial litigation. Use when summarizing expert financial reports, economic damages analyses, lost profits calculations, business valuations, or financial dispute evidence for litigation support.
 ---
 

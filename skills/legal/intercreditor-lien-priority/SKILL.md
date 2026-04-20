@@ -1,5 +1,6 @@
 ---
 name: intercreditor-lien-priority
+language: en
 description: >-
   Drafts U.S. intercreditor agreements establishing first lien vs second lien
   priority over shared collateral, covering standstill, enforcement control,

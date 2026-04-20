@@ -1,5 +1,6 @@
 ---
 name: coordinating-multidisciplinary-rounds
+language: en
 description: Synthesizes input from nursing, pharmacy, PT/OT, social work, and case management into unified care plans. Use when conducting interdisciplinary rounds, coordinating care teams, or documenting team-based decisions.
 tags:
   - coordination

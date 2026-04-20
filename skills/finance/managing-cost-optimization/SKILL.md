@@ -1,5 +1,6 @@
 ---
 name: managing-cost-optimization
+language: en
 description: Structures cost reduction analysis with opportunity identification, implementation tracking, and savings verification. Use when identifying cost savings, tracking reduction initiatives, or verifying cost optimization.
 tags:
   - management

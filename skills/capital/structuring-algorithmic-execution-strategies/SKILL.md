@@ -1,5 +1,6 @@
 ---
 name: structuring-algorithmic-execution-strategies
+language: en
 description: Designs algo trading strategies with TWAP, VWAP, and implementation shortfall approaches tailored to order characteristics. Use when selecting execution algos, designing trading strategies, or optimizing order routing.
 tags:
   - public-markets-and-trading

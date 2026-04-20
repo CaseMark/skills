@@ -1,5 +1,6 @@
 ---
 name: lease-amendment
+language: en
 description: Drafts lease amendment agreements that modify specific provisions of existing commercial or residential leases while preserving the original agreement's enforceability. Handles rent modifications, term extensions, use changes, maintenance reallocation, and new provisions. Trigger when drafting lease amendments, modifications, addenda, or change agreements for real estate transactions.
 tags:
   - agreement

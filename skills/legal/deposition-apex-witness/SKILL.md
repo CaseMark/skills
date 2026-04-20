@@ -1,5 +1,6 @@
 ---
 name: deposition-apex-witness
+language: en
 description: Guides strategy for apex witness depositions of C-suite executives and senior government officials. Covers asserting and overcoming the apex doctrine on both plaintiff and defense sides. Drafts motions to compel, protective orders, objection letters, examination outlines, and witness prep plans. Use when seeking or defending a deposition of a CEO, CFO, board member, agency head, or other apex witness.
 ---
 

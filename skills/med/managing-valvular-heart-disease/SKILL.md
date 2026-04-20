@@ -1,5 +1,6 @@
 ---
 name: managing-valvular-heart-disease
+language: en
 description: Guides valve disease severity assessment with intervention criteria and surveillance schedules. Use when evaluating valve disease, assessing surgical/interventional timing, or monitoring valve function.
 tags:
   - management

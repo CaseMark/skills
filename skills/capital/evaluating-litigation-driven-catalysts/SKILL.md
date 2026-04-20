@@ -1,5 +1,6 @@
 ---
 name: evaluating-litigation-driven-catalysts
+language: en
 description: Assesses litigation outcome impact with settlement probability, damage range estimation, and stock price sensitivity analysis. Use when evaluating litigation catalysts, modeling legal outcomes, or analyzing litigation-driven opportunities.
 tags:
   - analysis

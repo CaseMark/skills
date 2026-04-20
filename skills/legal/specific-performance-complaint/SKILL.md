@@ -1,5 +1,6 @@
 ---
 name: specific-performance-complaint
+language: en
 description: Drafts a Complaint for Specific Performance compelling contractual fulfillment through equitable relief. Use when filing suit for specific performance, real estate breach, unique property disputes, or equitable remedy pleadings.
 tags:
   - drafting

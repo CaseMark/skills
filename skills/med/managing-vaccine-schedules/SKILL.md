@@ -1,5 +1,6 @@
 ---
 name: managing-vaccine-schedules
+language: en
 description: Applies CDC immunization schedules with catch-up protocols and contraindication screening. Use when managing vaccinations, creating catch-up schedules, or documenting immunization decisions.
 tags:
   - management

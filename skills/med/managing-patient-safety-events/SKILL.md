@@ -1,5 +1,6 @@
 ---
 name: managing-patient-safety-events
+language: en
 description: Documents patient safety events with root cause identification and incident reporting requirements. Use when reporting safety events, documenting incidents, or analyzing near-misses.
 tags:
   - management

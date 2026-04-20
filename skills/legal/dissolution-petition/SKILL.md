@@ -1,5 +1,6 @@
 ---
 name: dissolution-petition
+language: en
 description: Drafts a Petition for Dissolution of Marriage for filing in US state family courts. Covers jurisdictional standing, grounds, child custody and support, property and debt division, spousal support, and prayer for relief. Use when preparing initial divorce petitions, dissolution pleadings, or family law filing documents.
 tags:
   - drafting

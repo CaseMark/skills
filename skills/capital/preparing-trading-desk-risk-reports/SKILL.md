@@ -1,5 +1,6 @@
 ---
 name: preparing-trading-desk-risk-reports
+language: en
 description: Structures trading desk risk reporting with P&L attribution, position summaries, and limit utilization tracking. Use when preparing desk risk reports, attributing trading P&L, or monitoring position limits.
 tags:
   - preparation

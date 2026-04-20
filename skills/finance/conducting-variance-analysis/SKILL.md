@@ -1,5 +1,6 @@
 ---
 name: conducting-variance-analysis
+language: en
 description: Structures budget vs. actual variance analysis with driver decomposition and management narrative. Use when analyzing variances, explaining budget deviations, or preparing variance reports.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: structuring-risk-retention-compliance
+language: en
 description: Designs risk retention structures meeting US and EU requirements with vertical, horizontal, and L-shaped retention options. Use when structuring risk retention, analyzing sponsor retention alternatives, or ensuring regulatory compliance.
 tags:
   - structured-finance

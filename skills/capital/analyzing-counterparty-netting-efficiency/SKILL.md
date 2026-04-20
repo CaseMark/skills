@@ -1,5 +1,6 @@
 ---
 name: analyzing-counterparty-netting-efficiency
+language: en
 description: Evaluates netting benefits across derivative portfolios with bilateral vs cleared netting, portfolio compression, and capital savings. Use when analyzing netting efficiency, evaluating compression opportunities, or optimizing counterparty exposure.
 tags:
   - analysis

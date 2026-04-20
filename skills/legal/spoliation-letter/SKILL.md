@@ -1,5 +1,6 @@
 ---
 name: spoliation-letter
+language: en
 description: Drafts spoliation and evidence preservation demand letters for personal injury litigation. Generates case-specific evidence itemization, litigation hold demands, compliance deadlines, and sanctions warnings. Use when sending preservation demands, litigation hold notices, or spoliation letters in pre-suit or early discovery phases.
 ---
 

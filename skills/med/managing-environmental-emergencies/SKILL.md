@@ -1,5 +1,6 @@
 ---
 name: managing-environmental-emergencies
+language: en
 description: Guides workup for heat stroke, hypothermia, drowning, and envenomation. Use when managing environmental injuries, treating temperature-related emergencies, or assessing envenomation.
 tags:
   - management

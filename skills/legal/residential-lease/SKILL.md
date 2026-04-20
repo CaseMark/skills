@@ -1,5 +1,6 @@
 ---
 name: residential-lease
+language: en
 description: Drafts jurisdictionally compliant U.S. residential lease agreements with required disclosures, security deposit compliance, and Fair Housing Act conformance. Conducts state-specific landlord-tenant law research and produces execution-ready leases. Use when drafting residential leases, rental agreements, landlord-tenant contracts, or tenancy agreements.
 ---
 

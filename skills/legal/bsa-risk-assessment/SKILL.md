@@ -1,5 +1,6 @@
 ---
 name: bsa-risk-assessment
+language: en
 description: Drafts a BSA/AML Risk Assessment for U.S. financial institutions per FinCEN, FFIEC, and OCC standards. Evaluates inherent risks (customer, product, geographic, transaction, third-party), control adequacy, and residual risk. Use when preparing annual BSA compliance assessments, post-acquisition integration reviews, or when business changes trigger reassessment under 31 U.S.C. § 5318(h).
 ---
 

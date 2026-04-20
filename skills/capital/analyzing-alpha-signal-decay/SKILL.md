@@ -1,5 +1,6 @@
 ---
 name: analyzing-alpha-signal-decay
+language: en
 description: Evaluates signal half-life, turnover implications, and capacity constraints for systematic alpha factors. Use when analyzing signal persistence, evaluating factor decay, or estimating strategy capacity.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: cross-exam-summary
+language: en
 description: Generates a structured cross-examination summary from depositions, exhibits, and discovery organized by witness and theme with pinpoint citations. Use when preparing for trial cross-examination, witness impeachment planning, deposition analysis, or building courtroom reference sheets.
 ---
 

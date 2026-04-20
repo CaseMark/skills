@@ -1,5 +1,6 @@
 ---
 name: appellate-formatting
+language: en
 description: >
   Generates appellate-filing-ready Tables of Contents, Tables of Authorities, and
   Certificates of Compliance under FRAP 32(g) and related rules. Produces defensible

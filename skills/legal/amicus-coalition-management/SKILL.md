@@ -1,5 +1,6 @@
 ---
 name: amicus-coalition-management
+language: en
 description: Manages multi-organization appellate amicus briefs with single-pen drafting, coalition sign-offs, conflict triage, and compliant disclosures. Use when coordinating a coalition amicus brief, managing amicus sign-on, handling FRAP 29 or Supreme Court Rule 37.6 disclosures, or preparing cover and interest sections for multiple amici.
 ---
 

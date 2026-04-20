@@ -1,5 +1,6 @@
 ---
 name: esi-protocol
+language: en
 description: Drafts stipulated ESI protocols for federal e-discovery. Produces court-ready agreements governing preservation, collection, processing, review, and production of electronically stored information under FRCP Rules 26, 34, 37 and Sedona Principles. Trigger when formalizing ESI procedures between parties during the discovery phase.
 tags:
   - agreement

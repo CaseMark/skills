@@ -1,5 +1,6 @@
 ---
 name: class-action-complaint
+language: en
 description: Drafts federal or state class action complaints satisfying FRCP Rule 23 certification prerequisites. Use when filing class actions, representative plaintiff complaints, Rule 23 certification pleadings, or multi-party consumer/securities/antitrust actions.
 tags:
   - drafting

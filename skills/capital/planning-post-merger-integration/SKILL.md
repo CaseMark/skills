@@ -1,5 +1,6 @@
 ---
 name: planning-post-merger-integration
+language: en
 description: Structures Day 1 readiness, 100-day plans, and long-term integration workstreams with synergy realization tracking. Use when planning PMI, building integration timelines, or tracking workstream execution.
 tags:
   - planning

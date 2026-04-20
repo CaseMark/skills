@@ -1,5 +1,6 @@
 ---
 name: settlement-proposals
+language: en
 description: >-
   Produces chronological settlement negotiation summaries from litigation case files,
   extracting proposals, counteroffers, payment structures, release provisions, and

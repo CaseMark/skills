@@ -1,5 +1,6 @@
 ---
 name: analyzing-credit-default-swaps
+language: en
 description: Interprets CDS markets with basis analysis, curve dynamics, and credit event monitoring. Use when analyzing CDS spreads, monitoring credit events, or evaluating CDS basis.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: building-monte-carlo-simulations
+language: en
 description: Constructs Monte Carlo simulation frameworks with variance reduction and convergence analysis. Use when building MC simulations, implementing variance reduction, or assessing simulation accuracy.
 tags:
   - modeling

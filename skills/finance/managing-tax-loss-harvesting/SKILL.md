@@ -1,5 +1,6 @@
 ---
 name: managing-tax-loss-harvesting
+language: en
 description: Identifies and executes tax-loss harvesting opportunities with wash sale compliance and tracking. Use when harvesting tax losses, managing wash sale rules, or optimizing after-tax returns.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: estate-administration-summary
+language: en
 description: Generates a structured U.S. estate administration/probate status summary covering decedent identifiers, asset inventory, creditor claims, distributions, tax compliance, disputes, and next steps with source citations. Trigger on requests for estate administration summary, probate status report, executor update, estate progress report, inventory and appraisal summary, creditor claims status, or distribution schedule summary.
 tags:
   - summarization

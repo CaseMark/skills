@@ -1,5 +1,6 @@
 ---
 name: managing-gynecologic-oncology
+language: en
 description: Structures gynecologic cancer evaluation with staging, treatment planning, and surveillance. Use when managing gynecologic cancers, staging ovarian/uterine malignancies, or planning treatment.
 tags:
   - management

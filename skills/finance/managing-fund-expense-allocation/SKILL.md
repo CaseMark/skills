@@ -1,5 +1,6 @@
 ---
 name: managing-fund-expense-allocation
+language: en
 description: Structures fund expense allocation with methodology documentation, compliance, and investor disclosure. Use when allocating fund expenses, documenting allocation methods, or managing expense ratios.
 tags:
   - management

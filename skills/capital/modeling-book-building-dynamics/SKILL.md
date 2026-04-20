@@ -1,5 +1,6 @@
 ---
 name: modeling-book-building-dynamics
+language: en
 description: Structures book-building analysis with demand tiers, allocation methodology, and price sensitivity assessment. Use when managing book-building, analyzing investor demand, or optimizing allocation strategies.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: analyzing-agency-mortgage-bonds
+language: en
 description: Evaluates agency MBS with prepayment modeling, OAS analysis, and convexity assessment. Use when analyzing agency MBS, modeling prepayments, or evaluating mortgage bond convexity.
 tags:
   - analysis

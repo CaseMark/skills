@@ -1,5 +1,6 @@
 ---
 name: managing-pediatric-infections
+language: en
 description: Guides pediatric infection management with weight-based dosing and duration recommendations. Use when treating pediatric infections, calculating weight-based antibiotics, or managing common childhood infections.
 tags:
   - management

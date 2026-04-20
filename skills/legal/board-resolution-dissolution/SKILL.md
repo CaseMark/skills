@@ -1,5 +1,6 @@
 ---
 name: board-resolution-dissolution
+language: en
 description: Drafts a board resolution authorizing voluntary corporate dissolution via unanimous written consent of directors. Covers Plan of Complete Liquidation adoption, shareholder approval directive, officer authorizations, and execution provisions. Use when initiating voluntary dissolution, preparing corporate wind-down records, or drafting pre-shareholder dissolution authority under state corporation law.
 ---
 

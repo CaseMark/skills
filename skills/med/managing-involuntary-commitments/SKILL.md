@@ -1,5 +1,6 @@
 ---
 name: managing-involuntary-commitments
+language: en
 description: Guides involuntary hold documentation with dangerousness criteria and patient rights requirements. Use when initiating involuntary holds, documenting commitment criteria, or managing psychiatric detentions.
 tags:
   - management

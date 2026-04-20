@@ -1,5 +1,6 @@
 ---
 name: analyzing-market-regime-indicators
+language: en
 description: Monitors market regime signals with volatility clustering, correlation dynamics, and liquidity condition assessment. Use when analyzing market regimes, detecting regime shifts, or adjusting strategy for market conditions.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: analyzing-clinical-data-warehouses
+language: en
 description: Structures clinical data warehouse queries for quality measurement, research, and operational analytics. Use when querying clinical data, building analytics reports, or extracting research datasets.
 tags:
   - analysis

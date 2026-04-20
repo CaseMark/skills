@@ -1,5 +1,6 @@
 ---
 name: screening-deal-flow-pipeline
+language: en
 description: Filters inbound deal flow against fund thesis, stage, sector, and return requirements with structured pass/advance decisions. Use when triaging deal flow, evaluating inbound pitches, or managing sourcing pipelines.
 tags:
   - screening

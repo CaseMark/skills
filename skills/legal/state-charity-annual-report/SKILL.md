@@ -1,5 +1,6 @@
 ---
 name: state-charity-annual-report
+language: en
 description: Drafts U.S. state charity bureau annual report packages for nonprofit charitable solicitation compliance. Use when preparing a state charitable solicitation annual report or renewal, charity bureau financial report, AG annual report (e.g., Form RRF-1), or when converting a filing into form-field answers or an executive compliance briefing.
 ---
 

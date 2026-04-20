@@ -1,5 +1,6 @@
 ---
 name: managing-controlled-substances
+language: en
 description: Tracks controlled substance prescribing with PDMP review, risk assessment, and compliance monitoring. Use when managing controlled substances, reviewing PDMP data, or monitoring opioid prescribing.
 tags:
   - management

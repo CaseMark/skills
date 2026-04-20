@@ -1,5 +1,6 @@
 ---
 name: managing-hypertensive-emergencies
+language: en
 description: Guides urgent blood pressure management with target reduction rates and IV medication protocols. Use when managing hypertensive crises, selecting IV antihypertensives, or monitoring acute BP reduction.
 tags:
   - management

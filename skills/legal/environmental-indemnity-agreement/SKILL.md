@@ -1,5 +1,6 @@
 ---
 name: environmental-indemnity-agreement
+language: en
 description: >-
   Drafts and revises U.S. environmental indemnity agreements for real estate
   lending and acquisition transactions, allocating contamination and

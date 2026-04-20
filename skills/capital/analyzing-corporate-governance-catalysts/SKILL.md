@@ -1,5 +1,6 @@
 ---
 name: analyzing-corporate-governance-catalysts
+language: en
 description: Identifies governance-related catalysts with board refreshment, compensation reform, and shareholder proposal analysis. Use when analyzing governance catalysts, evaluating shareholder proposals, or assessing governance improvement potential.
 tags:
   - analysis

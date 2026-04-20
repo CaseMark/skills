@@ -1,5 +1,6 @@
 ---
 name: notice-of-prior-art
+language: en
 description: >-
   Drafts a Notice of Prior Art disclosing references material to patentability
   under 35 U.S.C. §§ 102 and 103, with element-by-element claim charts and

@@ -1,5 +1,6 @@
 ---
 name: franchise-renewal
+language: en
 description: Drafts Franchise Renewal Agreements extending existing franchise relationships. Covers conditions precedent, renewal fees, premises modernization, release of claims, and regulatory compliance under FTC Rule and state franchise laws. Use when preparing franchise renewal documents, term extensions, or franchisee renewal conditions.
 tags:
   - transactional

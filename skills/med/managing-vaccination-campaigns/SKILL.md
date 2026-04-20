@@ -1,5 +1,6 @@
 ---
 name: managing-vaccination-campaigns
+language: en
 description: Plans mass vaccination campaigns with logistics, cold chain management, and adverse event monitoring. Use when planning vaccination drives, managing immunization logistics, or monitoring VAERS.
 tags:
   - management

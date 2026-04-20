@@ -1,5 +1,6 @@
 ---
 name: revocable-living-trust
+language: en
 description: Drafts revocable living trust documents with declaration of trust, funding schedules, trustee succession, beneficiary designations, and administrative powers tailored to state law. Covers individual and joint trusts, spendthrift clauses, and incapacity planning. Use when drafting living trusts, inter vivos trusts, revocable trusts, or estate planning trust instruments.
 ---
 

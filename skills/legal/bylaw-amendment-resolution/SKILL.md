@@ -1,5 +1,6 @@
 ---
 name: bylaw-amendment-resolution
+language: en
 description: Drafts a formal Bylaw Amendment Resolution for U.S. corporations, LLCs, or non-profits. Invoke when a board, shareholders, or members approve bylaw changes and need an auditable WHEREAS/RESOLVED record with amendment text, vote tallies, effective date, and secretary certification for minute books, bank submissions, or state filings.
 tags:
   - agreement

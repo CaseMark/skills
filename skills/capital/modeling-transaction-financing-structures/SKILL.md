@@ -1,5 +1,6 @@
 ---
 name: modeling-transaction-financing-structures
+language: en
 description: Constructs acquisition financing models with debt capacity, leverage analysis, coverage ratios, and capital structure optimization. Use when modeling deal financing, analyzing leverage capacity, or structuring acquisition debt.
 tags:
   - modeling

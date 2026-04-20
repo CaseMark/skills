@@ -1,5 +1,6 @@
 ---
 name: settlement-agreement
+language: en
 description: Drafts execution-ready settlement agreements for commercial litigation with mutual releases, payment schedules, confidentiality provisions, and dismissal mechanics. Handles Cal. Civ. Code § 1542 waivers, ADEA-compliant releases, and tax allocation. Use when finalizing settlement terms, drafting mutual releases, or memorializing negotiated resolutions.
 ---
 

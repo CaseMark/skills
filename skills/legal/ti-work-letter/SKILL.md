@@ -1,5 +1,6 @@
 ---
 name: ti-work-letter
+language: en
 description: Drafts a Tenant Improvement Work Letter exhibit for commercial leases. Trigger when the user needs a work letter, TI letter, tenant build-out exhibit, or improvement allowance agreement for a commercial leasing transaction.
 tags:
   - agreement

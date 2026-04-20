@@ -1,5 +1,6 @@
 ---
 name: trademark-coexistence
+language: en
 description: Drafts U.S. trademark coexistence agreements defining permitted use boundaries, differentiation requirements, and confusion-prevention protocols for parties with similar marks. Use when drafting coexistence or consent agreements, concurrent use arrangements, or resolving likelihood-of-confusion disputes without litigation.
 tags:
   - agreement

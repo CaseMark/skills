@@ -1,5 +1,6 @@
 ---
 name: analyzing-make-whole-and-redemption-claims
+language: en
 description: Evaluates make-whole premium claims in bankruptcy with contract interpretation, present value disputes, and secured status analysis. Use when analyzing make-whole claims, evaluating redemption disputes, or assessing premium recovery.
 tags:
   - analysis

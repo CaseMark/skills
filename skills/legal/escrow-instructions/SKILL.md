@@ -1,5 +1,6 @@
 ---
 name: escrow-instructions
+language: en
 description: Drafts binding escrow instructions for residential real estate closings. Extracts key terms from purchase agreements, identifies gaps or conflicts, and incorporates jurisdiction-specific requirements. Use when preparing escrow agent directives, closing instructions, escrow arrangements, or residential transaction closing documents.
 ---
 

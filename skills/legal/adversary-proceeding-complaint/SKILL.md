@@ -1,5 +1,6 @@
 ---
 name: adversary-proceeding-complaint
+language: en
 description: Drafts adversary proceeding complaints for U.S. Bankruptcy Court under FRBP Rule 7001. Covers dischargeability disputes (§ 523), preference actions (§ 547), fraudulent transfers (§ 548), and stay violations (§ 362). Produces a filing-ready pleading with caption, jurisdictional basis, numbered allegations, count structure, and prayer for relief. Triggers when a trustee, creditor, or party in interest needs to initiate litigation within an existing bankruptcy case.
 tags:
   - litigation

@@ -1,5 +1,6 @@
 ---
 name: managing-operating-partner-engagement
+language: en
 description: Structures operating partner involvement with portfolio company assignment, initiative tracking, and impact measurement. Use when coordinating operating partners, tracking operational initiatives, or measuring portfolio support impact.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: verdict-form
+language: en
 description: Drafts civil trial verdict forms with sequentially numbered jury questions covering liability, affirmative defenses, damages, comparative fault, and special interrogatories. Enforces plain-language phrasing, logical conditional flow, and jurisdiction-appropriate formatting. Use when preparing verdict forms, special verdict forms, jury interrogatories, or general verdict forms with interrogatories.
 tags:
   - drafting

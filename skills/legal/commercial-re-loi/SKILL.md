@@ -1,5 +1,6 @@
 ---
 name: commercial-re-loi
+language: en
 description: Drafts a Letter of Intent for commercial real estate purchase transactions. Covers purchase price, earnest money, due diligence, financing contingencies, closing mechanics, and binding provisions (confidentiality, exclusivity). Use when drafting LOIs, CRE purchase proposals, or pre-contract term sheets.
 tags:
   - drafting

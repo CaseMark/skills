@@ -1,5 +1,6 @@
 ---
 name: c-tpat-security-profile
+language: en
 description: >-
   Drafts a U.S. C-TPAT Security Profile for CBP submission covering physical,
   personnel, procedural, conveyance, and IT security domains. Use when preparing

@@ -1,5 +1,6 @@
 ---
 name: ilit
+language: en
 description: Drafts an Irrevocable Life Insurance Trust (ILIT) compliant with IRC § 2042 and state trust laws to exclude life insurance from the grantor's taxable estate. Covers Crummey withdrawal rights, trustee powers, distributions, and execution formalities. Use when drafting ILITs, life insurance trusts, estate tax exclusion trusts, or Crummey trusts.
 ---
 

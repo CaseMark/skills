@@ -1,5 +1,6 @@
 ---
 name: structuring-opportunity-zone-funds
+language: en
 description: Designs Qualified Opportunity Zone fund structures with investment timeline requirements, substantial improvement tests, and tax benefit mechanics. Use when structuring OZ funds, analyzing QOF requirements, or evaluating OZ tax benefits.
 tags:
   - fund-formation-and-structuring

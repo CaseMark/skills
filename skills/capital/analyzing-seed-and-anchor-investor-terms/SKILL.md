@@ -1,5 +1,6 @@
 ---
 name: analyzing-seed-and-anchor-investor-terms
+language: en
 description: Evaluates seed/anchor investor economics with revenue sharing, fee discounts, capacity reservations, and governance rights. Use when analyzing seed terms, structuring anchor economics, or evaluating founding investor arrangements.
 tags:
   - analysis

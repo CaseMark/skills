@@ -1,5 +1,6 @@
 ---
 name: managing-pulmonary-hypertension
+language: en
 description: Structures PH evaluation with right heart catheterization interpretation and treatment classification. Use when evaluating pulmonary hypertension, interpreting RHC data, or classifying PH by WHO group.
 tags:
   - management

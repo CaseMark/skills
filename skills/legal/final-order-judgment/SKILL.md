@@ -1,5 +1,6 @@
 ---
 name: final-order-judgment
+language: en
 description: Drafts court-ready Final Orders and Judgments for class action litigation with caption, procedural history, findings of fact, conclusions of law, and enforceable relief. Use when drafting final judgments, post-trial orders, summary judgment orders, or settlement approval orders in class actions.
 ---
 

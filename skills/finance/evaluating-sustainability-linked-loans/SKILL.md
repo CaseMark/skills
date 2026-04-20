@@ -1,5 +1,6 @@
 ---
 name: evaluating-sustainability-linked-loans
+language: en
 description: Structures SLL analysis with KPI assessment, margin ratchet evaluation, and ambition verification. Use when evaluating sustainability-linked loans, assessing SLL KPIs, or analyzing margin ratchets.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: trade-law-summary
+language: en
 description: Produces structured U.S.-focused international trade law summaries covering tariffs, customs, export controls, sanctions, trade remedies, and trade agreements. Triggers when asked for international trade law summaries, tariff/customs analysis, export controls, sanctions guidance, WTO/GATT, USMCA, ITAR, EAR, OFAC, or import/export compliance updates.
 tags:
   - regulatory

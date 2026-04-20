@@ -1,5 +1,6 @@
 ---
 name: analyzing-credit-derivative-structures
+language: en
 description: Evaluates CDS, CDX, and bespoke credit derivative structures with spread analysis and credit event mechanics. Use when analyzing credit derivatives, pricing CDS, or evaluating index tranche products.
 tags:
   - analysis

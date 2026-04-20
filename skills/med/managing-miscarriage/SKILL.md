@@ -1,5 +1,6 @@
 ---
 name: managing-miscarriage
+language: en
 description: Guides miscarriage evaluation with ultrasound criteria and management options documentation. Use when managing pregnancy loss, documenting miscarriage evaluation, or counseling on management options.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: creating-financial-plans
+language: en
 description: Structures comprehensive financial plans with cash flow projection, goal analysis, and strategy integration. Use when building financial plans, projecting retirement needs, or creating comprehensive wealth strategies.
 tags:
   - drafting

@@ -1,5 +1,6 @@
 ---
 name: digital-media-law-summary
+language: en
 description: >-
   Generates Bluebook-cited summaries of digital media law across copyright/IP,
   privacy/data protection, and content liability pillars. Trigger when tracking

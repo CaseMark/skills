@@ -1,5 +1,6 @@
 ---
 name: analyzing-management-commentary
+language: en
 description: Extracts forward-looking signals from management commentary with sentiment analysis and guidance tracking. Use when analyzing earnings transcripts, tracking guidance changes, or assessing management credibility.
 tags:
   - analysis

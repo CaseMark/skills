@@ -1,5 +1,6 @@
 ---
 name: managing-pandemic-response
+language: en
 description: Structures pandemic response planning with surge capacity, resource allocation, and communication protocols. Use when planning pandemic response, managing surge operations, or coordinating emergency health responses.
 tags:
   - management

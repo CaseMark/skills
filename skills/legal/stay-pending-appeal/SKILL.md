@@ -1,5 +1,6 @@
 ---
 name: stay-pending-appeal
+language: en
 description: Drafts a Motion for Stay Pending Appeal using the four-factor balancing test and supersedeas bond analysis. Use when drafting stay motions, bond requests, post-judgment enforcement suspension, or emergency stay applications after filing a notice of appeal.
 ---
 

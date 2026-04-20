@@ -1,5 +1,6 @@
 ---
 name: modeling-dividend-recapitalizations
+language: en
 description: Structures dividend recap analysis with leverage impact, credit agreement compliance, and return enhancement calculation. Use when modeling dividend recaps, evaluating interim distributions, or analyzing recapitalization options.
 tags:
   - modeling

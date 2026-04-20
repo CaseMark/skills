@@ -1,5 +1,6 @@
 ---
 name: office-lease
+language: en
 description: Drafts commercial office lease agreements with rent schedules, expense allocations, maintenance splits, and protective provisions for landlord and tenant. Covers NNN, gross, and modified gross structures. Use when drafting office leases, commercial lease agreements, landlord-tenant contracts, or space rental agreements for commercial office premises.
 ---
 

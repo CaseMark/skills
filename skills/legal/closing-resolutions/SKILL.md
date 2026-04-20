@@ -1,5 +1,6 @@
 ---
 name: closing-resolutions
+language: en
 description: Drafts unanimous written consent resolutions authorizing a buyer or seller entity to execute an asset purchase agreement and all ancillary closing documents. Covers corporate (board) and LLC (member/manager) governance formats, recitals, operative resolutions, officer authorization, ratification, and counterpart execution provisions. Use when preparing closing deliverables, board resolutions, member consents, or corporate authorization documents for US asset purchase transactions.
 ---
 

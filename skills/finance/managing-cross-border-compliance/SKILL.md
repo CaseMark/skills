@@ -1,5 +1,6 @@
 ---
 name: managing-cross-border-compliance
+language: en
 description: Structures cross-border compliance with multi-jurisdictional regulatory requirements and conflict resolution. Use when managing international compliance, navigating multi-jurisdictional rules, or resolving regulatory conflicts.
 tags:
   - management

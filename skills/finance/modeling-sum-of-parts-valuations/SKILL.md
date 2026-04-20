@@ -1,5 +1,6 @@
 ---
 name: modeling-sum-of-parts-valuations
+language: en
 description: Builds SOTP valuations for conglomerates and multi-segment companies with segment-appropriate methodologies. Use when valuing diversified companies, calculating conglomerate discounts, or modeling segment breakups.
 tags:
   - modeling

@@ -1,5 +1,6 @@
 ---
 name: charitable-remainder-trust
+language: en
 description: Drafts IRC 664–compliant Charitable Remainder Trust agreements (CRAT/CRUT), covering payout math, remainder qualification, trustee powers, and tax compliance. Use when drafting a CRT, CRAT, CRUT, unitrust, annuity trust, or charitable remainder planning document, or when ensuring IRC 664 compliance.
 tags:
   - agreement

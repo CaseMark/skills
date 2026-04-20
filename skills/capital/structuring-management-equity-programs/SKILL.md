@@ -1,5 +1,6 @@
 ---
 name: structuring-management-equity-programs
+language: en
 description: Designs management incentive structures with rollover equity, option pools, ratchets, and vesting schedules aligned to value creation. Use when structuring management incentives, designing co-invest programs, or aligning management economics.
 tags:
   - private-equity

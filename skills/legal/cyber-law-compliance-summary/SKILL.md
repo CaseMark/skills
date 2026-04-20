@@ -1,5 +1,6 @@
 ---
 name: cyber-law-compliance-summary
+language: en
 description: Produces structured cyber law compliance memoranda covering GDPR, CCPA, state privacy laws, and sector-specific regulations for US and EU operations. Includes Bluebook citations, jurisdiction comparison tables, penalty exposure, and regulatory trends. Use when advising on digital operations compliance, privacy program design, incident response readiness, or preparing compliance gap assessments.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: sam-reps-certs
+language: en
 description: Drafts Representations and Certifications documents for SAM.gov federal contractor registration. Use when registering entities in SAM.gov, updating annual registrations, preparing government contracting eligibility documents, or working with UEI, NAICS codes, business size determinations, and FAR compliance representations.
 tags:
   - agreement

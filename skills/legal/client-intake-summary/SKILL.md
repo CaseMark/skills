@@ -1,5 +1,6 @@
 ---
 name: client-intake-summary
+language: en
 description: >-
   Produces a structured corporate-client intake brief from intake forms,
   consultation notes, and initial communications. Use when onboarding a new

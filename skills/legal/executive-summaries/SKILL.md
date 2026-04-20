@@ -1,5 +1,6 @@
 ---
 name: executive-summaries
+language: en
 description: Generates decision-ready executive summaries from complex legal documents for senior lawyers, executives, and clients. Use when condensing contracts, opinions, litigation findings, regulatory reports, or governance materials into stakeholder-ready work product.
 ---
 

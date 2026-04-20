@@ -1,5 +1,6 @@
 ---
 name: conducting-manager-track-record-analysis
+language: en
 description: Assesses GP track records for secondary pricing with fund-level attribution, unrealized portfolio assessment, and consistency analysis. Use when evaluating GP track records, analyzing fund performance consistency, or assessing manager quality.
 tags:
   - process

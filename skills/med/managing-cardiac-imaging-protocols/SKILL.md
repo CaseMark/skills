@@ -1,5 +1,6 @@
 ---
 name: managing-cardiac-imaging-protocols
+language: en
 description: Selects appropriate cardiac imaging modality based on clinical question and pretest probability. Use when choosing cardiac imaging, selecting stress testing modality, or ordering cardiac CT/MRI.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: analyzing-isda-documentation-terms
+language: en
 description: Evaluates ISDA Master Agreement provisions with close-out netting, termination events, and credit support annexes. Use when reviewing ISDA terms, analyzing CSA provisions, or assessing documentation risk.
 tags:
   - analysis

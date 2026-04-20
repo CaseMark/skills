@@ -1,5 +1,6 @@
 ---
 name: deposition-summary-page-line
+language: en
 description: Generates page-line deposition summaries from U.S. litigation transcripts with citation-anchored flagging for admissions, inconsistencies, objections, and exhibits. Trigger when summarizing depositions, preparing cross-examination outlines, identifying impeachment material, or building evidentiary records.
 tags:
   - litigation

@@ -1,5 +1,6 @@
 ---
 name: patent-infringement-complaint
+language: en
 description: Drafts a federal patent infringement complaint for U.S. District Court satisfying FRCP Rules 8, 10, 11 and Twombly/Iqbal plausibility. Covers direct (§ 271(a)), induced (§ 271(b)), and contributory (§ 271(c)) infringement with TC Heartland venue analysis and Halo willfulness. Use when initiating patent infringement litigation, drafting an IP complaint, or preparing a pleading to survive a Rule 12(b)(6) motion.
 ---
 

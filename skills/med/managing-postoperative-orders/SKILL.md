@@ -1,5 +1,6 @@
 ---
 name: managing-postoperative-orders
+language: en
 description: Generates postoperative order sets with pain management, DVT prophylaxis, diet advancement, and activity progression. Use when writing post-op orders, managing surgical recovery, or creating post-procedure protocols.
 tags:
   - management

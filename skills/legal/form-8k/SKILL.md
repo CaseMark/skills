@@ -1,5 +1,6 @@
 ---
 name: form-8k
+language: en
 description: >-
   Drafts SEC Form 8-K current reports with item-accurate narratives, exhibit
   indexing, and EDGAR-ready formatting. Use when a public company must disclose

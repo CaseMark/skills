@@ -1,5 +1,6 @@
 ---
 name: analyzing-social-determinants-of-health
+language: en
 description: Maps social determinants affecting health outcomes with intervention strategy development. Use when analyzing SDOH, mapping community resources, or designing social health interventions.
 tags:
   - analysis

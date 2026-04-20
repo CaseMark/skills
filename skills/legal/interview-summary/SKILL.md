@@ -1,5 +1,6 @@
 ---
 name: interview-summary
+language: en
 description: Generates structured summaries of witness or subject interviews for criminal defense investigations. Distills key facts, verbatim statements, credibility indicators, and follow-up leads. Use when summarizing defense interviews, witness debriefs, subject interrogations, or investigative interview notes.
 ---
 

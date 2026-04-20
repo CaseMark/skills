@@ -1,5 +1,6 @@
 ---
 name: fintech-regulatory-summaries
+language: en
 description: Generates structured regulatory summaries for fintech compliance covering crypto, payments, lending, mobile banking, and money transmission. Covers CFPB, SEC, CFTC, FinCEN, OCC, Federal Reserve, and state regulators with urgency triage and compliance deadlines. Use when compliance officers or legal teams need recent regulatory updates, agency guidance monitoring, or regulatory status reports.
 ---
 

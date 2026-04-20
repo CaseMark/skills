@@ -1,5 +1,6 @@
 ---
 name: managing-capital-call-processes
+language: en
 description: Structures capital call execution with notice preparation, pro-rata allocation, default remedy provisions, and wire coordination. Use when processing capital calls, calculating LP contributions, or managing call logistics.
 tags:
   - management

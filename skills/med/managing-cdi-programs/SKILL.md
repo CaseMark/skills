@@ -1,5 +1,6 @@
 ---
 name: managing-cdi-programs
+language: en
 description: Structures clinical documentation improvement queries with compliant physician engagement. Use when writing CDI queries, improving documentation specificity, or managing CDI programs.
 tags:
   - management

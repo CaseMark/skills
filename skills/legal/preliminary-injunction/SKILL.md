@@ -1,5 +1,6 @@
 ---
 name: preliminary-injunction
+language: en
 description: Drafts a Motion for Preliminary Injunction applying the Winter four-factor test with jurisdiction-specific procedural compliance. Covers merits analysis, irreparable harm, equities balancing, bond, and proposed order language. Use when filing for preliminary injunction, TRO, temporary restraining order, or emergency injunctive relief in federal or state court.
 ---
 

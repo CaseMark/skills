@@ -1,5 +1,6 @@
 ---
 name: final-tax-return-filing
+language: en
 description: Drafts U.S. final tax return filing packets for decedent estates or dissolving entities, covering final-status designation, short-period reporting, liquidation items, schedule selection, and filing mechanics. Use when handling a "final return", "deceased taxpayer", "estate final 1040", "corporate dissolution filing", "short year return", or any closing-phase tax compliance task.
 ---
 

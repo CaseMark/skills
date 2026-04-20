@@ -1,5 +1,6 @@
 ---
 name: analyzing-fixed-income-market-liquidity
+language: en
 description: Evaluates bond market liquidity with bid-ask spread analysis, dealer inventory assessment, and electronic trading penetration. Use when analyzing bond liquidity, assessing execution conditions, or evaluating venue selection.
 tags:
   - analysis

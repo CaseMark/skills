@@ -1,5 +1,6 @@
 ---
 name: managing-observation-stays
+language: en
 description: Tracks observation status criteria, time-based requirements, and conversion-to-inpatient triggers. Use when managing observation patients, determining inpatient conversion, or documenting observation criteria.
 tags:
   - management

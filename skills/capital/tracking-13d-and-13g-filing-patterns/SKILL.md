@@ -1,5 +1,6 @@
 ---
 name: tracking-13d-and-13g-filing-patterns
+language: en
 description: Monitors beneficial ownership filings with accumulation pattern analysis, intent assessment, and historical activist progression. Use when tracking 13D filings, analyzing accumulation patterns, or identifying potential activist situations.
 tags:
   - monitoring

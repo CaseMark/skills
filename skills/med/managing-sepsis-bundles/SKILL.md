@@ -1,5 +1,6 @@
 ---
 name: managing-sepsis-bundles
+language: en
 description: Tracks sepsis bundle compliance with lactate timing, fluid resuscitation, and antibiotic administration. Use when managing sepsis protocols, tracking bundle elements, or documenting sepsis care.
 tags:
   - management

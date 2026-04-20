@@ -1,5 +1,6 @@
 ---
 name: severance-agreement
+language: en
 description: >-
   Drafts a U.S. Confidentiality and Severance Agreement for employment
   separations with statutory-compliant release of claims, OWBPA compliance,

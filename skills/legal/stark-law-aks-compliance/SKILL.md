@@ -1,5 +1,6 @@
 ---
 name: stark-law-aks-compliance
+language: en
 description: Drafts Stark Law and Anti-Kickback Statute compliance plans for healthcare organizations. Use when drafting physician self-referral compliance documents, AKS policies, healthcare fraud prevention frameworks, or arrangement-level risk assessments.
 tags:
   - checklist

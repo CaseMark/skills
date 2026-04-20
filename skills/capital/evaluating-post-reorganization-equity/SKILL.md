@@ -1,5 +1,6 @@
 ---
 name: evaluating-post-reorganization-equity
+language: en
 description: Assesses post-emergence equity with clean balance sheet analysis, improved capital structure, and re-rating potential. Use when evaluating post-reorg equity, analyzing emergence opportunities, or assessing restructured company value.
 tags:
   - analysis

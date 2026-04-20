@@ -1,5 +1,6 @@
 ---
 name: form-10k
+language: en
 description: Drafts SEC Form 10-K Annual Reports under the Securities Exchange Act of 1934. Structures all four Parts with Regulation S-K compliance and GAAP financial integration. Use when drafting 10-K filings, annual reports, or public company annual SEC disclosures.
 tags:
   - corporate

@@ -1,5 +1,6 @@
 ---
 name: managing-audit-preparation
+language: en
 description: Structures external audit preparation with PBC list management, supporting documentation, and inquiry responses. Use when preparing for external audit, organizing PBC items, or responding to audit inquiries.
 tags:
   - management

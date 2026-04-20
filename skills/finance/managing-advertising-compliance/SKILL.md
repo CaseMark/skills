@@ -1,5 +1,6 @@
 ---
 name: managing-advertising-compliance
+language: en
 description: Reviews marketing materials against SEC, FINRA, and state regulatory requirements. Use when reviewing investment advertising, ensuring compliance of marketing materials, or managing ad review.
 tags:
   - management

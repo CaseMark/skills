@@ -1,5 +1,6 @@
 ---
 name: interpreting-biostatistics
+language: en
 description: Structures statistical analysis interpretation with p-value, confidence interval, and effect size reporting. Use when interpreting study statistics, explaining statistical results, or reviewing biostatistical analyses.
 tags:
   - analysis

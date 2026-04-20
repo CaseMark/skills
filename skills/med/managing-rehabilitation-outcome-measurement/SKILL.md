@@ -1,5 +1,6 @@
 ---
 name: managing-rehabilitation-outcome-measurement
+language: en
 description: Tracks rehabilitation outcomes using standardized tools with program effectiveness reporting. Use when measuring rehab outcomes, benchmarking program results, or reporting rehabilitation quality.
 tags:
   - management

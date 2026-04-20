@@ -1,5 +1,6 @@
 ---
 name: analyzing-tranche-relative-value
+language: en
 description: Evaluates structured product tranche pricing with spread analysis, yield attribution, and comparable structure benchmarking. Use when assessing tranche value, comparing structured product pricing, or analyzing spread components.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: analyzing-regulatory-rate-structures
+language: en
 description: Evaluates regulated utility rate-setting with RAB methodology, allowed return analysis, and regulatory reset risk assessment. Use when analyzing regulatory frameworks, modeling rate cases, or evaluating allowed return mechanics.
 tags:
   - analysis

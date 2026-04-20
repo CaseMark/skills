@@ -1,5 +1,6 @@
 ---
 name: hsr-filing
+language: en
 description: >-
   Prepares Hart-Scott-Rodino Act premerger notification filings for FTC/DOJ
   submission under 15 U.S.C. § 18a and 16 C.F.R. Parts 801-803. Covers

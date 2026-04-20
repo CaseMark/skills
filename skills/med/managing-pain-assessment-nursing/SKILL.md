@@ -1,5 +1,6 @@
 ---
 name: managing-pain-assessment-nursing
+language: en
 description: Applies pain assessment scales (NRS, Wong-Baker, FLACC, BPS) with intervention documentation and reassessment. Use when assessing pain, selecting pain scales, or documenting pain management.
 tags:
   - management

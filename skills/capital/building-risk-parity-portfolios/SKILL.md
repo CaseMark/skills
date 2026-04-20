@@ -1,5 +1,6 @@
 ---
 name: building-risk-parity-portfolios
+language: en
 description: Constructs risk parity allocation with equal risk contribution, leverage optimization, and asset class volatility targeting. Use when building risk parity, equalizing risk contribution, or designing leveraged balanced portfolios.
 tags:
   - modeling

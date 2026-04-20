@@ -1,5 +1,6 @@
 ---
 name: modeling-credit-enhancement-requirements
+language: en
 description: Calculates required credit enhancement levels with loss modeling, attachment/detachment points, and rating agency methodology. Use when sizing credit enhancement, modeling loss scenarios, or determining tranche subordination.
 tags:
   - modeling

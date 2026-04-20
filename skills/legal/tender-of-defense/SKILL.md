@@ -1,5 +1,6 @@
 ---
 name: tender-of-defense
+language: en
 description: Drafts a contractual tender of defense letter demanding a contracting party assume defense and indemnification in pending litigation. Analyzes indemnity provisions, insurance requirements, and notice obligations. Use when drafting tender of defense letters, indemnification demands, defense cost-shifting correspondence, or contractual indemnity demands involving subcontractors, vendors, property managers, or service providers.
 ---
 

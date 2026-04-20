@@ -1,5 +1,6 @@
 ---
 name: managing-api-banking-analysis
+language: en
 description: Structures banking API evaluation with functionality assessment, security review, and integration planning. Use when evaluating banking APIs, planning API integration, or assessing API security.
 tags:
   - management

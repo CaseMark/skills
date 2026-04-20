@@ -1,5 +1,6 @@
 ---
 name: managing-esg-in-private-equity
+language: en
 description: Structures ESG integration in PE investment process with screening, monitoring, and reporting frameworks. Use when implementing PE ESG, screening investments for ESG, or reporting ESG metrics.
 tags:
   - management

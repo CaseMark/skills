@@ -1,5 +1,6 @@
 ---
 name: customs-protest-form19
+language: en
 description: Drafts CBP Form 19 protests under 19 U.S.C. § 1514 and 19 C.F.R. Part 174 challenging tariff classification, valuation, origin, and trade preference decisions. Use when drafting customs protests, contesting liquidation decisions, or preparing Form 19 filings within the 180-day jurisdictional deadline.
 tags:
   - drafting

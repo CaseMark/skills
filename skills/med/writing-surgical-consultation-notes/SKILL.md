@@ -1,5 +1,6 @@
 ---
 name: writing-surgical-consultation-notes
+language: en
 description: Creates structured surgical consultation responses with assessment and surgical candidacy determination. Use when responding to surgical consults, evaluating surgical candidates, or documenting surgical recommendations.
 tags:
   - drafting

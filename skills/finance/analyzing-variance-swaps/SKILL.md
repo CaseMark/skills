@@ -1,5 +1,6 @@
 ---
 name: analyzing-variance-swaps
+language: en
 description: Structures variance and volatility swap pricing with realized/implied vol analysis and hedging. Use when pricing variance swaps, analyzing vol risk premium, or hedging volatility exposure.
 tags:
   - analysis

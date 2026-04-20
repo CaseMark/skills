@@ -1,5 +1,6 @@
 ---
 name: managing-traumatic-brain-injury-rehabilitation
+language: en
 description: Structures TBI rehab with Rancho Los Amigos scoring and cognitive rehabilitation protocols. Use when managing TBI rehab, tracking Rancho levels, or implementing cognitive therapy.
 tags:
   - management

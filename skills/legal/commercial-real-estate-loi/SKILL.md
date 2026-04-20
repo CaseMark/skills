@@ -1,5 +1,6 @@
 ---
 name: commercial-real-estate-loi
+language: en
 description: >-
   Drafts a U.S. commercial real estate purchase letter of intent (LOI) framing
   core deal terms as non-binding while isolating binding provisions

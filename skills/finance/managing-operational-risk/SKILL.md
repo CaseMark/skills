@@ -1,5 +1,6 @@
 ---
 name: managing-operational-risk
+language: en
 description: Structures operational risk assessment with loss event classification, RCSA, and KRI monitoring. Use when managing operational risk, conducting risk assessments, or tracking key risk indicators.
 tags:
   - management

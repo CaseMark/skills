@@ -1,5 +1,6 @@
 ---
 name: itar-technology-control-plan
+language: en
 description: >-
   Drafts an ITAR Technology Control Plan (TCP) for U.S. export control
   compliance under 22 CFR 120-130. Use when a user needs to create or update a

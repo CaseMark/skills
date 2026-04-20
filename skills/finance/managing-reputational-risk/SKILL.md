@@ -1,5 +1,6 @@
 ---
 name: managing-reputational-risk
+language: en
 description: Structures reputational risk identification with scenario planning and mitigation strategy documentation. Use when assessing reputational risk, planning crisis scenarios, or documenting reputation management.
 tags:
   - management

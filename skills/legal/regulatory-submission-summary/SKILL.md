@@ -1,5 +1,6 @@
 ---
 name: regulatory-submission-summary
+language: en
 description: >-
   Produces structured summaries of regulatory submission packages (FDA NDAs,
   510(k)s, BLAs, ANDAs, environmental permits, rate filings) for government

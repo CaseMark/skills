@@ -1,5 +1,6 @@
 ---
 name: conducting-quality-of-earnings-analysis
+language: en
 description: Adjusts reported earnings for non-recurring items, accounting policy choices, and run-rate normalizations. Use when performing QofE analysis, adjusting EBITDA, or validating seller financial presentations.
 tags:
   - process

@@ -1,5 +1,6 @@
 ---
 name: managing-toxicology-emergencies
+language: en
 description: Identifies toxidromes and guides decontamination and antidote protocols. Use when managing overdoses, identifying toxidromes, or consulting poison control protocols.
 tags:
   - management

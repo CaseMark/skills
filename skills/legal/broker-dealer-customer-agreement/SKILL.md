@@ -1,5 +1,6 @@
 ---
 name: broker-dealer-customer-agreement
+language: en
 description: Drafts SEC/FINRA-compliant Broker-Dealer Customer Agreements covering account opening, trading, margin, fees, risk disclosures, privacy, arbitration, and execution. Use when drafting or updating customer account agreements, brokerage agreements, or customer documentation for registered broker-dealers.
 ---
 

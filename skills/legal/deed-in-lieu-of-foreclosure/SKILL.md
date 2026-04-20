@@ -1,5 +1,6 @@
 ---
 name: deed-in-lieu-of-foreclosure
+language: en
 description: Drafts a Deed in Lieu of Foreclosure Agreement for U.S. real estate transactions where a borrower voluntarily conveys property to a lender in full satisfaction of defaulted debt. Use when documenting a deed-in-lieu transaction during default, workout, or settlement phases of a secured real estate loan.
 tags:
   - agreement

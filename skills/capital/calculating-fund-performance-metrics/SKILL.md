@@ -1,5 +1,6 @@
 ---
 name: calculating-fund-performance-metrics
+language: en
 description: Computes fund performance with gross/net IRR, MOIC, DPI, RVPI, TVPI, PME, and direct alpha methodologies. Use when calculating fund performance, reconciling return metrics, or benchmarking against peer groups.
 tags:
   - analysis

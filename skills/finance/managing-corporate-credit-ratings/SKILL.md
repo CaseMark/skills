@@ -1,5 +1,6 @@
 ---
 name: managing-corporate-credit-ratings
+language: en
 description: Structures credit rating agency relationship management with rating methodology analysis and presentation preparation. Use when managing rating relationships, preparing rating presentations, or analyzing rating criteria.
 tags:
   - management

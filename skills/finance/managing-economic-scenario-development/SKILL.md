@@ -1,5 +1,6 @@
 ---
 name: managing-economic-scenario-development
+language: en
 description: Structures macroeconomic scenario design with consistent variable paths and probability assessment. Use when building economic scenarios, designing stress test scenarios, or creating macro forecasts.
 tags:
   - management

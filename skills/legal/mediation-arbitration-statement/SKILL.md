@@ -1,5 +1,6 @@
 ---
 name: mediation-arbitration-statement
+language: en
 description: Drafts confidential mediation or arbitration statements presenting a party's position on facts, law, and damages to the neutral. Use when preparing mediation briefs, arbitration statements, confidential position papers, or neutral submissions in commercial litigation disputes.
 tags:
   - drafting

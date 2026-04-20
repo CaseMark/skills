@@ -1,5 +1,6 @@
 ---
 name: managing-bank-regulatory-reporting
+language: en
 description: Structures regulatory report preparation including Call Reports, FR Y-9C, and other required filings. Use when preparing bank regulatory reports, filing Call Reports, or managing regulatory submissions.
 tags:
   - management

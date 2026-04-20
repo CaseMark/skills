@@ -1,5 +1,6 @@
 ---
 name: structuring-rights-offerings
+language: en
 description: Designs rights issue structures with subscription ratios, pricing discounts, and standby underwriting arrangements. Use when structuring rights offerings, analyzing dilution protection, or evaluating capital raise alternatives.
 tags:
   - equity-capital-markets

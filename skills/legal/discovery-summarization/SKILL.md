@@ -1,5 +1,6 @@
 ---
 name: discovery-summarization
+language: en
 description: Summarizes discovery documents (interrogatories, RFPs, RFAs, depositions, privilege logs) into structured attorney-ready memoranda. Triggers when the user needs to summarize discovery materials, identify key admissions, spot response gaps, cross-reference answers, or prepare a discovery status report.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: analyzing-executory-contract-decisions
+language: en
 description: Evaluates assumption, rejection, and assignment decisions for executory contracts and unexpired leases in bankruptcy. Use when analyzing contract decisions, evaluating lease rejections, or modeling cure cost exposure.
 tags:
   - analysis

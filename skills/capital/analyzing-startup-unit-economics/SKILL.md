@@ -1,5 +1,6 @@
 ---
 name: analyzing-startup-unit-economics
+language: en
 description: Deconstructs unit economics with CAC, LTV, payback period, gross margin, and contribution margin analysis. Use when analyzing unit economics, validating SaaS metrics, or assessing business model efficiency.
 tags:
   - analysis

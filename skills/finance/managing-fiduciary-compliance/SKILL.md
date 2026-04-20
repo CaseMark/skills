@@ -1,5 +1,6 @@
 ---
 name: managing-fiduciary-compliance
+language: en
 description: Evaluates advisory practices against fiduciary standards with conflict identification and disclosure requirements. Use when assessing fiduciary duties, managing conflicts of interest, or documenting fiduciary compliance.
 tags:
   - management

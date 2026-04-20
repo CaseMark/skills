@@ -1,5 +1,6 @@
 ---
 name: pre-trial-statement
+language: en
 description: >-
   Drafts U.S. civil/commercial pre-trial statements that narrow issues, fix
   trial assumptions, and prevent evidentiary surprises. Converts pleadings,

@@ -1,5 +1,6 @@
 ---
 name: disclosure-schedules
+language: en
 description: >-
   Drafts and populates M&A disclosure schedules that except known items from
   representations and warranties in definitive agreements (merger, stock

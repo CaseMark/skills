@@ -1,5 +1,6 @@
 ---
 name: managing-clinical-natural-language-processing
+language: en
 description: Structures clinical NLP pipeline design with entity extraction and assertion detection specifications. Use when designing clinical NLP, extracting entities from notes, or building text analysis pipelines.
 tags:
   - management

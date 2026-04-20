@@ -1,5 +1,6 @@
 ---
 name: creating-treatment-plans-psychiatric
+language: en
 description: Structures psychiatric treatment plans with diagnoses, goals, interventions, and measurable outcomes. Use when creating psychiatric treatment plans, setting therapeutic goals, or documenting treatment modalities.
 tags:
   - drafting

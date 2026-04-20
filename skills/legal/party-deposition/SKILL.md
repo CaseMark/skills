@@ -1,5 +1,6 @@
 ---
 name: party-deposition
+language: en
 description: >-
   Builds element-driven deposition outlines and witness preparation plans for
   U.S. party depositions (plaintiff or defendant), covering admissions under

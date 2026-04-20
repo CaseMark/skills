@@ -1,5 +1,6 @@
 ---
 name: preparing-cross-border-investment-cases
+language: en
 description: Structures international investment recommendations with country risk overlay, currency analysis, and structural considerations for IC presentation. Use when preparing cross-border cases, building international IC materials, or documenting cross-border opportunities.
 tags:
   - preparation

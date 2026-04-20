@@ -1,5 +1,6 @@
 ---
 name: managing-infection-control
+language: en
 description: Implements infection prevention protocols with isolation precautions and surveillance documentation. Use when managing infection control, implementing isolation, or documenting infection prevention.
 tags:
   - management

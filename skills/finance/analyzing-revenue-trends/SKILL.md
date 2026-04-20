@@ -1,5 +1,6 @@
 ---
 name: analyzing-revenue-trends
+language: en
 description: Structures revenue analysis with growth decomposition, cohort analysis, and leading indicator tracking. Use when analyzing revenue, decomposing growth drivers, or tracking revenue leading indicators.
 tags:
   - analysis

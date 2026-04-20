@@ -1,5 +1,6 @@
 ---
 name: ciia-agreement
+language: en
 description: Drafts Confidentiality and Invention Assignment Agreements (CIIAs) for U.S. companies with jurisdiction-specific invention carve-outs, DTSA whistleblower notices, and restrictive covenants. Use when drafting employee confidentiality agreements, invention assignment agreements, proprietary information agreements, or IP assignment provisions for onboarding, corporate formation, or employment contexts.
 tags:
   - agreement

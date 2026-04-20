@@ -1,5 +1,6 @@
 ---
 name: analyzing-tail-risk
+language: en
 description: Evaluates portfolio tail risk with extreme value theory, expected shortfall, and tail hedge strategies. Use when analyzing tail risk, estimating expected shortfall, or evaluating tail protection.
 tags:
   - analysis

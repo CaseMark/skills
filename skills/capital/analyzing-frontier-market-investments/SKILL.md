@@ -1,5 +1,6 @@
 ---
 name: analyzing-frontier-market-investments
+language: en
 description: Evaluates frontier market opportunities with liquidity constraints, custody risk, settlement infrastructure, and governance assessment. Use when analyzing frontier markets, assessing operational risk, or evaluating frontier market access.
 tags:
   - analysis

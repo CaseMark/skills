@@ -1,5 +1,6 @@
 ---
 name: case-viability-report
+language: en
 description: Produces internal case viability and conflict check memos for personal injury litigation intake. Screens conflicts, assesses liability and damages, checks statute of limitations, and outputs an accept/decline recommendation. Use when evaluating new PI intake, running conflict checks, assessing case merit pre-filing, or preparing acceptance memos.
 ---
 

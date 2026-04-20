@@ -1,5 +1,6 @@
 ---
 name: documenting-telemedicine-visits
+language: en
 description: Structures telehealth encounter documentation with technology modality, clinical limitations, and follow-up planning. Use when documenting virtual visits, recording telemedicine encounters, or managing remote patient care.
 tags:
   - documentation

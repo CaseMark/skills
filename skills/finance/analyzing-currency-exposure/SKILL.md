@@ -1,5 +1,6 @@
 ---
 name: analyzing-currency-exposure
+language: en
 description: Evaluates and manages portfolio currency risk with hedging strategy analysis and cost assessment. Use when analyzing FX exposure, planning currency hedges, or assessing hedging costs.
 tags:
   - analysis

@@ -1,5 +1,6 @@
 ---
 name: managing-clinical-data-quality
+language: en
 description: Structures data quality management with query resolution, source data verification, and audit trails. Use when managing clinical data quality, resolving data queries, or conducting SDV.
 tags:
   - management

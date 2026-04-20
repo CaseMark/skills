@@ -1,5 +1,6 @@
 ---
 name: pro-forma-cap-table
+language: en
 description: Drafts a pro forma capitalization table modeling ownership before and after a financing event or corporate transaction. Calculates dilution, conversion mechanics, option pool impacts, and ownership on as-converted and fully-diluted bases. Use when modeling seed rounds, Series A/B/C financings, convertible note or SAFE conversions, option pool expansions, stock splits, or cap table restructurings.
 tags:
   - analysis

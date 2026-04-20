@@ -1,5 +1,6 @@
 ---
 name: informed-consent-form
+language: en
 description: Drafts regulatory-compliant informed consent forms for healthcare procedures, clinical trials, research participation, or professional services. Incorporates HIPAA, FDA, IRB/Common Rule, and ICH-GCP requirements as applicable. Use when drafting surgical consent, research participant agreements, clinical trial consent, or treatment authorization forms.
 ---
 

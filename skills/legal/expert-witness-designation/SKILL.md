@@ -1,5 +1,6 @@
 ---
 name: expert-witness-designation
+language: en
 description: Drafts expert witness designation documents satisfying FRCP 26(a)(2) or state equivalents. Covers qualifications, opinion summaries, methodology, compensation, and report integration. Use during discovery when disclosing retained experts to opposing counsel and the court.
 tags:
   - drafting

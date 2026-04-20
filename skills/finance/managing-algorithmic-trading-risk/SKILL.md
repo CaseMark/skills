@@ -1,5 +1,6 @@
 ---
 name: managing-algorithmic-trading-risk
+language: en
 description: Structures algo trading risk management with execution quality, market impact, and circuit breaker monitoring. Use when managing algo risk, evaluating execution quality, or monitoring trading algorithms.
 tags:
   - management

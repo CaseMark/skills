@@ -1,5 +1,6 @@
 ---
 name: deposition-analysis
+language: en
 description: Produces litigation-grade U.S. deposition summaries with exact page-line citations, topical organization, and strategic analysis of admissions, inconsistencies, objections, and exhibits. Use when asked for deposition summaries, page-line or P&L citations, depo analysis, impeachment review, cross-exam prep, or motion-support summaries.
 ---
 

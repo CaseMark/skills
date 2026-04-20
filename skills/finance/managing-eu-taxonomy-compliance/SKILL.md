@@ -1,5 +1,6 @@
 ---
 name: managing-eu-taxonomy-compliance
+language: en
 description: Structures EU Taxonomy alignment assessment with technical screening criteria and DNSH evaluation. Use when assessing Taxonomy alignment, applying technical criteria, or evaluating substantial contribution.
 tags:
   - management

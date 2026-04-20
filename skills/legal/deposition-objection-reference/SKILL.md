@@ -1,5 +1,6 @@
 ---
 name: deposition-objection-reference
+language: en
 description: Provides a quick reference for deposition objections under FRCP 30(c)(2), including form objections, substantive objections, waiver rules, and the three exclusive grounds for instructing a witness not to answer. Use when preparing for depositions, assisting during live depositions, conducting witness prep, or analyzing deposition transcripts for objection issues.
 ---
 

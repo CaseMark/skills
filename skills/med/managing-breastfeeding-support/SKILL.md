@@ -1,5 +1,6 @@
 ---
 name: managing-breastfeeding-support
+language: en
 description: Structures lactation assessment with latch evaluation and common problem management. Use when assessing breastfeeding, managing lactation difficulties, or documenting lactation support.
 tags:
   - management

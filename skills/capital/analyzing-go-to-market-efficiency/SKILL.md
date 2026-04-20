@@ -1,5 +1,6 @@
 ---
 name: analyzing-go-to-market-efficiency
+language: en
 description: Evaluates sales efficiency with CAC payback, sales cycle analysis, channel economics, and pipeline conversion metrics. Use when assessing GTM efficiency, analyzing sales productivity, or evaluating distribution strategy.
 tags:
   - analysis

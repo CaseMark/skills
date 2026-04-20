@@ -1,5 +1,6 @@
 ---
 name: analyzing-cross-asset-correlation-dynamics
+language: en
 description: Monitors cross-asset correlation patterns with regime-dependent analysis and diversification effectiveness assessment. Use when analyzing correlations, assessing diversification, or evaluating cross-asset relationships.
 tags:
   - analysis

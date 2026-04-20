@@ -1,5 +1,6 @@
 ---
 name: flp-agreement
+language: en
 description: Drafts Family Limited Partnership agreements for estate planning and intergenerational wealth transfer. Ensures IRS enforceability under IRC §2036 with legitimate business purpose, valuation discounts, and senior-generation control. Use when drafting FLP agreements, family partnership documents, or estate planning partnership structures.
 tags:
   - agreement

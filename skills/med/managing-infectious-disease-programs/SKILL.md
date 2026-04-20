@@ -1,5 +1,6 @@
 ---
 name: managing-infectious-disease-programs
+language: en
 description: Structures infectious disease control programs with prevention, testing, and treatment access protocols. Use when managing ID programs, implementing STI prevention, or coordinating TB control.
 tags:
   - management

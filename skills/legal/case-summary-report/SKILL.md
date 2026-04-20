@@ -1,5 +1,6 @@
 ---
 name: case-summary-report
+language: en
 description: Synthesizes multiple case summaries into one unified Case Summary Report. Triggers when the user has two or more case summaries, document analyses, or memoranda and needs them consolidated into a single report with patterns, contradictions, and gaps identified.
 tags:
   - analysis

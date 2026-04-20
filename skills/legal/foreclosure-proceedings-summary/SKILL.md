@@ -1,5 +1,6 @@
 ---
 name: foreclosure-proceedings-summary
+language: en
 description: Generates structured chronological summaries of U.S. foreclosure proceedings from case documents. Extracts parties, property, loan info, procedural timeline, judicial decisions, deadlines, and current status. Flags bankruptcy stays, loss mitigation holds, standing challenges, RESPA/TILA issues, and procedural irregularities. Distinguishes judicial vs. non-judicial procedures. Use when summarizing foreclosure case posture for lender representation, borrower defense, or real estate transactions affected by pending foreclosure.
 ---
 

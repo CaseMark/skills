@@ -1,5 +1,6 @@
 ---
 name: writing-engagement-letters
+language: en
 description: Structures investment banking engagement terms with scope, fees, indemnification, and tail provisions. Use when drafting engagement letters, negotiating fee structures, or documenting advisory mandates.
 tags:
   - drafting

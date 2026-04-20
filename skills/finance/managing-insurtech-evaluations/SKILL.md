@@ -1,5 +1,6 @@
 ---
 name: managing-insurtech-evaluations
+language: en
 description: Evaluates insurance technology solutions with business case analysis and implementation assessment. Use when evaluating insurtech, assessing technology solutions, or analyzing digital insurance platforms.
 tags:
   - management

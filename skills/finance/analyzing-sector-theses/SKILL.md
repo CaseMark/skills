@@ -1,5 +1,6 @@
 ---
 name: analyzing-sector-theses
+language: en
 description: Develops investment sector theses with market mapping, trend analysis, and opportunity identification. Use when building sector strategies, mapping target markets, or identifying investment themes.
 tags:
   - analysis

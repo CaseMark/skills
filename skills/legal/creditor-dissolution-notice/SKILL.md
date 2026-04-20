@@ -1,5 +1,6 @@
 ---
 name: creditor-dissolution-notice
+language: en
 description: Drafts jurisdiction-compliant Notice to Creditors of Dissolution with claim procedures, statutory bar language, and distribution priority frameworks. Use when drafting creditor notices during corporate dissolution, winding up, or liquidation. Triggers on dissolution notice, creditor notification, claim bar date, corporate wind-up.
 ---
 

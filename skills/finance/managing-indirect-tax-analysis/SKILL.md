@@ -1,5 +1,6 @@
 ---
 name: managing-indirect-tax-analysis
+language: en
 description: Structures value-added tax and customs duty analysis with cross-border transaction considerations. Use when managing VAT, analyzing customs duties, or evaluating indirect tax positions.
 tags:
   - management

@@ -1,5 +1,6 @@
 ---
 name: decision-record-verification
+language: en
 description: Cross-references a judge's decision, court opinion, or final order against one or more hearing/trial/deposition transcripts to verify whether the record supports each finding. Produces strict dual-citation blocks with document names, page/line references, and verbatim quotes from both sources. Use when preparing appellate review, post-trial motions, record discrepancy audits, or transcript-based fact checks of judicial findings.
 tags:
   - analysis

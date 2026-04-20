@@ -1,5 +1,6 @@
 ---
 name: structuring-infrastructure-debt-facilities
+language: en
 description: Designs infrastructure lending with mini-perm structures, cash sweep mechanics, and maintenance/distribution covenants. Use when structuring project debt, designing covenant packages, or analyzing infrastructure lending terms.
 tags:
   - infrastructure-and-project-finance

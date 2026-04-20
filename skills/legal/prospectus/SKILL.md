@@ -1,5 +1,6 @@
 ---
 name: prospectus
+language: en
 description: >-
   Drafts SEC-compliant prospectuses for U.S. securities offerings (IPOs,
   follow-ons, private placements). Structures cover page, risk factors,

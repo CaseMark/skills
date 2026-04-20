@@ -1,5 +1,6 @@
 ---
 name: managing-correspondent-banking
+language: en
 description: Structures correspondent banking analysis with relationship assessment, risk evaluation, and regulatory requirements. Use when managing correspondent relationships, evaluating partner banks, or assessing correspondent risk.
 tags:
   - management

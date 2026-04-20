@@ -1,5 +1,6 @@
 ---
 name: motion-to-avoid-lien
+language: en
 description: Drafts a Motion to Avoid Lien under 11 U.S.C. § 522(f) for bankruptcy proceedings. Produces a litigation-ready motion with caption, impairment calculations, legal argument, and prayer for relief. Use when filing lien avoidance motions in Chapter 7, 11, or 13 cases, stripping judicial liens or nonpossessory nonpurchase-money security interests that impair debtor exemptions.
 ---
 

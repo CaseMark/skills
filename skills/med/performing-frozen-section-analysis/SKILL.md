@@ -1,5 +1,6 @@
 ---
 name: performing-frozen-section-analysis
+language: en
 description: Guides intraoperative frozen section evaluation with rapid diagnostic protocols and communication. Use when performing frozen sections, providing intraoperative diagnoses, or communicating preliminary results.
 tags:
   - process

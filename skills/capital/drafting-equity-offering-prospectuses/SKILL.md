@@ -1,5 +1,6 @@
 ---
 name: drafting-equity-offering-prospectuses
+language: en
 description: Structures S-1/F-1 prospectus content with business description, risk factors, MD&A, and financial presentation requirements. Use when preparing IPO prospectuses, drafting SEC filings, or structuring offering documents.
 tags:
   - drafting

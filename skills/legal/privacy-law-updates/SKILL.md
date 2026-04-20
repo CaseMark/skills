@@ -1,5 +1,6 @@
 ---
 name: privacy-law-updates
+language: en
 description: Generates structured privacy and data protection law briefings across US, EU, UK, and other jurisdictions. Organizes by jurisdiction with compliance deadlines, enforcement actions, and legislative changes. Use when preparing privacy law briefings, compliance updates, regulatory change summaries, or data protection landscape reviews.
 ---
 

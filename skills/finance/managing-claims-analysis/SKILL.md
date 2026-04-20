@@ -1,5 +1,6 @@
 ---
 name: managing-claims-analysis
+language: en
 description: Structures claims data analysis with severity/frequency trending, case reserve monitoring, and litigation management. Use when analyzing claims data, trending claim frequency, or monitoring claim severity.
 tags:
   - management

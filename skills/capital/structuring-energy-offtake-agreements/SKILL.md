@@ -1,5 +1,6 @@
 ---
 name: structuring-energy-offtake-agreements
+language: en
 description: Designs power purchase agreements and energy offtake structures with price mechanics, volume commitments, and curtailment provisions. Use when structuring PPAs, analyzing offtake terms, or evaluating energy contract risk.
 tags:
   - real-assets-and-natural-resources

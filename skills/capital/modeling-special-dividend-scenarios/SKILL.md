@@ -1,5 +1,6 @@
 ---
 name: modeling-special-dividend-scenarios
+language: en
 description: Analyzes special dividend catalysts with balance sheet capacity, tax efficiency, and shareholder return comparison analysis. Use when modeling special dividends, evaluating capital return catalysts, or assessing dividend capacity.
 tags:
   - modeling

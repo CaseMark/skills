@@ -1,5 +1,6 @@
 ---
 name: analyzing-volatility-surface-dynamics
+language: en
 description: Evaluates implied volatility surfaces with skew analysis, term structure dynamics, and surface fitting methodologies. Use when analyzing vol surfaces, assessing skew dynamics, or calibrating volatility models.
 tags:
   - analysis

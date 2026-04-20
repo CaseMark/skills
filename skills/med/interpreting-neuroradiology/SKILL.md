@@ -1,5 +1,6 @@
 ---
 name: interpreting-neuroradiology
+language: en
 description: Structures brain and spine imaging interpretation with stroke, mass, and degenerative disease assessment. Use when reading neuroimaging, evaluating stroke imaging, or documenting intracranial findings.
 tags:
   - analysis

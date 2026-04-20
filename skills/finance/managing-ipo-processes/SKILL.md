@@ -1,5 +1,6 @@
 ---
 name: managing-ipo-processes
+language: en
 description: Structures IPO execution with prospectus preparation, pricing analysis, and allocation methodology. Use when managing IPO processes, preparing S-1 filings, or analyzing IPO pricing.
 tags:
   - management
