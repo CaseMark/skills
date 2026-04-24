@@ -220,10 +220,7 @@ feasible}}.
 collateral-source amounts accounted for}}.
 ```
 
-**Rules:**
-- If the client provided a total without line-item backup, either (a) request the breakdown before continuing, or (b) label the number `[UNVERIFIED — client-provided]` and flag in Checkpoint B. Never present a client number as computed.
-- Never assert fees without a verified contractual or statutory basis.
-- Do not disclose the client's walkaway number. This figure is your ask, not your floor.
+**Rules:** apply the "Cross-cutting rules" in `DAMAGES-METHODOLOGY.md` — no client totals as computed, every line needs a source, no fees without a verified basis, no walkaway number.
 
 ---
 

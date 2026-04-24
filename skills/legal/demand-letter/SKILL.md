@@ -128,15 +128,7 @@ If the jurisdiction / claim is not in the table, invoke `legal-research` with th
 
 ## Step 4: Quantify Damages
 
-Use `references/DAMAGES-METHODOLOGY.md`. Categories covered: Direct/expectation, Consequential, Statutory multipliers, Prejudgment interest, Liquidated, Mitigation offsets, Fees and costs.
-
-**One rule that lives here (not in the reference file):** if the client provides a total damages number without line-item backup, you have three options and no others:
-
-1. **Request breakdown.** Pause drafting, tell the user what's missing, resume when inputs arrive.
-2. **Label unverified.** Keep the number, mark it `[UNVERIFIED — client-provided]`, and surface the flag in Checkpoint B.
-3. **Abandon the number.** Draft without it; state that damages are "to be further documented."
-
-Never present a client-provided number as computed.
+Use `references/DAMAGES-METHODOLOGY.md`. Categories covered: Direct/expectation, Consequential, Statutory multipliers, Prejudgment interest, Liquidated, Mitigation offsets, Fees and costs. Cross-cutting rules — including what to do when the client provides a total without line-item backup — are in that file's "Cross-cutting rules" section; follow them.
 
 Address mitigation, offsets, and credits affirmatively when facts suggest the defense is in play. Provide enough detail for credibility without revealing the walkaway number.
 
