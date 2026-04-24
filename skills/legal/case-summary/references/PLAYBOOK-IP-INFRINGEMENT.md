@@ -3,7 +3,7 @@
 ---
 practice_area: ip-infringement
 triggers:
-  filenames: [patent, trademark, copyright, '10-', '20-', '',  prior-art, IDS, IPR, Markman, claim-chart, accused, prosecution-history, specimen, TTAB, cease-and-desist, DMCA, license, royalty]
+  filenames: [patent, trademark, copyright, prior-art, IDS, IPR, PGR, Markman, claim-chart, claim-construction, accused-product, prosecution-history, file-wrapper, specimen, TTAB, USPTO, cease-and-desist, DMCA, royalty-report, license-agreement]
   content_signals: [patent infringement, trademark infringement, copyright infringement, claim construction, prior art, reasonable royalty, lost profits, willful infringement, likelihood of confusion, substantial similarity, fair use, doctrine of equivalents]
 defers_to:
   - deposition-summary: when inventor, technical, or expert depositions appear
