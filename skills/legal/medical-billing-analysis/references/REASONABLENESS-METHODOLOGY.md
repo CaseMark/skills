@@ -14,7 +14,7 @@ How to assess whether medical charges are "usual, customary, and reasonable" (UC
 | **Allowed amount (negotiated)** | What an insurer's contract permits | EOB "Allowed Amount" column |
 | **Paid amount** | What was actually transferred (insurer + patient) | EOB "Plan Paid" + "Patient Resp." |
 
-For hospitals, chargemaster typically runs **300–500% of the Medicare-allowed amount** for the same service. A chargemaster total alone is not evidence of reasonableness — flag every reasonableness analysis that relies on chargemaster as the only data point.
+For hospitals, chargemaster commonly runs materially higher than the Medicare-allowed amount for the same service; actual multiples vary by facility, code, and year and must be retrieved, not estimated `[VERIFY per facility/code/CY]`. A chargemaster total alone is not evidence of reasonableness — flag every reasonableness analysis that relies on chargemaster as the only data point.
 
 ---
 
@@ -27,7 +27,7 @@ For hospitals, chargemaster typically runs **300–500% of the Medicare-allowed 
 | **Medicare OPPS / IPPS** | Outpatient APC and inpatient DRG rates | "CMS OPPS APC ___, CY ___" / "CMS IPPS DRG ___, CY ___" | Use for facility benchmarking. |
 | **State workers' comp fee schedule** | State-regulated maximums | "[State] DWC fee schedule, CY ___, code ___" | State-specific; many PI cases borrow as a reference even if WC does not apply `[VERIFY admissibility]`. |
 | **Commercial allowed-amount data from case EOBs** | Real-world payer rates | "EOB [doc-label, p. N, Bates ___]" | Strongest evidence: it is what was actually paid in this case. |
-| **Hospital price-transparency files (CMS rule)** | Posted negotiated rates and self-pay rates per facility | "[Hospital] machine-readable file, retrieved [date]" | Quality varies; often incomplete. `[VERIFY] each retrieval. |
+| **Hospital price-transparency files (CMS rule)** | Posted negotiated rates and self-pay rates per facility | "[Hospital] machine-readable file, retrieved [date]" | Quality varies; often incomplete. `[VERIFY]` each retrieval. |
 
 **Do not invent.** Never quote a FAIR Health percentile, a CMS rate, or a hospital posted rate that has not been actually retrieved. If no benchmark was run, the deliverable says "benchmark not obtained — recommend billing-expert review."
 

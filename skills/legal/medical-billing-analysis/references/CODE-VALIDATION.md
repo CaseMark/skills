@@ -66,7 +66,7 @@ A billed procedure must have a supporting diagnosis on the claim. Common flag pa
 | `-57` | Decision for surgery | Misused on minor procedures (does not apply) |
 | `-78` / `-79` | Return to OR (related / unrelated) | Wrong choice changes payment; check operative reason |
 
-**Cross-reference:** all modifier-misuse findings should be tagged with the relevant Red Flag ID from `RED-FLAGS-CATALOG.md` (RF-01 unbundling, RF-02 upcoding, RF-04 duplicate billing).
+**Cross-reference:** tag modifier-misuse findings with the most specific Red Flag ID from `RED-FLAGS-CATALOG.md` — RF-08 (`-25` overuse), RF-09 (`-59`/X overuse), RF-10 (professional/technical double-bill). Roll up to RF-01 (unbundling) or RF-02 (upcoding) where a broader pattern is established; add RF-04 (duplicate billing) only when a modifier misuse actually produces a duplicate charge.
 
 ---
 

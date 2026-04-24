@@ -78,7 +78,7 @@ Classify each document, assign a short stable `doc-label`, record Bates range an
 
 ### Step 2 — Reconcile Billing Arithmetic
 
-For each provider, verify: **billed = paid + contractual adjustments + patient responsibility + outstanding balance**. Record the per-provider reconciliation row (Section 7 of the output). Any failure to reconcile is itself a flag (RF-04 candidate). Do not paper over a delta; show it.
+For each provider, verify: **billed = paid + contractual adjustments + patient responsibility + outstanding balance**. Record the per-provider reconciliation row (Section 7 of the output). Any failure to reconcile is itself a flag — identify the underlying cause (RF-04 duplicate, RF-05 phantom, an unrecorded adjustment, or a data-entry error) and record it. Do not paper over a delta; show it.
 
 ### Step 3 — Validate Codes (CPT / HCPCS / ICD-10)
 
