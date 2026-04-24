@@ -1,111 +1,111 @@
-# Search Playbook — Vault Queries per Case Dimension
+# Search Playbook — Base Queries
 
-Runnable query patterns for each dimension listed in `SKILL.md`'s MAP phase. Use them as starting points, not a script. Adjust wording to the case (practice area, venue, specific parties).
+Practice-agnostic search queries for the eight core dimensions in `CORE-DIMENSIONS.md`. Every query below is a plain-text phrase the agent issues against the corpus. Backends (see `BACKENDS.md`) expose the queries through various modes — hybrid, semantic, keyword, entity, global overview, graph — and the agent chooses the mode that best fits the question (see **Query modes** below). This file does not embed tool-specific flags.
 
-Every query assumes `casedev search vault "<query>" --vault <vault-id>`; see `RUNBOOK.md` for the full command and method variants.
+For practice-area specialization, see `PLAYBOOK-*.md`. A playbook extends the base queries with domain-specific variants.
 
-## Parties & posture
+---
+
+## Query modes (conceptual)
+
+| Mode | When it helps |
+|---|---|
+| **Hybrid** (semantic + keyword) | General factual queries — use as the default |
+| **Semantic only** | Paraphrase-tolerant queries where exact wording varies (e.g., "admission against interest") |
+| **Keyword only** | Specific strings (case numbers, dates, exhibit labels, proper names) |
+| **Entity-focused** | "Who is X?", "What is Exhibit 4?" — canonical mentions of a named thing |
+| **Global overview** | One-shot "what is this case about?" framing before deep-diving |
+| **Graph / relational** | Cross-document relationships (party → event → document) |
+| **Local neighborhood** | Tight context around a single known entity |
+
+See `BACKENDS.md` for how a specific backend exposes each mode.
+
+---
+
+## 1. Parties & posture
 
 - `"caption parties plaintiff defendant"`
 - `"case number docket venue jurisdiction"`
-- `"attorney of record appearance"`
-- `"insurance carrier policy number"`
+- `"attorney of record appearance counsel"`
+- `"party identity entity legal name"`
+- `"related case consolidated coordinated"`
 
-Use `--method entity` when you want canonical mentions of a specific person or org.
+Use entity mode for canonical mentions of named parties or counsel.
 
-## Timeline / incident facts
+## 2. Timeline
 
-- `"date of incident accident loss occurrence"`
-- `"location of incident address intersection premises"`
-- `"police report officer narrative"`
-- `"witness statement observation"`
-- `"mechanism of injury how it happened"`
+- `"date of incident occurrence event"`
+- `"material event chronology"`
+- `"notice deadline period expiration"`
 
-Then, once you have the date, narrow with `--query "<incident-date> ..."`.
+Use keyword mode once a specific date is known — narrow with the date string itself.
 
-## Injuries / harm
+## 3. Evidence inventory
 
-- `"diagnosis ICD injury body part"`
-- `"chief complaint presenting symptoms"`
-- `"initial emergency room triage"`
-- `"imaging MRI CT X-ray findings"`
-- `"pre-existing condition history"`
+- `"exhibit list attachment"`
+- `"document produced Bates"`
+- `"expert report opinion"`
+- `"photograph video recording"`
+- `"business record regularly kept"`
 
-## Treatment
+Use global-overview mode first on large corpora to discover document-type clusters.
 
-- `"treatment plan provider specialist referral"`
-- `"surgery operative report procedure"`
-- `"physical therapy rehabilitation"`
-- `"medication prescription"`
-- `"maximum medical improvement MMI discharge"`
-- `"treatment gap no appointment noncompliance"`
+## 4. Claims & legal theories
 
-## Damages
+- `"cause of action claim count"`
+- `"element prima facie case"`
+- `"statute regulation governing"`
+- `"legal theory claim relief"`
 
-**Specials:**
-- `"medical bill billed amount statement"`
-- `"paid amount adjustment write-off balance"`
-- `"CPT code procedure charge"`
+## 5. Exposure / remedies
 
-**Wage loss:**
-- `"employer wage loss time missed work"`
-- `"return to work restrictions"`
-- `"earnings capacity vocational"`
+- `"damages loss harm compensation"`
+- `"relief requested prayer"`
+- `"injunction declaratory"`
+- `"attorneys fees costs"`
+- `"prejudgment interest"`
 
-**Future care:**
-- `"life care plan future treatment cost"`
-- `"future medical surgery projected"`
+## 6. Defenses
 
-**Non-economic:**
-- `"pain suffering impact activities daily living"`
-- `"loss of consortium enjoyment"`
+- `"affirmative defense denial"`
+- `"statute of limitations repose"`
+- `"release waiver settlement"`
+- `"estoppel laches unclean hands"`
+- `"answer defense verified"`
 
-## Liability
+## 7. Procedural status
 
-- `"negligence duty breach causation"`
+- `"scheduling order deadline"`
+- `"pending motion brief"`
+- `"discovery cutoff"`
+- `"trial date hearing"`
+- `"pre-suit notice prerequisite"`
+
+## 8. Red flags & open threads
+
 - `"admission statement against interest"`
-- `"violation of statute regulation ordinance"`
-- `"prior similar incident notice"`
-- `"training policy procedure violation"`
-- `"deposition admission acknowledged conceded"`
-
-Run against specific depositions with `--object <depo-obj-id>` after inventory.
-
-## Defenses
-
-- `"affirmative defense comparative fault"`
-- `"contributory negligence failure to mitigate"`
-- `"statute of limitations"`
-- `"release waiver assumption of risk"`
-- `"denial liability answer"`
-
-## Liens and offsets
-
-- `"Medicare conditional payment MSP"`
-- `"Medicaid recovery notice"`
-- `"ERISA plan reimbursement"`
-- `"workers compensation subrogation"`
-- `"hospital lien statutory"`
-- `"health insurance subrogation right"`
-
-## Key testimony
-
-- `"deposition page line question answer"`
-- `"trial testimony direct examination"`
-- `"expert opinion causation"`
-- `"30(b)(6) corporate representative"`
-
-## Red flags
-
-- `"social media post photograph"`
-- `"surveillance video investigation"`
 - `"inconsistent statement prior"`
-- `"spoliation missing evidence"`
-- `"gap in treatment unexplained"`
+- `"spoliation missing evidence destroyed"`
+- `"waiver consent ratification"`
 
-## Meta-query tips
+---
 
-- If a query returns nothing relevant, try `--method vector` for paraphrase-tolerance.
-- If the corpus is huge and searches return irrelevant hits, narrow with `--object` after inventory.
-- Use `--method entity` once you know a name or exhibit number — it's far more precise than hybrid.
-- `--method global` is useful for one-shot "what is this case about?" framing before going deep.
+## Composing queries from a loaded playbook
+
+When the **Diagnose practice area** step loads one or more `PLAYBOOK-*.md` modules, combine queries in this order:
+
+1. **Overview sweep first.** Run a single global-overview query ("what is this case about?") to anchor the rest.
+2. **Base queries by dimension.** Walk the eight dimensions above. For each, issue the relevant base queries.
+3. **Module queries layered on.** For each loaded playbook, issue the module-specific queries under the same dimension headings.
+4. **Follow-ups driven by hits.** Re-query to narrow when a base or module query returns a load-bearing hit — e.g., after finding a key deposition, issue entity-mode queries for the witness name; after finding a damages document, issue keyword queries for the specific amounts.
+
+Do not brute-force every query mechanically. The loop is: query → read 3–10 top chunks → decide whether to follow up, to move on, or to route the cluster to a sibling skill per `ROUTING.md`.
+
+---
+
+## Tuning tips
+
+- Queries returning nothing relevant: try a semantic-only mode for paraphrase tolerance, or a shorter, more specific phrasing.
+- Queries returning too many noisy hits: add a keyword anchor (party name, date, case number), or scope to a specific object/objects once inventory is done.
+- Unfamiliar domain: run **global overview** first to discover the vocabulary the documents use, then re-issue queries with that vocabulary.
+- Always cite hits by object name + page (or chunk ID). A hit that can't be cited is not a hit.
