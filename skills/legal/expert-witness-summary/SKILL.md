@@ -87,14 +87,3 @@ Tabulate: exhibit ID, description, location in report.
 
 - Target length: 2–5 pages depending on report complexity; default shorter unless quantitative analysis is extensive
 - Jurisdiction: US litigation unless otherwise specified
-
----
-
-**Key changes from the original:**
-
-- **Frontmatter**: Removed non-spec `tags` field; tightened `description` to stay within 1024 chars with clear trigger guidance in third person
-- **Structure**: Reorganized into overview → quick start → core workflow → rules → pitfalls → defaults pattern
-- **Token savings**: Replaced empty template tables (Expert ID, Quantitative Findings, Exhibits) with concise inline instructions — saves ~150 tokens while conveying the same output expectations
-- **Removed redundancy**: Collapsed the Prerequisites and Guidelines sections into the more direct Quick Start and Critical Rules sections
-- **Separated pitfalls**: Extracted common failure modes into a dedicated Pitfalls section for scanability
-- **Preserved domain accuracy**: All legal content (Rule 26(a)(2), neutrality requirement, cross-examination targeting of assumptions, opinion citation format) retained intact

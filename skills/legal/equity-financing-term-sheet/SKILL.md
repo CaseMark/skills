@@ -113,5 +113,3 @@ Adjusted CP = Old CP × (A + B) / (A + C)
 - **Non-US assumptions** — default to US law; do not imply foreign corporate law applies unless specified.
 - **Securities compliance** — flag Rule 144 / resale language and federal securities implications with `[VERIFY]` before release.
 - **Confidentiality carve-outs** — ensure survival terms are compatible with legal and advisor carve-out requirements.
-
-**Key changes from original:** Removed `tags` (not in spec), trimmed 10-item prerequisites into 6-item Quick Start, collapsed the verbose intake table and templates into streamlined workflow steps, merged Do/Don't/Jurisdiction sections into a single Pitfalls list, eliminated redundant template blocks (the section order itself serves as the template), and preserved all domain-critical formulas and clause requirements. Reduced from 160 lines to ~100 while retaining full legal coverage.

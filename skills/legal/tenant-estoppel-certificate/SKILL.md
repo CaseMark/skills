@@ -92,15 +92,3 @@ Draft each as a separately numbered paragraph:
 | Missing security deposit details | Flag as `[VERIFY]` — do not estimate; confirm with tenant or landlord records |
 | Unclear renewal/option status | Confirm whether option was exercised; state exercise date if so, otherwise certify option exists but is unexercised |
 | Lender requires notary | Add notary acknowledgment block after signature; match state-specific notarial form |
-
----
-
-**Key changes from the original:**
-
-- **Description**: Tightened to front-load what it covers (lease terms, rent status, defaults, options, claims, security deposits) for better trigger matching
-- **Templates**: Converted code blocks to blockquotes — removes the ` ``` ` fencing overhead while preserving the template text verbatim
-- **Section rename**: "Required Certifications Checklist" → "Required Certifications" (shorter, the checkboxes already signal it's a checklist)
-- **Certifications tightened**: Minor trimming of redundant phrasing (e.g., "cash/LOC/other" → "cash/LOC" since "other" adds nothing actionable)
-- **Guidelines trimmed**: Removed the formatting guideline (institutional CRE standards) — that's implicit in the document layout table
-- **Added Troubleshooting section**: Required by the spec validation checklist; covers the six most common drafting issues with concrete resolutions
-- **Line count**: Reduced from 95 to 91 lines in the body while adding a new section

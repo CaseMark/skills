@@ -144,18 +144,3 @@ Consent/notice requirements:
 7. Treat change-of-control outcomes as explicit elections, not defaults
 8. Flag uncertain accounting or tax treatment with `[VERIFY]`
 9. U.S. jurisdictional defaults apply unless specified otherwise
-
----
-
-**Key changes:**
-
-- **158 → 126 lines** (~20% reduction)
-- Consolidated Prerequisites from 10 items to 9 using bold labels with dash descriptions (matching codebase conventions)
-- Merged "Reporting and Access" + "Review Timeline" into a single section (§6)
-- Merged "Payment Mechanics" + "Tax Treatment" into one section (§8)
-- Merged "Security/Assignment/Subordination" + "Miscellaneous" into one section (§10)
-- Folded "Exhibits" inline as a compact list (§11)
-- Removed the redundant `**N)` numbered bold headers in favor of `### N.` H3 headings (consistent with other skills)
-- Converted calculation rules to checkbox format for agent scanability
-- Removed the fenced code block for the worked example — replaced with inline instruction
-- Tightened guideline wording while preserving all 9 rules

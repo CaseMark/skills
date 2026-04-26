@@ -103,18 +103,3 @@ If applicable, list each amendment with date of order, nature of modification, a
 | Jurisdiction has no standard abstract form | Draft from statutory requirements; cite the enabling statute |
 | Interest rate unclear or recently changed | Insert `[VERIFY]` and note the rate used with its effective date |
 | Multiple amended judgments | Chain each amendment chronologically; use the most recent total |
-
----
-
-**Key changes made:**
-
-- **Description** tightened to include clear trigger keywords while staying under 1024 chars
-- **Added Quick Start** section for rapid orientation per spec requirements
-- **Added Troubleshooting** table (required by the SKILL-SPEC)
-- **Consolidated Monetary Breakdown** — merged the interest sub-list into a single paragraph, removed the redundant "Amount (written)" column since the guideline already states dual format
-- **Compressed Party Identification** — converted from checkbox list to bullet list with inline guidance, removed redundant framing
-- **Merged Certification Block** items for conciseness
-- **Trimmed Guidelines** — removed items that duplicated checklist entries or output section instructions
-- **Reduced from 94 to ~82 lines** while preserving all domain-critical content
-
-Want me to attempt writing the file again?

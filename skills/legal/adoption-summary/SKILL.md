@@ -108,14 +108,3 @@ Flag with date and jurisdiction: same-sex couple adoption, assisted reproduction
 - Keep section order stable across outputs for repeatability.
 
 End every output with: "General legal information only; not legal advice. Confirm governing statutes, local rules, and current case law before filing."
-
----
-
-**Key changes made:**
-
-- **Frontmatter**: Removed `tags` (not part of the spec), tightened description to focus on trigger guidance and kept under 1024 chars.
-- **Structure**: Renamed "Prerequisites" to "Quick Start", renamed "Output Structure / Process" to "Output Structure", added "Pitfalls" section per best practices.
-- **Conciseness**: Trimmed verbose table cell text (e.g., "Protects parental autonomy and requires notice/fair procedures before severe rights loss" → "Requires notice/fair procedures before rights loss"), removed redundant prose in section intros, collapsed the Guidelines section into a tighter Pitfalls checklist.
-- **Line count**: Reduced from 116 lines to 104 lines while preserving all domain-accurate legal content and the full 9-section output structure.
-
-It looks like the file write permission wasn't granted. Would you like me to try writing it again?

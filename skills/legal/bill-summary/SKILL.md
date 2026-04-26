@@ -71,7 +71,3 @@ Repeat per provision:
 - State disagreement among sources explicitly.
 - Never infer intent beyond documented statements or committee materials.
 - Every status reference must carry an "as of" date.
-
----
-
-**Key changes:** Removed `tags` (not in spec). Tightened description to focus on what/when without a keyword list. Replaced verbose Prerequisites + Output Structure + template block with a compact Quick Start, numbered Workflow, and single reference table. Collapsed the provision template into one concise block. Renamed Guidelines to Pitfalls and Checks for scannability. Cut ~40% of tokens while preserving all domain accuracy and legal structure.

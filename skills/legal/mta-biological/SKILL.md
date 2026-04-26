@@ -146,14 +146,3 @@ Amendments (written/signed), assignment (consent required; M&A exception), notic
 7. **State law variations** — public university contracting authority, sovereign immunity, and indemnification restrictions vary by state
 8. **Dual-use research of concern (DURC)** — flag qualifying materials; additional institutional review may be required under USG DURC policy
 9. **Statutory citations** — mark all CFR/USC references with [VERIFY] for confirmation against current regulations
-
----
-
-Key changes from the original:
-
-- **Removed `tags`** from frontmatter (not part of the spec)
-- **Trimmed description** to be more concise while keeping trigger keywords
-- **Added Quick Start** section for the most common scenario (academic-to-academic UBMTA-based transfer)
-- **Consolidated Output Structure → Drafting Workflow** with bullet lists replacing verbose tables throughout (sections 1, 3, 7–9, 12)
-- **Renamed Guidelines → Pitfalls** for clarity, trimmed from 10 to 9 items by merging the UBMTA reference into the overview
-- **Reduced from 220 to ~140 lines** while preserving all domain-critical content (BSL levels, select agents, Bayh-Dole, ITAR/EAR, three-tier IP, DURC, UCC disclaimers)

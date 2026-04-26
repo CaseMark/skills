@@ -71,7 +71,3 @@ Deliver as DOCX and PDF with hyperlinks to exhibits and transcript anchors. If l
 - Note gaps explicitly if transcript is incomplete or exhibits are missing
 - Confirm compliance with any protective order or redaction protocol
 - Mark uncertain citations or exhibit IDs with `[VERIFY]`
-
----
-
-It looks like I don't have write permission to the file. Could you allow the write, or would you like me to try again?

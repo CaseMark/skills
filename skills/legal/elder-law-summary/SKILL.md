@@ -75,7 +75,3 @@ When documents are uploaded:
 - **`[VERIFY]` tag** — mark any statutory cite or threshold not confirmed against current law
 - **Least restrictive alternative** — frame recommendations to preserve client autonomy and dignity
 - **Include state contacts** where actionable (APS hotline, state Medicaid office, long-term care ombudsman)
-
----
-
-It looks like I don't have write permission to the file. Could you grant write access so I can save the rewrite, or would you like to copy the output above directly?

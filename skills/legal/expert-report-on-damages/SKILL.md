@@ -172,14 +172,3 @@ Identify factors that could cause actual damages to differ. Confine opinions to 
 **Pre-existing damages or market decline**: Isolate defendant-caused damages from independent factors using regression analysis, control groups, or event studies. Document the separation methodology explicitly.
 
 **Court excludes a damages category**: Structure calculations modularly so excluded categories can be removed without invalidating the remainder.
-
----
-
-Key changes from the original:
-
-- **Description**: Rewritten in third-person with explicit trigger keywords (damages expert report, economic loss calculation, damages rebuttal, forensic accounting analysis, expert disclosure)
-- **Removed**: The verbose code-block calculation template (replaced with concise prose), redundant "Guidelines" section (consolidated into a **Compliance Checklist** with checkboxes)
-- **Added**: **Troubleshooting** section (required by spec, was missing) covering 5 common scenarios
-- **Tightened**: Prerequisites, qualifications table, factual background, and methodology sections — trimmed repetitive phrasing while preserving all legal substance
-- **Structure aligned**: Overview → Prerequisites → Core workflow (Report Structure) → Compliance Checklist → Troubleshooting, matching exemplar patterns (case-summary, deposition-preparation)
-- **Line count**: Reduced from 161 to ~148 lines while adding a new Troubleshooting section

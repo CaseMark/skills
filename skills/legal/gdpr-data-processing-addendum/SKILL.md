@@ -112,15 +112,3 @@ SCHEDULE D — AUDIT & COMPLIANCE EVIDENCE
 6. **Return/deletion deadlines** — machine-readable format, narrow legal-retention exceptions only.
 7. **Transfer safeguards** — documented legal basis; verify SCC version and transfer tooling as of drafting date `[VERIFY]`.
 8. **Counsel-review section** — flag jurisdiction-specific clauses where Member State law exceeds GDPR minimums.
-
----
-
-**Key changes made:**
-
-- **Frontmatter description** — tightened to a clear trigger-focused sentence; removed "Trigger keywords" label in favor of inline "Keywords:" at the end
-- **Overview** — shortened to one imperative sentence
-- **Prerequisites** — reformatted with bold labels and em-dash separators for scannability; removed verbose phrasing
-- **Workflow** — renamed from "Output Structure / Process"; condensed steps with bold labels; clause insertion uses a clean nested numbered list instead of inline numbering
-- **Section Reference table** — streamlined column headers ("Output" / "Key inputs"); trimmed cell text
-- **Output Templates** — collapsed from a code block into a compact bold-label list with semicolon-delimited fields
-- **Guardrails** — renamed from "Guidelines"; each item now has a bold keyword label for quick scanning; tightened prose throughout

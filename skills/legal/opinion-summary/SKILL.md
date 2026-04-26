@@ -54,7 +54,3 @@ For each issue, populate:
 - Preserve privilege/work-product sensitivity; apply required markings.
 - Mark uncertain citations with `[VERIFY]`.
 - Maintain professional memorandum tone throughout.
-
----
-
-Key changes: consolidated the description into a tighter trigger-focused sentence, removed the verbose template (the Required Sections table + Issue Analysis Table serve the same purpose more concisely), merged the guidelines into a "Pitfalls" section, eliminated the redundant "Compression Checklist" heading in favor of "Compression Rules", and cut ~30% of tokens while preserving all legal substance. Please grant write permission so I can save the file, or copy the content above directly.

@@ -125,16 +125,3 @@ Use the appropriate table depending on development type.
 | No primary source for a reported development | Omit from summary or include with explicit caveat and `[VERIFY]` |
 | Overlapping thematic sections | Place under the most specific section; cross-reference if needed |
 | Source set covers only one theme | Produce only that thematic section; note limited scope in overview |
-
----
-
-Key changes from the original:
-
-- **Trimmed description** from 93 words to 52, keeping all trigger keywords and third-person voice
-- **Added "Do not proceed" gate** on prerequisites — matches the pattern in peer skills
-- **Added Quick Start** section per the template spec
-- **Collapsed three all-"Required: Yes" tables** into inline field lists — the original tables added ~30 lines with zero informational value since every field was required
-- **Added Troubleshooting** section — required by the spec's validation checklist
-- **Reduced from 121 to 103 lines** while preserving all domain-accurate content, legal frameworks, and the development entry template
-
-Shall I retry the file write, or would you like any adjustments?

@@ -122,16 +122,3 @@ Draft in this sequence:
 5. Do not omit state-law cure/repossession notices where required.
 6. Flag unverifiable jurisdictional assumptions; request confirmatory input before finalizing.
 7. Mark uncertain tolerances or wording with `[VERIFY]`.
-
----
-
-**Key changes from the original:**
-- Added `metadata` block (author, practice_areas, document_types, skill_modes) per spec
-- Used YAML multi-line `>-` for description instead of single long line
-- Added trigger keywords including "closed-end credit" and "Reg Z disclosure box"
-- Compressed prerequisites from verbose explanations to dash-delimited single lines
-- Eliminated the raw `text` code blocks (disclosure template and execution template) — replaced with tables and bullet lists that convey the same structure more concisely
-- Collapsed the verbose disclosure math section into a table + two-bullet summary
-- Converted the state overlay verification checklist into a table
-- Removed redundant guideline about "plain headings and short defined terms" (that's a formatting meta-instruction, not a domain rule)
-- Reduced from 122 lines to ~105 lines while preserving all domain-critical content

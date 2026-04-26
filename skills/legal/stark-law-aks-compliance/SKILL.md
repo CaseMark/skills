@@ -170,7 +170,3 @@ Require scenario-based assessments, passing score threshold, documented attendan
 - Include CMS SRDP and OIG Self-Disclosure Protocol procedures
 - Verify all regulatory citations are current before finalizing [VERIFY]
 - Tailor DHS categories, safe harbors, and examples to the organization's actual service lines
-
----
-
-It looks like I don't have write permission to the file. Could you grant write access so I can save the rewrite, or would you like to copy the content above directly?

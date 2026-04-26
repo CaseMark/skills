@@ -143,14 +143,3 @@ After delivering the audit, ask:
 **Required disclaimer on every output:**
 
 > THIS AUDIT REQUIRES INDEPENDENT ATTORNEY VERIFICATION OF ALL CFR CITATIONS, REGULATORY INTERPRETATIONS, AND FACTUAL ASSERTIONS, AND DOES NOT CONSTITUTE LEGAL ADVICE.
-
----
-
-**Key changes from the original:**
-- **Removed `tags`** — not part of the Agent Skills spec (only `name`, `description`, `license`, `compatibility`, `metadata` are valid frontmatter fields)
-- **Trimmed description** — kept under 1024 chars, third-person, with clear trigger keywords
-- **Removed "Why This Skill Exists"** — explanatory prose that doesn't help the agent execute
-- **Added Quick Start** — numbered overview of the full workflow at a glance
-- **Consolidated Quality Audit + Guidelines into Quality Checks + Guardrails** — eliminated duplicate bullets that appeared in both sections
-- **Tightened each step** — removed redundant sub-explanations while preserving all deliverable tables and CFR verification requirements
-- **Reduced from ~198 to ~130 lines** — ~34% token savings with no domain accuracy loss

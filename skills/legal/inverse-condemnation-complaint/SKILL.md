@@ -114,7 +114,3 @@ Include preliminary damage estimate; preserve right to prove exact amount at tri
 - **Paragraph numbering** — consecutive throughout entire complaint
 - **Format** — comply with local rules (margins, spacing, font, page numbering)
 - **Rule 11** — all claims must be well-grounded in fact and law
-
----
-
-It looks like I don't have write permission to the file yet. Could you grant write access so I can save it, or would you like to copy the output above directly?

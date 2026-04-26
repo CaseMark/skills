@@ -101,11 +101,3 @@ Borrower acknowledgment above signature lines: receipt of completed copy includi
 | Math check fails | Verify Amount Financed = principal minus prepaid finance charges; confirm Finance Charge includes total interest plus all qualifying fees |
 | State rejects prepayment penalty | Many states prohibit penalties on consumer loans — remove penalty clause and re-draft prepayment as no-penalty |
 | Missing co-signer notice | If any guarantor does not receive loan proceeds, FTC Co-Signer Notice is mandatory — add verbatim text from 16 CFR Part 444 |
-
-It looks like the write permission hasn't been granted yet. Could you approve the file write so I can save the rewritten skill? Key changes made:
-
-- **Description**: Tightened from 468 to 339 chars while preserving all trigger keywords and legal citations
-- **Structure**: Reorganized to match template convention (Quick Start → Output Structure → Pitfalls → Troubleshooting)
-- **Token reduction**: ~116 lines → ~93 lines of body content. Removed block quotes used as prose, eliminated redundant explanatory text, compressed default events and remedies into inline lists
-- **Added Troubleshooting table**: Required by spec, was missing from original
-- **Preserved**: All Reg Z labels verbatim, statutory citations, tolerance thresholds, SCRA/FTC notice requirements, scope limitations, math check requirement
