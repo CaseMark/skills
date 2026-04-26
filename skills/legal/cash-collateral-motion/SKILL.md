@@ -95,7 +95,3 @@ Select from and tailor to facts:
 - Adequate protection must be substantive, not perfunctory
 - Include a supporting declaration from a debtor representative
 - Proposed order must be filed as a separate document
-
----
-
-It looks like I don't have write permissions to the file. Could you grant write access so I can save it, or would you like to copy the content above directly?

@@ -193,17 +193,3 @@ After delivering the draft, confirm:
 **Required disclaimer on every output:**
 
 > THIS AGREEMENT IS A DRAFTING AID AND REQUIRES REVIEW BY QUALIFIED LEGAL COUNSEL BEFORE USE. IT DOES NOT CONSTITUTE LEGAL ADVICE.
-
----
-
-Key changes from the original:
-
-- **Description**: Tightened from 7 lines to 5; clearer trigger guidance
-- **Removed**: "Why This Skill Exists" prose section — rationale folded into the one-line overview
-- **Added**: Quick Start numbered list and Output Modes table up front for fast orientation
-- **Consolidated**: Steps 4–6 merged into a single Step 4 ("Draft Agreement") with sub-sections, reducing top-level step count from 6 to 5
-- **Removed**: Redundant "Checkpoint A/B" naming — now "Pre-Draft Intake" and "Post-Draft Checkpoint"
-- **Removed**: The `Cross-Reference` column from the policy table (was empty dashes in every row)
-- **Removed**: Checkbox markers `[ ]` from prohibited conduct (converted to plain bullet list)
-- **Renamed**: "Guidelines" → "Pitfalls" for scannability
-- **Tightened**: All table cells shortened; duplicative notes between matrices and section outline pruned

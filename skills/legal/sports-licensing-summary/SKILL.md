@@ -74,9 +74,3 @@ Conclude with 3–5 bullet points identifying the most significant risks (e.g., 
 - Flag provisions that may conflict with applicable league rules or CBAs
 - Mark referenced statutes or rules with `[VERIFY]` if not confirmed in the agreement text
 - Indicate where full contract language should be consulted rather than relying on summary
-
----
-
-**Key changes:** Compressed the description into a single sentence with clear trigger guidance. Replaced verbose tables with inline extraction lists. Collapsed checklist items into prose-style lists. Renamed "Guidelines" to "Pitfalls & Checks" for clarity. Standardized "name/image/likeness" to the industry-standard "NIL" abbreviation. Reduced overall token count by ~35% while preserving all material legal content.
-
-Want me to retry writing the file, or would you like to approve the write permission first?

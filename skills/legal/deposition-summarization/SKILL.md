@@ -64,7 +64,3 @@ Includes Format A or B, plus these additional sections:
 - Note all objections and their basis inline.
 - Flag confidentiality designations (Confidential, AEO) when present.
 - If an exhibit is referenced but not provided, note: "[Exhibit not provided for review]".
-
----
-
-**Key changes**: Removed `tags` from frontmatter (not in spec). Tightened the description. Added a Quick Start checklist for fast orientation. Consolidated the Guidelines section into a "Pitfalls" section. Trimmed redundant prose in format descriptions while keeping all three formats, their examples, and the exhibit table intact. Reduced from 76 lines to 62 lines with no domain content lost.

@@ -91,11 +91,3 @@ Organize by category:
 | Arguing credibility | Impermissible on JNOV — focus on absence of evidence, not witness believability |
 | Ignoring partial relief | Courts more likely to grant JNOV on specific claims or damage components than entire verdict |
 | Conflating standards | JNOV = "no reasonable jury"; new trial = "great weight of evidence" (more lenient) — keep arguments distinct |
-
----
-
-**Key changes from original:**
-- Trimmed from 88 lines to ~75 — removed the separate "Document Format" subsection (folded into one line), collapsed the "Guidelines" section into a tighter "Critical Rules" list, and converted the freeform guidelines about partial JNOV, timeliness, Rule 50(a) prerequisite, and standard conflation into a scannable "Pitfalls" table.
-- Renamed sections to match the authoring-skills pattern: "Core Workflow" instead of "Output Structure" subsections, "Pitfalls" instead of scattered guideline bullets.
-- Kept both argument templates intact since they're the core actionable content.
-- Description stays third-person with clear trigger keywords.

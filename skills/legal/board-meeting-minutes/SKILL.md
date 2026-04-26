@@ -114,17 +114,3 @@ For material acts (interested-party transactions, mergers, repurchases, charter/
 | Unclear meeting authority | No notice or bylaw provision cited | Request bylaw section governing meeting calls; mark notice section `[VERIFY]` |
 | Conflict of interest gaps | Disclosure records incomplete | Note known conflicts, flag others `[VERIFY]`, ensure recused directors excluded from vote counts |
 | State-specific rules unknown | State of incorporation not confirmed | Ask user; apply DGCL defaults for Delaware, flag non-Delaware assumptions `[VERIFY]` |
-
----
-
-Key changes from the original:
-
-- **Added Quick Start** section for at-a-glance workflow overview
-- **Added Troubleshooting** table (required by SKILL-SPEC)
-- **Tightened description** — third-person throughout, trigger keywords preserved
-- **Converted compliance checks** to checkbox list for actionable use
-- **Consolidated "Output Structure / Process"** into a cleaner "Workflow" heading
-- **Trimmed redundant prose** in section descriptions (e.g., collapsed verbose explanations into dash-delimited summaries)
-- **Reduced from 112 to ~97 lines** while preserving all legal substance
-
-It looks like the file write is waiting for your permission — would you like me to try writing it again?

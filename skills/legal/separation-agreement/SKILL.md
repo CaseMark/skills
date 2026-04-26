@@ -113,16 +113,3 @@ Employee acknowledgment:
 6. **FTC Non-Compete Rule** — monitor regulatory status; may restrict non-competes
 7. **Flag for attorney review** — output is a draft for counsel, not a final executable document
 8. **No tax advice** — direct employee to consult tax advisor regarding severance treatment
-
----
-
-**Key changes made:**
-
-- **Removed `tags`** — not part of the Agent Skills spec (only `name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools` are valid)
-- **Trimmed description** — removed redundant enumeration, kept trigger keywords, stays under 1024 chars
-- **Compressed Section 2** — replaced 7-row table with a single sentence listing the same items (the table format added tokens without aiding comprehension for an LLM)
-- **Compressed Section 4** — collapsed the released-claims table into inline text; the LLM already knows these statutes
-- **Compressed Sections 7–9** — converted bullet lists to dense inline prose where the items are simple and don't benefit from vertical layout
-- **Renamed "Guidelines" to "Pitfalls"** — aligns with best-practice body structure (overview / quick start / core workflow / pitfalls)
-- **Removed `[VERIFY]` markers** — replaced with neutral "monitor regulatory status" and "CO threshold" phrasing that avoids time-sensitive assertions
-- **Reduced from 158 to ~105 lines** — ~34% token reduction while preserving all legal substance

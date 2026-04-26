@@ -109,7 +109,3 @@ Retention period must match governing regime; cite the exact rule or mark `[VERI
 - **Stale flow diagrams**: Plans are indefensible if the flow diagram does not reflect actual current operations
 - **Missing allergen hazards**: Allergens must appear in the hazard analysis and link to monitoring and corrective actions
 - **Unsupported validation**: Stating "validated" without citing the supporting evidence is a common audit failure
-
----
-
-It looks like I don't have write permission to the file. Want me to try writing it again so you can approve, or would you prefer to copy the content above?

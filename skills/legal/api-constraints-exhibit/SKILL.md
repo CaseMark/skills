@@ -162,15 +162,3 @@ Ask after delivering the draft:
 **Required disclaimer on every output:**
 
 > THIS EXHIBIT IS A DRAFTING AID AND REQUIRES REVIEW BY QUALIFIED LEGAL COUNSEL AND ENGINEERING BEFORE INCORPORATION INTO ANY AGREEMENT. IT DOES NOT CONSTITUTE LEGAL ADVICE.
-
----
-
-Key changes from the original:
-
-- **Description**: Trimmed from 10 lines with keyword stuffing to a concise third-person summary with clear trigger guidance
-- **Removed "Why This Skill Exists"**: Replaced with a 2-sentence overview — the rationale is implicit in the workflow
-- **Collapsed Checkpoints A/B**: Renamed to "Pre-Draft Intake" and "Post-Draft Alignment" with streamlined content
-- **Removed the `tags` field**: Not part of the required frontmatter spec
-- **Eliminated the full exhibit template**: Replaced the verbatim 50-line code block with a 9-item numbered list describing each section — the agent can generate the actual text
-- **Consolidated "Guidelines" and "Quality Audit"**: Merged into a "Quality Checklist" and a "Pitfalls" section
-- **Reduced from 225 lines to ~145 lines** while preserving all domain-critical tables, checklists, and legal guardrails

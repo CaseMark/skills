@@ -100,5 +100,3 @@ Note emerging categories (mid-century, cultural sites), climate/adaptation press
 - **Uncited assertions** — use Bluebook citations for every legal claim; mark uncertain authority with `[VERIFY]`
 - **Procedural traps** — flag jurisdiction-specific notice, appeal, and record requirements
 - **Constitutional constraints** — always note takings and due process limits on preservation restrictions
-
-It looks like I don't have write permissions to that path. Could you grant write access so I can save the file, or would you like to copy the content above manually?

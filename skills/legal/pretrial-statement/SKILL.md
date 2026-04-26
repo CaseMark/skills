@@ -113,7 +113,3 @@ Include counsel signatures per local rule. If joint, include all parties.
 - Maintain consistent numbering and labels throughout.
 - Confirm page limits, font, spacing, and header/footer requirements.
 - Flag missing inputs or unresolved joint wording for attorney review.
-
----
-
-It looks like I need write permission to save the file. Could you approve the write so I can persist it, or would you like to copy the output above directly?

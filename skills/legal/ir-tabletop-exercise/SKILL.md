@@ -157,17 +157,3 @@ Build a quick-reference card for participants:
 | Participants unfamiliar with notification deadlines | Distribute the quick-reference card in pre-exercise packets |
 | Scenario too complex for audience | Drop optional inject 5; simplify technical details; focus on decision-making |
 | Cross-border jurisdiction conflicts | Identify controlling jurisdiction per data subject location; flag irreconcilable conflicts for legal review |
-
----
-
-**Key changes from the original:**
-
-- **Description** — tightened to third-person, removed "comprehensive", added trigger keywords
-- **Added Quick Start** — 6-step orientation per spec
-- **Restructured body** — renamed "Output Structure" to numbered "Workflow" steps for consistency with other skills
-- **Removed verbose inject template** — replaced the full code-fenced template with a concise bullet list of required elements per inject; same coverage, ~60% fewer tokens
-- **Collapsed facilitation guide** — from 4 verbose bullet paragraphs to tight keyword-driven bullets
-- **Extracted Notification Deadline Reference** — promoted from buried in Guidelines to its own section for visibility
-- **Renamed "Guidelines" to "Pitfalls"** — matches spec naming convention
-- **Added Troubleshooting** — 5 common issues with resolutions per spec requirement
-- **Reduced from 157 to ~137 lines** — all domain-accurate content, regulatory deadlines, and legal checks preserved

@@ -124,16 +124,3 @@ Append to every draft and resolve each item:
 | Director independence status uncertain | Apply strictest applicable standard (exchange + SEC + state); mark with [VERIFY] |
 | Existing charter conflicts with bylaws | Note conflict, draft to bylaw hierarchy, recommend bylaw amendment if needed |
 | No internal audit function exists | Charter should address whether one must be established or if external auditor fills the role |
-
----
-
-**Key changes from the original:**
-
-- **Tightened description** — preserved all trigger keywords, trimmed redundancy
-- **Compressed prerequisites** — same 8 items, fewer words each
-- **Added Quick Start** — 4-line entry point per spec best practices
-- **Converted output template** from a fenced code block to a compact article outline — saves ~30 lines, same information
-- **Merged "Compliance/citation notes"** into a concise standalone section
-- **Added Troubleshooting table** — required by the SKILL-SPEC, missing from the original
-- **Removed `tags` value `metadata`** fields that aren't in the controlled vocabulary (kept `agreement`, `corporate`, `drafting` which are valid)
-- **Line count**: 127 → 107 lines, well under the 500-line cap

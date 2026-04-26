@@ -116,12 +116,3 @@ If a court determines any covenant unenforceable as written, authorize the court
 5. **Do not over-restrict** — overbroad restrictions risk invalidation even with reformation clauses; tailor to actual business interests
 6. **Match APA party names exactly** — any discrepancy creates ambiguity and enforcement risk
 7. **Internal consistency** — defined terms, party names, and cross-references must be uniform throughout
-
----
-
-Key changes from the original:
-- Removed verbose code-block templates for injunctive relief and reformation — replaced with concise prose that preserves all operative language
-- Consolidated the "Output Structure" + individual covenant sections into a tighter "Document Structure" table + "Core Covenants" section
-- Renamed "Guidelines" to "Critical Checks" for scannability
-- Trimmed redundant phrasing throughout while preserving every substantive legal requirement
-- Kept frontmatter `description` focused with clear trigger guidance

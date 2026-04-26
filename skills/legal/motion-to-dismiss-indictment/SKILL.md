@@ -90,7 +90,3 @@ Draft a defense motion to dismiss a criminal indictment on legal grounds, challe
 - **Selective/vindictive prosecution** — extremely high bar; assess viability candidly
 - **Strategic fit** — consider whether a motion to suppress or going to trial is a stronger path
 - **Citation hygiene** — verify every case cite or flag `[VERIFY]`
-
----
-
-It looks like I don't have write permission to the file. Could you grant write access so I can save this, or would you like to copy the content above directly?

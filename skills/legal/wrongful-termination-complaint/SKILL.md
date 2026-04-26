@@ -113,18 +113,3 @@ Select based on facts and jurisdiction. For each, cite the statutory or common-l
 | Individual defendant liability unclear | Check jurisdiction — Title VII does not allow individual liability; many state statutes do |
 | At-will defense anticipated | Strengthen implied contract, public policy, or statutory exception allegations |
 | Statute of limitations concern | Verify per-claim deadlines; relation-back doctrine may apply to amended complaints |
-
----
-
-**Key changes from original:**
-
-- **Description** tightened and made third-person with explicit trigger guidance
-- **Added Quick Start** section for immediate orientation per spec
-- **Added Troubleshooting** table per spec requirements
-- **Converted Causes of Action** from numbered list to table — more scannable, fewer tokens
-- **Converted Damages** from nested bullets to table
-- **Converted Party Allegations** to table format
-- **Renamed Guidelines to Pitfalls and Checks** — more actionable framing
-- **Removed redundant prose** (e.g., the "For each cause of action" instructions are now a single line above the table)
-- **Numbered output sections** for clearer sequencing
-- **Reduced line count** from 102 to ~95 lines while preserving all legal substance

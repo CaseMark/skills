@@ -127,13 +127,3 @@ rjohnson@johnsonlegal.com
 | Unsure if counsel is on ECF | Check CM/ECF or PACER docket. If no electronic appearance, serve by mail. |
 | Pro se party without address | Use address of record from court docket. If none, note "last known address." |
 | Government entity service | May require service on U.S. Attorney under FRCP 4(i). Check local rules. |
-
----
-
-**Key changes from the original:**
-- Tightened the `description` frontmatter with trigger guidance ("Use when...")
-- Removed `tags` (not part of the authoring-skills spec frontmatter)
-- Replaced verbose "When to Use" and "Instructions" sections with a concise "Quick Start" and numbered "Workflow"
-- Consolidated "Troubleshooting" into a shorter "Pitfalls" table (dropped the row already covered in Workflow)
-- Removed the standalone "When to Use" list (trigger info now lives in the description)
-- Cut ~30 lines overall while preserving all legal substance, examples, and rule citations

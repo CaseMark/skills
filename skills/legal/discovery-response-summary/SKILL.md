@@ -134,7 +134,3 @@ Default if no response: prioritize gap analysis and deficiency tracker for neare
 - For state court, confirm applicable rules before citing deadlines or limits
 - **Anti-hallucination**: all citations must be verified or left as explicit placeholders
 - **Attorney review required**: all output is practice-support work product requiring supervising counsel review before use in filings or client communications
-
----
-
-**Key changes**: Tightened the description to focus on trigger guidance. Removed the "Why This Skill Exists" prose section and folded the core idea into a one-line overview. Added a Quick Start outline. Consolidated the per-type discovery formats into a denser inline style. Merged the Quality Audit and Guidelines sections into compact "Quality Checks" and "Rules" sections, eliminating duplicated guidance (e.g., citation requirements appeared in both). Removed horizontal rules between steps and the `summary` tag (redundant with `summarization`). Could you grant write permission so I can save this to the file?

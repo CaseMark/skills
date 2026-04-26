@@ -117,17 +117,3 @@ Use the following sections in order:
 | Law enforcement delay request | Document the request, defer notice per statute, resume on clearance or statutory expiry |
 | Substitute notice threshold unclear | Check state-specific thresholds (typically 500K+ affected or $250K+ cost); document the analysis |
 | Sector regime overlap (e.g., HIPAA + state) | Satisfy both; HIPAA 60-day ceiling does not override shorter state deadlines |
-
----
-
-**Key changes from the original:**
-
-- **Description** tightened — third-person throughout, added specific trigger keywords, removed redundant phrasing
-- **Added Quick Start** section per template spec
-- **Restructured body** into numbered workflow steps (Compliance Scoping → Data Elements → Remediation → Draft Letter → Delivery) instead of flat disconnected tables
-- **Removed the full template letter** — replaced with the structured 10-section order with inline guidance (more token-efficient, same coverage)
-- **Removed the standalone contact block table** — folded into the letter section order and prerequisites
-- **Consumer protection checklist** integrated into the letter's Step 8 with actionable details
-- **Added Troubleshooting** section per spec requirement (5 common issues with resolutions)
-- **Added litigation-defensibility guideline** — critical for breach notices
-- **Reduced from 149 lines to ~107 lines** while preserving all domain-accurate content

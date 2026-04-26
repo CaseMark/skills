@@ -190,13 +190,3 @@ Propose one primary recommendation and at least one fallback, each tied to the f
 | Court rejects visitation/support request | No verified authority for pet visitation in jurisdiction | Reframe as property access terms in settlement; verify enforcement mechanisms |
 | Evidentiary threads blurred | Ownership conflated with caregiving | Rebuild fact record per Step 2 with strict thread separation |
 | Citation flagged as non-existent | Hallucinated statutory reference | Replace with verified cite or mark `[VERIFY]`; never present unverified cites as authoritative |
-
----
-
-**Key changes from the original:**
-
-- **198 → 163 lines** (~18% reduction). Removed the verbose "Why This Skill Exists" section and replaced with a 2-sentence overview. Compressed factor sub-bullets from 4-5 to 3 each. Consolidated recommendation template lists. Removed the `transactional` tag (not applicable to dissolution litigation).
-- **Added Troubleshooting section** (required by SKILL-SPEC.md but missing from original).
-- **Tightened frontmatter description** — shorter while keeping all trigger keywords.
-- **Quality Audit uses checkboxes** for scanability, matching the advance-directive pattern.
-- All legal substance, factor structure, adversarial awareness, and citation verification requirements preserved intact.

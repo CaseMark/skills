@@ -117,17 +117,3 @@ Include jury demand on all triable issues, date, signature with bar number, firm
 | FRCP 11 risk | Ensure all factual contentions have evidentiary support; legal contentions warranted by law or nonfrivolous argument |
 | Premature damages election | Do not elect statutory damages in complaint — preserve election until before final judgment |
 | Local rule mismatch | Verify caption format, exhibit labeling, and page limits in target district before filing |
-
----
-
-**Key changes from the original:**
-
-- **Description** tightened to focus on what + when, third-person, under 1024 chars
-- **Removed code-block templates** (caption and signature block) — replaced with concise bullet instructions; the agent knows standard formatting
-- **Collapsed "Output Structure" + "Guidelines"** into a streamlined "Drafting Workflow" with a "Troubleshooting" table
-- **Added Quick Start** section per template pattern — gives the 7-step flow at a glance
-- **Converted checklists to tables** where cross-referencing aids clarity (Parties, Infringement test)
-- **Removed redundant prose** — e.g., the verbose checkbox lists for copyrighted works and exclusive rights are now compact bullet lists
-- **~95 lines** (down from ~124), well under the 500-line limit, and significantly more token-efficient
-
-If you approve the write permission, I can save it to the file directly.
