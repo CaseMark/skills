@@ -6,12 +6,31 @@ description: >-
   gaps, and producing prioritized remediation roadmaps across finance (SEC, FINRA),
   healthcare (HIPAA, FDA), environmental (EPA), and data privacy (GDPR, CCPA) sectors.
   Use when drafting regulatory compliance reports, audit readiness assessments, or
-  governance documents for executives, boards, or regulators.
+  governance documents for executives, boards, or regulators. For sector-specific
+  depth, defer to dedicated sibling skills (environmental-regulation-summaries,
+  hipaa-privacy-notice, fcpa-compliance-policy, etc.).
+tags:
+  - regulatory
+  - summary
+  - analysis
+  - summarization
 ---
 
 # Compliance Summary
 
 Produces a governance-ready compliance summary with gap analysis and prioritized remediation roadmap. Outputs target dual audiences: board-level oversight and operational compliance teams.
+
+---
+
+## Related skills
+
+This skill produces cross-sector compliance summaries. For sector-specific depth, defer to:
+
+- **Environmental** — `environmental-regulation-summaries` (CAA / CWA / RCRA / CERCLA / NEPA / ESA / TSCA), `phase-i-esa` (Phase I ESA), `consent-decree-epa` (federal enforcement settlements), `nov-response` (regulatory NOVs).
+- **Healthcare** — `hipaa-privacy-notice`, `hipaa-baa`, `hipaa-release`, `cpom-compliance`, `stark-law-aks-compliance`.
+- **Financial services** — `bsa-risk-assessment`, `aml-compliance-program`, `cip-policy`, `reg-bi-policy`, `fcpa-compliance-policy`.
+- **Data privacy** — `ccpa-policy`, `gdpr-data-processing-addendum`, `data-retention-and-destruction-policy`, `breach-notification`, `wisp`.
+- **Government contracts** — `c-tpat-security-profile`, `dd-form-254`, `oci-mitigation-plan`, `subcontracting-plan`.
 
 ## Prerequisites
 
@@ -84,13 +103,10 @@ Rank remediation by: (1) regulatory deadline, (2) risk severity, (3) resource av
 
 ---
 
-Key changes from the original:
+## Troubleshooting
 
-- **Description**: Trimmed from ~90 words to ~50 while preserving trigger keywords and regulatory domains. Removed `tags` (not part of the spec's required frontmatter).
-- **Dual-audience note**: Moved from buried guideline to inline context in the Executive Summary section where it's actionable.
-- **Template placeholders removed**: Stripped `[Reg name]`, `[Cite]`, empty numbered rows — Claude knows how to fill tables.
-- **Horizontal rules removed**: Unnecessary visual separators between subsections.
-- **Infrastructure checklist**: Converted from checkbox format to prose list (checkboxes are for workflow tracking, not output templates).
-- **Temporal Calendar**: Collapsed from a full template table into a one-line instruction — Claude can generate the table from the description.
-- **Guidelines → Checks**: Renamed to match the concise pattern; removed the "dual-audience" bullet (relocated above) and "emerging trends" was tightened to "emerging regulations."
-- **Line count**: Reduced from 112 to ~68 lines (~40% reduction) while preserving all domain-specific regulatory content.
+- **Multi-sector target.** When the entity operates across multiple regulated sectors, build the matrix sector-by-sector (one block per sector) rather than collapsing into a single matrix. Sector-specific terminology and citation conventions matter; mixing them produces an unauditable summary.
+- **Privileged audit findings cited as evidence.** Privileged internal-audit reports cited verbatim may waive privilege. Use neutral re-statements ("internal review identified...") and cite the underlying factual record. Flag the privilege question in a footnote.
+- **Rapidly-changing regulatory environment.** For domains in active rulemaking (e.g., AI / data privacy state laws, environmental disclosure rules, SEC climate disclosure), use a `[VERIFY as of YYYY-MM-DD]` marker and recommend re-verification within 90 days.
+- **Cite to non-binding guidance.** Distinguish statutes (binding) from regulations (binding when properly promulgated) from agency guidance (often non-binding). Misrepresenting guidance as binding is a common error in compliance summaries.
+- **Overlapping federal and state regimes.** State analogs may exceed federal minimums (e.g., CCPA vs. federal privacy patchwork). Always check the state floor; do not treat federal compliance as a safe harbor.

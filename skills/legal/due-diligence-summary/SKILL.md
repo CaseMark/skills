@@ -13,6 +13,16 @@ tags:
 
 Decision-ready diligence summary with risk ratings, evidence citations, and next-step actions for U.S. transactional matters.
 
+---
+
+## Related skills
+
+- **Environmental subset** — `phase-i-esa` for ASTM E1527-21 site assessments; `environmental-regulation-summaries` for governing-statute identification; `environmental-indemnity` and `environmental-covenant-and-easement` for risk-allocation drafting.
+- **Real estate subset** — `real-estate-transaction-summary` for property-transaction memos that include diligence; `title-commitment` for title-side review.
+- **Corporate subset** — `corporate-bylaws`, `articles-of-incorporation`, `pro-forma-cap-table` for governance review.
+- **Compliance subset** — `compliance-summaries` for cross-sector regulatory posture; `hipaa-baa` and related healthcare skills for HIPAA-regulated targets.
+- **Outputs** — `legal-memo` for substantive opinions arising from diligence findings; `engagement-letter-review` for scope confirmation upstream.
+
 ## Quick Start
 
 Gather before beginning:
@@ -52,7 +62,7 @@ Gather before beginning:
 | HR/Benefits | Payroll, key employee agreements, benefits plans |
 | Real Estate/Assets | Leases, deeds, asset schedules |
 | Tax | Returns, audits, NOLs, nexus |
-| Environmental | Phase I/II, permits, compliance |
+| Environmental | Phase I ESA (ASTM E1527-21), Phase II reports, environmental permits (NPDES, Title V, RCRA), CERCLA / state cleanup status, environmental indemnity provisions, ECOAs, PFAS exposure, reportable historical releases |
 
 ## Deliverable Template
 
@@ -96,3 +106,13 @@ One table per category (Corporate/Governance, Financials/Debt, Contracts, IP/Tec
 - For regulated industries, add a compliance subsection (HIPAA, FDA, FINRA/SEC, OFAC, FCPA, state licensing); mark statutes `[VERIFY]` if uncertain.
 - Stay neutral and evidence-driven — do not advocate for or against the deal.
 - Preserve privilege and confidentiality; limit distribution as instructed.
+
+---
+
+## Troubleshooting
+
+- **Data room incomplete or actively being populated.** Mark each missing-document line as a finding (Risk: Medium-High depending on category) with a follow-up request. A summary built on a partial data room is signed only with explicit scope limitation in the Executive Summary.
+- **Source documents conflict (e.g., cap table vs. board consents).** Show both readings side-by-side with citations; flag for resolution by counsel. Do not silently reconcile by date — older documents may control where amendments aren't on file.
+- **Regulated-industry target without familiar compliance lens.** Engage industry-specific counsel; flag and rate Unknown-but-material rather than guessing. Examples: HIPAA covered-entity status; banking BSA/AML; broker-dealer registration.
+- **Environmental concerns surfaced but no Phase I in the data room.** Risk is Medium-to-High depending on industrial use history. Recommend a Phase I ESA per ASTM E1527-21 as a closing condition or pre-LOI step, and an environmental indemnity in the definitive agreement.
+- **Privilege risk on shared diligence.** When buyer's counsel and seller's counsel share substantive analysis, joint-defense / common-interest agreements are the usual mechanism. Note any unprivileged exchanges in the deliverable.

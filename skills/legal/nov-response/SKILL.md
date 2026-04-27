@@ -1,12 +1,27 @@
 ---
 name: nov-response
 language: en
-description: Drafts formal responses to governmental Notices of Violation, covering acknowledgment, factual timeline, legal defenses, mitigation, and proposed corrective action. Use when responding to environmental enforcement actions, regulatory citations, compliance violations, or governmental NOVs.
+description: Drafts formal responses to governmental Notices of Violation, covering acknowledgment, factual timeline, legal defenses, mitigation, and proposed corrective action. Use when responding to environmental enforcement actions, regulatory citations, compliance violations, or governmental NOVs from agencies including EPA, OSHA, state environmental departments, or local code enforcement.
+tags:
+  - litigation
+  - regulatory
+  - letter
+  - drafting
 ---
 
 # Notice of Violation Response
 
 Drafts a formal NOV response that defends the client's position while building a cooperative administrative record for dismissal, penalty reduction, or negotiated resolution.
+
+---
+
+## Related skills
+
+- `consent-decree-epa` — when the matter escalates to a federal consent decree.
+- `environmental-regulation-summaries` — for governing-statute identification when the cited provision is unfamiliar.
+- `compliance-summaries` — when the NOV reveals a broader compliance posture problem.
+- `legal-research` and `legal-memo` — for substantive defense research.
+- `litigation-case-strategy` — when the NOV is a precursor to enforcement litigation.
 
 ## Prerequisites
 
@@ -83,3 +98,13 @@ Full legal name, title/relationship, date. If representative: "Authorized to act
 - **Proof of service** — use delivery method with verifiable record (certified mail return receipt, e-filing confirmation, stamped hand-delivery copy)
 - **Jurisdiction rules** — verify agency-specific form requirements, page limits, or mandatory language before drafting
 - **Retain copies** — complete copies of response and all attachments for client file
+
+---
+
+## Troubleshooting
+
+- **Deadline already passed.** A late response may waive procedural rights but does not waive substantive defenses. File anyway, address the lateness directly with a request for leave to respond, and document the cause of delay (mail-delivery failure, agency error in service, etc.) with supporting evidence.
+- **NOV cites a regulation that has been repealed or amended.** Address both the version cited and the version currently in force. If the cited version was never in force at the time of the alleged conduct, raise that as a procedural defense in Section 4.
+- **Multiple respondents named (parent + sub, multiple operators).** Coordinate before responding — divergent factual accounts among co-respondents become impeachment material. Joint response with separate attorney verification is often cleanest where interests align; separate responses with cross-referencing where they don't.
+- **Agency informally indicated the NOV is "just a record."** Do not rely on informal assurances. Treat every NOV as a potential predicate to enforcement action; the response is the only piece of the administrative record the respondent controls.
+- **Underlying facts are still under investigation.** Where facts are genuinely in flux, respond with what is known, identify the scope of pending investigation, and request leave to supplement. Silence or hedging without explanation is treated as admission in many jurisdictions.
