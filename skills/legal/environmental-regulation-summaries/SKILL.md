@@ -87,16 +87,9 @@ See `references/REGULATORY-MATRIX.md` for permit-by-permit timelines and pre-app
 - [ ] Authority sources re-verified within last 12 months
 ```
 
-## Recent regulatory developments (2023–2026)
+## Recent regulatory developments
 
-The matrix in `references/REGULATORY-MATRIX.md` already reflects these; this section gives readers a single-glance summary of what has shifted recently:
-
-- **Sackett v. EPA (May 25, 2023)** — narrowed CWA jurisdiction over wetlands; "significant nexus" test rejected. EPA-Army Corps conforming rule effective Sep 8, 2023.
-- **Fiscal Responsibility Act of 2023 (Pub. L. 118-5, June 3, 2023)** — first major NEPA statutory amendments since 1982. Codified page limits and deadlines (42 U.S.C. § 4336a), categorical exclusions (§ 4336c), lead/cooperating agencies (§ 4336a).
-- **PFOA / PFOS CERCLA designation** — final rule effective July 8, 2024; codified at 40 CFR § 302.4. Reportable quantity 1 lb / 24 hours.
-- **TSCA PFAS reporting rule** — final rule Oct 11, 2023 (40 CFR Part 705) requires manufacturers and importers to report historical PFAS data.
-- **CEQ NEPA implementing regulations rescinded** — effective April 11, 2025 (Interim Final Rule Feb 25, 2025; Final Rule Jan 8, 2026). Federal agencies now rely on their own NEPA implementing procedures; 40 CFR Parts 1500–1508 are no longer binding.
-- **CEQA reform (California)** — AB 130 + SB 131 signed Jun 30, 2025; statutory exemption for infill housing up to 20 acres; substantial streamlining for housing and infrastructure.
+For the dated timeline of post-2023 changes (Sackett, FRA 2023 NEPA amendments, PFOA/PFOS CERCLA designation, TSCA PFAS reporting, CEQ rescission, 2025 CEQA reform, etc.), see the "Recent developments timeline (2023–2026)" table in `references/REGULATORY-MATRIX.md`.
 
 ## Pitfalls
 

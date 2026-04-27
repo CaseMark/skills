@@ -92,7 +92,7 @@ Each milestone needs:
 **Civil penalty elements:**
 - Total in USD; itemize components (penalty / NRD / past costs / oversight costs)
 - Reflect statutory factors: seriousness, economic benefit, ability to pay, history, culpability
-- Use **40 CFR § 19.4** for current per-violation-per-day statutory maximums — EPA adjusts the table annually under the Federal Civil Penalties Inflation Adjustment Act (28 U.S.C. § 2461 note). Recent annual rules in early 2025 set CWA § 309(d) at $66,712/day, CAA § 113(b) at $121,275/day, and RCRA § 3008(g) at $93,058/day; figures change each calendar year.
+- Use **40 CFR § 19.4** for current per-violation-per-day statutory maximums — EPA adjusts the table annually under the Federal Civil Penalties Inflation Adjustment Act (28 U.S.C. § 2461 note). Pull the current value at draft time; do not embed dollar amounts here that will date. A frozen baseline (2025 published values) is in `references/AUTHORITY-STATUS.md` for historical reference only.
 - Civil penalties paid to a government entity for violation of law are generally non-deductible under 26 U.S.C. § 162(f) as amended by the Tax Cuts and Jobs Act (Pub. L. 115-97, 2017) and Treas. Reg. § 1.162-21 (2021). Restitution and amounts paid to come into compliance may be deductible if specifically identified in the decree per § 162(f)(2). Tax counsel should confirm before relying on any portion as deductible.
 
 **Payment:** Payee is U.S. Treasury via DOJ Consolidated Debt Collection System. Specify lump sum or installment schedule, wire/certified check, proof of payment to EPA and DOJ within 5–10 business days. Installment default triggers acceleration + interest at federal judgment rate.

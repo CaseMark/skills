@@ -50,15 +50,7 @@ The federal statutes above set the floor. State analogs frequently exceed federa
 
 EPA adjusts civil penalty maximums annually under the Federal Civil Penalties Inflation Adjustment Act of 1990 (28 U.S.C. § 2461 note), as amended by the 2015 Improvements Act. **Do not embed specific dollar amounts in deliverables.** Cite **40 CFR § 19.4** as the authoritative table and pull the current value at draft time.
 
-For reference, the values published in the Jan 8, 2025 inflation adjustment rule were:
-
-| Statute | 2025 per-day max |
-|---|---|
-| CWA § 309(d) | $66,712 |
-| CAA § 113(b) | $121,275 |
-| RCRA § 3008(g) | $93,058 |
-
-Updated values are published in early calendar year and codified in 40 CFR § 19.4.
+A frozen baseline (the values published in the Jan 8, 2025 inflation adjustment rule) is recorded in `consent-decree-epa/references/AUTHORITY-STATUS.md` for historical reference only. Updated values are published each January in 40 CFR § 19.4.
 
 ## Recent developments timeline (2023–2026)
 
