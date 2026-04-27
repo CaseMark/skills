@@ -1,12 +1,28 @@
 ---
 name: consent-decree-epa
 language: en
-description: Drafts EPA Consent Decrees resolving federal environmental enforcement actions under CWA, CAA, RCRA, or CERCLA. Covers case caption, jurisdictional recitals, compliance obligations, civil penalties, stipulated penalties, dispute resolution, force majeure, covenants not to sue, and public comment requirements. Use when settling EPA enforcement actions, drafting environmental consent judgments, or preparing judicial settlement agreements with the EPA.
+description: Drafts EPA Consent Decrees resolving federal environmental enforcement actions under CWA, CAA, RCRA, or CERCLA. Covers case caption, jurisdictional recitals, compliance obligations, civil penalties (referencing 40 CFR § 19.4 inflation-adjusted maximums), stipulated penalties, dispute resolution, force majeure, covenants not to sue, public comment requirements, and emerging-issue considerations including PFAS releases. Use when settling EPA enforcement actions, drafting environmental consent judgments, or preparing judicial settlement agreements with the EPA.
+tags:
+  - litigation
+  - regulatory
+  - drafting
+  - agreement
 ---
 
 # EPA Consent Decree
 
 Drafts an enforceable federal court consent decree resolving EPA civil enforcement actions, structured for DOJ lodging requirements, 30-day public comment, and judicial entry.
+
+---
+
+## Related skills
+
+- `nov-response` — for the pre-enforcement Notice-of-Violation phase that often precedes a consent decree.
+- `environmental-regulation-summaries` — for governing-statute identification and current penalty figures.
+- `phase-i-esa` — when AAI / CERCLA innocent landowner status is implicated.
+- `brownfields-agreement` — for redevelopment consent agreements at contaminated sites.
+- `environmental-indemnity` and `environmental-covenant-and-easement` — for institutional-control instruments referenced in a decree.
+- `mediation-statement` — for facilitated DOJ/EPA settlement discussions before lodging.
 
 ## Prerequisites
 
@@ -76,7 +92,8 @@ Each milestone needs:
 **Civil penalty elements:**
 - Total in USD; itemize components (penalty / NRD / past costs / oversight costs)
 - Reflect statutory factors: seriousness, economic benefit, ability to pay, history, culpability
-- Civil penalties not deductible under 26 U.S.C. § 162(f) — VERIFY current applicability
+- Use **40 CFR § 19.4** for current per-violation-per-day statutory maximums — EPA adjusts the table annually under the Federal Civil Penalties Inflation Adjustment Act (28 U.S.C. § 2461 note). Recent annual rules in early 2025 set CWA § 309(d) at $66,712/day, CAA § 113(b) at $121,275/day, and RCRA § 3008(g) at $93,058/day; figures change each calendar year.
+- Civil penalties paid to a government entity for violation of law are generally non-deductible under 26 U.S.C. § 162(f) as amended by the Tax Cuts and Jobs Act (Pub. L. 115-97, 2017) and Treas. Reg. § 1.162-21 (2021). Restitution and amounts paid to come into compliance may be deductible if specifically identified in the decree per § 162(f)(2). Tax counsel should confirm before relying on any portion as deductible.
 
 **Payment:** Payee is U.S. Treasury via DOJ Consolidated Debt Collection System. Specify lump sum or installment schedule, wire/certified check, proof of payment to EPA and DOJ within 5–10 business days. Installment default triggers acceleration + interest at federal judgment rate.
 
@@ -159,25 +176,40 @@ Required sequence:
 
 Include counterparts clause and specify service addresses for all decree-related notices.
 
+## Emerging issues: PFAS and CERCLA consent decrees
+
+EPA designated PFOA and PFOS (and their salts and structural isomers) as CERCLA hazardous substances by final rule effective **July 8, 2024** (89 FR 39124, May 8, 2024; codified at 40 CFR § 302.4). Reportable quantity is 1 lb in any 24-hour period. EPA announced on **September 17, 2025** its intent to develop a CERCLA Section 102(a) Framework Rule; further PFAS designations are expected.
+
+Practical implications for consent decrees:
+
+- **PFAS releases now trigger CERCLA liability and reporting.** Pre-2024 site assessments may not have evaluated PFAS at all — verify whether the decree covers PFAS-related releases and whether the covenant scope is intended to reach them.
+- **Covenant scope drafting.** Specify whether the covenant covers (a) only the named hazardous substances at issue in the underlying complaint or (b) "all CERCLA hazardous substances released at the facility." The latter formulation now sweeps in PFAS by operation of 40 CFR § 302.4 and may exceed the parties' settlement intent.
+- **Cost-recovery reservation.** Reserve future CERCLA cost recovery for newly designated PFAS substances (and any post-decree designations under § 102(a)) where appropriate. EPA's CERCLA PFAS Enforcement Discretion Policy (Apr 19, 2024) focuses on parties that significantly contributed to PFAS releases — federal facilities, manufacturers, and parties that used PFAS in manufacturing — but private cost-recovery actions are not similarly constrained.
+- **Site characterization.** RAPs and SOWs at sites with foreseeable PFAS use (AFFF storage, electroplating, textile coating, paper manufacturing, certain landfills) should specify PFAS analytical methods (EPA Method 1633 for non-potable water; EPA Method 537.1 for drinking water).
+
 ## Critical Checks
 
-- **No admissions:** All violation references use "neither admits nor denies" language
-- **DOJ concurrence:** Required before lodging — coordinate with ENRD trial attorney throughout
-- **Penalty caps:** VERIFY current per-violation-per-day maximums via EPA inflation adjustment tables (CWA § 1319(d), CAA § 7413(b), RCRA § 6928, CERCLA § 9609)
-- **CERCLA-specific:** Include § 122 settlement provisions, § 113(f)(2) contribution protection, § 122(f) covenant; address NCP consistency
-- **RCRA financial assurance:** VERIFY 40 C.F.R. Parts 264/265 for TSD facilities
-- **Multi-statute cases:** Address each statute's liability framework, penalty authority, and penalty factors independently
-- **Exhibit consistency:** Cross-reference all SOWs, RAPs, and compliance plans by exhibit number
-- **State involvement:** Confirm whether state agency must be a party/signatory and whether state-specific notice requirements apply
+- **No admissions:** All violation references use "neither admits nor denies" language.
+- **DOJ concurrence:** Required before lodging — coordinate with ENRD trial attorney throughout.
+- **Penalty caps:** Use **40 CFR § 19.4** for current per-violation-per-day maximums; EPA updates the table annually each January. Underlying statutory authorities: CWA § 1319(d), CAA § 7413(b), RCRA § 6928(g), CERCLA § 9609.
+- **CERCLA-specific:** Include § 122 settlement provisions, § 113(f)(2) contribution protection, § 122(f) covenant; address NCP consistency. For PFAS-relevant sites, calibrate covenant scope against post-July-2024 designation (see Emerging Issues above).
+- **RCRA financial assurance:** Verify 40 C.F.R. Parts 264/265 Subpart H for TSD facilities; financial-assurance amounts and acceptable instruments revised in part by the 2017 Final Rule on Financial Responsibility for Solid Waste Disposal Facilities and subsequent updates.
+- **Multi-statute cases:** Address each statute's liability framework, penalty authority, and penalty factors independently.
+- **Exhibit consistency:** Cross-reference all SOWs, RAPs, and compliance plans by exhibit number.
+- **State involvement:** Confirm whether state agency must be a party/signatory and whether state-specific notice requirements apply (some states require state attorney-general concurrence on consent decrees affecting state water quality standards).
 
 ---
 
-Key changes from the original:
-- **Removed `tags`** — not part of the Agent Skills spec
-- **Tightened description** — still comprehensive but shorter
-- **Removed redundant prose** — collapsed verbose explanations into compact bullet points
-- **Inlined caption** as text instead of a code block (saves tokens, same clarity)
-- **Consolidated reservation of rights** — merged the separate "carve-outs" and "reservation" lists into one unified list
-- **Renamed "Guidelines" → "Critical Checks"** — action-oriented, matches the pitfalls/checks pattern
-- **Condensed financial provisions** — payment logistics table became inline prose (same info, fewer tokens)
-- **Reduced from 214 lines to ~155 lines** — well under the 500-line limit while preserving all legally material content
+## Troubleshooting
+
+- **Defendant cannot pay the proposed penalty.** Document the ability-to-pay analysis with audited financials; EPA's ABEL/INDIPAY models inform the penalty negotiation but the underlying statutory factors (CWA § 309(d), CAA § 113(e), RCRA § 3008(a)(3)) require explicit consideration. If the agreed penalty deviates materially from the statutory factors, the lodged decree's responsiveness summary will need to address it.
+- **Public comment is hostile during the 30-day window.** The U.S. may modify or withdraw the decree per the public-comment regulations (28 C.F.R. § 50.7). Anticipate this in the negotiation; build in a "decree withdrawal" provision specifying that decree statements cannot be used in later litigation if the U.S. withdraws.
+- **State-law claims pending alongside federal claims.** Coordinate with state AG; either bring the state in as a party or carefully scope the federal covenant to avoid prejudicing parallel state proceedings.
+- **PFAS exposure surfaces post-lodging.** If newly designated CERCLA hazardous substances are identified at the facility after lodging but before entry, evaluate whether to amend the decree (28 C.F.R. § 50.7 supplemental notice may be required) or proceed and address PFAS via a separate proceeding.
+- **Force-majeure invocation contested.** EPA's pre-litigation FM dispute process is the first stop; if irreconcilable, the dispute-resolution tier proceeds to district court motion. Document FM-event evidence contemporaneously.
+
+---
+
+## References
+
+- `references/AUTHORITY-STATUS.md` — date-stamped record of authoritative sources consulted for this skill.
