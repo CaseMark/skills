@@ -2,6 +2,19 @@
 
 Use this structure when producing a chronology in markdown for case.dev or other markdown-native rendering. The structure mirrors the docx template; only the rendering differs.
 
+## Reference table of contents
+
+- [Header block](#header-block)
+- [Section 1: Case Information](#section-1-case-information)
+- [Section 2: Provider Index](#section-2-provider-index)
+- [Section 3: Pre-Incident Medical History](#section-3-pre-incident-medical-history)
+- [Section 4: Chronological Summary](#section-4-chronological-summary)
+- [Section 5: Diagnostic Studies Summary](#section-5-diagnostic-studies-summary)
+- [Section 6: Medication History](#section-6-medication-history)
+- [Section 7: Damages Summary](#section-7-damages-summary)
+- [Section 8: Strategic Analysis](#section-8-strategic-analysis)
+- [Section 9: Methodology and Limitations](#section-9-methodology-and-limitations)
+
 ## Header block
 
 ```

@@ -161,7 +161,7 @@ This skill produces either Word document or markdown output. Pick based on conte
 | Output is intermediate (will be summarized further, fed to another agent) | markdown |
 | Default when ambiguous | markdown, offer at end to convert |
 
-For Word document generation, locate and use the document-generation capability available in the current runtime, preferring a `docx` or `documents` skill/tool when present. If the user requested a Word deliverable and no document-generation capability is available, do not silently downgrade; produce markdown only as an intermediate draft and flag Word generation as blocked. For the canonical structure of each format, see:
+For Word document generation, locate and use the document-generation capability available in the current runtime, preferring a `docx` or `documents` skill/tool when present. If the user requested a Word deliverable and no document-generation capability is available, do not silently downgrade; produce markdown only as an intermediate draft and flag Word generation as blocked. If document generation is available but fails, return a markdown fallback labeled `WORD GENERATION FAILED`, include the error or failure reason, and recommend retrying with the same content or providing a firm template if template loading caused the failure. For the canonical structure of each format, see:
 
 - `references/output-template-markdown.md`
 - `references/output-template-docx.md`
@@ -192,3 +192,10 @@ Causation language is the highest-value text in any medical record. The provider
 8. Never fabricate a citation. If you cannot verify it, flag it `[UNVERIFIED]`. Inventing Bates ranges is the fastest way to make the attorney sanctionable.
 9. Include both favorable and adverse findings. A one-sided chronology is malpractice in waiting.
 10. Run the verification pass before output. Phase 7 is not optional.
+
+## Troubleshooting
+
+- **Missing pre-incident records**: Say they were not produced, list the providers or date ranges to request, and do not imply a clean baseline.
+- **Conflicting incident dates or mechanisms**: Preserve each version with its citation and surface the conflict under Strategic Analysis.
+- **Unverified citations**: Keep the claim only if it appears in the records, mark it `[UNVERIFIED]`, and add it to follow-up needed.
+- **Word deliverable blocked or failed**: Provide a markdown fallback labeled with the blocker or failure reason, then state what capability, retry, or template is needed.

@@ -246,3 +246,10 @@ Be consistent within a section. Prefer Bates where available. If both must coexi
 ### No source access (degraded mode)
 
 If the work product is being produced from records summarized in context only, mark the entire output `[CITATION UNAVAILABLE - produced from in-context summary only]` at the top. The verification pass cannot run. Recommend the attorney rerun against full records.
+
+## Troubleshooting
+
+- **Bates range is missing from the production**: Remove the invented range, mark the claim `[UNVERIFIED]`, and log the missing page range as a production gap.
+- **Quotation does not match the source**: Correct the quote verbatim or convert it to a paraphrase with citation; never preserve cleaned-up quote text.
+- **Retrieval is flaky across passes**: Keep the claim only if it appeared in records, mark it `[UNVERIFIED]`, and note the retrieval instability in methodology.
+- **Multiple sources support one claim**: Use one bracket with comma-separated Bates locations rather than repeating the same sentence.

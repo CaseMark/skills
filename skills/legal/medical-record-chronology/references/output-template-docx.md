@@ -2,12 +2,30 @@
 
 Use this when producing a Word document deliverable. Logical content matches `output-template-markdown.md`; this file specifies the docx-specific rendering decisions. Generate by locating and using the document-generation capability available in the current runtime, preferring a `docx` or `documents` skill/tool when present. If no such capability is available, treat Word generation as blocked rather than silently downgrading.
 
+## Reference table of contents
+
+- [Document setup](#document-setup)
+- [Privilege and distribution](#privilege-and-distribution)
+- [Front matter](#front-matter)
+- [Table of contents](#table-of-contents)
+- [Section headings](#section-headings)
+- [Encounter formatting](#encounter-formatting)
+- [Tables](#tables)
+- [Causation language callouts](#causation-language-callouts)
+- [Inline UNVERIFIED flags](#inline-unverified-flags)
+- [Page numbers and footer](#page-numbers-and-footer)
+- [Final QC before delivery](#final-qc-before-delivery)
+
 ## Document setup
 
 - **Page size:** US Letter, 1 inch margins
 - **Body font:** Calibri 11pt or Times New Roman 11pt depending on firm preference. If the user attached a firm template, use the template's styling.
 - **Heading style:** Built-in Word styles (Heading 1 for sections, Heading 2 for subsections, Heading 3 for individual encounter dates). Do not hand-format headings; built-in styles let the attorney regenerate the table of contents.
 - **Tables:** Use Word tables, not tab-aligned text. The Provider Index, Diagnostic Studies, and Medication History are all tables.
+
+## Privilege and distribution
+
+Before applying attorney-work-product markings, confirm the intended audience and distribution when context suggests non-attorney use or external sharing. Use the work-product label for litigation-team work product; adjust or remove it if the user says the chronology is non-privileged, client-facing, or intended for external disclosure.
 
 ## Front matter
 
@@ -27,7 +45,7 @@ Prepared: [Date]
 CONFIDENTIAL - ATTORNEY WORK PRODUCT
 ```
 
-The "ATTORNEY WORK PRODUCT" footer is required for any chronology produced for litigation use. It signals work product protection if the document is inadvertently disclosed.
+The "ATTORNEY WORK PRODUCT" footer is required for litigation-team work product. It signals work product protection if the document is inadvertently disclosed, but it must be adjusted or removed when the intended audience or distribution makes that label inaccurate.
 
 ## Table of contents
 

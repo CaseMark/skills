@@ -240,3 +240,10 @@ These appear repeatedly in personal injury and medical malpractice records. Use 
 - 22612 - Arthrodesis, posterior or posterolateral technique, single level lumbar
 
 This list is incomplete by design. Use the lookup tool for anything not on it.
+
+## Troubleshooting
+
+- **Lookup tool unavailable**: Use the inline high-frequency reference only for listed codes; otherwise mark `[code description not verified]`.
+- **ICD-9 crosswalk is ambiguous**: Preserve the original ICD-9 code, list plausible ICD-10 alternatives, and explain what clinical context would resolve the mapping.
+- **Modifier meaning conflicts with documentation**: Expand the modifier, cite the documented procedure details, and flag the conflict for attorney or billing-expert review.
+- **Narrative diagnosis and billed code disagree**: Report both with citations and surface the mismatch in Strategic Analysis when billing or causation is at issue.
