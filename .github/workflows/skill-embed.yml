@@ -214,11 +214,10 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Added/Modified:**" >> $GITHUB_STEP_SUMMARY
           echo '${{ steps.changed.outputs.added }}' | while read -r line; do
-            [ -n "$line" ] && echo "- \`$line\`" >> $GITHUB_STEP_SUMMARY
+            [ -n "$line" ] && echo "- \`$line\`" >> $GITHUB_STEP_SUMMARY || true
           done
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Deleted:**" >> $GITHUB_STEP_SUMMARY
           echo '${{ steps.changed.outputs.deleted }}' | while read -r line; do
-            [ -n "$line" ] && echo "- \`$line\`" >> $GITHUB_STEP_SUMMARY
+            [ -n "$line" ] && echo "- \`$line\`" >> $GITHUB_STEP_SUMMARY || true
           done
-          true
