@@ -185,10 +185,15 @@ Both favorable and adverse findings must be present. A one-sided analysis sectio
 
 **Records reviewed:** [Description of corpus, Bates range]
 **Citation scheme:** [Bates / PDF page / mixed]
-**Verification:** This chronology was produced with a citation verification pass.
-Claims marked [UNVERIFIED] appear in the records but the supporting page was
-not retrievable at the time of preparation. Claims marked [CITATION UNAVAILABLE]
-were produced without source access.
+**Verification scope:** [N] total citations; [N] independently page-verified via
+PDF OCR/text-layer extraction; [N] vault-search-only; [N] spot-checked; [N]
+flagged [UNVERIFIED]; [N] corrected or removed.
+**Canonical Bates format:** [Prefix, spacing, digit count, range].
+**Verification log:** [Path/name of auditable log, or "included below"].
+Do not state that verification was completed unless the methods and counts above
+are populated. Claims marked [UNVERIFIED] appear in the records but the
+supporting page was not independently retrievable at the time of preparation.
+Claims marked [CITATION UNAVAILABLE] were produced without source access.
 **Limitations:** [Records not produced, ranges not received, etc.]
 ```
 

@@ -104,13 +104,22 @@ Both favorable and adverse findings must be included. The attorney needs the com
 
 Before producing the final output, run the verification pass defined in `bates-citation-verification`. At minimum:
 
-1. Every clinical fact has a Bates citation
-2. Every direct quotation has been re-retrieved and the quoted text matches the source
-3. Every Bates range cited actually exists in the production
-4. Claims that cannot be verified are marked `[UNVERIFIED]` inline, not removed
-5. Claims contradicted by the source are removed or corrected
+1. Extract canonical Bates prefix(es) and citation format from production header pages before checking citations.
+2. Reject or mark `[UNVERIFIED]` any citation with a mismatched prefix, spacing, or digit pattern.
+3. Verify each cited Bates page with independent page-level PDF OCR/text-layer extraction; vault search can support drafting but is not final verification.
+4. Confirm the cited page exists, extract literal page text, and verify direct quotes verbatim or paraphrases as clearly supported.
+5. Remove or correct contradicted claims; mark claims `[UNVERIFIED]` only when they appear in records but cannot be page-verified.
+6. Create an auditable verification log with citation, claim, method used, Bates page, source date if visible, supporting excerpt, result, and corrective action.
 
 Do not skip this phase. A chronology with fabricated or wrongly attributed facts is worse than no chronology because it gets relied on.
+
+## Subagent Integrity
+
+When using research or verification subagents, prepend each task with patient identifiers, canonical Bates prefix(es), case theory/body parts, and a rule that patient-identity mismatch is a retrieval failure, not content to summarize.
+
+- The parent must spot-check 3 random claims from each subagent output against source before integration. If any spot-check fails, reject or rerun the full output.
+- Research subagents (`vault-researcher`, `citation-verifier`, `case-researcher`, or equivalents) may not upload to the vault or matter via `vault_upload`, `casedev vault object upload`, `casedev vault upload`, or similar commands.
+- If rejected subagent output may have uploaded artifacts, the parent must list matter/vault objects, delete the unreliable artifacts, and document the cleanup before continuing.
 
 ## Citation Discipline
 

@@ -113,7 +113,11 @@ If you find yourself constructing a Bates range that "should" exist (e.g., "if t
 
 Before delivering the work product, run a verification pass. This pass is mandatory, not optional.
 
-### Step 1: Inventory the citations
+### Step 1: Prefix and format preflight
+
+Extract the canonical Bates prefix(es) and citation format from production header pages or the first page of each produced record set. Record the prefix, spacing, digit count, and range. Any citation whose prefix, spacing, or digit pattern does not match is not verified; correct it if the source page proves the right citation, otherwise mark the claim `[UNVERIFIED]`.
+
+### Step 2: Inventory the citations
 
 Extract every citation from the draft work product. For each, you should have:
 
@@ -121,41 +125,44 @@ Extract every citation from the draft work product. For each, you should have:
 - The Bates range cited
 - Whether the claim contains a direct quotation
 
-### Step 2: Re-retrieve and re-check
+### Step 3: Page-level extraction and matching
 
-For each cited claim, re-retrieve the source content from the Bates range. The retrieval system should return the same content seen during drafting; if not, that is itself a finding.
+For each cited claim, verify with independent page-level PDF OCR/text-layer extraction from the cited Bates page. Vault search may find candidate support during drafting, but vault-search-only support is non-final and must be marked `[UNVERIFIED]` unless page-level extraction confirms it.
 
 For each citation, verify:
 
 1. The cited Bates range exists in the production
-2. The cited content is responsive to the claim (it actually says what the claim attributes to it)
-3. For quotations, the quoted text appears verbatim in the source
-4. The Bates prefix matches the producing party
+2. The Bates prefix matches the canonical prefix and format
+3. The literal page text supports the claim verbatim or by clear paraphrase
+4. For quotations, the quoted text appears verbatim in the source
+5. The source date on the page, if visible, is consistent with the encounter or claim date
 
-### Step 3: Categorize and act
+### Step 4: Categorize and act
 
 Based on the re-check, each citation falls into one of these outcomes:
 
 | Outcome | Action |
 |---------|--------|
-| Citation verified, claim supported | No change |
+| Page-level extraction verified, claim supported | No change |
 | Citation verified, claim partially supported | Narrow the claim to what the source supports |
 | Citation verified but content does not support the claim | Remove the claim or change the citation |
-| Citation cannot be re-retrieved | Mark `[UNVERIFIED]` |
+| Citation is supported only by vault search | Mark `[UNVERIFIED]` or rerun page-level extraction |
+| Citation cannot be page-verified | Mark `[UNVERIFIED]` |
 | Quoted text differs from source | Correct the quote to match the source verbatim |
-| Bates range does not exist in production | Remove the citation, mark `[UNVERIFIED]`, log as a finding |
+| Bates range or prefix does not exist in production | Remove the citation, mark `[UNVERIFIED]`, log as a finding |
 
-### Step 4: Spot check sample
+### Step 5: Spot check sample
 
 After the systematic pass, randomly select 5 percent of claims (minimum 5, maximum 20) and have a second pass of retrieval done. This catches cases where the first verification pass had a systematic error.
 
-### Step 5: Log the verification
+### Step 6: Log the verification
 
-Add a one-line entry to the methodology section of the output:
+Add an auditable verification log. Each row must include citation, claim, retrieval method, Bates page, source date if visible, supporting excerpt, result, and corrective action. Also add a count summary to the methodology section:
 
 ```
-Citation verification: [N] claims verified, [N] flagged UNVERIFIED, [N] removed
-as contradicted. Verification completed [date].
+Citation verification: [N] total citations, [N] independently page-verified,
+[N] vault-search-only, [N] spot-checked, [N] flagged UNVERIFIED, [N] corrected
+or removed. Verification completed [date].
 ```
 
 The numbers tell the attorney how confident to be. A chronology with 200 verified citations and zero flags is suspicious (no one bats 1.000 against real records). A chronology with 200 claims and 50 UNVERIFIED flags suggests retrieval was unreliable and the attorney should rerun.
