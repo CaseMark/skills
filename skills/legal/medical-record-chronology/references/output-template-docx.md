@@ -128,5 +128,6 @@ Before saving the docx:
 3. Verify Bates citations are consistent in format throughout.
 4. Verify no orphaned `[UNVERIFIED]` flags reference removed text.
 5. Spot check three random encounters to confirm Bates citations point to the right source.
+6. Verify Methodology and Limitations includes actual verification counts and the verification log pointer from `output-template-markdown.md`.
 
 If any check fails, fix and rerun. A docx going to an attorney is a deliverable, not a draft.
