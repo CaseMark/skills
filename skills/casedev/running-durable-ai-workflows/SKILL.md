@@ -238,6 +238,72 @@ Fan out to multiple models, merge their findings:
 </Parallel>
 ```
 
+### Conditional Branching on Output
+
+Route downstream work based on what a task produced:
+
+```tsx
+const analysis = ctx.outputMaybe(outputs.analysis, { nodeId: "analyze" });
+
+{analysis?.risk === "high" ? (
+  <Task id="escalate" output={outputs.escalation} agent={escalator}>
+    {`Critical finding: ${analysis.summary}`}
+  </Task>
+) : null}
+```
+
+### Continue-As-New for Very Long Runs
+
+For workflows with hundreds of iterations (e.g., processing a massive document set), accumulated SQLite state grows. Hand off to a fresh run with carried state:
+
+```tsx
+<ContinueAsNew when={iterationCount > 100} carry={{ summary: rolledUpState }} />
+```
+
+### Side-Effect Tools with Idempotency
+
+When tasks make external mutations (create tickets, send emails, call APIs), mark tools as side effects and use the runtime's idempotency key to prevent duplicates on retry:
+
+```tsx
+import { defineTool } from "smithers-orchestrator/tools";
+
+const createTicket = defineTool({
+  name: "linear.create",
+  schema: z.object({ title: z.string(), description: z.string() }),
+  sideEffect: true,
+  idempotent: false,
+  async execute(args, ctx) {
+    return linear.createIssue({ ...args, idempotencyKey: ctx.idempotencyKey });
+  },
+});
+```
+
+### Optional Non-Blocking Steps
+
+Use `continueOnFail` for nice-to-have steps that shouldn't block the pipeline:
+
+```tsx
+<Task id="citation-check" output={outputs.citations} agent={citationChecker} continueOnFail>
+  Verify all citations. Pipeline continues even if this fails.
+</Task>
+```
+
+### Project Structure
+
+For larger workflows, extract schemas to their own file:
+
+```ts
+// schemas.ts
+export const schemas = {
+  chunkSummary: z.object({ text: z.string(), pageRange: z.string(), findings: z.array(z.string()) }),
+  narrative:    z.object({ title: z.string(), body: z.string(), citations: z.array(z.string()) }),
+};
+
+// workflow.tsx
+import { schemas } from "./schemas";
+const { Workflow, smithers, outputs } = createSmithers(schemas);
+```
+
 ## Task Configuration
 
 ### Retries & Timeouts
