@@ -3,8 +3,12 @@ name: Legal Skills Embed
 on:
   push:
     branches: [main]
+    # skills/** (not skills/legal/**): GitHub evaluates paths filters against only the
+    # first 300 changed files of a push. The CD-959 rollout (2,093 files) sorted
+    # skills/capital/** into the first 300, so every other domain's embed silently
+    # never triggered (CD-1315). skill-embed.yml diffs per-domain, so off-domain pushes no-op.
     paths:
-      - 'skills/legal/**'
+      - 'skills/**'
   workflow_dispatch:
     inputs:
       full_sync:
