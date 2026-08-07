@@ -1,0 +1,89 @@
+name: Catalog Freshness
+
+# Loud failure for CD-1315: the embedded catalog (LS2 content.skills, served by
+# agentskills.legal / linc skill search) silently fell months behind this repo
+# because push-triggered embeds can be skipped (300-file paths-filter limit) or
+# fail unnoticed. This job compares, per domain, the last commit touching
+# skills/<domain> against max(updated_at) in LS2 and FAILS the run when the
+# repo is ahead by more than the grace window. A red run on a schedule emails
+# the workflow actor; fix by dispatching the domain's embed workflow with
+# full_sync=true.
+
+on:
+  schedule:
+    - cron: '17 6 * * *' # daily 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freshness:
+    name: Compare repo vs embedded catalog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install @neondatabase/serverless@1.0.2
+
+      - name: Check per-domain freshness
+        env:
+          SKILLS_DB_URL: ${{ secrets.SKILLS_DB_URL }}
+          GRACE_HOURS: '6'
+        run: |
+          for DOMAIN in legal finance med capital; do
+            LAST_COMMIT=$(git log -1 --format=%cI -- "skills/${DOMAIN}") \
+              && echo "repo_${DOMAIN}=${LAST_COMMIT}" >> repo_times.env
+          done
+          node << 'SCRIPT'
+          const { neon } = require('@neondatabase/serverless');
+          const fs = require('fs');
+
+          const sql = neon(process.env.SKILLS_DB_URL);
+          const graceMs = Number(process.env.GRACE_HOURS) * 3600 * 1000;
+
+          const repoTimes = Object.fromEntries(
+            fs.readFileSync('repo_times.env', 'utf8').trim().split('\n')
+              .map((l) => l.split('=')).map(([k, v]) => [k.replace('repo_', ''), new Date(v)])
+          );
+
+          async function main() {
+            // max over ALL visibilities: archives (soft deletes) also count as sync activity.
+            const rows = await sql`
+              SELECT domain, count(*)::int AS skills, max(updated_at) AS last_updated_at
+              FROM content.skills GROUP BY 1
+            `;
+            const dbTimes = new Map(
+              rows.map((r) => [r.domain, r.last_updated_at ? new Date(`${r.last_updated_at}Z`) : null])
+            );
+
+            let stale = 0;
+            for (const [domain, repoAt] of Object.entries(repoTimes)) {
+              const dbAt = dbTimes.get(domain) ?? null;
+              const behindMs = dbAt ? repoAt.getTime() - dbAt.getTime() : Infinity;
+              const isStale = behindMs > graceMs;
+              console.log(
+                `${isStale ? '✗ STALE' : '✓ fresh'} [${domain}] repo=${repoAt.toISOString()} ` +
+                `catalog=${dbAt ? dbAt.toISOString() : 'MISSING'}`
+              );
+              if (isStale) {
+                stale++;
+                console.error(
+                  `::error::[${domain}] embedded catalog is behind skills/${domain} by ` +
+                  `${(behindMs / 3600000).toFixed(1)}h. Re-run: gh workflow run ${domain}-embed.yml -f full_sync=true`
+                );
+              }
+            }
+            if (stale > 0) process.exit(1);
+          }
+
+          main().catch((err) => { console.error(err); process.exit(1); });
+          SCRIPT
