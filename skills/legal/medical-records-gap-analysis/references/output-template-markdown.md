@@ -4,21 +4,24 @@ Adapt this structure to the user's requested scope. Omit irrelevant sections and
 
 ## Contents
 
-1. [Records Reviewed](#records-reviewed)
-2. [Completeness Scorecard](#completeness-scorecard)
-3. [Treatment History Gaps](#a-treatment-history-gaps)
-4. [Missing Providers and Record Sets](#b-missing-providers-and-record-sets)
-5. [Missing Pre-Incident Baseline](#c-missing-pre-incident-baseline)
-6. [Billing, Clinical, and Production Mismatches](#d-billing-clinical-and-production-mismatches)
-7. [Complaint and Diagnosis Evolution](#e-complaint-and-diagnosis-evolution)
-8. [Possible Findings](#possible-findings--unverified)
-9. [Proposed Retrieval Plan](#f-proposed-retrieval-plan)
-10. [Methodology and Verification Log](#methodology-and-verification-log)
-11. [Limitations](#limitations)
+1. [Source Accounting](#source-accounting)
+2. [Review Limitations and Pending Source Review](#review-limitations-and-pending-source-review)
+3. [Completeness Scorecard](#completeness-scorecard)
+4. [Treatment History Gaps](#a-treatment-history-gaps)
+5. [Missing Providers and Record Sets](#b-missing-providers-and-record-sets)
+6. [Missing Pre-Incident Baseline](#c-missing-pre-incident-baseline)
+7. [Billing, Clinical, and Production Mismatches](#d-billing-clinical-and-production-mismatches)
+8. [Complaint and Diagnosis Evolution](#e-complaint-and-diagnosis-evolution)
+9. [Possible Findings](#possible-findings--unverified)
+10. [Proposed Retrieval Plan](#f-proposed-retrieval-plan)
+11. [Methodology and Verification Log](#methodology-and-verification-log)
+12. [Limitations](#limitations)
 
 ---
 
 # Medical Records Gap Analysis: [Matter Name]
+
+**Audit status:** [Matter-Wide Audit / Matter-Wide Audit With Identified Review Limitations / User-Scoped Audit]
 
 **Prepared:** [date]
 
@@ -30,15 +33,31 @@ Adapt this structure to the user's requested scope. Omit irrelevant sections and
 
 **Citation scheme:** [Bates / file and page]
 
-## Records Reviewed
+**Scope:** [selected matter; user-imposed object, custodian, date, or category limits]
 
-| Producing party or custodian | Source range | Pages | Dates covered | Status |
-|------------------------------|--------------|-------|---------------|--------|
-| [custodian] | [PREFIX00001-PREFIX00450] | [450] | [dates] | [complete / partial / unclear] |
+## Source Accounting
+
+One row per accessible matter object, including derivative, inaccessible, potentially privileged, unrelated, and duplicate objects.
+
+| Matter object or file | Classification | Custodian or apparent source | File type | Bates/pages and dates | Readability | Review status | Duplicate, derivative, or exclusion relationship |
+|-----------------------|----------------|------------------------------|-----------|------------------------|-------------|---------------|-----------------------------------------------|
+| [object] | [source / billing / claims / derivative / duplicate / potential work product / inaccessible / out of scope] | [source] | [PDF/DOCX/etc.] | [coverage] | [readable/OCR-limited/etc.] | [reviewed/not reviewed/excluded] | [relationship or reason] |
+
+**Object totals:** [n accessible]; [n source productions reviewed]; [n derivative-only]; [n duplicates]; [n inaccessible]; [n excluded].
+
+**Duplicate reconciliation:** [byte-, page-, or content-level comparison used; overlapping independent productions preserved].
+
+## Review Limitations and Pending Source Review
+
+| Matter object | Limitation | Effect on analysis | Required next step |
+|---------------|------------|--------------------|--------------------|
+| [object] | [unreadable / OCR-limited / processing / password-protected / unavailable / authorization needed] | [categories or periods affected] | [OCR, access, production, authorization] |
+
+[State “None” only when every in-scope source is accessible and reviewed.]
 
 **Parameters:** initial gap [14 days]; interval NOTE [30 days]; interval SIGNIFICANT [60 days]; baseline lookback [5 years]; complaint baseline [96 hours]; injury context [value]; representation date [none / user-provided / source-cited]. These are configurable review heuristics, not legal or clinical standards.
 
-**Scope:** [categories performed, categories omitted, and reason]
+**Analytical scope:** [categories performed, categories omitted, and reason]
 
 ## Completeness Scorecard
 
@@ -147,16 +166,21 @@ Counsel review and authorization are required before sending or serving any requ
 
 ## Methodology and Verification Log
 
+- Source Accounting Index: [n objects accounted for; reconciliation method]
+- Source review coverage: [n of n in-scope source productions reviewed; list any exceptions by object ID]
+- Derivative materials: [used only as leads or cross-checks; underlying sources validated where available]
+- Search and retrieval: [navigation method; confirmation that selected hits did not define the review universe]
+- Duplicate and overlap handling: [comparison method and provenance treatment]
 - Provider and Encounter Index: [built / reused; source and date]
 - Encounters indexed: [n] across [n] providers
 - Incident-time source and precision: [citation / unavailable; hours or days]
 - Complaint baseline: [window and encounters included]
 - Representation timeline: [source-cited items and any uncited user input]
-- Audit scope: [checklist sections completed and any sampling]
+- Audit scope: [checklist sections completed and any processing-validation sampling; sampling did not define source coverage]
 - Citation preflight: [prefixes, formats, or file-page scheme]
 - Verification: [n verified, n unverified, n corrected or removed]
 - Limitations: [missing sources, OCR issues, inherited citations, or unperformed checks]
 
 ## Limitations
 
-Gap significance is case- and jurisdiction-specific. Duration thresholds are review heuristics, not legal or clinical standards. An apparent treatment gap may reflect an incomplete production rather than absent care, and supplemental records may resolve current findings. Episodic or protocol-driven care can make fixed intervals misleading. Billing mismatches do not establish fraud or error. A newly documented complaint may reflect onset, documentation, or production differences; this report makes no credibility or causation finding. Representation datapoints are temporal facts and support no inference that representation caused treatment or complaint changes. This analysis supports but does not replace attorney judgment.
+[Repeat the audit-status label and identify every source-coverage limitation.] Gap significance is case- and jurisdiction-specific. Duration thresholds are review heuristics, not legal or clinical standards. An apparent treatment gap may reflect an incomplete production rather than absent care, and supplemental records may resolve current findings. Episodic or protocol-driven care can make fixed intervals misleading. Billing mismatches do not establish fraud or error. A newly documented complaint may reflect onset, documentation, or production differences; this report makes no credibility or causation finding. Representation datapoints are temporal facts and support no inference that representation caused treatment or complaint changes. This analysis supports but does not replace attorney judgment.
