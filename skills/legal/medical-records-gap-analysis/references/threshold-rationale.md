@@ -12,7 +12,7 @@ Fourteen days is a useful early-review default because a delay of that length of
 
 When Florida PIP or any other statutory regime matters, verify the current official text and applicability before describing a legal consequence. Do not apply the Florida rule to a different jurisdiction or case type.
 
-Default: review an initial interval exceeding 14 days. Report the duration and source-supported context, not an adverse conclusion.
+Report the initial-care interval whenever Category A is in scope, including immediate care, because the first-care modality and supported timing are useful neutral datapoints. Default: flag an initial interval exceeding 14 days. Report the duration and source-supported context, not an adverse conclusion.
 
 ## Interval review: 30 and 60 days
 
@@ -32,12 +32,18 @@ Do not rely on vendor marketing statistics or settlement-value estimates as auth
 | Context | Adjustment |
 |---------|------------|
 | Home exercise or conservative discharge | Compare the interval with the documented discharge and follow-up plan. |
-| TBI, post-concussive, or other symptom-driven care | Consider episodic presentation and stated follow-up instructions. |
+| TBI, post-concussive, or other symptom-driven care | Consider episodic presentation and stated follow-up instructions. Mild-TBI or concussion symptoms may be recognized hours or days later; do not treat later documentation alone as adverse. Consult [current CDC guidance](https://www.cdc.gov/traumatic-brain-injury/signs-symptoms/index.html) when clinical timing matters. |
 | Psychological treatment | Use the documented treatment cadence or modality rather than a flat interval. |
 | Surgical recovery | Compare with the surgeon's stated protocol; missing follow-up records may be a production issue. |
 | Chronic pain management | Compare with the prescribed monthly, quarterly, or as-needed cadence. |
 
 Record any adjustment in the methodology log.
+
+## Complaint baseline: 96 hours
+
+The first 96 hours provide a reproducible early-record window for comparing later complaints without treating the first encounter as the only baseline. This is a review convention, not a medical cutoff. Weight the first encounter most heavily, preserve material differences among early providers, and adjust the window when records are sparse or the condition requires different context.
+
+A later complaint may reflect delayed onset or recognition, provider documentation differences, an incomplete production, or a genuinely changed history. Category E reports the dated record sequence and leaves medical or credibility significance to qualified reviewers.
 
 ## When to change the defaults
 
