@@ -5,12 +5,13 @@ Use this item-level checklist for production integrity, Categories B through E, 
 ## Contents
 
 1. [Production integrity](#production-integrity)
-2. [Implied providers and record sets](#implied-providers-and-record-sets)
-3. [Representation timeline](#representation-timeline)
-4. [Pre-incident baseline](#pre-incident-baseline)
-5. [Cross-references and partial productions](#cross-references-and-partial-productions)
-6. [Complaint and diagnosis evolution](#complaint-and-diagnosis-evolution)
-7. [Expected records by custodian](#expected-records-by-custodian)
+2. [Source universe and review status](#source-universe-and-review-status)
+3. [Implied providers and record sets](#implied-providers-and-record-sets)
+4. [Representation timeline](#representation-timeline)
+5. [Pre-incident baseline](#pre-incident-baseline)
+6. [Cross-references and partial productions](#cross-references-and-partial-productions)
+7. [Complaint and diagnosis evolution](#complaint-and-diagnosis-evolution)
+8. [Expected records by custodian](#expected-records-by-custodian)
 
 ## Production integrity
 
@@ -20,6 +21,21 @@ Use this item-level checklist for production integrity, Categories B through E, 
 - [ ] Page count is compared with any cover letter, index, or custodian certification.
 - [ ] Exact duplicates are distinguished from amended notes, corrected reports, and addenda.
 - [ ] Records-custodian certification or affidavit is inventoried when expected; legal sufficiency is left to counsel.
+
+## Source universe and review status
+
+- [ ] Every accessible matter object is represented in the Source Accounting Index, including objects excluded from substantive review.
+- [ ] Each object has an apparent source, file type, page or Bates coverage, date coverage where available, readability status, and review status.
+- [ ] Original source productions are distinguished from billing, claims, insurance, agency, lien, authorization, and other nonclinical sources.
+- [ ] Demand packages, chronologies, prior reports, exhibit sets, and other derivative compilations are identified and used only as leads or cross-checks when underlying sources are available.
+- [ ] Search results are used for navigation, not as evidence that every source was reviewed.
+- [ ] Every readable in-scope source production has been reviewed.
+- [ ] Exact duplicates are established by reliable byte-, page-, or content-level comparison before repeat review is omitted.
+- [ ] Overlapping but independently produced records retain separate provenance and do not create duplicate encounters.
+- [ ] Unreadable, OCR-limited, processing, password-protected, missing, or otherwise inaccessible sources are listed with the reason and required next step.
+- [ ] Potentially privileged or unrelated objects are inventoried at a safe metadata level and not opened without authorization.
+- [ ] Attorney-directed work product is distinguished from non-privileged derivative or agent-generated analysis; neither is treated as source evidence.
+- [ ] The selected audit-status label matches the source coverage: Matter-Wide Audit, Matter-Wide Audit With Identified Review Limitations, or User-Scoped Audit.
 
 ## Implied providers and record sets
 
