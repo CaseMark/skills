@@ -1,14 +1,16 @@
 # Records Completeness Audit Checklist
 
-Use this item-level checklist for production integrity and Categories B through D. Apply only the sections within the user's requested scope, but note when an omitted check limits a requested conclusion.
+Use this item-level checklist for production integrity, Categories B through E, and representation signals. Apply only the sections within the user's requested scope, but note when an omitted check limits a requested conclusion.
 
 ## Contents
 
 1. [Production integrity](#production-integrity)
 2. [Implied providers and record sets](#implied-providers-and-record-sets)
-3. [Pre-incident baseline](#pre-incident-baseline)
-4. [Cross-references and partial productions](#cross-references-and-partial-productions)
-5. [Expected records by custodian](#expected-records-by-custodian)
+3. [Representation timeline](#representation-timeline)
+4. [Pre-incident baseline](#pre-incident-baseline)
+5. [Cross-references and partial productions](#cross-references-and-partial-productions)
+6. [Complaint and diagnosis evolution](#complaint-and-diagnosis-evolution)
+7. [Expected records by custodian](#expected-records-by-custodian)
 
 ## Production integrity
 
@@ -34,8 +36,22 @@ For every signal, record the source date and citation, implied custodian or spec
 - [ ] Reference or send-out laboratory work.
 - [ ] IMEs, defense examinations, or record reviews mentioned in correspondence or notes.
 - [ ] Prior claims, workers-compensation, or disability records referenced in the production.
+- [ ] Attorney-referral, lien, or letter-of-protection references in the produced record, without assuming that related privileged communications are discoverable.
 
 Do not name a provider the source does not identify. If only a specialty or facility type is known, list that unresolved custodian type.
+
+## Representation timeline
+
+Each source-supported item becomes a dated datapoint. Report temporal relationships only; do not imply that representation caused care, referral, or a later complaint.
+
+- [ ] Letters of representation already present in the authorized production.
+- [ ] Attorney lien notices and letters of protection.
+- [ ] Chart notations that the patient consulted, hired, or was referred by an attorney.
+- [ ] Intake forms naming an attorney or law firm as the referral source.
+- [ ] Billing entries addressed to or guaranteed by a law firm.
+- [ ] User-provided `representation_date`, labeled as uncited unless corroborated.
+
+Do not recommend production of attorney-client communications or work product. Flag privilege, discoverability, and authorization questions for counsel.
 
 ## Pre-incident baseline
 
@@ -70,6 +86,23 @@ If no baseline records are present, state the absence. Do not infer a clean base
 - [ ] Therapy daily notes when only evaluations or summaries were produced.
 - [ ] Post-operative follow-up beyond a single note when the record indicates more care was planned.
 - [ ] Itemized billing when only account summaries or balances were produced.
+
+## Complaint and diagnosis evolution
+
+Establish the early baseline from the disclosed `complaint_baseline_hours` window. If that window is adjusted because records are sparse or the context requires it, record the selected window and reason.
+
+- [ ] First-care modality, date, and time are captured at the precision supported by the source.
+- [ ] Early complaints and body parts are listed with citations.
+- [ ] Initial mechanism descriptions are preserved as documented.
+- [ ] Explicit denials are quoted or accurately paraphrased with citations.
+- [ ] Objective findings and studies are separated from reported symptoms.
+- [ ] Complaints or diagnoses first documented after a NOTE or SIGNIFICANT gap are identified.
+- [ ] Complaints or diagnoses first documented after a representation datapoint are identified without a causal inference.
+- [ ] Later complaints that conflict with an explicit early denial include citations to both records.
+- [ ] Newly documented complaints, new diagnoses, and changed mechanism descriptions are distinguished.
+- [ ] Missing records, provider documentation differences, and condition-specific onset patterns are considered before recommending follow-up.
+
+For every finding, state the elapsed time and intervening gap or representation datapoint. Report the record sequence; do not assess credibility, fabrication, causation, or medical significance.
 
 ## Expected records by custodian
 
