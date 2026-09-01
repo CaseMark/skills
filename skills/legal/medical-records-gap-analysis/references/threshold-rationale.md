@@ -1,0 +1,50 @@
+# Threshold Rationale
+
+The default 14-, 30-, and 60-day values are review heuristics. They help prioritize intervals for contextual analysis; they do not define medical necessity, causation, compliance, damages, or any legal conclusion.
+
+## Core caveat
+
+No generally applicable statute or case rule defines a significant treatment gap for tort litigation. Apply the documented care plan, injury context, jurisdiction, and source-stated explanation before assigning any significance. When a user or client supplies a different threshold, use it and record the change.
+
+## Initial-gap review: 14 days
+
+Fourteen days is a useful early-review default because a delay of that length often warrants checking for delayed symptoms, access barriers, or outside care. It also corresponds to the initial-services condition in Florida's PIP statute for motor-vehicle benefits, but that rule is jurisdiction- and coverage-specific; it is not a general tort-causation standard.
+
+When Florida PIP or any other statutory regime matters, verify the current official text and applicability before describing a legal consequence. Do not apply the Florida rule to a different jurisdiction or case type.
+
+Default: review an initial interval exceeding 14 days. Report the duration and source-supported context, not an adverse conclusion.
+
+## Interval review: 30 and 60 days
+
+Thirty days is a practical first-pass interval for identifying a break that may need explanation or may reveal missing records. Sixty days is a prioritization tier for longer breaks. These values are workflow defaults, not validated clinical cutoffs.
+
+Default labels:
+
+- **NOTE:** 30 through 59 days, subject to the treatment plan and injury context.
+- **SIGNIFICANT:** 60 days or more, meaning higher review priority only.
+
+The source-stated explanation matters more than the tier. A long, planned follow-up interval may not be a treatment gap; a shorter unexplained interval may still merit retrieval work.
+
+Do not rely on vendor marketing statistics or settlement-value estimates as authority. If the user asks for empirical support, research current primary or independently reliable sources, describe their population and limitations, and cite them in the work product.
+
+## Injury and treatment-course adjustments
+
+| Context | Adjustment |
+|---------|------------|
+| Home exercise or conservative discharge | Compare the interval with the documented discharge and follow-up plan. |
+| TBI, post-concussive, or other symptom-driven care | Consider episodic presentation and stated follow-up instructions. |
+| Psychological treatment | Use the documented treatment cadence or modality rather than a flat interval. |
+| Surgical recovery | Compare with the surgeon's stated protocol; missing follow-up records may be a production issue. |
+| Chronic pain management | Compare with the prescribed monthly, quarterly, or as-needed cadence. |
+
+Record any adjustment in the methodology log.
+
+## When to change the defaults
+
+- A verified jurisdictional or coverage rule supplies a relevant window.
+- The user or client provides an approved review protocol.
+- The record documents a planned treatment cadence.
+- The injury or treatment course makes a flat interval misleading.
+- The requested audit uses a different materiality threshold.
+
+State the selected thresholds in the report and preserve the distinction between a review flag and a legal or clinical conclusion.
