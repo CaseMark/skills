@@ -6,12 +6,15 @@ Use this item-level checklist for production integrity, Categories B through E, 
 
 1. [Production integrity](#production-integrity)
 2. [Source universe and review status](#source-universe-and-review-status)
-3. [Implied providers and record sets](#implied-providers-and-record-sets)
-4. [Representation timeline](#representation-timeline)
-5. [Pre-incident baseline](#pre-incident-baseline)
-6. [Cross-references and partial productions](#cross-references-and-partial-productions)
-7. [Complaint and diagnosis evolution](#complaint-and-diagnosis-evolution)
-8. [Expected records by custodian](#expected-records-by-custodian)
+3. [Matter snapshot and finding classification](#matter-snapshot-and-finding-classification)
+4. [Implied providers and record sets](#implied-providers-and-record-sets)
+5. [Representation timeline](#representation-timeline)
+6. [Pre-incident baseline](#pre-incident-baseline)
+7. [Therapy-course reconciliation](#therapy-course-reconciliation)
+8. [Cross-references and partial productions](#cross-references-and-partial-productions)
+9. [Complaint and diagnosis evolution](#complaint-and-diagnosis-evolution)
+10. [Attorney-facing output](#attorney-facing-output)
+11. [Expected records by custodian](#expected-records-by-custodian)
 
 ## Production integrity
 
@@ -36,6 +39,15 @@ Use this item-level checklist for production integrity, Categories B through E, 
 - [ ] Potentially privileged or unrelated objects are inventoried at a safe metadata level and not opened without authorization.
 - [ ] Attorney-directed work product is distinguished from non-privileged derivative or agent-generated analysis; neither is treated as source evidence.
 - [ ] The selected audit-status label matches the source coverage: Matter-Wide Audit, Matter-Wide Audit With Identified Review Limitations, or User-Scoped Audit.
+
+## Matter snapshot and finding classification
+
+- [ ] The report opens with the patient or authorized identifier, date of loss, loss event or mechanism, claimed injuries, first documented care and elapsed time, record coverage, audit status, perspective, scope, and citation scheme.
+- [ ] Source-derived matter facts are cited, and user-provided facts are labeled when uncited.
+- [ ] The Executive Gap Summary contains only the two to five most consequential findings.
+- [ ] Each finding is classified as a treatment gap, apparent treatment gap, production gap, or administrative-status gap.
+- [ ] A missing record, referral closure, attendance log, or discharge record is not mislabeled as a confirmed interruption in care.
+- [ ] Each finding explains why the absence matters to treatment continuity, the claimed injuries, causation, damages, or production reliability.
 
 ## Implied providers and record sets
 
@@ -81,11 +93,24 @@ Evaluate each claimed body system separately:
 
 If no baseline records are present, state the absence. Do not infer a clean baseline from silence.
 
+## Therapy-course reconciliation
+
+For PT, OT, chiropractic, and other planned treatment courses:
+
+- [ ] Date of loss to therapy start is calculated at the precision supported by the sources.
+- [ ] Planned frequency, duration, and visit count are stated when documented.
+- [ ] Produced daily-note or visit count is reconciled against the planned course.
+- [ ] Earliest and latest produced visits and the exact unsupported interval are stated.
+- [ ] Attendance, cancellation or no-show, progress, and discharge evidence is identified as present or missing.
+- [ ] The finding does not imply that every planned visit is missing when some visits are documented.
+
 ## Cross-references and partial productions
 
 ### Cross-references
 
 - [ ] Every billed date of service has a corresponding clinical note, and vice versa, subject to known global or bundled billing arrangements.
+- [ ] A billing issue appears in the substantive report only when it identifies an otherwise unknown provider or service, shows a service date without a corresponding clinical note, reveals a material mismatch, or changes an apparent treatment gap into a production gap.
+- [ ] Other billing reconciliation is moved to source accounting or omitted rather than presented as a medical-record gap.
 - [ ] Codes are normalized before comparing billed procedures or diagnoses with documentation.
 - [ ] Written prescriptions are compared with produced pharmacy fill history.
 - [ ] Imaging orders are compared separately with reports and image files.
@@ -119,6 +144,15 @@ Establish the early baseline from the disclosed `complaint_baseline_hours` windo
 - [ ] Missing records, provider documentation differences, and condition-specific onset patterns are considered before recommending follow-up.
 
 For every finding, state the elapsed time and intervening gap or representation datapoint. Report the record sequence; do not assess credibility, fabrication, causation, or medical significance.
+
+## Attorney-facing output
+
+- [ ] The report includes only enough chronology to establish or explain a gap.
+- [ ] The substantive findings precede full source accounting, retrieval mechanics, and methodology.
+- [ ] Each finding states what the record shows, what is missing, relevant dates or quantities, why the absence matters, and an optional retrieval target.
+- [ ] Detailed custodian, authorization, routing, and request mechanics appear in the retrieval appendix rather than dominating the finding.
+- [ ] The report uses “review threshold” rather than “heuristic,” defines acronyms on first use, and uses short, plain-language sentences.
+- [ ] Long limitations are translated into their practical effect on the analysis.
 
 ## Expected records by custodian
 
