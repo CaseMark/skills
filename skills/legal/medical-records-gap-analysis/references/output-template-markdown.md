@@ -1,17 +1,20 @@
 # Output Template: Medical Records Gap Analysis
 
-Adapt this structure to the user's requested scope. Omit irrelevant sections and disclose unperformed categories. Every confirmed finding must have a verified source citation; unverified possibilities belong in a separate possible-findings subsection. Keep the attorney-facing analysis concise and place full audit mechanics in appendices.
+Adapt this structure to the user's requested scope. Omit irrelevant sections and disclose unperformed categories. Every confirmed finding must have a verified source citation; unverified possibilities belong in a separate subsection. Keep the attorney-facing analysis concise and place source accounting, request mechanics, and methodology in appendices.
 
 ## Contents
 
 1. [Matter Snapshot](#matter-snapshot)
-2. [Executive Gap Summary](#executive-gap-summary)
-3. [Gap Findings](#gap-findings)
-4. [Possible Findings](#possible-findings--unverified)
-5. [Limitations](#limitations)
-6. [Appendix A: Source Accounting](#appendix-a-source-accounting)
-7. [Appendix B: Proposed Retrieval Plan](#appendix-b-proposed-retrieval-plan)
-8. [Appendix C: Methodology and Verification](#appendix-c-methodology-and-verification)
+2. [Key Missing Records and Treatment Questions](#key-missing-records-and-treatment-questions)
+3. [Treatment and Follow-Up Gaps](#treatment-and-follow-up-gaps)
+4. [Referrals Without Follow-Up Records](#referrals-without-follow-up-records)
+5. [Missing Pre-Accident Records](#missing-pre-accident-records)
+6. [Record Problems Affecting the Analysis](#record-problems-affecting-the-analysis)
+7. [Possible Issues](#possible-issues--unverified)
+8. [Limitations](#limitations)
+9. [Appendix A: Source Accounting](#appendix-a-source-accounting)
+10. [Appendix B: Records to Request](#appendix-b-records-to-request)
+11. [Appendix C: Methodology and Verification](#appendix-c-methodology-and-verification)
 
 ---
 
@@ -19,179 +22,137 @@ Adapt this structure to the user's requested scope. Omit irrelevant sections and
 
 ## Matter Snapshot
 
-Keep this section to a compact table or approximately one-third of a page. Cite source-derived matter facts.
+Keep this section to a compact table or approximately one-third of a page. Cite source-derived matter facts and use the minimum necessary patient identifier.
 
 | Matter fact | Detail |
 |-------------|--------|
-| Patient | [name or authorized identifier] |
+| Patient | [authorized name or identifier] |
 | Prepared | [date] |
 | Date of loss | [date; time only when reliably stated; citation] |
 | Loss event | [fall, collision, workplace incident, or other source-supported mechanism; citation] |
 | Claimed injuries | [body parts or conditions; citation or user-provided, uncited] |
-| First documented care | [provider, modality, date/time, elapsed hours or days from loss; citation] |
-| Record coverage | [n source productions reviewed; general date range; material source limitation] |
-| Audit status | [Matter-Wide Audit / Matter-Wide Audit With Identified Review Limitations / User-Scoped Audit] |
+| First documented care | [provider, visit type, date/time, and elapsed time from loss; citation] |
+| Records reviewed | [n source productions; general date range; material limitation] |
+| Review scope | [matter-wide / matter-wide with identified limitations / user-scoped, plus any user limits] |
 | Perspective | [neutral / plaintiff / defense] |
-| Scope | [matter and any user-imposed object, custodian, date, or category limits] |
-| Citation scheme | [Bates / file and page] |
 
-## Executive Gap Summary
+## Key Missing Records and Treatment Questions
 
-List only the two to five most consequential source-supported gaps. Distinguish missing records from actual interruptions in treatment.
+List only the two to five most consequential findings. Use one or two plain-language sentences for each. Do not use internal gap classifications, audit terminology, or request mechanics here.
 
-| Priority | Classification | What appears to be missing | Why the absence matters | Finding |
-|----------|----------------|----------------------------|-------------------------|---------|
-| [High/Medium/Low] | [Treatment / Apparent treatment / Production / Administrative-status gap] | [concise description] | [treatment continuity, claimed injury, causation, damages, or production reliability] | [A-1/B-1/etc.] |
+1. **[Specific missing record or treatment question].** [What was documented, what is missing, and what the available records cannot establish. Citation.]
+2. **[Specific missing record or treatment question].** [Concise explanation and citation.]
 
-**Bottom line:** [Two or three plain-language sentences stating the most important findings and the principal limitation. Do not reproduce a treatment chronology or retrieval plan here.]
+**Bottom line:** [Two or three plain-language sentences stating the most important missing records and the principal limitation.]
 
-## Gap Findings
+## Treatment and Follow-Up Gaps
 
-Use only enough chronology to establish or explain a gap. Each finding should state what the record shows, what is missing, the relevant dates or quantities, why the absence matters, and an optional retrieval target. See [finding style examples](finding-style-examples.md).
+Use numbered findings, not a wide narrative table.
 
-### A. Treatment History Gaps
+### 1. [Date range or plain-language description]
 
-#### Initial care interval
+- **Last documented treatment:** [provider, specialty, visit type, date, citation]
+- **Next documented treatment:** [provider, specialty, visit type, date, citation]
+- **Time between visits:** [n days]
+- **Evidence of other care during this period:** [specific source signal and citation / none located]
+- **Missing records:** [daily notes, attendance, discharge, outside-provider records, or none]
+- **What this means:** [narrow conclusion in plain language]
+- **Records to request:** [R-n / none]
 
-- **Date of loss:** [date/time and citation]
-- **First documented care:** [provider, modality, date/time, citation]
-- **Elapsed time:** [hours or days at supported precision]
-- **Review threshold:** [flagged / not flagged; threshold used]
-- **Source-stated context:** [explanation and citation / none located / not applicable]
+When the evidence cannot distinguish no treatment from missing records, say: “The available records do not show whether treatment stopped or whether additional treatment records are missing.” Do not add that caveat when a source already resolves the issue.
 
-#### A-1. [Treatment gap / Apparent treatment gap]: [plain-language description]
+### Planned therapy course, if applicable
 
-- **What the record shows:** [bracketing care, dates, and citations]
-- **What is missing:** [care, provider records, or explanation]
-- **Interval:** [n days; start date to end date]
-- **Why it matters:** [practical effect on the analysis]
-- **Source-stated context:** [explanation and citation / none located]
-- **Related production gap:** [B-n / none]
-- **Retrieval target:** [F-n / none]
+State in a short paragraph:
 
-For a planned physical-therapy, occupational-therapy, chiropractic, or similar course, also state:
+- What therapy was recommended, including frequency and planned visit count.
+- How many visit records were produced and their date range.
+- Whether attendance, progress, cancellation, and discharge records were produced.
+- Whether the available records show that the course was completed or ended early.
 
-- **Course reconciliation:** [date of loss to therapy start; planned frequency and visit count; produced visit count; earliest and latest produced visits; exact unsupported interval; missing attendance, progress, or discharge evidence]
+Do not use “unreconciled” without explaining the missing information.
 
-Do not imply that every planned visit is missing when some visits are documented.
+## Referrals Without Follow-Up Records
 
-#### Representation timeline, if material
+Use one finding per referral or related group of referrals with the same source, status, and significance.
 
-| Date | Datapoint | Source | Position in treatment course |
-|------|-----------|--------|------------------------------|
-| [date] | [letter / lien / LOP / chart notation / user-provided date] | [citation / user-provided, uncited] | [temporal relationship only] |
+### 1. [Referred specialty or service]
 
-Do not infer that representation caused treatment, referral, or a later complaint.
+- **Referral:** [referring provider and specialty] referred or recommended [service] on [date]. [citation]
+- **What the records show:** [completed consultation / no-show / cancellation / scheduling delay / no completed visit located / later evidence of outside care]
+- **Missing records:** [consultation, test result, treatment, follow-up, closure, or other specific record]
+- **What this means:** [what can and cannot be concluded]
+- **Records to request:** [R-n / none]
 
-### B. Missing Providers and Record Sets
+Do not treat the absence of a produced record as proof that the patient declined care. If a completed consultation recommended later follow-up, distinguish that from an uncompleted initial referral.
 
-#### B-1. [Production gap / Administrative-status gap]: [provider, specialty, or unresolved custodian type]
+## Missing Pre-Accident Records
 
-- **What the record shows:** [referral, order, history, bill, or other signal; date; citation]
-- **What is missing:** [consultation, test result, daily notes, attendance, discharge, closure, or other record]
-- **Expected date range:** [exact or supportable range]
-- **Why it matters:** [practical effect on the analysis]
-- **Retrieval target:** [F-n]
+Use direct date language rather than “baseline window.” Include only source-supported reasons the records may exist.
 
-### C. Missing Pre-Incident Baseline
+### 1. [Provider, body system, or prior episode]
 
-#### C-1. Production gap: [body system]
+- **Records found:** [older record, named provider, prior diagnosis, medication, or other source signal; citation]
+- **Records missing:** [provider and date range, such as “Primary-care records from February 2016 through February 2021”]
+- **Why they matter:** [brief connection to claimed injuries, causation, or damages]
+- **Records to request:** [R-n / none]
 
-- **What the record shows:** [claimed injury, named primary-care provider, prior care, medication, or other source-supported basis; citation]
-- **What is missing:** [relevant pre-incident records within selected window]
-- **Expected date range:** [range]
-- **Why it matters:** [baseline issue relevant to claimed injury, causation, or damages]
-- **Retrieval target:** [F-n / none]
+An older record showing a similar prior injury may support requesting the intervening records. Do not turn this section into a summary of post-accident diagnoses.
 
-### D. Material Billing, Clinical, and Production Mismatches
+## Record Problems Affecting the Analysis
 
-Include a substantive billing finding only when a bill identifies an otherwise unknown provider or service, shows a service date without a clinical note, reveals a material mismatch, or changes an apparent treatment gap into a production gap. Move other billing reconciliation to Appendix A or omit it.
+Include only problems that change attribution, reliability, or whether an apparent treatment gap may be missing records.
 
-#### D-1. Production gap: [material mismatch]
+### Billing or service record without a clinical note
 
-- **What the record shows:** [both sides of the comparison with citations]
-- **What is missing:** [clinical note, bill, report, image file, or other item]
-- **Why it matters:** [for example, the billed service may mean the interval is a missing-record issue rather than a treatment gap]
-- **Interpretation limit:** [what cannot be concluded]
-- **Retrieval target:** [F-n / specialist review]
+> [A bill or claim identifies a provider and service date, but no corresponding clinical record was found. Explain whether this may convert an apparent treatment gap into a missing-record issue. Citations.]
 
-### E. Complaint and Diagnosis Evolution
+### Specialty terminology or coding
 
-#### Early complaint baseline
+Do not present chiropractic subluxation or dislocation terminology as contradicting acute hospital imaging unless reliable sources establish clinical equivalence. State any referenced but missing examination, imaging, or report instead.
 
-- **Window used:** [first 96 hours / adjusted window and reason]
-- **First encounter:** [provider, modality, date/time, citation]
-- **Complaints and body parts:** [source-cited list]
-- **Mechanism:** [as first documented, citation]
-- **Explicit denials:** [quoted or accurately paraphrased, citation]
-- **Objective findings:** [source-cited list]
+### Patient-identity issue
 
-#### E-1. [Newly documented complaint / new diagnosis / conflict with early denial]
+> [A page contains inconsistent identifiers and should not be attributed to the patient without verification. Note any possible redaction, OCR, or transformation limitation. Do not allege chart copying or misconduct without reliable support.]
 
-- **Baseline:** [early record or denial, citation]
-- **Later record:** [complaint or diagnosis, provider, date, citation]
-- **Elapsed time and intervening events:** [duration; gap A-n; representation datapoint if applicable]
-- **Why the missing context matters:** [records or interval needed to evaluate the sequence]
-- **Interpretation limit:** [no credibility, causation, fabrication, or medical-significance inference]
-- **Retrieval target:** [F-n / none]
+Omit duplicate-production and derivative-file discussion from the main body unless it changes the analysis. Preserve it in Appendix A when needed for audit completeness.
 
-## Possible Findings — Unverified
+## Possible Issues — Unverified
 
 - [Possibility, why it could not be page-verified, and `[UNVERIFIED]` label.]
 
 ## Limitations
 
-[State the audit-status label and every source-coverage limitation in plain language.] An apparent treatment gap may reflect an incomplete production rather than absent care. The review thresholds prioritize intervals for analysis; they are not legal or clinical standards. Billing mismatches do not establish fraud or error. A newly documented complaint may reflect onset, documentation, or production differences. Representation timing supports no inference that representation caused treatment or complaint changes. This analysis supports but does not replace attorney judgment.
+[State the review scope and every material source limitation in plain language.] Missing records may prevent the report from determining whether treatment stopped or continued elsewhere. Do not list internal thresholds unless one produced a material finding, a relevant legal or coverage rule applies, or the user requested threshold analysis. This report supports but does not replace attorney judgment.
 
 ## Appendix A: Source Accounting
 
-One row per accessible matter object, including derivative, inaccessible, potentially privileged, unrelated, and duplicate objects.
+| Source | Coverage | Review status and relationship |
+|--------|----------|--------------------------------|
+| [file or matter object] | [custodian, Bates/pages, and dates] | [reviewed / inaccessible / derivative / duplicate / excluded, with reason] |
 
-| Matter object or file | Classification | Custodian or apparent source | File type | Bates/pages and dates | Readability | Review status | Duplicate, derivative, or exclusion relationship |
-|-----------------------|----------------|------------------------------|-----------|------------------------|-------------|---------------|-----------------------------------------------|
-| [object] | [source / billing / claims / derivative / duplicate / potential work product / inaccessible / out of scope] | [source] | [PDF/DOCX/etc.] | [coverage] | [readable/OCR-limited/etc.] | [reviewed/not reviewed/excluded] | [relationship or reason] |
+**Totals:** [n accessible]; [n source productions reviewed]; [n derivative-only]; [n duplicates]; [n inaccessible]; [n excluded].
 
-**Object totals:** [n accessible]; [n source productions reviewed]; [n derivative-only]; [n duplicates]; [n inaccessible]; [n excluded].
+**Pending source review:** [source, limitation, effect, and required next step / none].
 
-**Duplicate reconciliation:** [byte-, page-, or content-level comparison used; overlapping independent productions preserved].
+## Appendix B: Records to Request
 
-### Pending source review and limitations
+Counsel must select and authorize any request mechanism.
 
-| Matter object | Limitation | Effect on analysis | Required next step |
-|---------------|------------|--------------------|--------------------|
-| [object] | [unreadable / OCR-limited / processing / password-protected / unavailable / authorization needed] | [categories or periods affected] | [OCR, access, production, authorization] |
+### R-1. [Specific record set]
 
-[State “None” only when every in-scope source is accessible and reviewed.]
-
-**Review parameters:** initial gap [14 days]; interval NOTE [30 days]; interval SIGNIFICANT [60 days]; baseline lookback [5 years]; complaint baseline [96 hours]; injury context [value]; representation date [none / user-provided / source-cited]. These are configurable review thresholds, not legal or clinical standards.
-
-**Analytical scope:** [categories performed, categories omitted, and reason]
-
-## Appendix B: Proposed Retrieval Plan
-
-Counsel review and authorization are required before sending or serving any request.
-
-| # | Priority | Custodian | Date range | Record type | Proposed mechanism | Resolves |
-|---|----------|-----------|------------|-------------|--------------------|----------|
-| F-1 | [High/Medium/Low] | [specific or unresolved type] | [range] | [specific non-privileged records] | [authorization / supplemental request / subpoena, subject to counsel review] | [A-1, B-2, E-1] |
-
-**Separate custodians or departments:** [clinical / billing / pharmacy / imaging / other]
-
-**Privilege or authorization flags:** [representation, lien, LOP, or other materials requiring counsel review]
+- **Provider or custodian:** [specific provider or unresolved specialty]
+- **Dates:** [exact or supportable range]
+- **Records:** [specific clinical, imaging, attendance, discharge, billing, or referral records]
+- **Related finding:** [finding number]
+- **Purpose:** [plain-language question the records may resolve]
 
 ## Appendix C: Methodology and Verification
 
-- Source Accounting Index: [n objects accounted for; reconciliation method]
-- Source review coverage: [n of n in-scope source productions reviewed; list exceptions by object ID]
-- Derivative materials: [used only as leads or cross-checks; underlying sources validated where available]
-- Search and retrieval: [navigation method; confirmation that selected hits did not define the review universe]
-- Duplicate and overlap handling: [comparison method and provenance treatment]
-- Provider and Encounter Index: [built / reused; source and date]
-- Encounters indexed: [n] across [n] providers
-- Incident-time source and precision: [citation / unavailable; hours or days]
-- Complaint baseline: [window and encounters included]
-- Representation timeline: [source-cited items and any uncited user input]
-- Audit scope: [checklist sections completed and any processing-validation sampling; sampling did not define source coverage]
-- Citation preflight: [prefixes, formats, or file-page scheme]
-- Verification: [n verified, n unverified, n corrected or removed]
-- Limitations: [missing sources, OCR issues, inherited citations, or unperformed checks]
+- Review status: [matter-wide / matter-wide with identified limitations / user-scoped]
+- Source coverage: [n of n source productions reviewed; exceptions]
+- Duplicate handling: [method]
+- Provider and encounter index: [built / reused]
+- Internal review parameters: [thresholds and context; not legal or clinical standards]
+- Citation verification: [method and result]
+- Material limitations: [missing sources, OCR issues, inherited citations, or unperformed checks]

@@ -6,13 +6,17 @@ The default 14-, 30-, and 60-day values are review heuristics. They help priorit
 
 No generally applicable statute or case rule defines a significant treatment gap for tort litigation. Apply the documented care plan, injury context, jurisdiction, and source-stated explanation before assigning any significance. When a user or client supplies a different threshold, use it and record the change.
 
+## Client-facing reporting
+
+Use thresholds to find intervals for review, not as report vocabulary. State the first documented treatment date and elapsed time from the loss. Mention a threshold in the delivered report only when it produces a material finding, a verified legal or coverage rule applies, or the user requests threshold analysis. Otherwise keep selected thresholds in the methodology appendix.
+
 ## Initial-gap review: 14 days
 
 Fourteen days is a useful early-review default because a delay of that length often warrants checking for delayed symptoms, access barriers, or outside care. It also corresponds to the initial-services condition in Florida's PIP statute for motor-vehicle benefits, but that rule is jurisdiction- and coverage-specific; it is not a general tort-causation standard.
 
 When Florida PIP or any other statutory regime matters, verify the current official text and applicability before describing a legal consequence. Do not apply the Florida rule to a different jurisdiction or case type.
 
-Report the initial-care interval whenever Category A is in scope, including immediate care, because the first-care modality and supported timing are useful neutral datapoints. Default: flag an initial interval exceeding 14 days. Report the duration and source-supported context, not an adverse conclusion.
+Report the initial-care interval whenever treatment history is in scope, including immediate care, because the first-care modality and supported timing are useful neutral datapoints. Default: flag an initial interval exceeding 14 days. When immediate care or an unflagged interval creates no material issue, report the date and elapsed time without discussing the threshold. Report source-supported context, not an adverse conclusion.
 
 ## Interval review: 30 and 60 days
 
@@ -43,7 +47,7 @@ Record any adjustment in the methodology log.
 
 The first 96 hours provide a reproducible early-record window for comparing later complaints without treating the first encounter as the only baseline. This is a review convention, not a medical cutoff. Weight the first encounter most heavily, preserve material differences among early providers, and adjust the window when records are sparse or the condition requires different context.
 
-A later complaint may reflect delayed onset or recognition, provider documentation differences, an incomplete production, or a genuinely changed history. Category E reports the dated record sequence and leaves medical or credibility significance to qualified reviewers.
+A later complaint may reflect delayed onset or recognition, provider documentation differences, an incomplete production, or a genuinely changed history. The internal complaint-evolution review preserves the dated record sequence and leaves medical or credibility significance to qualified reviewers.
 
 ## When to change the defaults
 
@@ -53,4 +57,4 @@ A later complaint may reflect delayed onset or recognition, provider documentati
 - The injury or treatment course makes a flat interval misleading.
 - The requested audit uses a different materiality threshold.
 
-State the selected thresholds in the report and preserve the distinction between a review flag and a legal or clinical conclusion.
+Record the selected thresholds in the methodology. Disclose them in the main report only under the client-facing rule above, and preserve the distinction between a review flag and a legal or clinical conclusion.
