@@ -6,7 +6,7 @@ Review cadence: at least annually and after a material repository or scanner cha
 
 ## Required control
 
-The `Secret detection` workflow scans the complete reachable Git history on every push and pull request and once each week. A finding fails the workflow, so a change cannot satisfy a branch rule that requires this check until the finding is treated. The scanner binary, download checksum, and checkout action are pinned.
+The `Secret detection` workflow scans the complete reachable Git history on every push and pull request and once each week. A finding fails the workflow, so a change cannot satisfy a branch rule that requires this check until the finding is treated. The scanner binary and download checksum are pinned. Checkout fetches only the triggering commit and its complete reachable ancestry with the workflow's read-only token; it does not initialize submodules.
 
 This workflow is a **detective CI control**, not native GitHub push protection. Repository administrators must separately record whether GitHub secret scanning and push protection are enabled. CI coverage must never be reported as native push prevention.
 
