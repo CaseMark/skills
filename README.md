@@ -46,6 +46,8 @@ Use the `/v1/skills` endpoint or the `container.skills` parameter in Messages AP
 | [ocr](skills/casedev/ocr/) | Document OCR: process PDFs/images, word-level positional data |
 | [transcription](skills/casedev/transcription/) | Audio/video transcription with speaker diarization |
 | [search](skills/casedev/search/) | Web, legal, case law, patent, vault, and skills KB search |
+| [using-matter-md](skills/casedev/using-matter-md/) | Operational guidance for reading and updating MATTER.md durable matter context during legal work |
+| [building-matter-md-clients](skills/casedev/building-matter-md-clients/) | Spec and implementation guidance for adding MATTER.md support to an agent harness |
 
 ### Legal Skills
 
