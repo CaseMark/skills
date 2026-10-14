@@ -5,8 +5,25 @@ const path = require('node:path')
 const { execFileSync } = require('node:child_process')
 const test = require('node:test')
 const { PGlite } = require('@electric-sql/pglite')
-const { readSkillBundle, publishSkill } = require('./embed-skills')
+const { readSkillBundle, publishSkill, verifyRetirementSnapshots } = require('./embed-skills')
 const { changedSkills } = require('./changed-skills')
+
+test('reserved root retirement requires the original snapshots before publication', async () => {
+  const reserved = { 'form-d': 'form-d-exempt-offering-notice', 'form-d-notice': 'form-d-exempt-offering-notice' }
+  const deleted = ['skills/legal/form-d/SKILL.md', 'skills/legal/form-d-notice/SKILL.md']
+  const snapshots = Object.keys(reserved).map(alias_slug => ({ alias_slug,
+    target_slug: reserved[alias_slug], archived_content: 'Original v5 content', archived_version: 5 }))
+  const sql = { query: async (_text, [domain, alias, target]) => [{ ready: snapshots.some(s =>
+    s.alias_slug === alias && s.target_slug === target && s.archived_content && s.archived_version != null) }] }
+  await verifyRetirementSnapshots(sql, 'legal', deleted, reserved)
+  snapshots.pop()
+  await assert.rejects(verifyRetirementSnapshots(sql, 'legal', deleted, reserved), /Missing original snapshot/)
+  snapshots.push({ alias_slug: 'form-d-notice', target_slug: 'wrong-target', archived_content: 'Original', archived_version: 5 })
+  await assert.rejects(verifyRetirementSnapshots(sql, 'legal', deleted, reserved), /Missing original snapshot/)
+  let queried = false
+  await verifyRetirementSnapshots({query: async () => { queried = true }}, 'legal', ['skills/legal/ordinary/SKILL.md'], reserved)
+  assert.equal(queried, false)
+})
 
 function fixture() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'skill-publish-'))

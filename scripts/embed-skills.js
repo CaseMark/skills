@@ -79,12 +79,28 @@ async function publishSkill(sql, skill, domain, embedding) {
   await sql.transaction(publicationQueries(sql, skill, domain, embedding))
 }
 
+async function verifyRetirementSnapshots(sql, domain, deletedPaths, reserved) {
+  const retired = deletedPaths.map((filePath) => path.basename(path.dirname(filePath)))
+    .filter((slug) => Object.hasOwn(reserved, slug))
+  if (retired.length === 0) return
+  for (const slug of retired) {
+    const rows = await sql.query(`SELECT content.skill_alias_retirement_ready($1,$2,$3) AS ready`,
+      [domain, slug, reserved[slug]])
+    if (rows[0]?.ready !== true) {
+      throw new Error(`Missing original snapshot for ${domain}/${slug}; run migrations 018 and 019 before publishing this merge`)
+    }
+  }
+}
+
 async function main() {
   const { neon } = require('@neondatabase/serverless')
   const { OpenAI } = require('openai')
   const sql = neon(process.env.SKILLS_DB_URL)
   const domain = process.env.SKILL_DOMAIN
   const reserved = JSON.parse(fs.readFileSync('spec/reserved-slugs.json', 'utf8'))[domain] || {}
+  const deletedPaths = (process.env.DELETED_SKILL_PATHS || '').split('\n').filter(Boolean)
+  // Check all retirement prerequisites before an embedding request or any write.
+  await verifyRetirementSnapshots(sql, domain, deletedPaths, reserved)
   const openai = new OpenAI({ apiKey: process.env.AI_GATEWAY_API_KEY, baseURL: 'https://ai-gateway.vercel.sh/v1' })
   for (const filePath of (process.env.ADDED_SKILL_PATHS || '').split('\n').filter(Boolean)) {
     const skill = readSkillBundle(filePath)
@@ -95,7 +111,7 @@ async function main() {
     console.log(`Published ${domain}/${skill.slug} (${skill.files.length} files)`)
   }
   // A failed publish aborts before any retired root is archived.
-  for (const filePath of (process.env.DELETED_SKILL_PATHS || '').split('\n').filter(Boolean)) {
+  for (const filePath of deletedPaths) {
     const slug = path.basename(path.dirname(filePath))
     await sql.query(`UPDATE content.skills SET visibility='archived',updated_at=NOW()
       WHERE domain=$1 AND (slug=$2 OR starts_with(slug,$3))`, [domain, slug, `${slug}${FILE_SEPARATOR}`])
@@ -103,4 +119,4 @@ async function main() {
   }
 }
 if (require.main === module) main().catch((error) => { console.error(error); process.exitCode = 1 })
-module.exports = { readSkillBundle, publishSkill, publicationQueries }
+module.exports = { readSkillBundle, publishSkill, publicationQueries, verifyRetirementSnapshots }
