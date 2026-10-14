@@ -36,43 +36,12 @@ jobs:
 
       - name: Find skills to process
         id: changed
-        run: |
-          VERTICAL="${{ inputs.vertical }}"
-          FULL_SYNC="${{ inputs.full_sync }}"
-
-          if [ "$FULL_SYNC" = "true" ]; then
-            echo "** Full sync mode — finding ALL SKILL.md files in skills/${VERTICAL}/ **"
-            ADDED=$(find "skills/${VERTICAL}" -name "SKILL.md" -type f | sort)
-            DELETED=""
-            echo "Found $(echo "$ADDED" | grep -c .) skills to embed"
-          else
-            # Use the full push range when available (handles multi-commit pushes),
-            # fall back to HEAD~1 for workflow_dispatch or missing before ref.
-            BEFORE="${{ github.event.before }}"
-            if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
-              BASE="HEAD~1"
-            else
-              BASE="$BEFORE"
-            fi
-
-            ADDED=$(git diff --name-only --diff-filter=AM "$BASE" "${{ github.sha }}" -- "skills/${VERTICAL}/**/SKILL.md")
-            DELETED=$(git diff --name-only --diff-filter=D "$BASE" "${{ github.sha }}" -- "skills/${VERTICAL}/**/SKILL.md")
-          fi
-
-          echo "added<<EOF" >> $GITHUB_OUTPUT
-          echo "$ADDED" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-          echo "deleted<<EOF" >> $GITHUB_OUTPUT
-          echo "$DELETED" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-          if [ -z "$ADDED" ] && [ -z "$DELETED" ]; then
-            echo "No ${VERTICAL} skills to process"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          else
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          fi
+        env:
+          SKILL_VERTICAL: ${{ inputs.vertical }}
+          FULL_SYNC: ${{ inputs.full_sync }}
+          BEFORE_SHA: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        run: node scripts/changed-skills.js
 
       - name: Setup Node.js
         if: steps.changed.outputs.has_changes == 'true'
@@ -90,123 +59,9 @@ jobs:
           SKILLS_DB_URL: ${{ secrets.SKILLS_DB_URL }}
           AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
           SKILL_DOMAIN: ${{ inputs.domain }}
-        run: |
-          node << 'SCRIPT'
-          const { neon } = require('@neondatabase/serverless');
-          const { OpenAI } = require('openai');
-          const yaml = require('yaml');
-          const fs = require('fs');
-          const path = require('path');
-
-          const sql = neon(process.env.SKILLS_DB_URL);
-          const openai = new OpenAI({
-            apiKey: process.env.AI_GATEWAY_API_KEY,
-            baseURL: 'https://ai-gateway.vercel.sh/v1',
-          });
-          const domain = process.env.SKILL_DOMAIN;
-          const reserved = (JSON.parse(fs.readFileSync('spec/reserved-slugs.json', 'utf8'))[domain]) || {};
-
-          async function parseSkill(filePath) {
-            const content = fs.readFileSync(filePath, 'utf8');
-            const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-            if (!match) throw new Error(`Invalid frontmatter in ${filePath}`);
-
-            const frontmatter = yaml.parse(match[1]);
-            const body = match[2].trim();
-
-            const titleMatch = body.match(/^#\s+(.+)$/m)
-              || body.match(/^\*\*([^*]+)\*\*/m);
-            const displayName = titleMatch ? titleMatch[1].trim() : frontmatter.name;
-
-            return {
-              slug: frontmatter.name,
-              name: displayName,
-              summary: frontmatter.description,
-              content: body,
-              tags: frontmatter.tags || [],
-              license: frontmatter.license || 'Apache-2.0',
-              language: frontmatter.language || 'en',
-            };
-          }
-
-          async function generateEmbedding(text) {
-            const response = await openai.embeddings.create({
-              model: 'text-embedding-3-small',
-              input: text,
-              dimensions: 1536,
-            });
-            return response.data[0].embedding;
-          }
-
-          async function upsertSkill(skill) {
-            if (Object.prototype.hasOwnProperty.call(reserved, skill.slug)) {
-              throw new Error(`slug "${skill.slug}" is a retired alias of "${reserved[skill.slug]}" and cannot be re-published`);
-            }
-            const embeddingInput = `${skill.name}: ${skill.summary}\n\n${skill.content}`;
-            const embedding = await generateEmbedding(embeddingInput);
-            const embeddingStr = `[${embedding.join(',')}]`;
-
-            await sql`
-              INSERT INTO content.skills (slug, name, summary, content, embedding, tags, license, language, domain, visibility, version, created_at, updated_at)
-              VALUES (${skill.slug}, ${skill.name}, ${skill.summary}, ${skill.content}, ${embeddingStr}::vector, ${skill.tags}, ${skill.license}, ${skill.language}, ${domain}, 'public', 1, NOW(), NOW())
-              ON CONFLICT (slug, domain) DO UPDATE SET
-                name = EXCLUDED.name,
-                summary = EXCLUDED.summary,
-                content = EXCLUDED.content,
-                embedding = EXCLUDED.embedding,
-                tags = EXCLUDED.tags,
-                license = EXCLUDED.license,
-                language = EXCLUDED.language,
-                version = content.skills.version + 1,
-                visibility = 'public',
-                updated_at = NOW()
-            `;
-
-            console.log(`✓ Upserted [${domain}]: ${skill.slug} → "${skill.name}"`);
-          }
-
-          async function softDeleteSkill(slug) {
-            await sql`
-              UPDATE content.skills SET visibility = 'archived', updated_at = NOW()
-              WHERE slug = ${slug} AND domain = ${domain}
-            `;
-            console.log(`✓ Archived [${domain}]: ${slug}`);
-          }
-
-          async function main() {
-            const added = `${{ steps.changed.outputs.added }}`.trim().split('\n').filter(Boolean);
-            const deleted = `${{ steps.changed.outputs.deleted }}`.trim().split('\n').filter(Boolean);
-
-            console.log(`[${domain}] Processing ${added.length} added/modified, ${deleted.length} deleted`);
-
-            for (const filePath of added) {
-              try {
-                const skill = await parseSkill(filePath);
-                await upsertSkill(skill);
-              } catch (err) {
-                console.error(`✗ Failed to process ${filePath}: ${err.message}`);
-                process.exitCode = 1;
-              }
-            }
-
-            for (const filePath of deleted) {
-              const dirName = path.basename(path.dirname(filePath));
-              try {
-                await softDeleteSkill(dirName);
-              } catch (err) {
-                console.error(`✗ Failed to archive ${dirName}: ${err.message}`);
-                process.exitCode = 1;
-              }
-            }
-
-            console.log('\nDone.');
-          }
-
-          main().catch(err => {
-            console.error(err);
-            process.exit(1);
-          });
-          SCRIPT
+          ADDED_SKILL_PATHS: ${{ steps.changed.outputs.added }}
+          DELETED_SKILL_PATHS: ${{ steps.changed.outputs.deleted }}
+        run: node scripts/embed-skills.js
 
       - name: Summary
         if: steps.changed.outputs.has_changes == 'true'

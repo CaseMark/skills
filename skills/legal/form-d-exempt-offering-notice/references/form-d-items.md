@@ -97,7 +97,8 @@ The numbers are historic totals regardless of whether investors still hold. A fe
 
 ## Item 15. Sales Commissions and Finders' Fees Expenses
 
-Fields: Sales Commissions $ (with Estimate box); Finders' Fees $ (with Estimate box); Clarification of Response. Give amounts separately; check Estimate when the amount is not known. The amounts may be given as subject to future contingencies. A staff interpretation states that Item 15 amounts are not limited to payments made out of offering proceeds `[VERIFY]` the wording; that cuts against reporting $0 merely because the adviser, not the fund, pays a placement fee. Where an adviser pays the fee, report the amount with a clarification, or report 0, following the issuer's prior approach, and put the choice in the judgment calls. Escalate if the prior filing reported 0 and the documents show a placement fee.
+Fields: Sales Commissions $ (with Estimate box); Finders' Fees $ (with Estimate box); Clarification of Response. Give amounts separately; check Estimate when the amount is not known. The amounts may be given as subject to future contingencies. Report commissions and finder's fees associated with sales in the offering even when the adviser or another party pays them: Item 15 is not limited to payments from offering proceeds (SEC Securities Act Forms C&DI 130.08). Explain the payer and basis in the clarification. Do not report $0 solely because the issuer pays nothing, or copy a prior filing's $0 when the current documents show fees. Escalate the discrepancy, and assess whether the prior notice requires correction under Rule 503.
+
 
 ## Item 16. Use of Proceeds
 

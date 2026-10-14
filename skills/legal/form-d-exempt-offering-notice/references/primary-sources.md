@@ -42,6 +42,8 @@ Checked against primary sources on October 13, 2026 (eCFR current through Octobe
 | EDGAR Next compliance date Sept. 15, 2025; Login.gov; account administrators; notarized Form ID authentication; delegation to a law firm or filing agent; CIK and CCC for Form D | EDGAR Next FAQ; Filer Manual Vols. I and II; SEC how-do-I guides |
 | No federal fee, no paper filing, no confidential treatment, public dissemination | Form D FAQ; Rule 503(b)(1) |
 
+| Item 15 commissions and finder fees are not limited to payments out of offering proceeds | Securities Act Forms C&DI 130.08 (rechecked October 14, 2026); adviser payment alone does not justify $0 |
+
 ## Unconfirmed or inference: treat as `[VERIFY]`
 
 | Statement | Status |
@@ -53,7 +55,6 @@ Checked against primary sources on October 13, 2026 (eCFR current through Octobe
 | Whether Item 14 applies Rule 501(e) exclusions | Not addressed |
 | Treatment of an affiliate as an Item 12 recipient | Not addressed |
 | Scope of Item 16 for fund management fees or carry paid to a related-person GP | "No additional instructions" |
-| Item 15 not limited to payments out of offering proceeds (and its effect on adviser-paid fees) | Forms C&DI 130.08 as read; confirm wording before citing |
 | Escrow offerings: 15 days from first subscription into escrow | C&DI 257.05 as read |
 | File-number suffix convention for co-issuers | Observed in EDGAR headers only |
 | Form D XML specification version (12 versus 13) | The SEC page and the linked file disagree |

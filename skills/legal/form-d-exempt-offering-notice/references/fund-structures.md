@@ -46,7 +46,8 @@ Choose one of: report the program cap with a clarification; report a per-vehicle
 
 ## Item 15 placement fees
 
-Placement fees are often paid by the adviser rather than the fund. Report the amount with a clarification, or report 0, and follow the issuer's prior approach. A staff interpretation states Item 15 is not limited to payments made out of offering proceeds `[VERIFY]`, which cuts against reporting 0 solely because the adviser bears the fee. If the prior filing reported 0 and the documents show a placement fee, escalate rather than copy the prior approach.
+Placement fees are often paid by the adviser rather than the fund. Report the commissions and finder's fees connected with the offering, estimating unknown amounts, and explain the adviser as payer in Item 15's clarification. SEC Securities Act Forms C&DI 130.08 confirms the amounts are not limited to payments from offering proceeds. The adviser's payment does not justify $0. If a prior filing reported $0 but the documents show placement fees, escalate the discrepancy rather than copying it, and assess a corrective amendment.
+
 
 ## Qualification conflicts
 

@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - 'skills/legal/**'
+      - 'scripts/embed-skills*'
+      - 'scripts/changed-skills.js'
+      - '.github/workflows/skill-embed.yml'
+      - '.github/workflows/skill-qa.yml'
 
 permissions:
   contents: read
@@ -11,6 +15,17 @@ permissions:
   id-token: write
 
 jobs:
+  bundle-publication:
+    name: Bundle Publication Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --no-save --ignore-scripts @electric-sql/pglite@0.5.9 yaml@2.8.2
+      - run: node --test scripts/embed-skills.test.js scripts/skills-catalog.test.js
+
   # ── Job 1: Fast structural validation + injection scan (Python) ────────────
   validate:
     name: Structural Validation
