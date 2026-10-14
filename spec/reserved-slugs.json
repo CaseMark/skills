@@ -1,0 +1,7 @@
+{
+  "_comment": "Retired skill slugs. Each is a permanent alias of the skill named on the right. A SKILL.md must never use one of these names; QA and the embed workflow both reject it. Do not remove entries.",
+  "legal": {
+    "form-d": "form-d-exempt-offering-notice",
+    "form-d-notice": "form-d-exempt-offering-notice"
+  }
+}

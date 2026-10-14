@@ -62,7 +62,12 @@ jobs:
             "agreement", "pleading", "motion", "brief", "memo",
             "letter", "summary", "analysis", "checklist", "policy",
             "drafting", "summarization", "research",
+            "funds", "edgar",
           }
+
+          import json
+          with open('spec/reserved-slugs.json') as f:
+            RESERVED_LEGAL = json.load(f).get('legal', {})
 
           # ── Injection detection patterns ──────────────────────────────────
           INJECTION_PATTERNS = [
@@ -148,6 +153,8 @@ jobs:
                   errors.append(f"**{skill_path}**: `name` must not contain consecutive hyphens")
               elif name != dir_name:
                   errors.append(f"**{skill_path}**: `name` '{name}' does not match directory name '{dir_name}'")
+              elif name in RESERVED_LEGAL:
+                  errors.append(f"**{skill_path}**: `name` '{name}' is a retired slug (permanent alias of '{RESERVED_LEGAL[name]}') and cannot be reused")
 
               desc = fm.get('description', '')
               if not desc:
