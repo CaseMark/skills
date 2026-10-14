@@ -105,7 +105,7 @@ Match instruction specificity to the task:
 
 ## Legal Skills: Tags
 
-Skills under `skills/legal/` use a flat `tags` array for search filtering and classification. Tags come from a controlled vocabulary of 18 values across three axes:
+Skills under `skills/legal/` use a flat `tags` array for search filtering and classification. Tags come from a controlled vocabulary of 20 values across four axes:
 
 ```yaml
 ---
@@ -125,6 +125,7 @@ tags:
 | **Practice area** | `litigation`, `corporate`, `transactional`, `regulatory` |
 | **Document type** | `agreement`, `pleading`, `motion`, `brief`, `memo`, `letter`, `summary`, `analysis`, `checklist`, `policy` |
 | **Skill mode** | `drafting`, `summarization`, `analysis`, `research` |
+| **Subject** | `funds`, `edgar` |
 
 Rules:
 - All tags are **lowercase**

@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - 'skills/legal/**'
+      - 'scripts/embed-skills*'
+      - 'scripts/changed-skills.js'
+      - '.github/workflows/skill-embed.yml'
+      - '.github/workflows/skill-qa.yml'
 
 permissions:
   contents: read
@@ -11,6 +15,17 @@ permissions:
   id-token: write
 
 jobs:
+  bundle-publication:
+    name: Bundle Publication Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --no-save --ignore-scripts @electric-sql/pglite@0.5.9 yaml@2.8.2
+      - run: node --test scripts/embed-skills.test.js scripts/skills-catalog.test.js
+
   # ── Job 1: Fast structural validation + injection scan (Python) ────────────
   validate:
     name: Structural Validation
@@ -62,7 +77,12 @@ jobs:
             "agreement", "pleading", "motion", "brief", "memo",
             "letter", "summary", "analysis", "checklist", "policy",
             "drafting", "summarization", "research",
+            "funds", "edgar",
           }
+
+          import json
+          with open('spec/reserved-slugs.json') as f:
+            RESERVED_LEGAL = json.load(f).get('legal', {})
 
           # ── Injection detection patterns ──────────────────────────────────
           INJECTION_PATTERNS = [
@@ -148,6 +168,8 @@ jobs:
                   errors.append(f"**{skill_path}**: `name` must not contain consecutive hyphens")
               elif name != dir_name:
                   errors.append(f"**{skill_path}**: `name` '{name}' does not match directory name '{dir_name}'")
+              elif name in RESERVED_LEGAL:
+                  errors.append(f"**{skill_path}**: `name` '{name}' is a retired slug (permanent alias of '{RESERVED_LEGAL[name]}') and cannot be reused")
 
               desc = fm.get('description', '')
               if not desc:
