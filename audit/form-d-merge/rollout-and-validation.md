@@ -20,7 +20,7 @@ A public root, its source files and companions commit together. Alias activation
 - `read_skill` on `form-d`, `form-d-notice` and `form-d-exempt-offering-notice`: equal target content, aliases carry `redirected_from`, and bundle metadata includes all seven references. Read each companion and compare its bytes to GitHub.
 - `resolve_skill` for `Form D`, `Reg D notice filing` and `fund Form D`: target discoverable; neither retired root appears.
 - Re-run the twelve Cascade checks using the **served bundle**, with only the 27 closing-source files as inputs. Keep the answer key and generator separate. Attach output and grading evidence; prior local-folder runs do not prove publication.
-- Add operating-company and XML coverage before claiming those paths validated. No fresh blind legal-output run has been performed as part of these infrastructure fixes.
+- Add operating-company and XML coverage before claiming those paths validated. Fresh checks are recorded in `acceptance-2026-10-14.md`; they cover the served Cascade bundle, an operating company and both incomplete/supplemented local XML. Actual EDGAR environment submission is not claimed.
 
 ## Item 15 rubric correction
 
@@ -37,4 +37,8 @@ A corrected synthetic ZIP is attached to CD-1817. Only the answer key, its gener
 - Site middleware integration: missing/private target leaves old URLs and listings available; publication activates single-hop 301s immediately; query strings, trailing slashes, tenant boundaries and POST tracking behavior covered.
 - Router alias integration and PostgreSQL catalog tests: pending targets remain discoverable, public aliases disappear from discovery, custom precedence remains, companion encoding survives export.
 - Site production build and typecheck pass with dummy database URLs. These are compile checks, not a claim that production data or post-deploy routes have been validated.
-- Read-only security review found no introduced blockers. No production migration, merge or deployment was performed by this fix pass.
+- Read-only security review found no introduced blockers. No production migration, merge or deployment was performed by this fix pass. Preview configuration/publication and the complete isolated release rehearsal are recorded in `acceptance-2026-10-14.md`.
+
+## Merge-readiness update
+
+See `acceptance-2026-10-14.md` for the fresh 12/12 issue checks, corrected rubric, operating-company/XML results, 40/40 live redirect matrix, resolver evidence and resolved CD-1820 configuration. Migrations 018–020 now run as complete transactions. The publisher checks original snapshots through a restricted boolean readiness function before any write; 020 rejects a private or incomplete replacement. Site alias filters now preserve Neon thenables during query composition, avoiding post-activation page errors. Production execution still follows the ordered, human-reviewed release above.
