@@ -35,6 +35,8 @@ test('repair refuses missing, archived, or edited roots and preserves attributio
   for (const current of [null, { ...root, visibility: 'archived' }, { ...root, content: 'newer edit' },
     { ...root, tags: ['different'] }, { ...root, license: 'Proprietary' }])
     await assert.rejects(repairBundle(sql, bundle, current, 'legal'), /root/)
+  await assert.rejects(repairBundle(sql, { ...bundle, files: [{ ...bundle.files[1], encoding: 'base64' }] }, root, 'legal'), /binary/)
+  await assert.rejects(repairBundle(sql, { ...bundle, files: [{ ...bundle.files[1], contentType: 'application/pdf' }] }, root, 'legal'), /binary/)
   const queries = await repairBundle(sql, bundle, root, 'legal')
   assert.match(queries[0].text, /FOR UPDATE/)
   assert.ok(queries[0].values.includes(5))

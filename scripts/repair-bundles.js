@@ -38,6 +38,11 @@ function compareBundle(bundle, root, sources, companions) {
 }
 
 function validateRepair(bundle, root) {
+  // The current MCP adapter serves UTF-8 text only. Inventory binary assets,
+  // but never turn a working old root into an unreadable MCP bundle by repair.
+  if (bundle.files.some(file => file.encoding !== 'utf8' ||
+    !/^(?:text\/|application\/(?:json|xml|javascript)(?:;|$))/i.test(file.contentType)))
+    throw new Error(`Refusing repair: ${bundle.slug} root has binary companions unsupported by current MCP`)
   // Never revive an archived root, overwrite a newer instruction edit, or alter
   // public metadata as a side effect of recovering its missing source files.
   const sameTags = root && JSON.stringify([...(root.tags || [])].sort()) === JSON.stringify([...bundle.tags].sort())

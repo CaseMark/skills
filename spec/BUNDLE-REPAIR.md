@@ -13,7 +13,9 @@ For a repair, review the inventory and use an explicit list of at most 20 slugs,
 `apply=true`, and the exact reviewed **main commit SHA** in `approved_sha`.
 No full-catalog apply is supported. An empty list, unreviewed SHA, retired slug,
 missing/archived root, changed root metadata/content, or missing embedding blocks
-the repair. All selected roots are validated before any writes.
+the repair. Binary assets are inventoried but cannot be applied: the current MCP
+adapter is text-only, so such a repair could make the entire bundle unreadable.
+All selected roots are validated before any writes.
 
 The command reuses the normal publisher's per-bundle transaction with the existing
 embedding. It locks and checks the root's version before updating the root version,
