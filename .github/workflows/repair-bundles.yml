@@ -1,0 +1,48 @@
+name: Repair Published Bundles
+
+on:
+  workflow_dispatch:
+    inputs:
+      skill_slugs:
+        description: 'Comma/space-separated legal skill slugs (max 20). Empty inventories all bundles; never applies.'
+        required: false
+        type: string
+      apply:
+        description: 'Apply only the explicitly reviewed repairs. False is read-only.'
+        required: true
+        default: false
+        type: boolean
+      approved_sha:
+        description: 'Exact reviewed main commit SHA; required to apply.'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: legal-bundle-repair
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require the reviewed main branch
+        if: inputs.apply
+        env:
+          REF: ${{ github.ref }}
+        run: test "$REF" = refs/heads/main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --no-save --ignore-scripts @neondatabase/serverless@1.0.2 yaml@2.8.2
+      - name: Inventory or repair explicit bundles
+        env:
+          SKILLS_DB_URL: ${{ secrets.SKILLS_DB_URL }}
+          SKILL_DOMAIN: legal
+          REPAIR_SLUGS: ${{ inputs.skill_slugs }}
+          APPLY_REPAIR: ${{ inputs.apply }}
+          APPROVED_SHA: ${{ inputs.approved_sha }}
+        run: node scripts/repair-bundles.js

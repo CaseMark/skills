@@ -6,6 +6,8 @@ on:
       - 'skills/legal/**'
       - 'scripts/embed-skills*'
       - 'scripts/changed-skills.js'
+      - 'scripts/repair-bundles*'
+      - '.github/workflows/repair-bundles.yml'
       - '.github/workflows/skill-embed.yml'
       - '.github/workflows/skill-qa.yml'
 
@@ -24,7 +26,7 @@ jobs:
         with:
           node-version: '20'
       - run: npm install --no-save --ignore-scripts @electric-sql/pglite@0.5.9 yaml@2.8.2
-      - run: node --test scripts/embed-skills.test.js scripts/skills-catalog.test.js
+      - run: node --test scripts/embed-skills.test.js scripts/repair-bundles.test.js scripts/skills-catalog.test.js
 
   # ── Job 1: Fast structural validation + injection scan (Python) ────────────
   validate:
