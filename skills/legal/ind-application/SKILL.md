@@ -39,13 +39,20 @@ Collect before drafting:
 | 1 | Cover Sheet — FDA Form 1571 | 312.23(a)(1) |
 | 2 | Table of Contents — mirror regulatory numbering | 312.23(a)(2) |
 | 3 | Introductory Statement — rationale, therapeutic purpose, investigational plan | 312.23(a)(3) |
-| 4 | Investigator's Brochure — safety, efficacy, pharmacology, known risks | 312.23(a)(5) |
+| 4 | Investigator's Brochure — safety, efficacy, pharmacology, known risks (full draft: `investigator-brochure`) | 312.23(a)(5) |
 | 5 | Clinical Protocol(s) — design, dosing, safety monitoring, statistical plan | 312.23(a)(6) |
 | 6 | CMC: Drug Substance — synthesis, specs, stability | 312.23(a)(7) |
 | 7 | CMC: Drug Product — formulation, controls, container/closure, stability | 312.23(a)(7) |
-| 8 | Pharmacology/Toxicology — PK, acute/chronic tox, repro tox, genotox | 312.23(a)(8) |
+| 8 | Pharmacology/Toxicology — PK, acute/chronic tox, repro tox, genotox (CTD 2.4 and 2.6 drafting: `ind-nonclinical-summary`) | 312.23(a)(8) |
 | 9 | Previous Human Experience — prior clinical data, foreign trials, literature | 312.23(a)(9) |
 | 10 | Additional Information — IRB approvals, consent, investigator qualifications | 312.23(a)(10) |
+
+## Related Skills
+
+- `ind-nonclinical-summary` — builds the nonclinical Overview and Written and Tabulated Summaries (CTD 2.4 and 2.6) from study reports, including NOAEL, exposure-multiple and starting-dose support. Use it for section 8 when more than a table-level summary is needed.
+- `investigator-brochure` — drafts the Investigator's Brochure (section 4) with reference safety information and edition control. It is a clinical and nonclinical data compilation, not an investigator CV or Form FDA 1572 packet.
+- `clinical-trial-investigator-agreement` — investigator contracts.
+- `informed-consent-form-clinical-trial` — consent documents.
 
 ## Key Checklists
 
@@ -68,6 +75,8 @@ Collect before drafting:
 - [ ] Nonclinical toxicology (tabulate: species, route, duration, NOAEL, findings)
 - [ ] Clinical experience summary (if applicable)
 - [ ] Known/anticipated adverse effects and precautions
+- [ ] Reference safety information (list of adverse reactions with frequency and nature)
+- [ ] Edition number, release date and data cut-off date
 
 ### Clinical Protocol
 
@@ -104,9 +113,17 @@ For each study, tabulate: study type, test facility (with GLP status), species/s
 - **Verify FDA forms** — retrieve current Form 1571/1572 from fda.gov; versions update periodically
 - **Phase-appropriate CMC** — do not over-document Phase I or under-document Phase III
 - **Cross-reference internally** — protocol references to nonclinical data must cite specific IND section/page
-- **GLP compliance** — pivotal safety studies require 21 CFR Part 58; flag and justify any non-GLP studies
+- **GLP compliance** — 21 CFR 312.23(a)(8)(iii) requires, for each study subject to Part 58, a statement of compliance or a brief reason for noncompliance; flag and justify any non-GLP study
 - **No promotional language** — avoid unsupported efficacy claims; this is a scientific/regulatory document
 - **Safety-first framing** — every section must demonstrate adequate basis for protecting human subjects
 - **Confidential info** — mark trade secrets per 21 CFR 312.130 if sponsor requests
 - **eCTD format** — for electronic submissions, organize per FDA eCTD Module 1–5 structure
 - **Pre-IND feedback** — if a Type B pre-IND meeting occurred, address each FDA comment explicitly
+
+## Troubleshooting
+
+- **User asks for the Investigator's Brochure but supplies CVs or Form FDA 1572.** Those are investigator credential documents, not brochure content. Ask for the nonclinical reports, CMC documents and any human data, and use `investigator-brochure`.
+- **Nonclinical reports are many or detailed.** Do not summarize them in one table; use `ind-nonclinical-summary` and carry its citations into section 8.
+- **Phase and population are unknown.** Ask before drafting; both drive CMC depth, the nonclinical expectations and the starting-dose logic.
+- **A form version is uncertain.** Retrieve the current Form FDA 1571 or 1572 from fda.gov rather than reproducing a remembered layout.
+- **A pre-IND meeting occurred.** List each FDA comment and the response in the introductory statement.
