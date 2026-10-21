@@ -61,6 +61,7 @@ Say whether the reference safety list changed, because that changes what is expe
 For the medically qualified editor and the owners of the data. Confirm each item.
 [ ] Every value matches its cited source; Module 2.6 numbers match where used
 [ ] Reference safety list: terms, frequencies, basis labels and sources
+[ ] BLOCKING for first-in-human: RSI framing decision recorded by the sponsor and regulatory affairs
 [ ] Safety margins: human exposure source and a common basis on both sides
 [ ] Monitoring, thresholds and hold criteria are sponsor decisions and match the protocol
 [ ] No promotional language; risks and benefits balanced

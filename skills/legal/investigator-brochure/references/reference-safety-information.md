@@ -43,7 +43,8 @@ A class or anticipated effect in the IB does not make it an observed reaction of
 
 - State that no human adverse reactions are known.
 - List anticipated effects from nonclinical target organs and exposure comparisons, labeled `Anticipated from nonclinical findings`.
-- How a sponsor frames the RSI when no human reaction exists is a judgment for the sponsor and regulatory affairs; log the choice and flag it for review `[VERIFY]`.
+- **Do not choose the framing yourself.** How the RSI is framed when no human reaction exists decides what counts as expected, and the primary text read for this skill does not settle it `[VERIFY]`. Before drafting the list, ask the sponsor and regulatory affairs to decide which entries the RSI will carry and how the list is labeled, and record the answer and who gave it in the source and consistency log.
+- Until that decision is recorded, draft the list as a proposal under the heading `[SPONSOR INPUT REQUIRED: RSI framing]`, keep every entry's basis label, and carry the open decision into the reviewer checklist as a blocking item. Do not present the list as the RSI.
 
 ## Changing the List
 

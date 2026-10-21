@@ -80,7 +80,10 @@ Status key: CONFIRMED = matches primary text. INFERENCE = the author's reading, 
 | Biotech: measure and characterize anti-product antibodies; standard genotoxicity not needed; standard carcinogenicity bioassays generally inappropriate; complete recovery not essential | CONFIRMED | S6(R1) |
 | Advanced cancer: NOAEL not essential; stand-alone safety pharmacology not called for; genotoxicity and embryofetal studies not essential for trials; recovery study only when severe toxicity and recovery unpredictable | CONFIRMED | S9 |
 | Antibodies and large targeted proteins need no S7B hERG assay or in vivo QT assessment; small molecules need both, qualified alternatives possible | CONFIRMED | E14/S7B Q&As (R1), Q&A 1.4 |
-| M3(R2) timing for carcinogenicity and the recovery design for small molecules | `[VERIFY]` | Not read closely |
+| Carcinogenicity studies support the marketing application; submit with trials only for significant concern; long duration alone is not a concern | CONFIRMED | M3(R2) s.10 |
+| Nonclinical goals include target organs, dose dependence, exposure relationship and, when appropriate, potential reversibility; no general recovery-arm design is prescribed | CONFIRMED | M3(R2) General Principles |
+| Reproduction toxicity: men in Phase I and II before the male fertility study; women of childbearing potential under the stated conditions; monoclonal antibody developmental studies may be in Phase III | CONFIRMED (men, mAb example, WOCBP conditions read in part) | M3(R2) s.11 |
+| Conversion table divide-by factors equal 37 divided by km within printed rounding (dog 1.85 is printed 1.8). The weight formula gives a different value from the table for standard weights (rat at 0.15 kg: 0.138 against 0.162), so the table governs for listed species | CONFIRMED (arithmetic cross-check) | FDA 2005 Table 1 and footnote |
 | Regional adoption of the E14/S7B Q&A R1 revision | `[VERIFY]` | ICH text only |
 
 ## Watch Items
@@ -90,7 +93,7 @@ Status key: CONFIRMED = matches primary text. INFERENCE = the author's reading, 
 
 ## Not Verified
 
-- M3(R2) Table 1 durations and carcinogenicity timing.
-- Reproductive toxicity timing (ICH M3(R2), S5).
+- M3(R2) Table 1 durations.
+- Women-of-childbearing-potential reproduction toxicity provisions beyond what is stated above (ICH M3(R2) s.11.3, S5).
 - Toxicokinetics detail beyond what 2.6 and the Overview require (ICH S3A was downloaded but not read closely).
 - Everything marked INFERENCE until a domain expert reviews it.

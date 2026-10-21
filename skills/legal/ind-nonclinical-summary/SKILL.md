@@ -17,7 +17,8 @@ Turns a set of primary nonclinical study reports into the nonclinical sections o
 
 - Whole-IND assembly, Form 1571, CMC and protocols: `ind-application`.
 - Investigator's Brochure: `investigator-brochure`. Draft this skill's Module 2.6 first and build the brochure's nonclinical section from it so the numbers match.
-- NDA or BLA Module 2: the heading structure is the same, but depth differs (full carcinogenicity and reproductive programs); see `nda-drug-application`.
+- NDA or BLA Module 2: the heading structure is the same, but depth differs (full carcinogenicity and reproductive programs); see `nda-drug-application`, which gives a table-level 2.4 view inside a whole-application skill. This skill is the IND-stage drafting path for 2.4 and 2.6 from raw reports.
+- Summaries of a finished submission package for reviewers or executives: `regulatory-submission-summary`. This skill drafts the nonclinical sections themselves from study reports; it does not summarize a completed package.
 - Not covered: antibody-drug conjugates, oligonucleotides, cell and gene therapies, vaccines, radiopharmaceuticals, and endogenous proteins used at physiologic levels. Tell the user the modality is outside this skill and stop at the inventory.
 
 ## Ground Rules
@@ -30,7 +31,7 @@ Turns a set of primary nonclinical study reports into the nonclinical sections o
 6. **Summaries are factual; the Overview interprets.** Module 2.6 is a factual synopsis. Clinical relevance, safety margins, starting-dose logic and implications for safe use go in Module 2.4.
 7. **State GLP status per study.** Use `GLP`, `non-GLP` or `not stated`, with the reason when the report gives one. Do not call a non-GLP study a deficiency; flag it for the sponsor, who must give the statement or reason the regulation requires for each covered study.
 8. **Say "nonclinical".** Include in vitro and other non-animal data on equal footing. Do not assume every study uses animals.
-9. **Mark what you cannot confirm with `[VERIFY]`.** Regulatory statements in the references were checked against primary text; items tagged `[VERIFY]` there were not.
+9. **Mark what you cannot confirm with `[VERIFY]`.** Regulatory statements in the references were checked against primary text; items tagged `[VERIFY]` or INFERENCE in `references/primary-sources.md` were not. Never state them as settled; carry each one you rely on into the reviewer checklist.
 10. **Use the CTD presentation order and one set of units.** In vitro before in vivo; by species, then route (intended human route first), then duration (shortest first). Convert units consistently and keep the original in the card.
 
 ## Workflow

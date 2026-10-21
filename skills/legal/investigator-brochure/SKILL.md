@@ -27,11 +27,11 @@ Drafts the Investigator's Brochure (IB): the compilation of clinical and nonclin
 2. **Concise, objective, balanced, non-promotional.** Present data so a clinician can make an independent risk-benefit assessment. No unsupported efficacy claims, no adjectives that sell.
 3. **Cite every value.** Nonclinical figures, human data and safety findings carry `[Study ID, Section, Table, p.]` to the source, or the Module 2.6 citation when built from it.
 4. **No estimates.** If a source does not give a value, write `Not reported in <Study ID>`. Calculated values are labeled `calculated` with formula and inputs. Sponsor facts that are missing are `[SPONSOR INPUT REQUIRED]`.
-5. **Reference safety information is required.** Include a list of adverse reactions with frequency and nature, because it is the reference for deciding whether a suspected serious adverse reaction is expected. Label each entry's basis: observed in humans, anticipated from nonclinical findings, or reported with the drug class. Read `references/reference-safety-information.md`.
+5. **Reference safety information is required.** Include a list of adverse reactions with frequency and nature, because it is the reference for deciding whether a suspected serious adverse reaction is expected. Label each entry's basis: observed in humans, anticipated from nonclinical findings, or reported with the drug class. For a product with no human data, the framing of the list is the sponsor's and regulatory affairs' decision, not yours; draft it as a proposal until they record it. Read `references/reference-safety-information.md`.
 6. **Keep protocol content in the protocol.** The IB tells investigators the risks and the tests, observations and precautions that may be needed. Stopping rules, dose-modification algorithms and eligibility criteria belong in the protocol; the IB points to it.
 7. **Control the edition.** Title page carries the edition number, the edition it supersedes, the release date and the data cut-off date. The IB is reviewed at least annually.
 8. **Say "nonclinical".** Include in vitro and other non-animal data on equal footing.
-9. **Mark what you cannot confirm with `[VERIFY]`.** References were checked against primary text; items tagged `[VERIFY]` there were not.
+9. **Mark what you cannot confirm with `[VERIFY]`.** References were checked against primary text; items tagged `[VERIFY]` or INFERENCE in `references/primary-sources.md` were not. Never state them as settled; carry each one you rely on into the reviewer checklist.
 
 ## Workflow
 
@@ -93,7 +93,7 @@ the intervals set in the protocol (see Protocol Section 9.3).
 
 ## Troubleshooting
 
-- **No human data.** Write Section "Effects in Humans" as a first-in-human statement; the reference safety list then contains anticipated effects only, labeled by basis, and says no human adverse reactions are known.
+- **No human data.** Write the Effects in Humans section as a first-in-human statement. Draft the reference safety list as a labeled proposal, `[SPONSOR INPUT REQUIRED: RSI framing]`, until the sponsor and regulatory affairs record how it is framed; do not decide that yourself.
 - **Nonclinical summary and study reports differ.** Use the study report and amendments, list the conflict, and tell the owner of the summary.
 - **Sponsor asks for stopping rules or dose-modification tables in the IB.** Offer a pointer to the protocol section instead; if the sponsor insists, include only what matches the protocol word for word and log it.
 - **Existing IB uses different headings.** Keep the sponsor's headings if they cover the same content, and map each to the ICH order in the log.
