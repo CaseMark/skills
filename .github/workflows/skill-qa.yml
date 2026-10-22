@@ -377,4 +377,4 @@ jobs:
 
             Format: one heading per skill file, then an overall summary at the end.
             Be concise. No filler.
-          claude_args: "--max-turns 10 --model claude-sonnet-4-6 --allowedTools 'Read,Glob,Grep,WebSearch,WebFetch'"
+          claude_args: "--max-turns 30 --model claude-sonnet-4-6 --allowedTools 'Read,Glob,Grep,WebSearch,WebFetch'"
