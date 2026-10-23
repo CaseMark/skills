@@ -56,7 +56,7 @@ Transactions involving jurisdictions with elevated money laundering or terrorist
 | Indicator | Description |
 |---|---|
 | FATF high-risk jurisdictions | Transactions with countries on the FATF list of high-risk and non-cooperative jurisdictions |
-| OFAC-sanctioned countries | Any nexus to comprehensively sanctioned countries (North Korea, Iran, Cuba, Syria, Crimea region) |
+| OFAC-sanctioned countries | Any nexus to comprehensively sanctioned countries (North Korea, Iran, Cuba, Crimea region) |
 | Drug-source countries | Wire activity to/from known drug-source or drug-transit countries with no apparent business purpose |
 | Tax haven layering | Funds routed through multiple offshore financial centers with no business justification |
 | Cross-border inconsistency | Customer with no stated international business conducting frequent cross-border wires |
