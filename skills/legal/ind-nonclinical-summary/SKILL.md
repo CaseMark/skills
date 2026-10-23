@@ -1,7 +1,7 @@
 ---
 name: ind-nonclinical-summary
 language: en
-description: Drafts the nonclinical sections of an FDA IND in Common Technical Document format from primary study reports, namely the Module 2.4 Nonclinical Overview and the Module 2.6 Written and Tabulated Summaries for pharmacology, pharmacokinetics and toxicology. Builds a study inventory, reconciles conflicting values, tabulates NOAELs and exposure multiples, and supports first-in-human starting-dose selection for small molecules and therapeutic proteins, with a source citation for every value. Use when asked to summarize nonclinical, preclinical, pharmacology, ADME, PK or toxicology reports, write CTD 2.4 or 2.6, prepare an IND pharmacology/toxicology section, or calculate HED, MRSD or safety margins. Draft for qualified expert review.
+description: Drafts the nonclinical sections of an FDA IND in Common Technical Document format from primary study reports, namely the Module 2.4 Nonclinical Overview and the Module 2.6 Written and Tabulated Summaries for pharmacology, pharmacokinetics and toxicology. Builds a study inventory, reconciles conflicting values, tabulates NOAELs and exposure multiples, and supports first-in-human starting-dose selection for small molecules and therapeutic proteins, with a source citation for every value. Use when asked to summarize nonclinical, preclinical, pharmacology, ADME, PK or toxicology reports, write CTD 2.4 or 2.6, prepare an IND pharmacology/toxicology section, or calculate HED, MRSD or safety margins. Draft for qualified expert review. Pilot, pending expert review.
 tags:
   - regulatory
   - drafting
@@ -12,6 +12,10 @@ tags:
 # IND Nonclinical Overview and Summaries (CTD 2.4 and 2.6)
 
 Turns a set of primary nonclinical study reports into the nonclinical sections of an IND in Common Technical Document (CTD) format: the Module 2.4 Nonclinical Overview and the Module 2.6 Written and Tabulated Summaries. It covers small molecules and therapeutic proteins, including monoclonal antibodies. The deliverable is a study inventory, ranked issues, the drafted sections, a calculation ledger and a reviewer checklist. It is a draft for a qualified toxicologist or regulatory affairs professional. It is never submission-ready.
+
+## Pilot Status
+
+This skill is in pilot. Its regulatory content was checked against primary guidance (see `references/primary-sources.md`) but has not yet been reviewed by a qualified toxicologist or regulatory affairs professional. Treat every output as a draft, and expect the reviewer to resolve each `[VERIFY]` and INFERENCE item.
 
 ## Scope and Hand-offs
 

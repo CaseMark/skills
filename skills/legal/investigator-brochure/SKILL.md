@@ -1,7 +1,7 @@
 ---
 name: investigator-brochure
 language: en
-description: Drafts a sponsor's Investigator's Brochure for an IND or clinical trial of a drug or biologic under 21 CFR 312.23(a)(5), 312.55 and ICH E6, from nonclinical study reports or Module 2 summaries, CMC documents, protocols and any human data. Covers the summary, introduction, properties and formulation, nonclinical studies, effects in humans, and the summary of data and guidance for the investigator, including the reference safety information that decides whether an adverse event is expected. Use when preparing, updating or annually revising an investigator brochure, or converting nonclinical summaries into brochure sections. Not for investigator CVs, Form FDA 1572 or investigator agreements.
+description: Drafts a sponsor's Investigator's Brochure for an IND or clinical trial of a drug or biologic under 21 CFR 312.23(a)(5), 312.55 and ICH E6, from nonclinical study reports or Module 2 summaries, CMC documents, protocols and any human data. Covers the summary, introduction, properties and formulation, nonclinical studies, effects in humans, and the summary of data and guidance for the investigator, including the reference safety information that decides whether an adverse event is expected. Use when preparing, updating or annually revising an investigator brochure, or converting nonclinical summaries into brochure sections. Not for investigator CVs, Form FDA 1572 or investigator agreements. Pilot, pending expert review.
 tags:
   - regulatory
   - drafting
@@ -11,6 +11,10 @@ tags:
 # Investigator's Brochure
 
 Drafts the Investigator's Brochure (IB): the compilation of clinical and nonclinical data on an investigational product that is relevant to its study in humans, written so investigators understand the rationale for the protocol's dose, regimen and safety monitoring. It covers drugs and biologics. The deliverable is a draft IB, a source and consistency log, and a reviewer checklist. It is a draft for the sponsor's medically qualified editor and the disciplines that generated the data. It is never final.
+
+## Pilot Status
+
+This skill is in pilot. Its regulatory content was checked against primary guidance (see `references/primary-sources.md`) but has not yet been reviewed by a qualified toxicologist or regulatory affairs professional. Treat every output as a draft, and expect the reviewer to resolve each `[VERIFY]` and INFERENCE item.
 
 ## Scope and Hand-offs
 
