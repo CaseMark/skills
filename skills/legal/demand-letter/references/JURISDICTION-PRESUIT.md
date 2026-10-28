@@ -32,7 +32,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 - **Service method.** Mail to the recipient. No statutory specification of certified mail, but certified with return receipt is universal practice to prove delivery.
 - **Response mechanism (leverage hook).** The recipient has 30 days to tender a written offer of settlement. If the recipient tenders a "reasonable offer" in good faith and the claimant rejects it, claimant's recovery is limited to the offered amount and multiplier/fee entitlements may be forfeited. This cuts both ways — a weak demand invites a token counter-offer that caps recovery.
 - **Consequence of defect.** Failure to serve a compliant § 9(3) demand is a bar to the claim. Many Massachusetts plaintiffs lose the claim entirely at the motion-to-dismiss stage for defective demand letters.
-- **Exemplars.** `assets/examples/ma-93a-official-template.pdf`, `assets/examples/ma-93a-auto-body-repair.pdf`.
+- **Exemplars.** `assets/examples/ma-93a-official-template.md`, `assets/examples/ma-93a-auto-body-repair.md`.
 - **Verification.** `legal-research`: current case law on "reasonable offer," "knowing or willful," and the § 9(3) forfeiture mechanism. `citation-bluebook` for any case cites.
 
 ## Texas — DTPA § 17.505 (consumer unfair practices) `[VERIFY]`
@@ -62,7 +62,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
   - Specific deadline.
 - **Service method.** To the insurer's claims representative (and, best practice, to the insured directly or through their counsel).
 - **Consequence to the insurer of refusal.** If the insurer rejects a proper Stowers demand, and a judgment later exceeds limits, the insurer can be liable to the insured for the full excess. This is the extracontractual-damages leverage that makes these demands powerful.
-- **Exemplars.** `assets/examples/pi-ga-witherite-liability-demand.pdf` (Georgia equivalent; similar policy-limits framework), `assets/examples/pi-ga-auto-allen-v-liberty-mutual-demand.pdf`.
+- **Exemplars.** `assets/examples/pi-ga-witherite-liability-demand.md` (Georgia equivalent; similar policy-limits framework), `assets/examples/pi-ga-auto-allen-v-liberty-mutual-demand.md`.
 - **Verification.** `legal-research` on current Texas Stowers evolution (cases refine what counts as a "proper" demand). `citation-bluebook` for good-law status.
 
 ## California — CLRA § 1782(a) (consumers' Legal Remedies Act) `[VERIFY]`
@@ -76,7 +76,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 - **Service method.** Certified or registered mail, return receipt requested, to the recipient's principal place of business.
 - **Response mechanism.** If the recipient makes "an appropriate correction, repair, replacement, or other remedy" within 30 days (or a reasonable time if an offer is made in good faith during the 30 days), no action for damages lies.
 - **Consequence of defect.** Dismissal of the damages claim (injunctive claim can still proceed in some cases). Chronic failure point in consumer class actions.
-- **Exemplar.** `assets/examples/clra-ca-fca-jeep-wrangler-lieff-cabraser-demand.pdf`.
+- **Exemplar.** `assets/examples/clra-ca-fca-jeep-wrangler-lieff-cabraser-demand.md`.
 - **Verification.** `legal-research` for current case law on what constitutes an "appropriate" cure.
 
 ## California / Texas / Florida — Construction defect pre-suit regimes `[VERIFY]`
@@ -127,7 +127,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 - **Class actions.** Additional § 2310(d)(3) requirements: 100-plaintiff minimum, $50,000 in controversy aggregate, named-plaintiff $25,000 minimum — these go to federal jurisdiction, not to the demand itself.
 - **Service method.** No statutory method; certified mail is standard.
 - **Consequence of defect.** Dismissal of the warranty claim; state-law warranty claims may survive.
-- **Exemplar.** `assets/examples/multistate-mmwa-fca-slack-davis-sanger-demand.pdf`.
+- **Exemplar.** `assets/examples/multistate-mmwa-fca-slack-davis-sanger-demand.md`.
 - **Verification.** `legal-research` for what counts as a "reasonable opportunity to cure" in the governing circuit.
 
 ## Defamation — state retraction statutes `[VERIFY]`
@@ -136,7 +136,7 @@ Many states require a pre-suit retraction demand as a prerequisite to claiming p
 
 - **Common features.** Written demand; identification of the allegedly defamatory statement; opportunity for the defendant to publish a retraction within a specified period (often 10–30 days); consequence of defect usually limits — not bars — damages.
 - **Jurisdictions with notable statutes.** California (Cal. Civ. Code § 48a), Texas (Tex. Civ. Prac. & Rem. Code Ch. 73), Georgia (O.C.G.A. § 51-5-11), Florida (Fla. Stat. § 770.02).
-- **Exemplar.** `assets/examples/defamation-retraction-minc.pdf` (+ OCR companions `.ocr.md` and `.ocr.json`).
+- **Exemplar.** `assets/examples/defamation-retraction-minc.md`.
 - **Verification.** `legal-research` for the specific state's statute AND current case-law interpretation. Retraction statutes are constitutional minefields — some have been partially invalidated.
 
 ## Other jurisdictions and claims not listed here
