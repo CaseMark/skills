@@ -106,8 +106,11 @@ test('reference-only edits and removals trigger the root publication', () => {
   } finally { fs.rmSync(root, { recursive: true, force: true }) }
 })
 
-test('the Form D bundle includes all seven references', () => {
+test('the Form D bundle includes all seven references and its regression tests', () => {
   const bundle = readSkillBundle('skills/legal/form-d-exempt-offering-notice/SKILL.md', path.join(__dirname, '..'))
   assert.equal(bundle.files.filter((file) => file.path.startsWith('references/')).length, 7)
-  assert.equal(bundle.files.length, 8)
+  assert.ok(bundle.files.some((file) => file.path === 'SKILL.md'))
+  const others = bundle.files.filter((file) => file.path !== 'SKILL.md' && !file.path.startsWith('references/'))
+  assert.ok(others.length > 0, 'the evals/ suite is bundled as companion files')
+  assert.ok(others.every((file) => file.path.startsWith('evals/')), `unexpected companions: ${others.map((f) => f.path).join(', ')}`)
 })
