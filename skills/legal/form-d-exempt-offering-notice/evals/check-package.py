@@ -63,6 +63,8 @@ if m:
         "## Where mistakes hide",
         "investor reconciliation table",
         "placement agent cross-check matrix",
+        "### Step 9: Filing package (on request)",
+        "references/filing-package.md",
     ], "SKILL.md")
     for word in ["ignore previous instructions", "you are now", "developer mode"]:
         check(word not in body.lower(), f"SKILL.md: contains injection-scan trigger {word!r}")
@@ -117,6 +119,21 @@ expected_refs = {
     ],
     "amendments-and-deadlines.md": ["## Date of first sale", "## Amendments: Rule 503(a)(3)"],
     "primary-sources.md": ["Rule 506(d)(2) exceptions", "Rule 506(e)"],
+    "filing-package.md": [
+        "## Trigger and preconditions",
+        "## Part 0. Provenance table and placeholders",
+        "## Part 1. Draft submission XML",
+        "## Part 2. Online Forms keying sheet",
+        "## Part 3. Pre-submission checklist",
+        "## Local validation and the EDGAR test submission",
+        "<testOrLive>TEST</testOrLive>",
+        "`[[WHAT: for whom]]`",
+        "never from memory",
+        "The CCC is a credential and never appears in any output.",
+        "**File Form D**", "**Signature and Submission**", "**Transmit Submission Acknowledgment**",
+        "xmllint --noout --schema formDSubmission.xsd.xml",
+        "The application has no test mode",
+    ],
 }
 for name, needles in expected_refs.items():
     p = os.path.join(REFS, name)
@@ -136,6 +153,11 @@ check("1. **Stated minimum.**" not in fs, "fund-structures.md duplicates the Ite
 for name in ["form-d-items.md", "source-reconciliation.md", "fund-structures.md", "edgar-access.md"]:
     t = read(os.path.join(REFS, name))
     check("| Introduced by (agent name or Direct) |" not in t, f"references/{name} duplicates the cross-check matrix (should cross-reference output-template.md)")
+# The XML skeleton and the Online Forms screen list must live only in filing-package.md
+for name in ["edgar-access.md", "form-d-items.md", "output-template.md", "fund-structures.md", "source-reconciliation.md", "amendments-and-deadlines.md", "primary-sources.md"]:
+    t = read(os.path.join(REFS, name))
+    check("<edgarSubmission" not in t, f"references/{name} duplicates the XML skeleton (should cross-reference filing-package.md)")
+    check("**File Form D**" not in t, f"references/{name} duplicates the Online Forms screen list (should cross-reference filing-package.md)")
 # The five lookup outcomes table must live only in edgar-access.md
 for name in ["form-d-items.md", "source-reconciliation.md", "output-template.md", "fund-structures.md"]:
     t = read(os.path.join(REFS, name))
@@ -156,7 +178,7 @@ for e in ev.get("evals", []):
         t = read(os.path.join(HERE, eb))
         check("## Must" in t and "## Must not" in t, f"{eb}: needs '## Must' and '## Must not' sections")
     check(e.get("prompt"), f"evals.json test {e['id']}: empty prompt")
-check(len(ids) == 10, f"evals.json: expected 10 tests, found {len(ids)}")
+check(len(ids) == 11, f"evals.json: expected 11 tests, found {len(ids)}")
 check(os.path.isfile(os.path.join(HERE, "expected", "_common.md")), "expected/_common.md missing")
 
 # --- report -----------------------------------------------------------------

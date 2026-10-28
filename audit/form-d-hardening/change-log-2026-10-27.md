@@ -70,3 +70,34 @@ Source: feedback from an agent that ran the pre-revision skill on a different sy
 | SKILL.md body lines | 126 | 160 | 164 |
 
 **Tests.** Test 10 `offshore-feeder-reg-s` added: a Cayman feeder with two Regulation S investors and one U.S. tax-exempt investor introduced by Brightwater (California, on Exhibit C), a register Program sheet that double counts the feeder ($131m / 9 investors), and a client email instructing that the Program sheet totals be used on both filings. `check-package.py` now also requires the trap map, the client-instruction section, the reconciliation table columns, both Regulation S variants, the matrix header (in output-template only) and the severity rule, and expects ten tests. Results are in `test-results-2026-10-27.md`, addendum.
+
+---
+
+# Addendum, October 28, 2026: filing package (draft XML, keying sheet, checklist)
+
+Request: the skill should be able to end with the draft submission XML for an EDGAR test submission, a keying sheet for anyone filing through the Online Forms application instead, and a pre-submission checklist so that a person with EDGAR credentials makes the live filing once the attorney has confirmed the memo. Before this change the skill stopped at the memo; `edgar-access.md` had a one-paragraph "XML on request" note with no element mapping, no keying sheet and no checklist, and left open whether the online application has a test mode.
+
+**Sources read for this change** (October 28, 2026): the SEC's Form D XML Technical Specification zip (`formdxmltechspec-81_d.zip` from the technical-specifications page; specification PDF headed Version 13, March 2025; `formDSubmission.xsd.xml`, `formDStateCodes.xsd.xml`, `statesOfSolicitationCodes.xsd.xml`; `SampleFormD.xml` and `SampleFormD_A.xml`, both of which validate against the schema with xmllint); EDGAR Filer Manual Volume II Version 78 (September 14, 2026), chapter 8 sections 8.1.7 to 8.1.9.21 (the online Form D screens, in order, with their titles) and chapter 9 (filer-constructed XML; "Transmit as a Test Submission"; the test indicator in the file controls processing); two live Form D/A XML documents on EDGAR read for element usage (multi-issuer `issuerList`, `salesCompensationList`, `Indefinite`, multiple signatures). Findings that changed the text: the submission file carries elements the public document does not (`contactData`, `notificationAddressList`, `ccc`, `returnCopy`); EDGAR fills `entityName`, `jurisdictionOfInc` and `stateOrCountryDescription` from the CIK record and discards a supplied name; true-only boolean elements must be omitted rather than written as `false`; `totalRemaining` must equal offering minus sold; the signature block's issuer name must match EDGAR's record; a future signature date suspends; the online Form D application has no test mode.
+
+**Design.** One new reference, `references/filing-package.md`, holds everything about the package so that the memo path does not load it: trigger and preconditions; a provenance table that traces every XML element to a Section 3 worksheet row and turns the row's status into a basis (Settled value placed; recommended choice placed and flagged; Unknown fact, Unverified external lookup or Source conflict becomes a `[[placeholder]]`, never a provisional value); the XML construction rules and a skeleton that validates against the SEC schema once placeholders are replaced; the Online Forms keying sheet with the 22 screens in the manual's order; the pre-submission checklist in four parts (attorney sign-off, EDGAR access, the file before the test, test then live); local validation with xmllint and the test-transmission steps; the test-only label. Credentials (the CCC), the submission contact, notification addresses, the typed signature and the signature date are always placeholders, so a file this skill produces fails schema validation until a person edits it and cannot be transmitted by accident. The XML is always written with the test indicator set; the filer changes it to LIVE only after the test is accepted.
+
+**Trigger.** Step 9 in SKILL.md: the package is produced only when the user asks for the filing package, the XML, the keying sheet or the checklist, when the memo request says to include it, or when the user says the attorney has confirmed the memo and asks to prepare for filing. It is built from the worksheet, never from the documents, so Steps 1 to 8 run first or the completed memo is supplied.
+
+| File | Change |
+|---|---|
+| `SKILL.md` | Description sentence; intro and ground rule 1 (the package is a draft for a human filer's test submission; the skill never transmits); Step 9; output part 7; QC gate bullet; two Troubleshooting rows; reference table row |
+| `references/filing-package.md` | New (247 lines, about 3,100 words, of which the XML skeleton is about 95 lines) |
+| `references/edgar-access.md` | "XML on request" replaced by a pointer to `filing-package.md`; the online application's lack of a test mode stated as fact (Filer Manual chapters 8 and 9), no longer `[VERIFY]` |
+| `references/output-template.md` | Contents entry and a closing pointer for the seventh part |
+| `references/primary-sources.md` | Filer Manual and specification rows updated with what was read; two confirmed statements added; the test-mode `[VERIFY]` row removed; the version-discrepancy row explained |
+| `evals/check-package.py` | Required strings for `filing-package.md` and for Step 9; the XML skeleton and the screen list may appear only in `filing-package.md`; expects 11 tests |
+| `evals/` | Test 11 `filing-package` (fixture, expected file, index entry, README row and an xmllint grader step) |
+| `scripts/embed-skills.test.js` | Bundle test expects eight references |
+
+| Measure | Committed (d7209e1) | October 27 revision | After feedback (Oct. 28, morning) | Now |
+|---|---|---|---|---|
+| Words, SKILL.md plus references loaded for the memo | 11,389 | 17,852 | 18,207 | 18,875 |
+| Words, `filing-package.md` (loaded only in Step 9) | 0 | 0 | 0 | 3,108 |
+| SKILL.md body lines | 126 | 160 | 164 | 172 |
+
+Results of the test 11 run are in `test-results-2026-10-27.md`, third addendum.

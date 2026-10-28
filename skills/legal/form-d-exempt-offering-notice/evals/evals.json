@@ -1,6 +1,6 @@
 {
   "skill_name": "form-d-exempt-offering-notice",
-  "notes": "Synthetic regression suite. Each test varies the base matter in fixtures/base-matter.md. Expected behavior is specified in expected/_common.md plus the per-test file; a test passes only when every Must line passes and no Must not line is breached. Test 09 must be run with outbound network disabled. Test 10 was added on October 28, 2026 from external run feedback (Regulation S double count, client instruction to use a ledger total, placement agent matrix).",
+  "notes": "Synthetic regression suite. Each test varies the base matter in fixtures/base-matter.md. Expected behavior is specified in expected/_common.md plus the per-test file; a test passes only when every Must line passes and no Must not line is breached. Test 09 must be run with outbound network disabled. Test 10 was added on October 28, 2026 from external run feedback (Regulation S double count, client instruction to use a ledger total, placement agent matrix). Test 11 was added on October 28, 2026 for the filing package (draft XML, Online Forms keying sheet, pre-submission checklist); its grader step validates the XML with xmllint against the SEC schema files after placeholders are replaced.",
   "evals": [
     {
       "id": 1,
@@ -115,6 +115,17 @@
         "fixtures/10-offshore-feeder-reg-s.md"
       ],
       "expected_behavior": "expected/10-offshore-feeder-reg-s.md"
+    },
+    {
+      "id": 11,
+      "name": "filing-package",
+      "prompt": "Prepare the Form D draft memo for Larkspur Growth Partners III, L.P. in accordance with the skill, using only the documents in this matter, and then produce the filing package: the provenance table, the draft submission XML, the Online Forms keying sheet and the pre-submission checklist for the person who will file on EDGAR. Today's date is September 24, 2026. Perform any identifier lookups the skill requires and report their outcomes. No one has told you who at the firm will transmit the filing or which e-mail addresses should receive EDGAR notifications.",
+      "expected_output": "The full memo, then a filing package: a provenance table tracing every XML element to a worksheet row with the CIK, CCC, contact, notification, signature and signature date as placeholders; a draft submission XML (submissionType D, testOrLive TEST, no entityName or jurisdictionOfInc, Item 2 address and phone, Limited Partnership formed 2026, related persons from Item 3, Pooled Investment Fund, 06b/3C/3C.7, first sale 2026-09-16, Brightwater with CRD 8899001 and states including AZ and TX, 250000000 / 91000000 / 159000000, 5 investors, commissions 500000 estimate) that validates against the SEC schema once placeholders are replaced; an Online Forms keying sheet in the manual's screen order stating the application has no test mode; a pre-submission checklist from attorney sign-off through the live filing before 5:30 p.m. Eastern on October 1, 2026.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/11-filing-package.md"
+      ],
+      "expected_behavior": "expected/11-filing-package.md"
     }
   ]
 }

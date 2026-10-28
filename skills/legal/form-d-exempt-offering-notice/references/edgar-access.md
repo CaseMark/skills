@@ -44,9 +44,9 @@ Recommend that the issuer delegate filing authority to the law firm's EDGAR acco
 - On submission EDGAR sends notification emails with the accession number. Record the accession number; never predict it.
 - State notice filings run through each state's process, commonly the NASAA Electronic Filing Depository. Timing and fees vary by state and are not set by federal rule `[VERIFY]`; route them to `blue-sky-filings` with the hand-off contents in `output-template.md`.
 
-## XML on request
+## Filing package
 
-If the user asks for XML, produce it against the current Form D XML Technical Specification and its schema, and take every element name and allowed value from the specification and schema, never from memory. The SEC's technical specifications page lists a version dated September 20, 2021, while the specification file linked from that page is headed with a March 2025 version number; cite both and use the newer file `[VERIFY]`. Label any XML you produce: "Requires validation in the EDGAR test environment before live submission." XML can be submitted as a TEST submission by setting the test indicator; the online Form D application has no documented test selector `[VERIFY]`. Never present XML as ready for a live filing.
+A draft submission XML, an Online Forms keying sheet and a pre-submission checklist are produced only on request, under `filing-package.md`, from the completed memo. The online Form D application has no test mode; a filer-constructed XML is the only Form D submission EDGAR processes as a test, and the test indicator inside the file controls that processing (Filer Manual Volume II, chapters 8 and 9). Never present any XML as ready for a live filing.
 
 ## Signature, authority and retention
 

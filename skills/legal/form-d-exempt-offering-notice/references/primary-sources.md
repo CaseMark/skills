@@ -14,8 +14,8 @@ Checked against primary sources on October 13, 2026 (eCFR current through Octobe
 | Securities Act Forms C&DIs (Section 130, Form D) | https://www.sec.gov/rules-regulations/staff-guidance/compliance-disclosure-interpretations/securities-act-forms | updated Sept. 25, 2026 |
 | Adopting release 33-8891 (Electronic Filing and Revision of Form D) | https://www.sec.gov/files/rules/final/2008/33-8891.pdf | Feb. 6, 2008 |
 | EDGAR Filer Manual Vol. I | https://www.sec.gov/files/edgar/filer-information/edgarfm-vol1-v43.pdf | v43, effective Mar. 16, 2026 |
-| EDGAR Filer Manual Vol. II | https://www.sec.gov/files/edgar/filermanual/edgarfm-vol2-v78.pdf | v78, Sept. 14, 2026 |
-| Form D XML Technical Specification | https://www.sec.gov/submit-filings/technical-specifications | page: Version 12 (Sept. 20, 2021); file: Version 13 (Mar. 2025) |
+| EDGAR Filer Manual Vol. II | https://www.sec.gov/files/edgar/filermanual/edgarfm-vol2-v78.pdf | v78, Sept. 14, 2026; ch. 8 ss. 8.1.7-8.1.9 (online Form D screens) and ch. 9 (filer-constructed XML, test transmission) read Oct. 28, 2026 |
+| Form D XML Technical Specification and schema files | https://www.sec.gov/submit-filings/technical-specifications (zip `formdxmltechspec-81_d.zip`) | page: Version 12 (Sept. 20, 2021); specification file headed Version 13 (Mar. 2025); schema files dated 2018 and 2021; downloaded Oct. 28, 2026 |
 | EDGAR Next landing page and FAQ | https://www.sec.gov/submit-filings/improving-edgar/edgar-next-improving-filer-access-account-management | reviewed Dec. 22, 2025 |
 | Form ID, EDGAR Next roles, delegation, Login.gov guides | https://www.sec.gov/submit-filings/filer-support-resources/how-do-i-guides | reviewed Dec. 2025 to Mar. 2026 |
 | Adopting release 33-11313 (EDGAR Next) | https://www.sec.gov/files/rules/final/2024/33-11313.pdf | Sept. 27, 2024 |
@@ -41,6 +41,8 @@ Checked against primary sources on October 13, 2026 (eCFR current through Octobe
 | Section 3(c)(7) owned exclusively by qualified purchasers; 3(c)(1) 100 beneficial owners; Rule 3c-5 knowledgeable employee exclusion | ICA Sections 3(c)(1), 3(c)(7); 17 CFR 270.3c-5 |
 | EDGAR Next compliance date Sept. 15, 2025; Login.gov; account administrators; notarized Form ID authentication; delegation to a law firm or filing agent; CIK and CCC for Form D | EDGAR Next FAQ; Filer Manual Vols. I and II; SEC how-do-I guides |
 | No federal fee, no paper filing, no confidential treatment, public dissemination | Form D FAQ; Rule 503(b)(1) |
+| The online Form D application has no test option; a filer-constructed XML can be transmitted as a test, is not disseminated, and the test indicator in the file controls processing; the acknowledgment screen's accession number means transmitted, not accepted | Filer Manual Vol. II v78 ss. 8.1.7-8.1.9, 9.1-9.2 |
+| XML: EDGAR fills the issuer name and jurisdiction from the CIK record and discards a supplied name; CIK and CCC are required and validated at transmission; the signature block's issuer name must match EDGAR's record; total remaining equals offering amount minus amount sold or Indefinite; true-only booleans; element lengths, orders and codes | Form D XML Technical Specification v13 ss. 3.2-3.4, 5, 6; `formDSubmission.xsd.xml`; sample files validated with xmllint Oct. 28, 2026 |
 
 | Item 15 commissions and finder fees are not limited to payments out of offering proceeds | Securities Act Forms C&DI 130.08 (rechecked October 14, 2026); adviser payment alone does not justify $0 |
 | Rule 506(d)(1) covered persons and event categories; lookbacks (ten years for convictions, five for the issuer, its predecessors and affiliated issuers; five years for injunctions and Commission cease-and-desist orders; "at the time of such sale" for orders, suspensions, expulsions and bars); state and comparable final orders that bar the person at the time of sale or are fraud-based and entered within ten years | Rule 506(d)(1)(i)-(viii), read October 27, 2026 |
@@ -61,8 +63,7 @@ Checked against primary sources on October 13, 2026 (eCFR current through Octobe
 | Scope of Item 16 for fund management fees or carry paid to a related-person GP | "No additional instructions" |
 | Escrow offerings: 15 days from first subscription into escrow | C&DI 257.05 as read |
 | File-number suffix convention for co-issuers | Observed in EDGAR headers only |
-| Form D XML specification version (12 versus 13) | The SEC page and the linked file disagree |
-| Whether the online Form D application can be submitted as a test | Not documented; XML test submissions are |
+| Form D XML specification version (12 versus 13) | The SEC page says 12; the file in the zip is headed Version 13 and its summary of changes lists only the September 2021 release, so the difference appears editorial |
 | State notice deadlines and fees | Only a 2019 SEC and NASAA staff statement ("almost every state ... within 15 days of the first sale to an in-state investor"); not a rule |
 | Time to issue a CIK | SEC states an average Form ID review time of four business days; no guarantee |
 | Consequence of a non-qualifying holder in a 3(c)(7) fund; Rule 508 relief for a missed Rule 502(b) delivery | Inference from rule and statute text; no guidance located |
