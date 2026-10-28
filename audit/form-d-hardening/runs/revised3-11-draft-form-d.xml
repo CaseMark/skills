@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Draft built from the attorney-review memo dated September 24, 2026. Not validated against EDGAR. Requires a TEST submission by the filer and attorney confirmation of every flagged row before any live filing. Double-bracketed placeholders must be replaced; the file fails schema validation while any remain. -->
+<edgarSubmission xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="formDSubmission.xsd.xml">
+  <submissionType>D</submissionType>
+  <testOrLive>TEST</testOrLive>
+  <contactData>
+    <contactName>[[CONTACT NAME: person at the firm who will transmit]]</contactName>
+    <contactPhoneNumber>[[CONTACT PHONE: person at the firm who will transmit]]</contactPhoneNumber>
+    <contactEmailAddress>[[CONTACT EMAIL: person at the firm who will transmit]]</contactEmailAddress>
+  </contactData>
+  <notificationAddressList>
+    <notificationEmailAddress>[[NOTIFICATION EMAIL 1: to be designated by the issuer or the firm]]</notificationEmailAddress>
+  </notificationAddressList>
+  <primaryIssuer>
+    <cik>[[CIK: Larkspur Growth Partners III, L.P., once Form ID is approved]]</cik>
+    <ccc>[[CCC]]</ccc>
+    <issuerAddress>
+      <street1>400 Alder Street</street1>
+      <street2>Suite 1200</street2>
+      <city>Portland</city>
+      <stateOrCountry>OR</stateOrCountry>
+      <zipCode>97204</zipCode>
+    </issuerAddress>
+    <issuerPhoneNumber>(503) 555-0142</issuerPhoneNumber>
+    <issuerPreviousNameList><value>None</value></issuerPreviousNameList>
+    <entityType>Limited Partnership</entityType>
+    <yearOfInc><withinFiveYears>true</withinFiveYears><value>2026</value></yearOfInc>
+  </primaryIssuer>
+  <relatedPersonsList>
+    <relatedPersonInfo>
+      <relatedPersonName><firstName>N/A</firstName><lastName>Larkspur GP III, LLC</lastName></relatedPersonName>
+      <relatedPersonAddress><street1>400 Alder Street</street1><street2>Suite 1200</street2><city>Portland</city><stateOrCountry>OR</stateOrCountry><zipCode>97204</zipCode></relatedPersonAddress>
+      <relatedPersonRelationshipList><relationship>Executive Officer</relationship><relationship>Director</relationship></relatedPersonRelationshipList>
+      <relationshipClarification>General Partner of the issuer, a Delaware limited liability company. Listed as the entity performing the functions of executive officer and director of the issuer; its Managing Members are listed separately.</relationshipClarification>
+    </relatedPersonInfo>
+    <relatedPersonInfo>
+      <relatedPersonName><firstName>Dana</firstName><lastName>Whitcombe</lastName></relatedPersonName>
+      <relatedPersonAddress><street1>400 Alder Street</street1><street2>Suite 1200</street2><city>Portland</city><stateOrCountry>OR</stateOrCountry><zipCode>97204</zipCode></relatedPersonAddress>
+      <relatedPersonRelationshipList><relationship>Executive Officer</relationship><relationship>Director</relationship></relatedPersonRelationshipList>
+      <relationshipClarification>Managing Member of Larkspur GP III, LLC, the General Partner of the issuer; performs the functions of an executive officer and director of the issuer.</relationshipClarification>
+    </relatedPersonInfo>
+    <relatedPersonInfo>
+      <relatedPersonName><firstName>Priya</firstName><lastName>Raghunathan</lastName></relatedPersonName>
+      <relatedPersonAddress><street1>400 Alder Street</street1><street2>Suite 1200</street2><city>Portland</city><stateOrCountry>OR</stateOrCountry><zipCode>97204</zipCode></relatedPersonAddress>
+      <relatedPersonRelationshipList><relationship>Executive Officer</relationship><relationship>Director</relationship></relatedPersonRelationshipList>
+      <relationshipClarification>Managing Member of Larkspur GP III, LLC, the General Partner of the issuer; performs the functions of an executive officer and director of the issuer.</relationshipClarification>
+    </relatedPersonInfo>
+  </relatedPersonsList>
+  <offeringData>
+    <industryGroup>
+      <industryGroupType>Pooled Investment Fund</industryGroupType>
+      <investmentFundInfo><investmentFundType>Private Equity Fund</investmentFundType><is40Act>false</is40Act></investmentFundInfo>
+    </industryGroup>
+    <issuerSize><revenueRange>No Revenues</revenueRange></issuerSize>
+    <federalExemptionsExclusions><item>06b</item><item>3C</item><item>3C.7</item></federalExemptionsExclusions>
+    <typeOfFiling>
+      <newOrAmendment><isAmendment>false</isAmendment></newOrAmendment>
+      <dateOfFirstSale><value>2026-09-16</value></dateOfFirstSale>
+    </typeOfFiling>
+    <durationOfOffering><moreThanOneYear>true</moreThanOneYear></durationOfOffering>
+    <typesOfSecuritiesOffered><isPooledInvestmentFundType>true</isPooledInvestmentFundType></typesOfSecuritiesOffered>
+    <businessCombinationTransaction><isBusinessCombinationTransaction>false</isBusinessCombinationTransaction></businessCombinationTransaction>
+    <minimumInvestmentAccepted>0</minimumInvestmentAccepted>
+    <salesCompensationList>
+      <recipient>
+        <recipientName>Brightwater Securities LLC</recipientName>
+        <recipientCRDNumber>[[CRD: Brightwater Securities LLC; agreement states 8899001, BrokerCheck returned affirmative no-match]]</recipientCRDNumber>
+        <associatedBDName>None</associatedBDName>
+        <associatedBDCRDNumber>None</associatedBDCRDNumber>
+        <recipientAddress><street1>1 Harbor Plaza</street1><street2>Suite 400</street2><city>Boston</city><stateOrCountry>MA</stateOrCountry><zipCode>02110</zipCode></recipientAddress>
+        <statesOfSolicitationList><state>AZ</state><state>CA</state><state>CT</state><state>FL</state><state>IL</state><state>MA</state><state>NY</state><state>OH</state><state>PA</state><state>TX</state><state>WA</state></statesOfSolicitationList>
+        <foreignSolicitation>false</foreignSolicitation>
+      </recipient>
+    </salesCompensationList>
+    <offeringSalesAmounts>
+      <totalOfferingAmount>250000000</totalOfferingAmount>
+      <totalAmountSold>91000000</totalAmountSold>
+      <totalRemaining>159000000</totalRemaining>
+      <clarificationOfResponse>Amounts are aggregate capital commitments of limited partners under accepted subscription agreements; capital is called over time. Total offering amount is the cap on aggregate commitments under the partnership agreement. Further closings may be held.</clarificationOfResponse>
+    </offeringSalesAmounts>
+    <investors>
+      <hasNonAccreditedInvestors>false</hasNonAccreditedInvestors>
+      <totalNumberAlreadyInvested>5</totalNumberAlreadyInvested>
+    </investors>
+    <salesCommissionsFindersFees>
+      <salesCommissions><dollarAmount>500000</dollarAmount><isEstimate>true</isEstimate></salesCommissions>
+      <findersFees><dollarAmount>0</dollarAmount></findersFees>
+      <clarificationOfResponse>Sales commissions are a placement fee of 2.0% of capital commitments from investors introduced by the placement agent, paid by the issuer's investment manager, Larkspur Capital Management LLC, not from issuer assets. Estimate; may rise at later closings.</clarificationOfResponse>
+    </salesCommissionsFindersFees>
+    <useOfProceeds>
+      <grossProceedsUsed><dollarAmount>0</dollarAmount></grossProceedsUsed>
+      <clarificationOfResponse>No gross proceeds are used to pay persons named in Item 3. The issuer pays a management fee to its investment manager, Larkspur Capital Management LLC, an affiliate of the General Partner; carried interest to the General Partner is a profit allocation.</clarificationOfResponse>
+    </useOfProceeds>
+    <signatureBlock>
+      <authorizedRepresentative>false</authorizedRepresentative>
+      <signature>
+        <issuerName>Larkspur Growth Partners III, L.P.</issuerName>
+        <signatureName>[[SIGNATURE: typed by Dana Whitcombe on the day of filing]]</signatureName>
+        <nameOfSigner>Dana Whitcombe</nameOfSigner>
+        <signatureTitle>Managing Member of Larkspur GP III, LLC, General Partner</signatureTitle>
+        <signatureDate>[[SIGNATURE DATE: day of transmission, YYYY-MM-DD]]</signatureDate>
+      </signature>
+    </signatureBlock>
+  </offeringData>
+</edgarSubmission>

@@ -11,6 +11,7 @@ Produce the header and the six sections in this order. Keep sentences plain; put
 5. Section 4. Judgment calls
 6. Section 5. Hand-offs (complete)
 7. Section 6. Assumptions, open items and `[VERIFY]` list
+8. Filing package (only when requested)
 
 ## Header
 
@@ -111,5 +112,7 @@ Include every newly identified related person or covered person with no question
 - Each `[VERIFY]` statement with what would settle it.
 
 Close with: "Draft for attorney review. This is not a filing-ready submission."
+
+When a filing package was requested, it follows Section 6 as a seventh part, laid out in `filing-package.md` (provenance table, draft XML, keying sheet, checklist), and the memo's closing line is repeated after it.
 
 Before closing, run the quality-control gate in `SKILL.md`.

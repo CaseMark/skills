@@ -1,6 +1,6 @@
 # Regression tests for form-d-exempt-offering-notice
 
-Synthetic fact patterns that exercise the failure modes the skill is built to prevent. Every name, identifier, date and amount is fictional. The suite is two things: a structural check of the skill package, and ten behavioral tests run by giving an agent the skill and a fixture and grading its output against a written expectation.
+Synthetic fact patterns that exercise the failure modes the skill is built to prevent. Every name, identifier, date and amount is fictional. The suite is two things: a structural check of the skill package, and eleven behavioral tests run by giving an agent the skill and a fixture and grading its output against a written expectation.
 
 ## Layout
 
@@ -25,13 +25,15 @@ Synthetic fact patterns that exercise the failure modes the skill is built to pr
 | 8 | edgar-affirmative-no-match | A 404 on EDGAR softened to "unverified"; a real entity substituted for a fictional one |
 | 9 | edgar-lookup-failed | A blocked lookup reported as "not found" |
 | 10 | offshore-feeder-reg-s | Regulation S investors double counted or shown in one variant only; a client instruction to use a ledger total followed; the placement agent cross-check eyeballed instead of run over every investor |
+| 11 | filing-package | XML built from the documents instead of the worksheet; a guessed CIK or a credential in the file; elements EDGAR fills (entity name, jurisdiction) supplied; true-only booleans written as false; the online application described as having a test mode; the package called accepted or ready to file |
 
 ## Running the behavioral tests
 
 1. Give a fresh agent the skill directory (SKILL.md and `references/`) and only the fixture files listed for the test in `evals.json`. Do not give it the `expected/` files.
-2. Use the test's `prompt` verbatim. Tests 1 to 8 and 10 may use the network for identifier lookups (the fixtures use CIK 0009876543 and the issuer name "Larkspur Growth Partners", both of which returned affirmative no-matches on EDGAR when the suite was written). Test 9 must run with outbound network disabled so the transcript in the fixture is the only lookup evidence.
+2. Use the test's `prompt` verbatim. Tests 1 to 8, 10 and 11 may use the network for identifier lookups (the fixtures use CIK 0009876543 and the issuer name "Larkspur Growth Partners", both of which returned affirmative no-matches on EDGAR when the suite was written). Test 9 must run with outbound network disabled so the transcript in the fixture is the only lookup evidence.
 3. Save the output, then grade it against `expected/_common.md` and the test's expected file: one pass or fail per line, with the evidence quoted. The test passes only when every Must line passes and no Must not line is breached.
-4. Record results with the skill version (commit hash), the model, and the date.
+4. For test 11, also copy the XML out of the output, replace each `[[...]]` placeholder with a pattern-valid dummy value, and validate it with `xmllint --noout --schema formDSubmission.xsd.xml <file>` against the three schema files in the SEC's Form D XML Technical Specification zip (linked from https://www.sec.gov/submit-filings/technical-specifications). The schema files are not vendored here; download the zip for the run.
+5. Record results with the skill version (commit hash), the model, and the date.
 
 A grader should read the whole output. Several expectations are about absence (no "MISSING", no file called missing, no program total in an issuer field), which a keyword search can miss in either direction.
 

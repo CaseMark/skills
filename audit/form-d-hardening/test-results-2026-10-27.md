@@ -68,3 +68,28 @@ Skill under test: the working tree after the external-feedback changes and the t
 - The Item 11 result in test 10 (0 recommended for both issuers, with the stated minimum as the alternative on issuer confirmation) is consistent with the framework; the Main Fund has no documented floor in this variant.
 - Size after the feedback changes and trim pass: 18,207 words across SKILL.md and the references (17,852 before the feedback, 11,389 at the committed version); SKILL.md body 164 lines.
 - Token cost: about 198k and 207k tokens for the two runs, in line with the earlier runs.
+
+---
+
+# Addendum, October 28, 2026: filing package run
+
+Skill under test: the working tree after the filing-package change (see the change log addendum of the same date). Runner: fresh general-purpose agent, Claude Fable 5.1, given the skill directory and the two fixture files for test 11 only, live EDGAR and BrokerCheck lookups through WebFetch (the runner reported it could not set a custom User-Agent; the endpoints answered), run on the afternoon of October 28, 2026 (Pacific). Outputs: `runs/revised3-11.md` (701 lines) and `runs/revised3-11-draft-form-d.xml` (the XML alone, byte-identical to the fenced XML in the memo).
+
+## Structural checks
+
+`check-package.py`: PASS with the new `filing-package.md` requirements, the skeleton-and-screen-list uniqueness checks and the eleven-test index. Bundle tests: 13 of 13 pass with the eight-reference count. CI structural and injection validation replayed locally against SKILL.md: passed. The reference's own XML skeleton validates against `formDSubmission.xsd.xml` once its placeholders are substituted.
+
+## Behavioral run
+
+| # | Test | Result | Key evidence (file:line) |
+|---|---|---|---|
+| 11 | Filing package (new) | PASS | `revised3-11.md:387` Part 7 follows Section 6; `:390-454` provenance table, one row per element, status and basis columns, placeholders for CIK, CCC, contact, notification, signature and date; `:454-462` "XML blocked until" naming the CIK (Form ID pending, owner Jordan Alvarez), the Brightwater CRD and the contact rows; XML: `submissionType` D, `testOrLive` TEST, no `entityName`, `jurisdictionOfInc`, `schemaVersion` or `stateOrCountryDescription`; Item 2 address and phone; previous names None; Limited Partnership, within five years, 2026; three related persons (the GP entity with first name N/A, Whitcombe, Raghunathan) each with address, Executive Officer and Director, clarifications within 255; Pooled Investment Fund, Private Equity Fund, `is40Act` false; `revenueRange` No Revenues (the Item 5 recommendation); items 06b, 3C, 3C.7; `isAmendment` false, no accession number; first sale 2026-09-16; `moreThanOneYear` true; pooled fund interests only; business combination false; minimum 0 (the Item 11 recommendation); Brightwater with CRD as a placeholder (BrokerCheck affirmative no-match for the fictional number), associated BD None, Boston address, eleven `<state>` codes including AZ and TX, no All States, `foreignSolicitation` false; 250000000 / 91000000 / 159000000; 5 investors, no non-accredited; commissions 500000 estimate, finders 0, proceeds 0; one signature block with the EDGAR-style issuer name, Dana Whitcombe, a 56-character title, signature and date placeholders; label at the head of the file; `:594-660` keying sheet with all 22 screen titles in order, "no test mode", Total Remaining computed and disabled, pre-populated fields called out; `:676-700` sixteen-row checklist with evidence and owner columns covering every listed item, including 5:30 p.m. Eastern on or before October 1, 2026 (Thursday), the accession number from the e-mail or submission query, five-year retention and the state filings; `:701` closing line. Grader step: with the nine placeholders replaced by pattern-valid dummies, `xmllint --noout --schema formDSubmission.xsd.xml` reports "validates" |
+
+**Expectation amended after the run.** The expected file originally required `recipientCRDNumber` 8899001. The fixture's CRD is fictional, BrokerCheck returned an affirmative no-match, and the skill's own rule (an unconfirmed external lookup becomes a placeholder, never a provisional value) produced `[[CRD: ...]]` with the agreement's number and the outcome recorded in the provenance table. That is the designed behavior, so the Must line now accepts either the confirmed number or the placeholder. No skill text was changed after the run.
+
+## Observations
+
+- The run put the Exhibit C registered states plus Arizona and Texas in Item 12 (`:219`), with "Arizona and Texas only" as the alternative, which is the Item 12 rule from the earlier addendum working as intended; the earlier untested sentence has now been exercised once.
+- The memo itself repeated the earlier runs' results on the base matter (first sale September 16, due October 1, CIK affirmative no-match, Arizona gap, Item 15 $500,000 estimate) with no regressions observed.
+- The keying sheet and checklist were written in full, not by reference; the checklist named the Form D screens and the EDGAR links by their manual titles.
+- Token cost: about 204k tokens, 13 minutes, in line with the earlier runs; the output is 701 lines, roughly 200 lines longer than a memo-only run because of Part 7.

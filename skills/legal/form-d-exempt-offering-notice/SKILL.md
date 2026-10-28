@@ -8,7 +8,9 @@ description: >
   worksheet for every item, reconciles subscription documents, governing documents and
   administrator ledgers issuer by issuer, determines the date of first sale and the
   filing deadline, identifies amendment triggers, records EDGAR and BrokerCheck lookup
-  outcomes precisely, and plans EDGAR access (Form ID, EDGAR Next) for new issuers.
+  outcomes precisely, and plans EDGAR access (Form ID, EDGAR Next) for new issuers. On
+  request, builds the filing package: draft Form D XML for an EDGAR test submission, an
+  Online Forms keying sheet and a pre-submission checklist for the person who files.
   Use for Form D, Form D/A, Reg D notice, notice of exempt offering, fund closing
   filings, parallel fund, feeder fund, or EDGAR filing for a private placement.
 tags:
@@ -22,7 +24,7 @@ tags:
 
 # Form D Notice of Exempt Offering (Regulation D)
 
-Prepares Form D notices and Form D/A amendments for offerings made under Rule 504, Rule 506(b), Rule 506(c) or Section 4(a)(5), for operating companies and pooled investment funds. The deliverable is a filing determination, ranked blocking issues, an evidence-to-field worksheet and item-by-item draft keyed to the form's own numbering, judgment calls, and complete hand-offs to related skills. It is a draft for attorney review. It is never a filing-ready package.
+Prepares Form D notices and Form D/A amendments for offerings made under Rule 504, Rule 506(b), Rule 506(c) or Section 4(a)(5), for operating companies and pooled investment funds. The deliverable is a filing determination, ranked blocking issues, an evidence-to-field worksheet and item-by-item draft keyed to the form's own numbering, judgment calls, and complete hand-offs to related skills. On request it adds a filing package (draft submission XML, Online Forms keying sheet, pre-submission checklist) for the person who holds the EDGAR credentials. Everything it produces is a draft for attorney review; nothing it produces is a filing-ready package.
 
 ## Why This Skill Exists
 
@@ -46,7 +48,7 @@ Read each document type with this suspicion before drafting from it.
 
 ## Ground Rules
 
-1. **Draft only.** Never state or imply that a filing is ready to submit. Every output is a draft for attorney review.
+1. **Draft only.** Never state or imply that a filing is ready to submit. Every output is a draft for attorney review. The filing package is a draft for a human filer's EDGAR test submission; this skill never transmits anything and never calls a submission accepted or validated.
 2. **Never guess identifiers.** CIKs, CRD numbers, file numbers and accession numbers come from EDGAR, BrokerCheck or a source document. Every identifier gets a primary lookup and a recorded outcome in the five-outcome vocabulary of `references/edgar-access.md` (confirmed match, affirmative no-match, different entity returned, lookup blocked or failed, not checked). A failed lookup is not a no-match; a no-match is not "unverified". Never substitute a near match or a real entity for a fictional one.
 3. **Cite every populated field.** Each value names the document and the section or page it came from.
 4. **Name conflicts, do not resolve them silently.** When two sources disagree, show both, say which controls under the hierarchy in `references/source-reconciliation.md`, and use the controlling value. A ledger flag never controls over an executed document. A client instruction to use a lower-ranked source is a conflict to reconcile, not an instruction to follow.
@@ -126,6 +128,10 @@ Read the Section 5 rules in `references/output-template.md`. A referral by skill
 - State notice filings and placement agent registration gaps: `blue-sky-filings`, with the placement agent cross-check matrix covering every investor (introduced by whom, state, agent registered there). This skill does not perform the state-by-state analysis; it supplies every fact that analysis needs.
 - Rule 506(d) diligence: `bad-actor-disqualification-review`, with every covered person, every "Yes" and its review record, every missing or unsigned questionnaire and every stale certification. The Form D signer certifies that the issuer is not disqualified, so this diligence must be complete before signature.
 
+### Step 9: Filing package (on request)
+
+Run this step only when the user asks for the filing package, the XML, the keying sheet or the pre-submission checklist, when the memo request says to include it, or when the user says the attorney has confirmed the memo and asks to prepare for filing. Read `references/filing-package.md`. The package is built from the Section 3 worksheet, never from the documents directly, so Steps 1 to 8 run first or the completed memo is supplied. It has four parts: the provenance table (every element traced to a worksheet row and its status), the draft submission XML for each filing with the test indicator set, the Online Forms keying sheet in the application's screen order, and the pre-submission checklist that runs from attorney sign-off through the live filing. Credentials, unsettled facts, the signature and its date are `[[placeholders]]` by design; a recommended choice goes in flagged for confirmation; a provisional value never does. The XML is for a TEST submission by the person with EDGAR credentials; the online application has no test mode.
+
 ## Required Output Format
 
 Produce the header and these six sections, in this order. The template and table layouts are in `references/output-template.md`.
@@ -137,6 +143,7 @@ Produce the header and these six sections, in this order. The template and table
 4. **Judgment calls.** The options, the recommended choice, what changes under each alternative, and why. Include every judgment call on an item that has no clarification field, and always Item 11.
 5. **Hand-offs.** To `blue-sky-filings` and `bad-actor-disqualification-review`, each complete as defined in the template.
 6. **Assumptions, open items and `[VERIFY]` list.** Every open item with an owner and a next action; the documents still needed; each `[VERIFY]` statement with what would settle it.
+7. **Filing package** (only when requested; `references/filing-package.md`). The provenance table, the draft submission XML per filing, the Online Forms keying sheet and the pre-submission checklist, each carrying the test-only label.
 
 Close the output with: "Draft for attorney review. This is not a filing-ready submission."
 
@@ -157,6 +164,7 @@ Confirm each statement below is true of the draft. If one is not, fix the draft;
 - No unresolved or provisional value is presented as settled; confidence and status columns match the narrative.
 - No field outside Form D appears anywhere in the draft; clarification text appears only on Items 3, 10, 13, 15 and 16, within 255 characters, and nothing in it is confidential.
 - Every investor in the document set has been checked against the exemption and exclusion relied on. Every unconfirmed statement carries `[VERIFY]`.
+- If a filing package was requested: every XML element and keying-sheet value traces to a worksheet row in the provenance table; every credential, signature field, Unknown fact, Unverified external lookup and Source conflict is a `[[placeholder]]`, never a guessed value; no element the specification leaves to EDGAR (entity name, jurisdiction, state description, schema version) appears; the test indicator reads TEST; the package carries the test-only label and nothing in it is called accepted, validated or ready to file.
 
 ## Troubleshooting
 
@@ -171,6 +179,8 @@ Confirm each statement below is true of the draft. If one is not, fix the draft;
 | A "Yes" on a questionnaire is listed only in the hand-off, or is Critical without the order being read | The event was not reviewed, or severity was assumed | Complete the review record, characterize under Rule 506(d), apply the template's severity rule |
 | "CIK not found" after a 403 or timeout | A failed lookup was treated as a no-match | Re-run by another route; if all fail, report Lookup blocked or failed and present both consequences |
 | A 404 from the submissions data reported as "unverified" | A no-match was softened | Report Affirmative no-match, with the evidence, and its filing consequence |
+| The draft XML fails local schema validation | A `[[placeholder]]` remains; a true-only element was written as `false`; an amount has commas or a dollar sign; a value spans lines; an element is out of sequence | Apply the construction rules in `references/filing-package.md`; validate again with xmllint |
+| EDGAR suspends the test submission although the file validates locally | Wrong CIK or CCC; the signature block's issuer name differs from EDGAR's record; a D/A names an accession number that is not the issuer's; a P.O. Box address; contact data missing | Work the suspense message against checklist Parts B and C in `references/filing-package.md`; re-transmit as TEST |
 
 ## Reference Files
 
@@ -183,3 +193,4 @@ Confirm each statement below is true of the draft. If one is not, fix the draft;
 | `references/edgar-access.md` | Identifier lookup outcomes, Form ID, EDGAR Next, delegation, XML, signing and retention |
 | `references/output-template.md` | Laying out the header and six-section deliverable, the severity rule, the cross-check matrix and complete hand-offs |
 | `references/primary-sources.md` | Citing a rule or form instruction; the source URLs and what was confirmed |
+| `references/filing-package.md` | Only when the filing package is requested: the provenance table, XML construction rules and skeleton, the Online Forms screen order, the pre-submission checklist, local validation and the test transmission |
