@@ -1,0 +1,120 @@
+{
+  "skill_name": "form-d-exempt-offering-notice",
+  "notes": "Synthetic regression suite. Each test varies the base matter in fixtures/base-matter.md. Expected behavior is specified in expected/_common.md plus the per-test file; a test passes only when every Must line passes and no Must not line is breached. Test 09 must be run with outbound network disabled. Test 10 was added on October 28, 2026 from external run feedback (Regulation S double count, client instruction to use a ledger total, placement agent matrix).",
+  "evals": [
+    {
+      "id": 1,
+      "name": "overlooked-questionnaire",
+      "prompt": "Prepare the Form D draft memo for the initial closing of Larkspur Growth Partners III, L.P. in accordance with the skill, using only the documents in this matter. Today's date is September 24, 2026. Perform any identifier lookups the skill requires and report their outcomes.",
+      "expected_output": "Finds and reviews the oddly named scan as Hallam's executed questionnaire; never calls it missing; flags the email/inventory difference; full six-section draft with first sale 2026-09-16 and due date 2026-10-01.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/01-overlooked-questionnaire.md"
+      ],
+      "expected_behavior": "expected/01-overlooked-questionnaire.md"
+    },
+    {
+      "id": 2,
+      "name": "subscription-vs-ledger",
+      "prompt": "Prepare the Form D draft memo for the initial closing of Larkspur Growth Partners III, L.P. in accordance with the skill, using only the documents in this matter. Today's date is September 24, 2026. Perform any identifier lookups the skill requires and report their outcomes.",
+      "expected_output": "Uses the executed $12,000,000 amendment over the ledger's $15,000,000; Item 13 sold $93,000,000; Item 15 $540,000; conflict written up with the consequence if a further amendment is produced.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/02-subscription-vs-ledger.md"
+      ],
+      "expected_behavior": "expected/02-subscription-vs-ledger.md"
+    },
+    {
+      "id": 3,
+      "name": "common-program-cap",
+      "prompt": "Prepare the Form D draft memo for the Larkspur Growth Partners III program (main fund, parallel fund and feeder) in accordance with the skill, using only the documents in this matter. Today's date is September 24, 2026. Perform any identifier lookups the skill requires and report their outcomes.",
+      "expected_output": "Issuer-specific schedules (Main $106m/6, Parallel $50m/2, Feeder $15m/3), program sold $156m and remaining $94m, the register's $171m rejected as double counting, per-vehicle first-sale dates and deadlines, program-total conditions applied to Item 13.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/03-common-program-cap.md"
+      ],
+      "expected_behavior": "expected/03-common-program-cap.md"
+    },
+    {
+      "id": 4,
+      "name": "waived-minimum",
+      "prompt": "Prepare the Form D draft memo for the initial closings of Larkspur Growth Partners III, L.P. and Larkspur Growth Partners III-A, L.P. in accordance with the skill, using only the documents in this matter. Today's date is September 24, 2026. Perform any identifier lookups the skill requires and report their outcomes.",
+      "expected_output": "Item 11 decision framework per issuer: Main recommends the $1,000,000 documented floor with alternatives; Parallel presents the $500,000 policy floor versus 0 with the issuer confirmation required; the affiliate trust excluded as not an outside investor.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/04-waived-minimum.md"
+      ],
+      "expected_behavior": "expected/04-waived-minimum.md"
+    },
+    {
+      "id": 5,
+      "name": "investor-qualification-conflict",
+      "prompt": "Prepare the Form D draft memo for the initial closing of Larkspur Growth Partners III, L.P. in accordance with the skill, using only the documents in this matter. Today's date is September 24, 2026. Perform any identifier lookups the skill requires and report their outcomes.",
+      "expected_output": "Quotes the executed non-QP response, states the 3(c)(7) requirement and consequence, what the record does and does not establish, a recommended next step, and the Item 6/13/14/15 figures under each outcome; the ledger flag does not control.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/05-investor-qualification-conflict.md"
+      ],
+      "expected_behavior": "expected/05-investor-qualification-conflict.md"
+    },
+    {
+      "id": 6,
+      "name": "bad-actor-yes",
+      "prompt": "Prepare the Form D draft memo for the initial closing of Larkspur Growth Partners III, L.P. in accordance with the skill, using only the documents in this matter. Today's date is September 24, 2026. Perform any identifier lookups the skill requires and report their outcomes.",
+      "expected_output": "Review record for each Yes; Raghunathan's state bar characterized as potentially disqualifying only after applying Rule 506(d)(1)(iii)(A) and the (d)(2) exceptions; Ortiz unresolved pending the order; counsel decisions and follow-ups named; complete hand-off.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/06-bad-actor-yes.md"
+      ],
+      "expected_behavior": "expected/06-bad-actor-yes.md"
+    },
+    {
+      "id": 7,
+      "name": "unreadable-document",
+      "prompt": "Prepare the Form D draft memo for the initial closing of Larkspur Growth Partners III, L.P. in accordance with the skill, using only the documents in this matter. Today's date is September 24, 2026. Perform any identifier lookups the skill requires and report their outcomes.",
+      "expected_output": "The scanned LPA amendment is recorded as unreadable after a stated attempt, never as missing; Item 3 (Ferreira) and Item 13(a) ($250m versus $275m) are unknown facts with both readings and consequences; native copy requested with an owner.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/07-unreadable-document.md"
+      ],
+      "expected_behavior": "expected/07-unreadable-document.md"
+    },
+    {
+      "id": 8,
+      "name": "edgar-affirmative-no-match",
+      "prompt": "Prepare the Form D draft memo for Larkspur Growth Partners III, L.P. in accordance with the skill, using only the documents in this matter. Today's date is September 24, 2026. Perform the identifier lookups the skill requires against EDGAR (and BrokerCheck for CRD numbers), using a declared User-Agent, and report each outcome with the evidence returned.",
+      "expected_output": "CIK 0009876543 and the issuer name reported as affirmative no-match with the evidence; prior notice treated as unconfirmed; both paths (Form D/A for a 25 percent cap increase, or Form ID plus a late new notice due 2026-07-02) with deadlines; no real entity substituted.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/08-edgar-affirmative-no-match.md"
+      ],
+      "expected_behavior": "expected/08-edgar-affirmative-no-match.md",
+      "requires_network": true
+    },
+    {
+      "id": 9,
+      "name": "edgar-lookup-failed",
+      "prompt": "Prepare the Form D draft memo for Larkspur Growth Partners III, L.P. in accordance with the skill, using only the documents in the Test 08 matter and the lookup transcript in the Test 09 file. Today's date is September 24, 2026. Report each identifier lookup outcome and its filing consequence.",
+      "expected_output": "Every lookup reported as blocked or failed with the transcript evidence; CIK UNVERIFIED, never 'not found'; alternative routes with owners; both filing paths presented at Critical severity.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/08-edgar-affirmative-no-match.md",
+        "fixtures/09-edgar-lookup-failed.md"
+      ],
+      "expected_behavior": "expected/09-edgar-lookup-failed.md",
+      "requires_network": false,
+      "run_with_network_disabled": true
+    },
+    {
+      "id": 10,
+      "name": "offshore-feeder-reg-s",
+      "prompt": "Prepare the Form D draft memo for Larkspur Growth Partners III, L.P. and Larkspur Growth Offshore Feeder III, L.P. in accordance with the skill, using only the documents in this matter. Today's date is September 24, 2026. Perform any identifier lookups the skill requires and report their outcomes.",
+      "expected_output": "Investor reconciliation tables for both issuers; Main $111m / 6 investors with the feeder counted once; Offshore Feeder Items 13(b) and 14 in both variants (Regulation D only $5m / 1; all sales $20m / 3); program $111m sold and $139m remaining with the register's $131m / 9 rejected; the email's instruction to use the Program sheet named as a conflict and not followed; cross-check matrix over every investor flagging Arizona only; feeder first-sale date as a judgment call between September 17 and 18.",
+      "files": [
+        "fixtures/base-matter.md",
+        "fixtures/10-offshore-feeder-reg-s.md"
+      ],
+      "expected_behavior": "expected/10-offshore-feeder-reg-s.md"
+    }
+  ]
+}
