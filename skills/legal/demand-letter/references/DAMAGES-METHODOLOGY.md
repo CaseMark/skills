@@ -113,7 +113,7 @@ When to split the demand:
 - 1 category, <3 line items → inline narrative paragraph.
 - 1 category, 3+ line items OR 2+ categories → table in §4.
 - 4+ categories OR extensive billing-record backup → summary table in §4, full itemization in an appendix exhibit referenced inline.
-- Medical specials in a personal-injury demand → always itemized by provider, with dates, billed/paid, and totals per provider; see `assets/examples/pi-ga-auto-allen-v-liberty-mutual-demand.pdf` for an exemplar.
+- Medical specials in a personal-injury demand → always itemized by provider, with dates, billed/paid, and totals per provider; see `assets/examples/pi-ga-auto-allen-v-liberty-mutual-demand.md` for an exemplar.
 
 ## What NOT to include in the damages section
 

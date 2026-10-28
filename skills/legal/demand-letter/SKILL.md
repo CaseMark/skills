@@ -92,7 +92,7 @@ Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 If the jurisdiction / claim is not in the table, invoke `legal-research` with the query template at the bottom of `JURISDICTION-PRESUIT.md`.
 
-**Exemplar lookup.** Identify the nearest archetype in `references/ARCHETYPE-INDEX.md`. Read the referenced PDF from `assets/examples/` before drafting — this grounds tone, length, and cite density. If no archetype matches, say so explicitly to the user.
+**Exemplar lookup.** Identify the nearest archetype in `references/ARCHETYPE-INDEX.md`. Read the referenced text exemplar (`.md`) from `assets/examples/` before drafting — this grounds tone, length, and cite density. If no archetype matches, say so explicitly to the user.
 
 **Template branch selection.** Pick one branch in `references/TEMPLATE.md`:
 - `statutory-notice` — any statutory-prerequisite letter
@@ -198,7 +198,7 @@ If the user does not answer, recommend verifying recipient entity and notice met
 - [ ] Preservation notice included; dedicated `spoliation-letter` invoked if high-risk evidence is in play
 - [ ] **FDCPA disclosures** included if sender is a "debt collector" under 15 U.S.C. § 1692a(6) AND the communication concerns a "debt" under § 1692a(5). Required verbatim text in `references/ETHICS-AND-PRIVILEGE.md` (§ 1692e(11) mini-Miranda and § 1692g validation notice).
 - [ ] Specific calendar deadline
-- [ ] Exemplar consulted — name the file from `assets/examples/`, or state no archetype match
+- [ ] Exemplar consulted — name the `.md` file from `assets/examples/`, or state no archetype match
 - [ ] If represented-party, letter addressed to counsel (Model Rule 4.2)
 - [ ] Bar number on signature block
 - [ ] Attorney review required before sending — flagged to user
@@ -215,7 +215,7 @@ If the user does not answer, recommend verifying recipient entity and notice met
 
 **Letter skeleton and branches.** See `references/TEMPLATE.md` for the fill-in template with statutory-notice / policy-limits / commercial variants.
 
-**Exemplars.** See `references/ARCHETYPE-INDEX.md` for the 14-letter corpus in `assets/examples/`, mapped to archetype with use-when and do-not-copy notes.
+**Exemplars.** See `references/ARCHETYPE-INDEX.md` for the 14-letter corpus of text (`.md`) exemplars in `assets/examples/`, mapped to archetype with use-when and do-not-copy notes.
 
 **Anti-hallucination.**
 - Do not invent statutory citations, case names, or verdict data
