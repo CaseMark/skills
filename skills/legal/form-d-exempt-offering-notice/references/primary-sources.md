@@ -1,6 +1,6 @@
 # Primary Sources and Verification Register
 
-Checked against primary sources on October 13, 2026 (eCFR current through October 9, 2026). Re-check before relying on a rule in a client-facing document; the SEC revises forms, specifications and guidance. Staff interpretations cited by section number below were read on the SEC's compliance and disclosure interpretations pages.
+Checked against primary sources on October 13, 2026 (eCFR current through October 9, 2026); Rule 506(d) and (e) rechecked on October 27, 2026 (eCFR current through October 23, 2026). Re-check before relying on a rule in a client-facing document; the SEC revises forms, specifications and guidance. Staff interpretations cited by section number below were read on the SEC's compliance and disclosure interpretations pages.
 
 ## Sources
 
@@ -43,6 +43,10 @@ Checked against primary sources on October 13, 2026 (eCFR current through Octobe
 | No federal fee, no paper filing, no confidential treatment, public dissemination | Form D FAQ; Rule 503(b)(1) |
 
 | Item 15 commissions and finder fees are not limited to payments out of offering proceeds | Securities Act Forms C&DI 130.08 (rechecked October 14, 2026); adviser payment alone does not justify $0 |
+| Rule 506(d)(1) covered persons and event categories; lookbacks (ten years for convictions, five for the issuer, its predecessors and affiliated issuers; five years for injunctions and Commission cease-and-desist orders; "at the time of such sale" for orders, suspensions, expulsions and bars); state and comparable final orders that bar the person at the time of sale or are fraud-based and entered within ten years | Rule 506(d)(1)(i)-(viii), read October 27, 2026 |
+| Rule 506(d)(2) exceptions: events or orders before September 23, 2013; Commission waiver; the court's or regulator's written advice; reasonable care with factual inquiry | Rule 506(d)(2)(i)-(iv) and its instruction |
+| Rule 506(e): written disclosure to each purchaser, a reasonable time before sale, of matters that would have been disqualifying but occurred before September 23, 2013 | Rule 506(e) |
+| The SEC's submissions data returns an HTTP 404 for a CIK that does not exist, and EDGAR company search returns an empty result for a name with no filer, which are affirmative no-match outcomes | Observed October 27, 2026 against data.sec.gov and the company search feed |
 
 ## Unconfirmed or inference: treat as `[VERIFY]`
 
