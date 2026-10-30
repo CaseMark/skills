@@ -30,6 +30,8 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 | Smilowitz NR et al., "Redefining First Medical Contact in ACS: Implications for the NCDR", JACC: Advances (Sept. 14, 2026) | https://www.jacc.org/doi/10.1016/j.jacadv.2026.103241 | Full text via case.dev; 2026-10-30 | 2025 guideline FMC definition; NCDR CPMI v3.2 keeps "first evaluated by EMS" |
 | ICD-10-CM Official Guidelines FY 2027 (effective Oct. 1, 2026) | https://www.cms.gov/files/document/fy-2027-icd-10-cm-coding-guidelines.pdf | Full text via case.dev; 2026-10-30 | Section I.C.9.e.1-6: type 1 codes, I21.A1, I21.A9, I22, I21.9, I21.B |
 | ICD-10-CM I5A tabular entry (icd10data.com, secondary site) | https://www.icd10data.com/ICD10CM/Codes/I00-I99/I30-I5A/I5A-/I5A | Full text via case.dev (secondary); 2026-10-30 | I5A non-ischemic myocardial injury (non-traumatic), new FY 2022, valid FY 2027 |
+| 42 CFR 419.46 (eCFR current) | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-419/subpart-F/section-419.46 | Full text via case.dev; 2026-10-30 | Hospital OQR applies to hospitals paid under the OPPS |
+| 2025 ACS Guideline-at-a-Glance, JACC | https://www.jacc.org/doi/10.1016/j.jacc.2025.01.018 | Full text via case.dev; 2026-10-30 | Searched for door-in-door-out and door-to-needle numbers; none found |
 | 42 CFR 410.49 (eCFR current) | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-410/subpart-B/section-410.49 | Full text via case.dev; 2026-10-30 | Medicare CR coverage after AMI within the preceding 12 months |
 
 ## 2. Confirmed statements
@@ -38,7 +40,10 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 |---|---|
 | FMC-to-device 90 minutes or less; 120 minutes or less with transfer (1, A) | 2025 guideline 3.1.1 rec 3; 5.2.1 rec 1 |
 | Fibrinolysis when anticipated FMC-to-device delay exceeds 120 minutes, symptoms under 12 hours, no contraindication (1, A); transfer immediately after fibrinolysis (1, A); angiography 2-24 hours (1, B-R) | 5.3 rec 2; 5.3.2 recs 1-3 |
-| No door-to-needle or door-in-door-out number in the 2025 guideline text | Full-text search of the JACC PDF and Circulation text |
+| No door-to-needle or door-in-door-out number in the 2025 guideline text, including the Figure 6 caption (the Figure 6 image itself was not read) | Full-text search of the JACC PDF and Circulation text; Guideline-at-a-Glance (JACC doi 10.1016/j.jacc.2025.01.018) also searched |
+| Posterior leads "should be applied in patients with ongoing symptoms and a nondiagnostic ECG and those with ST-segment depressions in leads V1-V3"; serial ECGs (Class 1) are scoped to a nondiagnostic initial ECG | 3.1.1 supportive text; 3.1.1 rec 2; 3.1.2 rec 2 |
+| Hospital OQR participation rule covers 1886(d)(1)(B) hospitals paid under the OPPS | 42 CFR 419.46(a)-(b) |
+| CMS996v6 excludes arrest, intubation and circulatory assist devices but not cardiogenic shock alone; 2017 PM-8 exceptions include arrest and shock as documented medical reasons for delay | CMS996v6 compare page; 2017 PM-8 |
 | ECG within 10 minutes; serial ECGs; hs-cTn preferred; repeat at 1-2 h (hs) or 3-6 h (conventional) | 3.1.1 recs 1-2; 3.1.2 recs 1-4 |
 | Posterior leads for V1-V3 depression of 0.5 mm or more; new LBBB alone not a STEMI equivalent | 2025 Table 3 and footnote |
 | Table 14 absolute and relative fibrinolysis contraindications; streptokinase unavailable in the US | 2025 Tables 13-14 |
@@ -72,3 +77,6 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 7. Whether a newer ACC/AHA STEMI/NSTEMI performance measure set or an ACS focused update appears after 2026-10-30.
 8. Every facility-specific hs-cTn threshold and delta: always from the laboratory's own assay documentation, never from this skill.
 9. The 2013 STEMI guideline wording behind the 30-minute fibrinolysis and transfer targets (cited only through the CMS996 rationale and the 2017 measures; the 2013 text was not read).
+10. Whether the 2025 guideline Figure 6 image (care-system pathway) shows a door-in-door-out or door-to-needle number; only its caption was readable.
+11. The CMS996v6 value sets that identify a STEMI diagnosis on the ED encounter (QDM package CMS996-v6.3.000 not read).
+12. Whether MBQIP currently includes the STEMI eCQM for critical access hospitals (the 2023 MBQIP notice said it was under consideration).

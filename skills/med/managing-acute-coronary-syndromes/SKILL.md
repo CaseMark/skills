@@ -45,6 +45,8 @@ ACS reviews are dominated by clocks and labels, and both are easy to get wrong w
 | EMS run sheet and first-facility ED record | First medical contact (FMC) | 2025 guideline FMC (first professional who can obtain and interpret an ECG) mixed with NCDR v3.2 FMC (first EMS evaluation) and with the eCQM's ED arrival; a walk-in FMC taken from the ECG time without showing arrival and triage readings |
 | Measure population and facility attribution for a transfer | Which hospital's measure, which patients are in it | Referral hospital's door-in-door-out and the receiving hospital's door-to-device scored as one case; PM-8 applied to a transfer-in it excludes; a patient under 18 or a non-STEMI ED encounter scored in CMS996 |
 | 12-lead ECG reports and machine reads | STEMI or NSTE-ACS, start of the reperfusion clock | ST depression in V1-V3 labeled NSTEMI with no posterior leads; de Winter or hyperacute T waves missed; LBBB or paced rhythm assessed without Sgarbossa criteria; a new LBBB alone treated as a STEMI equivalent |
+| Serial ECGs where the first is nondiagnostic and a later one shows STEMI | Which clock anchor applies | FMC-to-device or ED-arrival clocks restarted at the diagnostic ECG; the first-to-diagnostic ECG interval not reported separately; a STEMI first diagnosed after ED departure scored in CMS996, whose population needs a STEMI diagnosis during the ED encounter |
+| Arrest, intubation, shock and mechanical support entries | Measure exclusions and exceptions | Cardiogenic shock alone treated as a CMS996v6 exclusion (v6 lists arrest, intubation and circulatory assist devices, not shock alone); a 2017 PM-8 exception applied without a documented medical reason for delay |
 | Troponin results and the laboratory's assay sheet | Myocardial injury, rise and fall, rule-in or rule-out | Threshold borrowed from another assay or a uniform cut-off used where the lab reports a sex-specific 99th percentile; ng/mL compared with ng/L; a pathway risk threshold read as the diagnostic limit; timing from symptom onset ignored |
 | Provider diagnosis statements, problem list and coded abstract | MI classification and ICD-10-CM codes | Type 2 MI or non-ischemic myocardial injury coded I21.4; "NSTEMI" in the discharge summary against "demand ischemia" in progress notes with no query; Fifth UDMI "secondary MI" or "primary MI due to SCAD" translated into a type or code without saying so |
 | Cath report with no stenosis of 50 percent or more | Final diagnosis after angiography | "MINOCA" recorded as final with no CMR, no angiogram re-review and no alternative diagnosis excluded; the Fifth UDMI's renaming to myocardial injury with non-obstructive coronary arteries ignored |
@@ -59,7 +61,7 @@ ACS reviews are dominated by clocks and labels, and both are easy to get wrong w
 4. **Citation discipline.** Every timestamp, value and quoted note carries a source locator (document, facility, date and time, author role) or `[UNVERIFIED]`. Every rule carries its source and year, and its COR and LOE for a guideline statement, or `[VERIFY]`.
 5. **Name the framework on every conclusion.** Write "2025 guideline transfer goal (120 min): not met", "CMS996v6, Hospital A: not in numerator" or "Fourth UDMI type 2 criteria: not documented". Never merge frameworks into one pass or fail.
 6. **Lock the versions.** State the guideline and correction date, the eCQM version for the reporting period (CMS996v6 for CY 2026), the performance measure set (2017), the Universal Definition (Fourth, 2018, or Fifth, 2026) and the ICD-10-CM fiscal year for the discharge date (FY 2027 from October 1, 2026).
-7. **Each clock has its own trigger and timestamp type.** Compute every element from the start event its source names (`references/reperfusion-and-measure-rules.md`, Section 2). Use device time, not procedure start; ED arrival, not registration, unless the source says otherwise; collection time for troponin samples. Where the anchor is ambiguous (walk-in FMC), compute every plausible reading and say whether the result changes.
+7. **Each clock has its own trigger and timestamp type.** Compute every element from the start event its source names (`references/reperfusion-and-measure-rules.md`, Section 2). Use device time, not procedure start; ED arrival, not registration, unless the source says otherwise; interpretation time, not acquisition or machine read, to close the ECG clock; collection time for troponin samples. Where the anchor is ambiguous (walk-in FMC), compute every plausible reading and say whether the result changes.
 8. **The assay governs troponin.** Interpret values only against the laboratory's own assay, unit, sex-specific 99th percentile and pathway thresholds. A missing assay sheet is an unknown fact; never borrow a threshold.
 9. **Diagnosis and codes belong to clinicians and coders.** Record what the documentation says, which definition it uses, and which criteria the record supports or lacks. Do not assign a final MI class, read an ECG as the final interpreter, or assign a code.
 10. **No documentation steering.** Never suggest adding, backdating or editing an entry, or wording a diagnosis, so that a case enters or leaves a measure, registry, cohort or payment group. Genuine ambiguity becomes a non-leading query candidate routed to `managing-cdi-programs`; a late entry follows facility policy and is labeled as one.
@@ -76,6 +78,7 @@ Collect before Step 1:
 4. The record set: EMS run sheet, ED records of every facility, every ECG with acquisition and interpretation times, troponin reports with collection times and the lab's assay sheet, cath and procedure logs with device times, MAR, transfer records, discharge summary, medication reconciliation and referral orders, and any dashboard, registry abstract or coded abstract under review.
 5. Which frameworks the user wants addressed. Default: the 2025 guideline clock table and the discharge checklist; add a measure only when the user names it or asks about measure performance.
 6. Facility protocols in play: hs-cTn pathway, fibrinolysis checklist, STEMI transfer protocol.
+7. The quality program each facility reports under (Hospital OQR, MBQIP, NCDR, state STEMI program). Hospital OQR covers hospitals paid under the OPPS; a critical access hospital is outside it, so CMS996 scoring there needs the program named first.
 
 Defaults when an input is missing:
 
@@ -88,7 +91,7 @@ Hard stops (do not score the affected item):
 
 - No timestamped source for the events at issue (only a narrative or a dashboard): produce the ledger of what is missing and stop before scoring clocks or measures.
 - Measure scoring requested with no way to identify the reporting period or version: do not score that measure.
-- Patient under 18: outside CMS996 and the 2017 measures; say so and route pediatric questions to `managing-pediatric-emergencies`.
+- Patient under 18: outside CMS996 and the 2017 measures. No sibling skill covers pediatric ACS; say so and return the case to the treating pediatric and cardiology clinicians.
 - A request that the review itself assign the final MI class, interpret an ECG as final, or assign a code: record the documentation and conflicts, and route the decision to the clinician, `interpreting-emergency-ecgs` or coding.
 
 Decline that part, then continue the review of the record as it stands:
@@ -160,7 +163,7 @@ Complete the reconciliation table, gaps and query candidates, hand-offs and open
 ## Guidelines
 
 - The 2025 ACS guideline covers type 1 MI; it refers type 2 MI, SCAD and MINOCA to other documents. Do not apply its reperfusion clocks to a supply-demand presentation without saying so.
-- The 2025 guideline states FMC-to-device goals (90 and 120 minutes) but no door-to-needle or door-in-door-out number; the 30-minute and 45-minute figures are measure targets.
+- The 2025 guideline text states FMC-to-device goals (90 and 120 minutes); no door-to-needle or door-in-door-out number was found in its text, but its Figure 6 image was not read `[VERIFY]`. Cite the 30-minute and 45-minute figures as measure targets.
 - Never delay or criticize reperfusion for a pending troponin; troponin can be below the URL early in STEMI.
 - A measure exclusion removes a case from a denominator; it says nothing about whether care was appropriate.
 - Concurrent review on an open encounter is provisional; windows still open are "Not yet due".

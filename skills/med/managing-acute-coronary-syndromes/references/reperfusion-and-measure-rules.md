@@ -27,30 +27,30 @@ Report each framework on its own row. A case can meet the CMS eCQM and miss a gu
 
 ## 2. Clock table: each element with its own trigger
 
-Each row names its own start event, stop event and target. Never assume one anchor for all of them.
+Each row names its framework, its own start event, stop event and target. Never assume one anchor for all of them. The ECG rows end at interpretation, not acquisition; a machine read is not a clinician interpretation. When the first ECG is nondiagnostic and a later ECG shows STEMI, the reperfusion rows keep their own anchors (FMC or ED arrival); the time from first to diagnostic ECG is reported as a separate interval, never as a restarted clock.
 
-| Element | Start event (trigger) | Stop event | Target | Source |
-|---|---|---|---|---|
-| ECG acquisition and interpretation, prehospital | First medical contact (guideline definition, Section 3) | 12-lead ECG acquired and interpreted | 10 minutes | 2025 guideline, 3.1.1 rec 1 (COR 1, LOE B-NR) |
-| ECG acquisition and interpretation, in hospital | Presentation with suspected ACS | ECG acquired and interpreted | 10 minutes | 2025 guideline, 3.1.2 rec 1 (1, B-NR) |
-| Repeat troponin | Initial sample collection (time zero) | Repeat sample | 1 to 2 hours hs-cTn; 3 to 6 hours conventional cTn | 2025 guideline, 3.1.2 rec 4 (1, B-NR) |
-| Primary PCI, direct presentation or EMS to PCI-capable hospital | First medical contact | First device activation | 90 minutes or less | 2025 guideline, 3.1.1 rec 3 (1, B-NR) and 5.2.1 rec 1 (1, A) |
-| Primary PCI, transfer from non-PCI-capable hospital | First medical contact (at or before the referral hospital) | First device activation at the receiving hospital | 120 minutes or less | 2025 guideline, 5.2.1 rec 1 (1, A); 2017 PM-11 |
-| Choice of fibrinolysis at a non-PCI-capable hospital | First medical contact, symptom onset under 12 hours | Anticipated delay to PCI | Fibrinolysis indicated if anticipated FMC-to-device delay exceeds 120 minutes and no contraindication | 2025 guideline, 5.3 rec 2 (1, A) |
-| Transfer after fibrinolysis | Fibrinolytic administration | Transfer to a PCI-capable center | Immediately | 2025 guideline, 5.3.2 rec 1 (1, A) |
-| Angiography after fibrinolysis | Fibrinolytic administration | Angiography | 2 to 24 hours (immediate if failed reperfusion suspected) | 2025 guideline, 5.3.2 recs 2-3 (1, B-R) |
-| Hospital arrival to fibrinolysis (DTN) | Hospital arrival | Fibrinolytic administration | 30 minutes or less | 2017 PM-7; CMS996v6 uses ED arrival |
-| Door-in-door-out at the referral hospital (DIDO) | ED arrival at the STEMI referral facility | ED discharge from that facility | 30 minutes or less | 2017 PM-10 |
-| eCQM transfer criterion | ED arrival | Discharge to an acute care facility | 45 minutes or less | CMS996v6 numerator |
-| eCQM PCI criterion | ED arrival | PCI device deployment (not procedure start) | 90 minutes or less | CMS996v6 numerator and guidance |
-| Immediate invasive strategy, unstable NSTE-ACS | Hospital admission | Angiography with intent to revascularize | Under 2 hours | 2025 guideline, 6.1 rec 3 (1, C-LD) and supportive text |
-| Early invasive strategy, high-risk NSTE-ACS | Decision for invasive strategy (trial anchors were symptoms, randomization or diagnosis) | Angiography | Within 24 hours (reasonable) | 2025 guideline, 6.1 rec 4 (2a, B-R) |
-| Angiography, NSTE-ACS not high risk | Admission | Angiography | Before discharge (reasonable) | 2025 guideline, 6.1 rec 5 (2a, B-R) |
-| LVEF assessment | Admission | LVEF documented | Before discharge | 2025 guideline, 10.4 (1, C-LD); 2017 PM-5 |
-| Cardiac rehabilitation referral | Admission | Referral to an outpatient CR program | Before discharge | 2025 guideline, 10.5.3 rec 1 (1, A); 2017 PM-12 |
-| CMR in MINOCA work-up | Presentation | CMR | Ideally within 2 weeks | Fifth UDMI 2026, Section 11 (citing practice guidelines) |
+| Element | Framework | Start event (trigger) | Stop event | Target | Source |
+|---|---|---|---|---|---|
+| ECG acquisition and interpretation, prehospital | 2025 guideline | First medical contact (guideline definition, Section 3) | 12-lead ECG acquired and interpreted | 10 minutes | 2025 guideline, 3.1.1 rec 1 (COR 1, LOE B-NR) |
+| ECG acquisition and interpretation, in hospital | 2025 guideline | Presentation with suspected ACS | ECG acquired and interpreted | 10 minutes | 2025 guideline, 3.1.2 rec 1 (1, B-NR) |
+| Repeat troponin | 2025 guideline | Initial sample collection (time zero) | Repeat sample | 1 to 2 hours hs-cTn; 3 to 6 hours conventional cTn | 2025 guideline, 3.1.2 rec 4 (1, B-NR) |
+| Primary PCI, direct presentation or EMS to PCI-capable hospital | 2025 guideline | First medical contact | First device activation | 90 minutes or less | 2025 guideline, 3.1.1 rec 3 (1, B-NR) and 5.2.1 rec 1 (1, A) |
+| Primary PCI, transfer from non-PCI-capable hospital | 2025 guideline and 2017 measure (score separately) | First medical contact (at or before the referral hospital) | First device activation at the receiving hospital | 120 minutes or less | 2025 guideline, 5.2.1 rec 1 (1, A); 2017 PM-11 |
+| Choice of fibrinolysis at a non-PCI-capable hospital | 2025 guideline | First medical contact, symptom onset under 12 hours | Anticipated delay to PCI | Fibrinolysis indicated if anticipated FMC-to-device delay exceeds 120 minutes and no contraindication | 2025 guideline, 5.3 rec 2 (1, A) |
+| Transfer after fibrinolysis | 2025 guideline | Fibrinolytic administration | Transfer to a PCI-capable center | Immediately | 2025 guideline, 5.3.2 rec 1 (1, A) |
+| Angiography after fibrinolysis | 2025 guideline | Fibrinolytic administration | Angiography | 2 to 24 hours (immediate if failed reperfusion suspected) | 2025 guideline, 5.3.2 recs 2-3 (1, B-R) |
+| Hospital arrival to fibrinolysis (DTN) | 2017 measure; CMS eCQM | Hospital arrival | Fibrinolytic administration | 30 minutes or less | 2017 PM-7; CMS996v6 uses ED arrival |
+| Door-in-door-out at the referral hospital (DIDO) | 2017 performance measure | ED arrival at the STEMI referral facility | ED discharge from that facility | 30 minutes or less | 2017 PM-10 |
+| eCQM transfer criterion | CMS eCQM | ED arrival | Discharge to an acute care facility | 45 minutes or less | CMS996v6 numerator |
+| eCQM PCI criterion | CMS eCQM | ED arrival | PCI device deployment (not procedure start) | 90 minutes or less | CMS996v6 numerator and guidance |
+| Immediate invasive strategy, unstable NSTE-ACS | 2025 guideline | Hospital admission | Angiography with intent to revascularize | Under 2 hours | 2025 guideline, 6.1 rec 3 (1, C-LD) and supportive text |
+| Early invasive strategy, high-risk NSTE-ACS | 2025 guideline | Decision for invasive strategy (trial anchors were symptoms, randomization or diagnosis) | Angiography | Within 24 hours (reasonable) | 2025 guideline, 6.1 rec 4 (2a, B-R) |
+| Angiography, NSTE-ACS not high risk | 2025 guideline | Admission | Angiography | Before discharge (reasonable) | 2025 guideline, 6.1 rec 5 (2a, B-R) |
+| LVEF assessment | 2025 guideline and 2017 measure (score separately) | Admission | LVEF documented | Before discharge | 2025 guideline, 10.4 (1, C-LD); 2017 PM-5 |
+| Cardiac rehabilitation referral | 2025 guideline and 2017 measure (score separately) | Admission | Referral to an outpatient CR program | Before discharge | 2025 guideline, 10.5.3 rec 1 (1, A); 2017 PM-12 |
+| CMR in MINOCA work-up | Definition document | Presentation | CMR | Ideally within 2 weeks | Fifth UDMI 2026, Section 11 (citing practice guidelines) |
 
-The 2025 guideline text was searched in full for a door-to-needle number and a door-in-door-out number and states neither; those 30-minute targets live in the measures (PM-7, PM-10, CMS996v6). The CMS996 rationale attributes the 30-minute fibrinolysis target to the 2013 STEMI guideline.
+The 2025 guideline text (JACC PDF and Circulation full text, including the Figure 6 caption) was searched for a door-to-needle number and a door-in-door-out number and states neither; Figure 6, the care-system pathway, is an image that was not read, so the statement that the guideline sets no such number is `[VERIFY]`. The 30-minute targets used here come from the measures (PM-7, PM-10, CMS996v6); the CMS996 rationale attributes the 30-minute fibrinolysis target to the 2013 STEMI guideline.
 
 ## 3. First medical contact: three definitions
 
@@ -66,10 +66,13 @@ For a walk-in patient the guideline definition can point to arrival, triage or t
 ## 4. CMS STEMI eCQM CMS996v6 (CY 2026 reporting)
 
 - Population: all ED encounters for patients 18 or older at the start of the encounter with a STEMI diagnosis during an ED encounter that ends in the measurement period; denominator equals the initial population. Episode-based: report each ED encounter.
+- Population turns on a STEMI diagnosis recorded during the ED encounter, identified through the measure's value sets in the QDM specification (CMS996-v6.3.000; value sets not read `[VERIFY]`). A STEMI diagnosis first made after the ED encounter (on the floor, or only in the cath lab after ED departure) does not meet the initial-population wording. The review never moves a case into or out of the population by its own ECG reading; a documentation question goes to a compliant query.
+- Arrest and shock: v6 excludes cardiopulmonary arrest, intubation and mechanical circulatory assist placement or removal within 24 hours before or during the ED encounter; cardiogenic shock alone is not on the v6 exclusion list. In the 2017 measures, cardiac arrest and cardiogenic shock are denominator exceptions (PM-8) only when a medical reason for delay is documented.
 - Numerator: ED arrival to fibrinolysis 30 minutes or fewer; or PCI within 90 minutes of arrival; or discharge to an acute care facility within 45 minutes of arrival. Guidance: use PCI device deployment time, not procedure start time.
 - Denominator exclusions (v6, summarized): allergic reaction to a thrombolytic during the encounter; bleeding or bleeding diathesis, known malignant intracranial neoplasm, known structural cerebral vascular lesion, advanced dementia, pregnancy, or allergy to thrombolytics present at the start; active oral anticoagulant therapy at the start or within 90 days; within 24 hours before or during the encounter, aortic dissection or ruptured aneurysm, angina with documented spasm, heart or ventricular aneurysm, Takotsubo syndrome, severe neurologic impairment, mechanical circulatory assist placement or removal, intubation, or cardiopulmonary arrest or traumatic or prolonged CPR over 10 minutes; major surgery within 21 days; ischemic stroke, significant facial or closed head trauma, or peptic ulcer within 90 days; intracranial or intraspinal surgery within 90 days; expired in the ED; left against medical advice; hospice in the prior 6 months or active at the start.
 - Denominator exceptions (v6): fibrinolytic therapy at another facility within 24 hours; a documented reason for not giving fibrinolytic therapy within 30 minutes; a documented reason for not performing PCI within 90 minutes.
 - Reporting: required in Hospital OQR for CY 2026 (three self-selected quarters, deadline May 17, 2027); v7 applies to CY 2027. OP-2 and OP-3 (chart-abstracted fibrinolysis within 30 minutes; median time to transfer) were removed after Q1 2023 encounters.
+- Program scope: Hospital OQR applies to hospitals defined in section 1886(d)(1)(B) and paid under the OPPS (42 CFR 419.46(a)-(b)). A hospital not paid under the OPPS, such as a critical access hospital, is outside that rule; critical access hospitals reported the former OP-2 and OP-3 through the voluntary MBQIP program, and whether MBQIP now includes the STEMI eCQM is `[VERIFY]`. Ask which program the facility reports under before scoring.
 - How the measure treats a patient who bypasses the receiving hospital's ED straight to the cath lab is not stated on the measure page `[VERIFY]`.
 
 ## 5. 2017 AHA/ACC STEMI/NSTEMI performance measures used here
