@@ -2,18 +2,19 @@
 name: bad-faith-demand
 language: en
 description: >
-  Drafts time-limited policy-limits demands to liability insurers, with a readiness memo,
-  that give the insurer a genuine, statute-compliant opportunity to settle within limits.
-  Classifies the claim as third-party failure-to-settle or first-party, tests the demand
-  against the governing statute (Georgia O.C.G.A. 9-11-67.1 Holt demands, California CCP
-  999-999.5, Missouri RSMo 537.058), Florida 624.155 civil remedy notice and safe harbor,
-  and Texas Stowers elements, computes the deadline from the correct trigger, builds
-  insured-and-limits, lien (Medicare, Medicaid, ERISA, hospital) and multiple-claimant
-  matrices, and drafts measurable acceptance, release and payment terms. Use for
-  time-limited demand, policy limits demand, Stowers demand, Holt demand, excess exposure
-  letter, failure to settle, civil remedy notice, UM/UIM notice, or demand compliance
-  review. Declines bad faith setup letters meant to be rejected. Routes general pre-suit demands to demand-letter and coverage disputes
-  to coverage-opinion.
+  Drafts time-limited policy-limits demands, with a readiness memo, that give the insurer a
+  genuine, statute-compliant opportunity to settle within limits.
+  Handles any offer to a liability insurer to settle within limits, and any pre-answer
+  attorney offer on a Georgia motor-vehicle injury claim under O.C.G.A. 9-11-67.1(b).
+  Separates third-party failure-to-settle from first-party claims, tests demands against
+  Georgia 9-11-67.1 (Holt), California CCP 999-999.5, Missouri RSMo 537.058, Florida
+  624.155 and Texas Stowers, computes the deadline from the correct trigger, builds limits,
+  lien and multiple-claimant matrices, and drafts measurable acceptance, release and payment
+  terms. Use for time-limited, policy limits, Stowers or Holt demands, failure to settle,
+  civil remedy notice, UM/UIM notice, or demand compliance review.
+  Declines bad faith setup letters. Routes general pre-suit demands to demand-letter,
+  liability coverage questions to coverage-opinion, and first-party coverage questions to
+  legal-research.
 tags:
   - litigation
   - letter
@@ -23,7 +24,7 @@ tags:
 
 # Time-Limited Policy-Limits Demand (Insurer Bad Faith)
 
-Prepares a time-limited settlement demand to a liability insurer, together with a readiness memo that tests it against the governing statute or common-law standard, computes the deadline, and reconciles limits, insureds, liens and competing claimants. It also reviews an existing demand for compliance and redirects first-party matters to the right notice. Its purpose is to give the insurer a genuine, statute-compliant opportunity to settle within limits and protect its insured; it declines requests for a demand designed to be rejected. The deliverable is a readiness determination, ranked blocking issues, a reconciliation table, the draft letter, an exhibit and delivery log, and hand-offs. Everything it produces is a draft for review and signature by a licensed attorney.
+Prepares a time-limited settlement demand to a liability insurer, together with a readiness memo that tests it against the governing statute or common-law standard, computes the deadline, and reconciles limits, insureds, liens and competing claimants. Its scope covers any offer to a liability insurer to settle within limits, and any pre-answer attorney offer on a Georgia motor-vehicle injury claim under O.C.G.A. 9-11-67.1(b). It also reviews an existing demand for compliance and redirects first-party matters to the right notice. Its purpose is to give the insurer a genuine, statute-compliant opportunity to settle within limits and protect its insured; it declines requests for a demand designed to be rejected. The deliverable is a readiness determination, ranked blocking issues, a reconciliation table, the draft letter, an exhibit and delivery log, and hand-offs. Everything it produces is a draft for review and signature by a licensed attorney.
 
 ## Why This Skill Exists
 
@@ -89,7 +90,7 @@ Collect, from documents where possible:
 
 ## Step 1: Classify the Claim and Select the Governing Law
 
-Read `references/governing-law-and-statutes.md`, sections 1 to 3. Record the classification and the reasons. For a first-party claim, switch to the statutory pre-suit notice for that state (for example, Washington RCW 48.30.015, 20 days to the insurer and the Insurance Commissioner) and a benefits demand; hand coverage disputes to coverage-opinion. For a third-party claim, identify the common-law standard and whether a demand statute applies.
+Read `references/governing-law-and-statutes.md`, sections 1 to 3. Record the classification and the reasons. For a first-party claim, switch to the statutory pre-suit notice for that state (for example, Washington RCW 48.30.015, 20 days to the insurer and the Insurance Commissioner) and a benefits demand; hand first-party coverage questions (property, UM/UIM) to legal-research, because no dedicated skill exists. Hand liability coverage questions (duty to defend or indemnify) to coverage-opinion. For a third-party claim, identify the common-law standard and whether a demand statute applies.
 
 ## Step 2: Build the Insured-and-Limits Matrix
 
@@ -174,7 +175,8 @@ Before responding, confirm each statement. If one fails, fix the draft.
 ## Related Skills
 
 - demand-letter: general pre-suit demands, uninsured defendants and non-insurance claims, where no policy-limits record is being built.
-- coverage-opinion: the insurer has raised a coverage defense or reservation of rights, or the matter is a first-party coverage dispute.
+- coverage-opinion: liability coverage questions, such as a coverage defense or reservation of rights on the insured's duty to defend or indemnify.
+- legal-research: first-party coverage questions (property, UM/UIM), for which no dedicated skill exists.
 - insurance-policy-summary: summarizing the policy, endorsements and limits before the demand is drafted.
 - lien-resolution-summary: resolving Medicare, Medicaid, ERISA and provider liens after acceptance.
 - release-of-claims: drafting the release once the insurer accepts.

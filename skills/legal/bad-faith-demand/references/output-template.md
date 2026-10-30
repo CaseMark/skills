@@ -107,7 +107,8 @@ The letter states facts and terms. It does not threaten, does not predict a bad 
 | To | When | What to pass |
 |---|---|---|
 | demand-letter | No insurer policy-limits demand is appropriate (uninsured defendant, non-insurance claim, general pre-suit demand) | Parties, claims, damages, exhibits, deadline rationale |
-| coverage-opinion | A coverage defense, reservation of rights, or first-party coverage dispute drives the outcome | Policy, endorsements, the insurer's stated position, the claim facts |
+| coverage-opinion | A liability coverage question (duty to defend or indemnify, coverage defense, reservation of rights) drives the outcome | Policy, endorsements, the insurer's stated position, the claim facts |
+| legal-research | A first-party coverage question (property, UM/UIM) drives the outcome; no dedicated skill exists | Policy, endorsements, the insurer's stated position, the claim facts, the governing state |
 | lien-resolution-summary | After acceptance, or when lien amounts are unknown | Lien matrix, payer contacts, dates of conditional payment letters |
 | release-of-claims | The insurer accepts and asks for the release document | Release scope, insureds, reserved claims, lien clause |
 | settlement-distribution | Funds are received | Gross amount, liens, fees and costs per engagement |

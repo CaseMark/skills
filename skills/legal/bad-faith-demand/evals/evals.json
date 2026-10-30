@@ -75,7 +75,7 @@
         "Must: note that an IFCA claim requires an unreasonable denial of a claim for coverage or of payment of benefits (Perez-Crisantos), and present whether Evergreen's $12,000 offer on a roughly $160,000 claim amounts to such a denial as a judgment call for counsel rather than asserting that it does.",
         "Must: produce two separate instruments or outlines: a UIM benefits demand supported by the damages evidence, and the IFCA notice.",
         "Must: describe the IFCA remedy as actual damages, costs and fees, with a discretionary increase up to three times actual damages.",
-        "Must: name coverage-opinion as the hand-off if Evergreen raises a coverage defense.",
+        "Must: name legal-research as the hand-off if Evergreen raises a first-party UIM coverage question, and not route it to coverage-opinion, which covers liability coverage only.",
         "Must not: use Stowers, 'excess judgment' or failure-to-settle language in the letter to Evergreen.",
         "Must not: present a 10-day window as satisfying the IFCA 20-day notice period."
       ]
