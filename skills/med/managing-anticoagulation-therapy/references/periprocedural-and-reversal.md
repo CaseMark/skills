@@ -83,7 +83,7 @@ Joint Commission NPG.14.05.01 (medication information) applies to the list itsel
 | Anticoagulant | Agent and label status | Notes |
 |---|---|---|
 | Dabigatran | Idarucizumab (Praxbind): indicated in patients treated with Pradaxa for emergency surgery or urgent procedures, or life-threatening or uncontrolled bleeding; 5 g as two 2.5 g vials | Labeled for dabigatran only. AF guideline: Class 1; activated PCC reasonable if unavailable (2a) |
-| Warfarin (VKA) | 4F-PCC (Kcentra): indicated for urgent reversal of VKA-induced factor deficiency with acute major bleeding or urgent surgery; dose by pre-treatment INR and weight (25, 35 or 50 units/kg for INR 2 to < 4, 4 to 6, > 6; capped at 100 kg); give vitamin K concurrently; repeat dosing not recommended | AF guideline Class 1 (A): 4F-PCC plus IV vitamin K over plasma |
+| Warfarin (VKA) | 4F-PCC (Kcentra): indicated for urgent reversal of VKA-induced factor deficiency with acute major bleeding or urgent surgery; dose by pre-treatment INR and weight (25, 35 or 50 units/kg for INR 2 to < 4, 4 to 6, > 6; capped at 100 kg); give vitamin K concurrently; repeat dosing not recommended; contraindicated with known HIT (contains heparin) | AF guideline Class 1 (A): 4F-PCC plus IV vitamin K over plasma |
 | Apixaban, rivaroxaban, edoxaban | Andexanet alfa (Andexxa): AstraZeneca ended U.S. commercial sales by December 22, 2025, and requested withdrawal of the BLA; FDA judged risks to outweigh benefits (ANNEXA-I thrombosis 14.6% vs 6.9%). FDA CBER lists it discontinued January 2026 | 4F-PCC for factor Xa inhibitors is outside the Kcentra label; the AF guideline gives it Class 1 (C-LD) for life-threatening bleeding. VA PBM (January 2026): no FDA-approved product is indicated for factor Xa inhibitor reversal |
 | Any DOAC | Protamine and vitamin K are not expected to affect apixaban (Eliquis label 5.2); hemodialysis does not substantially affect apixaban exposure (same section); VA PBM lists hemodialysis among supportive measures for dabigatran | Activated charcoal for recent ingestion per labels |
 
@@ -93,7 +93,7 @@ Reversal review checklist: drug class matched to agent; time of last dose; renal
 
 ## 9. Accreditation requirement: Joint Commission NPG.14.04.01
 
-From January 1, 2026, the Hospital and Critical Access Hospital programs replaced National Patient Safety Goals with National Performance Goals. NPSG.03.05.01 became NPG.14.04.01: "The hospital reduces the likelihood of patient harm associated with the use of anticoagulant therapy." Its elements of performance in the January 2026 hospital chapter:
+From January 1, 2026, the Hospital and Critical Access Hospital programs replaced National Patient Safety Goals with National Performance Goals. NPSG.03.05.01 became NPG.14.04.01: "The hospital reduces the likelihood of patient harm associated with the use of anticoagulant therapy." Its elements of performance, identical in substance in the January 2026 Hospital and Critical Access Hospital chapters (both read; the CAH text says "critical access hospital"):
 
 - EP 1: approved protocols and evidence-based guidelines for reversal and management of bleeding events for each anticoagulant.
 - EP 2: approved protocols and guidelines for perioperative management of all patients on oral anticoagulants (bridging, stop timing, restart timing and dosing).

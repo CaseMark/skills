@@ -2,17 +2,17 @@
 name: managing-anticoagulation-therapy
 language: en
 description: >
-  Reviews anticoagulation therapy for one patient and drafts findings for the prescriber and
-  pharmacist; never writes orders. Checks DOAC eligibility (mechanical valve, moderate to severe
+  Reviews one patient's anticoagulation and drafts findings for the prescriber and pharmacist;
+  never writes orders. Checks DOAC eligibility (mechanical valve, moderate to severe
   mitral stenosis, triple-positive APS) and dose against FDA labels for apixaban, rivaroxaban,
   dabigatran and edoxaban: apixaban two-of-three reduction (age, weight, creatinine),
-  Cockcroft-Gault CrCl on the right weight, not eGFR, and P-gp and CYP3A4 interactions. Reads
-  warfarin INR trends against the dose log. Builds periprocedural interruption and resumption
-  timelines per CHEST 2022, PAUSE and BRIDGE, each element on its own clock, and flags bridging
-  without a documented high-risk reason. Checks transitions for duplicate anticoagulants and
+  Cockcroft-Gault CrCl on the right weight, not eGFR, P-gp and CYP3A4 interactions, enoxaparin
+  at CrCl below 30, feeding-tube use. Reads warfarin INR trends against the dose log. Builds periprocedural interruption and resumption
+  timelines per CHEST 2022, PAUSE and BRIDGE, each element on its own clock; flags bridging
+  without a high-risk reason. Checks transitions for duplicate anticoagulants and
   switch rules; reviews reversal (idarucizumab, 4F-PCC, andexanet alfa's end of U.S. sales) and
-  Joint Commission NPG.14.04.01. Use for DOAC dosing review, warfarin monitoring, periop
-  anticoagulation, bridging, anticoagulant reversal or anticoagulation protocol review.
+  Joint Commission NPG.14.04.01. Use for DOAC or enoxaparin dosing review, warfarin monitoring,
+  periop anticoagulation, bridging, reversal or anticoagulation protocol review.
 tags:
   - management
   - pharmacy
@@ -43,7 +43,9 @@ Anticoagulant errors run in both directions: too much drug causes bleeding, too 
 | Apixaban order with age, weight and SCr | NVAF dose check | 2.5 mg twice daily chosen on one criterion (age 80 or older alone) when the label needs two of three; a CrCl substituted for the SCr criterion; the VTE regimen judged by the AF rule |
 | Lab report, EHR CrCl calculator, weight record | Renal band for rivaroxaban, dabigatran, edoxaban | eGFR in mL/min/1.73 m2 used as CrCl; ideal or adjusted weight used where the rivaroxaban label says actual weight; a stale or unstable SCr; edoxaban given with CrCl above 95 in NVAF |
 | Echo report, problem list, valve history | DOAC eligibility | "Nonvalvular" taken from the problem list while the echo shows moderate mitral stenosis; a mechanical valve on dabigatran (contraindicated) or another DOAC; TAVR on rivaroxaban |
+| Enoxaparin or heparin order with CrCl, weight and platelet history | Therapeutic LMWH or UFH check | Enoxaparin 1 mg/kg every 12 hours continued at CrCl below 30 where the Lovenox label regimen is 1 mg/kg once daily; prophylactic 40 mg kept at CrCl below 30; weight extremes (low weight, BMI over 30) not flagged; heparin product or 4F-PCC with a HIT history; a facility nomogram cited as label content |
 | Medication list with start dates | Interaction screen | A combined P-gp and strong CYP3A4 inhibitor or inducer missed; the apixaban 50 percent rule applied to a patient already on 2.5 mg; the edoxaban NVAF "no reduction for P-gp inhibitors" rule ignored; clarithromycin treated like ketoconazole |
+| Administration record, feeding-tube orders, surgical history, post-PCI discharge list | Route, absorption and antiplatelet co-therapy | Dabigatran capsules opened for a tube; rivaroxaban given into a tube ending past the stomach; a DOAC after bariatric surgery with no note of the absorption concern (AF guideline 10.4); aspirin, a P2Y12 inhibitor and an anticoagulant with no aspirin stop date after PCI (AF guideline 6.8.1) |
 | INR log and warfarin dose calendar | Warfarin monitoring | INR read alone, without the doses taken in the prior days, missed doses, or an antibiotic started 3 days earlier; a dose changed in response to an INR that still reflects the previous change |
 | Pre-procedure plan, surgical schedule | Interruption days | Days off counted from the procedure time instead of full days without a dose; dabigatran with CrCl below 50 held as if CrCl were normal; the label's 48-hour apixaban minimum for moderate bleed risk not reconciled with CHEST's 1 day off |
 | Bridging order set | Whether bridging applies | LMWH bridging during DOAC interruption, or for AF on warfarin without recent stroke or TIA, a mechanical valve or another documented high-risk feature (BRIDGE, PAUSE, CHEST 2022) |
@@ -70,7 +72,7 @@ Collect before Step 1:
 
 1. Question and setting: dose review, warfarin monitoring, procedure planning, transition, reversal event review, or protocol review.
 2. Indication(s) for anticoagulation with source and start date; for VTE, the date of the event and whether provoked.
-3. Every anticoagulant exposure: drug, dose, times, last dose taken, and source (MAR, home list, prescription).
+3. Every anticoagulant exposure, including heparin and enoxaparin: drug, dose, route (oral, tube, subcutaneous, IV), times, last dose taken, and source (MAR, home list, prescription); antiplatelets with start dates; HIT history; bariatric surgery history.
 4. Age, sex, weight with date and source, height if a facility policy uses ideal or adjusted weight, SCr with collection date.
 5. Valve status from an echo report (mechanical valve, mitral stenosis grade, TAVR, bioprosthesis) and APS status.
 6. Full medication list with start dates, for the interaction screen.
@@ -92,10 +94,12 @@ Hard stops:
 - A periprocedural timeline without the procedure date and the proceduralist's bleed-risk category: list what is missing and give no timeline.
 - Active bleeding now: state that care follows the hospital reversal protocol and the treating team, record drug class and last-dose time if supplied, and give no agent or dose.
 
-Decline that part, then continue the review:
+Decline that part, then continue the review. Record each declined part under the "Declined part" block of `references/output-template.md` with exactly one of its labels:
 
-- A request to write an order, order sentence, order-set entry or patient dose: offer the label and guideline comparison instead.
-- A request to record a bleeding-risk or hemostasis assessment that is not in the record, or to date one earlier: route it to the responsible clinician.
+- A request to write an order, prescription or patient dose: `Declined part: order or prescription`; offer the label and guideline comparison instead.
+- A request for a dosing, holding or restart plan addressed to the patient: `Declined part: patient instructions`.
+- A request for an order sentence, order-set entry or protocol wording: `Declined part: order-set or protocol text`; give findings for P&T.
+- A request to record a bleeding-risk or hemostasis assessment that is not in the record, or to date one earlier: `Declined part: undocumented assessment`; route it to the responsible clinician.
 
 ## Step 1: Frame the Question and Build the Ledger
 
@@ -111,7 +115,7 @@ Read `references/label-dosing-rules.md`, Section 2. Fill the worksheet in `refer
 
 ## Step 4: Check the Dose and Interactions
 
-Read `references/label-dosing-rules.md`, Sections 3 to 8. List each adjustment criterion with value, threshold and met or not met, then compare the ordered dose with the label content for that indication. Screen the medication list against Section 8. Report the result in the vocabulary of Ground Rule 5. Interactions outside the label pairs go to assessing-drug-interactions.
+Read `references/label-dosing-rules.md`, Sections 3 to 8, and Sections 11 and 12 when heparin or enoxaparin, a feeding tube, a weight extreme or bariatric surgery is involved. List each adjustment criterion with value, threshold and met or not met, then compare the ordered dose with the label content for that indication. Screen the medication list against Section 8, and check antiplatelet co-therapy after PCI against Section 10. Report the result in the vocabulary of Ground Rule 5. Interactions outside the label pairs go to assessing-drug-interactions.
 
 ## Step 5: Review Warfarin INR Against the Dose Log
 
@@ -149,13 +153,13 @@ Complete the review summary, reconciliation table, gaps and questions, hand-offs
 4. Eligibility rests on echo and lab sources, with label sections cited for valve, stenosis, APS and edoxaban CrCl.
 5. CrCl uses Cockcroft-Gault with the label's weight, inputs shown; no eGFR fills a CrCl band; alternative weights appear only as a named policy election.
 6. Apixaban criteria are counted one by one, and the two-of-three rule is not confused with edoxaban's any-one VTE rule.
-7. Interactions are screened against the label pairs with the correct rule for each drug.
+7. Interactions, route of administration, enoxaparin renal regimens and post-PCI antiplatelet co-therapy are checked against the cited label or guideline content.
 8. Warfarin INR results are read with the dose log and interacting drugs, and no new dose is proposed.
 9. Every periprocedural element has its own trigger, a calendar date and weekday, hours, and the source interval; dabigatran days reflect CrCl.
 10. Bridging is flagged unless a documented high-risk feature supports it; DOAC bridging is a discrepancy without a recorded reason.
 11. Resumption is tied to the end of the procedure and documented hemostasis.
 12. Reversal agents match drug class; andexanet's end of U.S. sales and the Eliquis label statement are named when relevant.
-13. No order, order sentence or patient dose appears anywhere; every `[VERIFY]` relied on is in the open items.
+13. No order, order sentence or patient dose appears anywhere; each declined request carries its fixed "Declined part" label; every `[VERIFY]` relied on is in the open items.
 
 ## Guidelines
 
@@ -195,7 +199,7 @@ Complete the review summary, reconciliation table, gaps and questions, hand-offs
 
 ## Reference Files
 
-- `references/label-dosing-rules.md`: eligibility screens, renal input by label, DOAC and warfarin label content, interactions, switching rules, guideline overlays.
+- `references/label-dosing-rules.md`: eligibility screens, renal input by label, DOAC, warfarin, enoxaparin and heparin label content, interactions, switching rules, guideline overlays, route and weight extremes, quality measures.
 - `references/periprocedural-and-reversal.md`: timeline inputs, clocks with one trigger each, days-off counting, source conflicts, bridging evidence, restart documentation, transitions, reversal agents, NPG.14.04.01.
-- `references/output-template.md`: deliverable sections, ledger, CrCl worksheet, timeline, reconciliation table, gaps, hand-offs.
+- `references/output-template.md`: deliverable sections, declined-part labels, ledger, CrCl worksheet, timeline, reconciliation table, gaps, hand-offs.
 - `references/primary-sources.md`: each authority checked with URL, method and date, confirmed statements, corrections, and the `[VERIFY]` list.

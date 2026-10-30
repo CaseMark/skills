@@ -14,6 +14,9 @@ Every dose, threshold and interval below is FDA label or guideline content, quot
 8. Interacting drugs named in the labels
 9. Switching between anticoagulants (label conversion rules)
 10. Guideline overlays on dose and agent choice
+11. Enoxaparin and unfractionated heparin (therapeutic use)
+12. Administration route, body-weight extremes and bariatric surgery
+13. Quality measures (not guideline recommendations)
 
 ## 1. Eligibility screens before any dose check
 
@@ -37,6 +40,7 @@ Every dose, threshold and interval below is FDA label or guideline content, quot
 | Apixaban, NVAF | Serum creatinine (mg/dL) as one of three criteria; not CrCl | Dose-reduction rule names SCr, age and weight (2.1, 8.6) |
 | Rivaroxaban, all adult indications | CrCl bands | "Calculate CrCl based on actual weight" (Table 1 footnote) |
 | Dabigatran, all adult indications | CrCl bands | Equation not named in the sections read `[VERIFY]` |
+| Enoxaparin (Lovenox), all indications | CrCl below 30 mL/min triggers the Table 1 regimens | Equation and weight basis not named in the sections read `[VERIFY]` |
 | Edoxaban, NVAF and VTE | CrCl bands | "Cockcroft-Gault CrCL = (140-age) x (weight in kg) x (0.85 if female) / (72 x creatinine in mg/dL)" (2.1); weight type not specified `[VERIFY]` |
 
 Rules for the worksheet:
@@ -138,5 +142,46 @@ An overlap outside these rules, or a prophylactic heparin order running alongsid
 ## 10. Guideline overlays on dose and agent choice
 
 - 2023 ACC/AHA/ACCP/HRS AF guideline: anticoagulation recommended at CHA2DS2-VASc 2 or more in men and 3 or more in women (Class 1); reasonable at 1 in men and 2 in women (2a); DOACs over warfarin unless moderate to severe rheumatic MS or a mechanical valve (Class 1); CKD stage 5 or dialysis: warfarin or an evidence-based apixaban dose might be reasonable (2b). Table 19 lists doses by CrCl.
-- 2026 AHA/ACC AF performance and quality measures (built on the 2023 guideline): QM-4 counts DOAC use with a mechanical valve or mitral stenosis; QM-5 counts edoxaban or dabigatran in CKD stage 5 or dialysis.
+- 2023 AF guideline 6.8.1 (AF complicating ACS or PCI): DOACs preferred over VKAs in combination with antiplatelet therapy (Class 1, A); in most patients on oral anticoagulation who undergo PCI, early discontinuation of aspirin (1 to 4 weeks) with continuation of an oral anticoagulant plus a P2Y12 inhibitor is preferred over triple therapy (Class 1, A). A list carrying an anticoagulant, a P2Y12 inhibitor and aspirin with no aspirin stop date is a question for the prescriber; stent-specific antiplatelet choices belong to the treating cardiologist.
 - CHEST 2021 VTE (second update): DOAC over VKA for the 3-month treatment phase (strong); 3-month treatment phase then assess for extended therapy (strong); extended phase: reduced-dose apixaban 2.5 mg twice daily or rivaroxaban 10 mg daily over full dose (weak).
+
+## 11. Enoxaparin and unfractionated heparin (therapeutic use)
+
+Lovenox label revised 5/2025 (DailyMed, updated May 28, 2026):
+
+| Indication | Label regimen, CrCl 30 mL/min or more | Label regimen, CrCl below 30 mL/min (Table 1) |
+|---|---|---|
+| Inpatient DVT with or without PE | 1 mg/kg every 12 hours or 1.5 mg/kg once daily | 1 mg/kg once daily |
+| Outpatient DVT without PE | 1 mg/kg every 12 hours | 1 mg/kg once daily |
+| Unstable angina or non-Q-wave MI (with aspirin) | 1 mg/kg every 12 hours | 1 mg/kg once daily |
+| Prophylaxis: abdominal surgery, medical patients | 40 mg once daily | 30 mg once daily |
+| Prophylaxis: hip or knee replacement | 30 mg every 12 hours (or 40 mg once daily for hip) | 30 mg once daily |
+
+- No adjustment is recommended for CrCl 30 to < 50 or 50 to 80 mL/min, but all renal impairment needs observation for bleeding (8.7).
+- With warfarin for DVT: start warfarin usually within 72 hours; continue enoxaparin at least 5 days and until INR 2 to 3 (2.2).
+- Contraindicated with HIT within the past 100 days or with circulating antibodies (section 4).
+- Low weight (women < 45 kg, men < 57 kg): higher exposure with non-weight-adjusted prophylactic doses (8.8). Obesity (BMI > 30): prophylactic dosing not fully determined, no consensus for adjustment (8.9). The label does not state which weight the mg/kg regimens use or set a cap; caps and anti-Xa monitoring are facility policy elections `[VERIFY]`.
+
+Heparin sodium injection label (Pfizer/Hospira, NDA 018916, revised 11/2025):
+
+- Label regimen table for therapeutic effect, based on a 68 kg (150 lb) patient: continuous infusion after a 5,000-unit IV dose, 20,000 to 40,000 units per 24 hours, adjusted by coagulation tests (2.3).
+- Dosage is adequate when the aPTT is 1.5 to 2 times normal; check about every 4 hours early in a continuous infusion (2.2). Platelet counts throughout therapy.
+- Weight-based nomograms and anti-Xa targets are facility protocols (policy elections), not label content.
+- Contraindicated with a history of HIT (section 4). Converting to warfarin: continue full heparin until the INR is stable in range (2.6).
+
+A therapeutic heparin or enoxaparin order beside a DOAC or therapeutic warfarin outside a label conversion rule is a duplication finding (Section 9).
+
+## 12. Administration route, body-weight extremes and bariatric surgery
+
+| Situation | Label or guideline content | Source |
+|---|---|---|
+| Crushed tablets or feeding tube | Apixaban 5 and 2.5 mg may be crushed and given through a 12 French nasogastric tube; rivaroxaban may be crushed and given via nasogastric or gastric tube after gastric placement is confirmed, never distal to the stomach, followed by enteral feeding for 15 or 20 mg; edoxaban may be crushed for a gastric tube | Eliquis 2.7; Xarelto 2.6; Savaysa 2.6 |
+| Dabigatran capsules | Swallow whole; breaking, chewing or emptying the capsule increases exposure | Pradaxa 2.5 |
+| Low body weight | Apixaban weight criterion (60 kg or less, one of three); edoxaban VTE reduction at 60 kg or less; enoxaparin low-weight exposure | Sections 3, 6 and 11 |
+| Class III obesity (BMI 40 or more) | DOACs reasonable over warfarin in AF (2a, B-NR) | AF guideline 10.4 |
+| After bariatric surgery | Warfarin may be reasonable over DOACs because of absorption concerns (2b, C-LD); DOAC levels may be used to assess absorption | AF guideline 10.4 and DOAC monitoring text |
+
+## 13. Quality measures (not guideline recommendations)
+
+The 2026 AHA/ACC AF clinical performance and quality measures (JACC, Aug. 17, 2026) are built on the 2023 guideline but are measures, not recommendations. QM-4 counts DOAC use with a mechanical valve or mitral stenosis; QM-5 counts edoxaban or dabigatran in CKD stage 5 (CrCl < 15) or dialysis, with a documented medical reason as a denominator exception. Population audits against these measures go to managing-medication-use-evaluations.
+

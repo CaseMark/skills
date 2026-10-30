@@ -5,19 +5,20 @@ Produce the header and the sections below in order. Put detail in tables. Every 
 ## Contents
 
 1. Header
-2. Section 1. Review summary
-3. Section 2. Source register and anticoagulant ledger
-4. Section 3. Eligibility and dose check
-5. Section 4. Renal function worksheet
-6. Section 5. Interaction screen
-7. Section 6. Warfarin INR and dose review (when warfarin is involved)
-8. Section 7. Periprocedural timeline (when a procedure is planned)
-9. Section 8. Transition and duplication check
-10. Section 9. Reversal readiness or event review
-11. Section 10. Reconciliation table
-12. Section 11. Gaps and questions for the prescriber
-13. Section 12. Hand-offs
-14. Section 13. Open items and `[VERIFY]` list
+2. Declined part (only when part of the request was declined)
+3. Section 1. Review summary
+4. Section 2. Source register and anticoagulant ledger
+5. Section 3. Eligibility and dose check
+6. Section 4. Renal function worksheet
+7. Section 5. Interaction screen
+8. Section 6. Warfarin INR and dose review (when warfarin is involved)
+9. Section 7. Periprocedural timeline (when a procedure is planned)
+10. Section 8. Transition and duplication check
+11. Section 9. Reversal readiness or event review
+12. Section 10. Reconciliation table
+13. Section 11. Gaps and questions for the prescriber
+14. Section 12. Hand-offs
+15. Section 13. Open items and `[VERIFY]` list
 
 ## Header
 
@@ -26,6 +27,22 @@ Produce the header and the sections below in order. Put detail in tables. Every 
 - Indication(s) for anticoagulation with source.
 - Sources applied, each with version: for example "Eliquis label rev. 06/2026", "CHEST perioperative guideline 2022", "2023 ACC/AHA/ACCP/HRS AF guideline", "facility anticoagulation protocol dated <date>".
 - Preparer line: "Draft for clinician and pharmacist review. Not an order."
+
+## Declined part (only when part of the request was declined)
+
+Place this block directly under the header whenever Checkpoint A's "decline that part" rule applied; the rest of the review follows as usual. Use one row per declined request and exactly one of these labels:
+
+| Label | Use when the request was for |
+|---|---|
+| `Declined part: order or prescription` | An order, discharge prescription or medication change written for this patient |
+| `Declined part: patient instructions` | A dosing, holding or restart plan addressed to the patient |
+| `Declined part: order-set or protocol text` | An order sentence, order-set entry or protocol wording for adoption |
+| `Declined part: undocumented assessment` | Recording or back-dating a bleeding-risk or hemostasis assessment not in the record |
+
+| Label | What was asked | Why declined (Ground Rule 1 or 2) | Provided instead | Routed to |
+|---|---|---|---|---|
+
+"Provided instead" names the section of this review that gives the label or guideline comparison. "Routed to" names a role (prescriber, proceduralist, P&T committee), not a skill.
 
 ## 1. Review summary
 
@@ -60,6 +77,10 @@ Anticoagulant ledger, one row per drug exposure, including parenteral and prophy
 | Mechanical valve, moderate or greater mitral stenosis, TAVR, bioprosthetic valve | | | |
 | Triple-positive APS | | | |
 | Edoxaban CrCl > 95 (NVAF) | | | |
+| HIT history (heparin, enoxaparin, 4F-PCC) | | | |
+| Enoxaparin CrCl < 30 regimen, weight extremes | | | |
+| Administration route (tube, crushing, post-bariatric) | | | |
+| Concurrent antiplatelets after PCI (aspirin duration) | | | |
 | Dose-adjustment criteria, listed one by one | | | |
 | Interaction-driven adjustment | | | |
 
