@@ -56,7 +56,9 @@ Playbook clarifications to apply in the same commit:
 | Reviewer agent | 1 subagent per batch, fresh context | Adversarial review of the batch's 5 bundles: fact-check citations and thresholds against primary sources, test trap maps against evals, check routing between sibling skills. Returns findings per skill. | See the author's reasoning. Edit files. |
 | Fix agent | Author agent resumed via SendMessage | Applies reviewer findings. | Expand scope. |
 
-Authors write only inside `skills/<domain>/<slug>/`, so five can run in one working tree without conflicts. No worktrees needed. Only the orchestrator runs git.
+Each vertical has its own checkout: legal in `/home/user/skills` (branch `claude/keen-edison-d1mcoa`), med in `/home/user/wt-med`, finance in `/home/user/wt-finance` (git worktrees of the vertical branches). Authors write only inside `skills/<domain>/<slug>/` of their vertical's checkout, so five can run in one checkout without conflicts and nothing is copied between trees. Only the orchestrator runs git.
+
+Network limits (found in the pilot): direct fetches of most primary-source hosts are blocked in this environment, including law.cornell.edu, uscode.house.gov, ecfr.gov, leginfo, justia, qualitynet.cms.gov, cms.gov, ecqi.healthit.gov and pmc.ncbi.nlm.nih.gov. Authors verify through search excerpts restricted to the issuing body's site and label each source "excerpt-confirmed" or `[VERIFY]`. Allowing those hosts in the environment's network settings would let authors read full texts.
 
 ### 3.2 Per-batch pipeline
 
@@ -171,19 +173,19 @@ Decided 2026-10-30: **one PR per vertical.**
 `python3 scripts/run_top15_upgrade.py prompt --slug <slug>` prints this block with the placeholders filled.
 
 ```
-You are upgrading one skill in the CaseMark/skills repo at /home/user/skills.
+You are upgrading one skill in the CaseMark/skills repo. Work in the checkout at {repo} (the {domain} branch). Planning documents are read from /home/user/skills.
 
 Target: skills/{domain}/{slug}   (batch {n}: {batch_name})
 Current state: body {lines} lines, {refs} references, {evals} evals, trap map: {trap}
 {exception}
 
 Read first, in this order:
-1. UPGRADE-PLAYBOOK.md (repo root): the binding spec.
-2. UPGRADE-EXECUTION-PLAN.md sections 4 and 5: vertical rules and definition of done.
-3. skills/legal/form-d-exempt-offering-notice/SKILL.md, its references/, and its evals/evals.json: the model to imitate for structure, trap map, ground rules, and evals.
-4. The current skills/{domain}/{slug}/SKILL.md. Keep whatever in it is accurate and useful.
+1. /home/user/skills/UPGRADE-PLAYBOOK.md: the binding spec.
+2. /home/user/skills/UPGRADE-EXECUTION-PLAN.md sections 4 and 5: vertical rules and definition of done.
+3. /home/user/skills/skills/legal/form-d-exempt-offering-notice/SKILL.md, its references/, and its evals/evals.json: the model to imitate for structure, trap map, ground rules, and evals.
+4. The current {repo}/skills/{domain}/{slug}/SKILL.md. Keep whatever in it is accurate and useful.
 
-Scope: write only inside skills/{domain}/{slug}/. Do not run git. Do not edit any other skill or any script.
+Scope: write only inside {repo}/skills/{domain}/{slug}/. Do not run git. Do not edit any other skill or any script.
 
 Deliverables:
 - SKILL.md. Body (after frontmatter) 140-320 lines, blank lines included.
@@ -217,7 +219,7 @@ Banned text anywhere in the bundle (the harness scans every file):
 
 Related skills to route to: {related}
 
-Before you finish, loop until both are clean:
+Before you finish, run these from {repo} and loop until both are clean:
   python3 scripts/run_top15_upgrade.py verify --slug {slug} --strict
   {enrichment_cmd}
 

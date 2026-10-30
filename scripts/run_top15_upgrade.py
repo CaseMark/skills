@@ -466,8 +466,9 @@ def render_brief(domain, slug):
     exc = EXCEPTIONS.get(f"{domain}/{slug}")
     exception = f"Exception for this skill: {exc['note']}" if exc else "No exceptions apply to this skill."
     related = ", ".join(overlaps_for(domain, slug)) or "none listed; name any sibling you find"
+    repo = {"legal": "/home/user/skills", "med": "/home/user/wt-med", "finance": "/home/user/wt-finance"}[domain]
     subs = {
-        "{domain}": domain, "{slug}": slug, "{n}": str(b_idx),
+        "{repo}": repo, "{domain}": domain, "{slug}": slug, "{n}": str(b_idx),
         "{batch_name}": BATCHES[b_idx]["name"], "{lines}": str(st["lines"]),
         "{refs}": str(st["refs"]), "{evals}": str(st["evals"]),
         "{trap}": "yes" if st["trap"] else "no", "{tag_rule}": tag_rule,
