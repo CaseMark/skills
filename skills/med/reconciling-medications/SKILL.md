@@ -1,7 +1,19 @@
 ---
 name: reconciling-medications
 language: en
-description: Compares medication lists across care settings to identify discrepancies, duplications, and omissions. Use when performing medication reconciliation, identifying med discrepancies, or verifying discharge prescriptions.
+description: >
+  Drafts a medication reconciliation worksheet and a discrepancy list for the prescriber at
+  admission, transfer or discharge. Builds a best possible medication
+  history (BPMH) from two or more sources (interview, pill bottles, pharmacy fill history, clinic
+  notes, outside MAR), then compares it with admission orders, transfer orders or the discharge
+  medication list and discharge summary. Flags single-source home lists,
+  fill data treated as proof of use, omitted OTC drugs, supplements, inhalers, patches,
+  injectables and PRN drugs, dose, route, frequency and formulation mismatches, therapeutic
+  duplication after formulary substitution, held medications not resumed, discharge list versus
+  summary conflicts, look-alike/sound-alike names, and high-alert anticoagulants, insulin, opioids
+  and sulfonylureas. Applies Joint Commission NPG.14.05.01 (hospitals from 2026; NPSG.03.06.01 in
+  other programs), WHO High 5s, AHRQ MATCH and 42 CFR 482.43(b). Draft for pharmacist or
+  prescriber review; writes no orders.
 tags:
   - reconciliation
   - pharmacy
@@ -20,264 +32,167 @@ metadata:
 
 # Reconciling Medications
 
-Performs structured medication reconciliation across care transitions by comparing
-medication lists from multiple settings, flagging discrepancies, and producing an
-actionable reconciliation report suitable for pharmacist or provider review.
-
----
+Builds a medication reconciliation worksheet for one patient at one transition point: a source register, a best possible medication history (BPMH) with each line's verification status, a comparison against the orders or discharge list at that transition, and a prioritized discrepancy list written as neutral questions for the prescriber. Everything it produces is a draft for review by a pharmacist or the responsible prescriber. It never writes, changes or signs an order, and it never decides whether a discrepancy was intended.
 
 ## Why This Skill Exists
 
-Medication errors injure over 1.3 million Americans annually and kill approximately
-7,000. The single highest-risk moment is a **care transition** — admission, transfer,
-or discharge — where medication lists from different sources must be merged into one
-accurate, current regimen.
+Transitions are where medication lists break. WHO High 5s reports that up to 27 percent of hospital prescribing errors trace to incomplete or inaccurate admission medication histories, with omission of a regular medicine the most common error. The Joint Commission puts medication errors in acute hospitals at about 6.5 per 100 admissions. Most reconciliation failures are not judgment errors; they are list errors: a home list copied from one fill feed, a substitute drug left running beside the home drug, a hold that nobody lifted, a discharge list that disagrees with the discharge summary. On January 1, 2026 the Joint Commission moved hospitals and critical access hospitals from National Patient Safety Goals to National Performance Goals, so the hospital requirement is now NPG.14.05.01, while other programs still use NPSG.03.06.01. This skill makes every source visible, labels every difference, and leaves every clinical decision to the prescriber.
 
-The Joint Commission recognizes this risk as **National Patient Safety Goal
-NPSG.03.06.01**, requiring organizations to "maintain and communicate an accurate
-patient medication list." Despite this mandate, studies consistently show that
-**30–70 % of patients** have at least one unintended medication discrepancy at
-admission or discharge.
+## Where Mistakes Hide
 
-This skill exists to systematically surface those discrepancies before they reach
-the patient. It enforces the **Best Possible Medication History (BPMH)**
-methodology: a structured interview and multi-source verification process that
-goes beyond simply copying a list from the chart.
+| Input / Document | What It Is Used For | Where the Error Hides |
+|---|---|---|
+| Pharmacy fill or claims history | A BPMH source | Used as the only source; a recent fill treated as proof the patient takes the drug, including auto-refills after a prescriber stopped it; samples, VA or mail-order fills, cash fills elsewhere and OTC products missing from the feed |
+| Prior discharge list, SNF transfer form, after-visit summary | Starting point for the home list | Copied forward as the BPMH, carrying its errors and missing every change since that date |
+| Patient or caregiver interview | What the patient actually takes | Doses stated from memory ("about 40 units") entered as confirmed; OTC drugs, supplements, inhalers, patches, eye drops, weekly or monthly injectables and PRN drugs never asked about |
+| Admission or transfer orders against the BPMH | The comparison at admission or transfer | Matching by drug name only, so dose, route, frequency or formulation mismatches (ER versus IR, weekly versus daily methotrexate) pass as matches |
+| Therapeutic interchange records | Explaining an inpatient substitute | Substitute continued at discharge while the home drug is also resumed, producing a duplicate (two anticoagulants, two PPIs) |
+| Hold orders and the inpatient MAR | Medications paused for a procedure, AKI or NPO | A hold with a resume condition never lifted, so the drug is missing from the discharge list with no stop documented |
+| Discharge medication list, discharge summary, prescriptions | What the patient and the next provider receive | The list and the summary disagree on a drug or dose; the next provider gets a pointer to the EHR instead of an actual list |
+| EHR reconciliation module entries | Recording what was continued, changed or stopped | A "discontinue, intentional" checkbox with no reason accepted as a documented decision |
+| Drug names across sources | Matching lines across lists | Look-alike/sound-alike pairs (hydrALAZINE and hydrOXYzine, HumaLOG and HumuLIN) read as the same drug or silently corrected |
+| High-alert medications (anticoagulants, insulin, opioids, sulfonylureas, oral methotrexate) | Lines that need individual review | Batch-accepted with routine lines; duplicate opioids, or two acetaminophen-containing products, not caught |
+| The request, the accreditation program and who decides | Scope, the standard cited, and who resolves discrepancies | The skill asked to write orders, finalize the list or pick the drug; NPSG.03.06.01 cited for a 2026 hospital, or NPG.14.05.01 for a nursing care center; a pharmacist's or tool's label treated as the prescriber's decision |
 
-**When to invoke this skill:**
-- Admission med-rec (ED → inpatient)
-- Transfer med-rec (ICU → floor, facility → facility)
-- Discharge med-rec (inpatient → home/SNF/rehab)
-- Post-discharge follow-up or clinic visit reconciliation
-- Retrospective chart review for quality or litigation support
+## Ground Rules
 
----
+1. **Draft only.** Every output is a draft for a pharmacist or the responsible prescriber. Never write, rewrite or sign orders or prescriptions, never state a dose, start, stop, resume or switch for this patient, and never call the list final or reconciled.
+2. **Source-review gate.** Do not call a medication, dose or document missing until every supplied document has been opened and searched, including scanned and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a requirement not confirmed for the organization's program) or a policy election (for example who the facility names as the qualified individual).
+3. **Hierarchy of authority.** For requirements: the CMS Condition of Participation and its interpretive guidance, then the accreditation standard for the organization's program, then facility policy, then WHO High 5s and AHRQ MATCH as guidance. For facts: administration records and dated prescriber notes govern over summaries, transfer forms, order-set defaults and auto-generated lists. Name every conflict in the reconciliation table; never resolve one silently.
+4. **Citation discipline.** Every medication line, dose and reason carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every requirement cited carries its standard and year, or `[VERIFY]` as listed in `references/primary-sources.md`.
+5. **Two sources or a label.** Every BPMH line is Confirmed, Single source or Conflicting sources. A home list built from one source type is labeled single source at the top of the worksheet.
+6. **Dispensed is not taken.** A fill, a bottle or a prior list shows what was dispensed or intended. Only the patient, a caregiver or an administration record shows use, and even then say which.
+7. **No reason, no intent.** A difference is Documented change only when a source states the reason. A checkbox, a default or the bare word "intentional" leaves it an Unexplained discrepancy for the prescriber to classify.
+8. **Questions, not answers.** Each discrepancy list item ends in a question the prescriber can answer either way. Never word it to suggest the answer.
+9. **High-alert lines one at a time.** Reconcile each anticoagulant, insulin, opioid, sulfonylurea, oral methotrexate and other ISMP high-alert line individually and give it its own detail block.
+10. **Use the vocabulary verbatim.** Row status: Match, Documented change, Unexplained discrepancy, Cannot determine. Verification: Confirmed, Single source, Conflicting sources. Priority: Critical, High, Moderate, Low. Definitions are in `references/reconciliation-rules.md`.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
-Before generating any output, **confirm or obtain** every item below. If a source
-is unavailable, document it as `[NOT PROVIDED]` — never silently skip it.
+Collect before Step 1:
 
-### A1. Transition Context
+1. Transition point: admission, internal transfer, external transfer in, or discharge, with date and time.
+2. Setting and accreditation program (hospital, critical access hospital, SNF, home care, clinic), so the right standard is cited.
+3. Every available source for the home regimen: interview notes, bottles or photos of labels, fill or claims history, clinic notes, prior discharge list, transfer form, outside MAR, PDMP report.
+4. The list to compare: admission orders, pre- and post-transfer orders, or, for discharge, the active inpatient orders, the inpatient MAR, the discharge medication list, the discharge summary and any prescriptions.
+5. Hold orders, therapeutic interchange records and procedure notes for the stay.
+6. Allergies with reactions; age; weight, renal and hepatic values, and pregnancy or lactation status where documented.
+7. Who will review the output (pharmacist, prescriber) and the next provider for a discharge.
 
-| Field | Required | Notes |
-|---|---|---|
-| Transition type | Yes | Admission / Transfer / Discharge / Clinic follow-up |
-| Sending facility & unit | Yes | Include care level (ICU, med-surg, SNF, home) |
-| Receiving facility & unit | Yes | Same |
-| Date/time of transition | Yes | Use ISO-8601 when possible |
-| Responsible provider (sending) | Yes | Name, role, contact |
-| Responsible provider (receiving) | Yes | Name, role, contact |
+Defaults when an input is missing:
 
-### A2. Medication Lists Available
+- Setting or program not stated: cite NPG.14.05.01 only if the documents show a hospital; otherwise name both standards and mark the program an unknown fact.
+- Only one source for the home regimen: build the BPMH, label the list single source, and list the sources to obtain.
+- No discharge summary at discharge: compare against the discharge list and orders, and list the summary as still needed.
+- Organ-function values missing: say renal and hepatic dosing was not reviewed; do not assume doses are appropriate.
 
-Collect **all** lists that exist. Each list becomes a column in the reconciliation
-matrix. Common sources:
+Hard stops (do not produce the comparison or the discrepancy list):
 
-1. **Home medication list** — patient-reported or pharmacy-verified
-2. **Admission orders** — first orders entered on arrival
-3. **Inpatient medication administration record (MAR)** — what was actually given
-4. **Discharge prescription list** — what the patient leaves with
-5. **External pharmacy records** — retail/mail-order fill history
-6. **Prior facility transfer summary** — if transferring between facilities
+- No compared list at all (no orders, no transfer orders, no discharge list): produce the BPMH worksheet and the source register only, labeled "comparison not run".
+- The transition point cannot be identified from the request or the documents: ask, because the comparison pair depends on it.
+- A source carries a patient name, date of birth or record number that conflicts with the other sources: exclude it, say why, and continue only if the remaining sources still identify the patient.
 
-> **BPMH note:** The home list should ideally be built from ≥ 2 sources (patient
-> interview + pharmacy records or pill bottles). A single-source list must be
-> flagged as `[UNVERIFIED — SINGLE SOURCE]`.
+Decline that part, then continue with the worksheet:
 
-### A3. Patient Context
+- A request to write orders, prescriptions or a SNF admission order set, or to pick the drug or dose: explain that the output is a worksheet and discrepancy list for the prescriber.
+- A request to mark discrepancies intentional, fill in reasons, or finalize the list without the prescriber's documented decision.
 
-| Field | Required | Notes |
-|---|---|---|
-| Age / DOB | Yes | Pediatric and geriatric patients carry extra risk |
-| Weight (kg) | When available | Required for weight-based dosing checks |
-| Allergies & intolerances | Yes | Drug, food, environmental; include reaction type |
-| Renal function (SCr / CrCl / eGFR) | When available | Flag renally-dosed meds if absent |
-| Hepatic function (Child-Pugh / MELD) | When available | Flag hepatically-dosed meds if absent |
-| Pregnancy / lactation status | When applicable | Category X drugs must be flagged immediately |
-| Primary diagnoses | Yes | Needed to validate indication for each med |
-| Code status / goals of care | When available | Affects appropriateness of certain therapies |
+## Step 1: Frame the Transition and the Standard
 
----
+Read `references/transition-requirements.md`, Sections 1 and 7. Restate in one line the transition, the comparison pair, the setting and the standard that applies (NPG.14.05.01 for a 2026 hospital, NPSG.03.06.01 for programs that still use it). Note any facility policy supplied on who reconciles and when.
 
-## Workflow
+## Step 2: Register Every Source
 
-### Step 1 — Normalize Each List
+Open every document and complete the source register (`references/output-template.md`, Section 2). Record the date of each source; a list is only as current as its date. Say whether the home regimen rests on one source type.
 
-For every medication on every source list, extract and standardize:
+## Step 3: Build the BPMH
 
-| Column | Format | Example |
-|---|---|---|
-| Generic name | lowercase, INN preferred | metoprolol succinate |
-| Brand name | Title Case, if relevant | Toprol-XL |
-| Dose | numeric + unit | 50 mg |
-| Route | abbreviation (PO, IV, SQ, etc.) | PO |
-| Frequency | standard sig codes | daily |
-| Indication | short phrase | HTN |
-| PRN qualifier | if applicable | PRN headache |
-| Prescriber | name or role | Dr. Chen (cardiology) |
+Read `references/reconciliation-rules.md`, Sections 1 to 4. Enter every product from every source, including OTC drugs, supplements, inhalers, patches, drops, weekly or monthly injectables, samples and PRN drugs, with strength, formulation, dose, route, frequency, indication and last dose. Label each line Confirmed, Single source or Conflicting sources. Where a fill appears without confirmation of use, or the patient reports a dose that no label or prescriber confirms, say so on the line. Check names against the ISMP confused-name pairs (Section 10) before merging lines.
 
-**Include OTC medications, herbals, vitamins, and supplements.** These are the
-most commonly omitted categories and frequently cause interactions (e.g.,
-St. John's Wort + SSRIs, fish oil + anticoagulants).
+## Step 4: Compare at the Transition Point
 
-### Step 2 — Build the Reconciliation Matrix
+Read `references/reconciliation-rules.md`, Sections 5 to 7 and 11. Build the comparison worksheet with one row per medication across the baseline and every compared list. Compare drug, strength, dose, route, frequency and formulation, not names alone. Assign each row a status and, where it is not Match, a discrepancy type. For each substitute, hold and new order, look for the reason in the notes and cite it; trace every interchange forward to the discharge list and every hold forward to a resume or a documented stop.
 
-Create a row per unique medication (match by generic name + route). Columns
-represent each source list. Mark the status in each cell:
+## Step 5: Review High-Alert Lines and Shared Ingredients
 
-| Status Code | Meaning |
-|---|---|
-| `CONTINUED` | Same drug, dose, route, frequency — no change |
-| `DOSE CHANGED` | Same drug, different dose or frequency |
-| `NEW` | Not present on prior list |
-| `DISCONTINUED` | Present on prior list, absent on current |
-| `OMITTED — UNINTENTIONAL?` | Absent without documented rationale — **flag for review** |
-| `THERAPEUTIC DUPLICATE` | Different drug, same pharmacologic class, overlapping indication |
-| `DUPLICATE` | Same drug appears more than once |
-| `HELD` | Temporarily suspended (e.g., NPO, peri-operative) |
-| `SUBSTITUTED` | Formulary or insurance swap to a different agent in the same class |
+Read `references/reconciliation-rules.md`, Sections 8 to 10. Give each high-alert line with any item its own detail block. Check for two drugs of one class and for products sharing an ingredient (acetaminophen in opioid combinations and OTC products); compute the largest daily amount the listed sigs allow and report it without setting a limit. Record documented allergies against the list; send interaction grading to `assessing-drug-interactions`.
 
-### Step 3 — Flag Discrepancies
+## Step 6: Write the Discrepancy List
 
-Every row that is **not** `CONTINUED` is a discrepancy requiring attention.
-Prioritize by severity:
+Assign each item a priority from `references/reconciliation-rules.md`, Section 8. Write what each source says with locators, why the item is flagged, and one neutral question for the prescriber, with an owner (`references/output-template.md`, Sections 5 to 7). Put source and document conflicts in the reconciliation table, naming the stronger evidence and why, while still asking the prescriber to confirm.
 
-**Critical (resolve before patient leaves the current setting):**
-- Omission of a high-alert medication (see ISMP list below)
-- Duplicate anticoagulant, insulin, or opioid
-- Drug-drug interaction rated as "major" or "contraindicated"
-- Allergy mismatch — medication on list conflicts with documented allergy
-- Category X drug in pregnancy
+## Step 7: Check the Discharge Hand-Off (Discharge Only)
 
-**High (resolve within the same shift):**
-- Unintentional dose change on a narrow therapeutic index drug
-- Renal/hepatic dose adjustment needed but not made
-- Omission of chronic disease maintenance medication (e.g., anticonvulsant, immunosuppressant)
+Read `references/transition-requirements.md`, Sections 2 and 6. Complete the discharge information check: an actual reconciled list going to the next provider, changes marked, OTC and herbal products included, allergies listed, written information for the patient, and agreement among the discharge list, summary and prescriptions.
 
-**Moderate (resolve before next transition):**
-- Therapeutic duplicate with no documented rationale
-- OTC/supplement omission with interaction potential
-- Frequency discrepancy (e.g., BID vs TID)
+## Step 8: Gaps, Hand-Offs and Sign-Off
 
-**Low (document for follow-up):**
-- Brand/generic discrepancy with no clinical impact
-- Cosmetic sig differences (e.g., "daily" vs "once daily")
+Complete the gaps and open items, the hand-off table and the reviewer sign-off (`references/output-template.md`, Sections 9 to 11). Check each requirement relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
 
-### Step 4 — High-Alert Medication Cross-Check
+## Checkpoint B: Post-Draft Alignment
 
-Per the **ISMP List of High-Alert Medications in Acute Care Settings**, give
-extra scrutiny to:
-
-| Class | Examples | Key Checks |
-|---|---|---|
-| Anticoagulants | warfarin, heparin, enoxaparin, DOACs | Duplication, bridging protocols, INR/anti-Xa monitoring |
-| Insulins | all formulations | Sliding scale vs scheduled, basal/bolus pairing, hypoglycemia risk |
-| Opioids | morphine, hydromorphone, fentanyl, oxycodone | MME calculation, duplicate opioids, naloxone co-prescribing |
-| Antiarrhythmics | amiodarone, sotalol, flecainide | QTc interactions, thyroid/pulmonary monitoring |
-| Chemotherapy | all agents | Protocol verification, hold criteria, supportive meds |
-| Concentrated electrolytes | KCl > 40 mEq, NaCl 23.4 %, MgSO4 | Concentration, rate, cardiac monitoring |
-| Neuromuscular blockers | succinylcholine, rocuronium | Context-appropriate only (OR/ICU), never on floor orders |
-| Sedatives (IV) | propofol, midazolam, ketamine | Setting-appropriate, monitoring orders in place |
-
-If **any** high-alert medication has a discrepancy of any severity, escalate the
-finding to the top of the report regardless of the general severity tier.
-
-### Step 5 — Allergy & Interaction Screen
-
-- Cross-reference every medication on the reconciled list against the patient's
-  **allergy and intolerance record**.
-- Flag **cross-sensitivities** (e.g., penicillin allergy → cephalosporin caution).
-- Run a drug-drug interaction check across the **final reconciled list**. Report
-  interactions at the "major" or "contraindicated" level. Note "moderate"
-  interactions only if clinically relevant given patient context.
-
-### Step 6 — Renal & Hepatic Dose Review
-
-If renal or hepatic function data is available:
-- Flag every renally-cleared medication where the dose has **not** been adjusted
-  for the patient's CrCl/eGFR.
-- Flag hepatically-metabolized medications where Child-Pugh or MELD suggests
-  dose reduction.
-- If lab values are `[NOT PROVIDED]`, append a blanket caveat:
-  `⚠ Renal/hepatic function not available — dose appropriateness not verified.`
-
----
-
-## Output Structure
-
-The final reconciliation report must contain these sections in order.
-See `references/RECONCILIATION-TEMPLATE.md` for formatted table templates.
-
-1. **Header** — Patient identifier, transition type, date, facilities, providers
-2. **Summary Dashboard** — Total meds reconciled, counts by status code,
-   critical/high/moderate/low discrepancy counts
-3. **Reconciliation Matrix** — Full table, sorted by discrepancy severity
-   (critical first), then alphabetically
-4. **High-Alert Medication Detail** — Dedicated section for any high-alert med
-   with a non-CONTINUED status
-5. **Allergy & Interaction Findings** — Allergy mismatches and major DDIs
-6. **Renal/Hepatic Flags** — Dose adjustment concerns
-7. **Unresolved Items** — Anything marked `[VERIFY]` or `[NOT PROVIDED]`
-8. **Pharmacist Attestation Block** — Name, credentials, date, signature line
-
----
-
-## Checkpoint B: Post-Draft Alignment (Mandatory)
-
-Before finalizing, verify **every** item:
-
-- [ ] Every medication from every source list appears in the matrix (no silent drops)
-- [ ] Every non-CONTINUED row has a severity rating
-- [ ] High-alert medications are called out in their dedicated section
-- [ ] Allergy list has been cross-checked against the final reconciled list
-- [ ] OTC meds, herbals, and supplements are included
-- [ ] Renal/hepatic caveat is present if labs were unavailable
-- [ ] All `[VERIFY]` and `[NOT PROVIDED]` tags are collected in Unresolved Items
-- [ ] Transition context (sending/receiving facility, providers) is complete
-- [ ] Output follows the template structure in `references/RECONCILIATION-TEMPLATE.md`
-- [ ] No medication was assumed to be intentionally discontinued without documentation
-
----
+1. Does the worksheet cover the transition asked about, with the right comparison pair and the right standard for the program?
+2. Does every source supplied appear in the register, and every product from every source appear in the BPMH?
+3. Is any line labeled Confirmed on one source, or any difference labeled Documented change without a stated reason? Fix it.
+4. Does any sentence read as an order, a dose, a start, a stop or a choice between drugs? Rewrite it as a question.
+5. Are the discharge list and the discharge summary compared with each other, not only with the BPMH?
+6. Does every open item have an owner and a next step?
 
 ## Quality Audit
 
-| Criterion | Pass | Fail |
-|---|---|---|
-| All source lists accounted for | Every provided list appears as a column | Any list silently omitted |
-| BPMH sourcing documented | ≥ 2 sources for home med list, or flagged as single-source | Single source used without flag |
-| High-alert meds highlighted | Dedicated section present with zero omissions | Any high-alert med buried in general matrix only |
-| Allergy cross-check completed | Explicit statement of check; findings listed or "none" | No mention of allergy screen |
-| Severity tiers assigned | Every discrepancy has Critical / High / Moderate / Low | Any discrepancy without a tier |
-| Renal/hepatic addressed | Dose flags present or caveat for missing labs | No mention of organ function |
-| OTC/supplement inclusion | Explicitly listed or noted as `[NOT PROVIDED]` | Category entirely absent |
-| `[VERIFY]` tags collected | All uncertain items in Unresolved section | Uncertain items unmarked or scattered |
-| Attestation block present | Pharmacist name, credentials, date, signature line | Missing or incomplete |
-
----
-
-## Reference Files
-
-- [`references/RECONCILIATION-TEMPLATE.md`](references/RECONCILIATION-TEMPLATE.md) —
-  Output table templates for the reconciliation matrix, summary dashboard,
-  high-alert detail section, and attestation block.
-
-### External References (do not fetch — for human context only)
-
-- Joint Commission NPSG.03.06.01 — Medication Reconciliation
-- ISMP List of High-Alert Medications in Acute Care Settings (updated annually)
-- WHO High 5s Project — Standard Operating Protocol for Medication Reconciliation
-- ASHP Guidelines on Pharmacy-Directed Medication Reconciliation
-
----
+1. The header names the transition, comparison pair, setting and the standard cited for the program and year.
+2. The source register lists every document supplied with a status, and states whether the home list rests on one source type.
+3. Every BPMH line has strength, dose, route, frequency, formulation where relevant, a source locator and a verification label.
+4. OTC drugs, supplements, inhalers, patches, drops, injectables on long intervals, samples and PRN drugs were asked about or are listed as not asked.
+5. No fill, bottle or prior list is presented as proof of current use.
+6. Every comparison row compares dose, route, frequency and formulation, not names alone, and uses the status vocabulary verbatim.
+7. Every Documented change cites the reason and its locator; no checkbox or default counts as a reason.
+8. Every interchange is traced to the discharge list and every hold to a resume or a documented stop.
+9. Look-alike/sound-alike pairs found across sources are named and left as Conflicting sources for the prescriber.
+10. Every high-alert line with an item has a detail block and Critical priority; duplicate classes and shared ingredients are checked, with any combined daily amount computed.
+11. At discharge, the discharge list, discharge summary and prescriptions are compared with each other, and the discharge information check is complete.
+12. No sentence directs therapy; every discrepancy item ends in a neutral question with an owner.
+13. Every `[VERIFY]` relied on appears in the open items with what would settle it.
 
 ## Guidelines
 
-- Never assume a medication was intentionally discontinued without explicit documentation from the prescribing provider. Unexplained absences from a medication list must be flagged as `[OMITTED — UNINTENTIONAL?]` until resolved.
-- The Best Possible Medication History (BPMH) must be sourced from at least two independent sources (e.g., patient interview plus pharmacy fill records). A single-source medication history must always be flagged as `[UNVERIFIED — SINGLE SOURCE]`.
-- High-alert medications per the ISMP list require individual line-by-line reconciliation at every care transition — they must never be batch-processed or assumed continued without verification.
-- All OTC medications, herbal supplements, and vitamins must be explicitly included in the reconciliation matrix. Their omission is the most common source of undetected drug-drug interactions at care transitions.
-- When renal or hepatic function data is unavailable, append a blanket caveat to the reconciliation report rather than assuming doses are appropriate. Never silently pass a renally-cleared medication without organ function verification.
-- Every discrepancy must be assigned a severity tier (Critical, High, Moderate, Low) before the reconciliation report is finalized. Untiered discrepancies are considered incomplete reconciliation.
-- Reconciliation reports are draft documents until attested by a licensed pharmacist or credentialed provider. AI-generated output must never be transmitted to a receiving facility without human review and signature.
-- For cross-facility transfers, confirm formulary compatibility between sending and receiving institutions before finalizing therapeutic substitutions to prevent gaps in medication availability at the receiving site.
+- The prescriber, or the qualified individual the facility names, resolves discrepancies; the worksheet only surfaces them.
+- A good-faith effort to gather the history meets NPG.14.05.01 EP 1 intent, but the worksheet still shows which sources were tried and which were not available.
+- WHO's 24-hour reconciliation goal after admission is guidance; facility policy sets the deadline.
+- Pregnancy letter categories were removed from prescription labeling under the FDA PLLR; describe the labeling concern instead.
+- Renal, hepatic and pharmacokinetic dosing questions go to the skills built for them; this worksheet notes the values and the question.
+- Keep protected health information to what the review needs; de-identify shared drafts.
+
+## Troubleshooting
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| Patient cannot be interviewed and no caregiver is reachable | Acuity, sedation, cognition | Build from other sources, label lines Single source, and list the interview as still needed at the next opportunity |
+| Fill history and interview disagree | Stopped drug still auto-filling, or patient taking it differently | Mark Conflicting sources, show both, and ask which reflects use |
+| Scanned or photographed labels or lists | Text search misses them | Open them, attempt OCR, and if still unreadable list them as unreadable with dependent lines Cannot determine |
+| Outside transfer list disagrees with the outside MAR | Transfer form typed from memory or an old list | Treat the MAR as stronger evidence of what was given, record the conflict, and ask the prescriber to confirm with the sending facility |
+| EHR module shows every home drug as "continued" | Default selection | Compare line by line against orders; a default is not a decision |
+| Two discharge documents disagree | Summary written before late changes, or list auto-generated | Record both in the reconciliation table and put the item on the discrepancy list |
+| Organization's program unclear | Hospital-based clinic, SNF unit, home care arm | Name both standards and mark the program an unknown fact |
+
+## Related Skills
+
+- assessing-drug-interactions: grading drug-drug, drug-food and drug-disease interactions on the reviewed list.
+- managing-anticoagulation-therapy: anticoagulant choice, bridging and periprocedural stop and restart timing.
+- managing-diabetes-mellitus: insulin regimen questions raised by an insulin item.
+- converting-medication-routes: IV-to-oral changes and opioid equianalgesic questions raised by an opioid item.
+- managing-renal-dose-adjustments: dose questions tied to creatinine clearance or eGFR.
+- reviewing-medication-safety: system-level high-alert medication safeguards behind a recurring item.
+- managing-patient-safety-events: reporting a discrepancy that reached the patient.
+- managing-adverse-drug-reactions: classifying a reaction found while taking the history.
+- summarizing-discharge-notes: the patient-facing discharge summary once the prescriber has decided each item.
+- coordinating-care-transitions: post-discharge follow-up and readmission prevention after the hand-off.
+- reconciling-inpatient-medications: an overlapping list-comparison skill; this skill adds the BPMH, transfer and discharge hand-off checks.
+- medical-record-chronology: a litigation chronology when counsel needs the full medication timeline rather than a worksheet.
+
+## Reference Files
+
+- `references/reconciliation-rules.md`: medication definition, BPMH sources and labels, interview prompts, comparison pairs, status vocabulary, discrepancy types, priority tiers, high-alert and confused-name lists, substitution and hold rules.
+- `references/transition-requirements.md`: which accreditation standard applies, NPG.14.05.01 and NPSG.03.06.01 elements, WHO High 5s, AHRQ MATCH, CMS 482.43(b) and A-0810, hierarchy of authority.
+- `references/output-template.md`: header, source register, BPMH and comparison worksheets, discrepancy list, high-alert detail, reconciliation table, discharge check, hand-off table, sign-off.
+- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the `[VERIFY]` list.
