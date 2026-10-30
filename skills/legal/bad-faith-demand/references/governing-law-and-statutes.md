@@ -11,7 +11,8 @@ Rules for classifying the claim, choosing the governing standard, testing a dema
 5. Florida statutory bad faith (section 624.155)
 6. Deadline computation rules
 7. Acceptance, clarification and counteroffer
-8. States not listed here
+8. Litigation offers and claimant capacity
+9. States not listed here
 
 ## 1. Classify the claim first
 
@@ -48,6 +49,7 @@ Other states: state the standard only after locating the controlling case; other
 |---|---|---|
 | California | Gruenberg v. Aetna Ins. Co., 9 Cal. 3d 566 (1973) | Extends the implied-covenant tort to an insurer's handling of its own insured's claim |
 | Washington | RCW 48.30.015 (Insurance Fair Conduct Act) | First-party claimant unreasonably denied coverage or benefits may sue for actual damages, costs and fees; court may increase damages up to three times. At least 20 days before suit, written notice of the basis of the claim to the insurer and the Office of the Insurance Commissioner, by regular, registered or certified mail with return receipt; deemed received three business days after mailing (subsection (8)). Health plans excluded |
+| Washington | Perez-Crisantos v. State Farm Fire & Cas. Co., No. 92267-5 (Wash. Feb. 2, 2017) | IFCA requires an unreasonable denial of a claim for coverage or an unreasonable denial of payment of benefits; a regulatory violation alone is not an IFCA claim. Whether a low offer is a "denial" is a judgment call for counsel, not a conclusion to assert |
 | Texas | Tex. Ins. Code section 541.154 | Written notice of the specific complaint and the amount of actual damages and expenses, including attorney's fees, not later than the 61st day before filing (not "60 days"); exceptions for limitations and counterclaims `[VERIFY: current text; checked against a 2015 snapshot]` |
 | Florida | Fla. Stat. section 624.155(3) | Civil remedy notice; see section 5 |
 
@@ -87,7 +89,7 @@ Scope (section 999.5): claims covered by automobile, motor vehicle, homeowner or
 - [ ] Reasonable proof, which may include medical records or bills, sufficient to support the claim (999.1(g)).
 - [ ] Delivered to the insurer's address designated for time-limited demands as posted by the Department of Insurance, or to the assigned adjuster if known (999.2).
 
-Consequence (999.4): a demand that does not substantially comply is not a reasonable offer within limits in a later suit for extracontractual damages. The section does not apply to a claimant not represented by counsel `[VERIFY: subdivision placement]`.
+Consequence (999.4): a demand that does not substantially comply is not a reasonable offer within limits in a later suit for extracontractual damages. Section 999.4 does not apply to a claimant not represented by counsel (999.4(b)).
 
 ### Missouri: RSMo section 537.058
 
@@ -106,16 +108,16 @@ Acceptance is by written acceptance delivered or postmarked within the period. A
 
 ## 5. Florida statutory bad faith (section 624.155)
 
-- Civil remedy notice (subsection (3)): condition precedent of 60 days' written notice to the Department of Financial Services and the insurer, stating the statutory provision (with its specific language) allegedly violated, the facts, and any individual involved. No action lies if, within 60 days after the insurer receives notice from the department, the damages are paid or the circumstances corrected. Count from the insurer's receipt of the department's notice, not from the date counsel files the notice.
+- Civil remedy notice (subsection (3)): condition precedent of 60 days' written notice to the Department of Financial Services and the insurer, stating the statutory provision (with its specific language) allegedly violated, the facts, and any individual involved. Under the current text, no action lies if, within 60 days after the insurer receives notice from the department, the damages are paid or the circumstances corrected. Harper v. GEICO Gen. Ins. Co., 272 So. 3d 448 (Fla. 2d DCA 2019), read the earlier text as running the cure period from filing. Count conservatively: treat the cure period as open until 60 days after the later of filing and the insurer's receipt of the department's notice, and record which version of the statute governs the claim date.
 - 90-day safe harbor (subsection (4)): no bad faith action on a liability claim if the insurer tenders the lesser of the policy limits or the amount demanded within 90 days after receiving actual notice of a claim accompanied by sufficient evidence to support its amount.
-- Claimant and insured conduct: the trier of fact may consider whether the insured, claimant and their representatives acted in good faith in furnishing information, making demands, setting deadlines and attempting to settle, and may reduce damages `[VERIFY: codified subsection and wording]`.
+- Claimant and insured conduct (subsection (5)(b)): the insured, the claimant and their representatives have a duty to act in good faith in furnishing information, making demands, setting deadlines and attempting to settle; the duty creates no separate cause of action, but the trier of fact may reasonably reduce damages awarded against the insurer if it was breached. A short window or an unreasonable term is therefore evidence against the claimant, not only against the demand.
 - Multiple claimants (subsection (6)): no liability beyond limits where, within 90 days after notice of competing claims exceeding the limits, the insurer files interpleader or makes the limits available through binding arbitration. See `references/liens-and-multiple-claimants.md`.
-- Negligence alone is insufficient to constitute bad faith `[VERIFY: statement and subsection not confirmed in official text]`.
+- Mere negligence alone is insufficient to constitute bad faith (subsection (5)(a)); subsection (5) applies to statutory and common-law bad faith actions.
 - Section 627.4137: on written request, the liability insurer must disclose within 30 days, under oath, each known policy (including excess and umbrella), the insurer, each insured, the limits, coverage defenses, and a copy of the policy. Use it to confirm limits before demanding them.
 
 ## 6. Deadline computation rules
 
-1. Identify the trigger the governing rule uses: receipt (Georgia, Missouri), transmission with a method-based floor (California), insurer's receipt of the department's notice (Florida CRN), or none (common law).
+1. Identify the trigger the governing rule uses: receipt (Georgia, Missouri), transmission with a method-based floor (California), insurer's receipt of the department's notice (Florida CRN; see the Harper caveat in section 5), or none (common law).
 2. Use evidence of the trigger: return receipt, carrier tracking, fax confirmation, email delivery record. If receipt is not yet known, compute from the latest plausible receipt date and state the assumption.
 3. Set the stated deadline at or beyond the floor, with a buffer of several business days, as a specific date, time and time zone. Do not set it on a weekend or holiday; whether a statute rolls a weekend expiry forward is `[VERIFY]` in each state.
 4. Where common law governs, state why the window is reasonable for the volume of records, the number of claimants and any pending insurer requests. A short window is evidence against the demand, and in Florida it bears on the claimant's own good-faith conduct.
@@ -132,9 +134,15 @@ Deadline in letter: <date> (<weekday>) <time> <time zone>; buffer <N> days over 
 
 - Acceptance mechanics must be objectively measurable: who accepts, in what form, delivered where, by when. Phone acceptance is not a measurable act and conflicts with the written-acceptance rules above.
 - California section 999.3: a request for clarification, additional information or an extension is not, by itself, a counteroffer or rejection; an insurer that does not accept must notify the claimant in writing of the basis of its decision before the deadline expires.
+- Georgia section 9-11-67.1 (2024 text): recipients may seek clarification of the terms, the release, liens, subrogation claims, standing to release claims, medical bills, medical records and other relevant facts; a written clarification request is not a counteroffer, but an attempt to modify the material terms is not a clarification.
 - Missouri and Georgia: written acceptance of the material terms within the period. Treat any additional condition the claimant tries to add outside the listed material terms as a drafting defect.
 - Elsewhere, whether a clarification request is a counteroffer is `[VERIFY]`; respond to every insurer request in writing before the deadline and say whether the deadline is extended.
 
-## 8. States not listed here
+## 8. Litigation offers and claimant capacity
+
+- A time-limited demand is not a statutory litigation offer. Florida section 768.79 (offer of judgment and demand for judgment) and O.C.G.A. section 9-11-68 (offer of settlement) are fee-shifting devices made in litigation, each with its own form, service and 30-day acceptance rules and fee thresholds (Florida 25 percent; Georgia 75 and 125 percent). Never label a pre-suit demand as one, and never treat a litigation offer as satisfying a time-limited demand statute; if both are wanted, draft them as separate instruments and route the litigation offer to counsel.
+- The demand must come from someone who can deliver the release: a personal representative for a death or estate claim, every required wrongful-death beneficiary or the person the statute authorizes, and a guardian or conservator (with any required court approval) for a minor or incapacitated claimant `[VERIFY: state appointment and approval rules]`. If court approval is needed, the claimant obtains it after acceptance; it is not a condition the insurer must satisfy. Georgia expressly lets the recipient seek clarification of standing to release claims.
+
+## 9. States not listed here
 
 Several other states regulate time-limited or pre-suit settlement demands by statute or rule. This file does not name them because they were not verified. For any state not listed: search the state code for "time-limited demand" and "settlement offer" provisions before drafting, record the result in the memo, and mark the governing-law row `[VERIFY: no statute located as of <date>]` if none is found.

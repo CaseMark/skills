@@ -25,7 +25,14 @@ Produce the header and the six parts in this order. Keep sentences plain; put de
 
 ## Part 1. Demand readiness determination
 
-One of: **Ready for attorney review**, **Ready subject to listed confirmations**, or **Not ready: blocking issues**. Then:
+One of these labels, used exactly:
+
+- **Ready for attorney review**: no open item above Low.
+- **Ready subject to listed confirmations**: open items are High or lower.
+- **Not ready: blocking issues**: at least one Critical item is open. The draft letter is still included unless a hard stop in SKILL.md applies; it may not be sent until each Critical item is closed.
+- **Declined: hard stop**: a hard stop applies. No letter of the kind requested; give the reason, the request or memo the hard stop calls for, and the compliant alternative.
+
+Then:
 
 1. **Statutory checklist** for the governing statute, one row per required term: term, where it appears in the draft (paragraph), status (met / missing / not applicable), source. If no statute applies, say so and list the common-law elements instead (for Texas, the three Garcia elements).
 2. **Deadline computation** in the fixed format of `references/governing-law-and-statutes.md`, section 6.
@@ -36,9 +43,9 @@ One of: **Ready for attorney review**, **Ready subject to listed confirmations**
 | # | Severity | Issue | Why it matters to the bad faith record | Source | Recommendation and alternatives | Owner |
 |---|---|---|---|---|---|---|
 
-Severity: Critical (no settlement authority; limits unconfirmed; demand below a statutory floor or missing a statutory term; per-occurrence demand for one claimant; first-party matter framed as failure-to-settle; condition the insurer cannot perform); High (source conflict on a figure the offer depends on; competing claimants not quantified; lien amount unknown); Medium (exhibit gaps that do not affect a statutory term); Low (clean-up). Every row ends in a recommendation and what changes under the alternative.
+Severity: Critical (no documented authority for release scope, lien approach or payee, which blocks sending; limits unconfirmed; demand below a statutory floor or missing a statutory term; per-occurrence demand for one claimant; competing claims that exceed the occurrence limit; asserted liens that approach or exceed the offer; first-party matter framed as failure-to-settle; condition the insurer cannot perform; narrower release without documented release-scope authority); High (source conflict on a figure the offer depends on; competing claimants not quantified; lien amount unknown); Medium (exhibit gaps that do not affect a statutory term); Low (clean-up). Every row ends in a recommendation and what changes under the alternative.
 
-Judgment calls (release scope across insureds, multi-claimant approach, window length beyond the floor, lien payee lines) each state the options, the recommended choice and the reason.
+Judgment calls (a narrower release than all insureds, which needs documented release-scope authority given after the memo explains the exposure, multi-claimant approach, window length beyond the floor, lien payee lines) each state the options, the recommended choice and the reason.
 
 ## Part 3. Reconciliation table
 
@@ -69,6 +76,8 @@ Re: [Claimant] / [Insured(s)]   Claim No. [ ]   Policy No. [ ]   Date of loss [ 
    [date] [occurrence] for [amount], which is within the [per-person] limit of [ ].
 2. Release. [Full / limited] release of [named insureds] for [claims]. Reserved: [claims or parties, if any].
 3. Liens. [Claimant] will satisfy all valid liens from the settlement proceeds, including [list].
+   At [Insurer]'s option, [Insurer] may pay [lien amount] directly to [lienholder] or into
+   [escrow], to be paid before the release is delivered; using this option is not a counteroffer.
 4. Acceptance. Written acceptance of these terms in their entirety, delivered to [address] or
    [email or fax], no later than [date] ([weekday]) at [time] [time zone].
 5. Payment. [Amount] payable to [payee] by [method] no later than [date, consistent with any statutory payment floor].
