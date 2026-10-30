@@ -6,10 +6,10 @@ description: >
   documentation; DRG optimization here means correcting errors in both directions, never upcoding.
   Validates principal diagnosis selection under UHDDS and ICD-10-CM Official Guidelines Section II,
   secondary diagnoses and CC/MCC capture under Section III, CC exclusion list checks, MS-DRG Grouper
-  V44 for FY 2027 discharges, POA indicators and HAC impact, symptom codes as principal, sepsis coded
-  to the provider's statement rather than Sepsis-2 or Sepsis-3 criteria, discharge disposition and
-  transfer rules, and inpatient status under the 2-midnight rule. Drafts non-leading CDI query
-  and clinical validation query candidates under the ACDIS/AHIMA 2026 compliant query
+  V44 for FY 2027 discharges, POA and HAC impact, symptom codes as principal, sepsis coded
+  to the provider's statement rather than Sepsis-2 or Sepsis-3 criteria, discharge and transfer
+  rules, the 3-day payment window, procedure O.R. status and the inpatient order. Drafts non-leading
+  CDI and clinical validation query candidates under the ACDIS/AHIMA 2026 compliant query
   guidelines. Use for DRG validation, DRG optimization review, CC/MCC capture, case mix index (CMI)
   accuracy, CDI second-level review or pre-bill audit. Declines adding unsupported diagnoses
   or leading providers. Drafts for coder, CDI and compliance review.
@@ -50,6 +50,8 @@ MS-DRG assignment sets the Medicare inpatient payment for the stay, and most pay
 | CDI worklists and query policy | Choosing which cases to query | Queries sent only when the answer could raise the DRG, while documented MCCs without clinical support are never put to clinical validation |
 | Provider sepsis documentation and payer denial letters | Coding sepsis and assessing denial risk | Sepsis removed or added by applying Sepsis-2 or Sepsis-3 criteria instead of the provider's statement (I.A.19); payer criteria treated as coding rules; R65.2- coded without linked organ dysfunction |
 | POA indicators | HAC payment and quality data | POA set by the coder's assumption; a condition first diagnosed after the inpatient order marked Y; U left where the record or a query would settle it; ED conditions marked N |
+| Operative reports, ICD-10-PCS codes and ventilator records | Surgical versus medical DRG; MS-DRG 870 | Root operation chosen from the surgeon's wording instead of the full PCS definition (B3.1a), so a non-O.R. code becomes O.R. or the reverse; integral steps coded separately (B3.1b); 5A1955Z reported without more than 96 consecutive hours of ventilation documented |
+| Outpatient records from the 3 days before admission | Diagnoses and procedures on the inpatient claim | Preadmission diagnostic and related services in the payment window (42 CFR 412.2(c)(5)) left off the inpatient claim, or their CPT codes not converted to ICD-10-PCS; POA judged at outpatient registration instead of the inpatient order |
 | Discharge disposition and transfer data | Full DRG versus per diem | Post-acute transfer from a qualifying DRG missed or invented; a discharge against medical advice treated as a transfer |
 | Coding guideline section applied | Reporting uncertain diagnoses and findings | Section IV outpatient rules applied to an inpatient claim (dropping "probable" diagnoses), or II.H and III.C applied to an observation claim |
 
@@ -66,7 +68,7 @@ MS-DRG assignment sets the Medicare inpatient payment for the stay, and most pay
 9. **Check exclusions and splits before claiming an impact.** Confirm the V44 severity, the Appendix C PDX collection and the family's split logic. Keep an excluded code on the claim when the rules require it.
 10. **Compliant queries, chosen in both directions.** Draft queries to the ACDIS/AHIMA 2026 standard: neutral title, sourced indicators, no payment or quality language, multiple choice with "Other" to introduce a diagnosis. Select candidates on clinical indicators; a documented CC/MCC without support is a clinical validation candidate even when the answer could lower the DRG.
 11. **Code to the provider's statement, not to a clinical definition.** Sepsis-2, Sepsis-3 and payer criteria do not add or remove a code; insufficient indicators lead to a clinical validation query, and a payer's definition goes to a denial-risk note.
-12. **Outcome vocabulary.** Each code is Supported; Not supported, remove; Query candidate; Excluded as CC/MCC (still coded); or Declined request. The MS-DRG is stated with "provisional pending <facts>" when an open query or unread source could change it.
+12. **Outcome vocabulary.** These are fixed labels, used verbatim. Each code is Supported; Not supported, remove; Query candidate; Excluded as CC/MCC (still coded); or Declined request. The MS-DRG is stated with "provisional pending <facts>" when an open query or unread source could change it.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -75,7 +77,7 @@ Collect before Step 1:
 1. Review type: pre-bill, retrospective, CDI second-level, or record review for counsel.
 2. Admission date, inpatient order date and time, discharge date, and discharge disposition.
 3. Payer and, for non-Medicare FFS claims, the contract's payment basis and any clinical definitions it applies.
-4. The record: H&P, progress notes, consults, operative reports, discharge summary, ED record, nursing, dietitian and social work notes, labs, imaging, MAR.
+4. The record: H&P, progress notes, consults, operative reports, ventilator records, discharge summary, ED record, nursing, dietitian and social work notes, labs, imaging, MAR, and outpatient records from the 3 days before admission.
 5. The draft or billed code set with POA indicators, and the grouper output.
 6. Open or answered queries, and the facility query policy.
 
@@ -89,7 +91,7 @@ Defaults when an input is missing:
 Hard stops (do not state an MS-DRG):
 
 - No discharge date and no way to identify the grouper version.
-- No inpatient order or the claim is observation or outpatient: say MS-DRG review does not apply and route the status question to managing-observation-stays.
+- No inpatient order or the claim is observation or outpatient: say MS-DRG review does not apply and route observation or conversion questions to managing-observation-stays and status denials to managing-coding-denials. No skill currently claims prospective 2-midnight status review; this skill does not perform one.
 - No provider documentation supplied, only a code list or grouper output: list the documents needed and stop before validating.
 
 Hard stop on the improper part (decline it as a "Declined request", then continue the compliant review):
@@ -119,7 +121,7 @@ Read `references/drg-coding-rules.md`, Sections 3, 6 and 7. For each secondary c
 
 ## Step 6: Check Severity, Exclusions and Group the Case
 
-Read `references/drg-coding-rules.md`, Sections 4 and 5. For each CC or MCC, record the V44 severity, the PDX collection checked and the result, and the family's split. Check each procedure code against the operative report and its O.R. status, since an O.R. procedure moves the case to a surgical DRG. Complete the grouping block in `references/output-template.md`, Section 5, and state the direction of change against the draft claim. Mark any code not confirmed in V44 `[VERIFY]` and say whether it could change the DRG.
+Read `references/drg-coding-rules.md`, Sections 4 and 5. For each CC or MCC, record the V44 severity, the PDX collection checked and the result, and the family's split. Check each procedure code against the operative report, the PCS root operation definition and its V44 O.R. status, since an O.R. procedure moves the case to a surgical DRG. Confirm that 5A1955Z rests on documented ventilation of more than 96 consecutive hours, and that procedures from the 3-day preadmission window are on the claim. Complete the grouping block in `references/output-template.md`, Section 5, and state the direction of change against the draft claim. Mark any code not confirmed in V44 `[VERIFY]` and say whether it could change the DRG.
 
 ## Step 7: Draft Query Candidates and Clinical Validation Items
 
@@ -178,17 +180,17 @@ Complete the reconciliation table, declined requests, hand-offs, and open items 
 | Attending and consultant disagree on a diagnosis | Conflicting provider documentation | Do not pick one; add a reconciliation row and a query candidate to the attending |
 | Discharge summary lists a diagnosis not found elsewhere | Copy-forward or late documentation | Treat it as the provider's statement unless it conflicts; flag clinical validation if indicators are absent |
 | Code not found in the severity tables read | New FY 2027 code or unread page | Check Table 6A and the V44 Appendix C page; until read, mark `[VERIFY]` and show the DRG with and without it |
-| Payer letter cites a clinical definition | Contract term, not a coding rule | Request the contract language; keep coding per the Guidelines; route the dispute to managing-coding-denials |
+| Payer letter cites a clinical definition | Contract term, not a coding rule | Request the contract language; keep coding per the Guidelines; route the contract-definition dispute and any appeal to managing-coding-denials |
 | User insists on a declined change | Pressure to reach a target DRG | Restate the rule once, keep the declined row, and note the compliance hand-off |
 
 ## Related Skills
 
 - managing-cdi-programs: issuing, tracking and escalating the query candidates this review drafts.
 - managing-clinical-documentation-improvement: program-level query metrics and documentation trends behind recurring DRG errors.
-- managing-coding-denials: payer DRG downgrades, clinical validation denials and appeals.
+- managing-coding-denials: MS-DRG downgrade and clinical validation denials, payer or Medicare Advantage contract sepsis definitions (Sepsis-3 or Sepsis-2), inpatient-status and 2-midnight denials, and DRG validation appeals.
 - conducting-false-claims-analysis: patterns of unsupported codes, one-way query policies, or overpayment and self-disclosure questions.
 - auditing-coding-accuracy: sample-based coding audits across many claims.
-- managing-observation-stays: inpatient versus observation status and 2-midnight questions.
+- managing-observation-stays: observation status and conversion to inpatient. No skill currently claims prospective 2-midnight status review.
 - managing-sepsis-bundles: SEP-1 abstraction, which uses its own sepsis criteria.
 - managing-risk-adjustment-coding: HCC risk adjustment, which follows different rules from MS-DRG grouping.
 - managing-payer-specific-coding: payer-specific coding policies and contract rules.

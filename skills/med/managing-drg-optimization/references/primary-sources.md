@@ -26,6 +26,9 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 | 42 C.F.R. 412.3 (Admissions), eCFR current | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-412/subpart-A/section-412.3 | Full text via case.dev; 2026-10-30 | Inpatient order; 2-midnight expectation; inpatient-only; shorter-stay exception; last amended 90 FR 54082 (Nov. 25, 2025) |
 | 42 C.F.R. 422.101 | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-422/subpart-C/section-422.101 | Full text via case.dev; 2026-10-30 | MA plans follow 412.3 admission criteria |
 | 42 C.F.R. 412.4 | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-412/subpart-A/section-412.4 | Full text via case.dev; 2026-10-30 | Acute and post-acute transfer definitions; graduated per diem |
+| ICD-10-PCS Official Guidelines for Coding and Reporting 2027 | https://www.cms.gov/files/document/2027-official-icd-10-pcs-coding-guidelines.pdf | Full text via case.dev; 2026-10-30 | B3.1a, B3.1b, B3.5; no guidance on counting ventilation hours |
+| 42 C.F.R. 412.2 | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-412/subpart-A/section-412.2 | Full text via case.dev; 2026-10-30 | 412.2(c)(5) 3-day preadmission payment window |
+| Medicare Claims Processing Manual, ch. 3, 20.2.1 (MCE edits) and 40.3 | https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/clm104c03.pdf | Full text via case.dev; 2026-10-30 | MCE edit 19 for 5A1955Z (more than four consecutive days); window services' diagnoses and procedures on the inpatient claim, CPT converted to ICD procedure codes, POA at the order |
 | Medicare Program Integrity Manual, ch. 6, 6.5.2-6.5.3 | https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/pim83c06.pdf | Full text via case.dev; 2026-10-30 | DRG validation scope; symptom code not principal when cause known; deemed admission date |
 | CMS Hospital-Acquired Conditions page; MLN901046 HAC-POA fact sheet | https://www.cms.gov/medicare/payment/hospital-acquired-conditions-hac; https://www.cms.gov/files/document/wpoafactsheetpdf | Full text via case.dev; 2026-10-30 | 14 HAC categories; DRA section 5001(c); Y and W paid, N and U not; HAC-POA distinct from HAC Reduction Program |
 
@@ -64,6 +67,6 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 5. Each payer's contract: payment basis (MS-DRG, APR-DRG, per diem) and any clinical definition it applies, such as Sepsis-3.
 6. NUBC patient discharge status code values (not read).
 7. FY 2027 ICD-10 HAC code list (categories confirmed; code list page not read).
-8. ICD-10-PCS Official Guidelines FY 2027 for root operation and approach (not read).
+8. Ventilation-hour counting conventions for 5A1955Z (start and stop points; Coding Clinic, not read). The ICD-10-PCS 2027 guidelines were read and do not address them.
 9. Sepsis-2 and Sepsis-3 definitions rest on the final rule footnote, not the source papers.
 10. HAC payment by POA indicator (Y and W paid; N and U not) rests on the MLN901046 FY 2015 chart; confirm no later change.

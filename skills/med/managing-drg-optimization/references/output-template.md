@@ -94,9 +94,9 @@ Typical rows: worksheet CC list against V44; coder's POA against the ED note; co
 | To skill | Why | What is passed | What this review did not do |
 |---|---|---|---|
 | managing-cdi-programs | Query issuance and tracking | Query candidates | Did not send queries |
-| managing-coding-denials | Payer denial or clinical validation dispute | Validated coding and indicators | Did not draft an appeal |
+| managing-coding-denials | MS-DRG downgrade or clinical validation denial, payer or MA contract sepsis definition, status or 2-midnight denial, DRG validation appeal | Validated coding, indicators and denial letters | Did not read the contract or draft an appeal |
 | conducting-false-claims-analysis | Pattern of unsupported codes or one-way query policy | Findings and policy text | Did not assess FCA exposure |
-| managing-observation-stays | Inpatient status question | Order times and status notes | Did not decide status |
+| managing-observation-stays | Observation status or conversion to inpatient (no skill claims prospective 2-midnight review) | Order times and status notes | Did not decide status |
 
 ## 10. Open items and `[VERIFY]` list
 
