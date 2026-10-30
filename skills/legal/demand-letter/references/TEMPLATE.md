@@ -2,6 +2,21 @@
 
 A single skeleton with three inline branch variants. Pick one branch at Step 1 (see `../SKILL.md`), keep its blocks, delete the other branch markers and their contents, then fill placeholders. Every `{{PLACEHOLDER}}` must be resolved or explicitly marked `[UNVERIFIED — client-provided]` / `[VERIFY]` before the draft leaves the skill.
 
+## Contents
+
+- Branches and placeholders
+- Header block, Re: line, optional FRE 408 header, salutation
+- §1 Opening: representation and purpose
+- §2 Factual background
+- §3 Legal basis
+- §4 Damages and relief
+- §5 Evidence preservation
+- §6 Demand and proposed resolution
+- §7 Consequences of non-compliance
+- §8 Closing and signature
+- Before delivering: branch-consistency checklist
+- Deliverable package: draft letter plus drafting notes (source map, open items, hand-offs)
+
 **Branches**
 
 - `<!-- BRANCH: statutory-notice -->` — Ch. 93A, DTPA, CLRA, FDCPA, FL med-mal, construction defect, any letter whose legal function is satisfying a statutory pre-suit prerequisite.
@@ -9,6 +24,8 @@ A single skeleton with three inline branch variants. Pick one branch at Step 1 (
 - `<!-- BRANCH: commercial -->` — Breach + cure, C&D (trademark / patent / trade-secret / non-compete), general demand for payment under a contract.
 
 Placeholders in `{{DOUBLE_BRACES}}` are required. Placeholders in `[SINGLE_BRACKETS]` are conditional — keep only if the condition applies.
+
+**Routing before the policy-limits branch.** A time-limited offer to a liability insurer to settle within limits (Stowers, Georgia O.C.G.A. § 9-11-67.1, and similar statutory or common-law regimes) is drafted with `bad-faith-demand`, which tests the governing statute's material terms and deadline triggers. Use the policy-limits branch here only for an insurer-directed demand that is not a time-limited policy-limits offer, or when the attorney directs it after that review.
 
 ---
 
@@ -90,8 +107,8 @@ This firm represents {{CLIENT}} for injuries sustained in the {{INCIDENT TYPE}}
 on {{DATE}}. We write to offer {{INSURER}} a time-limited opportunity to settle
 all claims arising from this incident for the available policy limits of
 {{POLICY NO.}}. This offer is made in good faith, with the expectation that
-{{INSURER}} will evaluate the claim in accordance with its fiduciary obligation
-to its insured {{INSURED NAME}}.
+{{INSURER}} will evaluate the claim in accordance with its duty to its insured
+{{INSURED NAME}} [VERIFY how the governing state characterizes that duty].
 ```
 <!-- /BRANCH -->
 
@@ -277,7 +294,10 @@ delivered to this office by {{METHOD}}, accompanied by a limited release in
 substantially the form {{ATTACHED | TO BE PROVIDED}}.
 
 Any counteroffer, conditional acceptance, or request to modify the terms above
-will be treated as a rejection.
+will be treated as a rejection.   ← omit where a statute defines the material
+                                    terms and acceptance (e.g., Georgia
+                                    O.C.G.A. § 9-11-67.1); route to
+                                    bad-faith-demand
 ```
 <!-- /BRANCH -->
 
@@ -325,7 +345,7 @@ This letter is not a threat of criminal prosecution and nothing herein should
 be construed as one.
 ```
 
-**Deadline rule:** default 30 calendar days. Override to the statutory period where applicable (MA 93A: 30; TX DTPA: 60; CLRA: 30; FDCPA § 1692g: 30). Sub-14-day only for imminent-harm scenarios (ongoing infringement, spoliation risk, foreclosure sale date) — justify the shorter deadline in the letter text.
+**Deadline rule:** default 30 calendar days. Override to the statutory period where applicable, each from its own trigger (MA 93A: 30 days after mailing or delivery; TX DTPA: 60 days' notice before filing; CLRA: 30 days after receipt; FL med-mal: 90 days after delivery of the notice; FL Ch. 558: 60 days, or 120 for an association representing more than 20 parcels; FDCPA / Regulation F: no payment or suit date before the validation period end date). Sub-14-day only for imminent-harm scenarios (ongoing infringement, spoliation risk, foreclosure sale date) — justify the shorter deadline in the letter text.
 
 **Forum rule:** contract forum-selection clause controls. Absent a clause, default to a forum with (a) personal jurisdiction over the recipient and (b) venue under 28 U.S.C. § 1391 or the state equivalent. When multiple valid forums exist, choose per client preference from intake. If the client has not decided, flag and ask — do not name a forum you have not confirmed.
 
@@ -353,8 +373,9 @@ Sincerely,
 Enclosures: {{EXHIBIT LIST}}
 cc: {{CLIENT NAME}}
     [{{CO-COUNSEL}}]
-    [{{OPPOSING COUNSEL IF KNOWN}}]
 ```
+
+**Represented recipient:** if the recipient is known to be represented in the matter, the letter is addressed to its counsel, and the represented party is not copied without counsel's consent (Model Rule 4.2). Never address the party and merely copy its counsel.
 
 ---
 
@@ -372,3 +393,16 @@ cc: {{CLIENT NAME}}
 - [ ] §6 term-sheet language included only where the letter invites settlement.
 - [ ] Signature block includes bar number.
 - [ ] Attorney review required before sending — flagged to user.
+
+---
+
+## Deliverable package
+
+Return the letter, then a short drafting-notes block for the attorney (never sent with the letter):
+
+1. **Source map.** One row per factual assertion and damages line: the letter section, the assertion or figure, the source document and page, or `[UNVERIFIED — client-provided]`.
+2. **Reconciliation table.** Every place two sources disagree (contract versus email, client spreadsheet versus invoices, SoS record versus letterhead): source A, source B, which controls and why, and the value used.
+3. **Gap register.** Each open item classified as unknown fact, source conflict, unverified external lookup, or policy election, with the owner and what settles it.
+4. **Clock table.** Each timed element (statutory notice period, response window, contractual cure period, limitations date, letter deadline) with its own trigger event, the computed date, and the source.
+5. **Hand-off table.** Skill, what is handed over, and why: `legal-research` (unverified statute or regime), `citation-bluebook` (case cites), `spoliation-letter` (high-risk evidence), `bad-faith-demand` (time-limited policy-limits demand), `coverage-opinion` (a coverage position is needed), `anthropic-skills:docx` or `anthropic-skills:pdf` (file deliverable after the Quality Audit).
+6. **`[VERIFY]` list.** Every flagged citation or rule with what would settle it.
