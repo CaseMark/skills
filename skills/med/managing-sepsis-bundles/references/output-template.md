@@ -64,7 +64,7 @@ SIRS criterion B:                <value> at <date time> (<source>)
 Organ dysfunction:               <value> at <date time> (<source>)
 Span of the three criteria:      <hh:mm>   within 6 hours? <yes | no>
 Provider documentation of severe sepsis or septic shock: <date time | none>
-Severe sepsis presentation time: <date time>   basis: <last criterion | provider documentation | triage rule [VERIFY]>
+Severe sepsis presentation time: <date time>   basis: <last criterion | provider documentation | ED or floor arrival rule>
 Rejected candidates:             <alert fire, triage, order set, navigator time>, each with the reason
 Initial hypotension:             <time of qualifying readings | none>  (crystalloid trigger)
 Initial lactate 4 or more:       <result time | none>                  (crystalloid trigger)
@@ -79,7 +79,7 @@ Septic shock presentation time:  <date time | not present>   basis: <lactate 4 o
 |---|---|---|---|---|---|---|
 | Initial lactate | | | | | Met / Not met / Not required / Cannot determine | |
 
-Rows: initial lactate, blood cultures before antibiotics, antibiotic (agent checked against the version's monotherapy and combination tables), repeat lactate, crystalloid (with its trigger, the weight used and its source, the target, ordered and infused volumes), vasopressor, reassessment. Vasopressor and reassessment are Not required when septic shock is not present.
+Rows: initial lactate, blood cultures before antibiotics, antibiotic (route, earliest start time in the window, and any antibiotic table the version applies, `[VERIFY]` for v5.18a), repeat lactate, crystalloid (with its trigger, the weight used and its source, the target, ordered and infused volumes), vasopressor, reassessment. Vasopressor and reassessment are Not required when septic shock is not present.
 
 ## 6. Clinical guideline overlay (only when asked)
 
@@ -103,7 +103,7 @@ A query candidate is a question to route under the facility's query policy, neve
 
 | To skill | Why | What is passed | What this review did not do |
 |---|---|---|---|
-| conducting-antimicrobial-stewardship | Antibiotic choice, spectrum, de-escalation | Agents, times, cultures, source | Did not judge appropriateness beyond the manual's antibiotic table |
+| conducting-antimicrobial-stewardship | Antibiotic choice, spectrum, de-escalation | Agents, times, cultures, source | Did not judge appropriateness beyond the manual's antibiotic element |
 | managing-cdi-programs | Ambiguous sepsis documentation | The conflicting notes and timestamps | Did not draft the query |
 | managing-quality-reporting | Aggregate rates, submission, validation | Case result and version | Did not compute a hospital rate |
 

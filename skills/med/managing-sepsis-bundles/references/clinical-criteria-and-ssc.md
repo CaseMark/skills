@@ -48,7 +48,7 @@ Original SOFA, as tabulated in Sepsis-3 (points 0 to 4):
 
 Catecholamine doses in mcg/kg/min given for at least 1 hour.
 
-SOFA-2 (JAMA, published online October 29, 2025; corrected January 29, 2026) revises the score, keeps six organ systems and renames some (brain, kidney). A note that says "SOFA" without the version is ambiguous after late 2025; record which version was used. Whether Sepsis-3 or SSC 2026 adopted SOFA-2 for the definition is `[VERIFY]`.
+SOFA-2 (JAMA, published online October 29, 2025; corrected January 29, 2026) revises the score, keeps six organ systems and renames some (brain, kidney). A note that says "SOFA" without the version is ambiguous after late 2025; record which version was used. SSC 2026 does not adopt SOFA-2: its full text never mentions SOFA-2, cites Sepsis-3 for the definition of sepsis, and applies its recommendations to patients diagnosed with sepsis according to local practice. Whether any revised consensus definition of sepsis adopts SOFA-2 is `[VERIFY]`.
 
 SOFA points never establish SEP-1 severe sepsis: SEP-1 has its own organ dysfunction thresholds (for example platelets under 100,000 and creatinine over 2.0), and GCS is not one of them.
 
@@ -72,21 +72,21 @@ Time zero: triage time in the ED, or, for patients not presenting through the ED
 
 ## 6. SSC adult guidelines 2026: statements that touch bundle elements
 
-Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026, published March 23, 2026 in Critical Care Medicine (doi 10.1097/CCM.0000000000007075), with a companion publication in Intensive Care Medicine. 129 statements; replaces the 2021 edition. Statements below were confirmed from the SCCM guideline page and journal excerpts; quote the full text for exact wording.
+Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026, published March 23, 2026 in Critical Care Medicine (doi 10.1097/CCM.0000000000007075), with a companion publication in Intensive Care Medicine. 129 statements; replaces the 2021 edition. Statements below were read in the full text of the Intensive Care Medicine publication (2026;52:863-936); statement numbers are that publication's.
 
 | Topic | 2026 statement (strength) |
 |---|---|
-| Antimicrobials, possible, probable or definite septic shock | Administer immediately, ideally within 1 hour of recognition (recommend) |
-| Antimicrobials, possible sepsis without shock | Time-limited rapid investigation; if concern persists, antimicrobials within 3 hours of first recognition (suggest) |
-| Antimicrobials, probable or definite sepsis without shock | Administer immediately, ideally within 1 hour of recognition (recommend; unchanged from 2021 apart from wording) |
-| Initial fluids | At least 30 mL/kg IV crystalloid in the first 3 hours for sepsis-induced hypoperfusion or septic shock (suggest) |
-| Fluid type | Balanced crystalloids over 0.9 percent saline for initial resuscitation |
-| Lactate | Serial lactate to guide resuscitation with elevated lactate or septic shock (suggest) |
-| Capillary refill time | Adjunct to other perfusion measures (suggest) |
-| Vasopressors | Norepinephrine first line over vasopressin or angiotensin II (suggest); add vasopressin on escalating norepinephrine (suggest); against terlipressin |
-| MAP target | 65 mm Hg initial target; a 60-65 range for adults 65 or older reported in summaries `[VERIFY]` |
-| Corticosteroids | IV corticosteroids for septic shock (suggest); agent, dose and start threshold `[VERIFY]` |
-| Screening | Against qSOFA as a single screening tool |
+| Antimicrobials, possible, probable or definite septic shock | Administer immediately, ideally within 1 hour of recognition (16; strong recommendation, very low certainty) |
+| Antimicrobials, possible sepsis without shock | Time-limited rapid investigation; if concern for infection persists, antimicrobials within 3 hours from when sepsis was first suspected (18; conditional, very low certainty) |
+| Antimicrobials, probable or definite sepsis without shock | Administer immediately, ideally within 1 hour of recognition (17; strong recommendation, very low certainty) |
+| Initial fluids | At least 30 mL/kg IV crystalloid in the first 3 hours for sepsis-induced hypoperfusion or septic shock (10; conditional, low certainty); the rationale allows adjusted or ideal body weight with a high BMI |
+| Fluid type | Crystalloids first line (43; strong); balanced crystalloids over 0.9 percent saline for initial resuscitation (44; conditional, moderate certainty), 0.9 percent saline with traumatic brain injury |
+| Lactate | Serial lactate to guide resuscitation with elevated lactate or septic shock (51; conditional, low certainty) |
+| Capillary refill time | Adjunct to other perfusion measures (52; conditional, low certainty) |
+| Vasopressors | Norepinephrine first line over vasopressin or angiotensin II (55; conditional); add vasopressin on escalating norepinephrine (56; conditional, moderate certainty); against terlipressin (54; conditional) |
+| MAP target | Initial target of 65 mm Hg over higher targets (13; strong, moderate certainty); for adults 65 or older with septic shock, an initial range of 60-65 mm Hg over higher ranges (14; conditional, low certainty) |
+| Corticosteroids | IV corticosteroids for adults with septic shock (79; conditional, low certainty). The statement names no agent, dose or start threshold; the rationale cites the ADRENAL regimen (hydrocortisone 200 mg/day IV for 7 days) and no added benefit above 260 mg/day |
+| Screening | NEWS, NEWS2, MEWS or SIRS over qSOFA as a single screening tool in hospital (4; strong, moderate certainty) |
 
 ## 7. Clinical context to keep with the record
 
