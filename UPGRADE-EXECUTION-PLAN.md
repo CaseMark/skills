@@ -218,12 +218,16 @@ Eval rules (from the pilot review; each one was violated at least once there):
 - No Must line may depend on a [VERIFY] fact. Confirm the fact, or make the Must require analyzing both readings.
 - Must lines are single, gradable requirements: no "alternatively", no exhaustive claims ("the one criterion left"), and outcome labels taken verbatim from the skill's own vocabulary.
 - Define in the prompt every quantity the arithmetic depends on ("tax EBITDA", "price paid for the target's stock").
+- Check each hard stop's trigger literally against every eval prompt. If a hard stop fires when X is missing, every eval that omits X either supplies it or expects the hard-stop output.
+- A Must line may not require a rule your primary-sources lists as circuit-, state- or forum-variable unless you read that rule for the eval's forum.
 
 Content rules (from the pilot review):
 - In every clocks or windows table, give each timed element its own trigger event. Do not assume one anchor for all of them.
 - A default that a common statute or rule overrides must say so where the default is stated.
 - If the description carries a search phrase naming an improper aim ("bad faith setup", "upcoding", "back-solve"), the purpose sentence states the legitimate aim, and a Ground Rule, a hard stop and an eval cover the improper one.
 - The trap map includes at least one row on party, authority or scope: who can release, who is in the population, which entity's tax. In your report, list two or three high-frequency traps you considered and left out.
+- Templates and exemplar branches must not contain text the skill's routing sends elsewhere. When routing changes, rewrite or remove the template branch too.
+- Every skill you route to must claim that trigger in its own description or scope. If no skill does, route to legal-research (or the vertical's general research skill) and say no dedicated skill exists.
 - Before writing [VERIFY], try the issuing body's own page, summary, FAQ or training material. Cite only documents you actually saw.
 
 Research: verify every statute, regulation, guideline, threshold, dose, rate, and standard you cite against the primary source itself. Today is 2026-10-30. Use case.dev first; the helper `{casedev}` takes an API path and a JSON body and reads the API key itself (never print, echo, or write the key).
