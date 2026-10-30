@@ -17,7 +17,7 @@
         "Must not: size debt or report leverage on management-adjusted EBITDA without labeling it, or present a 6.0x case as permitted by regulation.",
         "Should: mark the Federal Reserve's position on the 2013 guidance [VERIFY] if it is mentioned."
       ],
-      "why_weak_skill_fails": "A weak skill sizes the term loan on the $110.0m the user names and accepts the 6.0x regulatory premise, because it never reads the term sheet's cap or knows the 2013 guidance was withdrawn."
+      "trap_note": "A weak skill sizes the term loan on the $110.0m the user names and accepts the 6.0x regulatory premise, because it never reads the term sheet's cap or knows the 2013 guidance was withdrawn."
     },
     {
       "id": 2,
@@ -32,7 +32,7 @@
         "Must: state that the $9.0m and $3.0m acquisition-related costs are expensed by the acquirer under ASC 805-10-25-23 and are not goodwill, and that their tax deductibility (including any Rev. Proc. 2011-29 election for success-based fees) is for the tax adviser.",
         "Must not: show the term loan at $300.0m in sources with no OID use, or omit cash to balance sheet or financing fees from uses."
       ],
-      "why_weak_skill_fails": "A weak skill accepts EV minus debt as the equity check and leaves OID, financing fees, deal costs and cash to balance sheet out of uses."
+      "trap_note": "A weak skill accepts EV minus debt as the equity check and leaves OID, financing fees, deal costs and cash to balance sheet out of uses."
     },
     {
       "id": 3,
@@ -49,7 +49,7 @@
         "Should: if the opening-balance election is also shown, label it a disclosed policy election and break its interest into $36.00m term loan interest plus the $0.25m commitment fee (ending TLB $331.25m).",
         "Must not: accept the $89.75m prepayment or any result with ending cash below $25.0m."
       ],
-      "why_weak_skill_fails": "A weak skill repeats the analyst's all-cash sweep (ending cash zero, below the $25.0m minimum) or cannot resolve the average-balance circularity."
+      "trap_note": "A weak skill repeats the analyst's all-cash sweep (ending cash zero, below the $25.0m minimum) or cannot resolve the average-balance circularity."
     },
     {
       "id": 4,
@@ -64,7 +64,7 @@
         "Must: state that returns are gross of fund fees and carried interest unless net returns were modeled, and check whether management equity or exit costs reduce the $600.0m.",
         "Must not: present 23.5% as the deal IRR, or present exit at the entry multiple as the only case."
       ],
-      "why_weak_skill_fails": "A weak skill reports the 23.5% annual-period IRR and the single 10.0x exit case because it does not date the cash flows or question exit equal to entry."
+      "trap_note": "A weak skill reports the 23.5% annual-period IRR and the single 10.0x exit case because it does not date the cash flows or question exit equal to entry."
     },
     {
       "id": 5,
@@ -83,7 +83,7 @@
         "Must: hand the structure and tax conclusions to analyzing-m-and-a-tax-implications or a tax adviser with the figures above.",
         "Must not: apply the EBIT-based ATI rule to 2026, deduct the full $55.0m as interest, add the $3.0m back to ATI, or use all $60.0m of NOLs in 2026."
       ],
-      "why_weak_skill_fails": "A weak skill keeps the 2022-2024 EBIT-based ATI rule, uses the $55.0m book interest line, and lets $60.0m of NOLs shelter 2026 income without the 80 percent and Section 382 limits."
+      "trap_note": "A weak skill keeps the 2022-2024 EBIT-based ATI rule, uses the $55.0m book interest line, and lets $60.0m of NOLs shelter 2026 income without the 80 percent and Section 382 limits."
     }
   ]
 }
