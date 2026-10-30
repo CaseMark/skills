@@ -2,7 +2,7 @@
 
 Companion to `UPGRADE-PLAYBOOK.md` and `scripts/run_top15_upgrade.py`. The playbook says *what* each skill must look like. This plan says *how* the work gets done, by whom, in what order, and how it is checked.
 
-Status: **proposed, not started.** Nothing in `skills/` has been changed yet.
+Status: **in progress.** Phase 0 (harness hardening) done 2026-10-30. Phase 1 pilot running.
 
 ---
 
@@ -102,11 +102,8 @@ Phases 2-4 can overlap two batches at a time after the pilot if throughput matte
 - No patient-specific dosing presented as an order. Every output is draft for clinician review.
 - Revenue-cycle skills (DRG, risk adjustment, coding denials) must not phrase as "upcoding" advice; the trap maps should focus on documentation-supported code assignment.
 
-### 4.3 `demand-letter` (open question)
-It is both a target and a gold-standard reference, and it was reworked in PR CaseMark/skills#66. It already has Checkpoint A, Steps 1-8, Checkpoint B, Quality Audit, and Guidelines, and it passes the harness with warnings. Against the playbook it lacks a trap map, Troubleshooting, `output-template.md` and `primary-sources.md` by those names, and evals. Its four reference files over 100 lines lack `## Contents`. It has five references where the playbook allows two to four.
-
-- **Light touch (recommended):** add the trap map, Troubleshooting, `primary-sources.md`, `## Contents` headers, and evals. Keep the five existing references, their names, and `assets/examples/`. Accept six references as a documented exception.
-- **Full conformance:** fold the five references into the playbook's two-to-four file layout and rewrite the controller. This touches most of what #66 just shipped.
+### 4.3 `demand-letter` (decided: light touch)
+It is both a target and a gold-standard reference, and it was reworked in PR CaseMark/skills#66. Decided 2026-10-30: add a trap map, Ground Rules, Troubleshooting, Related Skills, `references/primary-sources.md`, `## Contents` headers on the four references over 100 lines, and evals. Keep the five existing references, their uppercase names, and `assets/examples/`. The harness records two exceptions for it: up to six references, and `TEMPLATE.md` serves as the output template.
 
 ### 4.4 Finance (15)
 - Near-full rewrites. Preserve `tags` and `metadata`. Body must clear 100 non-blank lines and hit the 140-320 band.
@@ -171,39 +168,60 @@ Decided 2026-10-30: **one PR per vertical.**
 
 ## Appendix A: Author agent brief (template)
 
+`python3 scripts/run_top15_upgrade.py prompt --slug <slug>` prints this block with the placeholders filled.
+
 ```
 You are upgrading one skill in the CaseMark/skills repo at /home/user/skills.
 
 Target: skills/{domain}/{slug}   (batch {n}: {batch_name})
-Current state: {lines} lines, {refs} references, {evals} evals, trap map: {yes/no}
+Current state: body {lines} lines, {refs} references, {evals} evals, trap map: {trap}
+{exception}
 
 Read first, in this order:
 1. UPGRADE-PLAYBOOK.md (repo root): the binding spec.
 2. UPGRADE-EXECUTION-PLAN.md sections 4 and 5: vertical rules and definition of done.
-3. skills/legal/form-d-exempt-offering-notice/SKILL.md and its references/ and evals/evals.json: the model to imitate for structure, trap map, ground rules, and evals schema.
-4. The current skills/{domain}/{slug}/SKILL.md.
+3. skills/legal/form-d-exempt-offering-notice/SKILL.md, its references/, and its evals/evals.json: the model to imitate for structure, trap map, ground rules, and evals.
+4. The current skills/{domain}/{slug}/SKILL.md. Keep whatever in it is accurate and useful.
 
-Write only inside skills/{domain}/{slug}/. Do not run git. Do not touch any other skill.
+Scope: write only inside skills/{domain}/{slug}/. Do not run git. Do not edit any other skill or any script.
 
 Deliverables:
-- SKILL.md: body 140-320 lines. Frontmatter: name={slug}, language: en, third-person description <=1024 chars dense with search triggers. {legal: tags from the 19 controlled tags only | med/finance: preserve tags and metadata exactly as they are now}.
-  Headings: ## Why This Skill Exists, ## Where Mistakes Hide (3-column table: Input / Document | What It Is Used For | Where the Error Hides), ## Ground Rules (numbered: draft only, source-review gate, hierarchy of authority, citation discipline, plus skill-specific rules), ## Checkpoint A: Pre-Draft Intake (Mandatory), ## Step 1 ... ## Step N (each says which reference file to read), ## Checkpoint B: Post-Draft Alignment, ## Quality Audit (10-13 checks), ## Guidelines, ## Troubleshooting, ## Related Skills, ## Reference Files.
-- references/output-template.md, references/primary-sources.md, plus 1-2 domain-rules files. Flat directory. No links to other .md files. Any file over 100 lines opens with ## Contents.
-- evals/evals.json: {"skill_name": "{slug}", "notes": "...", "evals": [ 3-5 x {id, name, prompt, expected_output, files, expected_behavior} ]}. Each eval targets a named trap-map row. Inline fixture text in the prompt or add evals/fixtures/*.md and list them in files.
+- SKILL.md. Body (after frontmatter) 140-320 lines, blank lines included.
+  Frontmatter: name: {slug}; language: en; description in third person ("Drafts...", "Evaluates..."), at most 1024 characters, dense with the words a user would search; {tag_rule}.
+  Headings, in this order:
+    # <Title>, then a 2-4 sentence purpose paragraph stating the deliverable and that it is a draft for qualified human review
+    ## Why This Skill Exists
+    ## Where Mistakes Hide  (one 3-column table: | Input / Document | What It Is Used For | Where the Error Hides |, at least 5 rows, every row specific to this skill)
+    ## Ground Rules  (numbered: draft only; source-review gate with gap classes unknown fact / source conflict / unverified external lookup / policy election; hierarchy of authority with conflicts named, never resolved silently; citation discipline with source locator or [UNVERIFIED]; then skill-specific rules)
+    ## Checkpoint A: Pre-Draft Intake (Mandatory)  (numbered inputs, default fallbacks, and explicit hard stops)
+    ## Step 1: ... through ## Step N: ...  (each step says which references/ file to read and when)
+    ## Checkpoint B: Post-Draft Alignment
+    ## Quality Audit  (10-13 numbered checks)
+    ## Guidelines
+    ## Troubleshooting  (degraded, unreadable, or conflicting inputs)
+    ## Related Skills  (plain-text slugs with one line each on when to hand off; never markdown links)
+    ## Reference Files  (one line per file in references/)
+- references/: 2-4 .md files, flat. Always output-template.md (deliverable schema, reconciliation table, hand-off table) and primary-sources.md (each authority checked, with citation, what it supports, and the date checked; then a [VERIFY] list). Add 1-2 domain-rules files. Name every file in SKILL.md as references/<file>.md. No links from one reference file to another .md file. A file over 100 lines opens with ## Contents.
+- evals/evals.json:
+  {"skill_name": "{slug}", "notes": "<what the suite covers>", "evals": [ 3-5 x
+    {"id": 1, "name": "<kebab-case>", "prompt": "<realistic user request with the matter facts inline>",
+     "expected_output": "<one-sentence summary of a passing answer>", "files": [],
+     "expected_behavior": ["Must: ...", "Must: ...", "Must not: ..."]} ]}
+  Each eval targets a named row of the trap map and plants the trap in its facts, so a weak skill fails it. If a fixture is long, put it in evals/fixtures/<name>.md and list "fixtures/<name>.md" in files.
 
-Research: verify every statute, regulation, guideline, threshold, and standard you cite with web search against a primary source. Record what you checked and the date in primary-sources.md. Anything unconfirmed or jurisdiction-dependent is marked [VERIFY].
+Research: verify every statute, regulation, guideline, threshold, dose, rate, and standard you cite against a primary source with web search (load WebSearch and WebFetch through ToolSearch if they are deferred). Today is 2026-10-30. Record each check in primary-sources.md. Mark anything unconfirmed, jurisdiction-dependent, or year-dependent [VERIFY]. Never invent a citation.
 
-Banned text anywhere in the bundle:
-- Injection triggers from .github/workflows/skill-qa.yml. Note "X system: Y" matches; write "the X system is Y" instead.
-- FILLER_PHRASES in scripts/validate_enrichment.py, verbatim or near-verbatim.
+Banned text anywhere in the bundle (the harness scans every file):
+- Injection triggers from .github/workflows/skill-qa.yml. Watch for "<word> system: <value>" (write "the coding system is ICD-10-CM"), "new instructions:", "developer mode", "jailbreak", "base64 decode", "eval(", "exec(".
+- The FILLER_PHRASES list in scripts/validate_enrichment.py, including "When in doubt about a data point, mark with [VERIFY] rather than guessing".
 
-Related skills to route to or from: {overlap list for this slug}.
+Related skills to route to: {related}
 
-Before you finish, run and fix until clean:
-  python3 scripts/run_top15_upgrade.py verify --slug {slug}
-  {med/finance: python3 scripts/validate_enrichment.py --vertical {domain} --only-failures}
+Before you finish, loop until both are clean:
+  python3 scripts/run_top15_upgrade.py verify --slug {slug} --strict
+  {enrichment_cmd}
 
-Return: the file list with line counts, the trap-map rows, every [VERIFY] item, and anything you could not resolve.
+Return: files written with line counts, the trap-map row names, each eval's name and the row it targets, every [VERIFY] item, and anything unresolved.
 ```
 
 ## Appendix B: Reviewer agent brief (template)
