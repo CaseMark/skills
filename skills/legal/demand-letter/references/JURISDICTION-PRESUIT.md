@@ -28,7 +28,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 | Consumer class action, California (deceptive advertising / warranty) | CA CLRA § 1782 |
 | Construction defect, homeowner | CA SB 800 / TX Ch. 27 / FL Ch. 558 |
 | Medical malpractice, Florida | Fla. Stat. Ch. 766 |
-| Bad-faith insurance, Texas (policy-limits) | TX Stowers (common law); a time-limited policy-limits demand goes to `bad-faith-demand` |
+| Bad-faith insurance, Texas (policy-limits) | TX Stowers (common law); any offer to a liability insurer to settle within limits goes to `bad-faith-demand` |
 | Consumer debt collection (third-party) | FDCPA § 1692g / § 1692e(11) |
 | Defamation (pre-suit retraction) | State retraction statutes (CA / TX / GA / FL and others) |
 | Warranty claim (federal + 50-state parallels) | MMWA (15 U.S.C. § 2301 et seq.) |
@@ -66,7 +66,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 
 ## Texas — Stowers doctrine (common-law bad-faith policy-limits demand) `[VERIFY]`
 
-- **Routing.** A time-limited demand to a liability insurer to settle within limits is drafted with `bad-faith-demand`, which tests the governing statute (for example O.C.G.A. § 9-11-67.1 for Georgia motor-vehicle claims), the deadline trigger and the lien matrix. This row is background for a general demand that mentions coverage.
+- **Routing.** Any offer to a liability insurer to settle within limits, with or without a deadline, and any pre-answer offer prepared by or with an attorney to settle a Georgia motor-vehicle personal-injury, bodily-injury or death claim, whoever receives it (O.C.G.A. § 9-11-67.1(b)), is drafted with `bad-faith-demand`, which tests the governing statute, the deadline trigger and the lien matrix. This row is background only; this skill's `insurer-claim` branch presents a claim and makes no offer.
 - **Doctrine.** Common-law, from *G.A. Stowers Furniture Co. v. Am. Indem. Co.*, 15 S.W.2d 544 (Tex. Comm'n App. 1929, holding approved). Not a statute. The duty is activated only when (1) the claim is within the scope of coverage, (2) the demand is within policy limits, and (3) its terms are such that an ordinarily prudent insurer would accept it, considering the insured's likely exposure to an excess judgment. *Am. Physicians Ins. Exch. v. Garcia*, 876 S.W.2d 842, 849 (Tex. 1994).
 - **Trigger.** An insured is exposed to liability exceeding policy limits; the claimant has given the insurer the opportunity to settle within limits.
 - **Notice period.** None statutorily required, but the demand must give the insurer a **reasonable time** to investigate, evaluate, and accept. Practice: 30 days is standard; 10–14 days is the floor and invites bad-faith arguments of its own.
@@ -77,7 +77,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
   - Specific deadline.
 - **Service method.** To the insurer's claims representative (and, best practice, to the insured directly or through their counsel).
 - **Consequence to the insurer of refusal.** If the insurer rejects a proper Stowers demand, and a judgment later exceeds limits, the insurer can be liable to the insured for the full excess. This is the extracontractual-damages leverage that makes these demands powerful.
-- **Exemplars.** `assets/examples/pi-ga-witherite-liability-demand.md` (Georgia equivalent; similar policy-limits framework), `assets/examples/pi-ga-auto-allen-v-liberty-mutual-demand.md`.
+- **Exemplars.** `assets/examples/pi-ga-witherite-liability-demand.md` and `assets/examples/pi-ga-auto-allen-v-liberty-mutual-demand.md` (Georgia policy-limits offers): read them here only for the liability narrative and specials presentation; their offer terms and deadlines are `bad-faith-demand` territory.
 - **Verification.** `legal-research` on current Texas Stowers evolution (cases refine what counts as a "proper" demand). `citation-bluebook` for good-law status.
 
 ## California — CLRA § 1782(a) (consumers' Legal Remedies Act) `[VERIFY]`

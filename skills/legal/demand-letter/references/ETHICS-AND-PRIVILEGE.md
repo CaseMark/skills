@@ -58,7 +58,7 @@ All rule references are to the ABA Model Rules of Professional Conduct. Every st
 - For a represented organization, communicating with a constituent who supervises, directs or regularly consults with the organization's lawyer about the matter, who can obligate the organization in the matter, or whose act or omission may be imputed to it (Comment [7]). Former constituents are outside the rule.
 
 **Represented-party workflow (Checkpoint A, new item 10 in SKILL.md).**
-1. Ask the user: "Is the recipient party known or reasonably believed to be represented by counsel in this matter?"
+1. Ask the user: "Do you know that the recipient is represented by counsel in this matter (for example, a lawyer has written or called on its behalf)?" Knowledge may be inferred from the circumstances (Comment [8]); a suspicion without facts is a reason for the inquiry in item 3, not a reason to write to counsel.
 2. If yes → the letter must be addressed and served to counsel. The recipient party may appear on the `cc:` line only if counsel consents.
 3. If unknown but the counterparty is a corporation → reasonable inquiry required. Standard practice: if prior correspondence has come from a specific attorney or firm, address there.
 4. If no → address the party directly.
@@ -82,6 +82,7 @@ All rule references are to the ABA Model Rules of Professional Conduct. Every st
 - "We will report this to the IRS as tax evasion if payment is not received."
 - "If you do not settle, we will file a bar complaint against you."
 - "We will contact your employer / licensing board / immigration authorities if you do not pay."
+- "Unless you pay, we will take this to the press / your customers / social media." A demand for money coupled with a threat to expose the recipient or accuse it of a crime can be criminal extortion even in a lawyer's pre-litigation letter: *Flatley v. Mauro*, 39 Cal. 4th 299 (2006), held a lawyer's demand letter and calls threatening worldwide media exposure and referral to authorities unless paid were extortion as a matter of law under Cal. Penal Code §§ 518, 519 and 523 (the court stressed its "specific and extreme circumstances"). State extortion statutes differ `[VERIFY]`.
 
 **Permissible phrasings — what you CAN say.**
 - "This letter does not constitute a threat of criminal prosecution, and nothing herein should be construed as one." (Standard prophylactic — include in §7 of the template when any conduct described could have criminal overlap.)
@@ -127,7 +128,7 @@ Federal Rule of Evidence 408 (and most state analogs) excludes offers to comprom
 **When to omit:**
 - Pure statutory-notice letter satisfying a pre-suit prerequisite (Ch. 93A, DTPA, CLRA, FDCPA § 1692g). The statutes contemplate the letter itself being admissible.
 - Pure cease-and-desist with no monetary compromise offered.
-- Policy-limits demand where the drafter affirmatively wants the letter admissible in a subsequent bad-faith/Stowers/Holt action against the insurer. (Tactical choice; `[VERIFY]` with governing jurisdiction's bad-faith framework.)
+- Claim presentation to a liability insurer (TEMPLATE.md `insurer-claim` branch), which makes no compromise offer. Any offer to an insurer to settle within limits, and its FRE 408 posture, belongs to `bad-faith-demand`.
 
 ---
 

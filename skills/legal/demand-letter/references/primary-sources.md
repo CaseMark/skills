@@ -40,7 +40,7 @@ Checked on October 30, 2026. Re-check before relying on any rule in a letter tha
 |---|---|---|---|---|
 | ABA Model Rules 3.1, 4.1, 4.2 (and Comments [7], [8]), 8.4 | Quoted rule text; actual knowledge of representation, inferable from circumstances; organizational constituents covered | https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/ (rule and comment pages) | Full text via case.dev (official) | 2026-10-30 |
 | ABA Formal Opinion 92-363 (July 6, 1992) | The Model Rules have no counterpart to former DR 7-105(A); conditions under which raising criminal charges is not a Model Rules violation | https://docs.tbpr.org/aba-formal-op-92-363.pdf | Full text via case.dev (Tennessee Board of Professional Responsibility copy of the Westlaw text; mirror) | 2026-10-30 |
-| California Rule of Professional Conduct 3.10 | Ban on threatening criminal, administrative, or disciplinary charges to obtain an advantage in a civil dispute; definitions | https://www.calbar.ca.gov/Portals/0/documents/rules/Rule_3.10-Exec_Summary-Redline.pdf | Full text via case.dev (State Bar of California) | 2026-10-30 |
+| California Rule of Professional Conduct 3.10 and Comments [1]-[3] | Ban on threatening criminal, administrative, or disciplinary charges to obtain an advantage in a civil dispute; definitions; Comment [1]: a lawyer may not state or imply that criminal or administrative action will be pursued unless the opposing party settles; Comment [2]: "all available legal remedies" alone does not violate the rule | https://www.calbar.ca.gov/Portals/0/documents/rules/Rule_3.10-Exec_Summary-Redline.pdf | Full text via case.dev (State Bar of California) | 2026-10-30 |
 | Fed. R. Evid. 408 | Prohibited uses (validity, amount, impeachment) and permitted other purposes | https://www.law.cornell.edu/rules/fre/rule_408 | Full text via case.dev (LII mirror) | 2026-10-30 |
 | O.C.G.A. § 24-4-408 | Georgia's current compromise rule (Ga. L. 2011, p. 99); replaced former § 24-3-37 | https://law.justia.com/codes/georgia/title-24/chapter-4/section-24-4-408/ | Full text via case.dev (Justia mirror of the 2025 Code) | 2026-10-30 |
 
@@ -50,6 +50,7 @@ Checked on October 30, 2026. Re-check before relying on any rule in a letter tha
 |---|---|---|---|
 | *G.A. Stowers Furniture Co. v. Am. Indem. Co.*, 15 S.W.2d 544 (Tex. Comm'n App. 1929, holding approved) | Origin of the Stowers duty | Citation verified via case.dev `/legal/v1/verify` (CourtListener, decided 1929-03-27); opening of the opinion read at https://storage.courtlistener.com/harvard_pdf/4157940.pdf | 2026-10-30 |
 | *Am. Physicians Ins. Exch. v. Garcia*, 876 S.W.2d 842 (Tex. 1994) | Three prerequisites that activate the Stowers duty (p. 849) | Citation verified via case.dev; full text via case.dev at https://storage.courtlistener.com/harvard_pdf/2455788.pdf | 2026-10-30 |
+| *Flatley v. Mauro*, 39 Cal. 4th 299 (2006) | A lawyer's pre-litigation demand letter and calls threatening worldwide media exposure and referral to authorities unless paid were criminal extortion as a matter of law (Cal. Penal Code §§ 518, 519, 523), so the anti-SLAPP statute did not apply; the court limited the holding to the case's "specific and extreme circumstances" (fn. 16) | Citation verified via case.dev (CourtListener, decided 2006-07-27); full text via case.dev at https://storage.courtlistener.com/harvard_pdf/2600567.pdf | 2026-10-30 |
 | *Heintz v. Jenkins*, 514 U.S. 291 (1995) | The FDCPA applies to lawyers who regularly collect consumer debts, including through litigation | Citation verified via case.dev; full text via case.dev at https://www.law.cornell.edu/supremecourt/text/514/291 | 2026-10-30 |
 
 ## Corrections made to the reference files on October 30, 2026
@@ -68,7 +69,10 @@ Checked on October 30, 2026. Re-check before relying on any rule in a letter tha
 | `ETHICS-AND-PRIVILEGE.md`, `ARCHETYPE-INDEX.md` | Georgia compromise rule cited as O.C.G.A. § 24-3-37 | § 24-4-408 (current); § 24-3-37 is the former section |
 | `ETHICS-AND-PRIVILEGE.md` | Validation notice limited to the five statutory items; 10-day deadline "per se problematic in most circuits" | Regulation F validation information and period; § 1692g(b) overshadowing text |
 | `DAMAGES-METHODOLOGY.md` | 93A trigger "insufficient response to a reasonable settlement offer"; DTPA "intentional" trebles mental anguish only; Lanham "up to 3x profits" for willfulness | Statutory triggers and bases as read; § 11 row added |
-| `TEMPLATE.md` | Letter addressed to the party with "cc: opposing counsel if known"; policy-limits "fiduciary obligation" | Represented recipient addressed through counsel; duty characterization flagged `[VERIFY]` |
+| `TEMPLATE.md` | Letter addressed to the party with "cc: opposing counsel if known" | Represented recipient addressed through counsel |
+| `TEMPLATE.md` (fix pass) | A `policy-limits` branch that was itself a time-limited offer to settle for the limits, with a lapse date, a "fiduciary duty to settle" statement and a counteroffer-is-rejection sentence | Replaced by an `insurer-claim` branch that presents the claim, makes no offer and sets no lapse date; every offer to a liability insurer, and every pre-answer attorney offer on a Georgia motor-vehicle injury claim (O.C.G.A. § 9-11-67.1(b)), routes to `bad-faith-demand` |
+| `TEMPLATE.md` §7 (fix pass) | "Regulatory referral where appropriate" listed as a consequence of non-payment | Removed; such a referral tied to payment is what Cal. Rule 3.10 Comment [1] bars and what the skill's hard stop declines |
+| `ARCHETYPE-INDEX.md` (fix pass) | Rows 7-8 offered as patterns for policy-limits demands drafted here | Narrative and specials patterns only; their offers belong to `bad-faith-demand` |
 
 ## `[VERIFY]` list: unconfirmed, jurisdiction-dependent or practice statements
 
@@ -91,6 +95,7 @@ Checked on October 30, 2026. Re-check before relying on any rule in a letter tha
 | UCC § 2-715(2) and *Hadley v. Baxendale* formulations | Not re-read |
 | Cal. Evid. Code § 1152 scope; 28 U.S.C. § 1391 venue; CLRA § 1780(e) and 42 U.S.C. § 1988 fee provisions | Cited in the references; text not re-read |
 | Model Rule 4.2 "authorized by law" covering a statutory notice served on a registered agent | Inference from Comment [5]; state rules vary |
-| Whether a "reserve all rights, including referral" sentence is permitted | Varies; Rule 3.10's text does not address the phrasing directly; this skill omits it everywhere as a house rule |
+| Whether a "reserve all rights, including referral" sentence is permitted | Varies outside California. In California, Rule 3.10 Comment [1] bars stating or implying that criminal or administrative action will be pursued unless the matter settles, and Comment [2] says "all available legal remedies" alone is not a violation; whether a "referral" reservation implies the former turns on the facts (Comment [2]). This skill omits it everywhere as a house rule |
+| Extortion exposure for threats of public exposure outside California | *Flatley* applies California Penal Code §§ 518-523; other states' extortion statutes not read |
 | Qualified litigation privilege for pre-suit letters | Varies by state; not checked |
 | Effective-date and application rules of Georgia's 2024 amendment to § 9-11-67.1 | Current text read; transition rules not read |

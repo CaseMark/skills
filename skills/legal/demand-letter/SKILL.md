@@ -13,7 +13,7 @@ description: >
   computes each deadline from its own trigger, and applies ethics guardrails
   (represented parties, no criminal-threat leverage, FRE 408). Use for demand letter,
   pre-suit demand, settlement demand, 93A letter, DTPA notice, notice of intent, or
-  pre-litigation correspondence. Routes time-limited policy-limits demands to
+  pre-litigation correspondence. Routes any offer to settle within policy limits to
   bad-faith-demand and coverage questions to coverage-opinion.
 tags:
   - drafting
@@ -39,7 +39,8 @@ A demand letter is simultaneously a settlement instrument and a future exhibit. 
 | Contract notice and cure clause | Notice method, address, cure period, forum | A deadline shorter than the contractual cure period; email used where the clause requires courier; a forum named in breach of a forum-selection or arbitration clause |
 | Consumer-debt facts (law firm regularly collects for the client) | Whether the FDCPA and Regulation F apply | Missing validation information or mini-Miranda; a 10-day pay-or-sue deadline inside the validation period (overshadowing, § 1692g(b)) |
 | Facts with criminal or regulatory overlap (embezzlement, bad checks, licensed recipient) | Tone and leverage in §7 | A conditional threat to go to the prosecutor, licensing board or bar; "reserve the right to refer" phrasing that reads as the same threat (California Rule 3.10 bars threatening criminal, administrative or disciplinary charges) |
-| A request for a "policy-limits letter" to a liability insurer | Choice of workflow and template branch | A time-limited offer drafted here instead of in `bad-faith-demand`, missing statutory material terms and minimum acceptance periods (for example O.C.G.A. § 9-11-67.1: at least 30 days from receipt) |
+| A request for a "policy-limits letter" to a liability insurer, or any pre-answer offer on a Georgia motor-vehicle injury claim | Choice of workflow and template branch | An offer drafted here instead of in `bad-faith-demand`, whether or not it is called time-limited, missing statutory material terms and minimum periods (O.C.G.A. § 9-11-67.1(b) covers every attorney-prepared pre-answer offer on such a claim: acceptance at least 30 days from receipt) |
+| Client wish to "go public" or tell customers, the press or a regulator unless paid | Leverage in §7 and the cover email | A demand for money coupled with a threat of exposure or accusation, which can be criminal extortion even in a lawyer's letter (*Flatley v. Mauro*, 39 Cal. 4th 299 (2006)); copying customers or the press, which also strips litigation privilege |
 | Client facts that sound like elements | §2 narrative and §3 theories | A cause of action pleaded without one sourced fact per element; conclusory labels ("fraudulent", "willful") with no supporting facts |
 
 ## Ground Rules
@@ -50,9 +51,9 @@ A demand letter is simultaneously a settlement instrument and a future exhibit. 
 4. **Citation discipline.** Every factual assertion and damages line carries a source locator (exhibit, document, page) or `[UNVERIFIED — client-provided]`. Every statute and case is verified through `legal-research` and `citation-bluebook` or marked `[VERIFY]`. Never invent a citation, registered agent, address or verdict.
 5. **Elements before theories.** Plead a cause of action only when §2 has at least one sourced fact for each element (Model Rule 3.1). If an element is unsupported, drop the theory and tell the user.
 6. **The statute overrides the template.** Where a pre-suit regime applies, its contents, service method and waiting period control over every default in this file.
-7. **No threats of criminal, administrative or disciplinary charges** to gain advantage in the civil matter, in any form, including "reserve the right to refer" phrasing (house rule; mandatory in California under Rule 3.10).
+7. **No threats of criminal, administrative or disciplinary charges, or of public exposure,** to gain advantage in the civil matter, in any form, including "reserve the right to refer" phrasing (house rule; California Rule 3.10 and its Comment [1] bar stating or implying that such charges will be pursued unless the matter settles; a threat of exposure tied to payment can be extortion).
 8. **No unsupported money.** No multiplier, fee, interest or consequential-damages claim without its verified basis and shown arithmetic. Never disclose the client's ceiling or walkaway number.
-9. **Stay in lane.** Time-limited policy-limits demands go to `bad-faith-demand`; a coverage position goes to `coverage-opinion`. Hand off with the facts, not just the skill name.
+9. **Stay in lane.** Any offer to a liability insurer to settle within limits, and any pre-answer attorney offer on a Georgia motor-vehicle injury claim, goes to `bad-faith-demand`; a coverage position goes to `coverage-opinion`. Hand off with the facts, not just the skill name.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -75,10 +76,10 @@ Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 - The limitations period would run before the statutory waiting period ends. Escalate to the attorney with the dates; the statute may excuse notice (for example DTPA § 17.505(b)).
 - A statutory prerequisite cannot be met on the materials given (for example a Florida notice of intent with no verified expert opinion). Do not call the notice compliant; list what is missing.
-- The demand total exceeds the authorized ceiling, or no ceiling was given. Use a `{{DEMAND AMOUNT — attorney to set}}` placeholder.
-- The user asks for a threat of criminal, administrative or disciplinary charges. Decline that content and draft the civil demand.
+- The demand total exceeds the authorized ceiling, or no ceiling was given, unless the letter demands a liquidated balance in full and offers no compromise. Use a `{{DEMAND AMOUNT — attorney to set}}` placeholder.
+- The user asks for a threat of criminal, administrative or disciplinary charges, or of exposure to the media, customers or the public unless paid. Decline that content and draft the civil demand.
 - The sender is a debt collector on a consumer debt and the user wants a payment or suit deadline before the validation period ends. Set no such deadline.
-- The request is a time-limited policy-limits offer to a liability insurer. Route to `bad-faith-demand`.
+- The request is any offer to a liability insurer to settle within limits, or any pre-answer attorney offer on a Georgia motor-vehicle injury claim, however labeled. Route to `bad-faith-demand`.
 
 ## Step 1: Diagnose Legal Function
 
@@ -90,7 +91,7 @@ Ask every time unless the user says "use defaults" or "just draft." Gather:
 
 **Exemplar lookup.** Find the nearest archetype in `references/ARCHETYPE-INDEX.md` and read its text exemplar in `assets/examples/` before drafting, for tone, length and cite density. If none matches, say so.
 
-**Template branch.** Read `references/TEMPLATE.md` and pick one branch: `statutory-notice`, `policy-limits` (only for an insurer-directed demand that is not a time-limited policy-limits offer), or `commercial`.
+**Template branch.** Read `references/TEMPLATE.md` and pick one branch: `statutory-notice`, `insurer-claim` (a claim presentation to an insurer that makes no offer and sets no lapse date), or `commercial`.
 
 ## Step 2: Build Element-Driven Fact Narrative
 
@@ -174,7 +175,7 @@ Confirm each item before responding. If one fails, fix the draft.
 6. Every citation is verified through `legal-research` or `citation-bluebook`, or marked `[VERIFY]`.
 7. Damages reconcile: line items sum to the total; each multiplier names its conduct finding and base; interest shows rate, accrual date and source; fees cite a verified clause or subsection; mitigation and credits addressed.
 8. Each deadline is a calendar date computed from its own trigger in the clock table; statutory periods override the 30-day default.
-9. No threat of criminal, administrative or disciplinary charges; the prophylactic sentence is included where conduct has criminal overlap.
+9. No threat of criminal, administrative or disciplinary charges, or of public exposure, tied to payment; the prophylactic sentence is included where conduct has criminal overlap.
 10. FDCPA and Regulation F content (mini-Miranda, validation information, validation period end date, no overshadowing deadline) is present whenever the sender is a debt collector on a consumer debt.
 11. FRE 408 posture decided under the `references/ETHICS-AND-PRIVILEGE.md` rule; preservation paragraph present, with `spoliation-letter` invoked for high-risk evidence.
 12. Exemplar consulted (name the `assets/examples/` file) or no-match stated; one template branch only; signature block carries the bar number.
@@ -206,7 +207,7 @@ Confirm each item before responding. If one fails, fix the draft.
 - legal-research: verify the pre-suit regime, limitations and tolling, and any statute the letter cites.
 - citation-bluebook: format and good-law status for every case cited.
 - spoliation-letter: dedicated, itemized preservation demand when Step 5 finds high-risk evidence.
-- bad-faith-demand: any time-limited demand to a liability insurer to settle within policy limits (Stowers, Georgia O.C.G.A. § 9-11-67.1, or a similar statutory regime); hand over the insured, limits, injuries, liens and deadline facts.
+- bad-faith-demand: any offer to a liability insurer to settle within policy limits (Stowers or a similar regime) and any pre-answer attorney offer on a Georgia motor-vehicle injury claim (O.C.G.A. § 9-11-67.1); hand over the insured, limits, injuries, liens and deadline facts.
 - coverage-opinion: whether a policy covers the claim, duty to defend or indemnify, or a reservation-of-rights position.
 - pi-demand-summary: builds the personal-injury damages narrative that feeds §4.
 - demand-package and demand-package-compilation: assemble the letter and exhibits into a transmittable package.
