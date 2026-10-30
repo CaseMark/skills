@@ -20,6 +20,7 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 | TNKase (tenecteplase) prescribing information, revised 2/2025 | https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/103909s5197lbl.pdf | Full text via case.dev; 2026-10-30 | AIS indication; within 3 hours of onset; 0.25 mg/kg bands, maximum 25 mg; STEMI maximum 50 mg; contraindications by indication |
 | FDA Roundup, March 4, 2025 | https://www.fda.gov/news-events/press-announcements/fda-roundup-march-4-2025 | Full text via case.dev; 2026-10-30 | FDA approval of TNKase for AIS in adults |
 | AHA/ASA 2022 Guideline for Spontaneous ICH (Greenberg SM, et al. Stroke 2022;53:e282-e361) | https://www.heart.org/en/-/media/CPR2-Files/Private/2022-Guideline-for-the-Management-of-Patients-With-Spontaneous-Intracerebral-Hemorrhage-1.pdf | Full text via case.dev; 2026-10-30 | §5.1 recs 1-5; §5.2.1 recs 1-6 and synopsis |
+| NCS/SCCM, Treatment of Antithrombotic-Associated Intracranial Hemorrhage in Adults: A Focused Guideline Update (Vallejo MC, Kennedy LS, et al.; Neurocrit Care, published Sept. 24, 2026; doi 10.1007/s12028-026-02601-4) | https://link.springer.com/article/10.1007/s12028-026-02601-4 | Full text via case.dev; 2026-10-30 | Recommendations 1-1, 1-2, 2-1, 2-2, 4-1; non-AHA issuer |
 | FDA Safety Communication: Update on the Safety of Andexxa | https://www.fda.gov/safety/medical-product-safety-information/update-safety-andexxa-astrazeneca-fda-safety-communication | Full text via case.dev; 2026-10-30 | US sales ended Dec. 22, 2025; BLA withdrawal requested; risks judged to outweigh benefits |
 | TCTMD, "Andexanet Alfa Pulled From US Market" (Dec. 22, 2025) | https://www.tctmd.com/news/andexanet-alfa-pulled-us-market | Full text via case.dev (secondary); 2026-10-30 | Cross-check of the FDA communication |
 | Joint Commission, Stroke (STK) set page, v2026B1 (posted 9/14/2026) | https://manual.jointcommission.org/releases/TJC2026B1/Stroke.html | Full text via case.dev; 2026-10-30 | Set measures; data elements; initial patient population; sampling; v2026B1 discharge range |
@@ -30,6 +31,7 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 | Joint Commission, Stroke measures page | https://www.jointcommission.org/measurement/measures/stroke/ | Full text via case.dev; 2026-10-30 | eSTK accreditation eCQMs; certification measure sets |
 | Joint Commission Expert-to-Expert transcript, 2026 STK and VTE eCQM updates | https://digitalassets.jointcommission.org/api/public/content/f20729a65438453caf8cf442dd7648c5?v=681ac860 | Full text via case.dev; 2026-10-30 | CMS data set averages for STK-2, STK-3, STK-5 (program status not stated) |
 | AHA Target: Stroke Phase III brochure; suggested time intervals one-pager (2019) | heart.org Target: Stroke Phase III brochure PDF (FINAL5619) and DS14860 time-interval PDF | Full text via case.dev; 2026-10-30 | DTN 60/45/30 goals; door-to-device goals; interval targets |
+| GWTG-Stroke Data Dictionary/Coding Instructions for measure AHASTR13 (door-to-needle) | https://www.p4qm.org/sites/default/files/2026-04/AHASTR13-Data-Dictionary-and-Coding-Instructions.pdf (mirror posted by p4qm.org, April 2026) | Full text via case.dev; 2026-10-30 | Arrival Date/Time = earliest documented arrival; delay-reason element |
 | AHA GWTG-Stroke recognition criteria page | https://www.heart.org/en/professional/quality-improvement/get-with-the-guidelines/get-with-the-guidelines-stroke/get-with-the-guidelines-stroke-recognition-criteria | Full text via case.dev; 2026-10-30 | Honor Roll levels in force; arrive by 3.5 h, treat by 4.5 h achievement measure |
 
 ## 2. Confirmed statements
@@ -46,6 +48,11 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 | TNKase label: within 3 h of onset; history of ICH and stroke within 3 months are STEMI-only contraindications | TNKase PI §2.1, §4 |
 | ICH: 4F-PCC for VKA with INR 2.0 or more; andexanet 2a for factor Xa inhibitors; reversal not delayed for labs; SBP target 140, below 130 potentially harmful | ICH 2022 §5.1, §5.2.1 |
 | Andexanet US sales ended Dec. 22, 2025 | FDA safety communication |
+| NCS/SCCM 2026 Rec 1-1: 4F-PCC rather than andexanet for factor Xa inhibitor-associated spontaneous ICH (conditional; moderate certainty) | NCS/SCCM focused update, PICO 1 |
+| STK-4 population steps: ED Patient = Y required (step 3); documented Reason for Not Initiating removes a no-thrombolytic case (steps 13-14) | STK-4 MIF v2026B1 algorithm |
+| CSTK-04: comfort measures only and clinical trial leave the population; a documented Reason for Not Administering a reversal agent places the case in the numerator (step 8) | CSTK-04 MIF v2026B1 algorithm |
+| GWTG door-to-needle arrival is the earliest documented arrival | GWTG AHASTR13 coding instructions (mirror) |
+| AIS 2026 §4.6.3 rec 2 is 2a, B-R | AIS 2026 §4.6.3 table |
 | STK-4 anchored on LKW: arrival within 120 min, initiation within 180 min; extending reasons for 180-270 min | STK-4 MIF v2026B1 |
 | LKW over onset; Code Stroke form priority; wake-up example; arrival from Only Acceptable Sources; tenecteplase counts | Data elements listed above |
 | CSTK-01 needs a documented total before recanalization; components alone do not count | CSTK-01 MIF; Initial NIHSS Score Performed |
@@ -66,20 +73,21 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 | "CMS Stroke Core Measures STK-1 through STK-10" | Joint Commission chart-abstracted measures for certification; eSTK eCQMs for accreditation; CMS use `[VERIFY]` | Joint Commission stroke measures page |
 | Imaging within 15-20 minutes; NIHSS within 25 minutes | Imaging as rapidly as possible, for example within 25 minutes (AIS 2026); interval targets are Target: Stroke suggestions | §3.2 rec 2; DS14860 |
 | Antihypertensive drug doses and DOAC timing rules for a patient | Removed; the skill gives no patient doses | Ground Rule 1 |
+| Under-18 routing to managing-pediatric-emergencies | That skill covers weight-based dosing, not pediatric stroke; no dedicated skill exists | Sibling SKILL.md |
+| LKW hard stop blocked every timing conclusion | Limited to LKW-anchored results; arrival-, IVT-start- and diagnosis-anchored clocks stay computable | Review fix, 2026-10-30 |
 | Glucose "obtain within 10 minutes" | Check glucose before IVT (§4.6.1 rec 5); no 10-minute guideline target found | §4.6.1 |
 
 ## 4. `[VERIFY]` list
 
 1. Table 8 rows: read from the Guideline Central pocket edition, not the published table; the low-concern tier comes only from a secondary commentary.
 2. That no 2026 Table 8 row restores the ECASS III 3-4.5 h exclusions.
-3. COR for AIS 2026 §4.6.3 rec 2 (extracted as 2a; wording reads "may be reasonable").
-4. Anchor of the 25-minute imaging example in §3.2 rec 2 (arrival assumed).
-5. Activase prescribing information: window and contraindications (not read).
-6. Whether AHA/ASA has issued an ICH guideline or focused update after 2022, and whether it revises the andexanet recommendation after the US withdrawal.
-7. Current AHA/ASA aneurysmal SAH guideline version for CSTK-06 reviews.
-8. STK-1, STK-2, STK-3, STK-5, STK-6, STK-8, STK-10 rules: measure information forms not read.
-9. Timing rules of CSTK-03, CSTK-09, CSTK-11, CSTK-12 and ASR-OP-1: forms not read.
-10. Whether v2026B1 changes any element relied on for a 3Q26 discharge scored under v2026B.
-11. CMS program use of the stroke eCQMs in 2026.
-12. Whether GWTG's arrival definition for door-to-needle matches the Joint Commission Arrival Time element in every detail.
-13. Door-in-door-out: no numeric target found in AIS 2026; the 2-hour figure is a 2013 Brain Attack Coalition recommendation quoted in the STK-OP-1 form.
+3. Anchor of the 25-minute imaging example in §3.2 rec 2 (arrival assumed).
+4. Activase prescribing information: window and contraindications (not read).
+5. Whether AHA/ASA has issued an ICH guideline or focused update after 2022 and revised the andexanet recommendation after the US withdrawal, and whether any society guideline on ICH reversal newer than the NCS/SCCM update of Sept. 24, 2026 exists (none found on 2026-10-30).
+6. Current AHA/ASA aneurysmal SAH guideline version for CSTK-06 reviews.
+7. STK-1, STK-2, STK-3, STK-5, STK-6, STK-8, STK-10 rules: measure information forms not read.
+8. Timing rules of CSTK-03, CSTK-09, CSTK-11, CSTK-12 and ASR-OP-1: forms not read.
+9. Whether v2026B1 changes any element relied on for a 3Q26 discharge scored under v2026B.
+10. CMS program use of the stroke eCQMs in 2026.
+11. Whether GWTG's arrival rule, confirmed as the earliest documented arrival, also disregards EMS records as the Joint Commission Only Acceptable Sources list does.
+12. Door-in-door-out: no numeric target found in AIS 2026; the 2-hour figure is a 2013 Brain Attack Coalition recommendation quoted in the STK-OP-1 form.

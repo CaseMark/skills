@@ -45,9 +45,9 @@ Stroke reviews go wrong on clocks and versions more often than on care. Four fra
 | BP flowsheet around thrombolysis or thrombectomy | Blood pressure threshold at each time point | The pre-IVT 185/110 threshold (AIS 2026 §4.3 rec 5) applied after the bolus, where 180/105 (rec 7) governs for 24 hours; an ICH target (SBP 140, ICH 2022 §5.1) applied to ischemic stroke; an SBP below 140 target after IVT or successful EVT presented as guideline care; missed 15-minute checks in the first 2 hours |
 | NIHSS flowsheet and notes | Severity, disabling-deficit decision, CSTK-01 | Item scores with no total read as a score; a total inferred from components; the first total charted after the needle; a modified or estimated NIHSS counted; a low score read as "not eligible" without a disabling-deficit assessment |
 | Thrombolysis checklist, order set, drug label | Contraindications and agent | The 2019 absolute list (prior ICH, stroke within 3 months, DOAC within 48 hours) used for 2026 care where the 2026 table grades them relative; the TNKase label's 3-hour window or STEMI-only contraindications applied as stroke rules; a stroke tenecteplase dose above 25 mg (AIS 2026 §4.6.2; STEMI bands on the 2025 TNKase label go to 50 mg) |
-| ED tracking board, registry dashboard, triage stamp | Door-to-needle and door-to-device | Door taken from triage, registration completion, stroke alert or CT time instead of the earliest documented arrival; one case called "Target: Stroke met" although the goals are hospital percentages; STK-4 scored from the door instead of LKW |
+| ED tracking board, registry dashboard, triage stamp | Door-to-needle and door-to-device | Door taken from triage, registration completion, stroke alert or CT time instead of the earliest documented arrival; one case called "Target: Stroke met" although the goals are hospital percentages; STK-4 scored from the door instead of LKW; a no-thrombolytic case scored as an STK-4 failure without checking ED Patient status or a documented Reason for Not Initiating IV thrombolytic |
 | Transfer record, both hospitals' charts | DIDO, EVT timing, who counts the case | DIDO from the transfer call or from CT; hub door-to-puncture started at the spoke; a thrombolytic given at the spoke counted in the hub's STK-4 numerator; repeat imaging at the hub treated as required |
-| Anticoagulant history, INR, ICH order set | Reversal for hemorrhagic stroke | Reversal held for an INR result; the VKA threshold (INR 2.0, ICH 2022 §5.2.1) applied to a factor Xa inhibitor; andexanet listed as first line for US care after its withdrawal; the CSTK-04 INR cut-off (1.4) confused with a clinical threshold |
+| Anticoagulant history, INR, ICH order set | Reversal for hemorrhagic stroke | Reversal held for an INR result; the VKA threshold (INR 2.0, ICH 2022 §5.2.1) applied to a factor Xa inhibitor; andexanet listed as first line for US care after its withdrawal, or the September 2026 NCS/SCCM focused update favouring 4F-PCC missed; the CSTK-04 INR cut-off (1.4) confused with a clinical threshold; a documented reason for not giving a reversal agent missed (it places the case in the CSTK-04 numerator) |
 | MAR and swallow screen record | Dysphagia screen before oral intake; antithrombotic timing | Oral aspirin or other oral medicines given before the swallow screen; an antiplatelet started before the 24-hour post-IVT scan; dysphagia cited as an STK measure |
 | Request, certification level, measure version | Scope: which framework, hospital and population | A CSTK measure applied at a primary stroke center; a 2019 guideline applied to 2026 care or the reverse; an ED transfer scored as an inpatient STK case; manual version not matched to the discharge date |
 
@@ -55,7 +55,7 @@ Stroke reviews go wrong on clocks and versions more often than on care. Four fra
 
 1. **Draft only; no orders.** Every output is a draft for a clinician and a stroke coordinator. Never phrase guideline content as an order for a patient: no doses, agents, rates or eligibility decisions for a current patient. State what the guideline says, what the record shows, and leave the decision to the treating team.
 2. **Source-review gate.** Do not call a time, score, note or result missing until every supplied document has been opened and searched, including scanned and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a measure rule not confirmed in the current manual) or a policy election (for example the facility's choice of agent or BP protocol).
-3. **Hierarchy of authority.** For clinical comparison: the guideline in force on the care date (AIS 2026 from January 26, 2026; ICH 2022), then the FDA label, then facility protocol; a label or protocol that differs is named as a conflict, never merged into "the standard". For measures: the Joint Commission manual version for the discharge date, then its data dictionary, then facility abstraction notes. For facts: primary entries (code stroke form, physician notes, MAR administration times, flowsheet readings, imaging timestamps) govern over dashboards, tracking boards and registry extracts. Name every conflict in the reconciliation table; never resolve one silently.
+3. **Hierarchy of authority.** For clinical comparison: the AHA/ASA guideline in force on the care date (AIS 2026 from January 26, 2026; ICH 2022), with any later society guideline on a narrower question (for example the NCS/SCCM 2026 focused update on antithrombotic-associated ICH) shown as its own row under its issuer's name, then the FDA label, then facility protocol; a label or protocol that differs is named as a conflict, never merged into "the standard". For measures: the Joint Commission manual version for the discharge date, then its data dictionary, then facility abstraction notes. For facts: primary entries (code stroke form, physician notes, MAR administration times, flowsheet readings, imaging timestamps) govern over dashboards, tracking boards and registry extracts. Name every conflict in the reconciliation table; never resolve one silently.
 4. **Citation discipline.** Every timestamp, score and quoted note carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every clinical value carries its guideline, section and year, and every measure rule its manual version, or `[VERIFY]`.
 5. **Name the framework on every conclusion.** Write "AIS 2026 §4.3 rec 7: not consistent", "STK-4 v2026B1: not in population", "Target: Stroke: DTN 50 minutes, within the 60-minute band". Never merge them into one pass or fail.
 6. **Every clock runs from its own trigger.** Standard IVT and EVT from LKW; DWI-FLAIR selection from symptom recognition; wake-up perfusion selection from the midpoint of sleep; door-to-needle and DIDO from arrival; post-IVT blood pressure and neuro checks from IVT start; ICH reversal from diagnosis. Show each in the clock block from `references/output-template.md`.
@@ -84,10 +84,10 @@ Defaults when an input is missing:
 
 Hard stops (do not produce the dependent result):
 
-- No documented LKW and no documented symptom discovery time: build the ledger, mark every window and STK-4 Cannot determine, and stop before any timing conclusion.
+- No documented LKW and no documented symptom discovery time: build the ledger and mark every LKW-anchored result Cannot determine (standard and extended thrombolysis windows, thrombectomy windows, STK-4 Timing I and II, ASR thrombolytic timing). Clocks anchored on arrival, IVT start or diagnosis (door-to-needle, DIDO, post-IVT BP and neuro checks, NIHSS against the bolus, ICH reversal timing) stay computable; say which results the stop withheld.
 - Stroke type not established on imaging: do not apply ischemic thrombolysis or ICH reversal rules; list what imaging would settle it.
-- Measure scoring requested with no discharge date or manual version: stop before measure results.
-- Patient under 18: stroke measures exclude the case; route pediatric questions to `managing-pediatric-emergencies`.
+- Measure scoring requested with no discharge date (or, for STK-OP-1 and other outpatient measures, no outpatient encounter date) and no manual version: stop before measure results.
+- Patient under 18: stroke measures exclude the case; no dedicated pediatric stroke skill exists, so list the AIS 2026 pediatric recommendations as questions for a pediatric neurologist and stop.
 
 Decline that part, then continue the review:
 
@@ -120,7 +120,7 @@ Read `references/stroke-clinical-rules.md`, Sections 5 and 8. Test each BP readi
 
 ## Step 7: Hemorrhagic Stroke Branch
 
-Read `references/stroke-clinical-rules.md`, Sections 5 and 9. Record anticoagulant, last dose, renal function and INR with times; time from diagnosis to reversal start; the agent used against the 2022 recommendation and its current US availability; BP against the ICH targets. Route agent choice and restart timing to `managing-anticoagulation-therapy`.
+Read `references/stroke-clinical-rules.md`, Sections 5 and 9. Record anticoagulant, last dose, renal function and INR with times; time from diagnosis to reversal start; the agent used against the AHA/ASA 2022 recommendation, the NCS/SCCM 2026 focused update (its own row) and current US availability; BP against the ICH targets. Route agent choice and restart timing to `managing-anticoagulation-therapy`.
 
 ## Step 8: Score the Measures
 
@@ -151,7 +151,7 @@ Complete the reconciliation table, gaps and query candidates, hand-offs and open
 8. Contraindications are compared with the AIS 2026 gradient, and label or order-set differences have their own rows.
 9. Door-to-needle and DIDO start at the earliest documented arrival; STK-4 uses LKW; single cases are not called Target: Stroke passes.
 10. Measure scope is checked: certification level, sending or receiving hospital, population and exclusions.
-11. ICH reviews show reversal timing from diagnosis, the agent against the 2022 guideline and current US availability, and the CSTK-04 INR rule kept apart from clinical thresholds.
+11. ICH reviews show reversal timing from diagnosis, the agent against the AHA/ASA 2022 guideline, the NCS/SCCM 2026 update and current US availability, and the CSTK-04 INR rule kept apart from clinical thresholds.
 12. No patient-directed dose, agent or order appears; no step suggests altering documentation.
 13. Every `[VERIFY]` relied on appears in the open-items list with what would settle it.
 
@@ -190,9 +190,8 @@ Complete the reconciliation table, gaps and query candidates, hand-offs and open
 - managing-cdi-programs: compliant queries for ambiguous LKW, stroke type or NIHSS documentation.
 - documenting-informed-consent: consent or emergency-waiver documentation for thrombolysis or thrombectomy.
 - managing-speech-therapy-assessments: swallow evaluation after a failed bedside screen.
-- managing-pediatric-emergencies: patients under 18.
 - conducting-mortality-reviews: case review of a stroke death beyond process timing.
-- medical-record-chronology: a litigation chronology when counsel needs the full timeline rather than a review.
+- medical-record-chronology: the split is by deliverable: this skill does the stroke-care and measure analysis for one encounter; the legal skill builds the full Bates-referenced chronology of the record for counsel. No dedicated pediatric stroke skill exists.
 
 ## Reference Files
 
