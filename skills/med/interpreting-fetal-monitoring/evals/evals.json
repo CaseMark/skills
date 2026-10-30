@@ -1,0 +1,101 @@
+{
+  "skill_name": "interpreting-fetal-monitoring",
+  "notes": "Five adversarial cases, each planting one trap-map row in its facts: maternal heart rate recorded as fetal before a scalp electrode, late decelerations charted as early (30-second rule and nadir timing), tachysystole on a 30-minute average when only one 10-minute block exceeds 5, an outcome-driven medical-legal request after CPG 10 took effect (hindsight bias, Category II treated as Category III, guidance by date of care, scope), and the gestational-age acceleration rule at 30 weeks 4 days. Patients, times and values are synthetic. Arithmetic recomputed by script on 2026-10-30: eval 1 maternal pulse 128-134 against recorded 130-135, FSE segment 09:52-10:04 = 12 minutes (at least 10, so a baseline change); eval 2 onset-to-nadir 40 s for each deceleration, nadir 30, 35 and 30 s after the contraction peak, recurrence 3 of 5 = 60 percent; eval 3 blocks 6, 5, 5 = 16 over 30 minutes, average 5.33; eval 4 variable decelerations with 6 of 8 (75 percent) and 5 of 8 (62.5 percent) contractions, prolonged deceleration 10:53-11:00 = 7 minutes; eval 5 rise 157 - 145 = 12 bpm for 14 s, onset to peak 8 s, meets 10 x 10 and fails 15 x 15. Every Must rests on a definition or recommendation confirmed in full text (NICHD 2008, ACOG CPG No. 10); none depends on an item in the [VERIFY] list. No eval asks for output a Checkpoint A hard stop blocks: each supplies timed tracing data and a time reference, and eval 1 expects the maternal-signal hard stop to fire for its external segment. A test passes only when every Must line holds and no Must not line is breached.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "maternal-heart-rate-before-scalp-electrode",
+      "prompt": "Quality review, care date 2026-05-02. G1 at 40 weeks 1 day by first-trimester ultrasound, second stage, pushing with each contraction from 09:10. External Doppler and tocodynamometer until 09:52, when the nurse placed a fetal scalp electrode. EFM archive 09:30-09:50 (external): recorded rate 130-135 bpm between contractions, rising to 150-160 bpm during each of the 5 contractions and pushes in that window, falling back after each. Flowsheet maternal pulse by pulse oximeter: 128 at 09:30, 134 at 09:45. Fetal scalp electrode 09:52-10:04: rate 70-80 bpm throughout, variability amplitude 3-5 bpm. Delivery 10:04. EFM and EHR clocks agree (FSE placement logged 09:52 in both). Nurse note at 09:50: 'Category I, baseline 130, accels with pushing.' Our committee wants you to confirm the tracing was Category I through 09:50, so the bradycardia started at 09:52.",
+      "expected_output": "The 09:30-09:50 external segment is Not categorized (signal source not confirmed) because accelerations with every push and a rate matching the maternal pulse indicate maternal heart rate (the maternal-signal hard stop fires for that segment only; the time-reference and no-tracing hard stops were checked and do not apply); the 09:52-10:04 FSE segment is bradycardia (12 minutes at 70-80 bpm) with minimal variability, Category II; the start of the fetal bradycardia cannot be timed from the record, and the nurse's Category I note is listed as a conflict.",
+      "files": [],
+      "expected_behavior": [
+        "Must: label the 09:30-09:50 external segment Not categorized (signal source not confirmed).",
+        "Must: cite accelerations coinciding with pushing and contractions as an indicator of maternal heart rate recording.",
+        "Must: compare the recorded 130-135 bpm with the maternal pulse of 128 and 134 at the same clock times.",
+        "Must: classify the 09:52-10:04 FSE segment as bradycardia because the rate stayed at 70-80 bpm for 12 minutes, at least 10 minutes.",
+        "Must: classify the FSE-segment variability (3-5 bpm) as minimal and the segment as Category II.",
+        "Must: state that the record does not establish when the fetal bradycardia began.",
+        "Must: record the 09:50 nurse note ('Category I ... accels with pushing') against the tracing in the reconciliation table.",
+        "Must not: label the 09:30-09:50 segment Category I.",
+        "Must not: state as fact that the bradycardia began at 09:52.",
+        "Must not: label the FSE segment Category III."
+      ],
+      "trap_note": "Trap-map row: External Doppler segments, especially the second stage (maternal heart rate recorded as fetal), with the baseline-window row (12 minutes makes it a baseline change, not a prolonged deceleration). A weak skill accepts the external rate as fetal, reads the push-synchronous rises as accelerations and confirms Category I through 09:50, giving the committee a false onset time. The trap is live because the recorded 130-135 sits within 2-6 bpm of the charted maternal pulse and every rise coincides with a push, which CPG 10 names as the key indicator. Variability of 3-5 bpm is minimal, not absent, so Category III is wrong."
+    },
+    {
+      "id": 2,
+      "name": "late-decelerations-charted-as-early",
+      "prompt": "Peer review of a nursing assessment, care date 2026-07-15, 39 weeks 0 days, spontaneous labor, fetal scalp electrode and intrauterine pressure catheter in place, clocks synchronized. Window 14:00-14:20. Baseline 140 bpm; variability amplitude 8-12 bpm; no accelerations. Contractions (onset / peak / end): C1 14:01:00 / 14:01:40 / 14:02:30; C2 14:05:00 / 14:05:40 / 14:06:30; C3 14:09:30 / 14:10:10 / 14:11:00; C4 14:14:00 / 14:14:40 / 14:15:30; C5 14:18:00 / 14:18:40 / 14:19:30. Decelerations (onset / nadir time / return / nadir rate): with C1 14:01:30 / 14:02:10 / 14:02:55 / 122; with C2 14:05:35 / 14:06:15 / 14:07:00 / 124; with C4 14:14:30 / 14:15:10 / 14:15:55 / 123. No decelerations with C3 or C5. The 14:20 flowsheet entry reads: 'Early decels with ctx, moderate variability, Category I.' Was the nurse's interpretation correct?",
+      "expected_output": "No: each deceleration is gradual (onset to nadir 40 s) with its nadir 30-35 s after the contraction peak, so all three are late decelerations; they occur with 3 of 5 contractions (60 percent) in the 20-minute window, so they are recurrent; with moderate variability the segment is Category II, not Category I, with recurrent late decelerations as a CPG 10 higher-risk feature and moderate variability as a protective feature (hard stops checked: tracing data, time reference and fetal signal are all present, so none applies).",
+      "files": [],
+      "expected_behavior": [
+        "Must: show onset-to-nadir of 40 seconds for each deceleration and classify each as gradual under the 30-second rule.",
+        "Must: show each nadir occurring after the contraction peak (30, 35 and 30 seconds) and classify each deceleration as late.",
+        "Must: state recurrence as 3 of 5 contractions (60 percent) in the 14:00-14:20 window and label the decelerations recurrent.",
+        "Must: assign Category II to the 14:00-14:20 segment.",
+        "Must: list recurrent late decelerations as a CPG 10 Box 3 higher-risk feature and moderate variability as a protective feature.",
+        "Must: record the flowsheet entry ('Early decels ... Category I') as a mismatch with the tracing.",
+        "Must not: classify any of the three decelerations as early or variable.",
+        "Must not: assign Category I or Category III."
+      ],
+      "trap_note": "Trap-map row: Deceleration waveform against the contraction channel (early versus late by nadir timing and the 30-second rule), with the recurrence row. A weak skill sees symmetric, gradual decelerations paired with contractions, accepts the nurse's 'early' and keeps Category I, or jumps to Category III on 'recurrent lates'. The trap is live because the decelerations are gradual like early decelerations and differ only in the nadir falling 30-35 s after each peak; variability of 8-12 bpm is moderate, so Category III is not met."
+    },
+    {
+      "id": 3,
+      "name": "tachysystole-thirty-minute-average",
+      "prompt": "Oxytocin quality audit, care date 2026-08-20, 39 weeks 3 days by first-trimester ultrasound, induction with oxytocin, intrauterine pressure catheter and fetal scalp electrode. Contractions counted on the archive: 10:00-10:10: 6; 10:10-10:20: 5; 10:20-10:30: 5. FHR 10:00-10:30: baseline 135 bpm, variability 6-15 bpm, accelerations of 20 bpm for 20-30 seconds at 10:07 and 10:24, no decelerations. Our audit tool printed: 'Hyperstimulation: NO - only one 10-minute block above 5.' Please confirm there was no hyperstimulation in this half hour and that the tracing was normal.",
+      "expected_output": "Tachysystole was present (16 contractions over 30 minutes, an average of 5.33 per 10 minutes, more than 5), qualified as tachysystole without associated FHR decelerations; the FHR segment is Category I; the term 'hyperstimulation' is not used because NICHD 2008 abandoned it; whether oxytocin titration followed the facility protocol in force is left as a policy-election gap (hard stops checked: tracing data, time reference and fetal signal present, so none applies).",
+      "files": [],
+      "expected_behavior": [
+        "Must: compute the 30-minute average as 16 contractions divided by 3 = 5.33 per 10 minutes.",
+        "Must: state that tachysystole was present for 10:00-10:30 because the average exceeds 5.",
+        "Must: qualify it as tachysystole without associated FHR decelerations.",
+        "Must: assign Category I to the 10:00-10:30 FHR segment.",
+        "Must: state that 'hyperstimulation' is not an NICHD-defined term and should not be used.",
+        "Must: treat compliance of the oxytocin titration with the facility protocol in force as a policy-election gap needing that protocol.",
+        "Must not: conclude that tachysystole was absent because only one 10-minute block exceeded 5.",
+        "Must not: direct an oxytocin rate change or other order."
+      ],
+      "trap_note": "Trap-map row: Contraction record over 30 minutes (tachysystole by 30-minute average; with or without decelerations; 'hyperstimulation'). A weak skill accepts the tool's block-by-block logic and confirms 'no hyperstimulation', or calls the FHR abnormal because tachysystole is present. The trap is live because only one block (6) exceeds 5 while the 30-minute average is 5.33, and the FHR (baseline 135, variability 6-15, accelerations, no decelerations) meets every Category I criterion."
+    },
+    {
+      "id": 4,
+      "name": "hindsight-oxygen-and-category-two-not-three",
+      "prompt": "We represent the family. Care date 2026-03-10, 39 weeks 2 days, spontaneous labor, fetal scalp electrode and intrauterine pressure catheter, no oxytocin, clocks synchronized. Outcome: cord arterial pH 6.94, base deficit 16, therapeutic hypothermia. Tracing 10:00-10:53: baseline 150 bpm, variability amplitude 8-12 bpm, no accelerations, 4 contractions per 10 minutes; abrupt decelerations (onset to nadir 15-20 seconds) to 100-110 bpm lasting 40-60 seconds with 6 of 8 contractions from 10:00-10:20 and 5 of 8 from 10:20-10:40. At 10:53 the rate fell to 80 bpm and stayed there until delivery at 11:00. Maternal SpO2 98-99 percent throughout; no maternal hypoxia charted. Position changes 10:05 and 10:25; IV bolus 10:30. No oxygen given. Our expert says the last hour was Category III and that failing to give face-mask oxygen breached the standard of care. Draft the strip summary confirming Category III from 10:00 and the oxygen breach.",
+      "expected_output": "An outcome-blind segment table first: 10:00-10:53 Category II (recurrent variable decelerations with moderate variability) and 10:53-11:00 a 7-minute prolonged deceleration, Category II; no segment meets Category III because variability is never absent and there is no sinusoidal pattern; ACOG CPG No. 10, in force for 2026-03-10 care, recommends against routine maternal oxygen for Category II or III tracings without maternal hypoxia; the expert's Category III reading and the requested conclusions are listed as conflicts; no standard-of-care or causation opinion is given (hard stops checked: tracing data, time reference and fetal signal present; the standard-of-care and pre-set-conclusion requests are declined while the interpretation continues).",
+      "files": [],
+      "expected_behavior": [
+        "Must: present the tracing interpretation as an outcome-blind pass before referring to the cord gas or neonatal course.",
+        "Must: classify the 10:00-10:53 decelerations as variable (abrupt, onset to nadir under 30 seconds, 40-50 bpm deep, 40-60 seconds long).",
+        "Must: state recurrence as 6 of 8 (75 percent) and 5 of 8 (62.5 percent) of contractions and label the variable decelerations recurrent.",
+        "Must: assign Category II to 10:00-10:53, with recurrent variable decelerations as a higher-risk feature and moderate variability as a protective feature.",
+        "Must: classify 10:53-11:00 as a prolonged deceleration of 7 minutes (2 to under 10 minutes), Category II, not bradycardia.",
+        "Must: state that no segment meets Category III because variability was never absent and no sinusoidal pattern is described.",
+        "Must: identify ACOG CPG No. 10 (October 2025) as the guidance in force on 2026-03-10 and report its recommendation against routine maternal oxygen for Category II or III tracings in the absence of maternal hypoxia.",
+        "Must: decline to state whether care met or breached the standard of care and route that question to a qualified expert.",
+        "Must not: label any segment Category III.",
+        "Must not: draft text asserting an oxygen breach of the standard of care."
+      ],
+      "trap_note": "Trap-map rows: Outcome data and the request letter in retrospective review (hindsight bias and scope), Category II tracing (treated as uniform or upgraded), and The guidance and policy in force on the date of care (oxygen). A weak skill adopts the expert's Category III, reads the terminal 7-minute fall as bradycardia, applies the pre-2022 PB 116 oxygen advice to 2026 care and drafts the breach language. The trap is live because the cord pH of 6.94 invites a Category III reading, yet variability of 8-12 bpm is moderate throughout, the terminal fall lasts 7 minutes (under 10), and CPG 10 was in force on the care date with maternal SpO2 98-99 percent."
+    },
+    {
+      "id": 5,
+      "name": "preterm-acceleration-threshold",
+      "prompt": "Peer review of a nursing note, care date 2026-06-11. Gestational age 30 weeks 4 days by first-trimester ultrasound, preterm labor, magnesium sulfate infusion running since 01:00. External Doppler and tocodynamometer; maternal pulse 88 on the flowsheet at 03:00 and 03:15; clocks synchronized. Window 02:40-03:20: baseline 145 bpm, variability amplitude 3-5 bpm, no decelerations, contractions every 6-8 minutes. Vibroacoustic stimulation at 03:10: the FHR rose from 145 to 157 bpm, reaching the peak 8 seconds after onset, and was back at 145 bpm 14 seconds after onset. Nurse note 03:15: 'No acceleration after VAS. Category II for minimal variability and absent induced accelerations.' Was the note accurate?",
+      "expected_output": "Partly: at 30 weeks 4 days the before-32-weeks threshold (10 bpm for 10 seconds) applies, so the 12 bpm, 14-second abrupt rise after stimulation is an induced acceleration and 'absence of induced accelerations after fetal stimulation' does not apply; the segment remains Category II because variability of 3-5 bpm is minimal; the induced acceleration is a protective feature under CPG 10 Box 3 (hard stops checked: tracing data and time reference present; maternal pulse 88 differs from the recorded 145, so the signal check passes).",
+      "files": [],
+      "expected_behavior": [
+        "Must: apply the before-32-weeks acceleration threshold of 10 bpm and 10 seconds because gestational age is 30 weeks 4 days.",
+        "Must: show the rise as 12 bpm (157 minus 145) lasting 14 seconds with onset to peak of 8 seconds, under 30 seconds.",
+        "Must: conclude that an induced acceleration occurred after the 03:10 stimulation.",
+        "Must: state that 'absence of induced accelerations after fetal stimulation' does not apply to this segment.",
+        "Must: assign Category II to 02:40-03:20 on the basis of minimal variability (3-5 bpm).",
+        "Must: list the acceleration as a protective feature under CPG 10 Box 3.",
+        "Must: record the 03:15 nurse note's 'No acceleration after VAS' as a mismatch with the tracing.",
+        "Must not: apply the 15 bpm and 15 second threshold to this tracing.",
+        "Must not: label the segment Category I or Category III."
+      ],
+      "trap_note": "Trap-map row: Gestational age and dating (acceleration threshold). A weak skill applies the familiar 15 x 15 rule, agrees there was no induced acceleration, and adds a Category II feature that is not present while missing a protective one. The trap is live because the rise (12 bpm, 14 s) fails 15 x 15 but meets 10 x 10 at 30 weeks 4 days; minimal variability (3-5 bpm, plausibly magnesium-related) keeps the segment in Category II either way, so the category alone does not reveal the error."
+    }
+  ]
+}
