@@ -71,7 +71,7 @@ Organization-level standards an antineoplastic order and its documentation are c
 - Scope: drugs on the current NIOSH List of Hazardous Drugs in Healthcare Settings (2024 list, published December 2024). For <800>, "antineoplastic" means drugs in NIOSH Table 1 (revision bulletin official July 1, 2020).
 - Full containment applies to hazardous drug active ingredients and to NIOSH Table 1 antineoplastics that require manipulation. Final dosage forms needing only counting or repackaging may follow an assessment of risk, which must list each drug and dosage form individually.
 - Sterile hazardous drug compounding: an externally vented C-PEC with ISO Class 5 air, such as a Class II BSC or a CACI. CSTDs are recommended for compounding and required for administering NIOSH Table 1 antineoplastics when the dosage form allows.
-- Program-level compliance (facility design, designated person, medical surveillance) is outside this skill; route it.
+- Program-level compliance (facility design, designated person, medical surveillance) is outside this skill. No skill's description claims it; refer it to the facility's USP <800> designated person.
 
 ## 9. Who may do what
 

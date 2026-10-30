@@ -32,7 +32,15 @@ Produce the header and the sections below in order. Put detail in tables. Every 
 | Overall order | No discrepancies found / Clarification required before preparation / Critical: escalate now / Cannot complete verification | | |
 | Each agent | Consistent / Discrepancy / Not applicable / Cannot verify | | |
 
-For a retrospective review use: Adherent / Deviation with documented rationale / Deviation without documented rationale / Cannot determine. Use these labels exactly. "Cannot verify" and "Cannot determine" always name the missing fact and who can supply it. "No discrepancies found" never means released; release is the pharmacist's act.
+For a retrospective review use: Adherent / Deviation with documented rationale / Deviation without documented rationale / Cannot determine. Use these labels exactly.
+
+Declined parts of the request (include only when a part was declined):
+
+| Request | Label | What was provided instead | Routed to |
+|---|---|---|---|
+| | Declined: dose selection - routed to prescriber / Declined: attestation - record reflects only checks performed / Declined: record alteration | | |
+
+Use the three labels exactly. A declined part never stops the rest of the review. "Cannot verify" and "Cannot determine" always name the missing fact and who can supply it. "No discrepancies found" never means released; release is the pharmacist's act.
 
 ## 2. Source register
 
@@ -89,7 +97,7 @@ Rows as applicable: vinca alkaloid container and label; intrathecal separation, 
 | Verification | Required elements present? | Signers and roles | Independent? | Time | Result |
 |---|---|---|---|---|---|
 
-Rows: two-person height and weight check (new plan), first, second, third and fourth verification, allergy confirmation, consent. This table reports what the record shows. It is never completed or signed on anyone's behalf.
+Result labels, used exactly: Documented / Not documented / Independence not shown / Not yet due. "Not documented" covers a check that is absent, lacks a required element, or lacks a signer of the required role or number; "Not yet due" covers a check whose trigger (for example the patient's presence for the fourth verification) has not occurred. Rows: two-person height and weight check (new plan), first, second, third and fourth verification, allergy confirmation, consent. This table reports what the record shows. It is never completed or signed on anyone's behalf.
 
 ## 10. Reconciliation table
 

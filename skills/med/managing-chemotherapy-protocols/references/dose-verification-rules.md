@@ -12,6 +12,7 @@ Rules for checking a prescriber's antineoplastic order against the regimen it cl
 6. Hold and modify parameters
 7. Dose comparison and tolerance
 8. Time-bound checks
+9. Formulation, dosing basis and rounding
 
 ## 1. Body-size variables: height, weight and BSA
 
@@ -49,6 +50,7 @@ ASCO-ONS 2024, Standard 4.5.3: cumulative doses are tracked for agents associate
 | Doxorubicin (Sun Pharma, rev. 1/2022; Pfizer Medical) | Cardiomyopathy incidence 1 to 20 percent for cumulative doses of 300 to 500 mg/m² given every 3 weeks (Pfizer: 1-2% at 300, 3-5% at 400, 5-8% at 450, 6-20% at 500 mg/m²); cumulative doses above 550 mg/m² are associated with an increased risk of cardiomyopathy; include prior anthracyclines and anthracenediones |
 | Epirubicin (Hospira, rev. 11/2015) | CHF about 0.9% at 550, 1.6% at 700 and 3.3% at 900 mg/m²; risk rises rapidly above 900 mg/m², which should be exceeded only with extreme caution; prior anthracycline treatment up to the maximum cumulative dose is a contraindication |
 | Daunorubicin (Meitheal) | Myocardial toxicity increases after a total cumulative dose above 400 to 550 mg/m² in adults, 300 mg/m² in children over 2 years, or 10 mg/kg in children under 2 years |
+| Liposomal doxorubicin (Doxil, rev. 03/2026) | Cardiomyopathy risk 11% at cumulative anthracycline doses of 450 to 550 mg/m²; include prior anthracyclines and anthracenediones; do not substitute for other doxorubicin products |
 | Idarubicin (Idamycin PFS, rev. 2/2026) | Increased CHF above 90 mg/m² in adults; include prior anthracyclines and anthracenediones; tolerable limit may be lower after mediastinal radiation |
 | Mitoxantrone (Meitheal) | Cancer patients: symptomatic CHF risk about 2.6% up to 140 mg/m²; multiple sclerosis patients should not receive more than 140 mg/m² |
 
@@ -89,3 +91,9 @@ Each element has its own trigger. Do not run them all from the order date.
 | Carboplatin dose recalculation | Initial dose calculation | Not required for later cycles unless toxicity requires a lower dose, per CTEP 2010; order set may differ |
 | Cumulative anthracycline total | First anthracycline or anthracenedione dose at any facility | Lifetime total including other agents (labels; ASCO-ONS 4.5.3) |
 | Oral refills | Each dispensing | Zero refills preferred default (ASCO-ONS 3.10.2) |
+
+## 9. Formulation, dosing basis and rounding
+
+- Formulation: the liposomal doxorubicin label (Doxil, rev. 03/2026) says not to substitute it for other doxorubicin hydrochloride products. ISMP Best Practice 1 lists liposomal vincristine among the vinca alkaloids. Match the product named in the order, the order set and the pharmacy label; a dose per m² for one formulation is never carried to the other.
+- Dosing basis: some labels and protocols switch from mg/m² to mg/kg for small patients. The vincristine label gives 1.4 mg/m² for adults, 1.5-2 mg/m² for children, and a 0.05 mg/kg starting dose for children weighing 10 kg or less. The daunorubicin label states its pediatric cumulative threshold as 300 mg/m² over 2 years of age and 10 mg/kg under 2 years. Use the basis the order set or protocol names for the patient's age and weight, and flag an order that uses the other basis.
+- Rounding and banding: neither the ASCO-ONS standards nor the labels read set a rounding percentage or dose bands. Apply the order set's or facility's rule and cite it; with no rule supplied, report the unrounded and ordered doses and classify the rule as a policy election `[VERIFY]` against facility policy.

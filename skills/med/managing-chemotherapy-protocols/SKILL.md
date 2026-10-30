@@ -48,6 +48,8 @@ ISMP treats antineoplastics as high-alert medications: an error is more likely t
 | Cumulative-dose tracker, outside records, earlier regimens | Lifetime anthracycline and anthracenedione totals | The tracker starts at this facility or this line of therapy; another facility's doses, pediatric treatment, a trial, or another anthracycline left out, although the labels say to include them |
 | Treatment calendar, MAR, cycle and day field | Correct day of cycle and interval | Calendar built from the planned Day 1, not the actual one; a delay never rolled forward; Day 8 parameters applied on a Day 1 |
 | Lab results and the order set's hold and modify parameters | Clearance to treat | Labs collected outside the window; thresholds taken from a generic table instead of the regimen; bilirubin or renal parameter not checked; a hold parameter met with no documented decision to treat |
+| Drug product and formulation in the order, order set and pharmacy label | Matching the product to the regimen | Liposomal and conventional doxorubicin or vincristine treated as interchangeable, although the liposomal doxorubicin label says not to substitute it for other doxorubicin products; a dose per m² copied from one formulation to the other |
+| Dosing basis for infants and small children, and dose rounding or banding rules | Choosing mg/m², mg/kg or a rounded or banded dose | mg/m² applied where the label or protocol switches to mg/kg (vincristine at 10 kg or less; daunorubicin under 2 years); a dose rounded or banded outside the order set's rule, or a facility band treated as a published standard |
 | Oral antineoplastic prescriptions (specialty pharmacy, home supply) | The oral part of the regimen | Prescribed outside the EHR order set; refills not zero; days on and off missing; not on the medication list; never reaches the verification workflow |
 | Vinca alkaloid and intrathecal products, labels, delivery plan | Route safety | Vincristine in a syringe; intrathecal and intravenous products delivered together; the label lacks "for intravenous use only, fatal if given by other routes" |
 | Order set version, published regimen, trial protocol amendment | Protocol adherence | Order set built on a superseded version or amendment; an exception order with no second-practitioner authorization or recorded rationale; a research regimen without IRB approval on file |
@@ -65,7 +67,7 @@ ISMP treats antineoplastics as high-alert medications: an error is more likely t
 8. **Do not impose or remove a cap.** BSA caps, vincristine maximums and GFR caps come from the order set or protocol. Where the order set is silent, show both readings and classify the question as a policy election.
 9. **Route safety is never a judgment call.** A vinca alkaloid in a syringe, or an intravenous and an intrathecal product prepared or delivered together, is "Critical: escalate now", stated in the first line of the output.
 10. **No attestation.** Never sign, complete or backdate a verification, a weight check or a cumulative-dose entry, and never suggest editing a record to make a review pass. A check that did not happen is reported as not documented.
-11. **Outcome vocabulary.** Agent level: Consistent, Discrepancy, Not applicable, Cannot verify. Order level: No discrepancies found, Clarification required before preparation, Critical: escalate now, Cannot complete verification. Retrospective review: Adherent, Deviation with documented rationale, Deviation without documented rationale, Cannot determine. A timed check whose trigger has not yet occurred is "Not yet due". Add "provisional pending <facts>" when unchecked facts could change a result.
+11. **Outcome vocabulary.** Agent level: Consistent, Discrepancy, Not applicable, Cannot verify. Order level: No discrepancies found, Clarification required before preparation, Critical: escalate now, Cannot complete verification. Retrospective review: Adherent, Deviation with documented rationale, Deviation without documented rationale, Cannot determine. Verification record: Documented, Not documented, Independence not shown, Not yet due (also used for any timed check whose trigger has not occurred). Declined parts of a request: "Declined: dose selection - routed to prescriber", "Declined: attestation - record reflects only checks performed", "Declined: record alteration". Add "provisional pending <facts>" when unchecked facts could change a result.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -94,8 +96,9 @@ Hard stops:
 
 Decline that part, then continue with the rest of the review:
 
-- A request to choose, write or change a dose or regimen for a patient: give the comparison and route the decision to the prescriber.
-- A request to sign, complete or backdate a verification or documentation entry: explain that the record must reflect what was done; report the gap.
+- A request to choose, write or change a dose or regimen for a patient: give the comparison, route the decision to the prescriber, and label it "Declined: dose selection - routed to prescriber".
+- A request to sign, complete or backdate a verification: explain that the record must reflect what was done, report the gap, and label it "Declined: attestation - record reflects only checks performed".
+- A request to edit or add any other record entry so the review passes: label it "Declined: record alteration" and report the gap.
 
 ## Step 1: Frame the Review
 
@@ -107,7 +110,7 @@ Open every supplied document and complete the source register. Compare the order
 
 ## Step 3: Verify the Dosing Variables
 
-Read `references/dose-verification-rules.md`, Sections 1 to 3, before calculating. Record height and weight with date, source, unit and whether two-person verified for a new plan; compare with the prior weight. Recompute BSA with the order set's formula and rounding; identify any cap or alternative weight and whether a clinical reason is documented. For carboplatin, recompute GFR by the order set's method, apply the order set's cap, and compute the Calvert dose; if the order set is silent on the cap, show both doses.
+Read `references/dose-verification-rules.md`, Sections 1 to 3, before calculating. Record height and weight with date, source, unit and whether two-person verified for a new plan; compare with the prior weight. Recompute BSA with the order set's formula and rounding; identify any cap or alternative weight and whether a clinical reason is documented. For carboplatin, recompute GFR by the order set's method, apply the order set's cap, and compute the Calvert dose; if the order set is silent on the cap, show both doses. Then read Section 9 and confirm the formulation, the dosing basis (mg/m², mg/kg or flat) for the patient's age and weight, and the order set's rounding or banding rule.
 
 ## Step 4: Compare Each Dose
 
@@ -127,7 +130,7 @@ Read `references/safety-standards.md`, Sections 3, 4, 6, 7 and 8. Check vinca al
 
 ## Step 8: Audit the Verification Record
 
-Read `references/safety-standards.md`, Sections 5 and 9. For the two-person height and weight check and each of the four verifications, record whether the required elements are documented, who signed, each signer's role, the time, and whether the checks were independent. Report missing or non-independent checks as found; never complete them.
+Read `references/safety-standards.md`, Sections 5 and 9. For the two-person height and weight check and each of the four verifications, record whether the required elements are documented, who signed, each signer's role, the time, and whether the checks were independent, using the labels Documented, Not documented, Independence not shown or Not yet due. Report missing or non-independent checks as found; never complete them.
 
 ## Step 9: Reconcile, Classify Gaps and Hand Off
 
@@ -154,7 +157,7 @@ Complete the reconciliation table, the hand-offs and the open items (`references
 8. Cycle day is counted from the actual Day 1 and the hold parameters used are those for that day.
 9. Oral antineoplastics are checked for EHR ordering, quantity, refills and schedule.
 10. Vinca alkaloid container, label and intrathecal separation are checked, and any failure is the first line of the output.
-11. The verification table records signers, roles, times and independence and contains nothing completed on anyone's behalf.
+11. The verification table records signers, roles, times and independence with the four fixed labels, contains nothing completed on anyone's behalf, and every declined part of the request carries its fixed "Declined:" label.
 12. Every conflict is in the reconciliation table, every gap is classified, and every `[VERIFY]` relied on is in the open-items list.
 
 ## Guidelines
@@ -175,7 +178,7 @@ Complete the reconciliation table, the hand-offs and the open items (`references
 | Outside records are scanned or illegible | Image-only faxes | Attempt OCR; if still unreadable, list the record as unreadable and mark the cumulative total provisional |
 | Lab shows only eGFR, no creatinine | Interface displays the calculated value | Request the creatinine and collection time; set the carboplatin element to "Cannot verify" until supplied |
 | Treatment calendar and MAR disagree | Calendar not updated after a delay | The MAR administration date controls; recompute the cycle day and next Day 1 |
-| Verification fields signed but times identical | One person completed both, or a template default | Record as "independence not shown"; ask for the audit trail |
+| Verification fields signed but times identical | One person completed both, or a template default | Record as "Independence not shown"; ask for the audit trail |
 | Oral agent appears only on a specialty pharmacy label | Prescribed outside the order set | Record the missing EHR order elements; route reconciliation of the home supply |
 
 ## Related Skills
@@ -189,15 +192,15 @@ Complete the reconciliation table, the hand-offs and the open items (`references
 - assessing-drug-interactions: interactions with oral agents and supportive medications.
 - managing-adverse-drug-reactions: hypersensitivity and infusion reactions and their causality.
 - managing-patient-safety-events: reporting a wrong-route, wrong-dose or wrong-day event or near miss.
-- reviewing-medication-safety: program-level high-alert medication safeguards and root cause analysis.
-- managing-workplace-safety-healthcare: USP <800> hazardous drug program compliance beyond a single order.
+- reviewing-medication-safety: high-alert medication risks and ISMP safety barriers beyond a single order.
+- No dedicated skill: no skill's description claims USP <800> or NIOSH hazardous-drug program compliance (facility design, designated person, medical surveillance); this skill checks only order-level labeling and CSTD use, and program questions go to the facility's USP <800> designated person.
 - managing-medication-use-evaluations: protocol-adherence audits across many patients.
 - managing-drug-shortages: substitutions when a regimen drug is unavailable.
 - coordinating-multidisciplinary-cancer-care: sequencing chemotherapy with surgery and radiation.
 
 ## Reference Files
 
-- `references/dose-verification-rules.md`: height, weight and BSA rules, caps, Calvert formula and GFR cap, cumulative-dose label statements, cycle day, hold parameters, dose comparison, time-bound checks with their triggers.
+- `references/dose-verification-rules.md`: height, weight and BSA rules, caps, Calvert formula and GFR cap, cumulative-dose label statements, cycle day, hold parameters, dose comparison, time-bound checks with their triggers, formulation, pediatric dosing basis and rounding.
 - `references/safety-standards.md`: ASCO-ONS 2024 order elements, exception orders, oral therapy, labeling, the four verifications, intrathecal and vinca rules, ISMP best practices, USP <800>, who may do what.
 - `references/output-template.md`: deliverable sections, dose comparison table, cumulative ledger, verification record, reconciliation table, hand-off table.
 - `references/primary-sources.md`: each authority checked with URL, method and date, what is current as of 2026-10-30, corrections, and the `[VERIFY]` list.
