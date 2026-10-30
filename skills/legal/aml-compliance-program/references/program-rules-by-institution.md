@@ -31,7 +31,7 @@ Identify the institution type from its charter, license, FinCEN registration or 
 
 Investment advisers: the rule's effective date is January 1, 2028, after FinCEN's final rule of December 31, 2025 (91 FR 36, Jan. 2, 2026). Before that date an adviser has no BSA program obligation under Part 1032; a program drafted now is a readiness program and says so. FinCEN said it intends to revisit the rule's substance, so mark any Part 1032 provision relied on as subject to change.
 
-Rules not in the table (state MSB licensing law, state BSA examination statutes, payment stablecoin issuer rules proposed April 2026) are `[VERIFY]` and are named as open items when the institution may be subject to them.
+MSBs also register with FinCEN and keep an agent list under 1022.380; the registration, renewal, agent-list and re-registration clocks are in `references/sar-ctr-and-sanctions-rules.md`, section 1. Rules not in the table (state MSB licensing law, state BSA examination statutes, payment stablecoin issuer rules proposed April 2026) are `[VERIFY]` and are named as open items when the institution may be subject to them.
 
 ## 2. Program components common to every rule
 
@@ -104,11 +104,11 @@ Testers report to the board or a committee composed primarily of outside directo
 | Item | Status | Effect on a program drafted today |
 |---|---|---|
 | FinCEN AML/CFT program NPRM, July 3, 2024 (89 FR 55428) | Withdrawn and superseded by the April 2026 proposal | Do not cite as pending |
-| FinCEN AML/CFT program NPRM, April 10, 2026 (91 FR 18704, RIN 1506-AB72) | Proposed; comments closed June 9, 2026; no final rule in the FinCEN Federal Register index through September 2026; eCFR 1020.210 still shows the 2020 text; proposed effective date 12 months after issuance of a final rule | Not in effect. Its elements (risk assessment processes that incorporate the National Priorities and are updated on significant change; U.S.-located officer; establishment versus implementation framework) may be adopted as design choices and labeled "proposed" |
-| OCC, FDIC, NCUA joint proposal and Federal Reserve proposal (July 2026, comments to September 8, 2026) | Proposed | Same |
+| FinCEN AML/CFT program NPRM, April 10, 2026 (91 FR 18704, RIN 1506-AB72) | Proposed; comments closed June 9, 2026; the Federal Register's 2026 FinCEN index as of October 30, 2026 lists it only as a proposed rule; eCFR 1020.210 still shows the 2020 text; proposed effective date 12 months after issuance of a final rule | Not in effect. Its elements (risk assessment processes that incorporate the National Priorities and are updated on significant change; U.S.-located officer; establishment versus implementation framework) may be adopted as design choices and labeled "proposed" |
+| OCC, FDIC and NCUA joint proposal (April 10, 2026, concurrent with FinCEN's) and Federal Reserve proposal (published July 9, 2026, comments to September 8, 2026) | Proposed | Same |
 | Investment adviser rule (Part 1032) | Final; effective January 1, 2028 | Readiness only before that date |
 | FinCEN exceptive relief FIN-2026-R001 (CDD timing) | In force since February 13, 2026 | Optional relief from per-account re-identification |
 | CTA BOI reporting final rule (91 FR 52508) | Effective August 14, 2026 | No change to CDD rule |
-| Interagency SAR FAQs, October 9, 2025 | Guidance in force | See `references/reporting-confidentiality-and-sanctions.md` |
+| Interagency SAR FAQs, October 9, 2025 | Guidance in force | See `references/sar-ctr-and-sanctions-rules.md`, sections 1 to 3 |
 
 Before the program goes to the board, check the eCFR and the FinCEN news page for any final program rule, CDD rule revision, or change to the IA rule; record what was checked and the date.

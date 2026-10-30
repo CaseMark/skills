@@ -32,6 +32,13 @@ Every timed element has its own trigger. Never carry one anchor across rows.
 | OFAC annual blocked property report | Blocked property held as of June 30 | By September 30 | 501.603(b)(2) |
 | OFAC rejected transaction report | Date of rejection | 10 business days | 501.604(c) |
 | MSB program establishment | Date the business is established | Program within 90 days (or by July 24, 2002) | 1022.210(e) |
+| MSB initial FinCEN registration | Date the business is established | File on or before the end of the 180-day period beginning the day after | 1022.380(b)(3) |
+| MSB registration renewal | Start of each two-calendar-year renewal period (the initial period is the two calendar years beginning with the year registration is first required) | File on or before the last day of the calendar year preceding the renewal period | 1022.380(b)(2)-(3) |
+| MSB agent list | Each January 1 (initial list by the initial registration due date) | Revise each January 1 for the preceding 12 months; agent volume data current within 45 days of the due date; kept in the U.S., not filed, produced on request; retained 5 years | 1022.380(d) |
+| MSB re-registration after ownership change | Transfer of more than 10 percent of voting power or equity (except an MSB that reports the transfer to the SEC), or a change in ownership or control that requires state re-registration | File not later than 180 days after the change; that calendar year starts a new two-year period | 1022.380(b)(4) |
+| MSB re-registration after agent growth | More than 50 percent increase in the number of agents during a registration period | File not later than 180 days after the increase; that calendar year starts a new two-year period | 1022.380(b)(4) |
+| 314(a) request | Receipt of FinCEN's information request | Search records expeditiously; report matches in the manner and time frame the request specifies | 1010.520(b)(3) |
+| 314(b) sharing notice | Date of the notice to FinCEN | Effective one year; renew to keep sharing | 1010.540(b)(2) |
 
 Clocks are calendar days except the OFAC clocks, which are business days. Show each computed date with its weekday. Where a SAR due date falls on a weekend or holiday, file earlier; a policy that relies on a roll-forward to the next business day is `[VERIFY]`.
 
@@ -54,6 +61,7 @@ The October 9, 2025 interagency FAQs state that no separate post-SAR review of a
 ## 4. CTRs, aggregation, exemptions and structuring
 
 - CTR for each deposit, withdrawal, exchange or other payment or transfer in currency of more than $10,000 (1010.311). Multiple currency transactions are one transaction when the institution knows they are by or on behalf of any person and total more than $10,000 cash in or cash out in one business day; all domestic branches count (1010.313). Night and weekend deposits count on the next business day.
+- Funds transfers of $3,000 or more: banks keep originator, beneficiary and payment-order records (1020.410(a)); nonbank institutions keep the transmittal records in 1010.410(e); every transmittor's or intermediary institution passes the required information in the transmittal order (1010.410(f)).
 - Monetary instruments: a bank check or draft, cashier's check, money order or traveler's check sold for currency of $3,000 to $10,000 inclusive requires the purchaser records in 1010.415; cash over $10,000 is a CTR transaction.
 - Exemptions (1020.315) are for banks only, require FinCEN Form 110 designation where applicable and an annual eligibility review; there is no biennial renewal in the current text.
 - Structuring: no person may structure, assist in structuring, or attempt either, to evade CTR requirements, or cause a failure to file or a false CTR (31 U.S.C. 5324(a); 1010.314). The definition covers any amount, one or more institutions, one or more days (1010.100(xx), quoted in SAR FAQ Q1). Staff who advise customers how to stay under the threshold are assisting structuring.
@@ -64,6 +72,8 @@ The October 9, 2025 interagency FAQs state that no separate post-SAR review of a
 - Subpoena or request for a SAR: decline to produce it, cite 1020.320(e) and 31 U.S.C. 5318(g)(2)(A)(i), and notify FinCEN of the request and the response (1020.320(e)(1)(i)).
 - Permitted: disclosure to FinCEN, law enforcement and the BSA examining regulators; sharing the underlying facts and documents (not the SAR) with another institution for a joint SAR; sharing within the corporate organizational structure as regulation or guidance permits; employment references under 31 U.S.C. 5318(g)(2)(B) without revealing that a SAR was filed.
 - Safe harbor from liability to any person for the disclosure and for not notifying the subject (31 U.S.C. 5318(g)(3); 1020.320(f)). It does not protect against government enforcement.
+- Section 314(a) (1010.520): on a FinCEN request, search, unless the request says otherwise, current accounts of a named suspect, accounts in the preceding 12 months, and recorded transactions and funds transmittals in the preceding 6 months; report matches as the request specifies; designate one point of contact; use the request only for the purposes listed and do not disclose it to anyone other than FinCEN, the requesting agency or the named contacts.
+- Section 314(b) (1010.540): voluntary sharing among institutions required to have AML programs (and their associations) after notice to FinCEN, effective one year; information used only to identify and report money laundering or terrorist activity, decide on accounts or transactions, or comply with Chapter X; safe harbor for sharing under section 314(b).
 - Account closure and exit letters state a business reason or none; they never reference a SAR, an investigation by the institution's BSA function, or "a report to the government" about the customer.
 
 ## 6. Requests the skill declines, and compliant alternatives

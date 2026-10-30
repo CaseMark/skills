@@ -56,11 +56,12 @@ List separately: sections that answer no risk row (legal minimum with rule cited
 1. Purpose, scope, entities and business lines covered; statutory and regulatory basis.
 2. Governance: approval body and approval record; board oversight and reporting cadence; BSA/AML officer designation, authority, independence, resources, reporting line, U.S. location; delegations.
 3. Risk assessment: methodology summary, owner, refresh triggers and cadence, link to the matrix in Part 3.
-4. Customer identification program (applicable CIP rule) and customer due diligence: risk profiles, risk tiers, periodic review cycles by tier, EDD triggers.
+4. Customer identification program (the type's CIP rule, e.g., 1020.220 for banks: identifying information before account opening, risk-based verification within a reasonable time, records, government list comparison, customer notice, reliance) and customer due diligence: risk profiles, risk tiers, periodic review cycles by tier, EDD triggers.
 5. Beneficial ownership (covered institutions only; for others label it a policy election): ownership prong at 25 percent or more with look-through, one control person, trust rule, exclusions, timing under FIN-2026-R001, verification, records.
 6. Monitoring and investigations: alert sources, review time standards, escalation, dual control.
-7. SAR: definitions, threshold, clocks from Part 5, decision authority, filing, board notification, confidentiality, law enforcement requests and subpoenas, 314(a)/(b) where applicable `[VERIFY]` for the institution type.
-8. CTR, aggregation, exemptions (banks), structuring detection, monetary instrument records.
+7. SAR: definitions, threshold, clocks from Part 5, decision authority, filing, board notification, confidentiality, law enforcement requests and subpoenas, 314(a) requests (1010.520) and any 314(b) sharing (1010.540).
+8. CTR, aggregation, exemptions (banks), structuring detection, monetary instrument records (1010.415), funds-transfer records and transmittal-order information for $3,000 or more (1020.410(a) for banks; 1010.410(e)-(f)).
+8a. MSBs only: FinCEN registration, renewal, agent list and re-registration under 1022.380, with the clocks from Part 5.
 9. Training: audiences, content by role, frequency, records.
 10. Independent testing: who, independence test, scope, frequency, reporting line, remediation tracking.
 11. Recordkeeping: schedule from Part 5.
