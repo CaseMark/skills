@@ -44,9 +44,10 @@ Sepsis is common and lethal: CDC estimates about 1.7 million U.S. adults develop
 | Sepsis alert log, triage record, navigator worksheet | Candidate times for time zero | Alert fire time, triage time, order-set time or navigator "recognition" time copied as severe sepsis presentation time instead of the time the last of the three criteria was met within 6 hours |
 | Provider notes using "sepsis", "Sepsis-3", "SOFA" or "qSOFA" | Deciding whether severe sepsis or septic shock is present under SEP-1 | A SOFA score of 2 or more, qSOFA, or the word "sepsis" treated as SEP-1 severe sepsis; Sepsis-3 shock (lactate over 2 on pressors) treated as SEP-1 shock (lactate 4 or more or persistent hypotension); SOFA and SOFA-2 not distinguished |
 | Lab reports for initial and repeat lactate | Initial lactate, repeat-lactate trigger, septic shock trigger | Order or result time used where collection time governs; repeat clock run from the initial lactate instead of presentation time; a lactate of exactly 2.0 treated as over 2 |
-| Crystalloid orders, weights and the MAR | 30 mL/kg element | Actual weight used where a provider documented obesity and directed ideal weight, or the reverse; the 10 percent allowance applied to the volume infused; 30 mL/kg demanded for a lactate of 2 to 3.9 without hypotension; non-crystalloid volume counted |
+| Crystalloid orders, weights and the MAR | 30 mL/kg element | Clock run from septic shock presentation when the trigger was initial hypotension; actual weight used where a provider documented obesity and directed ideal weight, or the reverse; the 10 percent allowance applied to the volume infused; 30 mL/kg demanded for a lactate of 2 to 3.9 without hypotension; non-crystalloid volume counted |
 | Vital sign flowsheet after fluids | Persistent hypotension and the vasopressor element | One low reading in the hour after the infusion treated as persistent hypotension; readings outside that hour counted |
 | Reassessment notes and attestations | Repeat volume status and tissue perfusion assessment | A templated note signed before crystalloid completion, outside 6 hours of septic shock presentation, or by a role the manual does not accept |
+| Antibiotic orders checked against the manual's antibiotic tables | Whether the antibiotic qualifies | An agent that is not on the monotherapy table given alone and counted as met; a combination counted when only one of its agents started inside the 3-hour window; tables from an older version used |
 | Medication administration record and order log | Antibiotic and blood culture elements | Order or verification time used for administration; cultures drawn after the first antibiotic dose; a dose more than 24 hours before presentation not tested against the exclusion |
 | Transfer records, code-status orders, coding abstract | Population and exclusions | A DNR read as comfort measures only; a transfer from a clinic read as an acute transfer; a stale checklist excluding COVID-19 cases for a 2026 discharge; the wrong manual version for the discharge date |
 
@@ -59,9 +60,9 @@ Sepsis is common and lethal: CDC estimates about 1.7 million U.S. adults develop
 5. **Name the framework on every conclusion.** Write "SEP-1 v5.18a: met", "SSC Hour-1 Bundle: not begun within the hour" or "Sepsis-3 criteria documented". Never merge frameworks into one pass or fail.
 6. **Lock the version.** Select the SEP-1 manual by discharge date and state it in the header. Manual versions change yearly; v5.18a covers 2026 discharges and a v5.19 is reported for 2027 `[VERIFY]`.
 7. **Compute time zero; never copy it.** Show the three criteria, their times, the 6-hour span check and any provider documentation in the fixed block from `references/output-template.md`, and list each rejected candidate time with the reason.
-8. **Use the right clock and the right timestamp.** Initial lactate, cultures, antibiotics and repeat lactate run from severe sepsis presentation; crystalloid, vasopressor and reassessment run from septic shock presentation. Use collection and administration times, not order times, unless the data dictionary says otherwise.
+8. **Use the right clock and the right timestamp.** Initial lactate, cultures, antibiotics and repeat lactate run from severe sepsis presentation; the crystalloid runs from the earlier of initial hypotension and septic shock presentation; the vasopressor and reassessment run from septic shock presentation. Use collection and administration times, not order times, unless the data dictionary says otherwise.
 9. **No documentation fixes.** Never suggest adding, backdating or editing an entry to change a result. A late entry follows facility policy and is labeled as such; an unclear note becomes a query candidate routed to `managing-cdi-programs`, written without a leading answer.
-10. **Outcome vocabulary.** A case is Pass, Fail, Excluded, Not in population, or Cannot determine. An element is Met, Not met, Not required or Cannot determine. "Cannot determine" always names the missing fact and who can supply it.
+10. **Outcome vocabulary.** A case is Pass, Fail, Excluded (a denominator exclusion applies), Not in population (outside the initial population, or severe sepsis not present), or Cannot determine; add "provisional pending <facts>" when unchecked facts could change it. An element is Met, Not met, Not required or Cannot determine. "Cannot determine" always names the missing fact and who can supply it.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -85,9 +86,12 @@ Hard stops (do not score SEP-1 pass or fail):
 
 - No discharge date or no way to identify the manual version, for a retrospective abstraction.
 - Patient under 18 for SEP-1: say the case is outside SEP-1 and route pediatric sepsis questions to `managing-pediatric-emergencies`.
-- A request to write orders, doses or treatment for a current patient: decline that part and offer the guideline comparison instead.
-- A request to create, backdate or alter documentation so the case passes.
 - No timestamped source for the events at issue (only a narrative summary): produce the ledger of what is missing and stop before scoring.
+
+Decline that part, then continue scoring the record as it stands:
+
+- A request to write orders, doses or treatment for a current patient: offer the guideline comparison instead.
+- A request to create, backdate or alter documentation so the case passes: explain the facility's late-entry policy and route genuine ambiguity to a compliant query.
 
 ## Step 1: Frame the Question and the Frameworks
 
@@ -105,13 +109,13 @@ Read `references/sep1-abstraction-rules.md`, Sections 1 and 2. Confirm the versi
 
 Read `references/sep1-abstraction-rules.md`, Section 3. Find documentation of infection, each SIRS criterion and each organ dysfunction criterion with times, using SEP-1 thresholds, not SOFA or qSOFA. Confirm all three fall within 6 hours. Compare with the time of any physician, APN or PA documentation of severe sepsis or septic shock and take the earlier. Write the fixed time-zero block and list each rejected candidate (alert fire, triage, order set, navigator) with why it does not control. If two readings of the record give different times, show both and the elements whose result changes.
 
-## Step 5: Determine Septic Shock
+## Step 5: Find the Fluid Trigger and Determine Septic Shock
 
-Read `references/sep1-abstraction-rules.md`, Sections 4 and 7. Test the initial lactate (4 or more), persistent hypotension in the hour after the target crystalloid volume, and provider documentation of septic shock. Record septic shock presentation time and the 3-hour and 6-hour windows it opens. Do not import the Sepsis-3 shock definition.
+Read `references/sep1-abstraction-rules.md`, Sections 4, 5 and 7. First test for initial hypotension (two hypotensive readings within the version's interval) and for an initial lactate of 4 or more; either one requires the crystalloid, whose clock starts at the earlier trigger. Then test for septic shock: initial lactate of 4 or more, persistent hypotension in the hour after the target crystalloid volume, or provider documentation of septic shock. On the hypotension-only route, septic shock exists only if hypotension persists after the fluids, so the vasopressor and reassessment elements are not required when it does not. Record each trigger time and the windows it opens. Do not import the Sepsis-3 shock definition.
 
 ## Step 6: Score Each Element
 
-Read `references/sep1-abstraction-rules.md`, Sections 5 to 8. Fill the element scorecard in `references/output-template.md`, Section 5. For the crystalloid row, show the weight used and why (actual, or ideal with documented obesity), the target, the ordered and infused volumes, and any documented reason for a lower volume. For the vasopressor row, show the readings in the hour after infusion. For the reassessment row, show the note time against crystalloid completion. Then set the case result.
+Read `references/sep1-abstraction-rules.md`, Sections 5 to 8. Fill the element scorecard in `references/output-template.md`, Section 5. For the antibiotic row, check the agent against the version's monotherapy and combination tables and, for a combination, the start time of each agent. For the crystalloid row, show the trigger and its time, the weight used and why (actual, or ideal with documented obesity), the target, the ordered and infused volumes, and any documented reason for a lower volume. For the vasopressor row, show the readings in the hour after infusion. For the reassessment row, show the note time against crystalloid completion. Then set the case result.
 
 ## Step 7: Add the Clinical Guideline Overlay (Only When Asked)
 
@@ -137,9 +141,9 @@ Complete the reconciliation table, the gaps and query candidates, the hand-offs,
 3. Every ledger entry has a value, a time, a time type and a source locator.
 4. The time-zero block is complete, the 6-hour span is checked, and rejected candidates are listed with reasons.
 5. SEP-1 severe sepsis and shock rest on SEP-1 thresholds, not SOFA, qSOFA, the word "sepsis" or the Sepsis-3 shock definition.
-6. Initial lactate, cultures, antibiotic and repeat lactate run from severe sepsis presentation; crystalloid, vasopressor and reassessment run from septic shock presentation.
+6. Initial lactate, cultures, antibiotic and repeat lactate run from severe sepsis presentation; the crystalloid runs from the earlier of initial hypotension and septic shock presentation; the vasopressor and reassessment run from septic shock presentation and are scored only when septic shock is present.
 7. Administration and collection times are used, and every order-time substitution is flagged.
-8. The crystalloid row shows weight basis, target, ordered and infused volume, and any documented lower-volume reason.
+8. The crystalloid row shows its trigger and clock start, weight basis, target, ordered and infused volume, and any documented lower-volume reason; the antibiotic row shows the agent's table and, for a combination, each agent's start time.
 9. Persistent hypotension rests on readings in the hour after the target volume, not on a single reading.
 10. Every exclusion applied is tested against the version in force, and DNR is not equated with comfort measures only.
 11. SSC content appears only in the overlay, cites strength and year, and contains no patient-directed orders.
@@ -149,7 +153,7 @@ Complete the reconciliation table, the gaps and query candidates, the hand-offs,
 ## Guidelines
 
 - A sepsis alert is a screen. Its fire time starts nothing in SEP-1 and does not establish Sepsis-3 onset.
-- SEP-1 antibiotic timing is 3 hours from severe sepsis presentation. SSC 2026 recommends antimicrobials ideally within 1 hour for possible, probable or definite septic shock and suggests up to 3 hours after rapid assessment for possible sepsis without shock. Report both when asked; do not substitute one for the other.
+- SEP-1 antibiotic timing is 3 hours from severe sepsis presentation. SSC 2026 recommends antimicrobials immediately, ideally within 1 hour, for possible, probable or definite septic shock and for probable or definite sepsis without shock, and suggests up to 3 hours after rapid assessment for possible sepsis without shock. Report both when asked; do not substitute one for the other.
 - The 30 mL/kg element is triggered by initial hypotension or an initial lactate of 4 or more, not by any lactate over 2.
 - A provider's documented reason for a smaller volume (heart failure, kidney failure) matters to both the clinical record and the measure; check the version's criteria rather than assuming either way.
 - Lactate rises for reasons other than hypoperfusion (epinephrine, beta-agonists, liver failure, seizure). The measure still counts the value; clinical interpretation belongs in the overlay.

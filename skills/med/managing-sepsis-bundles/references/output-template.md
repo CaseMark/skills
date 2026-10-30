@@ -66,6 +66,9 @@ Span of the three criteria:      <hh:mm>   within 6 hours? <yes | no>
 Provider documentation of severe sepsis or septic shock: <date time | none>
 Severe sepsis presentation time: <date time>   basis: <last criterion | provider documentation | triage rule [VERIFY]>
 Rejected candidates:             <alert fire, triage, order set, navigator time>, each with the reason
+Initial hypotension:             <time of qualifying readings | none>  (crystalloid trigger)
+Initial lactate 4 or more:       <result time | none>                  (crystalloid trigger)
+Crystalloid clock starts:        <earlier trigger | not required>
 Septic shock presentation time:  <date time | not present>   basis: <lactate 4 or more | persistent hypotension | provider documentation>
 3-hour window ends:              <date time>     6-hour window ends: <date time>
 ```
@@ -76,7 +79,7 @@ Septic shock presentation time:  <date time | not present>   basis: <lactate 4 o
 |---|---|---|---|---|---|---|
 | Initial lactate | | | | | Met / Not met / Not required / Cannot determine | |
 
-Rows: initial lactate, blood cultures before antibiotics, antibiotic, repeat lactate, crystalloid (with the weight used, its source, the target, ordered and infused volumes), vasopressor, reassessment.
+Rows: initial lactate, blood cultures before antibiotics, antibiotic (agent checked against the version's monotherapy and combination tables), repeat lactate, crystalloid (with its trigger, the weight used and its source, the target, ordered and infused volumes), vasopressor, reassessment. Vasopressor and reassessment are Not required when septic shock is not present.
 
 ## 6. Clinical guideline overlay (only when asked)
 

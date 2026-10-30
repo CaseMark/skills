@@ -21,7 +21,7 @@ Clinical frameworks that are often confused with SEP-1. Use this file to label w
 | Shock identified by | Initial lactate 4 or more, persistent hypotension after 30 mL/kg, or provider documentation | Hypotension or lactate 4 or more triggers fluids | Vasopressor needed for MAP 65 or more and lactate over 2 despite adequate volume |
 | Time zero | Severe sepsis presentation time (Section 3 of the SEP-1 rules file) | ED triage time, or earliest chart annotation consistent with all elements if not from the ED | None defined |
 | Antibiotic timing | Within 3 hours of presentation | Begin within the hour | None defined |
-| Fluids | 30 mL/kg crystalloid started within 3 hours of septic shock presentation | Begin rapid 30 mL/kg for hypotension or lactate 4 or more | None defined |
+| Fluids | 30 mL/kg crystalloid started within 3 hours of the earlier of initial hypotension and septic shock presentation | Begin rapid 30 mL/kg for hypotension or lactate 4 or more | None defined |
 
 A case can pass SEP-1 and miss the hour-1 bundle, or meet Sepsis-3 and never enter the SEP-1 denominator. Report each framework separately.
 
@@ -72,13 +72,13 @@ Time zero: triage time in the ED, or, for patients not presenting through the ED
 
 ## 6. SSC adult guidelines 2026: statements that touch bundle elements
 
-Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026 (Critical Care Medicine and Intensive Care Medicine, spring 2026). Replaces the 2021 edition. Statements confirmed from the SCCM page and search extracts; wording and strength `[VERIFY]` against the full text before quoting.
+Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026, published March 23, 2026 in Critical Care Medicine (doi 10.1097/CCM.0000000000007075), with a companion publication in Intensive Care Medicine. 129 statements; replaces the 2021 edition. Statements below were confirmed from the SCCM guideline page and journal excerpts; quote the full text for exact wording.
 
 | Topic | 2026 statement (strength) |
 |---|---|
 | Antimicrobials, possible, probable or definite septic shock | Administer immediately, ideally within 1 hour of recognition (recommend) |
 | Antimicrobials, possible sepsis without shock | Time-limited rapid investigation; if concern persists, antimicrobials within 3 hours of first recognition (suggest) |
-| Antimicrobials, probable or definite sepsis without shock | Timing tier `[VERIFY]` |
+| Antimicrobials, probable or definite sepsis without shock | Administer immediately, ideally within 1 hour of recognition (recommend; unchanged from 2021 apart from wording) |
 | Initial fluids | At least 30 mL/kg IV crystalloid in the first 3 hours for sepsis-induced hypoperfusion or septic shock (suggest) |
 | Fluid type | Balanced crystalloids over 0.9 percent saline for initial resuscitation |
 | Lactate | Serial lactate to guide resuscitation with elevated lactate or septic shock (suggest) |
