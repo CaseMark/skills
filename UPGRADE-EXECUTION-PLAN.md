@@ -102,8 +102,11 @@ Phases 2-4 can overlap two batches at a time after the pilot if throughput matte
 - No patient-specific dosing presented as an order. Every output is draft for clinician review.
 - Revenue-cycle skills (DRG, risk adjustment, coding denials) must not phrase as "upcoding" advice; the trap maps should focus on documentation-supported code assignment.
 
-### 4.3 `demand-letter` (light touch)
-It is both a target and a gold-standard reference, and it was reworked in PR CaseMark/skills#66. Add a trap map, `references/primary-sources.md`, and `evals/evals.json`. Keep its five existing references and `assets/examples/`. Do not rename its uppercase reference files.
+### 4.3 `demand-letter` (open question)
+It is both a target and a gold-standard reference, and it was reworked in PR CaseMark/skills#66. It already has Checkpoint A, Steps 1-8, Checkpoint B, Quality Audit, and Guidelines, and it passes the harness with warnings. Against the playbook it lacks a trap map, Troubleshooting, `output-template.md` and `primary-sources.md` by those names, and evals. Its four reference files over 100 lines lack `## Contents`. It has five references where the playbook allows two to four.
+
+- **Light touch (recommended):** add the trap map, Troubleshooting, `primary-sources.md`, `## Contents` headers, and evals. Keep the five existing references, their names, and `assets/examples/`. Accept six references as a documented exception.
+- **Full conformance:** fold the five references into the playbook's two-to-four file layout and rewrite the controller. This touches most of what #66 just shipped.
 
 ### 4.4 Finance (15)
 - Near-full rewrites. Preserve `tags` and `metadata`. Body must clear 100 non-blank lines and hit the 140-320 band.
@@ -137,9 +140,17 @@ Each pair names the other in a Related Skills section and in its description's s
 
 ## 6. Git and PR plan
 
-- All work lands on `claude/keen-edison-d1mcoa`. One commit per batch, plus a Phase 0 commit.
-- Default: one PR at the end. The `skill-qa.yml` Claude deep review only covers `skills/legal/**`, so legal batches get automated review and med/finance rely on the reviewer agents.
-- Alternative: one PR per vertical (3 PRs) for reviewable diffs. This needs two more branches, so it needs the user's go-ahead.
+Decided 2026-10-30: **one PR per vertical.**
+
+| PR | Branch | Contents |
+|---|---|---|
+| Legal | `claude/keen-edison-d1mcoa` (designated branch) | Playbook, harness, this plan, Phase 0 harness fixes, batches 1-3 |
+| Med | `claude/keen-edison-d1mcoa-med` | Branched from the Phase 0 commit; batches 4-6 |
+| Finance | `claude/keen-edison-d1mcoa-finance` | Branched from the Phase 0 commit; batches 7-9 |
+
+- One commit per batch on its vertical branch.
+- All three branches share the Phase 0 commit, so the med and finance PRs show the harness change until the legal PR merges. Merge legal first; the other two then show only their own skills.
+- The `skill-qa.yml` structural check and Claude deep review run only on `skills/legal/**`. The med and finance PRs rely on the harness, `validate_enrichment.py`, and the reviewer agents, and the PR body should say so.
 
 ---
 
