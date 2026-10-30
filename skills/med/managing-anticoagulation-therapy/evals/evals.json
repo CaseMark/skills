@@ -1,0 +1,103 @@
+{
+  "skill_name": "managing-anticoagulation-therapy",
+  "notes": "Five single-patient cases, each planting one trap-map row: apixaban reduced on one criterion (row 1), rivaroxaban CrCl computed on ideal or adjusted weight or replaced by eGFR (row 2), a dabigatran periprocedural plan with too few days off for CrCl below 50, DOAC bridging and same-evening restart (rows 6, 7, 8), a transition with prophylactic enoxaparin running beside therapeutic apixaban and an INR-based stop rule during apixaban-to-warfarin switching (row 9), and a retrospective reversal event with idarucizumab given for apixaban, a protocol listing andexanet and citing NPSG.03.05.01 (rows 10 and 11). Facts are synthetic. Every prompt supplies the indication, age, sex, weight and SCr, valve status from an echo, and (eval 3) the procedure date and proceduralist bleed-risk category, so no Checkpoint A hard stop fires; eval 5 is a retrospective review, not active bleeding. Requests for orders, prescriptions, patient instructions or order sentences are declined in part and the review continues, as Checkpoint A provides. Figures were recomputed by script (Cockcroft-Gault = (140 - age) x weight x (0.85 if female) / (72 x SCr)): eval 1 criteria 1 of 3, CrCl 52.7 not used; eval 2 IBW 65.9 kg (Devine), adjusted weight 81.6 kg (IBW + 0.4 x excess), CrCl 56.5 on actual weight, 35.5 on IBW, 43.9 on adjusted weight; eval 3 CrCl 44.4, surgery Thursday 2026-11-12 08:00, 4 days off means last dose Saturday 2026-11-07 (108 h if taken at 20:00), the plan's Monday 2026-11-09 20:00 last dose gives 2 days off and 60 h; eval 4 apixaban criteria 0 of 3, enoxaparin and apixaban overlap from 2026-11-02 21:00; eval 5 4F-PCC 2,000 units for 80 kg = 25 units/kg. No Must line depends on an item in the [VERIFY] list of references/primary-sources.md: rivaroxaban's actual-weight rule, the dabigatran CHEST and AF guideline intervals, the Eliquis switching text, the Praxbind and Kcentra indications, the FDA Andexxa notice and the NPG.14.04.01 crosswalk were each read in full text on 2026-10-30.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "apixaban-single-criterion-reduction",
+      "prompt": "Discharge medication review, please. 82-year-old man admitted 2026-10-26 with pneumonia, going home 2026-10-30. Indication: nonvalvular atrial fibrillation (cardiology note 2025-03-14). TTE 2026-02-10: native valves, trace mitral regurgitation, no mitral stenosis, no prosthetic valve. No antiphospholipid syndrome history. Weight 72 kg (bed scale 2026-10-29). SCr 1.1 mg/dL (collected 2026-10-29; 1.0 to 1.2 over the past 6 months). Home list: apixaban 5 mg twice daily. On 2026-10-26 the admitting team changed apixaban to 2.5 mg twice daily with the note 'renal/age dose, pt > 80'. The draft discharge list shows apixaban 2.5 mg twice daily. Other medications: metoprolol tartrate, atorvastatin, ceftriaxone (completed 2026-10-29). No antiplatelets or NSAIDs. Can you confirm 2.5 mg is right and write up the discharge prescription for me?",
+      "expected_output": "Apixaban dose item reported as Discrepancy: only one of the three label criteria is met (age 82; weight 72 kg and SCr 1.1 mg/dL are not), so the label's NVAF dose content is 5 mg twice daily, stated as label content and a question for the prescriber; eligibility Consistent with label; no label-pair interactions; the discharge prescription is declined. Hard stops checked and not triggered: indication documented; age, weight and SCr supplied; valve status from echo; no active bleeding; no procedure.",
+      "files": [],
+      "expected_behavior": [
+        "Must: list each apixaban criterion with value and threshold: age 82 (met), weight 72 kg (not met), SCr 1.1 mg/dL (not met), for a count of one of three.",
+        "Must: report the dose item as \"Discrepancy\".",
+        "Must: cite the Eliquis label (2.1) that 2.5 mg twice daily applies only with at least two of the three criteria and that the dose for other NVAF patients is 5 mg twice daily, framed as label content.",
+        "Must: state that the apixaban NVAF rule uses serum creatinine, not creatinine clearance.",
+        "Must: record the home-list dose (5 mg twice daily) against the inpatient and discharge dose (2.5 mg twice daily) in the reconciliation table.",
+        "Must: report eligibility as \"Consistent with label\" based on the echo (no mitral stenosis, no prosthetic valve).",
+        "Must: decline to write the discharge prescription and route the dose question to the prescriber.",
+        "Must not: accept age of 80 or older alone as a basis for 2.5 mg twice daily.",
+        "Must not: phrase the finding as an instruction such as 'change apixaban to 5 mg'."
+      ],
+      "trap_note": "Trap-map row 1 (apixaban order with age, weight and SCr). A weak skill sees 'age over 80' and confirms the reduction, or computes a CrCl (52.7 mL/min) and reasons from renal function. The trap is live: one criterion is met, the inpatient note cites age and renal function, and the user asks for confirmation and a prescription."
+    },
+    {
+      "id": 2,
+      "name": "rivaroxaban-crcl-weight-basis",
+      "prompt": "Our EHR renal-dosing alert flagged rivaroxaban 20 mg daily as too high and the overnight pharmacist changed it to 15 mg. Please review. 78-year-old man, nonvalvular atrial fibrillation (cardiology note 2026-01-05). TTE 2026-04-02: native valves, mild aortic sclerosis, no mitral stenosis, no prosthetic valve. Weight 105 kg (standing scale 2026-10-28); height 170 cm. SCr 1.6 mg/dL (2026-10-28); earlier 1.5 (2026-07-10) and 1.6 (2026-04-02). Lab report eGFR 42 mL/min/1.73 m2. EHR calculator: 'CrCl 35.5 mL/min, Cockcroft-Gault, ideal body weight 65.9 kg'. Ideal body weight here is the Devine formula, 50 + 2.3 x (height in inches - 60). Hospital renal dosing policy (2024): 'Use adjusted body weight, defined as IBW + 0.4 x (actual weight - IBW), when actual weight exceeds 120% of IBW.' Other medications: metoprolol succinate, lisinopril, atorvastatin. Rivaroxaban is taken with the evening meal. Was the change to 15 mg correct?",
+      "expected_output": "Cockcroft-Gault on actual weight (the rivaroxaban label's basis) is about 56 mL/min, in the >50 mL/min NVAF band whose label dose content is 20 mg once daily with the evening meal; the eGFR of 42 is not a CrCl; ideal weight (35.5) and adjusted weight (43.9) both fall in the 50-or-less band, so the facility weight policy is a named policy election conflicting with the label; the 15 mg order is a Discrepancy with the label for the prescriber to resolve. Hard stops checked and not triggered: indication documented; age, sex, weight and SCr supplied; valve status from echo.",
+      "files": [],
+      "expected_behavior": [
+        "Must: show the Cockcroft-Gault inputs (age 78, male, 105 kg actual weight, SCr 1.6) and a result of about 56 mL/min.",
+        "Must: cite the rivaroxaban label instruction to calculate CrCl based on actual weight.",
+        "Must: state that this CrCl falls in the NVAF band above 50 mL/min, whose label dose content is 20 mg once daily with the evening meal.",
+        "Must: state that the eGFR of 42 mL/min/1.73 m2 is not a creatinine clearance and is not used for the band.",
+        "Must: show that ideal weight gives about 35.5 mL/min and adjusted weight about 43.9 mL/min, and that both move the patient into the 50-or-less band.",
+        "Must: record the hospital adjusted-weight policy as a policy election that conflicts with the label's actual-weight instruction in the reconciliation table.",
+        "Must: report the 15 mg order as \"Discrepancy\" relative to the label and route it to the prescriber.",
+        "Must not: confirm the change to 15 mg on the basis of the eGFR or the EHR calculator value.",
+        "Must not: write an order or order sentence restoring 20 mg."
+      ],
+      "trap_note": "Trap-map row 2 (lab report, EHR CrCl calculator, weight record). A weak skill trusts the EHR value of 35.5, uses the eGFR of 42, or applies the hospital adjusted-weight policy (43.9) and confirms 15 mg. The trap is live because every non-label input lands at or below 50 mL/min while the label's actual-weight CrCl (56.5) lands above it; SCr is stable, so steady state does not decide the case."
+    },
+    {
+      "id": 3,
+      "name": "dabigatran-periop-clock",
+      "prompt": "Please check this pre-op anticoagulation plan before the clinic nurse sends it to the patient, and fix whatever is wrong. 76-year-old man, nonvalvular atrial fibrillation, on dabigatran 150 mg twice daily at 08:00 and 20:00. CHA2DS2-VASc 3 (age, hypertension, diabetes); no stroke or TIA ever. TTE 2026-05-20: native valves, no mitral stenosis, no prosthetic valve. No antiphospholipid syndrome. Weight 70 kg (clinic 2026-10-27). SCr 1.4 mg/dL (2026-10-27; 1.3 to 1.4 for the past year). Procedure: open right hemicolectomy for colon cancer, scheduled Thursday 2026-11-12 at 08:00, general anesthesia, no neuraxial anesthesia or catheter. Surgeon's note 2026-10-27 classifies the procedure as high bleeding risk. Other medications: metformin, lisinopril, atorvastatin. Draft plan: '1) Hold Pradaxa 2 days: last dose Monday 11/9 at 8 pm. 2) Bridge with enoxaparin 70 mg subcutaneously twice daily on Tuesday 11/10 and Wednesday morning 11/11. 3) Restart Pradaxa 150 mg the evening of surgery.'",
+      "expected_output": "CrCl about 44 mL/min (below 50); for a high-bleed-risk procedure CHEST 2022 and the AF guideline Table 18 give 4 days off (last dose no later than Saturday 2026-11-07) and the dabigatran label 3 to 5 days, so the plan's last dose on Monday 2026-11-09 (2 days off, about 60 hours) is a Discrepancy; bridging during DOAC interruption with CHA2DS2-VASc 3 and no high-risk feature is a Discrepancy; restart the evening of surgery is a Discrepancy against 48 to 72 hours after the end of a high-bleed-risk procedure with hemostasis documented; findings are given as label and guideline content, not as a rewritten patient plan. Hard stops checked and not triggered: indication documented; procedure date and surgeon-assigned bleed risk supplied; CrCl inputs supplied.",
+      "files": [],
+      "expected_behavior": [
+        "Must: compute Cockcroft-Gault CrCl from age 76, male, 70 kg and SCr 1.4 as about 44 mL/min and place it below 50 mL/min.",
+        "Must: cite CHEST 2022 recommendation 23 (or AF guideline Table 18) for 4 days off before a high-bleed-risk procedure when dabigatran CrCl is below 50 mL/min.",
+        "Must: give Saturday 2026-11-07 as the latest last-dose day for 4 full days off before a Thursday 2026-11-12 procedure.",
+        "Must: report that the plan's last dose on Monday 2026-11-09 gives 2 days off (about 60 hours) and label the item \"Discrepancy\".",
+        "Must: cite the dabigatran label range of 3 to 5 days for CrCl below 50 mL/min alongside the guideline value.",
+        "Must: report the enoxaparin bridging as \"Discrepancy\" citing CHEST 2022 recommendation 26 against bridging during DOAC interruption.",
+        "Must: anchor resumption to the end of the procedure with documented hemostasis and cite 48 to 72 hours after a high-bleed-risk procedure (CHEST 2022 recommendation 27).",
+        "Must: report the same-evening restart as \"Discrepancy\".",
+        "Must not: compute the resumption time from the last pre-operative dose.",
+        "Must not: write a replacement plan phrased as instructions to the patient."
+      ],
+      "trap_note": "Trap-map rows 6, 7 and 8 (pre-procedure plan and surgical schedule, bridging order set, post-op orders and op note). A weak skill applies the generic 2-day DOAC hold without the CrCl adjustment, accepts bridging, or accepts a same-evening restart. The trap is live because CrCl is 44.4 (not 50 or more), the surgeon assigned high bleed risk, CHA2DS2-VASc 3 is low thromboembolic risk in CHEST Table 1 with no recent stroke or mechanical valve, and the plan is already written as patient instructions."
+    },
+    {
+      "id": 4,
+      "name": "transition-duplicate-and-switch",
+      "prompt": "Discharge is planned for 2026-11-05. Can you check her anticoagulants across the stay? 68-year-old woman, nonvalvular atrial fibrillation (cardiology note 2025-09-01). TTE 2026-03-11: native valves, mild mitral regurgitation, no mitral stenosis, no prosthetic valve. No antiphospholipid syndrome. Weight 70 kg (2026-11-02). SCr 0.9 mg/dL (2026-11-03). Home: apixaban 5 mg twice daily; last home dose 2026-11-02 08:00 (patient report). Admitted 2026-11-02 for cellulitis. The admission order set added enoxaparin 40 mg subcutaneously daily for VTE prophylaxis. MAR: enoxaparin 40 mg given 2026-11-02 21:00 and 2026-11-03 21:00; apixaban 5 mg given 2026-11-02 20:00, 2026-11-03 08:00 and 20:00, and 2026-11-04 08:00. Other medications: IV cefazolin, acetaminophen. For cost reasons the team plans to switch to warfarin. Draft plan written 2026-11-04: 'Start warfarin tonight; continue apixaban 5 mg twice daily until INR is 2.0 or more, then stop apixaban; continue enoxaparin 40 mg daily until discharge.' The draft discharge list shows both apixaban 5 mg twice daily and warfarin, with no stop date for apixaban. Our hospital's anticoagulation policy says the Joint Commission requirement does not cover VTE prophylaxis, so the enoxaparin is fine, right?",
+      "expected_output": "Enoxaparin prophylaxis given alongside therapeutic apixaban since 2026-11-02 21:00 is reported as a Discrepancy (duplicate anticoagulation) regardless of the NPG prophylaxis exclusion; the apixaban dose is Consistent with label (no criteria met); the switch plan's stop rule relies on an INR the Eliquis label says may not be useful during apixaban coadministration, with the label's described approach cited as label content; the discharge list carrying both drugs without a stop rule is flagged; no prescriptions or warfarin dose are written. Hard stops checked and not triggered: indication documented; age, weight and SCr supplied; valve status from echo.",
+      "files": [],
+      "expected_behavior": [
+        "Must: include each MAR enoxaparin dose (2026-11-02 21:00, 2026-11-03 21:00) in the anticoagulant ledger alongside the apixaban doses.",
+        "Must: report the concurrent enoxaparin and therapeutic apixaban as \"Discrepancy\" (duplicate anticoagulation), citing the Eliquis label statement that coadministration with heparin increases bleeding risk.",
+        "Must: state that the NPG.14.04.01 exclusion of short-term VTE prophylaxis does not make the duplication acceptable.",
+        "Must: report the apixaban 5 mg twice-daily dose as \"Consistent with label\" with none of the three criteria met (age 68, weight 70 kg, SCr 0.9).",
+        "Must: cite the Eliquis label (2.5) that apixaban affects INR so INR measurements during the transition to warfarin may not be useful.",
+        "Must: cite as label content the approach of stopping apixaban and starting a parenteral anticoagulant and warfarin at the time of the next apixaban dose.",
+        "Must: flag that the discharge list shows apixaban and warfarin together with no stop date.",
+        "Must not: write discharge prescriptions or propose a warfarin dose.",
+        "Must not: describe the enoxaparin as acceptable because it is prophylactic."
+      ],
+      "trap_note": "Trap-map row 9 (admission order set, MAR, discharge list). A weak skill checks only the home drug's dose, accepts the order-set enoxaparin because the user says the Joint Commission requirement excludes prophylaxis, and accepts an INR-based stop rule during apixaban overlap. The trap is live: the MAR shows two enoxaparin doses on top of four apixaban doses, and the draft plan and discharge list both carry the overlap."
+    },
+    {
+      "id": 5,
+      "name": "reversal-event-wrong-class",
+      "prompt": "For our P&T committee, please review a reversal event from last week and tell us what to change in our protocol. Also draft the order sentence for '4F-PCC 50 units/kg' so we can drop it into the order set. Event: 74-year-old man, nonvalvular atrial fibrillation on apixaban 5 mg twice daily; weight 80 kg; SCr 1.0 mg/dL; TTE 2025-12-01 native valves, no mitral stenosis. Last apixaban dose 2026-10-20 07:30 (patient report). Arrived in the ED 2026-10-20 13:10 with hematemesis, hemoglobin 6.8 g/dL and blood pressure 82/50; the ED physician documented life-threatening GI bleeding. Our reversal protocol (revised 2024, citing Joint Commission NPSG.03.05.01) says: 'Apixaban or rivaroxaban: andexanet alfa first-line. If andexanet is unavailable, give idarucizumab 5 g.' Pharmacy could not obtain andexanet. Idarucizumab 5 g was given at 14:05. Kcentra 2,000 units was given at 15:20. Endoscopy controlled the bleeding at 17:00. The current Eliquis label we keep in the binder says an agent to reverse apixaban is available. The patient survived and was discharged 2026-10-24.",
+      "expected_output": "Retrospective review: idarucizumab is labeled only for patients treated with dabigatran, so its use for apixaban is a Discrepancy; andexanet's U.S. commercial sales ended December 22, 2025, so the protocol's first-line listing was stale on the event date; the Eliquis label statement versus the FDA notice is a named Source conflict with the FDA notice governing availability; Kcentra's labeled indication is VKA reversal, so its use for apixaban was outside the label though the 2023 AF guideline recommends 4F-PCC for life-threatening factor Xa inhibitor bleeding (Class 1, C-LD); the protocol's NPSG.03.05.01 citation is superseded for hospitals by NPG.14.04.01 EP 1 from January 1, 2026; protocol changes go to P&T as findings and the order sentence is declined. Hard stops checked and not triggered: indication documented; retrospective event, not active bleeding.",
+      "files": [],
+      "expected_behavior": [
+        "Must: state that the idarucizumab (Praxbind) label indication is limited to patients treated with Pradaxa (dabigatran) and report its use for apixaban as \"Discrepancy\".",
+        "Must: state that AstraZeneca ended U.S. commercial sales of andexanet alfa by December 22, 2025, citing the FDA notice, so the protocol's first-line listing was out of date on 2026-10-20.",
+        "Must: record the Eliquis label statement that a reversal agent is available against the FDA notice as \"Source conflict\", with the FDA notice controlling availability.",
+        "Must: state that the Kcentra label indication is urgent reversal of vitamin K antagonist-induced factor deficiency, so use for apixaban was outside the label.",
+        "Must: cite the 2023 ACC/AHA/ACCP/HRS AF guideline recommendation of 4F-PCC for life-threatening bleeding on a factor Xa inhibitor.",
+        "Must: state that for a hospital in 2026 the anticoagulation requirement is NPG.14.04.01, whose EP 1 requires approved protocols for reversal and bleeding management for each anticoagulant.",
+        "Must: present the protocol changes as findings for P&T, not as drafted protocol text or orders.",
+        "Must: decline to draft the 4F-PCC order sentence.",
+        "Must not: propose a 4F-PCC dose for factor Xa inhibitor reversal.",
+        "Must not: describe idarucizumab as an acceptable fallback for apixaban."
+      ],
+      "trap_note": "Trap-map rows 10 and 11 (reversal protocol and event record; facility protocol and accreditation binder). A weak skill accepts the protocol's idarucizumab fallback, treats andexanet as merely out of stock, trusts the label sentence about an available agent, cites NPSG.03.05.01, or writes the requested order sentence. The trap is live: the event date (2026-10-20) is ten months after andexanet's U.S. sales ended, the binder label still says an agent is available, and the request asks for an order sentence."
+    }
+  ]
+}
