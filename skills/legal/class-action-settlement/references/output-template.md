@@ -40,7 +40,7 @@ Then a one-paragraph summary of the Rule 23(e)(1)(B) showing (likely approval un
 | # | Severity | Issue | Why the court or an objector will care | Source | Recommendation and alternatives | Owner |
 |---|---|---|---|---|---|---|
 
-Severity: **Critical** (settlement class or release broader than the litigated class or the identical factual predicate without justification; value statement that presents gross or face value as class benefit; reversion, clear-sailing or kicker clause not disclosed and analyzed; coupon fee measured on face value; service award barred in the controlling circuit; objection deadline before the fee motion; CAFA notice keyed to the wrong trigger or a hearing inside the 1715(d) period; an agreement or objector payment not identified to the court; groups with conflicting claims under one representative without analysis); **High** (claims rate unsourced; residual-fund terms missing; cy pres recipient relationships undisclosed; another pending action not addressed); **Medium** (notice readability, claim-form burden, website contents); **Low** (clean-up). Every row ends in a recommendation and what changes under the alternative.
+Severity: **Critical** (settlement class or release broader than the litigated class or the identical factual predicate without justification; value statement that presents gross or face value as class benefit; reversion, clear-sailing or kicker clause not disclosed and analyzed; coupon fee measured on face value; service award barred in the controlling circuit; objection deadline before the fee motion; CAFA notice keyed to the wrong trigger or a hearing inside the 1715(d) period; an agreement or objector payment not identified to the court; a partial-settlement bar order without a judgment-reduction credit; groups with conflicting claims under one representative without analysis); **High** (claims rate unsourced; residual-fund terms missing; cy pres recipient relationships undisclosed; another pending action not addressed); **Medium** (notice readability, claim-form burden, website contents); **Low** (clean-up). Every row ends in a recommendation and what changes under the alternative.
 
 Judgment calls (subclasses or separate counsel, claims-made versus automatic payment, fee deferral, cy pres recipient, the length of the opt-out window beyond any floor) state the options, the recommended choice and the reason.
 
@@ -116,6 +116,8 @@ Exhibits: notice forms, claim form, proposed preliminary approval order, propose
 
 ## Part 5. Approval-paper inserts and Rule 23(e)(3) statement
 
+This skill drafts inserts, not the motions. The preliminary approval motion itself is drafted by class-settlement-preliminary-approval, and the final approval motion and Rule 23(h) fee request by final-settlement-approval; pass these inserts to them.
+
 - Preliminary approval motion inserts: likely-certification analysis; the four 23(e)(2) factors with the record for each; the value reconciliation from 3B; scope differences from 3A with reasons; claims-rate basis; residual-fund plan; fee terms and their timing; other pending actions; the clocks table.
 - Rule 23(e)(3) statement: identify every agreement made in connection with the proposal, by date, parties and subject, including any opt-out termination agreement and any objector agreement. If the parties ask to file terms under seal, say so; the identification itself is not omitted.
 
@@ -132,12 +134,12 @@ A hand-off carries the facts the receiving workflow needs; a skill name alone is
 
 | To | When | What to pass |
 |---|---|---|
-| class-settlement-preliminary-approval | Agreement terms settled; motion to be drafted | Scope table, value reconciliation, clocks table, 23(e)(3) list |
+| class-settlement-preliminary-approval | Agreement terms settled; the preliminary approval motion itself is to be drafted (this skill supplies only the Part 5 inserts) | Part 5 inserts, scope table, value reconciliation, clocks table, 23(e)(3) list |
 | class-notice-plan | Notice methods, reach and budget need a plan | Class data sources, contact rates, administrator bids, deadlines |
 | class-action-notice | Long-form and summary notices to be drafted | Class definition, release text, deadlines with triggers, fee and award requests |
 | class-claim-form | A claim form is needed | Eligibility, documentation, payment tiers, claims deadline |
-| attorneys-fees-motion | The Rule 23(h) motion is to be drafted | Fee basis, lodestar data, value reconciliation, filing date before objection deadline |
-| final-settlement-approval | After notice period closes | Claims, opt-out and objection counts, CAFA declaration, responses to objections |
+| final-settlement-approval | The Rule 23(h) fee, expense and service-award request is to be drafted, and the final approval motion after the notice period closes | Fee basis, value reconciliation, fee-motion filing date before the objection deadline, claims, opt-out and objection counts, CAFA declaration, responses to objections |
+| attorneys-fees-motion | A lodestar cross-check is needed for the Rule 23(h) request | Hours and rates by biller, lodestar total, multiplier implied by the requested fee |
 | settlement-agreement | The dispute is not a class action | Parties, claims, payment terms |
 
 **Open items**, each with owner and next action:

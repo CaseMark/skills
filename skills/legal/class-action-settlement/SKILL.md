@@ -43,6 +43,7 @@ A class settlement binds people who never saw the negotiation, so the court acts
 | Allocation plan and representative roster | Equitable treatment under 23(e)(2)(D) | Groups with strong and weak claims paid equally under one representative and one counsel; no subclass or separate-counsel analysis |
 | Proposed preliminary approval order and schedule | Every dated or counted deadline | All deadlines keyed to the preliminary approval order; opt-out and objection windows shrinking when notice is late; objection deadline before the fee motion; hearing date computed onto a weekend or holiday |
 | CAFA notice package and proof of service | 1715 notice to federal and state officials | 10 days counted from preliminary approval instead of filing; final approval hearing inside the 90 days after the later service; wrong state official; notice skipped in a removed case |
+| Partial settlement with fewer than all defendants: bar order and judgment-reduction clause | Protecting settling defendants from contribution claims while preserving non-settling defendants' rights | Bar order that extinguishes non-settling defendants' contribution and indemnity claims with no judgment credit, or credit measured only by the amount paid; non-mutual bar left unexplained; in a securities case, the PSLRA bar order and greater-of judgment reduction omitted |
 | Side letters, supplemental opt-out termination agreement, objector deals | Rule 23(e)(3) statement and 23(e)(5)(B) approval | Blow provision or fee-sharing agreement left out of the statement; payment to an objector or objector's counsel to drop an objection or appeal without court approval |
 
 ## Ground Rules
@@ -89,7 +90,7 @@ Read `references/approval-standards-and-terms.md`, section 1. Record the court, 
 
 ## Step 2: Compare Class and Release Scope
 
-Read `references/approval-standards-and-terms.md`, sections 2 and 3. Fill table 3A of `references/output-template.md`: geography, products, period, exclusions, each released-claim category with its factual predicate, each released party, and each other pending action whose claims would be released. Narrow or justify every expansion. Confirm a named representative can represent each part of the settlement class.
+Read `references/approval-standards-and-terms.md`, sections 2 and 3. Fill table 3A of `references/output-template.md`: geography, products, period, exclusions, each released-claim category with its factual predicate, each released party, and each other pending action whose claims would be released. Narrow or justify every expansion. Confirm a named representative can represent each part of the settlement class. If fewer than all defendants settle, test any bar order and judgment-reduction clause under section 3.
 
 ## Step 3: Reconcile Settlement Value
 
@@ -113,7 +114,7 @@ Read `references/approval-standards-and-terms.md`, section 9. List every agreeme
 
 ## Step 8: Draft or Redline the Agreement and Approval Inserts
 
-Use the article skeleton in `references/output-template.md`, Part 4, for a new agreement; for a review, redline only the affected sections and give the reason for each change. Draft the approval-paper inserts in Part 5.
+Use the article skeleton in `references/output-template.md`, Part 4, for a new agreement; for a review, redline only the affected sections and give the reason for each change. Draft the approval-paper inserts in Part 5; the preliminary approval motion itself goes to class-settlement-preliminary-approval.
 
 ## Step 9: Assemble the Deliverable and Hand-Offs
 
@@ -137,7 +138,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 
 1. The court, circuit, certification status and Rule 23(b) category are stated, and the analysis uses that circuit's law.
 2. Table 3A compares the settlement class and release with the complaint and any certification order, and every expansion is justified or narrowed.
-3. Each released-claim category is tied to the identical factual predicate; released parties are named; other pending actions are listed.
+3. Each released-claim category is tied to the identical factual predicate; released parties are named; other pending actions are listed; any bar order in a partial settlement carries a judgment-reduction credit.
 4. Table 3B reconciles gross to net to expected payout with a sourced claims rate and low, expected and high cases; no gross or face value is called the class benefit.
 5. The fee is reported against the gross fund and against fee plus expected class payout; clear-sailing and kicker terms are flagged and reductions stay with the class.
 6. Service awards follow the controlling circuit; none is drafted as compensation for time or service in the Eleventh Circuit.
@@ -172,13 +173,13 @@ Before responding, confirm each statement. If one fails, fix the draft.
 
 ## Related Skills
 
-- class-settlement-preliminary-approval: drafting the Rule 23(e)(1) motion once the agreement's terms are settled.
-- final-settlement-approval: the final approval motion after the notice period closes.
+- class-settlement-preliminary-approval: drafts the preliminary approval motion itself; this skill supplies only the inserts in Part 5 of `references/output-template.md` (scope, value, clocks and the 23(e)(3) statement) for that motion.
+- final-settlement-approval: the final approval motion after the notice period closes, and the Rule 23(h) fee, expense and service-award request, which must be filed and posted before the objection deadline.
 - class-notice-plan: designing notice methods, reach and budget for the best notice practicable.
 - class-action-notice: drafting the long-form and summary notices to class members.
 - fairness-hearing-notice: a stand-alone notice of the fairness hearing.
 - class-claim-form: drafting the claim form and online submission workflow.
-- attorneys-fees-motion: the fee motion and lodestar support under Rule 23(h).
+- attorneys-fees-motion: lodestar computation and declarations used as a cross-check for the Rule 23(h) request; not the settlement fee motion itself.
 - class-certification-motion: litigated certification when no settlement is in place.
 - cafa-notice-of-removal: removal under 28 U.S.C. 1332(d), not settlement notice under 1715.
 - settlement-agreement: two-party commercial settlements that do not bind a class.
