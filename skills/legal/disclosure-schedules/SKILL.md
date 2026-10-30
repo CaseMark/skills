@@ -2,18 +2,18 @@
 name: disclosure-schedules
 language: en
 description: >-
-  Drafts and reviews M&A disclosure schedules and disclosure letters qualifying the
+  Drafts and reviews M&A disclosure schedules and letters qualifying the
   reps, warranties and interim covenants in merger, stock purchase and asset purchase
   agreements. Maps every rep in the newest agreement draft to a correctly
   numbered schedule; checks lead-ins, list versus exception reps, thresholds,
   lookbacks and entity scope; drafts specific factual disclosures with
-  express cross-references instead of a reasonably apparent clause or data room
-  incorporation; keeps knowledge and materiality qualifiers out of the schedules;
-  strips admissions and privileged advice; and handles SEC reports carve-outs and
-  Item 601 omitted schedules. Classifies schedule supplements between
+  express cross-references rather than a reasonably apparent
+  clause; keeps knowledge and materiality qualifiers out of the schedules;
+  strips admissions and privileged advice; and handles governmental consents and approvals
+  schedules, SEC reports carve-outs and Item 601 omitted schedules. Classifies schedule supplements between
   signing and closing for closing conditions, indemnity and termination, and applies
   sandbagging defaults and reservation of rights. Use for disclosure schedules, schedule
-  of exceptions, schedule supplements, or rep and warranty exceptions.
+  of exceptions, schedule supplements, or rep exceptions.
   Routes agreement changes to merger-agreement and diligence gaps to due-diligence-report.
 tags:
   - transactional
@@ -170,10 +170,10 @@ Before responding, confirm each statement. If one fails, fix the draft.
 
 ## Related Skills
 
-- merger-agreement: changes to the agreement itself, including lead-ins, qualifiers, materiality scrape, sandbagging clauses, supplement rules, fraud carve-outs and special indemnities.
+- merger-agreement: changes to the agreement itself, including lead-ins, qualifiers, materiality scrape, drafting of sandbagging and anti-sandbagging clauses, supplement-cure rules, fraud carve-outs and special indemnities. Split on sandbagging: classifying schedule supplements and analyzing the buyer's knowledge at closing (governing-law default, reservation of rights) stay here; drafting or negotiating the clause goes to merger-agreement.
 - due-diligence-report: reconciling diligence findings with the schedules, or producing the diligence report the schedules are checked against.
-- hsr-filing: antitrust filings that may require transaction documents, including the agreement and schedules.
-- analyzing-m-and-a-tax-implications: tax reps, tax elections and tax audits in the schedules that affect structure or indemnity.
+- hsr-filing: Item 3(b) transaction documents for an HSR filing (the agreement and, where required, its schedules), and the antitrust filing itself.
+- analyzing-m-and-a-tax-implications: tax representations, tax indemnity, and tax audits and elections disclosed in schedules.
 - stock-purchase-agreement: drafting the stock purchase agreement whose reps the schedules qualify.
 - asset-purchase-agreement: drafting the asset purchase agreement, including assumed and excluded contract schedules.
 - ma-closing-checklist: tracking supplements, consents, reservation letters and closing deliverables.

@@ -25,6 +25,7 @@ Build the map from the newest draft of the agreement, never from the schedule dr
 | Rep type | List rep ("Schedule 3.13(a) lists each Material Contract"), exception rep ("except as set forth on Schedule 3.10, no Action is pending"), or both | A list rep is breached by an omission; an exception rep is breached by an undisclosed fact |
 | Defined terms | Material Contract thresholds, lookback dates, Knowledge persons, "Company" (with or without Subsidiaries), Material Customer | The population of items to list comes from these definitions, not from the data room |
 | Entity scope | Which entity makes the rep and which entities it covers | A contract signed by the seller's parent is not a contract "to which the Company is a party"; it goes on a shared-contracts or transition list if the agreement has one, and is flagged if it does not |
+| Governmental consents and approvals schedule | Every filing, consent, approval and notice the governmental-consents rep requires, by authority and statute | An HSR or other antitrust filing, a regulatory license transfer or a state approval missing from the list; coordinate with hsr-filing |
 | Covenant schedules | Interim operating covenant exceptions placed in the disclosure letter | Exceptions moved from a covenant into a schedule apply to that covenant only unless the agreement says otherwise (Williams) |
 
 Annualize every amount the same way the definition does ("in any twelve-month period", "in the last fiscal year") and show the arithmetic in the map. Monthly and quarterly fees are multiplied out; do not compare a monthly figure with an annual threshold.
@@ -97,7 +98,7 @@ Typical text: information in one section "shall be deemed to apply to and qualif
 - A filing outside the window, or a risk factor, does not qualify the rep. Schedule the specific matter if it must qualify.
 - Filing: under Regulation S-K Item 601(a)(5) schedules to a filed exhibit need not be filed if they do not contain information material to an investment or voting decision not otherwise disclosed; the exhibit must list the omitted schedules and the registrant must furnish them to the Commission on request. Item 601(b)(2)(ii) permits redacting immaterial provisions the registrant customarily treats as confidential, with marking requirements. Item 601(a)(6) permits redacting personal information.
 - The SEC's 2005 Titan report states that reps in a publicly disclosed agreement are disclosure to investors and that an issuer must consider whether additional facts are needed so they are not misleading. Draft the schedules assuming they may be requested.
-- Antitrust filings may require transaction documents; route filing questions to hsr-filing.
+- Item 3(b) transaction documents for an HSR filing may include the agreement and its schedules; route filing questions to hsr-filing.
 
 ## 8. Consistency checks across the deal documents
 
@@ -108,4 +109,4 @@ Typical text: information in one section "shall be deemed to apply to and qualif
 | Litigation schedule | Litigation files, demand letters, insurer notices, board minutes | A written threat in a demand letter not scheduled |
 | Disclosure letter terminology | Agreement defined terms | A schedule uses an undefined or differently defined term |
 | Diligence report findings | Schedules | A red flag in the report with no matching disclosure; route the reconciliation to due-diligence-report |
-| Tax schedules | Tax returns and tax diligence | Elections and audits omitted; route tax analysis to analyzing-m-and-a-tax-implications |
+| Tax schedules | Tax returns and tax diligence | Elections and audits omitted; route tax representations, tax indemnity, and tax audits and elections disclosed in schedules to analyzing-m-and-a-tax-implications |

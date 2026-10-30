@@ -97,10 +97,10 @@ For buyer review, give the seller's text, the proposed change, and the reason, i
 
 | To | When | What to pass |
 |---|---|---|
-| merger-agreement | A rep needs a lead-in, a qualifier change, a materiality scrape, a sandbagging clause, a supplement-cure rule or a special indemnity | Section numbers, current text, proposed text, reason |
+| merger-agreement | A rep needs a lead-in, a qualifier change, a materiality scrape, a sandbagging or anti-sandbagging clause drafted, a supplement-cure rule or a special indemnity (supplement classification and buyer knowledge at closing stay in this skill) | Section numbers, current text, proposed text, reason |
 | due-diligence-report | A diligence finding has no matching disclosure, or a disclosure has no diligence support | Finding, schedule entry, source documents |
-| hsr-filing | Transaction documents may need to be produced with an antitrust filing | Schedule list and confidentiality notes |
-| analyzing-m-and-a-tax-implications | Tax reps, tax elections or tax audits in the schedules affect structure or indemnity | Tax schedule entries and source returns |
+| hsr-filing | Item 3(b) transaction documents for an HSR filing may include the agreement and its schedules | Schedule list, governmental consents and approvals schedule, confidentiality notes |
+| analyzing-m-and-a-tax-implications | Tax representations, tax indemnity, and tax audits and elections disclosed in schedules | Tax schedule entries and source returns |
 | ma-closing-checklist | Supplements, consents and reservation letters must be tracked to closing | Item, trigger date, owner, deadline |
 
 **Open items**, each with owner and next action:
