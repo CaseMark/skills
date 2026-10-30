@@ -101,7 +101,7 @@ The brief does not ask the court to weigh credibility, does not cite a fact miss
 
 ## Part 5. Statement of facts or responsive statement, objections, Rule 56(d) declaration
 
-1. **Statement of undisputed material facts** (movant): numbered, one fact per paragraph, each with a pinpoint, in the forum's format (two-column in California).
+1. **Statement of undisputed material facts** (movant): numbered, one fact per paragraph, each with a pinpoint, in the forum's format (two-column in California). Where a local rule or the judge bars a separate statement (N.D. Cal. Civil L.R. 56-2(a)), put the numbered facts with pinpoints in the brief's statement of facts instead.
 2. **Responsive statement** (nonmovant): every movant paragraph reproduced where the rule requires, with a response from the vocabulary in `references/state-and-local-practice.md`, then additional material facts.
 3. **Evidentiary objections**: paragraph, material, ground (hearsay, foundation, personal knowledge, authentication), the admissible form the proponent would need, and where the objection appears in the papers.
 4. **Rule 56(d) declaration outline** (when needed): facts sought and how; how they would create a genuine dispute on which element; efforts made with dates; why unsuccessful; the order requested (defer, deny, or allow time).

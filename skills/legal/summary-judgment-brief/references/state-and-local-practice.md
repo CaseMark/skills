@@ -8,7 +8,8 @@
 4. California: CCP 437c and Rule of Court 3.1350
 5. Texas: Rule 166a as rewritten effective March 1, 2026
 6. New York state court: CPLR 3212
-7. Other forums
+7. N.D. Cal. Civil Local Rules 56-2, 7-2 and 7-3
+8. Other forums
 
 Only the rules named below were read in primary text (see `references/primary-sources.md`). For any other district or state, read the current local rule, standing order and judge's individual practices on the drafting date and mark anything unread `[VERIFY]`. Never assume one district's statement-of-facts rule applies in another.
 
@@ -37,7 +38,7 @@ Each timed element gets its own row and its own trigger. Show date and weekday; 
 | Texas (motions filed on or after March 1, 2026) | Response | Filing of the motion | Within 21 days after, absent leave or agreement | Tex. R. Civ. P. 166a(d)(1) (2026) |
 | Texas (2026) | Reply | Filing of the response | Within 7 days after, absent leave or agreement | Tex. R. Civ. P. 166a(e)(1) (2026) |
 | Texas (2026) | Hearing or submission | Filing of the motion | Not within 35 days after; must be set within 60 days (90 days if the docket requires, on good cause, or if the movant agrees) | Tex. R. Civ. P. 166a(g)(1) (2026) |
-| Texas (2026) | Written ruling | Hearing or submission date | Within 90 days after | Tex. R. Civ. P. 166a (2026), ruling provision |
+| Texas (2026) | Written ruling | Hearing or submission date | Within 90 days after | Tex. R. Civ. P. 166a(i) (2026) |
 | New York supreme court | Last day to move | Filing of the note of issue | 120 days after, unless the court sets a date (not earlier than 30 days after); later only with leave on good cause shown | CPLR 3212(a) |
 
 California's computation rules (CCP 12 and 12a) and how they apply when counting backward from a hearing are `[VERIFY]`; when the margin is a day or two, say so and recommend the earlier date.
@@ -83,9 +84,9 @@ Continuance: if opposition declarations show facts essential to justify oppositi
 - Applies only to a motion filed on or after March 1, 2026; an older motion follows the prior rule, whose hearing-based deadlines are `[VERIFY]` from the pre-2026 text. The 2026 comment says that, other than the deadline changes, the rewrite is not intended to change the law substantively.
 - Title must be "Traditional Motion for Summary Judgment," "No-Evidence Motion for Summary Judgment," or "Combined Motion for Traditional and No-Evidence Summary Judgment" (a wrong title is not grounds for denial); any oral-hearing request goes in the title.
 - A traditional motion states specific grounds; a no-evidence motion states the elements as to which there is no evidence and may be filed only after adequate time for discovery. The 1997 comment: no conclusory or general no-evidence challenges.
-- Response: within 21 days after the motion is filed; includes evidence and objections to the movant's evidence. A nonmovant needing more time files an affidavit or declaration specifying the reasons. Reply: within 7 days after the response; no new grounds.
-- Hearing or submission: not within 35 days after filing; set within 60 days (or 90 days as stated). Written ruling within 90 days after the hearing or submission.
-- Defects in the form of an affidavit or its attachments are not grounds for reversal unless pointed out by objection and the party refused to amend.
+- Response (166a(d)): within 21 days after the motion is filed; the nonmovant must produce any evidence supporting it. A nonmovant needing more time files an affidavit or declaration specifying the reasons (166a(d)(3)). Reply (166a(e)): within 7 days after the response; no new or independent grounds.
+- Hearing or submission (166a(g)): not within 35 days after filing; set within 60 days (or 90 days as stated). Written ruling within 90 days after the hearing or submission (166a(i)).
+- Evidence (166a(j)): documents referred to in an affidavit or declaration must be attached and sworn or certified; defects in form are not grounds for reversal unless pointed out by objection and the party refused to amend (166a(j)(4)).
 
 ## 6. New York supreme court: CPLR 3212
 
@@ -93,6 +94,12 @@ Continuance: if opposition declarations show facts essential to justify oppositi
 - Brill v. City of New York, 2 N.Y.3d 648, 652 (2004): good cause for a late motion requires a satisfactory explanation for the delay; merit alone does not excuse it.
 - Whether a statement of material facts is required (Uniform Rule 202.8-g and the individual justice's part rules) is `[VERIFY]` on the drafting date.
 
-## 7. Other forums
+## 7. N.D. Cal. Civil Local Rules (read on the court's site 2026-10-30)
+
+- Civil L.R. 56-2(a): unless required by the assigned Judge, no separate or joint statement of undisputed facts shall be submitted. Put the facts, each with a pinpoint, in the brief; check the judge's standing order for an exception.
+- Civil L.R. 56-3: statements in an order denying summary judgment are not issues deemed established for trial unless the Court so specifies.
+- Civil L.R. 7-2(a): motions are noticed for hearing not less than 35 days after filing. Civil L.R. 7-3(a) and (c): opposition not more than 14 days after the motion was filed, reply not more than 7 days after the opposition was due; evidentiary objections go inside the brief; Rule 6(d) does not extend these filing-based deadlines. A briefing order overrides these defaults.
+
+## 8. Other forums
 
 For every other district and state: record the rule searched, the date and the result; mark statement-of-facts format, deemed-admission consequence, notice period, response and reply deadlines `[VERIFY]`; draft to the stricter reading where feasible and list the item as a Critical open item that blocks filing.
