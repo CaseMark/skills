@@ -32,7 +32,13 @@ Source register, one row per file:
 
 ## 1. Status and labels
 
-**Report status**, one used exactly: **Ready for compliance and counsel review**; **Not ready: blocking issues** (name them). A request blocked by a hard stop is labeled **Declined: hard stop** where it is answered, with the reason and what is produced instead; the rest of the report continues.
+**Report status**, one used exactly: **Ready for compliance and counsel review**; **Not ready: blocking issues** (name them).
+
+**Partial decline label.** When a hard stop declines only part of a request, answer that part with this fixed line, verbatim, and continue the rest of the report:
+
+`Declined: hard stop (<stop name>): <the request as made>. Produced instead: <what the stop calls for>.`
+
+Stop names, used exactly: **Identification structuring**; **Reporter protection**; **No claims data**; **Invalid extrapolation**. List every partial decline again in the open items.
 
 Per issue, one of each:
 
@@ -96,10 +102,24 @@ Typical rows: audit report date against the date the compliance officer received
 
 ## 9. Hand-offs
 
+Inbound hand-offs accepted (claim the trigger in the header):
+
+| From skill | Trigger this skill takes | What it receives |
+|---|---|---|
+| stark-law-aks-compliance | FCA exposure, qui tam risk, overpayment quantification and settlement modeling once counsel finds noncompliance: Stark or AKS arrangement noncompliance (1320a-7b(g) causation; Stark-tainted DHS claims), overpayment quantification for noncompliant periods, settlement modeling (OIG SDP and CMS SRDP), response to a subpoena, CID or unsealed qui tam | Labels, noncompliant periods, affected claims or the data needed, disclosure path label |
+| conducting-stark-law-analysis | Exposure and overpayment quantification, FCA risk and settlement modeling for arrangements escalated by the operational review | Arrangement facts, periods, failed elements |
+| managing-risk-adjustment-coding | MA risk-adjustment overpayments under 42 C.F.R. 422.326 (60 days, 6-year look-back): known unsupported paid codes, one-sided or add-only chart reviews, capture-count incentives, prior-year error patterns | Records and payment years; no conclusions on knowledge or damages |
+| managing-drg-optimization | Patterns of unsupported codes, one-way (raise-only) CDI query policies, overpayment and self-disclosure questions | Case list, query policy, DRG differentials |
+| managing-coding-denials | Altered or backdated records in appeals, overpayments found during appeal review, patterns of unsupported codes | The claim, the record versions and dates |
+
+Outbound:
+
 | To skill | When | What is passed | What this draft did not do |
 |---|---|---|---|
 | stark-law-aks-compliance | Counsel's legal analysis and opinion on Stark or AKS compliance, the 1320a-7b(g) reading for the forum, and the final disclosure path | Claim sets under each reading, clock status, settlement model | Did not decide Stark or AKS compliance |
-| conducting-stark-law-analysis | Provider-side operational review of the arrangement against Stark exceptions | The arrangement facts and periods | Did not test exception elements |
+| conducting-stark-law-analysis | Operational facts of an escalated arrangement (terms as written and paid, periods, exception elements) | The facts exposure sizing still needs | Did not test exception elements |
+| managing-drg-optimization | DRG documentation support behind an inpatient overpayment | Case list and code findings | Did not validate DRGs |
+| managing-coding-denials | The appeal of a denied claim, after any altered-record issue is resolved | Clock status, what may not be submitted | Did not draft the appeal |
 | conducting-anti-kickback-analysis | Provider-side safe harbor documentation for a payment arrangement | The arrangement facts | Did not test safe harbor elements |
 | managing-compliance-audits | Designing the audit sample and corrective action plan | Population, frame, error definition | Did not draw the sample |
 | auditing-coding-accuracy | Claim-level coding review of sampled claims | Sample list, review criteria | Did not code the claims |

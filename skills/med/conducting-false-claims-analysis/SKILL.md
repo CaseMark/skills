@@ -3,16 +3,17 @@ name: conducting-false-claims-analysis
 language: en
 description: >
   Evaluates provider-side False Claims Act (31 U.S.C. 3729-3733) and Medicare and Medicaid
-  overpayment exposure. Tests falsity, scienter (subjective under SuperValu), Escobar
-  materiality and AKS causation separately; computes the 60-day report-and-return deadline
-  under 42 C.F.R. 401.305 (knowingly standard, 180-day investigation suspension, 6-year
-  lookback) and 422.326; quantifies overpayments from claims data or a statistically valid
-  sample; models treble damages, current per-claim penalties, OIG SDP, CMS SRDP and refunds. Covers FCA exposure, qui tam risk, overpayment quantification and settlement
-  modeling once stark-law-aks-compliance finds noncompliance: FCA exposure from Stark or AKS
-  arrangement noncompliance (1320a-7b(g) resulting-from causation, Stark-tainted DHS claims),
-  overpayment quantification for noncompliant periods, and response to a subpoena, CID or
-  unsealed qui tam. Also covers paid unsupported codes and 3730(h) retaliation. Routes
-  counsel's Stark and AKS opinion to stark-law-aks-compliance.
+  overpayment exposure. Tests falsity, scienter, Escobar materiality and causation; computes
+  the 60-day deadline under 42 C.F.R. 401.305 (180-day suspension, 6-year lookback);
+  quantifies from claims or a valid sample; models treble damages, penalties, OIG SDP, CMS
+  SRDP and refunds. Covers FCA exposure, qui tam risk, overpayment
+  quantification and settlement modeling once stark-law-aks-compliance finds noncompliance
+  (1320a-7b(g) causation, Stark-tainted DHS claims); exposure and overpayment quantification
+  for arrangements escalated by conducting-stark-law-analysis; MA risk-adjustment overpayments
+  under 422.326; one-sided or add-only chart reviews, raise-only CDI query policies and
+  capture-count incentives; altered or backdated records in appeals and overpayments found
+  during appeal review; subpoena, CID or unsealed qui tam response; 3730(h) retaliation.
+  Counsel's Stark and AKS opinion stays in stark-law-aks-compliance.
 tags:
   - process
   - healthcare-compliance
@@ -75,21 +76,21 @@ Collect, from documents where possible:
 1. Today's date, the requester and role, and whether the work is at counsel's direction.
 2. The entity that received payment: legal name, billing NPIs and TINs, and any affiliates in the claims data.
 3. Programs and payers: Medicare Parts A and B, MA plan or MA organization, Part D, Medicaid (state; fee-for-service or managed care), TRICARE, other.
-4. The issue and its trigger: internal audit, hotline report, contractor or OIG audit, counsel's Stark or AKS finding, subpoena, CID, unsealed qui tam.
+4. The issue and its trigger: internal audit, hotline report, contractor or OIG audit, counsel's Stark or AKS finding, an arrangement escalated by conducting-stark-law-analysis, MA risk-adjustment overpayments under 42 C.F.R. 422.326 (one-sided or add-only chart reviews, capture-count incentives), raise-only CDI query policies, altered or backdated records or overpayments found during appeal review (managing-coding-denials), subpoena, CID, unsealed qui tam.
 5. Claims data: claim count, payment dates, paid amounts, billed charges, refunds already made, and cost report due dates if any.
 6. The knowledge timeline: when each person learned of the issue, what they received, and when any investigation of related claims began and ended.
 7. Sample documentation: objective, population, frame, selection method and random-number source, size, review criteria and results.
-8. For arrangement-based issues, the stark-law-aks-compliance hand-off: its Stark, AKS and disclosure path labels, the noncompliant periods, the affected DHS claims or the data needed to identify them, and the federal circuit.
+8. For arrangement-based issues, the stark-law-aks-compliance hand-off (its Stark, AKS and disclosure path labels, the noncompliant periods, the affected DHS claims or the data needed to identify them, and the federal circuit) or the conducting-stark-law-analysis escalation (the arrangement's operational facts and periods). For coding-driven issues, the sibling's record-level findings, without its conclusions on knowledge or damages.
 9. Evidence bearing on scienter and materiality: emails, policies, education letters, prior denials, payer audits and what the payer did afterwards.
 10. Reporter facts: hotline reports, who raised the issue, and any pending employment action.
 
 **Defaults if not supplied** (a statute or regulation overrides any default it addresses): program is Medicare Parts A and B, marked `[UNVERIFIED]`; no cost report applies unless the entity files one; the governing circuit is the one where the entity is located; the penalty column is the one for penalties assessed after July 3, 2025, since DOJ made no 2026 adjustment; disclosure path "counsel decision required" until counsel characterizes the conduct.
 
-**Hard stops (label the affected request "Declined: hard stop", produce what the stop calls for instead, and continue the rest of the analysis):**
-- A request to structure, date, word or limit findings so as to delay or avoid the 60-day obligation, or to minimize or postpone identification (Ground Rule 5): decline that part; produce the accurate clock and the lawful options.
-- A request to identify, unmask or take adverse action against a suspected relator or internal reporter, or to frame discipline around a report: decline that part; flag 3730(h) and route to employment counsel.
-- No claims data at all (no claim count, payment dates or paid amounts): produce the data request; no exposure figure. A stark-law-aks-compliance hand-off that lists only the data needed is accepted on this basis: build the data request and the clock analysis from it.
-- A request to present an extrapolated figure as the reportable, refundable or disclosable amount when the sample is not a documented random selection from a defined frame: produce the known-claim amount and a sampling plan request instead of the extrapolated figure.
+**Hard stops (a partial decline: label only the affected request with the fixed line from `references/output-template.md`, section 1, "Declined: hard stop (<stop name>)", produce what the stop calls for instead, and continue the rest of the analysis):**
+- **Identification structuring**: a request to structure, date, word or limit findings so as to delay or avoid the 60-day obligation, or to minimize or postpone identification (Ground Rule 5): decline that part; produce the accurate clock and the lawful options.
+- **Reporter protection**: a request to identify, unmask or take adverse action against a suspected relator or internal reporter, or to frame discipline around a report: decline that part; flag 3730(h) and route to employment counsel.
+- **No claims data**: no claims data at all (no claim count, payment dates or paid amounts): produce the data request; no exposure figure. A stark-law-aks-compliance hand-off that lists only the data needed is accepted on this basis: build the data request and the clock analysis from it.
+- **Invalid extrapolation**: a request to present an extrapolated figure as the reportable, refundable or disclosable amount when the sample is not a documented random selection from a defined frame: produce the known-claim amount and a sampling plan request instead of the extrapolated figure.
 
 **Not hard stops:** an unknown identification date (show each candidate date and the deadline it produces); an unknown circuit rule (`[VERIFY]` and both readings); no counsel analysis of an arrangement (label the path "counsel decision required" and continue); a pending sealed qui tam rumor (note it; do not investigate the relator).
 
@@ -174,12 +175,13 @@ Complete the reconciliation table, hand-offs and open items in `references/outpu
 ## Related Skills
 
 - stark-law-aks-compliance: counsel's legal analysis and opinion on Stark and AKS compliance, the forum's 1320a-7b(g) reading, and the final disclosure path; this skill sizes the FCA exposure that follows.
-- conducting-stark-law-analysis: provider-side operational review of an arrangement against Stark exceptions before exposure is sized.
+- conducting-stark-law-analysis: the operational facts of an escalated arrangement (terms as written and as paid, periods, exception elements) when exposure sizing needs them; it escalates to this skill for exposure and overpayment quantification.
 - conducting-anti-kickback-analysis: provider-side safe harbor documentation for a payment arrangement.
 - managing-compliance-audits: designing the audit sample and corrective action plan when a valid sample is needed.
 - auditing-coding-accuracy: claim-level coding review of the sampled or affected claims.
-- managing-risk-adjustment-coding: MA diagnosis support and RADV issues behind an MA overpayment.
-- managing-drg-optimization: inpatient DRG documentation support when unsupported DRGs drive the overpayment.
+- managing-risk-adjustment-coding: MA diagnosis support and RADV issues behind an MA risk-adjustment overpayment under 422.326, including two-way review of one-sided or add-only chart reviews.
+- managing-drg-optimization: inpatient DRG documentation support when unsupported codes or one-way (raise-only) query policies drive the overpayment.
+- managing-coding-denials: the appeal itself; it routes altered or backdated records and overpayments found during appeal review here.
 - managing-compliance-programs: program-wide remediation after the finding.
 - whistleblower-protection-policy: drafting an anti-retaliation policy after a reporter issue surfaces.
 - legal-research: 3730(h) case law, circuit rules marked `[VERIFY]`, and state Medicaid overpayment rules; no dedicated skill exists.
