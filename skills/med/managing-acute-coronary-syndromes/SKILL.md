@@ -1,7 +1,17 @@
 ---
 name: managing-acute-coronary-syndromes
 language: en
-description: Guides ACS management pathways with TIMI/GRACE scoring and intervention timing. Use when managing STEMI/NSTEMI, risk-stratifying ACS, or coordinating cath lab activation.
+description: >
+  Reviews acute coronary syndrome (ACS) care for one encounter as a coordination, documentation and quality draft: STEMI, NSTEMI, unstable angina, MINOCA. Builds a timestamp ledger from EMS, ED, cath
+  lab and transfer records and computes each reperfusion clock from its own trigger (first medical
+  contact to device, door-to-balloon, door-in-door-out, door-to-needle,
+  NSTE-ACS invasive timing) against the 2025 ACC/AHA/ACEP/NAEMSP/SCAI ACS guideline, kept separate
+  from the CMS STEMI eCQM (CMS996), ACC/AHA performance measures and NCDR registry definitions.
+  Screens ECG documentation for STEMI equivalents (posterior MI, de Winter, LBBB or paced rhythm with
+  Sgarbossa); checks troponin against the assay's sex-specific 99th percentile; separates myocardial
+  injury, type 1 and type 2 MI (Fourth UDMI) and primary or secondary MI (Fifth UDMI, 2026) from
+  ICD-10-CM codes; reviews fibrinolysis contraindications, transfers, discharge medications and
+  cardiac rehab referral. Drafts for clinician review; no patient orders.
 tags:
   - management
   - cardiology
@@ -21,195 +31,176 @@ metadata:
 
 # Managing Acute Coronary Syndromes
 
-Guides ACS management pathways with TIMI/GRACE scoring and intervention timing.
+Builds an ACS care-coordination and quality review for one encounter: a source register and timestamp ledger across every facility involved, a clock table in which each timed element runs from its own trigger, a measure scorecard, a review of the diagnostic documentation (ECG, troponin, MI classification), a fibrinolysis and transfer review, a discharge checklist, and the conflicts, query candidates and hand-offs that follow. Clinical guideline goals, quality measure results, registry definitions and coding rules are reported on separate rows. Everything it produces is a draft for review by the treating clinicians, quality staff and coders; it is not a diagnosis, a code assignment or an order.
 
 ## Why This Skill Exists
 
-Acute coronary syndromes (ACS) encompass STEMI, NSTEMI, and unstable angina — together representing the most time-critical diagnoses in cardiology. Door-to-balloon time of ≤ 90 minutes for STEMI remains a national quality benchmark. For NSTEMI, the GRACE score drives timing of invasive strategy (immediate, early, or delayed), and misclassification directly impacts mortality. The 2021 ACC/AHA Guideline for Coronary Artery Revascularization and 2014 AHA/ACC NSTE-ACS guideline define evidence-based treatment algorithms that must be followed precisely.
+ACS reviews are dominated by clocks and labels, and both are easy to get wrong without any error in care. The same phrase, "door-to-balloon", means first medical contact to device in the 2025 ACC/AHA/ACEP/NAEMSP/SCAI guideline, ED arrival to device deployment in the CMS STEMI eCQM, and receiving-hospital door to device on many dashboards; for a transfer these can differ by more than an hour. First medical contact itself now has two definitions (the 2025 guideline's and the NCDR registry's). The diagnostic vocabulary changed in August 2026, when the Fifth Universal Definition of MI replaced types 1 to 5 with primary, secondary and procedure-related MI, while ICD-10-CM FY 2027 still codes type 1 and type 2. Missed STEMI equivalents keep a reperfusion clock from ever starting; troponin read against a borrowed threshold turns injury into infarction; and a discharge note that says "recommend cardiac rehab" is not a referral. This skill keeps the frameworks apart, computes from source timestamps and names every conflict.
 
-Errors in ACS management — delayed cath lab activation, failure to administer antiplatelet loading, or inappropriate discharge of an unstable patient — carry among the highest malpractice liability in emergency cardiology.
+## Where Mistakes Hide
 
----
+| Input / Document | What It Is Used For | Where the Error Hides |
+|---|---|---|
+| Reperfusion dashboard or abstract reporting "door-to-balloon" | Judging timeliness of primary PCI | Receiving-hospital door used for a transfer patient; cath lab arrival or procedure start used where device time governs; registration time substituted for arrival; a measure result reported as guideline concordance, or the reverse |
+| EMS run sheet and first-facility ED record | First medical contact (FMC) | 2025 guideline FMC (first professional who can obtain and interpret an ECG) mixed with NCDR v3.2 FMC (first EMS evaluation) and with the eCQM's ED arrival; a walk-in FMC taken from the ECG time without showing arrival and triage readings |
+| Measure population and facility attribution for a transfer | Which hospital's measure, which patients are in it | Referral hospital's door-in-door-out and the receiving hospital's door-to-device scored as one case; PM-8 applied to a transfer-in it excludes; a patient under 18 or a non-STEMI ED encounter scored in CMS996 |
+| 12-lead ECG reports and machine reads | STEMI or NSTE-ACS, start of the reperfusion clock | ST depression in V1-V3 labeled NSTEMI with no posterior leads; de Winter or hyperacute T waves missed; LBBB or paced rhythm assessed without Sgarbossa criteria; a new LBBB alone treated as a STEMI equivalent |
+| Troponin results and the laboratory's assay sheet | Myocardial injury, rise and fall, rule-in or rule-out | Threshold borrowed from another assay or a uniform cut-off used where the lab reports a sex-specific 99th percentile; ng/mL compared with ng/L; a pathway risk threshold read as the diagnostic limit; timing from symptom onset ignored |
+| Provider diagnosis statements, problem list and coded abstract | MI classification and ICD-10-CM codes | Type 2 MI or non-ischemic myocardial injury coded I21.4; "NSTEMI" in the discharge summary against "demand ischemia" in progress notes with no query; Fifth UDMI "secondary MI" or "primary MI due to SCAD" translated into a type or code without saying so |
+| Cath report with no stenosis of 50 percent or more | Final diagnosis after angiography | "MINOCA" recorded as final with no CMR, no angiogram re-review and no alternative diagnosis excluded; the Fifth UDMI's renaming to myocardial injury with non-obstructive coronary arteries ignored |
+| Facility fibrinolysis checklist or order set | Whether fibrinolysis was contraindicated | A home-grown or outdated list labeling relative contraindications (oral anticoagulant, prior ischemic stroke over 3 months, hypertension that responded to treatment) as absolute; CMS996 exclusions read as clinical contraindications |
+| Discharge summary, medication reconciliation and referral orders | Secondary prevention and transition of care | "Recommend cardiac rehab" counted as a referral; LVEF not documented; antiplatelet plan without duration or bleeding-reduction rationale; secondary MI patients not referred |
+
+## Ground Rules
+
+1. **Draft only.** Every output is a draft for the treating clinicians, quality staff and coders. Never state that a case is final, submitted or validated, and never phrase guideline content as an order for this patient: no agents, doses, routes, durations or procedures directed at the patient.
+2. **Source-review gate.** Do not call a timestamp, tracing, value or note missing until every supplied document has been opened and searched, including scanned files and the records of every facility involved. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a measure logic rule not read) or a policy election (for example the facility's chosen hs-cTn pathway).
+3. **Hierarchy of authority.** For clinical recommendations: the 2025 ACS guideline as corrected, then the documents it defers to (2021 chest pain guideline, AHA MINOCA statement), then facility protocol. For measure results: the measure specification for the reporting period, never the guideline. For definitions: the Universal Definition the record or the request names. For codes: ICD-10-CM Official Guidelines for the discharge date. For facts: source entries (EMS times, ECG acquisition time, specimen collection time, device time in the procedure log, MAR) govern over dashboards, registries and summaries. Name every conflict in the reconciliation table; never resolve one silently.
+4. **Citation discipline.** Every timestamp, value and quoted note carries a source locator (document, facility, date and time, author role) or `[UNVERIFIED]`. Every rule carries its source and year, and its COR and LOE for a guideline statement, or `[VERIFY]`.
+5. **Name the framework on every conclusion.** Write "2025 guideline transfer goal (120 min): not met", "CMS996v6, Hospital A: not in numerator" or "Fourth UDMI type 2 criteria: not documented". Never merge frameworks into one pass or fail.
+6. **Lock the versions.** State the guideline and correction date, the eCQM version for the reporting period (CMS996v6 for CY 2026), the performance measure set (2017), the Universal Definition (Fourth, 2018, or Fifth, 2026) and the ICD-10-CM fiscal year for the discharge date (FY 2027 from October 1, 2026).
+7. **Each clock has its own trigger and timestamp type.** Compute every element from the start event its source names (`references/reperfusion-and-measure-rules.md`, Section 2). Use device time, not procedure start; ED arrival, not registration, unless the source says otherwise; collection time for troponin samples. Where the anchor is ambiguous (walk-in FMC), compute every plausible reading and say whether the result changes.
+8. **The assay governs troponin.** Interpret values only against the laboratory's own assay, unit, sex-specific 99th percentile and pathway thresholds. A missing assay sheet is an unknown fact; never borrow a threshold.
+9. **Diagnosis and codes belong to clinicians and coders.** Record what the documentation says, which definition it uses, and which criteria the record supports or lacks. Do not assign a final MI class, read an ECG as the final interpreter, or assign a code.
+10. **No documentation steering.** Never suggest adding, backdating or editing an entry, or wording a diagnosis, so that a case enters or leaves a measure, registry, cohort or payment group. Genuine ambiguity becomes a non-leading query candidate routed to `managing-cdi-programs`; a late entry follows facility policy and is labeled as one.
+11. **Scope and attribution.** For every measure row, name the facility it is attributed to and test the population before scoring: a transfer usually produces separate rows for the referral and receiving hospitals.
+12. **Outcome vocabulary.** Clock elements: Met, Not met, Not applicable, Not yet due, Cannot determine. Measure rows: In numerator, Not in numerator, Excluded, Exception documented, Not in population, Cannot determine. Documentation items: Documented, Not documented, Conflict. Add "provisional pending <facts>" where unchecked facts could change a result; "Cannot determine" names the missing fact and who can supply it.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
-1. What is the ACS presentation — STEMI, NSTEMI, or unstable angina? (default: "ACS type not classified")
-2. What is the time of symptom onset and time of first medical contact? (default: "Timing not documented")
-3. What was the initial ECG finding? (default: "ECG not provided")
-4. What are the serial troponin values (high-sensitivity preferred)? (default: "Troponin trend not available")
-5. What are the TIMI and/or GRACE risk scores? (default: "Not yet calculated")
-6. Has antiplatelet and anticoagulant therapy been initiated? (default: "Loading status unknown")
-7. Is the patient hemodynamically stable? (default: "Hemodynamic status not documented")
-8. Are there contraindications to anticoagulation, antiplatelet agents, or fibrinolysis? (default: "None known")
+Collect before Step 1:
 
-### Documents to Request
+1. Purpose: concurrent coordination on an open encounter, retrospective quality review, registry abstraction support, peer-review packet, or record review for counsel.
+2. Facilities involved, each marked PCI-capable or not, and the role of each (referral, receiving).
+3. Age, sex as documented, arrival mode (EMS, walk-in, interfacility transfer), arrival and discharge dates.
+4. The record set: EMS run sheet, ED records of every facility, every ECG with acquisition and interpretation times, troponin reports with collection times and the lab's assay sheet, cath and procedure logs with device times, MAR, transfer records, discharge summary, medication reconciliation and referral orders, and any dashboard, registry abstract or coded abstract under review.
+5. Which frameworks the user wants addressed. Default: the 2025 guideline clock table and the discharge checklist; add a measure only when the user names it or asks about measure performance.
+6. Facility protocols in play: hs-cTn pathway, fibrinolysis checklist, STEMI transfer protocol.
 
-- Serial 12-lead ECGs (at presentation, post-intervention, and any with symptoms)
-- Serial troponin values with timestamps (hs-cTnT or hs-cTnI)
-- Current medication list including antiplatelets and anticoagulants
-- Prior cardiac catheterization or revascularization history
-- Echocardiogram (new or recent)
-- BMP, CBC, coagulation studies, lipid panel
-- BNP/NT-proBNP if available
-- Hemodynamic monitoring data if in CCU/ICU
+Defaults when an input is missing:
 
----
+- Arrival mode not stated: treat FMC as an unknown fact and show each candidate anchor; never assume walk-in or EMS.
+- Assay sheet missing: list troponin values with units and times, set injury and delta judgments to Cannot determine, and request the lab's 99th percentile and pathway.
+- Discharge date missing on a retrospective review: state the ICD-10-CM year and measure version as provisional.
+- Open encounter: windows not yet closed are "Not yet due".
 
-## Step 1: ACS Classification and Initial Risk Stratification
+Hard stops (do not score the affected item):
 
-**ACS Diagnostic Criteria:**
+- No timestamped source for the events at issue (only a narrative or a dashboard): produce the ledger of what is missing and stop before scoring clocks or measures.
+- Measure scoring requested with no way to identify the reporting period or version: do not score that measure.
+- Patient under 18: outside CMS996 and the 2017 measures; say so and route pediatric questions to `managing-pediatric-emergencies`.
+- A request that the review itself assign the final MI class, interpret an ECG as final, or assign a code: record the documentation and conflicts, and route the decision to the clinician, `interpreting-emergency-ecgs` or coding.
 
-| Type | ECG | Troponin | Clinical |
-|------|-----|----------|---------|
-| STEMI | ST elevation meeting criteria or new LBBB | Elevated (confirms but do not wait for results) | Chest pain/anginal equivalent |
-| NSTEMI | ST depression, T-wave inversion, or non-diagnostic | Elevated above 99th percentile URL with rise/fall pattern | Ischemic symptoms |
-| Unstable angina | May be normal or show ischemic changes | Normal (serial) | New-onset, crescendo, or rest angina |
+Decline that part, then continue the review of the record as it stands:
 
-**TIMI Risk Score for NSTE-ACS (0–7 points):**
+- A request to write orders, doses or treatment for a current or past patient: offer the guideline comparison instead.
+- A request to create, backdate or alter documentation, or to word a diagnosis, so the case passes a measure, enters or leaves a registry or cohort, or changes a code: explain the late-entry and query policies and route genuine ambiguity to a compliant query.
 
-| Factor | Points |
-|--------|--------|
-| Age ≥ 65 | 1 |
-| ≥ 3 CAD risk factors (family Hx, HTN, DM, hyperlipidemia, smoking) | 1 |
-| Known CAD (≥ 50% stenosis) | 1 |
-| ASA use in prior 7 days | 1 |
-| ≥ 2 anginal episodes in prior 24 hours | 1 |
-| ST deviation ≥ 0.5 mm | 1 |
-| Elevated cardiac biomarker | 1 |
+## Step 1: Frame the Question and the Frameworks
 
-| Score | 14-day Death/MI/Urgent Revasc Risk |
-|-------|-------------------------------------|
-| 0–2 | Low (< 8.3%) |
-| 3–4 | Intermediate (13–20%) |
-| 5–7 | High (26–41%) |
+Read `references/reperfusion-and-measure-rules.md`, Section 1. Restate the question in one line and list each framework that will be addressed with its version. If the request uses "door-to-balloon", "D2B" or "the STEMI measure" without saying which, name the candidate definitions in the first line of the output and score each separately.
 
-**GRACE Score (6-month mortality post-ACS):**
-Variables: age, HR, SBP, creatinine, Killip class, cardiac arrest at admission, ST deviation, elevated cardiac enzymes.
-- Low risk: < 108 (< 3% mortality)
-- Intermediate: 109–140 (3–8%)
-- High risk: > 140 (> 8%)
+## Step 2: Build the Source Register and Timestamp Ledger
 
----
+Open every supplied document and complete the source register and ledger in `references/output-template.md`, Section 2. Record each event with facility, value, time, time type and source. Where two sources give different times for one event (dashboard against procedure log, registration against arrival), record both and add a reconciliation row.
 
-## Step 2: STEMI Management Pathway
+## Step 3: Review the ECG Documentation
 
-**Time-Critical Benchmarks:**
-- First medical contact to ECG: ≤ 10 minutes
-- Door-to-balloon (D2B): ≤ 90 minutes at PCI-capable center
-- Door-in to door-out (transfer): ≤ 30 minutes at non-PCI center
-- First medical contact to device: ≤ 120 minutes if transfer needed
-- If PCI not available within 120 minutes: fibrinolysis within 30 minutes of arrival
+Read `references/diagnosis-and-classification-rules.md`, Sections 1 and 2. For each ECG, record acquisition and interpretation times, the documented findings and the clinician's conclusion. Screen the documentation for posterior, right-ventricular, de Winter, hyperacute T, aVR and LBBB or paced patterns and whether the record shows they were looked for (posterior or right-sided leads, Sgarbossa assessment, comparison and serial ECGs). Record a possible missed pattern as a finding for physician review and hand off to `interpreting-emergency-ecgs`; do not reclassify the case.
 
-**Initial STEMI Medications (Concurrent with Cath Lab Activation):**
-1. Aspirin 325 mg (chewed, non-enteric-coated)
-2. P2Y12 inhibitor loading: ticagrelor 180 mg OR prasugrel 60 mg (preferred over clopidogrel 600 mg)
-3. Anticoagulation: UFH bolus 60 IU/kg (max 4000 IU) + 12 IU/kg/hr infusion OR bivalirudin
-4. Supplemental O₂ only if SpO₂ < 90%
-5. Nitroglycerin SL × 3 (avoid if SBP < 90, RV infarct, or PDE5 inhibitor use within 24–48 hours)
-6. Morphine only if pain refractory to nitrates (caution: may delay P2Y12 absorption)
+## Step 4: Review Troponin and MI Classification
 
-**Killip Classification (Acute HF Severity in MI):**
+Read `references/diagnosis-and-classification-rules.md`, Sections 3 to 6. Fill the troponin block with the lab's own assay data, compute absolute and relative deltas, and state acute, chronic or cannot determine. Then fill the classification block: each diagnostic statement, the definition it uses, the criteria the record supports, and the code on the abstract. List every conflict (for example "NSTEMI" against "demand ischemia", or I21.4 against documented type 2 MI) as a query candidate. Treat MINOCA as a working diagnosis and list the missing work-up.
 
-| Class | Findings | In-Hospital Mortality |
-|-------|----------|----------------------|
-| I | No HF signs | 6% |
-| II | Rales, S3, JVD | 17% |
-| III | Pulmonary edema | 38% |
-| IV | Cardiogenic shock | 81% |
+## Step 5: Compute the Clocks
 
----
+Read `references/reperfusion-and-measure-rules.md`, Sections 2 and 3. Fill the clock table in `references/output-template.md`, Section 3, one row per element, each from its own start event. For transfers, compute the referral hospital's door-in-door-out, the FMC-to-device interval across both facilities, and the receiving hospital's door-to-device, and label which framework uses which. Show alternative anchors and whether they change the result.
 
-## Step 3: NSTEMI/UA Management Pathway
+## Step 6: Score the Measures Requested
 
-**Invasive Strategy Timing Based on Risk:**
+Read `references/reperfusion-and-measure-rules.md`, Sections 4 and 5. For each measure the user named, test population, exclusions and exceptions before the numerator, and name the attributed facility. Mark any rule you could not read as `[VERIFY]` and say whether it could change the row.
 
-| Timing | Criteria |
-|--------|---------|
-| Immediate (< 2 hours) | Hemodynamic instability, refractory angina, sustained VT/VF, acute HF |
-| Early (< 24 hours) | GRACE > 140, troponin rise/fall, new ST changes |
-| Delayed (25–72 hours) | GRACE 109–140, diabetes, eGFR < 60, LVEF < 40%, prior PCI/CABG |
-| Ischemia-guided (selective) | Low risk: TIMI 0–2, GRACE < 109, troponin negative, no recurrent symptoms |
+## Step 7: Review the Reperfusion Choice and NSTE-ACS Timing
 
-**Medical Therapy for NSTE-ACS:**
-- Aspirin 162–325 mg loading + 81 mg daily maintenance
-- P2Y12 inhibitor: ticagrelor 180 mg load → 90 mg BID or clopidogrel 300–600 mg load → 75 mg daily
-- Anticoagulation: UFH, enoxaparin (1 mg/kg BID), fondaparinux (2.5 mg daily), or bivalirudin
-- Beta-blocker: initiate within 24 hours if no contraindications (avoid if Killip ≥ III)
-- High-intensity statin: atorvastatin 80 mg or rosuvastatin 40 mg (start immediately)
-- ACEi/ARB: within 24 hours for anterior MI, HF, or LVEF ≤ 40%
+Read `references/reperfusion-and-measure-rules.md`, Sections 6 and 7. For STEMI at a non-PCI-capable hospital, record the anticipated transfer time, the documented choice, and each contraindication fact with the facility checklist label, its 2025 Table 14 category and its CMS996 exclusion status. For NSTE-ACS, record the documented risk features and the time to angiography against the guideline category. Label concordance questions "for physician peer review"; do not say what should have been given.
 
----
+## Step 8: Review Discharge and Transitions
 
-## Step 4: Post-ACS Risk Reduction
+Read `references/reperfusion-and-measure-rules.md`, Section 8. Fill the discharge checklist in `references/output-template.md`, Section 7, recording documentation status only. A cardiac rehab referral counts only when a referral to a named outpatient program was placed before discharge or a documented exception exists.
 
-**Discharge Medication Checklist (ABCDE):**
-- **A**ntiplatelet: aspirin + P2Y12 (DAPT minimum 12 months post-ACS)
-- **B**eta-blocker: continue indefinitely for LVEF ≤ 40%; at least 3 years for all ACS
-- **C**holesterol: high-intensity statin; target LDL < 70 mg/dL (< 55 per ESC)
-- **D**iabetes/Diet: glycemic optimization; cardiac diet counseling
-- **E**xercise/Education: cardiac rehab referral (Class I, all ACS); smoking cessation
+## Step 9: Reconcile, List Gaps and Hand Off
 
-**Risk Factor Targets Post-ACS:**
-- LDL < 70 mg/dL (add ezetimibe, then PCSK9 inhibitor if not at goal)
-- BP < 130/80 mmHg
-- HbA1c < 7% (individualized)
-- Smoking cessation with pharmacotherapy support
-- Cardiac rehabilitation enrollment within 2–4 weeks of discharge
+Complete the reconciliation table, gaps and query candidates, hand-offs and open items (`references/output-template.md`, Sections 8 to 11). Check each rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
 
----
+## Checkpoint B: Post-Draft Alignment
 
-## Step 5: Complications and Mechanical Sequelae
-
-**Mechanical Complications of MI (typically days 3–7):**
-- Free wall rupture: sudden hemodynamic collapse, tamponade → emergent surgery
-- VSD: new harsh holosystolic murmur, step-up in O₂ at RV level → surgical/percutaneous closure
-- Papillary muscle rupture: acute severe MR, flash pulmonary edema → emergent surgery
-- LV aneurysm: persistent ST elevation weeks post-MI, mural thrombus risk
-
-**Arrhythmic Complications:**
-- VT/VF within 48 hours of STEMI: does not independently predict long-term arrhythmia risk — reassess ICD need later
-- Complete heart block in inferior MI: usually transient; monitor, temporary pacing if symptomatic
-- Complete heart block in anterior MI: usually indicates extensive septal necrosis; high-grade, likely needs permanent pacemaker
-
----
-
-## Checkpoint B: Post-Draft Alignment (Mandatory)
-
-1. Is the ACS type (STEMI/NSTEMI/UA) clearly classified with supporting criteria?
-2. Are TIMI and/or GRACE scores calculated and documented?
-3. Is the reperfusion strategy and timing benchmark documented?
-4. Are all acute medications with loading doses documented?
-5. Is the discharge plan complete with DAPT duration and risk-factor targets?
-
----
+1. Does the output answer the question asked, for the frameworks asked, each on its own row?
+2. Is every version named: guideline and corrections, eCQM version, measure set, Universal Definition, ICD-10-CM year?
+3. Does every clock row show its own start event, stop event and timestamp type, with alternative anchors where FMC is ambiguous?
+4. Is every measure row attributed to a facility, with population, exclusions and exceptions tested before the numerator?
+5. Is any sentence phrased as an order, a final diagnosis, a final ECG read, a code assignment or a suggestion to change documentation? Remove it.
+6. Does every result that depends on a `[VERIFY]` rule say so, and would it flip if the rule reads differently?
 
 ## Quality Audit
 
-- [ ] ACS classified as STEMI, NSTEMI, or unstable angina with diagnostic criteria cited
-- [ ] Time of symptom onset and first medical contact documented
-- [ ] TIMI score calculated for NSTE-ACS with component details
-- [ ] GRACE score calculated with 6-month mortality risk category
-- [ ] Reperfusion timing benchmarks documented (D2B or fibrinolysis time)
-- [ ] Killip class documented for STEMI patients
-- [ ] Antiplatelet loading doses and agents documented
-- [ ] Anticoagulation strategy specified with dosing
-- [ ] Invasive strategy timing justified by risk category
-- [ ] Post-PCI TIMI flow and procedural result documented
-- [ ] Discharge medications reviewed against ABCDE checklist
-- [ ] DAPT duration specified with rationale
-- [ ] Cardiac rehabilitation referred
-- [ ] Mechanical complications screened or surveillance planned
-- [ ] Follow-up plan with LVEF reassessment at 3 months
-
----
+1. The header names each framework and version, the facilities and their roles, and the purpose.
+2. The source register covers every supplied document from every facility; nothing is called missing without a search.
+3. Every ledger entry has a value, a time, a time type, a facility and a source locator.
+4. Every clock row has its own trigger; device time, arrival time and collection time are used where the source requires them, and each substitution is flagged.
+5. Transfer cases show referral-hospital door-in-door-out, cross-facility FMC-to-device and receiving-hospital door-to-device as separate rows.
+6. Measure rows test population, exclusions and exceptions, and name the attributed facility; no guideline goal is reported as a measure result.
+7. ECG review records whether posterior, right-sided, Sgarbossa and serial assessments were documented, without reclassifying the case.
+8. Troponin interpretation cites the lab's assay, unit, sex-specific 99th percentile and pathway, or says Cannot determine.
+9. The classification block names the definition each statement uses and lists every conflict between notes, summary and codes as a query candidate.
+10. MINOCA, if present, is treated as a working diagnosis with the missing work-up listed.
+11. Fibrinolysis facts are compared with 2025 Table 14 and, separately, with CMS996 exclusions.
+12. The discharge checklist records documentation status only, and counts a CR referral only when placed before discharge.
+13. No dose, order or documentation change is suggested, and every `[VERIFY]` relied on appears in the open-items list.
 
 ## Guidelines
 
-1. In STEMI, never delay cath lab activation to wait for troponin results — the diagnosis is clinical and electrocardiographic.
-2. Ticagrelor or prasugrel are preferred over clopidogrel in ACS (PLATO and TRITON-TIMI 38 trials), unless contraindicated or high bleeding risk.
-3. Prasugrel is contraindicated in prior stroke/TIA and generally avoided in age ≥ 75 or weight < 60 kg.
-4. Do not routinely administer morphine in ACS — it delays gastric absorption of oral P2Y12 inhibitors and has been associated with worse outcomes.
-5. All ACS patients should receive high-intensity statin therapy regardless of baseline LDL — in-hospital initiation improves adherence.
-6. Beta-blockers should not be given acutely if Killip class ≥ III, SBP < 100, HR < 60, or suspected cocaine use.
-7. Early invasive strategy is preferred over ischemia-guided for NSTEMI patients with GRACE > 140 or recurrent ischemia.
-8. Document all time metrics (symptom onset, FMC, ECG, balloon) — these are CMS quality measures and accreditation requirements.
+- The 2025 ACS guideline covers type 1 MI; it refers type 2 MI, SCAD and MINOCA to other documents. Do not apply its reperfusion clocks to a supply-demand presentation without saying so.
+- The 2025 guideline states FMC-to-device goals (90 and 120 minutes) but no door-to-needle or door-in-door-out number; the 30-minute and 45-minute figures are measure targets.
+- Never delay or criticize reperfusion for a pending troponin; troponin can be below the URL early in STEMI.
+- A measure exclusion removes a case from a denominator; it says nothing about whether care was appropriate.
+- Concurrent review on an open encounter is provisional; windows still open are "Not yet due".
+- Keep protected health information to what the review needs; de-identify case identifiers in shared drafts.
+
+## Troubleshooting
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| Two FMC times for one patient | Walk-in, or several EMS units arrived | Compute each reading, show which framework uses which, and state whether the result changes |
+| Dashboard door-to-balloon disagrees with the ledger | Dashboard uses receiving-hospital door, procedure start or registration time | The procedure log and ED arrival entries control; add a reconciliation row naming the dashboard's rule |
+| ECG available only as a scanned image or a machine read | Tracing not exported | Open it; if unreadable, record it as unreadable and set dependent items to Cannot determine; request the tracing |
+| Troponin units or assay unclear | Mixed conventional and hs results, or a send-out lab | List each value with its unit and lab; request the assay sheet; do not compare across assays |
+| Notes use Fourth UDMI types and the request uses Fifth UDMI terms | Definition change in 2026 | Show both vocabularies in the classification block and route coding questions to a query |
+| Facility checklist disagrees with Table 14 | Home-grown or outdated template | Record both labels; route the concordance question to physician peer review |
+| Referral and receiving records give different times for the same transfer | Clock drift or manual entry | Record both, use each facility's own record for its own measure, and flag the difference |
+
+## Related Skills
+
+- managing-acute-chest-pain: undifferentiated chest pain work-up and ED disposition before an ACS diagnosis is made.
+- interpreting-emergency-ecgs: final reading of tracings with possible STEMI-equivalent patterns.
+- interpreting-electrocardiograms: complete rhythm, interval and morphology interpretation.
+- interpreting-cardiac-catheterization: angiographic findings, culprit lesion and procedural detail.
+- coordinating-emergency-transfers: transfer documentation and stabilization requirements.
+- managing-emtala-compliance: EMTALA questions raised by a delayed or refused transfer.
+- calculating-emergency-risk-scores: computing HEART, GRACE or TIMI scores from documented inputs.
+- managing-cdi-programs: compliant queries when MI type, injury or MINOCA documentation conflicts.
+- abstracting-clinical-documentation: codeable diagnoses and specificity for the final abstract.
+- managing-quality-reporting: hospital-level rates, eCQM submission and data validation.
+- managing-cardiac-rehabilitation: CR enrollment, risk stratification and exercise prescription after referral.
+- managing-lipid-therapy: lipid follow-up and nonstatin therapy decisions after discharge.
+- managing-anticoagulation-therapy: patients on oral anticoagulants who also need antiplatelet therapy.
+- managing-heart-failure: reduced LVEF or cardiogenic shock follow-up after ACS.
+- managing-sepsis-bundles: sepsis encounters in which troponin elevation raises a secondary MI or injury question.
+- conducting-mortality-reviews: case review of an ACS death beyond process timing.
+- medical-record-chronology: a litigation chronology when counsel needs the full timeline rather than a quality review.
+
+## Reference Files
+
+- `references/reperfusion-and-measure-rules.md`: framework map, clock table with a trigger for each element, FMC definitions, CMS996v6, 2017 performance measures, fibrinolysis Table 14 versus measure exclusions, NSTE-ACS timing, discharge items.
+- `references/diagnosis-and-classification-rules.md`: STEMI criteria and equivalents, troponin interpretation, Fourth versus Fifth UDMI, MINOCA, ICD-10-CM FY 2027 mapping, risk scores.
+- `references/output-template.md`: deliverable sections, ledger, clock table, measure scorecard, diagnostic blocks, discharge checklist, reconciliation and hand-off tables.
+- `references/primary-sources.md`: each authority checked with URL, method and date, confirmed statements, changes, and the `[VERIFY]` list.
