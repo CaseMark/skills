@@ -45,9 +45,11 @@ Read each input with this suspicion before building from it.
 |---|---|---|
 | Management-adjusted EBITDA (CIM, management deck, QoE report) | Entry valuation and the starting point for debt sizing | Addbacks the credit agreement does not permit or caps (run-rate synergies over the cap, cost savings outside the realization window); leverage quoted on management EBITDA while the lender sizes on Consolidated EBITDA; LTM date differs from the purchase price basis |
 | Credit agreement, commitment letter and fee letter | Tranches, pricing, floors, amortization, ECF sweep, covenants, OID and upfront fees | Sweep percentage and leverage step-downs misread; voluntary prepayments not credited against the sweep; sweep timing after annual financials ignored; amortization taken on the beginning balance instead of original principal; OID or flex terms left out |
-| Sources and uses and the funds flow memo | Sponsor equity check | OID, financing fees, buyer advisory fees, seller expenses the buyer pays, refinancing breakage and cash to the balance sheet omitted, so the equity plug is too small; debt shown at face in sources with no OID use |
+| Sources and uses and the funds flow memo | Sponsor equity check | OID, financing fees, buyer advisory fees, seller expenses the buyer pays, refinancing breakage and cash to the balance sheet omitted, so the equity plug is too small; debt shown at face in sources with no OID use, or OID counted twice (net proceeds in sources and OID again in uses), so the plug is too large |
 | Debt schedule and interest calculation | Interest expense, deleveraging, ending debt | Average-balance circularity broken by pasted values or iteration turned off; the sweep uses all cash above zero instead of cash above minimum cash; revolver never draws when cash falls short; floors applied to the all-in rate |
 | Tax schedule | Cash taxes and levered free cash flow | Interest assumed fully deductible; the 2022-2024 EBIT-based ATI rule applied to 2025 or later years; book interest (with amortized issuance costs) used as 163(j) business interest; target NOLs used without the 80 percent and Section 382 limits; deal costs deducted in full |
+| Closing date and projection calendar | Year-1 cash flow, interest and the first sweep | A mid-year close modeled with a full first fiscal year of EBITDA, free cash flow and interest, overstating year-1 deleveraging; the stub period's sweep and amortization dates not matched to the credit agreement |
+| Equity documents (rollover, option pool, promote, co-invest) | Split of exit equity between sponsor and others | Management rollover, the option pool or a promote left out, so 100 percent of exit equity is counted as sponsor proceeds and IRR and MOIC are overstated; rollover counted as a source but not as a share of exit proceeds |
 | Sponsor cash flow schedule and returns | IRR and MOIC | IRR computed on annual periods when close and exit are mid-year; add-on equity, dividend recaps or management dilution missing; gross and net returns mixed |
 | Exit assumptions | Exit equity value | Exit multiple set equal to entry by default with no rationale; LTM and NTM EBITDA mixed between entry and exit; net debt at exit missing accrued PIK, prepayment premiums or exit costs |
 | Market benchmarks and leverage norms | Debt capacity sanity check | A 6.0x total leverage figure treated as a current OCC or FDIC rule after the December 5, 2025 withdrawal of the 2013 guidance; stale Term SOFR, spreads or OID levels filled in from memory |
@@ -101,7 +103,7 @@ Read `references/model-mechanics.md` Section 3 and `references/tax-and-accountin
 
 ## Step 4: Operating Model and Free Cash Flow
 
-Read `references/model-mechanics.md` Section 4. Project revenue, EBITDA, capex and working capital by driver. Build the three statements where the deliverable is a full model; a paper LBO may skip the balance sheet but must say so and mark R4 "Not built". Separate non-cash interest from cash interest.
+Read `references/model-mechanics.md` Section 4. Set the projection calendar from the closing date, with a stub period for a mid-year close. Project revenue, EBITDA, capex and working capital by driver. Build the three statements where the deliverable is a full model; a paper LBO may skip the balance sheet but must say so and mark R4 "Not built". Separate non-cash interest from cash interest.
 
 ## Step 5: Debt Schedule, Sweep and Circularity
 
@@ -109,11 +111,11 @@ Read `references/model-mechanics.md` Sections 5 to 7. Build each tranche's roll-
 
 ## Step 6: Tax Schedule
 
-Read `references/tax-and-accounting-rules.md` Sections 1 to 6 and 9. Compute cash taxes by taxable year: the 163(j) limit using the ATI rule for that year, business interest from stated interest plus OID accrual (not book interest), the carryforward roll (R13), NOL usage with the 80 percent and Section 382 limits, and tax depreciation. Mark each line as an approximation for tax adviser review and hand the structure questions to the M&A tax skill.
+Read `references/tax-and-accounting-rules.md` Sections 1 to 6 and 9. Compute cash taxes by taxable year: the 163(j) limit using the ATI rule for that year, business interest from stated interest plus OID accrual (not book interest), the debt issuance cost deduction outside the limit but inside ATI, the carryforward roll (R13), NOL usage with the 80 percent and Section 382 limits, and tax depreciation. Mark each line as an approximation for tax adviser review and hand the structure questions to the M&A tax skill.
 
 ## Step 7: Exit and Returns
 
-Read `references/model-mechanics.md` Section 8. For each exit date, compute exit EV on a stated multiple with its rationale, deduct net debt at exit from the debt schedule (R10), exit costs and management equity. Build the dated sponsor cash flow schedule, including add-on contributions and interim distributions, and compute IRR on dates (XIRR) and MOIC (R11). Report the holding period in years and state that returns are gross unless net was modeled.
+Read `references/model-mechanics.md` Section 8. For each exit date, compute exit EV on a stated multiple with its rationale, deduct net debt at exit from the debt schedule (R10) and exit costs, then allocate exit equity to rollover, co-investors and the option pool or promote per the equity documents before counting sponsor proceeds. Build the dated sponsor cash flow schedule, including add-on contributions and interim distributions, and compute IRR on dates (XIRR) and MOIC (R11). Report the holding period in years and state that returns are gross unless net was modeled.
 
 ## Step 8: Sensitivities, Scenarios and Credit Statistics
 
@@ -141,9 +143,9 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 4. The sweep uses the agreement's ECF definition, percentage and step-downs, credits voluntary prepayments, and never takes cash below minimum cash; the revolver draws when needed.
 5. The circularity election is stated and converged, or beginning-balance interest is disclosed; no pasted values sit in calculated rows.
 6. The balance sheet balances and cash ties across all three statements every period (R4, R5), or the model is labeled a paper LBO with R4 marked Not built.
-7. The 163(j) computation uses the ATI rule for each taxable year and tax interest rather than book interest, and its carryforward rolls (R13).
+7. The 163(j) computation uses the ATI rule for each taxable year and tax interest rather than book interest, deducts debt issuance costs outside the limit, and its carryforward rolls (R13).
 8. NOL usage respects the 80 percent limit and any Section 382 limit, or is marked [VERIFY] for the tax adviser.
-9. IRR is computed on dated cash flows that include every contribution and distribution, and MOIC equals distributions over contributions.
+9. IRR is computed on dated cash flows that include every contribution and distribution, sponsor proceeds exclude rollover, co-invest and option pool shares, year 1 reflects any stub period, and MOIC equals distributions over contributions.
 10. The exit multiple has a rationale and at least one contraction case; entry equals exit only as a labeled case.
 11. Every input has a source locator or [UNVERIFIED]; every rule has a citation or [VERIFY]; no market rate or multiple was supplied from memory.
 12. Every conflict names both sources, the controlling one and the effect; every open item has an owner and next action.

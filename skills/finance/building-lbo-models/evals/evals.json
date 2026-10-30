@@ -1,6 +1,6 @@
 {
   "skill_name": "building-lbo-models",
-  "notes": "Adversarial regression suite. Each eval plants one trap from the Where Mistakes Hide table in its facts and is graded on the Must and Must not lines by a human or LLM judge. Figures were computed independently (beginning-to-end arithmetic and an XIRR solver) on October 30, 2026. Eval 1 targets the management-adjusted EBITDA row and the market benchmarks row; eval 2 the sources and uses row; eval 3 the debt schedule and credit agreement rows; eval 4 the returns and exit rows; eval 5 the tax schedule row. Tax answers in eval 5 depend on Pub. L. 119-21 as in force for taxable years beginning in 2026; re-check if the law changes.",
+  "notes": "Adversarial regression suite. Each eval plants one trap from the Where Mistakes Hide table in its facts and is graded on its Must and Must not lines by a human or LLM judge; Should lines are advisory and not graded as pass or fail. Every quantity the arithmetic depends on is defined in the prompt, no Must depends on a [VERIFY] fact, and no eval asks for output a Checkpoint A hard stop would block. Figures were computed with an independent script (fixed-point iteration checked against a closed form for the circular interest, a bisection XIRR solver) on October 30, 2026. Eval 1 targets the management-adjusted EBITDA and market benchmarks rows; eval 2 the sources and uses row; eval 3 the debt schedule and credit agreement rows; eval 4 the returns and exit rows; eval 5 the tax schedule row. Eval 5 depends on Pub. L. 119-21 as in force for taxable years beginning in 2026; re-check if the law changes.",
   "evals": [
     {
       "id": 1,
@@ -13,9 +13,11 @@
         "Must: size the TLB at 5.0x credit agreement EBITDA ($510.0m), state that $550.0m equals about 5.4x Consolidated EBITDA, and show that the sponsor equity plug rises by $40.0m.",
         "Must: state that the 11.0x bid on management-adjusted EBITDA ($1,210.0m enterprise value) is about 11.9x Consolidated EBITDA and about 15.1x reported EBITDA.",
         "Must: write up the instruction to size on $110.0m as a source conflict with the commitment letter and term sheet controlling.",
-        "Must: say that the OCC and FDIC withdrew the 2013 leveraged lending guidance on December 5, 2025, so 6.0x is not a current regulatory cap for those agencies, and that capacity comes from the commitment papers; mark Federal Reserve status [VERIFY] if mentioned.",
-        "Must not: size debt or report leverage on management-adjusted EBITDA without labeling it, or present a 6.0x case as permitted by regulation."
-      ]
+        "Must: say that the OCC and FDIC withdrew the 2013 leveraged lending guidance on December 5, 2025, so 6.0x is not a current OCC or FDIC regulatory cap, and that capacity comes from the commitment papers.",
+        "Must not: size debt or report leverage on management-adjusted EBITDA without labeling it, or present a 6.0x case as permitted by regulation.",
+        "Should: mark the Federal Reserve's position on the 2013 guidance [VERIFY] if it is mentioned."
+      ],
+      "why_weak_skill_fails": "A weak skill sizes the term loan on the $110.0m the user names and accepts the 6.0x regulatory premise, because it never reads the term sheet's cap or knows the 2013 guidance was withdrawn."
     },
     {
       "id": 2,
@@ -29,27 +31,30 @@
         "Must: present the term loan carrying amount as $286.5m ($300.0m less $6.0m OID less $7.5m fee) and the notes as $98.0m, citing debt issuance cost presentation under ASC 835-30 (ASU 2015-03).",
         "Must: state that the $9.0m and $3.0m acquisition-related costs are expensed by the acquirer under ASC 805-10-25-23 and are not goodwill, and that their tax deductibility (including any Rev. Proc. 2011-29 election for success-based fees) is for the tax adviser.",
         "Must not: show the term loan at $300.0m in sources with no OID use, or omit cash to balance sheet or financing fees from uses."
-      ]
+      ],
+      "why_weak_skill_fails": "A weak skill accepts EV minus debt as the equity check and leaves OID, financing fees, deal costs and cash to balance sheet out of uses."
     },
     {
       "id": 3,
       "name": "sweep-ignores-minimum-cash-and-circularity",
-      "prompt": "Check year 1 of our debt schedule. TLB opening balance $400.0m; amortization 1% per year of original principal; all-in rate 9.0% (Term SOFR plus margin, above the floor) on the average balance; $50.0m revolver undrawn all year with a 0.50% commitment fee. Credit agreement: ECF sweep 50%, stepping down to 25% when Consolidated Total Net Leverage is at or below 4.0x (year-1 test is 4.6x); minimum cash per the commitment papers is $25.0m. Opening cash is $25.0m. Year-1 levered free cash flow before interest and debt repayment (after taxes, capex and working capital) is $90.0m; for this exercise define ECF as that figure less cash interest and commitment fees less mandatory amortization, and treat the sweep as paid on the last day of the year. Our analyst's model uses beginning-balance interest and sweeps 100% of all cash above zero, giving a $74.75m sweep. Iterative calculation is off in the workbook. What should year 1 show?",
-      "expected_output": "With average-balance interest solved to convergence, interest and fees of about $34.92m, ECF of about $51.08m, a 50% sweep of about $25.54m, ending TLB of about $370.46m and ending cash of about $50.54m; the analyst's sweep wrongly uses 100%, ignores minimum cash and drains cash to zero.",
+      "prompt": "Check year 1 of our debt schedule. TLB opening balance $400.0m (original principal); amortization 1% per year of original principal; all-in rate 9.0% (Term SOFR plus margin, above the floor) on the average of opening and closing balances; $50.0m revolver undrawn all year with a 0.50% commitment fee on the undrawn amount. Credit agreement: ECF sweep 50%, stepping down to 25% when Consolidated Total Net Leverage is at or below 4.0x (the year-1 test is 4.6x), with voluntary prepayments made in the year credited dollar for dollar against the sweep; minimum cash per the commitment papers is $25.0m. Opening cash is $40.0m. Year-1 levered free cash flow before interest, commitment fees and debt repayment (after taxes, capex and working capital) is $90.0m; for this exercise define ECF as that $90.0m less term loan interest, less commitment fees, less mandatory amortization, and treat all prepayments as made on the last day of the year. Our policy is to pay the required ECF sweep and then voluntarily prepay the TLB with all remaining cash above the minimum. The analyst's model uses opening-balance interest and prepays with all cash above zero, giving $89.75m of prepayments and zero ending cash. Iterative calculation is off in the workbook. What should year 1 show?",
+      "expected_output": "With average-balance interest solved to convergence: term loan interest about $32.76m plus a $0.25m commitment fee, ECF about $52.99m, a required 50% sweep of about $26.50m plus a voluntary prepayment of about $41.50m (total about $67.99m), ending TLB about $328.01m, and ending cash exactly $25.0m because the minimum cash floor binds; the analyst's model wrongly takes cash to zero.",
       "files": [],
       "expected_behavior": [
-        "Must: identify that the analyst's sweep uses the wrong percentage (100% instead of 50%) and sweeps cash below the $25.0m minimum, leaving zero cash in breach of the minimum.",
-        "Must: solve the average-balance circularity (iteration with a circuit breaker or closed form) to about $34.92m of interest and fees ($34.67m term loan interest plus $0.25m commitment fee), a sweep of about $25.54m, ending TLB of about $370.46m and ending cash of about $50.54m, and show a convergence check.",
-        "Must: alternatively or additionally show the beginning-balance election (interest $36.25m, sweep about $24.88m, ending TLB about $371.13m) and label it a disclosed policy election.",
-        "Must: note that iterative calculation must be on (or the circularity removed) for average-balance interest to compute, and that real credit agreements usually pay the ECF sweep after annual financial statements, so year-end timing is a simplification.",
+        "Must: identify that the analyst's prepayment uses cash below the $25.0m minimum, leaving zero ending cash, and that the minimum cash floor binds in the corrected answer (ending cash exactly $25.0m).",
+        "Must: solve the average-balance circularity by iteration with a circuit breaker or by closed form to term loan interest of about $32.76m plus the $0.25m commitment fee, total prepayments of about $67.99m and ending TLB of about $328.01m, and show a convergence or closed-form check.",
+        "Must: split the prepayment into the required ECF sweep (50% of about $52.99m, about $26.50m) and the voluntary prepayment (about $41.50m), and not count the voluntary amount again against the sweep.",
         "Must: apply 1% amortization to original principal ($4.0m) and run the debt roll-forward and cash-ties checks.",
-        "Must not: accept the $74.75m sweep, or sweep cash below the minimum cash balance."
-      ]
+        "Must: state that iterative calculation must be on, or the circularity removed, for average-balance interest to compute, and that credit agreements usually pay the ECF sweep after annual financial statements are delivered, so year-end timing is a simplification.",
+        "Should: if the opening-balance election is also shown, label it a disclosed policy election and break its interest into $36.00m term loan interest plus the $0.25m commitment fee (ending TLB $331.25m).",
+        "Must not: accept the $89.75m prepayment or any result with ending cash below $25.0m."
+      ],
+      "why_weak_skill_fails": "A weak skill repeats the analyst's all-cash sweep (ending cash zero, below the $25.0m minimum) or cannot resolve the average-balance circularity."
     },
     {
       "id": 4,
       "name": "irr-on-wrong-dates-and-exit-equals-entry",
-      "prompt": "Returns for Project Birch. Deal closed July 15, 2026 with $235.5m of sponsor equity at 10.0x LTM EBITDA. Add-on acquisition equity of $20.0m funded September 30, 2027. Dividend recap paid the sponsor $80.0m on June 30, 2029. Exit assumed December 31, 2031 at 10.0x LTM EBITDA of $95.0m with $350.0m of net debt, so $600.0m to the sponsor. My model puts these in annual columns 2026 to 2031 and uses =IRR(), which gives about 23.5%. We always assume exit at the entry multiple. Write up the returns for the IC deck.",
+      "prompt": "Returns for Project Birch. Deal closed July 15, 2026 with $235.5m of sponsor equity at 10.0x LTM EBITDA. Add-on acquisition equity of $20.0m funded September 30, 2027. Dividend recap paid the sponsor $80.0m on June 30, 2029. Exit assumed December 31, 2031 at 10.0x LTM EBITDA of $95.0m with $350.0m of net debt, so $600.0m to the sponsor. My model puts these in annual columns 2026 to 2031 and uses =IRR(), which gives about 23.5%. We always assume exit at the entry multiple. Draft the returns section for the IC deck.",
       "expected_output": "Dated IRR (XIRR) of about 21.6% rather than 23.5%, MOIC of about 2.66x over about 5.47 years, the exit multiple treated as an explicit assumption with a rationale and contraction cases (about 18.1% and 2.29x at 9.0x; about 14.2% and 1.92x at 8.0x), and returns labeled gross.",
       "files": [],
       "expected_behavior": [
@@ -58,22 +63,27 @@
         "Must: treat the 10.0x exit multiple as a policy election that needs a rationale and show at least one contraction case, such as 9.0x (about $505.0m to the sponsor, about 18.1% and 2.29x) and 8.0x (about $410.0m, about 14.2% and 1.92x).",
         "Must: state that returns are gross of fund fees and carried interest unless net returns were modeled, and check whether management equity or exit costs reduce the $600.0m.",
         "Must not: present 23.5% as the deal IRR, or present exit at the entry multiple as the only case."
-      ]
+      ],
+      "why_weak_skill_fails": "A weak skill reports the 23.5% annual-period IRR and the single 10.0x exit case because it does not date the cash flows or question exit equal to entry."
     },
     {
       "id": 5,
       "name": "interest-limit-on-ebit-basis-and-book-interest",
-      "prompt": "Fix the tax tab in our LBO model for Calder Foods, a calendar-year C corporation acquired in a stock deal on January 2, 2026 (no basis step-up). FY2026 projections: tax EBITDA approximately $120.0m, tax depreciation and amortization $40.0m, stated cash interest $50.0m, OID accrual on the term loan $2.0m, and GAAP amortization of debt issuance costs $3.0m, so the income statement interest line is $55.0m. Gross receipts are about $900m. The analyst wrote: 163(j) ATI = EBIT under the TCJA rule from 2022, so the limit is 30% of $80.0m = $24.0m and $31.0m of the $55.0m is disallowed. The target also has $60.0m of NOLs from 2019-2023, and the model uses all of them in 2026 to wipe out taxable income. Equity value at closing was $237.5m.",
-      "expected_output": "Applies the EBITDA-based ATI restored for taxable years beginning after December 31, 2024 (limit about $36.0m), uses business interest of $52.0m (stated interest plus OID, not the $55.0m book line), carries forward about $16.0m of disallowed interest indefinitely, and limits NOL use by the 80% rule and the Section 382 annual limit, with every figure marked for tax adviser review.",
+      "prompt": "Fix the tax tab in our LBO model for Calder Foods, a calendar-year C corporation. Our acquisition vehicle bought 100% of Calder's stock on December 31, 2025 for a price of $400.0m paid for the stock (no basis step-up). FY2026 projections: tax EBITDA of $120.0m, defined as taxable income before interest, before tax depreciation and amortization, and before the debt issuance cost deduction; tax depreciation and amortization $40.0m; stated cash interest $50.0m; OID accrual on the term loan $2.0m; debt issuance cost amortization of $3.0m, which is both the GAAP charge and the 2026 tax deduction under Treas. Reg. 1.446-5. The income statement interest line is $55.0m. Gross receipts are about $900m. Calder has no disallowed interest carryforward. The analyst wrote: 163(j) ATI = EBIT under the TCJA rule from 2022, so the limit is 30% of $80.0m = $24.0m and $31.0m of the $55.0m is disallowed. Calder also has $60.0m of NOLs from 2019-2023, and the model uses all of them in 2026. For this exercise assume the long-term tax-exempt rate for December 2025 is 3.50% and a 21% federal rate; ignore state tax.",
+      "expected_output": "ATI of about $117.0m on the EBITDA basis restored for taxable years beginning after December 31, 2024 (the $3.0m debt issuance cost deduction is not interest and is not added back), a limit of about $35.1m against $52.0m of business interest (stated interest plus OID), about $16.9m carried forward; taxable income before NOLs about $41.9m; NOL use capped at the $14.0m Section 382 limit (below the $33.52m 80 percent cap), leaving $27.9m taxable and about $5.86m federal tax, all marked for tax adviser review.",
       "files": [],
       "expected_behavior": [
-        "Must: state that for taxable years beginning after December 31, 2024 ATI adds back depreciation, amortization and depletion (Pub. L. 119-21, section 70303), so the EBIT-based rule applied only to 2022 through 2024, and approximate the FY2026 limit as 30% of about $120.0m, about $36.0m, labeled an approximation.",
-        "Must: compute business interest expense from stated interest plus OID ($52.0m), not the $55.0m book interest line, noting that the final 163(j) regulations exclude debt issuance costs from the definition of interest, with [VERIFY] where not confirmed.",
-        "Must: show about $16.0m disallowed and carried forward indefinitely, with a carryforward roll, and note the small business exemption does not apply ($32.0m 2026 gross receipts threshold).",
-        "Must: identify the acquisition as a likely Section 382 ownership change, limit annual use of pre-change NOLs to the value of the old loss corporation (about $237.5m on these facts) times the long-term tax-exempt rate for the change month, marked [VERIFY], and apply the 80% of taxable income limit to post-2017 NOLs.",
+        "Must: state that for taxable years beginning after December 31, 2024 ATI adds back depreciation, amortization and depletion (Pub. L. 119-21, section 70303), so the EBIT-based rule applied only to 2022 through 2024.",
+        "Must: compute business interest expense as stated interest plus OID ($52.0m), not the $55.0m book interest line, because the final 163(j) regulations (T.D. 9905) exclude debt issuance costs from the definition of interest.",
+        "Must: keep the $3.0m debt issuance cost deduction outside 163(j) as a deduction under Treas. Reg. 1.446-5 that reduces ATI, giving ATI of about $117.0m, a limit of about $35.1m, and about $16.9m disallowed and carried forward indefinitely, with a carryforward roll.",
+        "Must: note the small business exemption does not apply (2026 gross receipts threshold $32.0m).",
+        "Must: compute taxable income before NOLs of about $41.9m, treat the December 31, 2025 acquisition as a Section 382 ownership change, compute the annual limit as $400.0m times 3.50% = $14.0m, compare it with the 80 percent cap (about $33.52m), use $14.0m of NOLs, and carry $46.0m forward.",
+        "Must: show taxable income of about $27.9m and federal tax of about $5.86m, each labeled an approximation for tax adviser review.",
+        "Must: flag that IRC 382(e)(2) reduces the old loss corporation's value for any redemption or other corporate contraction in connection with the change (for example, target-funded payments to sellers) and mark the use of $400.0m as [VERIFY] pending that review.",
         "Must: hand the structure and tax conclusions to analyzing-m-and-a-tax-implications or a tax adviser with the figures above.",
-        "Must not: apply the EBIT-based ATI rule to 2026, deduct the full $55.0m, or use all $60.0m of NOLs in 2026."
-      ]
+        "Must not: apply the EBIT-based ATI rule to 2026, deduct the full $55.0m as interest, add the $3.0m back to ATI, or use all $60.0m of NOLs in 2026."
+      ],
+      "why_weak_skill_fails": "A weak skill keeps the 2022-2024 EBIT-based ATI rule, uses the $55.0m book interest line, and lets $60.0m of NOLs shelter 2026 income without the 80 percent and Section 382 limits."
     }
   ]
 }

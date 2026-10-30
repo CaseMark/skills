@@ -50,12 +50,13 @@ Sources must equal uses to the cent. The sponsor equity line is the plug, so eve
 | Original issue discount, when debt is shown at face in sources | Sponsor equity (plug) |
 | Cash funded to the balance sheet (minimum operating cash) | Co-investor equity |
 
-OID presentation: either show debt at face in sources and OID as a use, or show net proceeds in sources. Never show face in sources and omit the OID; that is a funding gap equal to the discount. Fee letters often allow the arrangers to increase OID or margin ("flex"); model the flexed terms as a downside case.
+OID presentation: either show debt at face in sources and OID as a use, or show net proceeds in sources. Never show face in sources and omit the OID; that is a funding gap equal to the discount. Never show net proceeds in sources and OID again in uses; that double counts the discount and overstates the equity check by the same amount. Fee letters often allow the arrangers to increase OID or margin ("flex"); model the flexed terms as a downside case.
 
 Accounting treatment differs from cash treatment and drives the opening balance sheet (`tax-and-accounting-rules.md` covers the citations): acquisition-related advisory costs are expensed by the acquirer, debt issuance costs and OID reduce the carrying amount of the term debt and amortize to interest expense, revolver costs may be carried as an asset, and equity issuance costs reduce equity. The tax treatment of each fee is separate again.
 
 ## 4. Operating model and free cash flow
 
+- Set the projection calendar from the closing date. For a mid-year close, model a stub period from closing to the first fiscal year end with only the stub's share of EBITDA, free cash flow, interest and amortization (or state the full-year simplification and its effect); align the first sweep and amortization dates with the credit agreement.
 - Project revenue by driver where the data supports it (volume and price, segments); EBITDA by margin or cost build.
 - Working capital from days metrics (DSO, DIO, DPO) on historical averages, not a flat percent of revenue, unless the data does not support days.
 - Separate maintenance capex from growth capex.
@@ -104,7 +105,8 @@ Check: interest in each period equals rate times the balance basis stated, recom
 ## 8. Exit and sponsor returns
 
 - Exit enterprise value: exit multiple times the stated EBITDA (say LTM or NTM). The exit multiple is an explicit assumption with a rationale (current trading and transaction comparables, growth and margin at exit, entry multiple and the market at entry). Setting exit equal to entry is a choice that must be justified, never a default; show multiple contraction cases.
-- Exit equity value: exit EV less net debt at exit (all tranches at principal, accrued PIK, prepayment premiums, less cash above any trapped amount), less exit transaction costs, less management equity (rollover, promote, option pool) per the equity documents.
+- Exit equity value: exit EV less net debt at exit (all tranches at principal, accrued PIK, prepayment premiums, less cash above any trapped amount), less exit transaction costs.
+- Sponsor share: allocate exit equity per the equity documents. Deduct management rollover and co-investor shares pro rata to their ownership, the option pool or promote at its vesting and strike terms, and any preferred return ahead of common. Rollover equity that appears as a source at close must also take its share of exit proceeds.
 - Sponsor cash flow schedule: every dated equity contribution (close, add-on acquisitions, equity cures) as negative; every dated distribution (dividend recaps, partial exits, final exit) as positive.
 - IRR on actual dates: use a dated-cash-flow function (XIRR in Excel), which discounts each flow by (date minus first date)/365. Annual-period IRR assumes equal one-year spacing and misstates returns when close or exit is mid-year or when interim flows exist. State the close date and exit date used.
 - MOIC: total distributions divided by total contributions. Report gross (deal-level) returns and say they are before fund fees and carried interest unless net returns were specifically modeled.
