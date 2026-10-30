@@ -28,6 +28,7 @@ add the stricter upgrade gates on top.
 import argparse
 import importlib.util
 import json
+import os
 import re
 import subprocess
 import sys
@@ -500,7 +501,8 @@ def render_brief(domain, slug):
         "{batch_name}": BATCHES[b_idx]["name"], "{lines}": str(st["lines"]),
         "{refs}": str(st["refs"]), "{evals}": str(st["evals"]),
         "{trap}": "yes" if st["trap"] else "no", "{tag_rule}": tag_rule,
-        "{enrichment_cmd}": enrich_cmd, "{related}": related, "{exception}": exception,
+        "{enrichment_cmd}": enrich_cmd,
+        "{casedev}": os.environ.get("CASEDEV_HELPER", "casedev-helper"), "{related}": related, "{exception}": exception,
     }
     out = load_brief_template()
     for k, v in subs.items():

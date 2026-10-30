@@ -58,7 +58,7 @@ Playbook clarifications to apply in the same commit:
 
 Each vertical has its own checkout: legal in `/home/user/skills` (branch `claude/keen-edison-d1mcoa`), med in `/home/user/wt-med`, finance in `/home/user/wt-finance` (git worktrees of the vertical branches). Authors write only inside `skills/<domain>/<slug>/` of their vertical's checkout, so five can run in one checkout without conflicts and nothing is copied between trees. Only the orchestrator runs git.
 
-Network limits (found in the pilot): direct fetches of most primary-source hosts are blocked in this environment, including law.cornell.edu, uscode.house.gov, ecfr.gov, leginfo, justia, qualitynet.cms.gov, cms.gov, ecqi.healthit.gov and pmc.ncbi.nlm.nih.gov. Authors verify through search excerpts restricted to the issuing body's site and label each source "excerpt-confirmed" or `[VERIFY]`. Allowing those hosts in the environment's network settings would let authors read full texts.
+Network limits (found in the pilot; case.dev now works around them, see Appendix A): direct fetches of most primary-source hosts are blocked in this environment, including law.cornell.edu, uscode.house.gov, ecfr.gov, leginfo, justia, qualitynet.cms.gov, cms.gov, ecqi.healthit.gov and pmc.ncbi.nlm.nih.gov. Authors verify through search excerpts restricted to the issuing body's site and label each source "excerpt-confirmed" or `[VERIFY]`. Allowing those hosts in the environment's network settings would let authors read full texts.
 
 ### 3.2 Per-batch pipeline
 
@@ -226,7 +226,13 @@ Content rules (from the pilot review):
 - The trap map includes at least one row on party, authority or scope: who can release, who is in the population, which entity's tax. In your report, list two or three high-frequency traps you considered and left out.
 - Before writing [VERIFY], try the issuing body's own page, summary, FAQ or training material. Cite only documents you actually saw.
 
-Research: verify every statute, regulation, guideline, threshold, dose, rate, and standard you cite against a primary source with web search (load WebSearch and WebFetch through ToolSearch if they are deferred). Today is 2026-10-30. Record each check in primary-sources.md. Mark anything unconfirmed, jurisdiction-dependent, or year-dependent [VERIFY]. Never invent a citation.
+Research: verify every statute, regulation, guideline, threshold, dose, rate, and standard you cite against the primary source itself. Today is 2026-10-30. Use case.dev first; the helper `{casedev}` takes an API path and a JSON body and reads the API key itself (never print, echo, or write the key).
+- Read a known page or PDF in full: `{casedev} /search/v1/contents '{"urls":["<url>"],"text":true}'`. Works for law.cornell.edu, ecfr.gov, govinfo.gov, irs.gov, state legislature PDFs, and most PDFs. It does not render JavaScript pages (qualitynet.cms.gov returns nothing); find a PDF of the same document instead.
+- Find sources: `{casedev} /search/v1/search '{"query":"...","numResults":10}'`. For case law also `{casedev} /legal/v1/find '{"query":"...","numResults":10}'` (it returns mostly court documents; fetch statutes by their official URL instead).
+- Verify case citations: `{casedev} /legal/v1/verify '{"text":"<citations>"}'`. Full text of an opinion: `{casedev} /legal/v1/full-text '{"url":"<url>","maxCharacters":50000,"highlightQuery":"<question>"}'`.
+- Responses can exceed 100,000 characters. Pipe them through python and print only the section you need.
+- In primary-sources.md, record for each authority the URL read, the method ("full text via case.dev" or "search excerpt"), and the date. Prefer the official publisher; a mirror (for example a hospital association's copy of a CMS manual) is acceptable when labeled as one. Paywalled sources such as the FASB Codification stay excerpt-based.
+- WebSearch and WebFetch remain fallbacks. Mark anything still unconfirmed, jurisdiction-dependent, or year-dependent [VERIFY]. Never invent a citation.
 
 Banned text anywhere in the bundle (the harness scans every file):
 - Injection triggers from .github/workflows/skill-qa.yml. Watch for "<word> system: <value>" (write "the coding system is ICD-10-CM"), "new instructions:", "developer mode", "jailbreak", "base64 decode", "eval(", "exec(".
