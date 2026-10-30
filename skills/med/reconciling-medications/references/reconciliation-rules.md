@@ -55,10 +55,13 @@ From AHRQ MATCH Figure 9: ask open and closed questions by condition and by pres
 | Transition | Baseline | Compared with |
 |---|---|---|
 | Admission | BPMH | Admission medication orders |
-| Internal transfer (ICU to floor, service change) | Active orders before transfer, plus the BPMH for home drugs held or not ordered | Orders after transfer |
 | External transfer in | BPMH, plus the sending facility's MAR and transfer list (MATCH: three sources) | Orders at the receiving hospital |
+| External transfer out | Active orders and the MAR with last-dose times | The transfer medication list that goes with the patient |
 | Discharge | BPMH and the active inpatient orders at discharge | Discharge medication list, discharge summary and prescriptions |
 | Discharge to next provider | Reconciled discharge list | What the next provider actually receives |
+| Outpatient or ED encounter (NPG.14.05.01 EPs 1, 2, 4, 5) | BPMH, to the extent the organization defines for non-24-hour settings | Medications given at the visit and any regimen change; the written information given at the end |
+
+In-stay transfers (ICU to floor, service change, post-op resumption) are out of scope; route them to reconciling-inpatient-medications.
 
 ## 6. Row status vocabulary
 
@@ -86,6 +89,7 @@ Adapted from MATCH (omission, commission, different dose, route or frequency, di
 | Held, not resumed | A hold order with a stated resume condition and no later resume or stop |
 | Unclear information | Illegible, incomplete or ambiguous entry (no strength, "as directed", unit missing) |
 | Document conflict | Two documents for the same transition (discharge list, summary, prescriptions) disagree |
+| Allergy or contraindication conflict | A line on any list names a documented allergen, or an agent the allergy record or a source links to it, or a contraindication a source documents for this patient |
 
 ## 8. Review priority tiers
 
@@ -93,7 +97,7 @@ This is the skill's triage convention, not a regulatory scale; facility policy o
 
 | Tier | Assign when |
 |---|---|
-| Critical | Any discrepancy, conflict or single-source line involving a high-alert medication (section 9); duplication of a high-alert drug; a conflict with a documented allergy |
+| Critical | Any discrepancy, conflict or single-source line involving a high-alert medication (section 9); duplication of a high-alert drug; any Allergy or contraindication conflict |
 | High | Unexplained discrepancy in a scheduled chronic medication; Conflicting sources on a scheduled medication; held, not resumed (non-high-alert); therapeutic duplication not involving a high-alert drug; a document conflict at discharge |
 | Moderate | Omitted OTC, supplement or PRN product; single-source non-high-alert line |
 | Low | Brand versus generic naming or sig wording with no change in drug, dose, route or frequency |
@@ -111,4 +115,6 @@ Pairs on the ISMP List of Confused Drug Names (2024) that recur in reconciliatio
 - A therapeutic interchange record explains the inpatient order (MATCH lists formulary substitution as an intended discrepancy). It does not explain the discharge list: at discharge, check that the home agent and the substitute are not both listed, and that the discharge list says which one continues.
 - A hold order is a Documented change only for the hold. If it states a resume condition (after a procedure, when creatinine recovers), check the MAR and the discharge list for a resume or a documented stop. Absent both, the row is Unexplained discrepancy, type held, not resumed.
 - A discharge line that matches an active inpatient order is not a Match when another drug of the same class, or another product with the same ingredient, is also on the discharge list; report the duplication.
+- Patient's own medications: a hospital may let a patient self-administer medications brought from home only under an order and policy (42 C.F.R. 482.23(c)(6)(ii)). Ask whether home supply is at the bedside. Home supply taken beside a hospital-issued substitute is a therapeutic duplication; self-administration without an order, or without the reported doses on the MAR, is an Unexplained discrepancy. At discharge, check that the home supply sent home matches the discharge list.
+- Renal or hepatic dose changes: trace each dose changed for organ function during the stay to the discharge list, with the latest value and its date. A reduced dose carried to discharge after recovery, or the pre-admission dose resumed while function is still impaired, with no note giving the reason, is an Unexplained discrepancy. Dosing judgment goes to managing-renal-dose-adjustments.
 - Check combination products for shared ingredients (acetaminophen in opioid combinations and OTC products). Compute the largest daily amount the listed sigs allow and give it to the prescriber; do not set the limit.

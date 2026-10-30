@@ -7,7 +7,8 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 1. Sources checked
 2. Confirmed statements
 3. Corrections to the earlier version of this skill
-4. `[VERIFY]` list
+4. Disposition of the deleted RECONCILIATION-TEMPLATE.md
+5. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -26,6 +27,7 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 | AHRQ MATCH Toolkit for Medication Reconciliation, Pub. No. 11(12)-0059, revised August 2012 | https://www.ahrq.gov/sites/default/files/publications/files/match.pdf; index page https://www.ahrq.gov/patient-safety/settings/hospital/match/index.html (content last reviewed April 2023) | Full text via case.dev; 2026-10-30 | Figure 9 interview prompts; sources list and label caution; Table 3 categories; unintended discrepancy types; external transfer three-source rule |
 | 42 C.F.R. 482.43 (hospital discharge planning) | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-C/section-482.43 | Full text via case.dev (eCFR); 2026-10-30 | Paragraph (b) transmission of necessary medical information at discharge |
 | CMS State Operations Manual, Appendix A (Rev. 248, issued September 18, 2026), tag A-0810 (Rev. 238, issued March 20, 2026) | https://www.cms.gov/Regulations-and-guidance/Guidance/Manuals/downloads/som107ap_a_hospitals.pdf | Full text via case.dev; 2026-10-30 | Interpretive guidance for 482.43(b): reconciled medication list including OTC and herbal; actual list, not an EHR pointer; allergies and interactions; transfer content |
+| 42 C.F.R. 482.23(c)(6) (nursing services; self-administration), with SOM Appendix A tags A-0412 and A-0413 | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-C/section-482.23; SOM PDF above | Full text via case.dev (eCFR and SOM); 2026-10-30 | (c)(6)(ii): self-administration of the patient's own medications only under a practitioner's order and hospital policy, with identification, integrity check, security and documentation of reported doses |
 | 42 C.F.R. 485.642 (CAH discharge planning) | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-485/subpart-F/section-485.642 | Full text via case.dev (eCFR); 2026-10-30 | Paragraph (b), same transmission duty for CAHs |
 | 42 C.F.R. 483.21 (long-term care comprehensive care plans and discharge) | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-483/subpart-B/section-483.21 | Full text via case.dev (eCFR); 2026-10-30 | (c)(2)(iii) reconciliation of pre-discharge and post-discharge medications, prescribed and OTC |
 | ISMP List of High-Alert Medications in Acute Care Settings (2024) | https://online.ecri.org/hubfs/ISMP/Resources/ISMP_HighAlert_AcuteCare_List.pdf (ECRI-hosted copy of the ISMP list) | Full text via case.dev; 2026-10-30 | Classes and specific drugs in the rules file |
@@ -57,9 +59,29 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 | Burden statistics | 1.3 million injuries, 7,000 deaths, 30-70 percent discrepancy rate (unsourced) | Removed; replaced with figures from documents read |
 | Allergy and renal tables | "Remove immediately", "consider dose decrease", recommended renal doses | Removed as orders; questions routed to the prescriber or a hand-off skill |
 | Attestation | Claimed compliance with NPSG.03.06.01 | Reviewer sign-off with no compliance claim |
+| Allergy check | Old section 5a dropped in the first rewrite | Restored as an allergy check table with a neutral question column and the "Allergy or contraindication conflict" type; no instruction wording |
+| Transitions covered | Admission, internal transfer, external transfer in, discharge | Admission, external transfer in and out, discharge, outpatient or ED encounter (NPG.14.05.01 EPs 1, 2, 4, 5); in-stay transfers routed to reconciling-inpatient-medications |
+| Anticoagulant hand-off | "Anticoagulant choice" to managing-anticoagulation-therapy | Duplicate, switch-rule and periprocedural timing review there; agent choice for atrial fibrillation to managing-atrial-fibrillation, whose description claims anticoagulation selection |
 | Concentrated electrolytes | "KCl over 40 mEq", "NaCl 23.4 percent" | ISMP wording: potassium chloride for injection concentrate; sodium chloride for injection over 0.9 percent |
 
-## 4. `[VERIFY]` list
+## 4. Disposition of the deleted RECONCILIATION-TEMPLATE.md
+
+The earlier reference file was merged into the output template on October 30, 2026.
+
+| Old section | Disposition | Where now or why |
+|---|---|---|
+| 1. Report header | Moved | Output template, Header, with the identifier-match and standard fields added |
+| 2. Summary dashboard | Moved | Output template, Section 1, using the new status and priority vocabulary |
+| 3. Reconciliation matrix | Moved | Output template, Sections 3 and 4 (BPMH and comparison worksheets) |
+| 4. High-alert medication detail | Kept | Output template, Section 6; "Monitoring" kept as "Monitoring documented" with locator; "Action Needed" replaced by the open question |
+| 5a. Allergy cross-check | Kept | Output template, Section 7; the "remove immediately" and "contraindicated" actions dropped as orders |
+| 5b. Drug-drug interactions, "Action" column | Dropped as order | Interaction grading handed to assessing-drug-interactions; "monitor INR, consider dose decrease" was an order |
+| 6. Renal and hepatic dose flags, "Recommended Adj." column | Dropped as order | Renal dose changes are traced as discrepancies (rules file, Section 11); dosing judgment handed to managing-renal-dose-adjustments |
+| 7. Unresolved items | Moved | Output template, Section 10, with gap classes |
+| 8. Pharmacist attestation | Dropped | It asserted compliance with NPSG.03.06.01; replaced by the reviewer sign-off in Section 13 with no compliance claim |
+| Usage notes | Kept | Output template, Usage notes |
+
+## 5. `[VERIFY]` list
 
 1. CAH NPG standard and EP numbering for medication information (only the CAH goal list was read).
 2. No Joint Commission crosswalk from NPSG.03.06.01 to NPG.14.05.01 was read; the correspondence rests on comparing the texts.
