@@ -44,6 +44,7 @@ HSR errors are rarely about antitrust theory. They come from arithmetic and iden
 | Filing confirmations and the calendar | Waiting period and closing date | Counted from submission after 5 p.m. ET; 15 days used for a cash-and-stock exchange offer; weekend or holiday roll ignored; closing planned on early termination; 801.30 start rule missed |
 | Board decks, banker books, CIMs, synergy models, officer and director files | Item 4(c) and 4(d) | Search limited to final board books; drafts and decks prepared for a director skipped; one-year limit applied to 4(c) or 4(d)(iii), which have none; no privilege log |
 | FTC forms page, eCFR text, prior filings | Form version and item scope | Treating the vacated 2025 form as mandatory, or the old form as unavailable; relying on eCFR text that still shows the vacated 2024 amendments |
+| Joint venture term sheet, target's investment schedule | Formation filings (801.40, 801.50) and secondary acquisitions (801.4) | Corporate JV tested as an ordinary stock purchase: contributors not treated as acquiring persons, committed future contributions and guarantees left out of the JV's assets, 801.40(c) size-of-person variant skipped; the target's non-controlling stakes in other issuers not tested as separate secondary acquisitions |
 | Engagement letter, transaction structure memo | Who must file, who pays, which acquisitions are in scope | Only the buyer filing in a merger; the target's own filing in an 801.30 deal missed; the fee assumed to be split by law; a later step-up to control left out of scope |
 
 ## Ground Rules
@@ -87,7 +88,7 @@ Collect, from documents where possible:
 
 ## Step 1: Classify the Transaction and the Persons
 
-Read `references/thresholds-valuation-and-exemptions.md`, sections 4 to 6. Build the party table to each UPE, applying the control test link by link. For LLCs and partnerships, read the profit and dissolution provisions; an acquisition of non-corporate interests that does not confer control is not reportable. Decide whether 801.30 applies.
+Read `references/thresholds-valuation-and-exemptions.md`, sections 4 to 6. Build the party table to each UPE, applying the control test link by link. For LLCs and partnerships, read the profit and dissolution provisions; an acquisition of non-corporate interests that does not confer control is not reportable. For a new corporation or LLC, apply 801.40 or 801.50; list the target's non-controlling stakes in other issuers as possible 801.4 secondary acquisitions. Decide whether 801.30 applies.
 
 ## Step 2: Value the Acquisition
 
@@ -107,7 +108,7 @@ Label each acquisition with the Part 1 vocabulary. For a reportable acquisition,
 
 ## Step 6: Plan the Filing and the Item 4 Documents
 
-Read `references/waiting-period-and-conduct.md`, sections 1 to 3. State the form version and its status date. List filers, certifier and affidavit. Build the custodian list and the Item 4(c)/4(d) index; log withheld documents under 803.3(d). Note the Item 8 prior acquisitions and parallel notices.
+Read `references/waiting-period-and-conduct.md`, sections 1 to 3. State the form version and its status date. List filers, certifier and affidavit. Collect the Item 3(b) transaction documents (executed agreement or letter of intent, non-competes and other agreements between the parties). Build the custodian list and the Item 4(c)/4(d) index; log withheld documents under 803.3(d). Note the Item 8 prior acquisitions and parallel notices.
 
 ## Step 7: Compute the Waiting Period and Closing Timeline
 
@@ -175,13 +176,13 @@ Before responding, confirm each statement. If one fails, fix the draft.
 ## Related Skills
 
 - merger-agreement: drafting or revising the HSR covenant, efforts clause, outside date, fee allocation and interim operating covenants.
-- disclosure-schedules: listing required filings and approvals, and conforming schedules to the HSR facts.
-- due-diligence-report: diligence findings on overlaps, prior acquisitions and document custodians that feed Items 4 and 8.
-- analyzing-m-and-a-tax-implications: tax treatment of the same consideration components (deferred payments, debt payoff, rollover).
+- disclosure-schedules: governmental consents and approvals schedules listing the HSR filing, and conforming schedules to the HSR facts.
+- due-diligence-report: target overlaps and gun-jumping or information-exchange issues found in diligence. Item 4(c)/4(d) custodian collection and Item 8 prior acquisitions stay in this skill.
+- analyzing-m-and-a-tax-implications: structure and purchase price allocation, and tax treatment of deferred, contingent and rollover consideration.
 
 ## Reference Files
 
-- `references/thresholds-valuation-and-exemptions.md`: 2026 thresholds and fees with effective date, reportability test, valuation and aggregation, UPE and control, non-corporate interests, size of person, exemption conditions, avoidance.
+- `references/thresholds-valuation-and-exemptions.md`: 2026 thresholds and fees with effective date, reportability test, valuation and aggregation, UPE and control, non-corporate interests, joint venture formation (801.40, 801.50), secondary acquisitions (801.4), size of person, exemption conditions, avoidance.
 - `references/waiting-period-and-conduct.md`: form-version status, filing mechanics, Item 4(c)/4(d), waiting-period computation, early termination and second requests, gun-jumping, parallel notices.
 - `references/output-template.md`: deliverable layout, fixed formats, reconciliation table, timeline, hand-off table.
 - `references/primary-sources.md`: every authority checked with its source, method and date, corrections, and the `[VERIFY]` list.

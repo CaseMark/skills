@@ -36,6 +36,8 @@ Working rule on 2026-10-30: prepare the filing on the pre-February 10, 2025 Form
 
 ## 3. Item 4(c) and 4(d) documents (pre-February 10, 2025 form)
 
+Item 3(b) comes first: copies of the executed agreement or letter of intent, plus non-competes and other agreements between the parties; a link is not enough, and 801.30 and 363 transactions need no executed agreement (Instructions, Item 3(b)).
+
 | Item | Scope (Instructions rev. 02/04/23) | Time limit |
 |---|---|---|
 | 4(c) | Studies, surveys, analyses and reports prepared by or for any officer or director (or individuals with similar functions) for the purpose of evaluating or analyzing the acquisition with respect to market shares, competition, competitors, markets, potential for sales growth or expansion into product or geographic markets | None |

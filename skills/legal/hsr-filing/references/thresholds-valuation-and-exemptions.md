@@ -8,7 +8,7 @@ Rules for deciding whether an acquisition is reportable under Section 7A of the 
 2. The reportability test, in order
 3. Valuing the acquisition (801.10, 801.13, 801.15)
 4. Identifying the persons: ultimate parent entity and control
-5. Non-corporate interests (LLCs, partnerships)
+5. Non-corporate interests, joint ventures and secondary acquisitions
 6. Size of person (801.11)
 7. Exemptions and the conditions each one requires
 8. Avoidance devices (801.90)
@@ -77,12 +77,14 @@ Show the test in the fixed format of `references/output-template.md`, Part 1.
 - **Investment funds.** Each fund is usually its own UPE because no partner holds rights to 50 percent of its profits or assets; the general partner and manager are associates, not the UPE (801.1(d)(2)). Test every limited partner's percentage: an anchor investor with 50 percent or more of profits or dissolution assets controls the fund.
 - **Natural persons.** Holdings of spouses and minor children are aggregated (801.1(c)(2)). A revocable trust's holdings belong to the settlor (801.1(c)(4)).
 
-## 5. Non-corporate interests (LLCs, partnerships)
+## 5. Non-corporate interests, joint ventures and secondary acquisitions
 
 - An acquisition of non-corporate interests is reportable only if it confers control of the unincorporated entity (801.2(f)(1)); the acquirer is then deemed to acquire all of the entity's assets, and the acquired person is the entity's pre-acquisition UPE. PNO informal interpretation 2212002 (Dec. 9, 2022): if control is not acquired there is no filing, "regardless of the size of the transaction," read with 801.90.
 - Control is measured only by the right to 50 percent or more of profits or of assets on dissolution (801.1(b)(1)(ii)). Read the waterfall and the dissolution clause of the operating or partnership agreement; a manager-appointment right does not settle it.
 - Formation of an LLC or partnership: each contributor that acquires control of the new entity tests the transaction (801.50). Contribution of assets to an existing unincorporated entity is an acquisition by that entity's UPE (801.2(f)(2)).
 - A later step that crosses 50 percent (a call option, a redemption of another member) is a new acquisition that may be reportable.
+- **Corporate joint venture (801.40).** In forming a joint venture or other corporation (not a merger), each contributor is an acquiring person only and the new corporation is the acquired person only. Each contributor tests the voting securities it will receive. Above $535.5 million (2026) a contributor files without a size-of-person test (801.40(b)). In the lower band, 801.40(c) replaces the usual test: the contributor has $267.8 million or more in sales or assets and the JV will have total assets of $26.8 million or more; or the contributor has $26.8 million or more and the JV will have $267.8 million or more; in either case at least one other contributor must have $26.8 million or more. The JV's assets include every contribution any contributor has agreed to make at any time, and any credit or obligation a contributor agreed to extend or guarantee (801.40(d)). The new entity itself need not file (802.41).
+- **Secondary acquisitions (801.4).** When the buyer gains control of an entity that holds voting securities of an issuer it does not control, the buyer's indirect acquisition of those securities is a separate acquisition tested on its own. The issuer files within 15 days (10 for a cash tender offer) after the buyer under 801.30. An exemption for the primary acquisition does not exempt the secondary one (801.4(b)).
 
 ## 6. Size of person (801.11)
 

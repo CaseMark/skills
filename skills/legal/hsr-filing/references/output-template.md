@@ -72,16 +72,17 @@ Judgment calls (for example: which closing date governs the threshold year, elec
 ## Part 4. Filing preparation workplan
 
 1. Filer(s), certifying individual and authority basis (803.6); affidavit type (803.5).
-2. Item checklist for the form version used, each item with owner, source and status.
-3. **Item 4(c)/4(d) index**:
+2. Item 3(b) transaction documents: the executed agreement or letter of intent, non-competes and other agreements between the parties (drafts only where the Instructions permit).
+3. Item checklist for the form version used, each item with owner, source and status.
+4. **Item 4(c)/4(d) index**:
 
 | Doc # | Title | Date | Author | Prepared by or for (officer or director) | Item | Produced / withheld (log ref) |
 |---|---|---|---|---|---|---|
 
-4. Custodian list searched, date ranges, and any custodian not yet searched.
-5. Item 8 prior acquisitions (pre-February 10, 2025 form): five years, overlapping 6-digit NAICS codes, with the Instructions' size limits.
-6. Fee payment: amount, payer, wire reference placeholder `[[ ]]`.
-7. Parallel notices (Washington State copy; Department of War copy if applicable) as open items.
+5. Custodian list searched (the filing person's own officers and directors; collected by this skill), date ranges, and any custodian not yet searched.
+6. Item 8 prior acquisitions (pre-February 10, 2025 form): five years, overlapping 6-digit NAICS codes, with the Instructions' size limits.
+7. Fee payment: amount, payer, wire reference placeholder `[[ ]]`.
+8. Parallel notices (Washington State copy; Department of War copy if applicable) as open items.
 
 ## Part 5. Waiting period, closing timeline and pre-closing conduct
 
@@ -106,9 +107,9 @@ Judgment calls (for example: which closing date governs the threshold year, elec
 | To | When | What to pass |
 |---|---|---|
 | merger-agreement | HSR covenant, efforts standard, outside date, fee allocation, interim operating covenants need drafting or revision | Determination, expected timeline, covenant redlines from Part 5 |
-| disclosure-schedules | Schedules must list required consents and filings, or the HSR facts change a representation | The filing obligation, acquired person identity, regulatory approvals list |
-| due-diligence-report | Item 4(c)/4(d) custodians, prior acquisitions or competitive overlaps surface in diligence | Custodian list, overlap NAICS codes, Item 8 list |
-| analyzing-m-and-a-tax-implications | Consideration structure (deferred payments, debt payoff, rollover) also drives tax treatment | Valuation worksheet and consideration terms |
+| disclosure-schedules | Governmental consents and approvals schedules must list the HSR filing, or the HSR facts change a representation | The filing obligation, acquired person identity, Part 5 timeline |
+| due-diligence-report | Target overlaps, or gun-jumping or information-exchange issues, surface in diligence | Overlap NAICS codes, the Part 5 conduct review, clean-team protocol |
+| analyzing-m-and-a-tax-implications | Structure and purchase price allocation, or tax treatment of deferred, contingent and rollover consideration | Valuation worksheet and consideration terms |
 
 **Open items**, each with owner and next action:
 
