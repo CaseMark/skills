@@ -75,12 +75,16 @@ CPG 10 Box 3 (Category II characteristics, drawn from cited studies; one item ma
 - Compare the recorded rate with the maternal pulse at the same clock time from the flowsheet or pulse oximeter. Matching rates, or a sudden rate change when an FSE is applied, mark the earlier segment as signal source not confirmed.
 - CPG 10 names a maternal pulse oximeter and, if doubt persists, a fetal scalp electrode as ways to distinguish the two. Note any absolute contraindication in CPG 10 Box 2 if FSE use is questioned.
 - Twins: confirm each channel records a different fetus; nearly identical tracings suggest duplicate monitoring of one twin (FIGO 2015).
+- Label a segment "Not categorized (maternal signal)" when the record shows it is maternal, and "Not categorized (signal source not confirmed)" when indicators exist but the record cannot settle the question.
+- Intermittent auscultation is not a tracing. The NICHD definitions apply to patterns from a direct fetal electrode or an external Doppler device (NICHD 2008, assumption B); auscultation assesses baseline and screens for decelerations during and after contractions (CPG 10). No category or variability class is assigned from auscultation notes.
 
 ## 7. Paper speed, scale and signal artifacts
 
 - Paper speed is usually 3 cm/min in North America and Japan and 1 cm/min in many other countries (2 cm/min in the Netherlands); the vertical scale is 20 or 30 bpm/cm (FIGO 2015). Variability looks reduced at 3 cm/min to a reader used to 1 cm/min, and exaggerated the other way (FIGO 2015). A study found 1 cm/min strips were read as having less variability and more accelerations than the same tracings at 3 cm/min (Peleg et al. 2015, abstract).
 - Measure seconds and minutes from the printed time marks, never from an assumed paper speed. Record the speed and scale of every strip reviewed.
 - External monitoring is prone to signal loss, double-counting and half-counting, especially in the second stage (FIGO 2015). Mark gaps and artifact; do not interpolate.
+- A deceleration already in progress at the start of an archive, after a gap or at a mode change has an unknown onset: report its duration as "at least" the observed minutes and the preceding baseline as unknown.
+- Pseudosinusoidal pattern: described after maternal analgesic administration and during fetal sucking; its short duration is the main way to tell it from a true sinusoidal pattern (FIGO 2015). PB 106 lists a transient sinusoidal pattern after butorphanol. A true sinusoidal pattern under NICHD 2008 persists 20 minutes or more.
 
 ## 8. Known differences between sources
 

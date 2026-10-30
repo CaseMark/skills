@@ -41,6 +41,11 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 | Recommendations: routine care for Category I (strong, low); intrauterine resuscitation before cesarean for Category II (strong, moderate); against routine maternal oxygen without hypoxia (strong, high); expedited delivery for unresponsive Category III when indicated (strong, high); tocolytic for persistent tachysystole with Category III or high-risk Category II (conditional, moderate); against routine STAN (strong, high), fetal pulse oximetry (strong, moderate), primary reliance on computerized interpretation (strong, moderate) | CPG 10 |
 | Acceleration with pushing as a key indicator of maternal heart rate; maternal pulse oximeter; FSE if doubt persists | CPG 10 |
 | Paper speed 3 cm/min in North America and Japan, 1 cm/min in many countries; 20 or 30 bpm/cm | FIGO 2015 |
+| Spontaneous or stimulated accelerations reliably predict the absence of fetal metabolic acidemia | NICHD 2008 |
+| NICHD definitions apply to patterns from a direct fetal electrode or an external Doppler device | NICHD 2008, assumption B |
+| Intermittent auscultation assesses baseline and screens for decelerations during and after contractions; ACNM and AWHONN intervals cited | CPG 10 |
+| Pseudosinusoidal pattern after maternal analgesics or fetal sucking, told apart mainly by short duration | FIGO 2015, Section 4.1.6 |
+| Transient sinusoidal FHR pattern after butorphanol | PB 106, medication effects table |
 
 ## 3. Corrections made to the earlier version of this skill
 

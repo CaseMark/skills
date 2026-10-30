@@ -54,6 +54,9 @@ Nearly 90 percent of laboring patients in the United States have electronic feta
 | Outcome data and the request letter in retrospective review | Context for the reviewer | Hindsight bias: the tracing read after the cord gas is known; the requested conclusion ("confirm Category III") adopted; a standard-of-care or causation opinion given that belongs to a qualified expert |
 | EFM archive, EHR flowsheet and annotation times | Timeline of recognition and response | Clocks not aligned; late entries treated as contemporaneous; strip features read without medications, maternal vitals or labor stage |
 | Twin or dual-channel tracings | Which fetus is being interpreted | One twin recorded twice; channels swapped between segments |
+| Smooth undulating pattern after maternal opioid analgesia | Sinusoidal pattern and the Category III line | A short pseudosinusoidal pattern (after analgesics or fetal sucking) labeled sinusoidal and Category III without timing it against the 20-minute rule |
+| First minutes of an archive, a strip after a gap, or a mode change | Deceleration duration and baseline | A deceleration already in progress when the record starts timed from the first visible minute, so its duration and the prior baseline are stated as known |
+| Intermittent auscultation flowsheets | Fetal status when no continuous tracing exists | Charted auscultated rates given an NICHD category or variability class that auscultation cannot show |
 
 ## Ground Rules
 
@@ -61,13 +64,13 @@ Nearly 90 percent of laboring patients in the United States have electronic feta
 2. **Source-review gate.** Do not call a segment, note or event missing until every supplied file, page and strip panel has been opened and searched, including scanned images. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a rule not confirmed in the guidance in force) or a policy election (for example the facility documentation interval).
 3. **Hierarchy of authority.** For definitions: NICHD 2008 as restated in the ACOG document in force on the date of care, then facility policy for documentation and protocols. For facts: the tracing with its own timestamps governs over flowsheet summaries, charted categories and later narratives; the MAR and flowsheet govern medications and maternal vitals. Name every conflict in the reconciliation table; never resolve one silently.
 4. **Citation discipline.** Every tracing feature carries a strip locator (date, clock range, panel or page, mode) or `[UNVERIFIED]`. Every rule carries its source and year, or `[VERIFY]`.
-5. **Confirm the signal before reading it.** A segment with maternal heart rate indicators that cannot be resolved is "Not categorized (signal source not confirmed)".
+5. **Confirm the signal before reading it.** A segment with maternal heart rate indicators that the record cannot resolve is "Not categorized (signal source not confirmed)"; a segment the record shows to be maternal (for example a rate matching the maternal pulse, then a different rate once a scalp electrode is applied) is "Not categorized (maternal signal)".
 6. **Measure, then label.** Show the numbers behind each label: onset-to-nadir seconds, nadir minus contraction peak, recurrence fraction, 30-minute contraction average, amplitude range, gestational-age threshold. Measure time from printed time marks, never from an assumed paper speed.
 7. **Categorize by segment.** Assign a category to each timed segment, last, after the components. List Category II higher-risk and protective features from CPG 10 Box 3 whenever the label is Category II.
 8. **Outcome-blind first.** In retrospective work, interpret the tracing before opening outcome data, record that pass, then reconcile. Never infer a tracing feature from the outcome.
 9. **Date of care decides the guidance.** Apply the ACOG document and facility policy in force when the care happened, and say which one.
 10. **No orders, no verdicts, no record changes.** Never direct care for a patient, never state that care met or breached the standard of care or caused an injury, and never draft, backdate or alter a note or annotation.
-11. **Outcome vocabulary.** Segment labels are Category I, Category II, Category III, or Not categorized (with the reason). Feature labels use NICHD terms verbatim; legacy terms are quoted and mapped, never adopted.
+11. **Outcome vocabulary.** Segment labels are Category I, Category II, Category III, or Not categorized with one reason: signal source not confirmed, maternal signal, no time reference, no tracing data, or intermittent auscultation only. Output built from measured values supplied in text rather than from the tracing itself carries the tag "from description". Feature labels use NICHD terms verbatim; legacy terms are quoted and mapped, never adopted.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -92,7 +95,8 @@ Defaults when an input is missing:
 
 Hard stops (do not assign a category to the affected segment):
 
-- No tracing or tracing data, only narrative notes or a charted category: produce the source register and the list of what is needed.
+- No tracing and no tracing data, only narrative notes or a charted category: produce the source register and the list of what is needed. Measured values with clock times (rates, amplitudes, contraction and deceleration times) count as tracing data even when supplied in prose; label output built from them "from description".
+- Intermittent auscultation records only: assign no category or variability class, because the NICHD definitions apply to patterns recorded by a scalp electrode or external Doppler monitor (NICHD 2008); describe charted rates and deceleration screening against the facility auscultation policy in force.
 - No usable time reference (no time marks and no export timestamps): no timing-dependent label.
 - Maternal heart rate indicators in a segment that the record cannot resolve: label it Not categorized (signal source not confirmed).
 
@@ -183,7 +187,10 @@ Complete `references/output-template.md`, Sections 8 to 10. Check each rule reli
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| Rate jumps when the scalp electrode goes on | External segment was maternal or artifact | Label the earlier segment Not categorized (signal source not confirmed); interpret from the FSE start |
+| Rate jumps when the scalp electrode goes on | External segment was maternal or artifact | Label the earlier segment Not categorized (maternal signal) when the maternal pulse matches, otherwise (signal source not confirmed); interpret from the FSE start |
+| Deceleration already under way when the record starts or resumes | Archive start, gap or mode change | State duration as "at least" the observed minutes and the prior baseline as unknown; call it a baseline change only if 10 minutes or more are observed |
+| Undulating pattern after an opioid dose | Possible pseudosinusoidal pattern | Time it against the 20-minute sinusoidal rule and note the drug and time before any Category III label |
+| Only auscultation notes for a period | Intermittent auscultation, no tracing | Not categorized (intermittent auscultation only); compare charted intervals and findings with the facility policy |
 | Paper strip with no visible time marks | Photocopy or cropped image | Request the archive export; leave timing-dependent labels open |
 | Contraction channel flat or missing | Toco displaced or not recorded | Classify decelerations as abrupt or gradual only; mark early or late as unclassified (no contraction reference) |
 | EFM and EHR times differ | Unsynchronized clocks | State the offset from an anchor event; if none, keep times separate |
@@ -201,7 +208,7 @@ Complete `references/output-template.md`, Sections 8 to 10. Check each rule reli
 - documenting-nursing-notes: structure of contemporaneous nursing EFM documentation.
 - managing-patient-safety-events: event reports and root cause analysis after an adverse outcome.
 - managing-risk-management-healthcare: claims handling and loss prevention after a review.
-- medical-record-chronology: litigation chronology with Bates citations when counsel needs the full record timeline.
+- medical-record-chronology: the full Bates-cited litigation chronology of the record; this skill supplies the strip analysis and segment timeline that feed it, not the chronology itself.
 - expert-medical-record-omissions: testing an expert's report against the full record set.
 
 ## Reference Files
