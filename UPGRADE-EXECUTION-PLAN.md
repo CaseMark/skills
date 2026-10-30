@@ -208,12 +208,13 @@ Deliverables:
   {"skill_name": "{slug}", "notes": "<what the suite covers>", "evals": [ 3-5 x
     {"id": 1, "name": "<kebab-case>", "prompt": "<realistic user request with the matter facts inline>",
      "expected_output": "<one-sentence summary of a passing answer>", "files": [],
-     "expected_behavior": ["Must: ...", "Must: ...", "Must not: ..."]} ]}
+     "expected_behavior": ["Must: ...", "Must: ...", "Must not: ..."],
+     "trap_note": "<which trap-map row; why a weak skill fails; why the trap is live on these facts>"} ]}
   Each eval targets a named row of the trap map and plants the trap in its facts, so a weak skill fails it. If a fixture is long, put it in evals/fixtures/<name>.md and list "fixtures/<name>.md" in files.
 
 Eval rules (from the pilot review; each one was violated at least once there):
 - No eval may expect output that one of the skill's own hard stops would block. In each eval's expected_output, name the hard stops you checked.
-- Prove the trap is live on the stated facts, and say in one line why a weak skill fails. Recompute every number with a script and put the key figures in the notes.
+- Prove the trap is live on the stated facts. Say why a weak skill fails in the eval's trap_note field, not in expected_output. Recompute every number with a script and put the key figures in the notes.
 - No Must line may depend on a [VERIFY] fact. Confirm the fact, or make the Must require analyzing both readings.
 - Must lines are single, gradable requirements: no "alternatively", no exhaustive claims ("the one criterion left"), and outcome labels taken verbatim from the skill's own vocabulary.
 - Define in the prompt every quantity the arithmetic depends on ("tax EBITDA", "price paid for the target's stock").
@@ -233,8 +234,8 @@ Banned text anywhere in the bundle (the harness scans every file):
 
 Related skills to route to: {related}
 
-Before you finish, run these from {repo} and loop until both are clean:
-  python3 scripts/run_top15_upgrade.py verify --slug {slug} --strict
+Before you finish, loop until both are clean (the harness finds your checkout itself):
+  python3 /home/user/skills/scripts/run_top15_upgrade.py verify --slug {slug} --strict
   {enrichment_cmd}
 
 Return: files written with line counts, the trap-map row names, each eval's name and the row it targets, every [VERIFY] item, and anything unresolved.
