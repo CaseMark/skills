@@ -33,7 +33,7 @@ Produce the header and the eight parts in this order, one set of conclusions per
 - **Ready for attorney review**: no open item above Low.
 - **Ready subject to listed confirmations**: open items are High or lower.
 - **Not ready: blocking issues**: at least one Critical item is open. The analysis is still included unless a hard stop applies.
-- **Declined: hard stop**: give the reason, the request or routing the hard stop calls for, and what can be done instead.
+- **Declined: hard stop**: a hard stop in SKILL.md applies to all or part of the request. State the reason, the part declined, and the request, routing or compliant alternative produced instead. Where only part of a request is declined (for example a term sheet containing a referral-based payment, or a version of the opinion that leaves out intent evidence), give the status for the remainder on a second line, using one of the three labels above, and complete the remainder.
 
 **Stark label**, one per arrangement and period, used exactly:
 
@@ -77,7 +77,7 @@ For each arrangement: remuneration and who gives and receives it; federal progra
 
 1. State and other all-payor laws screened (statute, reach, conclusion or `[VERIFY]`).
 2. Advisory opinions and prior opinions: who may rely, what they address, each material factual difference.
-3. Exposure: Stark payment denial and refund (period, DHS claims, amount if supplied), CMPs, AKS criminal and civil exposure, FCA hand-off.
+3. Exposure: Stark payment denial and refund (period and DHS claims affected; data needed for quantification; hand off), CMPs, AKS criminal and civil exposure, FCA hand-off.
 
 ## Part 6. Blocking issues, judgment calls and reconciliation table
 
@@ -102,7 +102,7 @@ Judgment calls (restructure, terminate, refund, disclose, seek an advisory opini
 ## Part 7. Remediation, disclosure path and arrangement controls
 
 1. Prospective fixes: amend in writing before the services the change covers, restructure, or terminate; never backdate.
-2. Look-back: noncompliant period, affected DHS claims, quantification method, the 60-day clock and suspension status, and the disclosure path label with reasons.
+2. Look-back: noncompliant period, affected DHS claims, data needed for quantification; hand off, the 60-day clock and suspension status, and the disclosure path label with reasons.
 3. Arrangement controls tied to the findings: central master list of physician contracts, expiration tracking with renewal lead time, payment-to-contract reconciliation before each payment, time-record requirement for hourly or stipend arrangements, FMV refresh cadence, and an approval step for any rate change.
 
 ## Part 8. Hand-offs, open items and `[VERIFY]` list
