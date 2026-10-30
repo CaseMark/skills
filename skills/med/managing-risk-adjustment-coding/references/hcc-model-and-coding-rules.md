@@ -45,7 +45,7 @@ Other year-specific parameters:
 
 ## 2. Encounter eligibility: source, provider, telehealth, signature, date
 
-Screen the encounter before reading its diagnoses. A diagnosis from an ineligible encounter is "Ineligible source" whatever the note says.
+Screen the encounter before reading its diagnoses. A diagnosis from an ineligible encounter is "Ineligible source" whatever the note says. A date outside the payment year's period is "Outside period for PY <year>", not an ineligible source: check every run in the Section 1 table whose window holds the date and whose deadline is still open on the review date (on 2026-10-30, a 2025 date of service still counts for the PY 2026 final run, deadline Feb. 1, 2027).
 
 | Test | Rule | Source |
 |---|---|---|
@@ -59,7 +59,7 @@ Screen the encounter before reading its diagnoses. A diagnosis from an ineligibl
 | Credentials | Credential (MD, DO, NP, PA) or specialty reference for the one named provider (INV7) | PY 2024 RADV methods, App. A |
 | Unsigned note outside RADV | Cannot determine until the rendering provider authenticates it under the facility's late-signature policy; never signed by another clinician; the late signature is dated when made | Policy election; PY 2024 RADV methods, §6 fn. 15 for the RADV standard |
 | Attestation | In RADV only, a CMS-generated attestation, signed by the provider who rendered the service, may cure a missing signature or credential on physician or outpatient records; never inpatient records; altered or non-CMS forms and forms signed by someone else are invalid | PY 2024 RADV methods, §6.4 |
-| Date | Complete date of service (INV4) inside the data collection period (INV14) | PY 2024 RADV methods, App. A |
+| Date | Complete date of service (INV4) inside the data collection period (INV14); for submissions, inside the window of a run whose deadline is still open | PY 2024 RADV methods, App. A; HPMS deadline memos |
 | Health risk assessment | May be submitted in RADV as an outpatient record type; it still must meet every test above, and each diagnosis still needs support in that visit's documentation | PY 2024 RADV methods, §6.1 |
 
 ## 3. Diagnosis support under ICD-10-CM Section IV
@@ -70,6 +70,9 @@ The FY 2027 ICD-10-CM Official Guidelines govern dates of service from October 1
 - IV.H: do not code "probable", "suspected", "questionable", "rule out", "compatible with", "consistent with", "working diagnosis" or similar; code the sign, symptom or abnormal finding instead.
 - IV.I: chronic diseases treated on an ongoing basis may be coded each time the patient receives treatment and care for them. The encounter must still show that care.
 - IV.F.3: code to the highest specificity the record supports, and no higher.
+- I.A.19: code assignment rests on the provider's diagnostic statement, not on clinical criteria. A coder may not derive a CKD stage from an eGFR, a heart failure type from an ejection fraction or malnutrition severity from weight loss; without the provider's words, code the unspecified form or raise a query candidate.
+- I.B.9: assign only the combination code when it fully identifies the conditions. I50.23 (acute on chronic systolic heart failure) already includes the chronic component, so I50.22 beside it is Not supported.
+- I.A.15: "with" in a code title, the Alphabetic Index or a Tabular instructional note presumes a causal link unless the documentation says the conditions are unrelated. Refusing E11.22 for documented type 2 diabetes and CKD with no other cause stated is an error in the other direction. The N18 note "Code first any associated: diabetic chronic kidney disease (... E11.22 ...)" is confirmed in the FY 2027 Tabular List; the Index entry itself is `[VERIFY]`.
 - IV.K: for diagnostic-services-only encounters, code confirmed diagnoses in a physician's interpretation. This is a coding rule for the radiology claim; it does not make diagnostic radiology an acceptable risk adjustment source. Name the conflict when a user cites IV.K.
 - I.B.14: code assignment rests on the documentation of the patient's provider. BMI (Z68) is reported only with an associated reportable diagnosis, such as obesity, documented by the patient's provider.
 

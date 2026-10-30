@@ -30,7 +30,9 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 | Humana appeal status | https://litigationtracker.law.georgetown.edu/litigation/humana-inc-et-al-v-kennedy-et-al/ (updated Oct. 6, 2026); https://www.vbconesource.com/onewire/radv-reaches-the-fifth-circuit-what-was-vacated-what-wasnt-and-what-cms-is-doing-while-the-appeal-continues (secondary) | Full text via case.dev; 2026-10-30 | No. 25-11293; argued Oct. 5, 2026; no ruling reported |
 | 42 CFR 422.310, 422.311, 422.326, 422.504 | https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-422 (each section URL) | Full text via case.dev; 2026-10-30 | Validation and extrapolation text; overpayment 60 days, knowingly, 6-year look-back; certification of data |
 | 31 U.S.C. 3729 | https://www.law.cornell.edu/uscode/text/31/3729 | Full text via case.dev; 2026-10-30 | (a)(1)(A), (B), (G); definition of knowingly |
-| ICD-10-CM Official Guidelines FY 2027 | https://www.cms.gov/files/document/fy-2027-icd-10-cm-coding-guidelines.pdf | Full text via case.dev; 2026-10-30 | Section IV A-M; I.B.14; Z68 note; I.C.2.m; I.C.9.d.3; I.C.9.e |
+| ICD-10-CM Official Guidelines FY 2027 | https://www.cms.gov/files/document/fy-2027-icd-10-cm-coding-guidelines.pdf | Full text via case.dev; 2026-10-30 | Section IV A-M; I.A.15 "with"; I.A.19; I.B.9 combination codes; I.B.14; Z68 note; I.C.2.d and I.C.2.m; I.C.9.d.3; I.C.9.e |
+| ICD-10-CM Official Guidelines FY 2025 | https://www.cms.gov/files/document/fy-2025-icd-10-cm-coding-guidelines.pdf | Full text via case.dev; 2026-10-30 | Same rules for 2024-2025 dates of service: IV.J, I.A.15, I.A.19, I.B.9, I.C.2.d, I.C.2.m, I69 and Z86.73 instruction |
+| ICD-10-CM Tabular List FY 2027 | https://ftp.cdc.gov/pub/Health_Statistics/nchs/Publications/ICD10CM/2027/icd10cm-tabular-2027.pdf | Full text via case.dev; 2026-10-30 | E11.22 title and its CKD-stage note; N18 "Code first any associated: diabetic chronic kidney disease"; N18.31 and N18.32 |
 | HPMS memo, RAPS and EDS Submission Update (May 4, 2022) | https://www.cms.gov/files/document/hpmsmemorapsandedssubmissionupdate042722g.pdf | Full text via case.dev; 2026-10-30 | Audio-video telehealth meets face-to-face; modifiers 95 and 93 |
 | Acceptable Physician Specialty Types, PY 2025 and PY 2026 | https://www.cms.gov/files/document/acceptable-physician-specialty-types-py-2025.pdf; https://www.cms.gov/files/document/acceptable-physician-specialty-types-py-2026.pdf | Full text via case.dev; 2026-10-30 | Specialty codes; lists identical; diagnostic radiology and dietitian absent |
 | OIG toolkit, high-risk diagnosis codes (A-07-23-01213) | https://oig.hhs.gov/documents/audit/9174/A-07-23-01213-Complete%20Report.pdf | Full text via case.dev; 2026-10-30 | High-risk groups and error rates as of November 2023 |
@@ -74,5 +76,6 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 4. The specific CPT/HCPCS codes, including audio-only codes, in Table 2 of the HHS 2026 benefit year DIY software (a separate file; the instructions were read, the table was not).
 5. HHS-HCC numbers, hierarchies and factors for the 2026 and 2027 benefit years (not read).
 6. Code-level ICD-10-CM to CMS-HCC mappings: this skill relies on HCC labels; confirm each code in the CMS mapping file for the model year.
-7. AHA Coding Clinic advice on problem lists and history conditions (subscription source, not read).
-8. The facility's amendment and late-signature policy (policy election for each user).
+7. The ICD-10-CM Alphabetic Index entry linking type 2 diabetes with chronic kidney disease (E11.22): the CDC index zip could not be downloaded through this session's proxy; the I.A.15 rule and the Tabular N18 note were confirmed.
+8. AHA Coding Clinic advice on problem lists and history conditions (subscription source, not read).
+9. The facility's amendment and late-signature policy (policy election for each user).

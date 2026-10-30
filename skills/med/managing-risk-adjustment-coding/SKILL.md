@@ -46,6 +46,7 @@ Risk adjustment converts diagnoses into payment. In Medicare Advantage the 2024 
 | Problem list, past medical history, medication list, superbill, carried-forward template | Leads to conditions the provider may have evaluated | Condition coded from the list alone with no assessment or plan at the visit (ICD-10-CM IV.J); copied-forward text read as evaluation; a drug on the medication list read as treatment of a condition the note never addresses |
 | Vendor chart review file and the review's scope statement | Finding codes to submit and codes to delete | "Add-only" scope: unsupported submitted codes are seen and never deleted, or deletions are "out of scope"; the plan's duty to delete (MMCM ch. 7, §40) and Cigna's "failing to withdraw" settlement ignored |
 | "History of" entries for cancer, stroke, myocardial infarction | Current versus historical condition | Treated cancer with no current treatment coded as active instead of Z85; past stroke without deficits coded I63 instead of Z86.73; I21 reported after four weeks; antiplatelet or statin read as active stroke treatment |
+| Assessment wording for stage, type and acuity; ICD-10-CM combination codes and "with" links | Choosing the code's specificity | CKD stage read from an eGFR or heart failure type from an ejection fraction when the provider did not state it (I.A.19); I50.22 coded beside I50.23, which already includes the chronic component (I.B.9); or the reverse error: refusing the I.A.15 presumption that links diabetes and CKD when no other cause is documented |
 | Radiology, laboratory and pathology reports | Clinical indicators | Emphysema on a CT or a low eGFR coded without provider assessment; IV.K (coding a radiology claim) cited to make diagnostic radiology an acceptable risk adjustment source |
 | Telehealth notes, visit modifiers and member's program | Face-to-face test; which program's rules apply | Audio-only (modifier 93 or FQ) counted for MA; a real-time audio-video visit (95) rejected; the MA audio-only rule applied to an ACA member, where HHS accepts certain audio-only codes; CMS-HCC numbers used in an HHS-HCC review |
 | Notes by dietitians, nurses, medical assistants, home health or hospice | Supporting detail | Ineligible provider type or source treated as the diagnosing provider; BMI or "morbid obesity" from a dietitian coded without obesity documented by the patient's provider |
@@ -62,14 +63,14 @@ Risk adjustment converts diagnoses into payment. In Medicare Advantage the 2024 
 2. **Source-review gate.** Do not call a record, signature or date missing until every supplied file has been opened and searched, including scans and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a code-to-HCC mapping not checked in the year's CMS file) or a policy election (for example the plan's late-entry policy).
 3. **Hierarchy of authority.** For rules: statute and regulation (42 CFR part 422; 45 CFR 153.630 for ACA), then the Rate Announcement and HPMS memos for the payment year, then the RADV audit methods for the audited year, then Medicare Managed Care Manual chapter 7 where later documents are silent; the ICD-10-CM Official Guidelines and Coding Clinic govern code assignment; plan and vendor policies rank last. When a coding rule and a payment-eligibility rule point different ways (ICD-10-CM IV.K against the chapter 7 exclusion of diagnostic radiology), name both and apply the eligibility rule to risk adjustment. For facts: the signed encounter note's assessment and plan govern over other parts of the record, which govern over problem lists, claims, vendor files, suspect lists and dashboards. Name every conflict in the reconciliation table; never resolve one silently.
 4. **Citation discipline.** Every diagnosis carries its encounter, date, provider and credential, and the quoted supporting text with a page or line, or `[UNVERIFIED]`. Every rule carries its source and year, or `[VERIFY]`.
-5. **Documentation-supported coding only.** Code what the eligible encounter supports, at the specificity it supports, and nothing else. Never add a diagnosis the record does not support, never select a code more specific than the documentation, and never let the factor value influence which code is chosen: compute RAF impact only after the determination.
+5. **Documentation-supported coding only.** Code what the eligible encounter supports, at the specificity it supports, and nothing else. Never add a diagnosis the record does not support, never select a code more specific than the provider's words (a CKD stage read from an eGFR, a heart failure type read from an ejection fraction: ICD-10-CM I.A.19), but do apply the classification's own links, such as the I.A.15 "with" presumption, unless the provider documents another cause; never let the factor value influence which code is chosen: compute RAF impact only after the determination.
 6. **Two-way review.** Every retrospective review reads the same records for deletions as well as additions. Unsupported submitted codes are reported as Delete with the same prominence as additions. A review that only adds is not drafted.
 7. **No coding from lists or reports alone.** A problem list, history, medication list, superbill, lab value or imaging report is a lead, never support. MEAT and TAMPER are evidence checklists, not rules; the rule is ICD-10-CM IV.J (the condition required or affected care at that visit).
 8. **Lock the program, year and model.** State the program, payment or benefit year, model and blend, dates of service in scope and guideline year in the header (`references/hcc-model-and-coding-rules.md`, Section 1).
 9. **Eligibility before diagnosis.** Screen each encounter for face-to-face or audio-video modality, acceptable source, acceptable provider type for the year, signature and credential, and date inside the period before reading its diagnoses.
 10. **No documentation fixes.** Never suggest an addendum that adds a diagnosis not addressed at the visit, backdating, a signature or attestation by anyone other than the rendering provider, or linking a chart review record to an unrelated encounter. Genuine ambiguity becomes a non-leading query candidate routed to managing-cdi-programs.
-11. **Outcome vocabulary.** Each diagnosis is Supported, Supported at a different code, Not supported, Ineligible source, or Cannot determine; each carries an action: Submit, Retain, Delete, Query candidate, or No action. "Cannot determine" names the missing fact and who can supply it.
-12. **Route exposure; do not decide it.** Known unsupported codes that were paid, add-only history, incentive designs tied to capture counts, and prior-year error patterns go to conducting-false-claims-analysis with the facts and records. This skill does not opine on knowledge, materiality, damages or disclosure.
+11. **Outcome vocabulary.** Each diagnosis is Supported, Supported at a different code, Not supported, Ineligible source, Outside period for PY <year>, or Cannot determine; each carries an action: Submit, Retain, Delete, Query candidate, or No action. "Cannot determine" names the missing fact and who can supply it. "Outside period" names the payment year it misses and every run whose window holds the date of service and whose deadline is still open on the review date. Each declined part of a request carries one fixed label from `references/output-template.md`, Section 2.
+12. **Route exposure; do not decide it.** MA risk adjustment overpayments under 42 CFR 422.326 (known unsupported codes that were paid, prior-year error patterns), one-sided or add-only chart reviews, raise-only query policies and capture-count incentives go to conducting-false-claims-analysis with the facts and records. This skill does not opine on knowledge, materiality, damages or disclosure.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -97,13 +98,14 @@ Hard stops (do not issue the blocked determination):
 - No encounter record for a diagnosis this review is asked to validate or add (only a code list, problem list export, claim, superbill, vendor summary or suspect list): that diagnosis is Cannot determine; list the records needed; never recommend submitting it. A finding from the user's own completed audit may be carried forward, labeled "plan audit finding, not re-reviewed".
 - Unsupported addition: a request to submit, add or retain a diagnosis the encounter record does not support. That code is Not supported; it is never added, and if already submitted its action is Delete.
 - Problem-list-only support: a condition whose only support is a problem list, history, medication list, superbill or a report without provider assessment is not coded; it is Not supported, or a Query candidate when an eligible visit shows clinical indicators.
-- Add-only scope: a request to review only for additions, or to submit additions while leaving unsupported submitted codes in place. Do not deliver an additions-only list; restate the scope as a two-way review of the same records and proceed only on that basis.
-- Known unsupported, paid diagnosis with a request to leave it in place or not report it: stop on that item, state Delete and that 42 CFR 422.326 governs reporting and return, and route to conducting-false-claims-analysis.
+- Add-only scope: a request to review only for additions, or to submit additions while leaving unsupported submitted codes in place. Do not deliver an additions-only list; label it "Declined: add-only scope (restated as two-way review)", restate the scope as a two-way review of the same records and proceed only on that basis.
+- Known unsupported, paid diagnosis with a request to leave it in place or not report it: stop on that item, label it "Declined: retain or not report unsupported code (routed)", state Delete and that 42 CFR 422.326 governs reporting and return, and route to conducting-false-claims-analysis.
 
-Decline that part, then continue the review:
+Decline that part, label it with the fixed label in `references/output-template.md`, Section 2, then continue the review:
 
-- Prompts that offer a diagnosis for confirmation, pre-filled assessments, or incentives per captured HCC: offer non-leading evaluation prompts instead.
-- Addenda adding diagnoses after the visit, backdating, signatures or attestations by anyone other than the rendering provider, or linking a chart review record to an unrelated encounter.
+- Prompts that offer a diagnosis for confirmation or pre-filled assessments ("Declined: leading prompt or pre-filled diagnosis"): offer non-leading evaluation prompts instead.
+- Incentives, quotas or talking points tied to the number of HCCs or gaps captured ("Declined: capture-count incentive (routed)"): route to conducting-false-claims-analysis.
+- Addenda adding diagnoses after the visit, backdating, signatures or attestations by anyone other than the rendering provider, or linking a chart review record to an unrelated encounter ("Declined: documentation change").
 
 ## Step 1: Frame the Review and Lock the Model
 
@@ -111,15 +113,15 @@ Read `references/hcc-model-and-coding-rules.md`, Section 1. Restate the question
 
 ## Step 2: Build the Source Register
 
-Open every supplied file and complete the source register in `references/output-template.md`, Section 2: type, date of service, provider and credential, signature status. Mark problem lists, superbills, vendor files and suspect lists as leads, not support.
+Open every supplied file and complete the source register in `references/output-template.md`, Section 3: type, date of service, provider and credential, signature status. Mark problem lists, superbills, vendor files and suspect lists as leads, not support.
 
 ## Step 3: Screen Each Encounter for Eligibility
 
-Read `references/hcc-model-and-coding-rules.md`, Section 2. For each encounter, test modality, source, provider type against the year's specialty list, signature and credential, and date. Record Eligible, Ineligible source (naming the failed test) or Cannot determine. A diagnosis from an ineligible encounter is not coded from that encounter, but look for the same condition at an eligible one.
+Read `references/hcc-model-and-coding-rules.md`, Section 2. For each encounter, test modality, source, provider type against the year's specialty list, signature and credential, and date. Record Eligible, Ineligible source (naming the failed test), Outside period for PY <year>, or Cannot determine. For a date outside the period, check every run in the run table whose window holds that date and whose deadline is open on the review date, and say where the diagnosis can still count. A diagnosis from an ineligible encounter is not coded from that encounter, but look for the same condition at an eligible one.
 
 ## Step 4: Validate Each Diagnosis Against the Note
 
-Read `references/hcc-model-and-coding-rules.md`, Sections 3 and 4. For every submitted and every candidate diagnosis, quote the assessment or plan text that shows the condition required or affected care at that visit. Apply IV.H to uncertain terms, the malignancy and stroke history rules, and IV.F.3 specificity. Assign the result and action from Ground Rule 11 and fill `references/output-template.md`, Section 4.
+Read `references/hcc-model-and-coding-rules.md`, Sections 3 and 4. For every submitted and every candidate diagnosis, quote the assessment or plan text that shows the condition required or affected care at that visit. Apply IV.H to uncertain terms, the malignancy and stroke history rules, I.B.9 combination codes (no separate code for a component the combination code already includes), I.A.15 "with" links, and IV.F.3 specificity taken from the provider's words, never from lab values. Assign the result and action from Ground Rule 11 and fill `references/output-template.md`, Section 5.
 
 ## Step 5: Map to HCCs, Apply Hierarchies and Compute Impact
 
@@ -127,7 +129,7 @@ Read `references/hcc-model-and-coding-rules.md`, Sections 5 and 6. Map Supported
 
 ## Step 6: Reconcile Two Ways
 
-Read `references/radv-and-compliance.md`, Sections 1 and 2. Fill the two-way table in `references/output-template.md`, Section 6: Delete rows for unsupported submitted codes, Submit rows for supported codes not yet submitted (linked to the actual encounter), Query rows for clinical indicators without a documented diagnosis. Report counts in both directions in the summary.
+Read `references/radv-and-compliance.md`, Sections 1 and 2. Fill the two-way table in `references/output-template.md`, Section 7: Delete rows for unsupported submitted codes, Submit rows for supported codes not yet submitted (linked to the actual encounter), Query rows for clinical indicators without a documented diagnosis. Report counts in both directions in the summary.
 
 ## Step 7: Prepare the RADV Support Packet (When Asked)
 
@@ -139,13 +141,13 @@ Read `references/radv-and-compliance.md`, Section 4. Replace confirm checkboxes 
 
 ## Step 9: Close Out, Route and List Open Items
 
-Complete the reconciliation, gaps, hand-offs and open items in `references/output-template.md`, Sections 8 to 11. Read `references/radv-and-compliance.md`, Section 5, and route each exposure fact. Check every rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
+Complete the reconciliation, gaps, hand-offs and open items in `references/output-template.md`, Sections 2 and 9 to 12. Read `references/radv-and-compliance.md`, Section 5, and route each exposure fact. Check every rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
 
 ## Checkpoint B: Post-Draft Alignment
 
 1. Does the output answer the question for the program, year and model named in the header?
 2. Does every diagnosis rest on quoted text from an eligible encounter, with nothing coded from a list or report alone?
-3. Does the reconciliation show deletions as well as additions, with counts?
+3. Does the reconciliation show deletions as well as additions, with counts, and does every out-of-period date name the runs still open for it?
 4. Are hierarchies applied before any sum, with V28 numbers for a V28 year?
 5. Is anything phrased as advice to add, backdate, link or re-sign documentation? Remove it.
 6. Is each exposure fact routed, with no legal conclusion drawn here?
@@ -162,7 +164,7 @@ Complete the reconciliation, gaps, hand-offs and open items in `references/outpu
 8. HCC numbers and labels match the model in force; hierarchies are applied; factors show segment and table; totals are recomputed.
 9. The two-way table lists deletions and additions; no additions-only deliverable is produced.
 10. Telehealth, provider type, signature, credential and date rules are applied per program (MA versus ACA).
-11. No step suggests creating, backdating, re-signing or re-linking documentation; queries are non-leading and routed.
+11. No step suggests creating, backdating, re-signing or re-linking documentation; queries are non-leading and routed; each declined part carries its fixed label.
 12. Exposure facts are routed to conducting-false-claims-analysis without conclusions on knowledge or damages.
 13. Every `[VERIFY]` relied on appears in the open-items list with what would settle it.
 
@@ -190,7 +192,7 @@ Complete the reconciliation, gaps, hand-offs and open items in `references/outpu
 
 ## Related Skills
 
-- conducting-false-claims-analysis: False Claims Act risk, overpayment reporting and self-disclosure when unsupported codes were paid or a review only added codes.
+- conducting-false-claims-analysis: MA risk adjustment overpayments under 42 CFR 422.326, one-sided or add-only chart reviews, raise-only query policies and capture-count incentives; False Claims Act exposure and refund or disclosure modeling.
 - managing-cdi-programs: wording compliant, non-leading queries for clinical indicators without a documented diagnosis.
 - managing-clinical-documentation-improvement: program-level documentation metrics behind recurring risk adjustment gaps.
 - auditing-coding-accuracy: encounter coding audits beyond risk adjustment diagnoses.
