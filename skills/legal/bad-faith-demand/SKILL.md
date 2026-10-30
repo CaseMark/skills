@@ -2,190 +2,180 @@
 name: bad-faith-demand
 language: en
 description: >
-  Drafts time-limited policy-limits demand letters that create an opportunity-to-settle
-  record for third-party bad faith exposure. Use when the user mentions time-limited demand,
-  policy limits demand, bad faith notice, Stowers demand, civil remedy notice, failure to
-  settle demand, excess exposure letter, insurer settlement opportunity, or needs help with
-  acceptance mechanics for a policy-limits offer. Also trigger for Georgia O.C.G.A. § 9-11-67.1
-  compliance, Florida statutory bad faith prerequisites, or documenting insurer refusal to settle.
+  Drafts time-limited policy-limits demands to liability insurers, with a readiness memo,
+  to build an opportunity-to-settle record for third-party failure-to-settle (bad faith). Classifies the claim as third-party or first-party,
+  tests the demand against the governing time-limited demand statute (Georgia O.C.G.A.
+  9-11-67.1 Holt demands, California CCP 999-999.5, Missouri RSMo 537.058), Florida 624.155
+  civil remedy notice and safe harbor rules, and Texas Stowers elements, computes the
+  deadline from the correct trigger (receipt or transmission), builds insured-and-limits,
+  lien (Medicare, Medicaid, ERISA) and multiple-claimant matrices, and drafts measurable
+  acceptance, release and payment terms. Use for time-limited demand, policy limits demand,
+  Stowers demand, Holt demand, bad faith setup, excess exposure letter, failure to settle,
+  civil remedy notice, UM/UIM bad faith notice, or a demand compliance review.
+  Routes general pre-suit demands to demand-letter and coverage disputes to coverage-opinion.
+tags:
+  - litigation
+  - letter
+  - drafting
+  - analysis
 ---
 
-# Time-Limited Policy Limits Demand
+# Time-Limited Policy-Limits Demand (Insurer Bad Faith)
 
-Produces a defensible time-limited settlement demand with clear acceptance mechanics, sourced damages, and jurisdiction-aware bad faith framing. A single procedural defect (ambiguous acceptance, missing statutory requirement, sloppy deadline) can destroy the bad faith claim.
+Prepares a time-limited settlement demand to a liability insurer, together with a readiness memo that tests it against the governing statute or common-law standard, computes the deadline, and reconciles limits, insureds, liens and competing claimants. It also reviews an existing demand for compliance and redirects first-party matters to the right notice. The deliverable is a readiness determination, ranked blocking issues, a reconciliation table, the draft letter, an exhibit and delivery log, and hand-offs. Everything it produces is a draft for review and signature by a licensed attorney.
 
-**ATTORNEY REVIEW REQUIRED** — Always require attorney review before sending.
+## Why This Skill Exists
 
-## Pre-Draft Intake
+A policy-limits demand is judged later, by a court deciding whether the insurer had a real chance to settle within limits. Courts and legislatures have narrowed what counts. Georgia, California and Missouri now prescribe the content, delivery method and minimum response window of a time-limited demand, and a demand that misses a term may not count as a reasonable opportunity to settle. Florida gives insurers a 90-day tender safe harbor and a multi-claimant interpleader route. The common failures are mechanical: a deadline counted from the wrong day, a demand for more than the per-person limit, a release that leaves an insured exposed, or a lien condition the insurer cannot meet. This skill catches those before the letter goes out.
 
-Gather before drafting (skip only if user says "use defaults"):
+## Where Mistakes Hide
 
-1. **Jurisdiction and posture** — state; pre-suit / in suit / pre-post discovery
-2. **Insurer identifiers** — claim number, policy number, adjuster, all insureds
-3. **Liability evidence** — reports, photos, witness statements, citations
-4. **Damages proof** — medical records/bills, wage loss, prognosis, future care
-5. **Policy limits** — confirmed amount or plan to confirm
-6. **Lien status** — health insurer, Medicare/Medicaid, ERISA, hospital, workers' comp
-7. **Settlement authority** — confirmed from client on amount and release scope
+| Input / Document | What It Is Used For | Where the Error Hides |
+|---|---|---|
+| Declarations page, sworn limits disclosure, adjuster's limits letter | Offer amount; every insured and policy to release | Per-occurrence limit demanded for one claimant; umbrella or owner's policy not disclosed; permissive driver or vehicle owner left out of the release; limits taken from an adjuster's phone call |
+| Governing time-limited demand statute (Ga. 9-11-67.1, Cal. CCP 999-999.5, Mo. 537.058) | Required content, delivery method, minimum window | Common-law "Stowers template" used in a statutory state: no statute reference or label, 10-14 day window below the 30, 33 or 90-day floor, Georgia payment date under 40 days, Missouri provider list and HIPAA authorizations missing, phone acceptance where written acceptance is required |
+| Return receipt, carrier tracking, fax or email transmission record | Trigger date for the deadline | Window counted from the letter date instead of receipt (Georgia, Missouri); 30 days used for regular mail in California where 33 apply; Florida civil remedy notice cure counted from filing instead of the insurer's receipt of the department's notice; no time zone; expiry on a weekend |
+| Crash report, claims list, other counsel's letters | Identifying competing claimants | Demand for the full occurrence limit while other injured people have claims; Florida interpleader or arbitration route ignored; window too short for the insurer to evaluate competing claims |
+| Medicare conditional payment letter, ERISA plan document, Medicaid and hospital lien notices | Lien clause and payee line | Acceptance conditioned on the insurer obtaining lien releases or a Medicare final demand within the window; Medicaid lien accepted at full billed amount; ERISA vendor letter used instead of the plan document; California offer silent on satisfying all liens |
+| Engagement and matter type (UM/UIM, PIP, property, third-party tort) | Selecting the standard and the notice | UIM claim to the client's own insurer drafted as a Stowers excess-exposure demand; first-party statutory notice (Washington IFCA 20 days, Texas 541.154 61st day) skipped; third-party demand framed with first-party remedies |
+| Prior demands and insurer correspondence (records requests, clarification, extension requests) | Proving the opportunity was real and unambiguous | Clarification request treated as a rejection; earlier demand with inconsistent terms still open; outstanding records request left unanswered before expiry |
+| Medical records, bills and wage proof | Damages exposure and statutory proof requirement | Billed totals presented as paid; records the statute requires not enclosed; injuries listed that the records do not show |
 
-**Defaults if user skips:** pre-suit posture; full limits demand; standard BI release of named insured; response window marked `[VERIFY JURISDICTION]`; professional tone.
+## Ground Rules
 
-Stop and request if **settlement authority** or **policy limits** are missing.
+1. **Draft only.** Nothing is sent, served or filed by this skill. Every output is a draft for attorney review, and the letter is never called ready to send.
+2. **Source-review gate.** Never call a document missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (for example, the date of receipt), *source conflict* (two limits figures), *unverified external lookup* (a statute or lien amount not confirmed), or *policy election* (a choice for counsel or client, such as release scope or window length).
+3. **Hierarchy of authority.** For facts: the policy and declarations page, then a sworn statutory disclosure, then insurer letters, then adjuster statements and client recollection. Medical records govern over summaries; executed plan documents govern over recovery-vendor letters; return receipts govern over mail logs. For law: the current statute text, then controlling appellate cases, then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
+4. **Citation discipline.** Every fact, figure, date and identifier in the letter carries a source locator (document and page or exhibit) or is marked `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is marked `[VERIFY]`. Never invent a case, statute, verdict figure or pin cite.
+5. **Classify before drafting.** Decide third-party failure-to-settle or first-party, and say why. Never apply failure-to-settle or excess-exposure framing to the client's own insurer, and never apply first-party notice rules to a tort claimant's demand.
+6. **The governing statute controls the letter.** Where a time-limited demand statute applies, every required term, the delivery method and the minimum window go in. Re-confirm the statute's current full text on the drafting date; if that cannot be done, mark the governing-law row `[VERIFY]` and say so at the top. A demand that misses a statutory term is reported as non-compliant with the consequence, never described as a valid demand.
+7. **Deadlines from the right trigger.** Compute every deadline in the fixed format from the trigger the rule uses (receipt, transmission by method, or the insurer's receipt of a department notice), with a date, weekday, time and time zone, never below the statutory floor.
+8. **An offer the insurer can accept as written.** Within the limit that applies to this claimant; releasing every insured of that insurer for the claims released unless counsel decides otherwise in writing; acceptance by a measurable written act; liens satisfied by the claimant from proceeds; no condition that depends on a third party or that the insurer cannot perform within the window.
+9. **Competing claimants are dealt with, not ignored.** If known claims could exceed the occurrence limit, the memo says so and counsel chooses the approach.
+10. **Authority before amount.** The amount, release scope, lien approach and payee line each need documented client authority.
+11. **Professional tone and ethics.** No threats, no prediction of a bad faith verdict, no hidden terms, no direct contact with a represented insured; ask the insurer to give its insured a copy. The purpose is a genuine opportunity to settle, not a trap.
 
-## Workflow
+## Checkpoint A: Pre-Draft Intake (Mandatory)
 
-### 1. Map Jurisdictional Requirements
+Collect, from documents where possible:
 
-- Identify theory: common-law failure-to-settle, statutory bad faith, unfair claims practices
-- Verify notice/cure requirements, service methods, required content
-- Flag unverified legal statements as `[VERIFY]`
-- If statutory notice required (e.g., FL Civ. Remedy Notice), draft separately unless statute allows integration
+1. Today's date and the state whose law governs the claim (loss location, forum, policy state).
+2. Claim type: third-party tort claim against an insured, or the client's own first-party claim (UM/UIM, PIP, property, other).
+3. Posture: pre-suit, suit filed, answer filed, trial date set (Georgia and Missouri statutes turn on these).
+4. Insurer, claim number, adjuster, and the insurer's designated demand address (California posts one).
+5. Every policy and limit (per person, per occurrence, excess, umbrella) with the source; every insured (named, driver, owner, employer, additional insured).
+6. Every known claimant and representation status.
+7. Liability evidence; medical records, bills and wage proof.
+8. Liens: Medicare and Medicaid status, ERISA or other health plan, hospital, workers' compensation, with documents.
+9. Prior demands and all insurer correspondence.
+10. Client's signed settlement authority: amount, release scope, lien approach, payee.
+11. Planned delivery method and the address for written acceptance.
 
-### 2. Draft Liability Narrative
+**Defaults if not supplied:** pre-suit posture; payment to the client and firm trust account; claimant satisfies liens from proceeds; window set at the statutory floor plus at least five business days, or 30 days from receipt where no statute applies, marked `[VERIFY]`; formal tone.
 
-- 5-10 sentences, evidence-cited
-- Address obvious defenses and comparative fault
-- Tie liability clarity to foreseeable excess exposure
-- Must be defensible if read to a jury — do not overstate
+**Hard stops (produce the blocking-issues list and the request, not a letter):**
+- No documented settlement authority for the amount and release scope.
+- Limits unconfirmed and no declarations page or disclosure: draft the limits request instead (Florida section 627.4137 where it applies).
+- Governing state unknown.
+- Claim type cannot be determined.
+- The user asks for a window, delivery method or term below a statutory floor and will not change it: draft the compliant version and the memo explaining why the requested version is non-compliant.
 
-### 3. Present Damages Exposure
+## Step 1: Classify the Claim and Select the Governing Law
 
-- Itemized specials with documentation references
-- Permanency and future care with source support
-- Plausible verdict range rationale; mark unsourced research `[VERIFY]`
-- Ground excess-exposure argument in actual numbers
+Read `references/governing-law-and-statutes.md`, sections 1 to 3. Record the classification and the reasons. For a first-party claim, switch to the statutory pre-suit notice for that state (for example, Washington RCW 48.30.015, 20 days to the insurer and the Insurance Commissioner) and a benefits demand; hand coverage disputes to coverage-opinion. For a third-party claim, identify the common-law standard and whether a demand statute applies.
 
-### 4. Structure Offer Terms
+## Step 2: Build the Insured-and-Limits Matrix
 
-- Clear, unequivocal offer within limits or specified amount
-- Define release scope, parties released, claims reserved
-- Define payment mechanics: payee, delivery method, timing
-- **Acceptance must be objectively measurable** — zero ambiguity
+Read `references/liens-and-multiple-claimants.md`, insured-and-limits section. List every policy and insured with sources. Decide which limit applies to this claimant. If a figure conflicts across sources, it goes in the reconciliation table and the blocking-issues list.
 
-### 5. Set Deadline
+## Step 3: Run the Statutory Checklist
 
-- Specific date, time, and time zone
-- Brief reasonableness justification
-- Automatic withdrawal if not accepted exactly as specified
-- Align with statutory minimum response periods
+Read `references/governing-law-and-statutes.md`, section 4 (and section 5 for Florida). Fill the checklist for the governing statute term by term, with the paragraph of the draft where each term will appear. When reviewing an existing demand, mark each term met or missing and state the consequence of each gap (for example, Missouri section 537.058: not a reasonable opportunity to settle and inadmissible in an extracontractual suit). Where no statute applies, list the common-law elements (Texas: the three Garcia elements).
 
-### 6. Frame Bad Faith Exposure
+## Step 4: Compute the Deadline
 
-- Professional tone — no threats, no inflammatory language
-- State excess exposure risk and insurer duty to protect insured
-- Request insurer communicate demand to insured
-- No coercive language
+Read `references/governing-law-and-statutes.md`, section 6. Identify the trigger and its evidence, apply the floor, add a buffer, and show the computation in the fixed format. If receipt is not yet known, compute from the latest plausible receipt and add an open item to recompute when the return receipt arrives. In a common-law state, write two or three sentences on why the window is reasonable.
 
-### 7. Delivery and Record-Keeping
+## Step 5: Liens and Competing Claimants
 
-- Delivery channels per jurisdictional requirements
-- Written acceptance to a tracked inbox
-- Exhibit index with labeled attachments
-- Preserve proof of delivery
+Read `references/liens-and-multiple-claimants.md`, lien and claimant sections. Build both matrices. Draft the lien clause so the claimant satisfies liens from proceeds. If competing claims could exceed the occurrence limit, set out counsel's options as a judgment call and, for Florida, the insurer's 90-day interpleader or arbitration route.
 
-## Letter Template
+## Step 6: Draft Liability and Damages
 
-```text
-[Date]
+Four to eight evidence-cited sentences on liability that would survive being read to a jury; address comparative fault and obvious defenses. Itemize specials (billed and, where known, paid), future care and wage loss with exhibit references; describe all known injuries the records support. Put a verdict range in only if it is sourced; otherwise omit it.
 
-Via [email + certified/overnight if required]
-[Adjuster Name], [Insurer]
-[Address]
-Re: [Claimant] v. [Insured]
-Claim No.: [ ] | Policy No.: [ ] | Loss Date: [ ]
+## Step 7: Draft Offer, Release, Acceptance and Payment Terms
 
-This is a time-limited policy-limits demand to protect your insured
-from excess exposure.
+Use the letter skeleton in `references/output-template.md`, Part 4. Offer within the applicable limit; name every insured released; state reserved claims; acceptance by written acceptance of the terms in their entirety to a named address and email or fax; deadline with date, time and time zone; payment date and payee consistent with any statutory floor; records and authorizations the statute requires; request that the insurer give its insured a copy.
 
-LIABILITY
-[2-4 sentences with exhibit references]
+## Step 8: Assemble the Deliverable and Hand-Offs
 
-DAMAGES
-- Specials to date: $[ ] (Ex. [ ])
-- Future care/prognosis: [ ] (Ex. [ ])
-- Wage loss: $[ ] (Ex. [ ])
-- A reasonable jury could return a verdict exceeding policy limits.
+Lay out the header and Parts 1 to 6 per `references/output-template.md`. Build the reconciliation table from Steps 2 to 7. Fill the delivery log. Complete each hand-off with the facts the receiving skill needs. List every `[VERIFY]` item with what would settle it, drawing on `references/primary-sources.md`.
 
-OFFER
-In exchange for tender of full liability limits of $[ ] under Policy
-No. [ ], [Claimant] will execute a release of [Named Insured(s)] for
-all bodily injury claims arising from the [date] incident. The release
-does not include [reserved claims/parties].
+## Checkpoint B: Post-Draft Alignment
 
-ACCEPTANCE
-Written acceptance must be received by [date], [time], [time zone] at
-[email]. Payment via [overnight/wire] to:
-Payee: "[Client Name] and [Law Firm] Client Trust Account"
-Address: [ ]
+Confirm with the user or state as open items:
 
-LIENS
-[Claimant] will satisfy valid liens from proceeds. [Medicare/ERISA
-escrow/holdback or cooperation language if applicable.]
+1. Does the offer amount match the client's signed authority and the limit that applies to this claimant?
+2. Does the release name every insured the client intends to release, and is any reservation intended?
+3. Is the deadline acceptable to counsel given the statute, the records volume and any competing claimants?
+4. Is the delivery method one the statute requires, and is the acceptance address monitored?
+5. Has counsel re-read the governing statute's current text?
 
-DEADLINE
-This offer expires automatically if not accepted exactly as stated by
-the deadline above.
-
-NOTICE
-Given clear liability and damages, this demand provides a reasonable
-opportunity to protect the insured from excess exposure. Please provide
-a copy to your insured so they may seek independent counsel.
-
-ATTACHMENTS
-Exhibit Index: [list]
-```
-
-### Required Letter Sections
-
-Caption block (parties, claim/policy numbers) | Offer and acceptance mechanics | Liability summary with exhibits | Damages summary with totals | Deadline and withdrawal | Release scope | Lien/Medicare handling | Delivery instructions | Exhibit index
-
-## Post-Draft Checks
-
-Ask after delivering the draft:
-
-1. Are policy limits confirmed, or must we request confirmation first?
-2. Does the release scope correctly identify all parties released and claims reserved?
-3. Is the deadline window reasonable for jurisdiction and case posture?
-4. Any statutory notice requirements (FL Civil Remedy Notice, GA § 9-11-67.1) needing separate filing?
-
-Default recommendation if no response: confirm policy limits and release scope (most common failure points).
+If the user does not answer, recommend confirming limits, release scope and the deadline computation first; those are the most common grounds for an insurer to argue no reasonable opportunity existed.
 
 ## Quality Audit
 
-- [ ] Offer amount matches confirmed limits or stated sum
-- [ ] Acceptance mechanics objectively measurable — no ambiguity
-- [ ] Deadline is specific date, time, and time zone
-- [ ] Liability narrative evidence-cited and defensible
-- [ ] Damages itemized with documentation references
-- [ ] Release scope defines who is released and what is reserved
-- [ ] Lien/Medicare handling addressed
-- [ ] No impossible conditions or hidden terms
-- [ ] Names, dates, claim numbers, dollar amounts cross-checked
-- [ ] Exhibit index complete and attachments labeled
-- [ ] Jurisdictional statutory requirements verified or flagged `[VERIFY]`
-- [ ] Tone professional — no threats or inflammatory language
+Before responding, confirm each statement. If one fails, fix the draft.
 
-### Acceptance Checklist
+1. The claim is classified as third-party or first-party with reasons, and the letter's framing matches.
+2. The governing statute is named, its checklist is complete, and every required term appears in a named paragraph of the draft, or the gap is reported as non-compliant with its consequence.
+3. The deadline is computed in the fixed format from the correct trigger, is at or beyond the statutory floor, and states a date, weekday, time and time zone not falling on a weekend.
+4. The offer amount is within the limit that applies to this claimant, with the limit's source cited.
+5. Every insured of the addressed insurer is released for the claims released, or the exception is a recorded counsel decision.
+6. Acceptance is by a measurable written act to a named address; no phone or conduct-based acceptance.
+7. No acceptance condition depends on a lienholder, a government agency or another third party; liens are satisfied by the claimant from proceeds.
+8. Every known claimant is in the claimant matrix and any risk of exceeding the occurrence limit is addressed.
+9. Every figure, date and identifier in the letter has a source locator or `[UNVERIFIED]`, and the reconciliation table shows every conflict and the value used.
+10. Every legal statement has a citation from `references/primary-sources.md` or `[VERIFY]`; no invented authority.
+11. The letter contains no threats, no bad faith verdict prediction and no direct communication with a represented insured.
+12. Blocking issues are ranked and each ends with a recommendation, the alternative and an owner.
+13. The output closes with the draft-for-attorney-review line.
 
-- Written acceptance received by deadline
-- Amount matches limits or stated sum
-- All insureds match release scope
-- Payment method and payees correct
-- No added conditions; if added, treat as counteroffer
+## Guidelines
 
-## Jurisdiction Flags
+- Prefer one clear, statute-compliant demand over several overlapping ones. If an earlier demand is still open, withdraw or supersede it in writing before sending a new one.
+- Keep the letter short; put analysis in the memo, not the letter. The insurer and later a court will read the letter; the client and counsel read the memo.
+- Disclose only the medical detail needed to evaluate the claim.
+- Do not state a bad faith conclusion about the insurer's past conduct in the demand. Describe facts and terms.
+- When the user's requested term conflicts with a statute, draft the compliant term and explain the change in the memo; do not silently follow the request or silently change it.
+- A demand that responds to an insurer's records request should enclose the records and restate the deadline.
 
-All `[VERIFY]` — confirm current law before use:
+## Troubleshooting
 
-| State | Key Issue | Reference |
+| Problem | Likely cause | What to do |
 |---|---|---|
-| Texas | Stowers elements | *G.A. Stowers Furniture Co. v. American Indemnity Co.*, 15 S.W.2d 544 (Tex. 1929) |
-| California | Prudent-insurer standard; Cal. Civ. Code § 1542 waiver | *Comunale*, *Crisci* |
-| Georgia | Strict statutory TLD requirements and service methods | O.C.G.A. § 9-11-67.1 |
-| Florida | Statutory bad faith, civil remedy notice, tort reform changes | Fla. Stat. § 624.155 |
+| Limits figure differs between the adjuster letter and the declarations page | Different policies, per-person versus per-occurrence, or an outdated letter | Use the declarations page; record both in the reconciliation table; request a sworn disclosure where available |
+| Return receipt is illegible or missing | Mail piece not tracked or card unsigned | Use carrier tracking; if receipt cannot be proven, compute from the latest plausible receipt and extend the deadline in writing |
+| Medical records are scanned and unreadable | Image-only PDF or poor scan | Try OCR; list pages that remain unreadable and the injuries or bills that depend on them; request clean copies |
+| Two lien amounts for the same payer | Conditional payment letter versus later update | Use the most recent dated amount; mark it conditional; claimant satisfies the final amount from proceeds |
+| The user insists on a 10-day window in a statutory state | Practice habit from a common-law state | Draft at the statutory floor plus buffer; explain the consequence of the shorter window in the memo |
+| The insurer asked for clarification near the deadline | Ambiguous term or missing records | Answer in writing before expiry; state whether the deadline is extended; in California, the request is not by itself a counteroffer |
+| Governing state is unclear (loss in one state, policy issued in another) | Choice-of-law question | Flag as a blocking issue for counsel; draft to satisfy the stricter statute where feasible |
+| No statute located for the state | Common-law state or statute not yet researched | Record the search and date; mark `[VERIFY]`; use the common-law elements and a reasoned window |
 
-## Guardrails
+## Related Skills
 
-**Anti-hallucination:** Do not assert unverified legal standards — mark `[VERIFY]`. Do not misstate limits, injuries, or specials. Do not invent verdict data or fabricate case citations.
+- demand-letter: general pre-suit demands, uninsured defendants and non-insurance claims, where no policy-limits record is being built.
+- coverage-opinion: the insurer has raised a coverage defense or reservation of rights, or the matter is a first-party coverage dispute.
+- insurance-policy-summary: summarizing the policy, endorsements and limits before the demand is drafted.
+- lien-resolution-summary: resolving Medicare, Medicaid, ERISA and provider liens after acceptance.
+- release-of-claims: drafting the release once the insurer accepts.
+- settlement-distribution: the closing statement once funds arrive.
 
-**Ethics:** No impossible conditions, hidden terms, or ambiguous acceptance steps. No direct communication with represented insureds without attorney approval. Disclose only necessary medical detail.
+## Reference Files
+
+- `references/governing-law-and-statutes.md`: claim classification, failure-to-settle and first-party standards, statutory checklists (Georgia, California, Missouri), Florida section 624.155, deadline computation, acceptance rules.
+- `references/liens-and-multiple-claimants.md`: insured-and-limits matrix, lien matrix and rules, claimant matrix and multiple-claimant options, client authority.
+- `references/output-template.md`: deliverable layout, reconciliation table, letter skeleton, exhibit and delivery log, hand-off table.
+- `references/primary-sources.md`: every authority checked with its source, what it supports and the date checked, plus the `[VERIFY]` list.

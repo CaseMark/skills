@@ -1,0 +1,92 @@
+{
+  "skill_name": "bad-faith-demand",
+  "notes": "Adversarial suite of five synthetic matters, each planting one trap from the SKILL.md trap map (Where Mistakes Hide) in the user's own request so that a skill following the user literally fails. Rows targeted: governing time-limited demand statute (eval 1, Georgia), return receipt and trigger date plus statutory content (eval 2, Missouri), competing claimants and per-person limits (eval 3, Florida), engagement and matter type, first-party versus third-party (eval 4, Washington UIM), and lien documents plus release scope (eval 5, Texas Stowers with Medicare). All insurers and parties are fictional. Today's date in every prompt is October 30, 2026. A test passes only when every Must line passes and no Must not line is breached. Statutory specifics are those recorded in references/primary-sources.md as checked on 2026-10-30.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "georgia-holt-demand-below-statutory-floor",
+      "prompt": "Today is Friday, October 30, 2026. Draft a Holt demand for our client Maria Delgado. Facts: rear-end collision on August 14, 2026 on Pleasant Hill Road, Gwinnett County, Georgia. At-fault driver Kevin Ruiz was driving a car owned by his mother, Elena Ruiz; the declarations page (attached as Ex. 1) from Peachline Mutual Insurance Co. lists Elena as named insured and covers permissive drivers, bodily injury limits $50,000 per person / $100,000 per accident. Claim no. PM-26-44817, adjuster Dana Whitfield, dana.whitfield@peachline-example.com. No suit has been filed. Maria had a C5-C6 disc herniation treated with injections; billed specials $86,400 (records and bills in the file, Ex. 2-9). Client signed authority to settle for the $50,000 per-person limit. Email it to the adjuster today. Give them 14 days from today to accept, require payment within 10 days after acceptance, have the adjuster call me to accept, and release Kevin only.",
+      "expected_output": "Applies O.C.G.A. 9-11-67.1 as amended in 2024, replaces the 14-day email demand with a compliant draft (at least 30 days from receipt, payment date at least 40 days from receipt, certified mail or statutory overnight delivery with return receipt, Code section reference, written acceptance to an address plus email or fax, records enclosed), shows the deadline computation from projected receipt, and escalates releasing Kevin but not Elena as a counsel decision.",
+      "files": [],
+      "expected_behavior": [
+        "Must: identify O.C.G.A. section 9-11-67.1 (2024 amendment) as governing because this is a pre-answer offer to settle a motor vehicle bodily injury claim.",
+        "Must: set the acceptance period at not less than 30 days from the insurer's receipt and present the computation in the fixed format with trigger, evidence, floor and deadline date, weekday, time and time zone, computed from a stated projected receipt date with an open item to recompute from the return receipt.",
+        "Must: set the payment date at not less than 40 days from receipt and explain why the requested 10-day payment term is not used.",
+        "Must: require delivery by certified mail or statutory overnight delivery, return receipt requested (email may be a courtesy copy only), and include a specific reference to O.C.G.A. section 9-11-67.1 in the letter.",
+        "Must: replace phone acceptance with written acceptance of the material terms in their entirety to a stated address and an email or fax number.",
+        "Must: enclose or list the medical records and bills sufficient to evaluate the claim, and address the sworn insurance statement term (include it or expressly waive it).",
+        "Must: flag that releasing only Kevin leaves Elena Ruiz, the named insured, exposed, and present it as a judgment call for counsel and the client with the recommended option.",
+        "Must not: produce a letter with a 14-day window, a 10-day payment term, or phone acceptance, or describe the requested version as a valid statutory demand.",
+        "Must not: threaten the insurer or predict a bad faith verdict in the letter."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "missouri-noncompliant-demand-lapse-letter",
+      "prompt": "Today is October 30, 2026. Our associate sent a policy-limits demand for client Darnell Hayes on Monday, October 5, 2026 by certified mail to Gateway Casualty Co. (claim GC-7781-26). Darnell slipped on a leaking freezer case at a St. Louis County grocery store on May 2, 2026 and fractured his wrist and hip; billed specials are $212,000. Gateway's CGL policy has $1,000,000 per occurrence limits (declarations page in file). The demand offered to release the store for the $1,000,000 limits, said it was 'open for 30 days from the date of this letter,' enclosed bills and records, but did not cite any statute and did not include a list of treating providers or any HIPAA authorizations. The green card shows Gateway received it Friday, October 9, 2026. On October 22 the adjuster emailed asking for HIPAA authorizations and the records of Darnell's prior chiropractor. We have not answered. No suit is filed. The 30 days run out Wednesday, November 4. Draft the letter we will send November 5 telling Gateway the offer lapsed and that it is now exposed to an excess verdict, so we have our bad faith setup.",
+      "expected_output": "Declines to draft the lapse letter as requested, explains that the October 5 demand does not comply with RSMo 537.058 (window under 90 days from receipt, no statute reference, no provider list or HIPAA authorizations) so it is not a reasonable opportunity to settle and is inadmissible in an extracontractual suit, notes the deadline was counted from the letter date rather than receipt, and recommends answering the October 22 request and serving a compliant superseding demand with a 90-day-from-receipt computation.",
+      "files": [],
+      "expected_behavior": [
+        "Must: identify RSMo section 537.058 as governing a time-limited demand to settle a personal injury claim in Missouri.",
+        "Must: list each statutory defect in the October 5 demand: open period shorter than 90 days from the insurer's receipt, no reference to section 537.058, and no list of treating providers with HIPAA-compliant authorizations.",
+        "Must: state the statutory consequence that a non-compliant demand is not a reasonable opportunity to settle and is inadmissible in a suit for extracontractual damages.",
+        "Must: point out that the window was counted from the letter date (October 5) rather than the date of receipt (October 9), and that the statutory floor runs from receipt.",
+        "Must: recommend answering the insurer's October 22 request in writing and serving a superseding compliant demand, with a fixed-format deadline computation that is at least 90 days from the projected receipt of the new demand.",
+        "Must: classify the unanswered October 22 request as bearing on whether the insurer had a reasonable opportunity, not as an insurer rejection.",
+        "Must not: draft a letter declaring that the offer lapsed and that Gateway is exposed to an excess verdict or has acted in bad faith.",
+        "Must not: describe the October 5 demand as a valid or compliant time-limited demand."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "florida-multi-claimant-occurrence-limit",
+      "prompt": "Today is October 30, 2026. Client Ana Ferreira was T-boned on September 20, 2026 at an intersection in Orlando (Orange County), Florida by Tyler Brandt, insured by Coastline Indemnity Co., claim CI-26-30551. The declarations page shows bodily injury limits of $100,000 per person and $300,000 per accident. Ana fractured her pelvis and had surgery; billed specials so far are $238,000. Brandt's car then hit a second vehicle; its driver and passenger, Samuel and Grace Okafor, are represented by another firm and have presented claims (Grace has a fractured arm). Coastline's October 15 letter acknowledges three bodily injury claimants. Ana has signed authority to settle for whatever limits we can get. Draft a time-limited demand for the full $300,000 per-accident limits for Ana, give them 15 days, and make clear Coastline will pay any excess verdict if it does not tender.",
+      "expected_output": "Limits the demand to Ana's $100,000 per-person limit, builds a claimant matrix with the Okafors, explains Florida section 624.155(4) 90-day tender safe harbor and section 624.155(6) interpleader or binding-arbitration route for competing claims, flags that a 15-day window and threatening language bear on the claimant's own good-faith conduct, recommends a sworn disclosure under section 627.4137 to find any excess or umbrella coverage, and drafts a non-threatening demand with a reasoned window.",
+      "files": [],
+      "expected_behavior": [
+        "Must: state that a single claimant's demand is capped by the $100,000 per-person limit and that a $300,000 demand for Ana alone is not a demand within the limits applicable to her.",
+        "Must: build a claimant matrix listing Ana Ferreira, Samuel Okafor and Grace Okafor with representation and known injuries, and state that combined claims may exceed the $300,000 per-accident limit.",
+        "Must: explain Florida section 624.155(6): an insurer facing competing claims exceeding limits avoids liability beyond limits by filing interpleader or offering binding arbitration within 90 days after notice of the competing claims.",
+        "Must: explain the section 624.155(4) 90-day safe harbor for tendering the lesser of the limits or the demand after actual notice of a claim with sufficient evidence, and how it interacts with a 15-day window.",
+        "Must: flag that the claimant's conduct in setting deadlines and making demands may be weighed against the claimant (marked [VERIFY] for the codified wording) and recommend a longer window as a judgment call for counsel.",
+        "Must: recommend a written request under Florida section 627.4137 for a sworn disclosure of all policies, including excess or umbrella coverage, before or alongside the demand.",
+        "Must not: draft a demand for the $300,000 per-accident limit on Ana's behalf alone as if it were within limits.",
+        "Must not: include language stating or threatening that Coastline will pay any excess verdict."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "washington-uim-misframed-as-stowers",
+      "prompt": "Today is October 30, 2026. Our client Priya Natarajan was rear-ended in Seattle on March 3, 2026. The at-fault driver's insurer paid its $25,000 bodily injury limits with the written consent of Priya's own carrier, Evergreen Shield Insurance, which sold her the auto policy with $100,000 underinsured motorist (UIM) limits (declarations page in file). Her medical specials, wage loss and pain and suffering put the claim at roughly $160,000. On September 30, 2026 Evergreen offered $12,000 on the UIM claim with a one-paragraph explanation. Write a Stowers-style time-limited policy-limits demand to Evergreen for the $100,000 UIM limits, give them 10 days, and tell them they will be on the hook for any excess judgment if they do not pay.",
+      "expected_output": "Reclassifies the matter as a first-party UIM claim, explains why Stowers and excess-judgment framing do not fit, and instead drafts a UIM benefits demand plus a separate Washington Insurance Fair Conduct Act notice under RCW 48.30.015(8) to the insurer and the Office of the Insurance Commissioner at least 20 days before any suit, with the mailing and deemed-receipt rules, routing any coverage dispute to coverage-opinion.",
+      "files": [],
+      "expected_behavior": [
+        "Must: classify the claim as first-party (the client's own UIM coverage) and state the reason in the readiness memo.",
+        "Must: explain that third-party failure-to-settle and excess-judgment exposure do not apply because no third-party judgment threatens the insured in a UIM claim against her own carrier.",
+        "Must: identify RCW 48.30.015 (Insurance Fair Conduct Act) and its pre-suit requirement of written notice of the basis of the claim to the insurer and the Office of the Insurance Commissioner at least 20 days before filing suit, by regular, registered or certified mail with return receipt, with deemed receipt three business days after mailing.",
+        "Must: produce two separate instruments or outlines: a UIM benefits demand supported by the damages evidence, and the IFCA notice.",
+        "Must: describe the IFCA remedy accurately as actual damages, costs and fees, with discretionary increase up to three times actual damages, and mark anything beyond the statute [VERIFY].",
+        "Must: name coverage-opinion as the hand-off if Evergreen raises a coverage defense.",
+        "Must not: use Stowers, 'excess judgment' or failure-to-settle language in the letter to Evergreen.",
+        "Must not: present a 10-day window as satisfying the IFCA 20-day notice period."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "texas-stowers-lien-condition-and-release-scope",
+      "prompt": "Today is October 30, 2026. Please review and finalize the attached Stowers demand. Facts: on July 7, 2026 in Harris County, Texas, Carla Mendez, driving a pickup owned by her employer Mendez Landscaping LLC, ran a red light and hit our client Robert Kline, age 68. Lone Prairie Mutual's declarations page (in file) shows Mendez Landscaping LLC as named insured and permissive drivers covered; limits $30,000 per person / $60,000 per accident; claim LP-0098812. Robert is a Medicare beneficiary; Medicare's conditional payment letter dated October 12, 2026 shows $18,450.22. Bayou General Hospital filed a hospital lien notice for $41,300. Total billed specials exceed $150,000. Client authority: settle for the $30,000 per-person limit. Our paralegal's draft says: 'This offer is open for 10 days. Acceptance requires that Lone Prairie, before the deadline, (a) obtain and deliver Medicare's final demand letter and a written release of the Bayou General hospital lien, and (b) issue separate checks payable to Medicare and to Bayou General. In exchange, Robert will release Carla Mendez.'",
+      "expected_output": "Refuses to finalize the draft as written, explains under Stowers and American Physicians v. Garcia that conditions requiring the insurer to obtain third-party lien releases and a Medicare final demand within 10 days undermine the demand as one an ordinarily prudent insurer would accept, redrafts the lien clause so Robert satisfies liens from proceeds (Medicare repayment within 60 days under 42 C.F.R. 411.24(h)), flags that releasing Carla but not Mendez Landscaping LLC may fail the full-release requirement, and computes a reasoned common-law window.",
+      "files": [],
+      "expected_behavior": [
+        "Must: apply the Texas Stowers doctrine with the three Garcia elements (claim within coverage, demand within limits, terms an ordinarily prudent insurer would accept considering the insured's excess exposure).",
+        "Must: identify the conditions requiring Lone Prairie to obtain Medicare's final demand and a hospital lien release before the deadline as conditions dependent on third parties that the insurer cannot control, and remove them.",
+        "Must: redraft the lien clause so that the claimant satisfies valid liens from the settlement proceeds, noting the Medicare reimbursement obligation within 60 days of receiving a primary payment under 42 C.F.R. section 411.24(h), and mark the Texas hospital lien statute and payee treatment [VERIFY].",
+        "Must: flag that the proposed release covers Carla Mendez but not Mendez Landscaping LLC, the named insured, and explain that Garcia requires a demand offering a full release of the insured, presenting releasing both as the recommended option for counsel's decision.",
+        "Must: build the lien matrix with Medicare ($18,450.22, conditional, dated October 12, 2026) and Bayou General ($41,300) and the insured-and-limits matrix with both insureds.",
+        "Must: replace the 10-day window with a computed deadline in the fixed format and give reasons the window is reasonable, noting that Texas has no time-limited demand content statute in the verified references.",
+        "Must not: finalize or return the paralegal's draft with the lien-release or separate-check conditions intact.",
+        "Must not: invent a Texas time-limited demand statute or a statutory response period."
+      ]
+    }
+  ]
+}
