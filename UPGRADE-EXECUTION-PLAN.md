@@ -2,7 +2,7 @@
 
 Companion to `UPGRADE-PLAYBOOK.md` and `scripts/run_top15_upgrade.py`. The playbook says *what* each skill must look like. This plan says *how* the work gets done, by whom, in what order, and how it is checked.
 
-Status: **in progress.** Phase 0 (harness hardening) done 2026-10-30. Phase 1 pilot running.
+Status: **in progress.** Phase 0 (harness hardening) done 2026-10-30. Phase 1 pilot authored and reviewed; fix pass running. Eval and content rules from the pilot review are in Appendix A.
 
 ---
 
@@ -211,6 +211,20 @@ Deliverables:
      "expected_behavior": ["Must: ...", "Must: ...", "Must not: ..."]} ]}
   Each eval targets a named row of the trap map and plants the trap in its facts, so a weak skill fails it. If a fixture is long, put it in evals/fixtures/<name>.md and list "fixtures/<name>.md" in files.
 
+Eval rules (from the pilot review; each one was violated at least once there):
+- No eval may expect output that one of the skill's own hard stops would block. In each eval's expected_output, name the hard stops you checked.
+- Prove the trap is live on the stated facts, and say in one line why a weak skill fails. Recompute every number with a script and put the key figures in the notes.
+- No Must line may depend on a [VERIFY] fact. Confirm the fact, or make the Must require analyzing both readings.
+- Must lines are single, gradable requirements: no "alternatively", no exhaustive claims ("the one criterion left"), and outcome labels taken verbatim from the skill's own vocabulary.
+- Define in the prompt every quantity the arithmetic depends on ("tax EBITDA", "price paid for the target's stock").
+
+Content rules (from the pilot review):
+- In every clocks or windows table, give each timed element its own trigger event. Do not assume one anchor for all of them.
+- A default that a common statute or rule overrides must say so where the default is stated.
+- If the description carries a search phrase naming an improper aim ("bad faith setup", "upcoding", "back-solve"), the purpose sentence states the legitimate aim, and a Ground Rule, a hard stop and an eval cover the improper one.
+- The trap map includes at least one row on party, authority or scope: who can release, who is in the population, which entity's tax. In your report, list two or three high-frequency traps you considered and left out.
+- Before writing [VERIFY], try the issuing body's own page, summary, FAQ or training material. Cite only documents you actually saw.
+
 Research: verify every statute, regulation, guideline, threshold, dose, rate, and standard you cite against a primary source with web search (load WebSearch and WebFetch through ToolSearch if they are deferred). Today is 2026-10-30. Record each check in primary-sources.md. Mark anything unconfirmed, jurisdiction-dependent, or year-dependent [VERIFY]. Never invent a citation.
 
 Banned text anywhere in the bundle (the harness scans every file):
@@ -237,5 +251,8 @@ For each bundle:
 3. Does each eval actually exercise a trap-map row, and would a weak skill fail it?
 4. Do Checkpoint A hard-stops, Ground Rules, and Quality Audit agree with each other?
 5. Routing: do sibling skills in this batch and the overlap table route to each other cleanly?
+6. For each eval: would a skill that follows its own hard stops and ground rules pass it? Is the trap live on the stated facts? Does any Must depend on a [VERIFY] fact?
+7. Does any default, clock anchor, or rule conflict with a common statute, measure specification, or standard?
+8. Recompute every number in every eval with python.
 Do not edit files. Return findings per skill, ranked by severity, each with file, line, problem, and fix.
 ```
