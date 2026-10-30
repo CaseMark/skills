@@ -42,6 +42,7 @@ Merger agreements fail in the definitions and the cross-references, not in the h
 | Price mechanics: working capital peg, closing statement, Accounting Principles, QoE report | Closing Merger Consideration and the post-closing true-up | Peg built on a different basis from the closing statement; an item in both Indebtedness and current liabilities; seasonal peg; true-up silently capped by the indemnity cap |
 | Indemnification article, survival clause, R&W insurance binder | Post-closing recovery in a private deal | Anti-sandbagging clause plus a buyer Knowledge definition that includes the data room; known diligence issue excluded by the policy and left to general representations; survival clause silent on the 8106 limitations period; fraud carve-out drafted too wide or too narrow |
 | Stockholder approval, appraisal and letter of transmittal (party and authority) | Who must approve, who is bound, who can demand appraisal | "Majority of votes cast" used where 251(c) needs a majority of outstanding stock; release first imposed in the letter of transmittal; uncapped, indefinite indemnity of non-signing holders (Cigna); 262 notices anchored to the wrong trigger; controlling stockholder deal without the 144 approvals the parties mean to rely on |
+| Support, voting and rollover agreements signed with the target's holders (public or widely held Delaware target) | Locking up votes or tenders for the deal | Under DGCL 203 the buyer becomes the "owner" of shares it has a right to vote under an agreement, so support agreements covering 15% or more can make it an "interested stockholder"; the target board's 203 approval must come before the agreements are signed, not at the merger vote; the 203(b)(4) exemption for stock that is neither listed nor held by more than 2,000 holders is not checked |
 | Termination article, fees and remedies | Closing certainty and the price of walking | Outside date shorter than a second-request timetable; reverse termination fee as sole remedy even for willful breach, blocking specific performance; lost-premium damages not drafted under 261(a)(1); fiduciary out missing in a locked-up deal (Omnicare) |
 | Disclosure schedules and diligence findings | Exceptions to representations; special indemnities | Schedules drafted against superseded representation numbers; general "deemed disclosed" language; diligence finding with no representation, condition or special indemnity |
 | Term sheet, LOI and tax structure memo | Economics and structure the draft must carry | Draft departs from the signed LOI without a flag; intended tax treatment written as a representation or condition without tax counsel's instruction |
@@ -59,7 +60,7 @@ Merger agreements fail in the definitions and the cross-references, not in the h
 9. **No gun-jumping.** Interim covenants protect value; they never give the buyer control of ordinary-course operations or competitively sensitive information before required clearance, and closing never precedes expiry of a required waiting period. Requests to the contrary are declined and routed to hsr-filing.
 10. **The price ties.** Every balance sheet item appears in exactly one line of the waterfall, and the peg and the closing statement use one basis.
 11. **Bind only those the statute lets you bind.** Releases and indemnity from non-signing holders must rest on consideration and be capped and time-limited (`references/delaware-mechanics.md`, section 5).
-12. **Tax structure is stated, not chosen.** Record the intended treatment only as tax counsel instructs; route the analysis to analyzing-m-and-a-tax-implications.
+12. **Tax structure is stated, not chosen.** Record the intended treatment only as tax counsel instructs; route the analysis, the tax representations, the tax indemnity and the tax treatment of deferred or rollover consideration to analyzing-m-and-a-tax-implications.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -78,11 +79,11 @@ Collect, from documents where possible:
 11. Tax intent and any instruction from tax counsel.
 12. Timeline: signing target, outside date, stockholder meeting or consent plan.
 
-**Defaults if not supplied** (each is a policy election stated in the deliverable): Delaware law and the Court of Chancery for the agreement; reverse triangular merger; MAE with carve-outs for general economic, industry, law and GAAP changes, pandemics, war, and announcement, with a disproportionate-effect exception on the economic, industry, law and GAAP, pandemic and war carve-outs only; fundamental representations true in all respects (capitalization de minimis), other representations to an MAE standard (public) or in all material respects (private), with a scrape for the bring-down stated; stockholder approval by a majority of the outstanding stock entitled to vote, which the charter can raise and a controlling stockholder transaction under 144(b) or (c) may require supplementing; private survival of 12 to 18 months for general representations as a negotiating position, not a rule, noting that a period beyond three years needs the 8106(c) contract period; specific performance available to both sides.
+**Defaults if not supplied** (each is a policy election stated in the deliverable): Delaware law and the Court of Chancery for the agreement; reverse triangular merger through a newly formed Delaware merger subsidiary (a merger subsidiary that is an LLC or formed elsewhere moves its statute rows to `[VERIFY]`); MAE with carve-outs for general economic, industry, law and GAAP changes, pandemics, war, and announcement, with a disproportionate-effect exception on the economic, industry, law and GAAP, pandemic and war carve-outs only; fundamental representations true in all respects (capitalization de minimis), other representations to an MAE standard (public) or in all material respects (private), with a scrape for the bring-down stated; stockholder approval by a majority of the outstanding stock entitled to vote, which the charter can raise and a controlling stockholder transaction under 144(b) or (c) may require supplementing; private survival of 12 to 18 months for general representations as a negotiating position, not a rule, noting that a period beyond three years needs the 8106(c) contract period; specific performance available to both sides.
 
 **Hard stops** (label the determination "Declined: hard stop" and produce what the stop calls for):
 - The side represented is unknown: produce a neutral issues list only.
-- A constituent's state of incorporation is unknown: produce an issues list and the intake questions; no approval, appraisal or filing mechanics.
+- The target's state of incorporation is unknown (or, in a direct two-party merger, the buyer's): produce an issues list and the intake questions; no approval, appraisal or filing mechanics. A merger subsidiary that is not yet formed is not a stop; it takes the Delaware default below.
 - Neither a term sheet nor a client instruction fixes the price and form of consideration: produce term sheet questions, not a draft agreement.
 - A request for covenants or side arrangements that give the buyer control of the target's ordinary-course operations or competitively sensitive information before a required waiting period expires, or for closing before it expires: decline those provisions, draft the compliant alternative, and hand off to hsr-filing.
 
@@ -118,7 +119,7 @@ Read `references/deal-terms-and-traps.md`, section 6, and `references/delaware-m
 
 ## Step 8: Approval, Appraisal and Stockholder Mechanics
 
-Read `references/delaware-mechanics.md`, sections 3, 4 and 6. Draft the approval covenant for the chosen path, the vote standard in the statute's words, the appraisal provisions, and the clocks table with a separate trigger for each element. For a controlling stockholder or going-private deal, state the 144 approvals relied on.
+Read `references/delaware-mechanics.md`, sections 3, 4 and 6. Before any support or voting agreement is signed for a listed or widely held Delaware target, confirm the board's DGCL 203 approval. Draft the approval covenant for the chosen path, the vote standard in the statute's words, the appraisal provisions, and the clocks table with a separate trigger for each element. For a controlling stockholder or going-private deal, state the 144 approvals relied on.
 
 ## Step 9: Termination, Fees and Remedies
 
@@ -185,12 +186,13 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - hsr-filing: whether a filing is required, the waiting period, and review of interim covenants, access and integration planning for gun-jumping.
 - disclosure-schedules: drafting the schedules against the representations and the cross-application standard.
 - due-diligence-report: confirming facts a representation, condition or special indemnity depends on.
-- analyzing-m-and-a-tax-implications: structure, intended tax treatment, tax representations, tax indemnity and allocation.
+- analyzing-m-and-a-tax-implications: structure, intended tax treatment, tax representations, tax indemnity and the tax treatment of deferred or rollover consideration; this skill drafts the clauses only as that analysis and tax counsel direct.
 - stock-purchase-agreement: the deal is a stock purchase, not a merger.
 - asset-purchase-agreement: the deal is an asset acquisition.
 - letter-of-intent: the economics are not yet agreed and a term sheet is needed first.
 - escrow-agreement: escrow and holdback mechanics once amounts are set.
-- voting-agreement: support agreements with stockholders.
+- Support, voting and rollover agreements with the target's stockholders in an M&A deal stay in this skill (including the DGCL 203 approval); voting-agreement covers closely held and venture voting agreements, not deal support agreements, and legal-research takes any open 203 question.
+- Sandbagging split: the pro- or anti-sandbagging clause and the Knowledge definitions are drafted here; schedule supplements between signing and closing and the buyer's knowledge at closing go to disclosure-schedules.
 - proxy-statement: stockholder meeting disclosure for a public target.
 - ma-closing-checklist: closing deliverables and signature logistics.
 

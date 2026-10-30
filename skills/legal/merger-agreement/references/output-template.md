@@ -15,7 +15,7 @@ Produce the header and the seven parts in this order. Plain sentences; detail in
 
 ## Header
 
-- Matter; parties; side represented (buyer, target, seller stockholders, other); public or private target; structure (forward, reverse triangular, 251(h) two-step); state of incorporation of each constituent; governing law of the agreement; today's date; deliverable mode (new draft, or review of a counterparty draft); preparer note: "Draft for attorney review."
+- Matter; parties; side represented (buyer, target, seller stockholders, other); public or private target; structure (forward, reverse triangular, 251(h) two-step); state of incorporation of each constituent (a merger subsidiary not yet formed is stated as the Delaware default); governing law of the agreement; today's date; deliverable mode (new draft, or review of a counterparty draft); preparer note: "Draft for attorney review."
 - **Source-review register**, one row per file:
 
 | File | Type | Date | Status | Sections read | Note |
@@ -107,8 +107,8 @@ A hand-off carries the facts the receiving workflow needs; a skill name alone is
 | hsr-filing | Any filing may be required, or interim covenants, access or integration planning touch the target's operations before closing | Parties, values, structure, interim covenant text, access and clean-team terms, outside date |
 | disclosure-schedules | Representations are final enough to schedule against, or a schedule exception drives a representation change | Representation list with section numbers, qualifiers, cross-application standard, known exceptions from diligence |
 | due-diligence-report | A representation, special indemnity or condition depends on a diligence fact not yet confirmed | The provision, the fact needed, the data room locator if any |
-| analyzing-m-and-a-tax-implications | Structure choice, intended tax treatment, tax representations, tax indemnity, allocation, withholding | Structure, consideration mix, entity classifications, intended treatment as instructed |
-| escrow-agreement; voting-agreement; proxy-statement; ma-closing-checklist | Ancillary documents or closing logistics | Escrow amounts and release mechanics; support agreement terms; meeting timetable; deliverables list |
+| analyzing-m-and-a-tax-implications | Structure choice, intended tax treatment, tax representations, tax indemnity, the tax treatment of deferred or rollover consideration, allocation, withholding | Structure, consideration mix, entity classifications, intended treatment as instructed |
+| escrow-agreement; proxy-statement; ma-closing-checklist | Ancillary documents or closing logistics (support and rollover agreements stay in this skill) | Escrow amounts and release mechanics; meeting timetable; deliverables list |
 
 **Open items**, each with owner and next action:
 
