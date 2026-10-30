@@ -110,7 +110,7 @@ Read `references/standards-and-tools.md`, Sections 4 and 5. State the result in 
 
 ## Step 5: Check the Assessment Content
 
-Read `references/assessment-and-safety-planning.md`, Sections 1 and 2. Fill the assessment content table: ideation, plan, intent, behavior, risk factors, protective factors, access to lethal means including household firearms, and collateral. Mark each Present and current, Present but not current, Absent or Cannot determine.
+Read `references/assessment-and-safety-planning.md`, Sections 1 and 2. Fill the assessment content table: ideation, plan, intent, behavior, risk factors, protective factors, access to lethal means including household firearms, and collateral. Mark each Present and current, Present but not current, Absent or Cannot determine. If the patient is still present and the assessment is missing or incomplete, say first that the clinician should complete it before the patient leaves; collateral warning signs or new access to a firearm make this the first line of the output.
 
 ## Step 6: Draft the Formulation Scaffold
 
@@ -122,7 +122,7 @@ Read `references/assessment-and-safety-planning.md`, Sections 4 and 5. Check eac
 
 ## Step 8: Check the Transition and Crisis Resources
 
-Read `references/assessment-and-safety-planning.md`, Section 6. Compare discharge counseling, the follow-up arrangement and the hand-off with the organization's EP 6 policy, quoted. Confirm 988 and emergency services were given. Where the patient has left without the required assessment or follow-up, say so plainly and route it as a safety gap.
+Read `references/assessment-and-safety-planning.md`, Section 6. Compare discharge counseling, the follow-up arrangement and the hand-off with the organization's EP 6 policy, quoted. Confirm 988 and emergency services were given. Where the patient has left after a positive screen without the required assessment or follow-up, say so plainly, recommend immediate escalation under organization policy (outreach or a follow-up call as the policy directs; the ASQ tool recommends a follow-up call even when a patient declines the brief suicide safety assessment), print 988 and 911, and route the event to `managing-patient-safety-events`. Never defer this to an audit date.
 
 ## Step 9: Reconcile, List Gaps and Hand Off
 
@@ -174,11 +174,12 @@ Complete Sections 9 to 11 of `references/output-template.md`. Check every requir
 | ASQ refusal handled differently by two units | Old and new ASQ instructions | Apply the age rule of the 9/29/25 tool and record which version the policy adopted |
 | Policy names a follow-up time the EP does not | Organization election | Hold the chart to the policy and label the finding as a policy finding |
 | Firearm answer belongs to a different household member | Question asked too narrowly | Report access as Cannot determine and list the household question as open |
+| Patient left after a positive screen without assessment | Discharge before the consult or brief assessment | Recommend immediate escalation under organization policy (outreach or follow-up call per policy; the ASQ tool recommends a follow-up call); print 988 and 911; route to managing-patient-safety-events |
 
 ## Related Skills
 
-- managing-acute-psychiatric-crises: acute positive screens and imminent risk management.
-- managing-psychiatric-emergencies: emergency psychiatric evaluation and disposition.
+- managing-psychiatric-emergencies: the emergency psychiatric evaluation itself, disposition and hold decisions after an acute positive screen or imminent risk; this skill keeps screen interpretation, assessment documentation, safety planning and chart review.
+- managing-acute-psychiatric-crises: agitation, de-escalation and emergency medication when a patient at risk is also acutely agitated.
 - conducting-psychiatric-evaluations: the full psychiatric evaluation behind a risk formulation.
 - documenting-mental-status-exams: mental status and capacity to participate in the assessment.
 - managing-depression-screening: PHQ-9 program design beyond the suicide item.

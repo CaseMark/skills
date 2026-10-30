@@ -129,7 +129,7 @@ Typical rows: screen color band against the documented level; copied note agains
 
 | To skill | Why | What is passed | What this draft did not do |
 |---|---|---|---|
-| managing-acute-psychiatric-crises | Acute positive screen or imminent risk | Screen, ledger | Did not direct care |
+| managing-psychiatric-emergencies | Acute positive screen or imminent risk needing emergency evaluation | Screen, ledger | Did not evaluate or direct care |
 | managing-involuntary-commitments | Hold criteria or state law questions | Facts documented | Did not apply state law |
 | coordinating-care-transitions | Follow-up and hand-off gaps | Transition table | Did not schedule care |
 | managing-patient-safety-events | Discharge without assessment, a death or attempt in care | Ledger and gaps | Did not classify the event |

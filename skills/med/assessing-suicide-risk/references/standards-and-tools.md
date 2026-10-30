@@ -66,6 +66,8 @@ Columbia states that the triage next steps on its setting forms are examples tha
 
 AAP Blueprint for Youth Suicide Prevention (screening page): universal screening at 12 and above; ages 8-11 when clinically indicated (behavioral health complaint, parent or patient concern, history of suicidal ideation or behavior, or warning signs); under 8, screening is not indicated and warning signs prompt assessment. It recommends screening without the parent present where possible and a trained interpreter for limited English proficiency.
 
+NIMH ASQ Youth Emergency Department Script for Nursing Staff: the nurse asks the parent or guardian to step out ("We ask these questions in private"), screens in private, and if the screen is positive tells the parent that someone trained to talk with kids about suicide will come to speak with them. The ASQ toolkit page adds that if the parent refuses to leave or the child insists they stay, screening goes ahead with the parent present.
+
 ## 5. PHQ-9 item 9
 
 - Wording (as quoted by Simon 2013): over the last two weeks, how often bothered by "thoughts that you would be better off dead, or of hurting yourself in some way". It mixes passive thoughts of death with self-harm and asks nothing about plan, intent, behavior or access to means.
