@@ -25,7 +25,7 @@ tags:
 
 # Insurance Coverage Opinion
 
-Prepares a coverage opinion on whether a liability insurer owes a defense and indemnity for a claim or suit, addressed to the client (the insurer or the insured), with the policy and forms reconciliation, the analysis in a fixed order, the clocks that govern reservation and disclaimer, a recommended position and next steps, and hand-offs. It reviews existing reservation and denial letters for timing and content. Every output is a draft for review and signature by a licensed attorney.
+Prepares a coverage opinion on whether a liability insurer owes a defense and indemnity for a claim or suit, addressed to the client (the insurer or the insured), with the policy and forms reconciliation, the analysis in a fixed order, the clocks that govern reservation and disclaimer, a recommended position and next steps, and hand-offs. It reviews existing reservation and denial letters for timing and content. Its scope is third-party liability coverage only; first-party coverage disputes (property, UM/UIM, PIP, disability, health) are out of scope and go to legal-research. Every output is a draft for review and signature by a licensed attorney.
 
 ## Why This Skill Exists
 
@@ -88,7 +88,7 @@ Collect, from documents where possible:
 
 ## Step 1: Client, Role and Scope
 
-Record the client, the requester's role and the conflict check in the header of `references/output-template.md`. Read `references/notice-reservation-and-allocation.md`, section 5. If a reservation creates a conflict that defense counsel could influence (California Civ. Code 2860(b)), flag independent counsel rights now.
+Record the client, the requester's role and the conflict check in the header of `references/output-template.md`. Read `references/notice-reservation-and-allocation.md`, section 5. If a reservation creates a conflict that defense counsel could influence (California Civ. Code 2860(b)), flag independent counsel rights now. If the dispute is over the client's own first-party coverage (property, UM/UIM or similar) rather than a liability policy's defense and indemnity, stop and route it to legal-research.
 
 ## Step 2: Reconcile the Policy as Issued
 
@@ -179,6 +179,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - insurance-policy-summary: summarize the declarations, forms and endorsements before the opinion when no summary exists.
 - tender-of-defense: tender the suit to a contractual indemnitor in addition to the insurers.
 - tender-denial: draft a rejection of a contractual indemnity tender; insurer coverage positions stay in this skill.
+- legal-research: hand off first-party coverage disputes (property, UM/UIM, PIP), which are out of scope here and have no dedicated skill; pass the policy, the claim and the insurer's stated position.
 
 ## Reference Files
 

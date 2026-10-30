@@ -122,6 +122,7 @@ Re: [Suit caption] / Policy No. [ ] / Period [ ]
 | bad-faith-demand | A claimant (or the insured's counsel for an excess exposure) needs a time-limited policy-limits demand once coverage is accepted or reserved | Policy, limits, every insured, the coverage position and reservation grounds |
 | demand-letter | The client needs a general pre-suit demand for payment from a party that is not acting as an insurer on a policy, with no coverage position to take | Parties, claim, damages, exhibits, deadline rationale |
 | tender-of-defense | The insured should tender to a contractual indemnitor (subcontractor, vendor, landlord) as well as to its insurers | Contract indemnity and insurance clauses, suit papers, tender dates |
+| legal-research | The dispute is first-party coverage (property, UM/UIM, PIP), which is outside this skill's liability-only scope | Policy, claim, insurer's position, governing state |
 | insurance-policy-summary | The policy has not yet been summarized | Declarations, forms schedule, endorsements |
 
 **Open items**, each with owner and next action:

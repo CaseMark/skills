@@ -21,7 +21,7 @@ New York (N.Y. Ins. Law 3420, text read in full on 2026-10-30):
 - Irrebuttable presumption of prejudice (3420(c)(2)(B)) if, before notice, the insured's liability was determined by a court or binding arbitration, or the insured settled the claim.
 - Prejudice means the late notice "materially impairs the ability of the insurer to investigate or defend the claim" (3420(c)(2)(C)).
 - The policy must also say notice failure does not invalidate a claim if notice was not reasonably possible within the time and was given as soon as reasonably possible (3420(a)(4)).
-- The date the prejudice rule began to apply to policies (the 2008 amendment) is `[VERIFY]`; for a policy issued before 2009, confirm which version governs.
+- Section 8 of L. 2008, ch. 388 (the prejudice amendment), as quoted in N.Y. Insurance Department OGC Opinion 09-06-08, makes it take effect on the 180th day after it became law and apply to policies issued or delivered in New York on or after that date and to actions under them. Because it is a 2008 law, that day fell no later than June 29, 2009, so any policy issued or delivered in New York after mid-2009 is governed by the prejudice rule. The exact effective date (commonly reported as January 17, 2009) is `[VERIFY]`; for a policy issued in 2008 or 2009, confirm it.
 
 Other states: whether the insurer must show prejudice for late notice under an occurrence policy, and who bears the burden, is `[VERIFY]` unless confirmed in the register. Analyze the notice defense both with and without a prejudice requirement, and never recommend a denial on late notice alone where the governing rule is unconfirmed.
 
@@ -72,7 +72,7 @@ A reservation is not a disclaimer. In New York a reservation-of-rights letter do
 |---|---|---|
 | Coverage counsel retained by the insurer | Yes, addressed to the insurer | Must not also be defense counsel for the insured in the same matter |
 | Coverage counsel retained by the insured or an additional insured | Yes, addressed to the insured | Insured-side opinion; tender and response strategy |
-| Defense counsel retained by the insurer to defend the insured | No coverage opinion for the insurer against the insured | Defense counsel's client is the insured; information relating to the representation is protected (ABA Model Rule 1.8(f)(3), Rule 1.6); route the insurer to separate coverage counsel |
+| Defense counsel retained by the insurer to defend the insured | No coverage opinion for the insurer against the insured | Defense counsel's client is the insured, and in tripartite states the insurer as well (California: absent a conflict, a dual attorney-client relationship with insurer and insured, State Farm v. Federal Ins.; other states `[VERIFY]`). Either way, counsel may not advise the insurer on coverage against the insured or disclose coverage-relevant confidences (Cal. Civ. Code 2860(d); ABA Model Rule 1.8(f)(3) and Rule 1.6); route the insurer to separate coverage counsel |
 | In-house claims professional asking for an internal analysis | Yes, as a draft for the insurer's coverage counsel | Mark privileged status as counsel decides |
 | A firm representing both insurer and insured on coverage | No | Direct conflict; hard stop |
 | Broker or agent | Summary only; no legal opinion | Route to counsel |
