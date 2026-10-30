@@ -87,14 +87,14 @@ Judgment calls (facilitation-payment election, threshold amounts, tier triggers,
 
 ## Part 6. Reconciliation table and clocks
 
-| Item | Value used | Source 1 (locator) | Source 2 (locator) | Conflict? | Value used and why |
-|---|---|---|---|---|---|
-| Issuer status | | SEC filing or registration | requester's statement | | |
-| UK business presence | | entity chart, office list | requester's statement | | |
-| Countries and government customers | | risk assessment | sales data | | |
-| Intermediary compensation | | contract | invoices, ledger | | |
-| GL description of payments | | ledger | invoice and contract | | |
-| Threshold amounts | | existing policy | proposed policy | | |
+| Item | Source 1 (locator) | Source 2 (locator) | Conflict? | Value used and why |
+|---|---|---|---|---|
+| Issuer status | SEC filing or registration | requester's statement | | |
+| UK business presence | entity chart, office list | requester's statement | | |
+| Countries and government customers | risk assessment | sales data | | |
+| Intermediary compensation | contract | invoices, ledger | | |
+| GL description of payments | ledger | invoice and contract | | |
+| Threshold amounts | existing policy | proposed policy | | |
 
 **Clocks**, one row per timed element, each from its own trigger:
 

@@ -62,11 +62,11 @@ Default triggers if the client gives none (company elections; adjust to risk):
 
 **Travel and hospitality (78dd-1(c)(2)).** To fit the affirmative defense the expense must be reasonable and bona fide and directly related to promoting, demonstrating or explaining products or to performing a contract. Policy rules: the host organization selects the attendees; the itinerary is business-driven; class of travel and hotels follow the company's own employee policy; pay vendors directly, never cash per diems; no side trips, leisure stops or extra nights; no spouses, family or guests at company expense; written invitation to the agency, not the individual.
 
-**Charitable contributions and sponsorships.** Due diligence on the recipient and its ties to officials; no contribution requested by an official in connection with business; paid to the organization, never an individual; post-payment confirmation of use.
+**Charitable contributions and sponsorships.** Due diligence on the recipient and its ties to officials (an official as founder, director or patron is a red flag); no contribution requested by an official in connection with business; paid to the organization, never an individual; post-payment confirmation of use. A bona fide charity does not cure a donation made to influence an official (Resource Guide, Charitable Contributions).
 
 **Political contributions.** No contributions to foreign political parties, officials or candidates on behalf of the company.
 
-**Hiring and internships.** Candidates referred by, or related to, officials go through standard hiring with Compliance review; no hiring as a favor connected with pending business.
+**Hiring and internships.** Candidates referred by, or related to, officials go through standard hiring with Compliance review; no hiring as a favor connected with pending business. A job or internship for an official's relative is a thing of value to the official when given to influence (Resource Guide, family members); record who referred the candidate and any pending decision the official touches.
 
 ## 4. Third-party intermediaries
 

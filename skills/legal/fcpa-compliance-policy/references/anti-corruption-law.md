@@ -48,6 +48,8 @@ Scope rules:
 
 The business nexus is broad. United States v. Kay, 359 F.3d 738 (5th Cir. 2004), held that bribes to secure illegally reduced customs duties and taxes can fall within "obtaining or retaining business". Customs and tax payments are therefore not outside the statute because no contract is awarded.
 
+"Anything of value" reaches indirect benefits: the Resource Guide gives payments and gifts to an official's family members as an indirect way of corruptly influencing the official, and says charitable contributions cannot be used as a pretense to funnel bribes (its example: donations to a bona fide charity headed by an official, made to induce business).
+
 The statute has no minimum value. The Resource Guide states that items of nominal value (cab fare, reasonable meals, promotional items) have not, without more, led to enforcement, and that enforcement against small payments has involved a systemic course of conduct.
 
 ## 3. Foreign official and instrumentality
@@ -63,7 +65,7 @@ Drafting consequences:
 
 - Majority ownership is one control factor, not the test. A minority-owned entity can be controlled through appointment rights or a golden share; a majority-owned entity still needs the function inquiry. Do not write "any government ownership makes employees foreign officials" or "under 50 percent is safe". Classify each counterparty on the factors and record the basis.
 - Typical candidates to classify: state-owned enterprises (national oil, power, telecom, airlines), public hospitals and their physicians, public universities, sovereign wealth funds, central banks, customs and port authorities, state media.
-- The Esquenazi factors were stated by the Eleventh Circuit; other circuits have approved similar jury instructions (Resource Guide). Treat the factor list as persuasive outside the Eleventh Circuit.
+- The Esquenazi factors were stated by the Eleventh Circuit; other circuits have approved similar jury instructions (Resource Guide). Outside the Eleventh Circuit, ground the classification in the Resource Guide: whether an entity is an instrumentality "requires a fact specific analysis of an entity's ownership, control, status, and function", DOJ and SEC have long used that analysis, and "companies should consider these factors" when designing compliance programs. Cite Esquenazi there as persuasive only.
 
 ## 4. Facilitating payments, affirmative defenses, extortion
 
