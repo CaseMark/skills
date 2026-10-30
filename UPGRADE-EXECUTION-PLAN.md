@@ -224,6 +224,8 @@ Eval rules (from the pilot review; each one was violated at least once there):
 - The eval's facts must establish every legal predicate a Must line presumes. For example, before asserting a post-signing breach, state that the representations are remade at closing.
 - A "Must not" that forbids producing what the user asked for needs a hard stop or ground rule behind it. Otherwise phrase it as "not without first ...".
 - Do not require [VERIFY] for a figure a sibling skill has confirmed; cite the sibling instead.
+- Never anchor an eval clock to a trigger your own trap map names as the error.
+- A Must that assigns a noncompliance label must address every cure your own clock table lists.
 
 Content rules (from the pilot review):
 - In every clocks or windows table, give each timed element its own trigger event. Do not assume one anchor for all of them.
@@ -231,6 +233,7 @@ Content rules (from the pilot review):
 - If the description carries a search phrase naming an improper aim ("bad faith setup", "upcoding", "back-solve"), the purpose sentence states the legitimate aim, and a Ground Rule, a hard stop and an eval cover the improper one.
 - The trap map includes at least one row on party, authority or scope: who can release, who is in the population, which entity's tax. In your report, list two or three high-frequency traps you considered and left out.
 - Templates and exemplar branches must not contain text the skill's routing sends elsewhere. When routing changes, rewrite or remove the template branch too.
+- If a hard stop says "decline that part", the output template must define how a partial decline is labelled.
 - Every skill you route to must claim that trigger in its own description or scope. If no skill does, route to legal-research (or the vertical's general research skill) and say no dedicated skill exists.
 - If the routing target has not been upgraded yet, list the trigger in your report as unclaimed, so that batch's author adds it.
 - Before writing [VERIFY], try the issuing body's own page, summary, FAQ or training material. Cite only documents you actually saw.

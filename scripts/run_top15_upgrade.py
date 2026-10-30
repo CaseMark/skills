@@ -379,6 +379,12 @@ def verify_skill(domain, slug, path=None):
         errors.append(f"SKILL.md names references/{missing}, which does not exist")
     for orphan in sorted(set(ref_files) - named_in_skill):
         errors.append(f"references/{orphan} is never named in SKILL.md")
+    for rel, text in text_files.items():
+        if rel == "SKILL.md" or not rel.endswith(".md"):
+            continue
+        for named in sorted(set(re.findall(r"references/([A-Za-z0-9._-]+\.md)", text))):
+            if named not in ref_files:
+                errors.append(f"{rel} names references/{named}, which does not exist")
     for name in ref_files:
         text = text_files.get(f"references/{name}", "")
         if re.findall(r"\[[^\]]*?\]\(((?!https?:)[^)]*?\.md)\)", text):
