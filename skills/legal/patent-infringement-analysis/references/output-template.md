@@ -57,7 +57,8 @@ Term computation, with its own trigger for each element:
 |---|---|---|---|---|---|
 | Statutory term | earliest U.S. application referenced under 120/121/365(c)/386(c) | | 20 years | | 154(a)(2) |
 | Term adjustment or extension | face of patent; USPTO record | | days | | 154(b) |
-| Terminal disclaimer | reference patent expiration | | | | 253(b); 1.321 |
+| Terminal disclaimer | end of the reference patent's full statutory term as the disclaimer defines it (early lapse of the reference patent does not count unless the disclaimer says so) | | | | 253(b); 1.321; MPEP 1490 |
+| Common ownership for a double-patenting disclaimer | any date common ownership ended | | | | 1.321(c)(3) |
 | Maintenance fees | grant date | | 3.5/7.5/11.5 years + 6 months | | 41(b) |
 
 **IPR register**, one row per IPR or reexamination:

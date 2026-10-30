@@ -34,7 +34,7 @@ Infringement analyses fail in predictable places. The analyst charts the claim p
 | Input / Document | What It Is Used For | Where the Error Hides |
 |---|---|---|
 | Issued patent, reexamination and IPR certificates, reissue, certificates of correction | The claim text actually in force | Claim printed on the original patent charted after an IPR certificate canceled it or a reexamination certificate amended it; dependent claim charted without its parent's limitations; intervening rights for amended claims ignored |
-| Filing history on the patent face, term adjustment, terminal disclaimers, maintenance fee record | Whether and when the patent is in force | Term counted from the continuation's own filing date instead of the earliest U.S. application it references; terminal disclaimer or lapsed maintenance fee not checked; infringement and injunctive relief analyzed for acts after expiration |
+| Filing history on the patent face, term adjustment, terminal disclaimers, maintenance fee record | Whether and when the patent is in force | Term counted from the continuation's own filing date instead of the earliest U.S. application it references; lapsed maintenance fee not checked; terminal-disclaimed term ended early because the reference patent lapsed, when the disclaimer runs to the reference patent's full statutory term; split ownership under a double-patenting disclaimer missed; infringement and injunctive relief analyzed for acts after expiration |
 | Specification and drawings | Context for construing claim terms | Claim term limited to the preferred or only embodiment without lexicography or disavowal (Phillips; Thorner); "module" or "unit" claimed by function treated as structure without a Williamson test |
 | Prosecution history, reexamination and IPR record | Disclaimer and estoppel | Narrowing amendment ignored when an equivalents theory recaptures the surrendered range (Festo); patent owner's IPR arguments ignored in construction (Aylus); disclosed but unclaimed alternative argued as an equivalent (Johnson & Johnston) |
 | Claim chart rows | Element-by-element comparison | Two limitations merged into one row; a limitation skipped; equivalents stretched until the limitation is gone (Warner-Jenkinson vitiation); conclusion with no evidence citation |
@@ -42,6 +42,7 @@ Infringement analyses fail in predictable places. The analyst charts the claim p
 | Method claims and who performs each step | Identifying a direct infringer | Steps performed by customers or partners attributed to the accused party without an Akamai basis; inducement pleaded with no direct infringer (Limelight); "use" of a system assigned to a party that does not put it into service (Centillion) |
 | Notice letters, prior dealings, citations in prosecution, internal emails | Knowledge for inducement, contributory infringement and willfulness | Indirect liability counted from first sale instead of the date of knowledge of the patent and of infringement (Global-Tech; Commil); belief in invalidity treated as a defense to inducement |
 | Place of manufacture, sale, server location, export shipments | Territorial reach of 271 | Foreign manufacture or sale charted as 271(a) infringement; single exported component treated as a "substantial portion" under 271(f)(1) (Life Technologies) |
+| Regulatory testing records, publication date of the application, pre-issue sales | Whether an act is infringing or compensable at all | Activity solely for uses reasonably related to developing and submitting information under federal drug law charted as infringement despite the 271(e)(1) safe harbor; pre-issue sales charted as infringement, or a 154(d) provisional-rights royalty assumed without a published application, actual notice of it and substantially identical claims |
 | Engagement, requester's side, assignment and license records, purpose of the written analysis | Who the client is, who owns and may enforce the patent, and what the document will be used for | Draft presented or requested as a formal opinion of counsel; request to reach a set conclusion or omit adverse facts; analysis run for a patent the client does not own or for products already licensed or exhausted (Impression Products) |
 
 ## Ground Rules
@@ -70,16 +71,17 @@ Collect, from documents where possible:
 5. The accused products or processes, each version and configuration, and dates of first U.S. sale, import or use.
 6. Accused-product evidence by rank: source code, schematics, teardown or inspection results, technical documents, admissions, marketing.
 7. Who performs each step of each method claim and where; where products are made, sold, shipped and serviced; any servers abroad.
-8. Knowledge evidence: notice letters (date, patent and products named), prior dealings, citations of the patent, internal communications.
-9. Licenses, covenants, settlements and supplier relationships affecting the accused products; the patentee's and licensees' marking practice.
-10. Any pending or planned litigation, its filing date, and service dates on the accused party.
+8. Publication date of the application and any notice of it to the accused party; any regulatory-submission use of the accused product.
+9. Knowledge evidence: notice letters (date, patent and products named), prior dealings, citations of the patent, internal communications.
+10. Licenses, covenants, settlements and supplier relationships affecting the accused products; the patentee's and licensees' marking practice.
+11. Any pending or planned litigation, its filing date, and service dates on the accused party.
 
 **Defaults if not supplied** (a statute or certificate overrides any default it addresses): claim status "Status unconfirmed" and a USPTO check listed as an unverified external lookup; terms given ordinary meaning with the alternative construction charted where a dispute is foreseeable; accused-product facts from marketing alone labeled "Not determinable on current evidence"; knowledge date for indirect theories set at the earliest documented notice naming the patent, not the first sale; planned filing date assumed to be today for the 286 window, labeled as an assumption; analysis status no better than "Ready subject to listed confirmations."
 
 **Hard stops (label the analysis status "Declined: hard stop"; produce the request, routing or alternative, not the requested analysis):**
 - No claim language for any asserted claim (only a patent number, title or summary) and no way to obtain the patent text: produce the document request.
 - No information about the accused product or process beyond its name: produce the evidence request and the list of limitations to investigate.
-- A request to issue, sign or format the analysis as a formal opinion of counsel, to reach a fixed conclusion regardless of the analysis, or to omit known material adverse facts or controlling authority: decline that version, explain why, and offer the complete draft analysis for counsel.
+- A request to issue, sign or format the analysis as a formal opinion of counsel, to reach a fixed conclusion regardless of the analysis, or to omit known material adverse facts or controlling authority: decline that version, explain why, and offer the complete draft analysis for counsel. No skill in this library provides a formal patent infringement or validity opinion of counsel; that is attorney work.
 - The patent is a design patent, plant patent or non-U.S. patent: route to legal-research, which handles it as a research question; no dedicated skill exists.
 
 **Not hard stops:** missing file history (Critical item; constructions marked provisional); marketing-only evidence (limitations "Not determinable on current evidence"); expired patent (analyze the past window only); damages questions (hand off).
@@ -185,6 +187,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - preservation-letter: hand off evidence preservation for accused-product versions and knowledge documents.
 - ip-infringement-analysis: hand off trademark, copyright and trade secret questions.
 - legal-research: hand off design, plant and foreign patents and forum-specific rules; no dedicated skill exists for those.
+- No skill: a formal patent infringement or validity opinion of counsel is attorney work that no skill provides; do not hand it to another skill.
 
 ## Reference Files
 

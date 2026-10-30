@@ -12,7 +12,7 @@ Rules for construing claims and charting infringement of U.S. utility patents. E
 6. Who infringes: direct infringement, method claims and divided performance
 7. Indirect infringement: inducement and contributory infringement
 8. Where the act happens: territorial limits, 271(f) and 271(g)
-9. Defenses that turn on the accused product's chain of title
+9. Defenses that turn on the accused product's chain of title or its use
 10. Evidence standards for the accused product
 
 ## 1. Order of analysis
@@ -70,11 +70,11 @@ Bars, checked in this order before any equivalents theory is offered:
 | Bar | Rule | Source |
 |---|---|---|
 | Vitiation | Equivalents may not be applied so broadly as to eliminate an element in its entirety. If the theory reads the limitation out of the claim (for example, "non-metallic" met by metal), equivalents fail | Warner-Jenkinson, 520 U.S. at 28-30 |
-| Amendment-based estoppel | A narrowing amendment made to satisfy any requirement of the Patent Act may give rise to estoppel. If the record does not explain the amendment, a patentability reason is presumed. The narrowing amendment is presumed to surrender the territory between the original and the amended claim | Warner-Jenkinson (presumption where the record is silent); Festo, 535 U.S. at 736, 740 |
+| Amendment-based estoppel | A narrowing amendment made to satisfy any requirement of the Patent Act may give rise to estoppel. If the record does not explain the amendment, a patentability reason is presumed. The narrowing amendment is presumed to surrender the territory between the original and the amended claim | Warner-Jenkinson, 520 U.S. at 33 (presumption where the record is silent); Festo, 535 U.S. at 736, 740 |
 | Rebuttal of the Festo presumption | Patentee bears the burden to show the equivalent was unforeseeable at the time of the amendment, the rationale of the amendment bears no more than a tangential relation to the equivalent, or some other reason the patentee could not reasonably have described it | Festo, 535 U.S. at 740-41 |
-| Argument-based estoppel | Clear arguments to the examiner or the Board distinguishing prior art can surrender scope even without amendment | `[VERIFY]` controlling Federal Circuit standard not read for this skill; analyze both readings |
+| Argument-based estoppel | Arguments made to the examiner surrender equivalents only where the prosecution history shows a clear and unmistakable surrender of subject matter; arguments are not presumed to surrender a whole range the way amendments are | Conoco, Inc. v. Energy & Envtl. Int'l, 460 F.3d 1349 (Fed. Cir. 2006) |
 | Dedication-disclosure | Subject matter disclosed in the specification but not claimed is dedicated to the public and cannot be recaptured through equivalents | Johnson & Johnston (en banc) |
-| Ensnarement | An equivalents range may not ensnare the prior art | `[VERIFY]` not read for this skill; flag for counsel |
+| Ensnarement | An equivalents range may not ensnare the prior art. Construct a hypothetical claim that literally covers the accused product and ask whether it would have been patentable over the prior art; a legal limit decided by the court, with the patentee bearing the burden of persuasion | DePuy Spine v. Medtronic Sofamor Danek, 567 F.3d 1314 (Fed. Cir. 2009), following Wilson Sporting Goods v. David Geoffrey & Assocs., 904 F.2d 677 (Fed. Cir. 1990) |
 
 An equivalents position that clears every bar is stated as "Met under DOE only," never as literal infringement, and the per-claim label reflects the weaker footing.
 
@@ -115,7 +115,9 @@ Sources: 35 U.S.C. 271(a), (f), (g); Microsoft Corp. v. AT&T Corp., 550 U.S. 437
 - Where a 271(f) theory succeeds, foreign lost profits are a damages question for the damages expert (WesternGeco); hand off.
 - Method claims practiced partly abroad and systems with servers abroad raise unsettled situs questions `[VERIFY]`; analyze each step's location.
 
-## 9. Defenses that turn on the accused product's chain of title
+## 9. Defenses that turn on the accused product's chain of title or its use
+
+- Regulatory safe harbor: making, using, offering, selling or importing a patented invention solely for uses reasonably related to the development and submission of information under a federal law regulating drugs or veterinary biological products is not infringement (35 U.S.C. 271(e)(1)). Chart regulatory testing activity separately from commercial activity and flag it for counsel.
 
 - Exhaustion: an authorized sale by the patentee or licensee exhausts patent rights in that item, regardless of post-sale restrictions, including authorized sales abroad (Impression Prods. v. Lexmark Int'l, 581 U.S. 360 (2017)). Ask where the accused components came from and whether any supplier is licensed.
 - License and covenant scope: read any license, covenant not to sue, or settlement affecting the patent family before charting.
