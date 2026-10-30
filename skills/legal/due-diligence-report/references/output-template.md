@@ -82,8 +82,9 @@ A hand-off carries the facts the receiving workflow needs; a skill name alone is
 |---|---|---|
 | disclosure-schedules | Findings that become exceptions to representations (contracts, consents, litigation, liens, IP, employees) | Finding, source locator, rating, and the representation it qualifies |
 | merger-agreement | Findings that call for a special indemnity, escrow, closing condition, covenant, definition change (Indebtedness, Permitted Liens, Affiliate) or a privilege carve-out | Finding, exposure as stated, proposed protection, structure assumed |
-| hsr-filing | Competitively sensitive information exchanged outside a clean team, pre-closing coordination, or a filing threshold question | What was shared, with whom, when, and the protocol in place |
-| analyzing-m-and-a-tax-implications | Tax findings, structure changes that alter tax treatment, worker classification payroll tax exposure | Returns reviewed, audits, structure assumed, open tax items |
+| hsr-filing | Target overlaps and gun-jumping or information-exchange issues found in diligence (competitively sensitive information outside a clean team, pre-closing coordination) | Overlapping products, services, customers and geographies with sources; what was shared, with whom, when, and the protocol in place. Item 4(c) and 4(d) custodian collection and Item 8 stay with hsr-filing |
+| analyzing-m-and-a-tax-implications | Tax audits and open tax matters found in diligence; structure changes that alter tax treatment | Returns reviewed, audits, structure assumed, open tax items |
+| legal-research | Payroll-tax and classification exposure from misclassified workers (no dedicated skill exists) | Workers, roles, pay, hours, states, contract terms and the classification test to research |
 | consent-letter | Each contract labeled Consent required or Notice only | Counterparty, clause, deal description permitted to be disclosed, deadline |
 | due-diligence-checklist | Supplemental request list for gaps | Open items from Part 6 |
 

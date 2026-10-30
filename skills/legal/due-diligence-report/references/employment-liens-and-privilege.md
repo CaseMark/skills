@@ -13,11 +13,11 @@ Authorities named here are listed, with the date each was read, in `references/p
 
 ## 1. Timed elements and their triggers
 
-Each timed element runs from its own trigger. Never use one anchor for all of them.
+Each timed element runs from its own trigger. Never use one anchor for all of them. HSR filing deadlines and waiting periods are not computed here; hand them to hsr-filing.
 
 | Element | Trigger event | Period | Source |
 |---|---|---|---|
-| WARN notice for a group of terminations | That group's first individual termination date | At least 60 calendar days before it; each later group gets its own full 60 days | 29 U.S.C. 2102(a); 20 C.F.R. 639.5(a)(1) |
+| WARN notice for a group of terminations | That group's first individual termination date | At least 60 calendar days before it; each later group gets its own full 60 days; no weekend or holiday roll, so deliver by the prior business day | 29 U.S.C. 2102(a); 20 C.F.R. 639.5(a)(1) |
 | WARN single-event test | Any employment loss at the site | Any 30-day period (look 30 days ahead and behind) | 29 U.S.C. 2101(a)(2)-(3); 20 C.F.R. 639.5(a)(1)(i) |
 | WARN aggregation | Any employment loss at the site | Any 90-day period (look 90 days ahead and behind) | 29 U.S.C. 2102(d); 20 C.F.R. 639.5(a)(1)(ii) |
 | WARN headcount snapshot | Date the first notice is required | Measured on that date | 20 C.F.R. 639.5(a)(2) |
@@ -26,7 +26,6 @@ Each timed element runs from its own trigger. Never use one anchor for all of th
 | UCC financing statement lapse | Date of filing of that financing statement | Five years, unless continued | UCC 9-515(a), (c) |
 | UCC continuation window | Expiration date of that financing statement | Only within the six months before it | UCC 9-515(d) |
 | Patent assignment recording protection | Date of that assignment | Three months, or before the later purchase | 35 U.S.C. 261 |
-| HSR waiting period | Receipt of both parties' completed notifications | 30 days (15 for a cash tender offer), subject to extension | 15 U.S.C. 18a(b)(1) |
 
 ## 2. WARN Act screen for planned reductions
 
@@ -48,7 +47,7 @@ Run this whenever the buyer plans reductions, the seller has made them in the la
 - List every individual paid as a contractor, consultant or through an agency who works full-time, long-term or in the target's core business. These are the misclassification candidates and also the IP assignment gaps of `references/contract-and-ip-review.md`, section 7.
 - California applies an ABC test (Cal. Lab. Code 2775(b)(1)): control, work outside the usual course of the hiring entity's business, and an independently established trade. Statutory exceptions apply `[VERIFY]`. The federal FLSA standard and its current enforcement position are `[VERIFY]`.
 - Report exposure categories (overtime, benefits eligibility, tax withholding, penalties) with the facts that drive them; do not compute penalties without the governing statute.
-- Benefit plans: obtain plan documents, Form 5500s and determination letters; flag multiemployer plan participation and controlled-group exposure for benefits counsel. Tax consequences go to analyzing-m-and-a-tax-implications.
+- Benefit plans: obtain plan documents, Form 5500s and determination letters; flag multiemployer plan participation and controlled-group exposure for benefits counsel. Payroll-tax exposure from misclassification goes to legal-research (no dedicated skill exists); tax audits and open tax matters go to analyzing-m-and-a-tax-implications.
 
 ## 4. Lien, UCC and judgment searches against the debt schedule
 

@@ -46,6 +46,7 @@ A diligence report is relied on to price the deal, write the disclosure schedule
 | Contractor roster, 1099 list, staffing agency agreements | Misclassification exposure | Long-term, full-time contractors doing core work accepted as contractors without the governing classification test; the same people's IP assignments not checked |
 | Seller litigation list, docket searches, demand letters, regulator correspondence, consent orders | Litigation and regulatory exposure | Only filed suits reported; threatened claims in correspondence and open regulatory inquiries missed; continuing obligations under consent orders or settlements not carried forward; exposure figures invented instead of quoted |
 | UCC, judgment and tax lien search reports, debt schedule, payoff letters | Indebtedness, liens and closing deliverables | Search run in the headquarters state rather than the state of organization; filings not reconciled to the debt schedule (merchant cash advance, equipment finance); lapsed filing reported as either a live lien or proof of repayment |
+| Permits, licenses and regulatory authorizations; buyer's foreign ownership | Regulatory approvals and closing conditions | License treated as staying with the target in a stock deal though the regulator must approve a transfer of control (FCC licenses, 47 U.S.C. 310(d)); state license approvals not listed; foreign-person buyer of a TID U.S. business not screened for a mandatory CFIUS declaration (31 C.F.R. 800.401) |
 | Privileged legal memos and customer-level pricing in the data room | Privilege preservation and antitrust compliance | Privileged memos produced without a common-interest basis; no privilege carve-out flagged for a merger; competitively sensitive data sent to buyer personnel outside the clean team, a gun-jumping risk routed nowhere |
 
 ## Ground Rules
@@ -58,7 +59,7 @@ A diligence report is relied on to price the deal, write the disclosure schedule
 6. **Consents follow the structure.** Analyze each consent clause against the deal structure and the contract's governing law, using the outcome labels in `references/contract-and-ip-review.md`, section 4, and state what changes if the structure changes. "It is a merger, so nothing is assigned" is never a complete answer.
 7. **Read covenants for whom they bind after closing.** Every exclusivity, non-compete, non-solicit and MFN clause is tested against the buyer group under the contract's Affiliate definition. Where the reach of "Affiliates" is unsettled, present both readings.
 8. **Thresholds are policy elections, not blind spots.** Apply the client's materiality threshold, aggregate contracts that share a risk term, and do not use a revenue threshold to screen out covenants binding the buyer group or statutory triggers. Report a hidden aggregate as a finding.
-9. **Statutory screens run on their own terms.** WARN headcounts, HSR thresholds and similar statutory tests are computed with the statute's own definitions and windows, with the arithmetic shown; they are never filtered by the deal's materiality threshold.
+9. **Statutory screens run on their own terms.** WARN headcounts and similar statutory tests are computed with the statute's own definitions and windows, with the arithmetic shown; they are never filtered by the deal's materiality threshold. HSR thresholds and waiting periods are hsr-filing's to compute.
 10. **Liens are reconciled, not assumed.** Search where the law locates the debtor, reconcile every filing to the debt schedule, and treat lapse as loss of perfection, not proof of payment.
 11. **Privilege and clean teams.** Flag privileged material in the data room and the privilege position after closing. Never route competitively sensitive information to people outside the clean team; route any gun-jumping or information-exchange concern to hsr-filing.
 12. **Report what the documents show.** Never omit, soften, re-rate or move a finding so that a lender, R&W insurer, buyer, regulator or court will not see it, and never describe a document as reviewed when it was not. State exposure only as the source states it; no invented probabilities or dollar ranges.
@@ -113,7 +114,7 @@ Read `references/employment-liens-and-privilege.md`, sections 1 to 3. If any red
 
 ## Step 7: Litigation, Regulatory and Other Areas
 
-Read `references/employment-liens-and-privilege.md`, section 5. Compare the seller's litigation list with docket searches and correspondence. Cover permits and licenses, regulatory correspondence and consent orders, privacy and cybersecurity, real estate, environmental and insurance to the extent in scope. Quote exposure as the source states it.
+Read `references/employment-liens-and-privilege.md`, section 5. Compare the seller's litigation list with docket searches and correspondence. Cover permits and licenses (regulator consent to a change of control and CFIUS screening per `references/contract-and-ip-review.md`, section 3), regulatory correspondence and consent orders, privacy and cybersecurity, real estate, environmental and insurance to the extent in scope. Quote exposure as the source states it.
 
 ## Step 8: Indebtedness and Liens
 
@@ -121,7 +122,7 @@ Read `references/employment-liens-and-privilege.md`, sections 1 and 4. Confirm e
 
 ## Step 9: Privilege and Clean-Team Check
 
-Read `references/employment-liens-and-privilege.md`, section 6. Record privileged material in the data room, whether a common-interest basis exists under the governing law, and whether the agreement needs a privilege carve-out. Confirm which findings rely on clean-team material and prepare the version split. Route any information-exchange concern to hsr-filing.
+Read `references/employment-liens-and-privilege.md`, section 6. Record privileged material in the data room, whether a common-interest basis exists under the governing law, and whether the agreement needs a privilege carve-out. Confirm which findings rely on clean-team material and prepare the version split. Record target overlaps found in diligence (products, services, customers or geographies where the target and the buyer group both compete) and any gun-jumping or information-exchange issue, and hand both to hsr-filing; Item 4(c) and 4(d) document collection, custodians and Item 8 prior acquisitions stay with that skill.
 
 ## Step 10: Rate, Reconcile and Assemble
 
@@ -182,18 +183,19 @@ Before responding, confirm each statement. If one fails, fix the report.
 ## Related Skills
 
 - due-diligence-checklist: preparing the request list before review or a supplemental request list for gaps.
-- due-diligence-summary: a short summary of an existing diligence report for a board or investment committee.
+- due-diligence-summary: a short decision-ready summary rated High, Medium or Low, when the user wants a summary for a board or committee rather than this skill's full red-flag or full-form report with source-review register, consents table and reconciliation.
 - disclosure-schedules: turning findings into exceptions to the representations, with source locators.
 - merger-agreement: drafting special indemnities, escrows, closing conditions, definitions (Indebtedness, Permitted Liens, Affiliate) and a privilege carve-out from the findings.
-- hsr-filing: premerger notification, filing thresholds, and any gun-jumping or information-exchange concern found in diligence.
-- analyzing-m-and-a-tax-implications: tax findings, structure choice and payroll tax exposure from misclassification.
+- hsr-filing: target overlaps and gun-jumping or information-exchange issues found in diligence are handed there; premerger notification, thresholds, Item 4(c) and 4(d) custodian collection and Item 8 stay with that skill.
+- analyzing-m-and-a-tax-implications: tax audits and open tax matters found in diligence, and structure changes that alter tax treatment.
+- legal-research: payroll-tax and classification exposure from misclassified workers; no dedicated skill exists for it.
 - consent-letter: drafting the consent and notice requests for contracts labeled Consent required or Notice only.
 - contract-abstracts: abstracting individual contracts in detail when the report needs more than the finding.
 - ip-assignment: confirmatory assignments to close chain-of-title gaps.
 
 ## Reference Files
 
-- `references/contract-and-ip-review.md`: data room source-review protocol, document hierarchy, consent analysis by deal structure, outcome labels, restrictive covenants and Affiliates, materiality aggregation, IP chain of title, open source.
+- `references/contract-and-ip-review.md`: data room source-review protocol, document hierarchy, consent analysis by deal structure, permits and CFIUS, outcome labels, restrictive covenants and Affiliates, materiality aggregation, IP chain of title, open source.
 - `references/employment-liens-and-privilege.md`: timed elements and triggers, WARN screen, worker classification and benefits, UCC and lien searches, litigation and regulatory review, privilege, common interest and clean teams.
 - `references/output-template.md`: report layout, determination labels, source-review register, findings matrix, consents table, reconciliation table, open items, hand-offs and deal protection mapping.
 - `references/primary-sources.md`: every authority checked with its source, what it supports and the date checked, plus the `[VERIFY]` list.
