@@ -228,6 +228,7 @@ Eval rules (from the pilot review; each one was violated at least once there):
 - A Must that assigns a noncompliance label must address every cure your own clock table lists.
 - When the skill has a windows, runs or deadlines table, the eval's expected output must check every window that is open on the eval date.
 - Every computed date in an eval states its weekday and whether a weekend or holiday rule (for example IRC 7503) moves it. A tier or deadline that falls inside a calendar year needs an exact transaction date in the prompt.
+- A hard stop keyed to a document being supplied is satisfied only by an eval fixture or a labelled excerpt in the prompt ("Excerpt from <document> (date, issuer): ..."). Eval notes may not claim a document was supplied when the prompt only describes it.
 
 Content rules (from the pilot review):
 - In every clocks or windows table, give each timed element its own trigger event. Do not assume one anchor for all of them.
@@ -238,6 +239,8 @@ Content rules (from the pilot review):
 - If a hard stop says "decline that part", the output template must define how a partial decline is labelled.
 - A hand-off reason must match what the target skill's description actually claims, not just name a slug that exists.
 - Every hard stop names the parties it tests. Check it against owners or affiliates the prompt never names (the requesting entity's own owners, a holding company's parent).
+- Every trigger claimed in the description needs a rules section and at least one Must that exercises it; a claim in name only is a routing gap.
+- Every graded output label needs a written test in the template that separates it from its neighbours.
 - Check every default fallback against any regulation that states a "generally" rule, and say where the regulation overrides the default.
 - When you delete or merge an existing reference file, add a disposition table to primary-sources.md (kept / moved / dropped as an order / dropped as wrong) so nothing useful disappears silently.
 - Every skill you route to must claim that trigger in its own description or scope. If no skill does, route to legal-research (or the vertical's general research skill) and say no dedicated skill exists.
