@@ -235,6 +235,13 @@ Eval rules (from the pilot review; each one was violated at least once there):
 - A Must that applies a fact-specific rule listed as [VERIFY] is phrased "explain why it likely applies on these facts, then route the determination".
 - Text quoted from a filed agreement or other document is verbatim and names the section that contains it.
 - A rounding or display default may not decide pass or fail. Test unrounded unless the document has a rounding clause.
+- A clock row that every matter of the skill's type triggers (for example a Reg B notice on every credit application) is checked in every eval with its trigger facts supplied, or the expected output says why it does not apply.
+- Improper-aim rules cover directional aims ("a bigger top line", "as low as possible"), not only numeric targets. Where a request defers to the standard ("unless the rules require otherwise"), the template names the label to use.
+- Tie-out claims in fixtures and reconciliation tests hold under the form's own line definitions and name any derived line (for example Schedule P Part 2 minus Part 4).
+- Before fixing a number in a Must, check for well-known contrary authority on the stated facts (for example Hackl on annual exclusions for entity gifts). Neutralize it in the facts or require both readings.
+- A deadline Must keeps the statute's "unless" and "if not earlier" branches.
+- A Must that prescribes a test sample names the population and period the conclusion covers.
+- A routing Must or hand-off row quotes the phrase in the target skill's description that claims the trigger.
 
 Content rules (from the pilot review):
 - In every clocks or windows table, give each timed element its own trigger event. Do not assume one anchor for all of them.
