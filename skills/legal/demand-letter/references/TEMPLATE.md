@@ -2,13 +2,30 @@
 
 A single skeleton with three inline branch variants. Pick one branch at Step 1 (see `../SKILL.md`), keep its blocks, delete the other branch markers and their contents, then fill placeholders. Every `{{PLACEHOLDER}}` must be resolved or explicitly marked `[UNVERIFIED — client-provided]` / `[VERIFY]` before the draft leaves the skill.
 
+## Contents
+
+- Branches and placeholders
+- Header block, Re: line, optional FRE 408 header, salutation
+- §1 Opening: representation and purpose
+- §2 Factual background
+- §3 Legal basis
+- §4 Damages and relief
+- §5 Evidence preservation
+- §6 Demand and proposed resolution
+- §7 Consequences of non-compliance
+- §8 Closing and signature
+- Before delivering: branch-consistency checklist
+- Deliverable package: draft letter plus drafting notes (source map, open items, hand-offs)
+
 **Branches**
 
 - `<!-- BRANCH: statutory-notice -->` — Ch. 93A, DTPA, CLRA, FDCPA, FL med-mal, construction defect, any letter whose legal function is satisfying a statutory pre-suit prerequisite.
-- `<!-- BRANCH: policy-limits -->` — Demand directed at an insurer/adjuster invoking bad-faith / Stowers / Holt framework; typically PI.
+- `<!-- BRANCH: insurer-claim -->` — Claim presentation to a liability insurer or adjuster (typically PI): liability and damages narrative, request for acknowledgment, coverage and limits disclosure, and the insurer's evaluation. It contains no settlement offer, no amount offered in exchange for a release, and no date on which anything lapses.
 - `<!-- BRANCH: commercial -->` — Breach + cure, C&D (trademark / patent / trade-secret / non-compete), general demand for payment under a contract.
 
 Placeholders in `{{DOUBLE_BRACES}}` are required. Placeholders in `[SINGLE_BRACKETS]` are conditional — keep only if the condition applies.
+
+**Routing.** Two kinds of letter are never drafted from this template; they go to `bad-faith-demand`, which tests the governing statute's material terms and deadline triggers: (1) any offer to a liability insurer to settle within policy limits, with or without a deadline (Stowers and similar regimes); and (2) any pre-answer offer prepared by or with an attorney to settle a Georgia motor-vehicle personal-injury, bodily-injury or death claim, whoever receives it and whatever it is called (O.C.G.A. § 9-11-67.1(b)). The `insurer-claim` branch below presents a claim; if the client wants to make an offer, stop and route.
 
 ---
 
@@ -39,12 +56,12 @@ Placeholders in `{{DOUBLE_BRACES}}` are required. Placeholders in `[SINGLE_BRACK
 
 ```
 Re:  {{SHORT SUBJECT — e.g., "Demand Under Mass. Gen. Laws ch. 93A, § 9"
-                          or  "Time-Limited Policy-Limits Settlement Demand — Allen v. Burton"
+                          or  "Claim Presentation (Not a Settlement Offer) — Allen v. Burton"
                           or  "Notice of Breach and Demand for Cure — Master Services Agreement dated {{DATE}}"}}
      Claimant: {{CLIENT FULL LEGAL NAME}}
      Date of Incident / Breach: {{DATE}}
-     [Policy No.: {{POLICY}}]     ← policy-limits only
-     [Claim No.: {{CLAIM}}]       ← policy-limits only
+     [Policy No.: {{POLICY}}]     ← insurer-claim only
+     [Claim No.: {{CLAIM}}]       ← insurer-claim only
      [Contract: {{CONTRACT TITLE, DATE}}]   ← commercial only
 ```
 
@@ -56,7 +73,7 @@ AND {{STATE}} RULE OF EVIDENCE {{NUMBER}}
 ```
 
 **Keep when:** letter explicitly invites settlement, includes a term sheet, or offers a compromise number.
-**Omit when:** letter is a pure statutory-prerequisite notice (Ch. 93A, DTPA, CLRA, FDCPA § 1692g), a pure cease-and-desist without a monetary ask, or a policy-limits demand that you want fully admissible as a Stowers/Holt exhibit (jurisdiction-specific — see `JURISDICTION-PRESUIT.md` and `ETHICS-AND-PRIVILEGE.md`).
+**Omit when:** letter is a pure statutory-prerequisite notice (Ch. 93A, DTPA, CLRA, FDCPA § 1692g), a pure cease-and-desist without a monetary ask, or an `insurer-claim` presentation (it makes no compromise offer; see `ETHICS-AND-PRIVILEGE.md`).
 **Warning:** the label is a signal, not a shield. Factual admissions inside the letter can still be used for purposes other than proving liability in some jurisdictions. Draft as if admissible.
 
 ## Salutation
@@ -84,14 +101,13 @@ relief demanded.
 ```
 <!-- /BRANCH -->
 
-<!-- BRANCH: policy-limits -->
+<!-- BRANCH: insurer-claim -->
 ```
 This firm represents {{CLIENT}} for injuries sustained in the {{INCIDENT TYPE}}
-on {{DATE}}. We write to offer {{INSURER}} a time-limited opportunity to settle
-all claims arising from this incident for the available policy limits of
-{{POLICY NO.}}. This offer is made in good faith, with the expectation that
-{{INSURER}} will evaluate the claim in accordance with its fiduciary obligation
-to its insured {{INSURED NAME}}.
+on {{DATE}} involving your insured, {{INSURED NAME}}. We write to present
+{{CLIENT}}'s claim under {{POLICY NO. | CLAIM NO.}}, with the liability facts
+and the medical and financial documentation available to date, so that
+{{INSURER}} can evaluate it. This letter is not an offer to settle.
 ```
 <!-- /BRANCH -->
 
@@ -113,7 +129,7 @@ demand for {{CURE | PAYMENT | CESSATION}}.
 
 **Length guidance by branch:**
 - Statutory-notice: 250–600 words. Must be specific enough to satisfy the statute's "identifying the unfair or deceptive act" requirement (MA 93A) or equivalent.
-- Policy-limits: 400–1500 words. Liability + full injury/treatment narrative; this is your Stowers/Holt exhibit if the insurer refuses.
+- Insurer-claim: 400–1500 words. Liability + full injury/treatment narrative; `bad-faith-demand` can reuse it if the client later decides to make an offer.
 - Commercial: 300–800 words. Focus on contract terms + counterparty's conduct; fewer emotions, more dates and documents.
 
 **Content rules (all branches):**
@@ -152,20 +168,16 @@ See {{CITATION [VERIFY]}}.
 ```
 <!-- /BRANCH -->
 
-<!-- BRANCH: policy-limits -->
+<!-- BRANCH: insurer-claim -->
 ```
 Liability is clear. {{ONE-SENTENCE LIABILITY STATEMENT TIED TO §2 FACTS}}.
 See {{CONTROLLING CASE [VERIFY]}}; {{STATUTE IF ANY [VERIFY]}}.
 
 {{INSURED}} owed {{CLIENT}} a duty of {{CARE STANDARD}}, breached that duty
 by {{CONDUCT}}, and proximately caused {{HARM}}.
-
-{{INSURER}} owes {{INSURED}} a fiduciary duty to settle within policy limits
-when liability is clear and damages exceed limits. See {{LEADING BAD-FAITH OR
-STOWERS/HOLT CASE [VERIFY]}}. Refusal of this demand, if liability is later
-established and a verdict exceeds limits, exposes {{INSURER}} to extracontractual
-damages.
 ```
+No statement of the insurer's duty to settle and no excess-exposure warning
+here: those belong to a settlement offer, which `bad-faith-demand` drafts.
 <!-- /BRANCH -->
 
 <!-- BRANCH: commercial -->
@@ -195,7 +207,7 @@ Agreement, which provides:
 Use the rules in `DAMAGES-METHODOLOGY.md`. Format choice:
 
 - **Inline narrative** for letters with 1–3 damage categories (typical statutory-notice, simple commercial).
-- **Table** for letters with 4+ categories or multiple line items per category (typical policy-limits, complex commercial).
+- **Table** for letters with 4+ categories or multiple line items per category (typical insurer-claim, complex commercial). In the `insurer-claim` branch, label the bottom row "Damages documented to date", not "Total demand".
 - **Appendix** for letters with extensive billing records or expert reports supporting the numbers.
 
 ```
@@ -265,19 +277,18 @@ to this office no later than {{CALENDAR DATE — computed from statutory period}
 ```
 <!-- /BRANCH -->
 
-<!-- BRANCH: policy-limits -->
+<!-- BRANCH: insurer-claim -->
 ```
-{{CLIENT}} offers to settle all claims against {{INSURED}} arising from the
-incident of {{DATE}}, including any and all bodily-injury, property-damage,
-consequential, and loss-of-consortium claims, in exchange for payment of the
-available {{POLICY NO.}} limits of $ {{LIMITS}}.
+{{CLIENT}} asks {{INSURER}} to:
 
-This offer is open until {{CALENDAR DATE AND TIME, TIMEZONE}}. Payment must be
-delivered to this office by {{METHOD}}, accompanied by a limited release in
-substantially the form {{ATTACHED | TO BE PROVIDED}}.
+ 1. acknowledge this claim in writing;
+ 2. confirm each policy, and the limits of each, that may provide coverage to
+    {{INSURED}} for this claim;
+ 3. identify any additional documentation it needs to evaluate the claim; and
+ 4. provide its evaluation of the claim.
 
-Any counteroffer, conditional acceptance, or request to modify the terms above
-will be treated as a rejection.
+This letter does not offer to settle and sets no date on which anything
+expires. Any settlement proposal will be made in a separate letter.
 ```
 <!-- /BRANCH -->
 
@@ -300,11 +311,13 @@ will be treated as a rejection.
 ```
 <!-- /BRANCH -->
 
-**Term-sheet inclusion rule:** include release / confidentiality / non-disparagement language only when the letter explicitly invites settlement. Omit from pure statutory-notice (93A, DTPA, CLRA, FDCPA § 1692g) — those terms belong in the response-negotiation phase.
+**Term-sheet inclusion rule:** never in the `insurer-claim` branch. Otherwise include release / confidentiality / non-disparagement language only when the letter explicitly invites settlement. Omit from pure statutory-notice (93A, DTPA, CLRA, FDCPA § 1692g) — those terms belong in the response-negotiation phase.
 
 ---
 
 ## §7 — Consequences of Non-Compliance
+
+Omit §7 from the `insurer-claim` branch, which makes no demand and sets no deadline.
 
 ```
 Failure to satisfy the demand above by {{CALENDAR DATE}} will result in
@@ -315,17 +328,17 @@ Failure to satisfy the demand above by {{CALENDAR DATE}} will result in
    seeking {{LIST OF REMEDIES — compensatory damages, statutory multipliers,
    injunctive relief, fees and costs}};
  - [{{STATUTORY ESCALATION — e.g., "treble damages and attorney's fees under
-   {{STATUTE}}"}}];
- - [{{REGULATORY REFERRAL WHERE APPROPRIATE — e.g., "notification to
-   {{AGENCY}}"}}]    ← see "Forbidden phrasings" in ETHICS-AND-PRIVILEGE.md;
-                        regulatory referral is permissible as information, not
-                        as criminal-threat leverage.
+   {{STATUTE}}"}}].
+
+Never list a report or referral to a prosecutor, police, regulator, licensing
+board, bar, the media, customers or the recipient's employer as a consequence
+of non-payment (see "Forbidden phrasings" in ETHICS-AND-PRIVILEGE.md).
 
 This letter is not a threat of criminal prosecution and nothing herein should
 be construed as one.
 ```
 
-**Deadline rule:** default 30 calendar days. Override to the statutory period where applicable (MA 93A: 30; TX DTPA: 60; CLRA: 30; FDCPA § 1692g: 30). Sub-14-day only for imminent-harm scenarios (ongoing infringement, spoliation risk, foreclosure sale date) — justify the shorter deadline in the letter text.
+**Deadline rule:** default 30 calendar days. Override to the statutory period where applicable, each from its own trigger (MA 93A: 30 days after mailing or delivery; TX DTPA: 60 days' notice before filing; CLRA: 30 days after receipt; FL med-mal: 90 days after delivery of the notice; FL Ch. 558: 60 days, or 120 for an association representing more than 20 parcels; FDCPA / Regulation F: no payment or suit date before the validation period end date). Sub-14-day only for imminent-harm scenarios (ongoing infringement, spoliation risk, foreclosure sale date) — justify the shorter deadline in the letter text.
 
 **Forum rule:** contract forum-selection clause controls. Absent a clause, default to a forum with (a) personal jurisdiction over the recipient and (b) venue under 28 U.S.C. § 1391 or the state equivalent. When multiple valid forums exist, choose per client preference from intake. If the client has not decided, flag and ask — do not name a forum you have not confirmed.
 
@@ -353,8 +366,9 @@ Sincerely,
 Enclosures: {{EXHIBIT LIST}}
 cc: {{CLIENT NAME}}
     [{{CO-COUNSEL}}]
-    [{{OPPOSING COUNSEL IF KNOWN}}]
 ```
+
+**Represented recipient:** if the recipient is known to be represented in the matter, the letter is addressed to its counsel, and the represented party is not copied without counsel's consent (Model Rule 4.2). Never address the party and merely copy its counsel.
 
 ---
 
@@ -372,3 +386,16 @@ cc: {{CLIENT NAME}}
 - [ ] §6 term-sheet language included only where the letter invites settlement.
 - [ ] Signature block includes bar number.
 - [ ] Attorney review required before sending — flagged to user.
+
+---
+
+## Deliverable package
+
+Return the letter, then a short drafting-notes block for the attorney (never sent with the letter):
+
+1. **Source map.** One row per factual assertion and damages line: the letter section, the assertion or figure, the source document and page, or `[UNVERIFIED — client-provided]`.
+2. **Reconciliation table.** Every place two sources disagree (contract versus email, client spreadsheet versus invoices, SoS record versus letterhead): source A, source B, which controls and why, and the value used.
+3. **Gap register.** Each open item classified as unknown fact, source conflict, unverified external lookup, or policy election, with the owner and what settles it.
+4. **Clock table.** Each timed element (statutory notice period, response window, contractual cure period, limitations date, letter deadline) with its own trigger event, the computed date, and the source.
+5. **Hand-off table.** Skill, what is handed over, and why: `legal-research` (unverified statute or regime), `citation-bluebook` (case cites), `spoliation-letter` (high-risk evidence), `bad-faith-demand` (any offer to a liability insurer to settle within limits; any pre-answer attorney offer on a Georgia motor-vehicle injury claim), `coverage-opinion` (a coverage position is needed), `anthropic-skills:docx` or `anthropic-skills:pdf` (file deliverable after the Quality Audit).
+6. **`[VERIFY]` list.** Every flagged citation or rule with what would settle it.

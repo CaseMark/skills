@@ -2,6 +2,20 @@
 
 Read this file when executing Step 4 of `../SKILL.md`. Every damages number in a demand letter must trace to one of the categories below, with the inputs, arithmetic, verification hook, and presentation choice recorded in the file history (or in a damages-worksheet exhibit). If a number cannot trace to one of these frameworks, cut it or flag it — do not publish.
 
+## Contents
+
+- Cross-cutting rules
+- Category 1: Direct (expectation) damages
+- Category 2: Consequential damages
+- Category 3: Statutory multipliers (with the base each multiplier applies to)
+- Category 4: Prejudgment interest
+- Category 5: Liquidated damages
+- Category 6: Mitigation offsets
+- Category 7: Fees and costs
+- Bifurcation rule
+- Presentation decision tree
+- What not to include
+
 ## Cross-cutting rules
 
 1. **No lump-sum client numbers as computed.** If the client supplies a total ("I want $200,000") without line-item backup, you have three options and no others:
@@ -43,11 +57,12 @@ Double, treble, or punitive damages available under a specific statute when spec
 
 | Common hooks | Multiplier | Triggering conduct | Verification |
 |---|---|---|---|
-| MA Ch. 93A § 9(3) | 2x or 3x actual | Willful or knowing violation; or insufficient response to a reasonable § 9(3) settlement offer | `legal-research` for current case law on "knowing or willful"; `JURISDICTION-PRESUIT.md` for the § 9(3) response mechanism |
-| TX DTPA § 17.50(b)(1) | Up to 3x economic damages | "Knowing" violation for up to 3x economic; "intentional" for up to 3x mental anguish | `legal-research`; `citation-bluebook` for any case-law on the knowing/intentional distinction |
+| MA Ch. 93A § 9(3) (consumer) | Not less than 2x and up to 3x actual damages; the base is the judgment on all claims arising from the same transaction | Willful or knowing violation of § 2; or refusal to grant relief upon demand made in bad faith with knowledge or reason to know of the violation | `legal-research` for current case law on "knowing or willful"; `JURISDICTION-PRESUIT.md` for the § 9(3) response mechanism |
+| MA Ch. 93A § 11 (business claimant) | Not less than 2x and up to 3x actual damages | Willful or knowing violation only; § 11 has no bad-faith-refusal trigger and no pre-suit demand | `legal-research` |
+| TX DTPA § 17.50(b)(1) | "Knowing": economic damages up to 3x, plus mental-anguish damages (not multiplied). "Intentional": up to 3x of economic plus mental-anguish damages | The trier of fact's finding of knowing or intentional conduct; the multiplier base excludes attorneys' fees, costs and prejudgment interest (§ 17.50(e)), and no prejudgment interest runs on the additional damages (§ 17.50(f)) | `legal-research`; `citation-bluebook` for any case-law on the knowing/intentional distinction |
 | MMWA (15 U.S.C. § 2301 et seq.) | No multiplier, but attorney's fees | Warranty breach; consumer-product scope | `legal-research` for scope; see `ARCHETYPE-INDEX.md` for exemplar |
-| Lanham Act § 35 (15 U.S.C. § 1117) | Up to 3x profits/damages | Willful infringement | `legal-research`; `citation-bluebook` on the "exceptional case" standard |
-| Defend Trade Secrets Act § 1836(b)(3)(C) | 2x damages | Willful and malicious misappropriation | `legal-research` |
+| Lanham Act § 35 (15 U.S.C. § 1117) | § 1117(a): damages up to 3x actual damages, and profits adjusted to a just sum, as compensation and not a penalty; § 1117(b): treble damages or profits for a counterfeit mark unless extenuating circumstances | Established violation (court's discretion; willfulness is relevant `[VERIFY]` circuit standard); counterfeit use for § 1117(b) | `legal-research`; `citation-bluebook` on the "exceptional case" fee standard |
+| Defend Trade Secrets Act, 18 U.S.C. § 1836(b)(3)(C) | Exemplary damages up to 2x the damages awarded | Willful and malicious misappropriation | `legal-research` |
 | State punitive-damages statutes | Varies | Varies (clear-and-convincing "malice," "oppression," "fraud"; jurisdiction-specific caps) | `legal-research` for the state's standard AND cap |
 
 **Rule.** If you claim a multiplier, you must (a) identify the qualifying conduct with facts from §2 of the letter, (b) cite the statute verbatim or with pinpoint, and (c) verify the citation via `legal-research`. Do not claim a multiplier merely to inflate the demand — it reads as overreach and undermines the rest of the letter.
@@ -94,7 +109,7 @@ Attorney's fees and costs of suit, collectable only when a specific contract or 
 | Basis | Examples | Verification |
 |---|---|---|
 | Contract fee-shifting clause | "Prevailing party entitled to fees" | Quote the clause verbatim; confirm it covers pre-suit demands (many don't) |
-| Statutory fee-shifting | MA Ch. 93A § 9(4); CLRA § 1780(e); DTPA § 17.50(d); FDCPA § 1692k(a)(3); Lanham Act § 35; 42 U.S.C. § 1988; state UDAP statutes | `legal-research` + `citation-bluebook` |
+| Statutory fee-shifting | MA Ch. 93A § 9(4) and § 11; CLRA § 1780(e); DTPA § 17.50(d); FDCPA § 1692k(a)(3); MMWA 15 U.S.C. § 2310(d)(2); Lanham Act § 35 (exceptional cases); DTSA 18 U.S.C. § 1836(b)(3)(D); 42 U.S.C. § 1988; state UDAP statutes | `legal-research` + `citation-bluebook` |
 | Bad-faith insurance | State-specific; varies | `legal-research` |
 | Common-fund / collateral-litigation exceptions | Rare in demand-letter context | `legal-research` |
 

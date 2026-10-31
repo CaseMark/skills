@@ -1,137 +1,197 @@
 ---
 name: patent-infringement-analysis
 language: en
-description: Generates a structured patent infringement analysis mapping claims to accused product features via claim charts. Covers Phillips claim construction, literal infringement, doctrine of equivalents, validity defenses, damages, and strategic recommendations. Use when analyzing patent infringement, preparing claim charts, evaluating IP litigation risk, or assessing licensing and design-around options.
+description: >
+  Drafts patent infringement and non-infringement analyses with element-by-element claim
+  charts for U.S. utility patents, for the patent owner or accused party. Confirms the
+  claim text in force after reexamination, IPR or reissue, patent term, terminal disclaimer
+  and maintenance status; construes claims under Phillips from the claim language,
+  specification and file history; tests 112(f) means-plus-function and nonce terms
+  under Williamson; applies the all-elements rule; tests equivalents against vitiation,
+  Festo prosecution history estoppel and dedication; charts method claims and
+  divided infringement under Akamai; tests inducement and contributory infringement for
+  knowledge under Global-Tech and Commil; checks 271(f) and (g) extraterritorial acts,
+  the 286 six-year window, 287 marking, IPR estoppel and willfulness facts. Use for claim
+  chart, infringement analysis, non-infringement position, design-around review or notice
+  letter response. Not an opinion of counsel; routes damages to expert-report-on-damages.
+tags:
+  - litigation
+  - analysis
+  - memo
+  - research
 ---
 
 # Patent Infringement Analysis
 
-Produces a report evaluating whether an accused product or process infringes asserted patent claims, for litigation counsel, in-house teams, or technical experts.
+Prepares a draft infringement or non-infringement analysis of asserted claims of a U.S. utility patent against an accused product or process: the claim text in force and the patent's term, claim constructions from the intrinsic record, a claim chart for each claim and accused version with a label for every limitation, the infringement theories with their actor, place and knowledge dates, the window in which infringement and damages can exist, and hand-offs. It works for the patent owner or the accused party and states adverse results plainly. Every output is a draft prepared at the direction of counsel for review by a registered patent practitioner or litigation attorney; it is never an opinion of counsel.
 
-## Prerequisites
+## Why This Skill Exists
 
-Gather before starting:
+Infringement analyses fail in predictable places. The analyst charts the claim printed on the patent when an IPR certificate canceled it, reads "fastener" as "screw" because the only drawing shows a screw, offers an equivalent the applicant gave up by amendment, charts a method claim against a company that performs only three of four steps, pleads inducement for years before the accused party knew of the patent, or marks a limitation met from a product brochure. Each error produces a position that collapses at claim construction, summary judgment or deposition, and some create willfulness and privilege exposure for the client. The work also carries consequences beyond the merits: a written analysis relied on as advice of counsel can open the client's privileged communications on the same subject, so this skill produces drafts for counsel and never a formal opinion.
 
-1. **Asserted patent(s)** — specification, claims, file history, prosecution docs, amendments, office action responses
-2. **Accused product/process** — specs, manuals, marketing materials, drawings, schematics, source code, reverse engineering reports
-3. **Prior art** — patents, publications, technical standards relevant to the technology
-4. **Asserted claims identified** — which independent and dependent claims are at issue
+## Where Mistakes Hide
 
-## Report Structure
-
-### 1. Executive Summary
-
-| Element | Content |
-|---|---|
-| Overall conclusion | Qualified: "strong likelihood," "probable," "unlikely," or "no infringement" |
-| Per-claim assessment | Bottom-line for each independent claim and key dependents |
-| Recommendations | Cease / license / litigate / design-around / post-grant proceedings |
-| Critical risks | Willfulness exposure, SOL deadlines, related litigation |
-| Key uncertainties | Ambiguous terms, missing technical info, unsettled legal questions |
-
-### 2. Patent Overview
-
-- **Bibliographic data** — number, title, dates (issue/filing/priority), inventors, assignee, family
-- **Technical field** — problem, inventive concept, advantages over prior art
-- **Prosecution highlights** — amendments, narrowing arguments, disclaimer/estoppel, canceled claims
-- **Asserted claims** — dependency relationships, selection rationale
-- **Patent status** — litigation history, post-grant proceedings, terminal disclaimers
-
-### 3. Claim Construction
-
-Apply **Phillips v. AWH Corp.** framework for each disputed term:
-
-| Source | Analysis |
-|---|---|
-| Claim language | Ordinary meaning to POSITA; context from surrounding claims |
-| Specification | Definitions, "as used herein," lexicography, consistent usage |
-| Prosecution history | Amendments, distinguishing arguments, disclaimer/estoppel |
-| Claim differentiation | Presume different claims have different scope |
-| Extrinsic evidence | Expert testimony, dictionaries — less weight than intrinsic |
-
-Output as:
-
-| Claim Term | Proposed Construction | Support (col:ln or prosecution doc + page) |
+| Input / Document | What It Is Used For | Where the Error Hides |
 |---|---|---|
+| Issued patent, reexamination and IPR certificates, reissue, certificates of correction | The claim text actually in force | Claim printed on the original patent charted after an IPR certificate canceled it or a reexamination certificate amended it; dependent claim charted without its parent's limitations; intervening rights for amended claims ignored |
+| Filing history on the patent face, term adjustment, terminal disclaimers, maintenance fee record | Whether and when the patent is in force | Term counted from the continuation's own filing date instead of the earliest U.S. application it references; lapsed maintenance fee not checked; terminal-disclaimed term ended early because the reference patent lapsed, when the disclaimer runs to the reference patent's full statutory term; split ownership under a double-patenting disclaimer missed; infringement and injunctive relief analyzed for acts after expiration |
+| Specification and drawings | Context for construing claim terms | Claim term limited to the preferred or only embodiment without lexicography or disavowal (Phillips; Thorner); "module" or "unit" claimed by function treated as structure without a Williamson test |
+| Prosecution history, reexamination and IPR record | Disclaimer and estoppel | Narrowing amendment ignored when an equivalents theory recaptures the surrendered range (Festo); patent owner's IPR arguments ignored in construction (Aylus); disclosed but unclaimed alternative argued as an equivalent (Johnson & Johnston) |
+| Claim chart rows | Element-by-element comparison | Two limitations merged into one row; a limitation skipped; equivalents stretched until the limitation is gone (Warner-Jenkinson vitiation); conclusion with no evidence citation |
+| Accused-product evidence: source code, schematics, teardown, data sheets versus marketing | Proof of what the product does, by version | Limitation marked met from a brochure or website; versions or configurations merged; marketing claims contradicting the technical record not reconciled |
+| Method claims and who performs each step | Identifying a direct infringer | Steps performed by customers or partners attributed to the accused party without an Akamai basis; inducement pleaded with no direct infringer (Limelight); "use" of a system assigned to a party that does not put it into service (Centillion) |
+| Notice letters, prior dealings, citations in prosecution, internal emails | Knowledge for inducement, contributory infringement and willfulness | Indirect liability counted from first sale instead of the date of knowledge of the patent and of infringement (Global-Tech; Commil); belief in invalidity treated as a defense to inducement |
+| Place of manufacture, sale, server location, export shipments | Territorial reach of 271 | Foreign manufacture or sale charted as 271(a) infringement; single exported component treated as a "substantial portion" under 271(f)(1) (Life Technologies) |
+| Regulatory testing records, publication date of the application, pre-issue sales | Whether an act is infringing or compensable at all | Activity solely for uses reasonably related to developing and submitting information under federal drug law charted as infringement despite the 271(e)(1) safe harbor; pre-issue sales charted as infringement, or a 154(d) provisional-rights royalty assumed without a published application, actual notice of it and substantially identical claims |
+| Engagement, requester's side, assignment and license records, purpose of the written analysis | Who the client is, who owns and may enforce the patent, and what the document will be used for | Draft presented or requested as a formal opinion of counsel; request to reach a set conclusion or omit adverse facts; analysis run for a patent the client does not own or for products already licensed or exhausted (Impression Products) |
 
-Flag ambiguous terms with alternative constructions and outcome impact. For **§ 112(f) means-plus-function** limitations: identify function → corresponding structure in spec → equivalents.
+## Ground Rules
 
-### 4. Accused Product Description
+1. **Draft only.** Nothing is sent to the other side, filed, or given to a business recipient for reliance. Every output is a draft prepared at the direction of counsel for attorney review, and it is never called final or an opinion of counsel.
+2. **Source-review gate.** Never call a document missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (the date the accused party learned of the patent), *source conflict* (the brochure and the schematic describe different seals), *unverified external lookup* (maintenance fee status not yet confirmed on Patent Center, or a rule not in `references/primary-sources.md`), or *policy election* (whether to assert equivalents, whether to seek an opinion of counsel).
+3. **Hierarchy of authority.** For claim text: the latest certificate, then the issued patent, then the published application. For construction: claim language, then specification, then prosecution, reexamination and IPR record, then extrinsic evidence. For the accused product: the ranked evidence in `references/claim-construction-and-infringement-rules.md`, section 10, with source code, schematics and inspection first and marketing last. For law: statute and Supreme Court, then en banc and panel Federal Circuit decisions, then district decisions, then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
+4. **Citation discipline.** Every claim quotation carries its locator (column and line, or certificate page); every fact about the accused product carries an evidence locator and rank, or `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`. Re-read the current text of each statute relied on. Never invent a case, pin cite, claim text, patent number or document.
+5. **Know the client and the purpose first.** Record whose side the client is on, who asked, and what the analysis is for. Do not draft, sign, or format the analysis as a formal opinion of counsel, and do not address it for reliance by business people; that is counsel's own work and decision. Treat privilege and distribution as counsel directs.
+6. **Objective analysis, not a set conclusion.** State the evidence and authority on both sides, including what is adverse to the client. Decline a request to reach a stated conclusion regardless of the analysis or to omit known material facts (such as internal copying statements) or controlling authority; offer the complete draft instead.
+7. **Claim text in force, during the term.** Confirm each asserted claim's status and the patent's term before charting. Never chart a canceled claim as asserted or count acts after expiration as infringement.
+8. **Construction from the intrinsic record.** Construe from the claim language read in light of the specification and prosecution history. An embodiment, even the only one, does not limit a claim without clear lexicography or disavowal. Use one construction for infringement and validity.
+9. **All elements, one row each.** Every limitation gets its own row, its own evidence and one label. One "Not met" limitation defeats literal infringement of that claim and of every claim depending on it.
+10. **Equivalents only after the bars.** Before offering "Met under DOE only," check vitiation, amendment-based estoppel and its rebuttal, argument-based estoppel and dedication-disclosure, and show the check.
+11. **A direct infringer, a place and a date.** Every theory names the direct infringer and the basis for attributing each step; every act has a place; every indirect theory has a dated knowledge showing.
+12. **Damages stay with the damages expert.** Report the damages window, notice and marking facts only; route amounts, royalty rates and lost profits to expert-report-on-damages.
 
-- Product name, model, purpose, high-level operation
-- Feature-by-feature description paralleling claim structure
-- Cite evidence precisely: document title, page/section, figure, code file:line
-- Note versions/configurations analyzed
-- Flag non-observable features and information gaps needing discovery
+## Checkpoint A: Pre-Draft Intake (Mandatory)
 
-### 5. Element-by-Element Infringement Analysis
+Collect, from documents where possible:
 
-For each asserted claim, produce a **claim chart**:
+1. Today's date; the client, its side, the requester's role and the purpose of the analysis.
+2. The patent(s), asserted claims (independent and dependent), and the full claim text.
+3. The file history, every reexamination, IPR, reissue and correction certificate, and any IPR papers.
+4. Term data: filing dates and continuity data on the face of the patent, term adjustment, terminal disclaimers with their reference patents, maintenance fee status, and ownership (assignment records).
+5. The accused products or processes, each version and configuration, and dates of first U.S. sale, import or use.
+6. Accused-product evidence by rank: source code, schematics, teardown or inspection results, technical documents, admissions, marketing.
+7. Who performs each step of each method claim and where; where products are made, sold, shipped and serviced; any servers abroad.
+8. Publication date of the application and any notice of it to the accused party; any regulatory-submission use of the accused product.
+9. Knowledge evidence: notice letters (date, patent and products named), prior dealings, citations of the patent, internal communications.
+10. Licenses, covenants, settlements and supplier relationships affecting the accused products; the patentee's and licensees' marking practice.
+11. Any pending or planned litigation, its filing date, and service dates on the accused party.
 
-| # | Claim Limitation (as construed) | Accused Feature (with evidence) | Literal? | DOE? |
-|---|---|---|---|---|
+**Defaults if not supplied** (a statute or certificate overrides any default it addresses): claim status "Status unconfirmed" and a USPTO check listed as an unverified external lookup; terms given ordinary meaning with the alternative construction charted where a dispute is foreseeable; accused-product facts from marketing alone labeled "Not determinable on current evidence"; knowledge date for indirect theories set at the earliest documented notice naming the patent, not the first sale; planned filing date assumed to be today for the 286 window, labeled as an assumption; analysis status no better than "Ready subject to listed confirmations."
 
-**Literal infringement**: Apply all-elements rule. Cite specific evidence for each correspondence. Explain *why* each feature meets the limitation — no conclusory statements.
+**Hard stops (label the analysis status "Declined: hard stop"; produce the request, routing or alternative, not the requested analysis):**
+- No claim language for any asserted claim (only a patent number, title or summary) and no way to obtain the patent text: produce the document request.
+- No information about the accused product or process beyond its name: produce the evidence request and the list of limitations to investigate.
+- A request to issue, sign or format the analysis as a formal opinion of counsel, to reach a fixed conclusion regardless of the analysis, or to omit known material adverse facts or controlling authority: decline that version, explain why, and offer the complete draft analysis for counsel. No skill in this library provides a formal patent infringement or validity opinion of counsel; that is attorney work.
+- The patent is a design patent, plant patent or non-U.S. patent: route to legal-research, which handles it as a research question; no dedicated skill exists.
 
-**Doctrine of equivalents** (where not literally met): Apply function-way-result or insubstantial differences test. Check DOE limitations:
+**Not hard stops:** missing file history (Critical item; constructions marked provisional); marketing-only evidence (limitations "Not determinable on current evidence"); expired patent (analyze the past window only); damages questions (hand off).
 
-| Limitation | Test |
-|---|---|
-| Prosecution history estoppel | Amendment-based narrowing? Festo presumption of surrender |
-| Vitiation | Would DOE eliminate the limitation? |
-| Dedication to public | Disclosed but not claimed? Johnson & Johnston |
-| All-limitations rule | Apply per-element, not to invention as a whole |
+## Step 1: Client, Purpose and Privilege Posture
 
-**Infringement theories** (as applicable):
-- **Direct** (§ 271(a)) — single entity performs all limitations
-- **Inducement** (§ 271(b)) — knowledge + specific intent + active inducement
-- **Contributory** (§ 271(c)) — material component + no substantial non-infringing uses + knowledge
+Record the client, side, requester and purpose in the header of `references/output-template.md`. Read `references/patent-status-remedies-and-privilege.md`, sections 6 and 7, before writing anything about willfulness or advice of counsel. Apply the hard stops. Note any licensed or exhausted supply chain under `references/claim-construction-and-infringement-rules.md`, section 9.
 
-State per-claim infringement likelihood with qualification and basis.
+## Step 2: Claim Text in Force and Patent Term
 
-### 6. Validity Considerations
+Read `references/patent-status-remedies-and-privilege.md`, sections 1 to 3. Fill the claim status table and the term computation in Part 2 of `references/output-template.md`, each element from its own trigger. A canceled claim, an expired patent or an unenforceable period is a Critical item and narrows everything that follows.
 
-Presumed valid (§ 282). Invalidity: clear and convincing (litigation) or preponderance (PTAB).
+## Step 3: Assemble the Intrinsic Record
 
-| Defense | Framework |
-|---|---|
-| Anticipation (§ 102) | Single reference with every limitation; element-by-element; check statutory bars |
-| Obviousness (§ 103) | Graham factors; secondary considerations (commercial success, long-felt need, failure of others, copying) |
-| Eligibility (§ 101) | Alice/Mayo two-step: abstract idea/natural phenomenon → inventive concept |
-| § 112 defenses | Written description, enablement, definiteness |
+List every specification passage, prosecution paper, reexamination paper and IPR paper bearing on each claim term, with locators. Mark amendments and arguments made to overcome prior art; they feed both construction and the equivalents bars.
 
-Flag uncited prior art not before the examiner — these are strong IPR candidates.
+## Step 4: Construe the Disputed Terms
 
-### 7. Defenses, Risks, and Strategy
+Read `references/claim-construction-and-infringement-rules.md`, sections 2 and 3. Fill the construction table in Part 3. Test each functional term for 112(f) under Williamson. Where lexicography or disavowal is claimed, quote it; where it is absent, say so. Chart the alternative construction when the result would change.
 
-**Equitable defenses**: Laches, equitable estoppel, implied license, exhaustion/first sale, inequitable conduct.
+## Step 5: Build the Accused-Product Evidence Register
 
-**Damages**:
+Read `references/claim-construction-and-infringement-rules.md`, section 10. Fill Part 4 by version. Reconcile marketing statements against technical evidence in the reconciliation table.
 
-| Factor | Framework |
-|---|---|
-| Lost profits | Panduit four-factor test |
-| Reasonable royalty | Georgia-Pacific factors; hypothetical negotiation |
-| Apportionment | Entire market value rule; isolate patented feature value |
-| Marking (§ 287) | Product marking status; pre-notice damages exposure |
-| Enhanced damages | Willfulness risk; opinion of counsel value |
+## Step 6: Chart Literal Infringement
 
-**Strategy**: Evaluate litigation cost/timeline, design-around feasibility, licensing range from comparables, IPR timing (one-year post-complaint deadline), venue under TC Heartland, and business impact.
+Read `references/claim-construction-and-infringement-rules.md`, section 4. Chart every limitation of every asserted claim for each version in Part 5, with evidence and reasons, and assign one limitation label.
 
-### 8. Conclusion and Recommendations
+## Step 7: Test Equivalents
 
-- Synthesize per-claim likelihood integrating construction + analysis + validity
-- Candid strengths/weaknesses assessment
-- Prioritized next steps by urgency and cost
-- Information gaps requiring investigation
-- Time-sensitive actions: preservation, opinion of counsel, IPR deadlines
+Read `references/claim-construction-and-infringement-rules.md`, section 5. For each limitation not met literally, run the bars table first. Offer "Met under DOE only" only when every bar is cleared, and state the weaker footing.
 
-## Checks
+## Step 8: Actor, Place and Knowledge
 
-- Maintain neutral, analytical tone — acknowledge both strengths and weaknesses
-- Cite precisely: patent col:ln, prosecution doc date + page, product doc + section, cases in Bluebook
-- Use `[VERIFY]` for any citation not confirmed from source materials
-- Distinguish known evidence from areas needing further investigation
-- Qualify all assessments based on evidence strength — never overstate
-- For means-plus-function claims, always identify structure + equivalents (narrower scope than general DOE)
-- Flag willfulness risk early when accused infringer has knowledge of patent
+Read `references/claim-construction-and-infringement-rules.md`, sections 6 to 8. Build the step-by-actor table for method and multi-party system claims, decide attribution, record the place of each act, and date the knowledge for each indirect theory. Fill Part 6.
+
+## Step 9: Remedy Windows, Willfulness Facts and Validity Hand-off
+
+Read `references/patent-status-remedies-and-privilege.md`, sections 3 to 6 and 8. Compute the damages window from its triggers; record marking and notice facts and willfulness facts in Part 7. Record each IPR and reexamination, and any 315(e) estoppel, in the IPR register in Part 2, and hand validity questions to answer-with-invalidity-contentions or notice-of-prior-art.
+
+## Step 10: Positions and Assembly
+
+Assign one claim-position label per claim and version and the analysis status from `references/output-template.md`, Part 1. Rank blocking issues, complete the reconciliation table, hand-offs, open items and the `[VERIFY]` list, and close with the template's closing line.
+
+## Checkpoint B: Post-Draft Alignment
+
+Confirm with the user or list as open items:
+
+1. Are the client's side and the purpose correct, and has counsel decided how the draft will be held and distributed?
+2. Has the claim text in force been confirmed against the USPTO record for each asserted claim?
+3. Does counsel accept the constructions, including the alternatives charted?
+4. Is each limitation marked met supported by evidence of rank 1 to 3 for the version charted?
+5. Are the knowledge dates and the planned filing date confirmed?
+
+If the user does not answer, recommend confirming the claim text in force and obtaining technical evidence for every limitation resting on marketing; those are the most common reasons an infringement position fails later.
+
+## Quality Audit
+
+Before responding, confirm each statement. If one fails, fix the draft.
+
+1. The client, side, requester and purpose are stated, and the draft is labeled a draft for attorney review, not an opinion of counsel.
+2. Every asserted claim has a status label, and no canceled claim is charted as asserted.
+3. The term is computed from the earliest referenced U.S. filing date with adjustment, terminal disclaimer and maintenance status checked, each from its own trigger.
+4. Every construction cites intrinsic evidence, and no term is limited to an embodiment without quoted lexicography or disavowal.
+5. Every functional term without "means" was tested under Williamson, and every 112(f) term names its corresponding structure.
+6. Every limitation has its own row, evidence locator, evidence rank and exactly one limitation label.
+7. No limitation is "Met literally" on marketing evidence alone.
+8. Every "Met under DOE only" shows the vitiation, estoppel and dedication checks.
+9. Every method claim has a step-by-actor table and an attribution basis, and every indirect theory names a direct infringer.
+10. Every indirect theory has a dated knowledge showing of the patent and of infringement.
+11. The place of each accused act is stated, and no foreign act is charted under 271(a).
+12. The damages window uses 286 from the filing date and 287 from notice, and no damages amount appears.
+13. Every legal statement cites `references/primary-sources.md` or carries `[VERIFY]`, and adverse facts and authority are included.
+
+## Guidelines
+
+- Write as if the other side and the court will read the draft later. Explain why each limitation is or is not met; a label without reasons is not an analysis.
+- Be definite where the evidence and law allow and say what would change the answer where they do not. "Contested: both positions arguable" is a finding when the result turns on a disputed construction.
+- Keep infringement and validity separate. A strong invalidity argument does not make a limitation unmet, and belief in invalidity does not negate inducement knowledge.
+- Do not tailor a construction to the product. If the client's preferred construction would also read on prior art, say so.
+- For design-around reviews, chart the redesigned version as its own version and identify the limitation it avoids; flag equivalents risk on that limitation.
+- When an instruction conflicts with a statute or controlling decision (charting a canceled claim, counting inducement from first sale), draft the compliant version and explain the change.
+
+## Troubleshooting
+
+| Problem | Likely cause | What to do |
+|---|---|---|
+| File history pages unreadable or missing | Image-only download or partial wrapper | Try OCR; list missing papers; mark constructions that depend on them provisional; request the full wrapper |
+| Claim text differs between sources | Certificate not in the file, or a database copy of the original claims | Use the latest certificate; record both in the reconciliation table; mark the claim "Status unconfirmed" until the USPTO record is checked |
+| Accused product has several versions | Rolling releases or regional variants | Chart each version separately; date each evidence item; request version history |
+| Only marketing material available | Pre-suit stage, no product access | Label affected limitations "Not determinable on current evidence"; list inspection, purchase, teardown or code review needed |
+| Marketing and technical evidence conflict | Promotional wording, or a different version | Technical evidence for the charted version controls; record the conflict |
+| Steps performed by several parties | Customer, partner or cloud provider performs some steps | Build the step-by-actor table; test Akamai attribution; do not plead inducement without a direct infringer |
+| Knowledge date unclear | Letter named the patent family but not the patent or product | Use the earliest document naming the patent; record the gap; show the result under each date |
+
+## Related Skills
+
+- expert-report-on-damages: hand off any royalty, lost profits or damages amount; pass the window, notice, marking, knowledge and place-of-act findings.
+- claim-construction-chart: hand off when counsel needs a joint claim construction chart for a Markman submission.
+- answer-with-invalidity-contentions: hand off validity defenses and invalidity contentions for a defendant's answer.
+- notice-of-prior-art: hand off prior art disclosure or an IPR petition, with the 315(b) bar date.
+- patent-infringement-complaint: hand off when the patent owner decides to file suit on supported claims.
+- preservation-letter: hand off evidence preservation for accused-product versions and knowledge documents.
+- ip-infringement-analysis: hand off trademark, copyright and trade secret questions.
+- legal-research: hand off design, plant and foreign patents and forum-specific rules; no dedicated skill exists for those.
+- No skill: a formal patent infringement or validity opinion of counsel is attorney work that no skill provides; do not hand it to another skill.
+
+## Reference Files
+
+- `references/claim-construction-and-infringement-rules.md`: order of analysis, Phillips construction, 112(f) and nonce terms, all-elements rule, equivalents and its bars, divided infringement, indirect infringement knowledge, territorial reach, exhaustion, evidence ranking.
+- `references/patent-status-remedies-and-privilege.md`: claim version after certificates, term and terminal disclaimers, clocks table, 286 and 287 window, IPR record and estoppel, willfulness and advice of counsel, privilege, damages hand-off.
+- `references/output-template.md`: deliverable layout, status, claim-status, limitation and claim-position labels, construction table, evidence register, claim charts, theories table, reconciliation table, hand-off table.
+- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked, plus the `[VERIFY]` list.

@@ -22,8 +22,8 @@ This file is drafter-facing. `../assets/examples/MANIFEST.md` is the provenance-
 | 4 | **Employment FMLA demand** | `employment-fmla-demand-letter.md` | Employment claim invoking FMLA (29 U.S.C. § 2601 et seq.) or analogous state leave-law violations | Element-by-element FMLA analysis; clean statutory citation; factual narrative tied to eligibility, notice, and denial | Legal Momentum is a non-profit advocacy sample; adapt to the specific employer's policies and the specific denial at issue |
 | 5 | **Trademark cease-and-desist** | `trademark-cd-bard-college-ncf.md` | Trademark infringement / dilution; likelihood-of-confusion demand | Measured institutional tone; Lanham Act framing; specific identification of the marks and allegedly infringing use | NCF → Bard facts are bespoke (college naming; the letter is from New College of Florida’s counsel to Bard); factual grounds don't port. Tone is appropriate for institutional disputes but may be too soft for commercial infringement |
 | 6 | **Personal injury pre-suit (general)** | `pi-ky-ayos-v-lalaji-demand.md` | General PI pre-suit demand in a non-insurance-policy-limits posture | KRE 408 framing (Kentucky equivalent); clear liability theory; damages summary | Kentucky-specific rules; `[VERIFY]` the governing-state equivalents |
-| 7 | **PI wrongful-death policy-limits** | `pi-ga-witherite-liability-demand.md` | Wrongful-death claim demanding policy limits from insurer | O.C.G.A. §§ 9-11-67.1, 51-4-4, 51-12-14 framing; detailed liability narrative; explicit policy-limits offer with deadline | Georgia-specific statutory framework; policy-limits mechanics vary by state (TX Stowers, CA Johansen, FL Powell) |
-| 8 | **PI auto policy-limits** | `pi-ga-auto-allen-v-liberty-mutual-demand.md` | Auto-accident PI demand addressed to insurer/adjuster (Liberty Mutual-pattern) | Chronological liability narrative with police-report citations; itemized medical-specials table; explicit 30-day deadline; policy-limits offer; prophylactic FRE 408 / O.C.G.A. § 24-3-37 framing | Does not include an explicit litigation-hold / preservation paragraph; add one when drafting (see `TEMPLATE.md` §5) |
+| 7 | **PI wrongful-death policy-limits** | `pi-ga-witherite-liability-demand.md` | Liability-narrative pattern for an `insurer-claim` presentation in a wrongful-death matter. The letter itself is a policy-limits offer: an offer goes to `bad-faith-demand`; do not copy its offer or deadline into a demand-letter draft | O.C.G.A. §§ 9-11-67.1, 51-4-4, 51-12-14 framing; detailed liability narrative; explicit policy-limits offer with deadline | Georgia-specific statutory framework; policy-limits mechanics vary by state (TX Stowers, CA Johansen, FL Powell) |
+| 8 | **PI auto policy-limits** | `pi-ga-auto-allen-v-liberty-mutual-demand.md` | Narrative and specials-table pattern for an `insurer-claim` presentation in an auto matter. The letter itself is a May 2023 Georgia policy-limits offer made under O.C.G.A. § 9-11-67.1 as it read before the 2024 amendment: an offer goes to `bad-faith-demand`; do not copy its offer or deadline | Chronological liability narrative with police-report citations; itemized medical-specials table; explicit 30-day deadline; policy-limits offer; prophylactic FRE 408 / O.C.G.A. § 24-3-37 framing (the letter cites former § 24-3-37; Georgia's current rule is O.C.G.A. § 24-4-408) | Does not include an explicit litigation-hold / preservation paragraph; add one when drafting (see `TEMPLATE.md` §5) |
 | 9 | **PI premises liability** | `pi-ga-premises-dawson-v-kroger-shunnarah-demand.md` | Premises-liability (slip-and-fall, inadequate security, dangerous condition) demand | Venue-facts setup; incident narrative; foreseeability argument; damages build-up | Premises-specific negligence framework; port the structure, not the facts |
 | 10 | **Consumer class — CLRA** | `clra-ca-fca-jeep-wrangler-lieff-cabraser-demand.md` | California CLRA § 1782(a) 30-day pre-damages notice in a consumer class action | Specific identification of the alleged misrepresentations; putative class definition; cure demand with 30-day deadline | FCA / Jeep Wrangler facts are bespoke. CLRA mechanics are picky — follow § 1782 text verbatim (see `JURISDICTION-PRESUIT.md`) |
 | 11 | **Consumer class — MMWA 50-state warranty** | `multistate-mmwa-fca-slack-davis-sanger-demand.md` | Federal MMWA demand + parallel state-warranty claims in a multistate consumer class | State-by-state statutory cross-reference appendix; federal-state architecture; reasonable-opportunity-to-cure framing | Length and 50-state scope are overkill for single-state disputes; extract the federal MMWA structure |
@@ -36,10 +36,10 @@ This file is drafter-facing. `../assets/examples/MANIFEST.md` is the provenance-
 For mapping to the three `TEMPLATE.md` branches:
 
 - **`<!-- BRANCH: statutory-notice -->`** — Rows 1, 2, 10, 11, 12; partial 4.
-- **`<!-- BRANCH: policy-limits -->`** — Rows 7, 8; partial 9.
+- **`<!-- BRANCH: insurer-claim -->`** — Rows 7, 8 (narrative and specials only); partial 9.
 - **`<!-- BRANCH: commercial -->`** — Rows 5, 13, 14; partial 6.
 
-Defamation retraction (Row 3) and PI general (Row 6) borrow from both statutory-notice and policy-limits templates depending on posture.
+Defamation retraction (Row 3) and PI general (Row 6) borrow from both statutory-notice and insurer-claim templates depending on posture.
 
 ## Reading the exemplar text files
 
@@ -72,7 +72,7 @@ The MANIFEST identifies 8 high-volume archetypes where no clean exemplar exists 
 | Commercial breach + cure notice | `TEMPLATE.md` commercial | Largest practice area by volume; contract-specific |
 | Landlord / tenant cure-or-quit | Not this skill's scope — use a landlord-tenant specialty skill | State-specific; often state-court-focused |
 | FLSA pre-suit unpaid-wages demand | `TEMPLATE.md` statutory-notice | Rarely used; FLSA does not require pre-suit notice |
-| TX Stowers demand | `TEMPLATE.md` policy-limits + `JURISDICTION-PRESUIT.md` Stowers row | Rows 7 and 8 are analogous (Georgia); use them as pattern |
+| TX Stowers demand | Not drafted here: route to `bad-faith-demand` | `JURISDICTION-PRESUIT.md` Stowers row is background only |
 
 ## Adding to the corpus
 
