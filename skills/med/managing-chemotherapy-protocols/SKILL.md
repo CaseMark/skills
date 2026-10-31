@@ -1,7 +1,19 @@
 ---
 name: managing-chemotherapy-protocols
 language: en
-description: Verifies chemotherapy orders against regimen protocols with dose calculations and toxicity monitoring. Use when reviewing chemo orders, calculating BSA-based doses, or tracking treatment toxicity.
+description: >
+  Verifies chemotherapy and other antineoplastic orders against the regimen, order set version
+  and product labels, and reviews protocol adherence and safety documentation for pharmacists,
+  oncology nurses and quality reviewers. Recomputes BSA from verified height and weight
+  (Mosteller or the order set's formula), flags stale or estimated weights and BSA capped at
+  2.0 m² without a documented reason (ASCO obesity dosing guideline), checks carboplatin Calvert
+  dosing and the 125 mL/min GFR cap, builds lifetime anthracycline cumulative-dose ledgers that
+  include outside facilities and earlier lines, confirms cycle day, interval and lab hold
+  parameters, and audits the ASCO-ONS four verifications, oral chemotherapy orders, vincristine
+  and vinca alkaloid minibag and intrathecal safety (ISMP), and USP <800> handling. Use for
+  chemo order verification, double check, dose calculation check, cumulative dose, protocol
+  deviation review or chemotherapy safety audit. Drafts for clinician review; never writes or
+  changes orders.
 tags:
   - management
   - pharmacy
@@ -20,163 +32,175 @@ metadata:
 
 # Managing Chemotherapy Protocols
 
-Verifies chemotherapy orders against regimen protocols with dose calculations, cycle timing, cumulative toxicity tracking, and supportive care requirements.
+Builds a verification and protocol-adherence review for one antineoplastic order or treatment course: a source register, a regimen and version match, the dosing variables with their sources, a dose comparison table that sets each ordered dose beside the protocol-expected dose, a cumulative-dose ledger, cycle and clearance checks, route and handling checks, and the record of independent verifications. Everything it produces is a draft for a pharmacist, an oncology nurse and the prescriber. It never writes, chooses or changes a dose, and it never releases a product or signs a verification.
 
 ## Why This Skill Exists
 
-Chemotherapy agents are among the highest-risk medications in healthcare. ISMP classifies all antineoplastic agents as high-alert medications. Dosing errors in chemotherapy can be rapidly fatal—historical events such as the overdose deaths resulting from miscalculated methotrexate and vincristine doses underscore the zero-tolerance requirement for accuracy. The American Society of Clinical Oncology (ASCO) and the Oncology Nursing Society (ONS) jointly published chemotherapy administration safety standards that require independent double-verification of every chemotherapy order.
+ISMP treats antineoplastics as high-alert medications: an error is more likely to cause serious harm. Most chemotherapy errors are not exotic. A weight from last quarter, a BSA quietly capped at 2.0 m², a carboplatin dose computed from an uncapped creatinine clearance, a cumulative anthracycline total that starts at this hospital, a treatment calendar that never moved after a delayed Day 1, or a vincristine syringe sent to the procedure room with the intrathecal methotrexate. Each one passes a glance at the order. The ASCO-ONS administration safety standards (2024) answer with standardized order content and four separate verifications, and ISMP and the product labels add route and weight rules. This skill applies those checks in a fixed order and keeps three kinds of authority apart: the institution's order set and protocol (which govern the order), the product labels (which state what the manufacturer and FDA approved), and organization-level standards such as ASCO-ONS, ISMP and USP <800> (which govern process and documentation, not the clinical dose).
 
-Pharmacist verification of chemotherapy encompasses: confirming regimen appropriateness per NCCN guidelines, calculating body surface area (BSA) and weight-based doses, applying dose reductions for organ impairment and cumulative toxicity, verifying cycle day and treatment schedule, confirming pre-medications and supportive care, and reviewing lab clearance parameters. Errors at any of these steps can result in treatment failure (underdosing), life-threatening toxicity (overdosing), or wrong-regimen administration. Oncology pharmacy is recognized as a board-certified specialty (BCOP) due to the complexity and risk involved.
+## Where Mistakes Hide
 
----
+| Input / Document | What It Is Used For | Where the Error Hides |
+|---|---|---|
+| Height and weight entries (flowsheet, order header, prior encounter) | BSA and mg/kg doses | A stated, estimated or prior-encounter weight used as the dosing weight; pounds entered as kilograms; no two-person verification at the start of a new plan; a weight change past the order set's recalculation trigger ignored |
+| BSA field and dose calculation in the order | BSA-based doses | BSA capped at 2.0 m² or dosed on ideal or adjusted weight with no documented clinical reason; a formula or rounding rule different from the order set |
+| Serum creatinine, lab eGFR, carboplatin order | GFR for the Calvert formula | GFR not capped at 125 mL/min where the order set caps it; an eGFR in mL/min/1.73 m² put straight into the formula; a very low creatinine taken at face value; a measured clearance used where the order set specifies an estimate; carboplatin read as mg/m² |
+| Cumulative-dose tracker, outside records, earlier regimens | Lifetime anthracycline and anthracenedione totals | The tracker starts at this facility or this line of therapy; another facility's doses, pediatric treatment, a trial, or another anthracycline left out, although the labels say to include them |
+| Treatment calendar, MAR, cycle and day field | Correct day of cycle and interval | Calendar built from the planned Day 1, not the actual one; a delay never rolled forward; Day 8 parameters applied on a Day 1 |
+| Lab results and the order set's hold and modify parameters | Clearance to treat | Labs collected outside the window; thresholds taken from a generic table instead of the regimen; bilirubin or renal parameter not checked; a hold parameter met with no documented decision to treat |
+| Drug product and formulation in the order, order set and pharmacy label | Matching the product to the regimen | Liposomal and conventional doxorubicin or vincristine treated as interchangeable, although the liposomal doxorubicin label says not to substitute it for other doxorubicin products; a dose per m² copied from one formulation to the other |
+| Dosing basis for infants and small children, and dose rounding or banding rules | Choosing mg/m², mg/kg or a rounded or banded dose | mg/m² applied where the label or protocol switches to mg/kg (vincristine at 10 kg or less; daunorubicin under 2 years); a dose rounded or banded outside the order set's rule, or a facility band treated as a published standard |
+| Oral antineoplastic prescriptions (specialty pharmacy, home supply) | The oral part of the regimen | Prescribed outside the EHR order set; refills not zero; days on and off missing; not on the medication list; never reaches the verification workflow |
+| Vinca alkaloid and intrathecal products, labels, delivery plan | Route safety | Vincristine in a syringe; intrathecal and intravenous products delivered together; the label lacks "for intravenous use only, fatal if given by other routes" |
+| Order set version, published regimen, trial protocol amendment | Protocol adherence | Order set built on a superseded version or amendment; an exception order with no second-practitioner authorization or recorded rationale; a research regimen without IRB approval on file |
+| Verification records and signer roles | Proof of the independent checks and who may perform them | One person's check entered twice; the second checker worked from the first checker's numbers; the fourth (bedside) verification missing; a signer outside the roles the organization approved; a request to sign a check after the fact |
+
+## Ground Rules
+
+1. **Draft only.** Every output is a draft for a pharmacist, an oncology nurse and the prescriber. Never write, choose, round or change a dose; never release a product; never state that an order is verified or safe to give.
+2. **No orders, ever.** Every dose figure is labeled "protocol-expected, for comparison" or "as ordered". A request such as "what dose should she get" is answered with the comparison and routed to the prescriber.
+3. **Source-review gate.** Do not call a weight, lab, prior dose or signature missing until every supplied document has been opened and searched, including scans and outside records. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a label statement not confirmed for this manufacturer) or a policy election (for example the facility's tolerance or recalculation threshold).
+4. **Hierarchy of authority.** For the order: the institution's current order set or the trial protocol, then the product label, then published regimen literature. Organization standards (ASCO-ONS, ISMP, USP <800>) govern process and documentation and never set a clinical dose. For facts: measured, dated source entries (flowsheet, lab report with collection time, MAR, outside records) govern over trackers, calendars, order headers and summaries. Name every conflict in the reconciliation table; never resolve one silently.
+5. **Citation discipline.** Every value carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every rule carries its source and edition (order set version, label revision date, ASCO-ONS 2024 standard number) or `[VERIFY]`.
+6. **Compute; never copy.** Recompute BSA, GFR, Calvert doses, cumulative totals and cycle days from source variables and show the arithmetic. A calculated field in the order is a claim to check.
+7. **Never estimate a dosing variable.** A missing height, weight, creatinine or prior-dose record makes the dependent element "Cannot verify".
+8. **Do not impose or remove a cap.** BSA caps, vincristine maximums and GFR caps come from the order set or protocol. Where the order set is silent, show both readings and classify the question as a policy election.
+9. **Route safety is never a judgment call.** A vinca alkaloid in a syringe, or an intravenous and an intrathecal product prepared or delivered together, is "Critical: escalate now", stated in the first line of the output.
+10. **No attestation.** Never sign, complete or backdate a verification, a weight check or a cumulative-dose entry, and never suggest editing a record to make a review pass. A check that did not happen is reported as not documented.
+11. **Outcome vocabulary.** Agent level: Consistent, Discrepancy, Not applicable, Cannot verify. Order level: No discrepancies found, Clarification required before preparation, Critical: escalate now, Cannot complete verification. Retrospective review: Adherent, Deviation with documented rationale, Deviation without documented rationale, Cannot determine. Verification record: Documented, Not documented, Independence not shown, Not yet due (also used for any timed check whose trigger has not occurred). Declined parts of a request: "Declined: dose selection - routed to prescriber", "Declined: attestation - record reflects only checks performed", "Declined: record alteration". Add "provisional pending <facts>" when unchecked facts could change a result.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
-1. What is the cancer diagnosis with stage and histology? (Default: request oncology documentation)
-2. What regimen is ordered (by standard name, e.g., FOLFOX, R-CHOP, AC-T)? (Default: verify against NCCN)
-3. What cycle number and day of treatment is this? (Default: verify from treatment calendar)
-4. What are the patient's current height, weight, and BSA? (Default: calculate BSA)
-5. Is there a dose cap applied (e.g., BSA capped at 2.0 m² per institutional policy)? (Default: check policy)
-6. What are the most recent lab values (CBC with differential, CMP, LFTs, creatinine)? (Default: request within 48h)
-7. Has cumulative dose tracking been performed for cardiotoxic or nephrotoxic agents? (Default: pull from oncology record)
-8. What supportive care and pre-medications are ordered? (Default: verify against regimen protocol)
+Collect before Step 1:
 
-### Documents to Request
+1. Review type: prospective order verification, pre-administration check, or retrospective protocol-adherence or safety review.
+2. The order or orders under review: each drug, dose, unit, route, rate, days, cycle and day number, signature date and prescriber.
+3. The regimen reference: the institution order set with version and effective date, the trial protocol and amendment, or the published regimen the order cites.
+4. Dosing variables with dates and sources: height, weight (and whether two-person verified for a new plan), serum creatinine with collection time, and any other variable the order set uses.
+5. Labs the order set's hold parameters name, with collection times.
+6. Treatment history: actual administration dates for this course, prior lines of therapy, outside-facility records and any cumulative-dose tracker.
+7. Preparation and administration records when the question concerns them: pharmacy log, labels, verification entries with signer roles, delivery plan for intrathecal doses.
+8. Facility policies the order set relies on: weight and BSA rules, rounding, dose-variance tolerance, recalculation threshold.
 
-- NCCN guideline for the specific cancer type and regimen
-- Treatment protocol or order set from the institutional formulary
-- Prior treatment cycles with doses administered and toxicity grading
-- Current labs: CBC with differential (ANC), BMP, LFTs (AST, ALT, bilirubin), SCr/CrCl
-- Current height and weight (measured, not reported)
-- Echocardiogram or MUGA scan results (for anthracycline-containing regimens)
-- Allergy and prior infusion reaction history
-- Performance status (ECOG or Karnofsky)
+Defaults when an input is missing:
 
----
+- Facility tolerance, rounding or recalculation rule not supplied: report the raw difference and classify the rule as a policy election; do not adopt a number.
+- No outside records but history suggests prior treatment: build the ledger from what is supplied, mark the total "provisional pending outside records" and name who can supply them.
+- BSA formula not named: compute Mosteller, say so, and flag the formula as a policy election.
 
-## Step 1: Regimen Verification and BSA Calculation
+Hard stops:
 
-**BSA calculation (Mosteller formula):**
-BSA (m²) = √[(height(cm) × weight(kg)) / 3600]
+- No order for the agent at issue: stop and list what is needed; do not reconstruct an order from a summary or a calendar.
+- No regimen reference (order set, protocol or cited published regimen): do not score dose or protocol adherence; produce the source register and the intake list only.
+- A dosing variable an agent depends on is missing or undated (height, weight, serum creatinine for carboplatin, prior anthracycline doses for a cumulative check): set that element to "Cannot verify"; do not estimate it.
 
-**Alternative (DuBois):**
-BSA (m²) = 0.007184 × height(cm)^0.725 × weight(kg)^0.425
+Decline that part, then continue with the rest of the review:
 
-**Weight considerations:**
-- Use actual body weight for BSA unless institutional policy caps BSA (commonly at 2.0 m²)
-- ASCO guidelines recommend using actual body weight for obese patients for curative-intent regimens
-- Round BSA to two decimal places
+- A request to choose, write or change a dose or regimen for a patient: give the comparison, route the decision to the prescriber, and label it "Declined: dose selection - routed to prescriber".
+- A request to sign, complete or backdate a verification: explain that the record must reflect what was done, report the gap, and label it "Declined: attestation - record reflects only checks performed".
+- A request to edit or add any other record entry so the review passes: label it "Declined: record alteration" and report the gap.
 
-**Verify regimen components against NCCN or primary literature:**
-- Correct drugs for the regimen
-- Correct doses per m² or per kg
-- Correct cycle length (14-day, 21-day, 28-day)
-- Correct day of administration within the cycle
-- Correct route (IV, intrathecal, oral) for each agent
+## Step 1: Frame the Review
 
----
+Restate the question in one line and name the review type and the order set version. Read `references/output-template.md` and set up the header and Section 1. If the user says "the protocol" while the order set and the published regimen differ, name the difference in the first line.
 
-## Step 2: Dose Calculation and Modification
+## Step 2: Build the Source Register and Match the Regimen
 
-Calculate each agent's dose and verify against protocol limits:
+Open every supplied document and complete the source register. Compare the order element by element with the order set and with any published regimen or protocol the order set cites: drugs, dose per unit, route, rate, days, cycle length, number of cycles, supportive care and hold parameters. Read `references/safety-standards.md`, Sections 1 and 2, for exception orders, research regimens and required order elements, and record any element the order lacks.
 
-**Common dose modification triggers:**
+## Step 3: Verify the Dosing Variables
 
-| Toxicity | Parameter | Typical Modification |
-|---|---|---|
-| Neutropenia | ANC <1,000/µL (grade 3) | Hold until ANC >1,500; consider 25% dose reduction |
-| Thrombocytopenia | Platelets <75,000/µL | Hold until >100,000; consider 25% dose reduction |
-| Hepatic impairment | Bilirubin >1.5× ULN | Reduce or hold per drug-specific guidance |
-| Renal impairment | CrCl <60 mL/min | Carboplatin by Calvert (AUC × [GFR + 25]); cisplatin: avoid if CrCl <50 |
-| Neuropathy | Grade 2+ peripheral neuropathy | Reduce or discontinue vincristine, oxaliplatin, taxanes |
-| Cardiotoxicity | LVEF <50% or >10% decline | Hold anthracyclines; reassess benefit-risk |
-| Mucositis | Grade 3-4 | Reduce fluoropyrimidines 25-50% |
+Read `references/dose-verification-rules.md`, Sections 1 to 3, before calculating. Record height and weight with date, source, unit and whether two-person verified for a new plan; compare with the prior weight. Recompute BSA with the order set's formula and rounding; identify any cap or alternative weight and whether a clinical reason is documented. For carboplatin, recompute GFR by the order set's method, apply the order set's cap, and compute the Calvert dose; if the order set is silent on the cap, show both doses. Then read Section 9 and confirm the formulation, the dosing basis (mg/m², mg/kg or flat) for the patient's age and weight, and the order set's rounding or banding rule.
 
-**Cumulative dose limits (must track across all cycles):**
+## Step 4: Compare Each Dose
 
-| Agent | Cumulative Limit | Toxicity |
-|---|---|---|
-| Doxorubicin | 450-550 mg/m² lifetime | Cardiomyopathy |
-| Epirubicin | 900 mg/m² lifetime | Cardiomyopathy |
-| Bleomycin | 400 units lifetime | Pulmonary fibrosis |
-| Cisplatin | Monitor cumulative; no absolute cap | Nephrotoxicity, ototoxicity |
-| Vincristine | 2 mg single-dose cap | Neurotoxicity |
+Fill the dose comparison table in `references/output-template.md`, Section 5, using `references/dose-verification-rules.md`, Section 7: protocol dose per unit, the variable used, the protocol-expected dose for comparison, the dose as ordered, and the difference in mg and percent against the order set's tolerance. A documented dose reduction is checked against the protocol's dose levels; an undocumented one is a discrepancy.
 
----
+## Step 5: Build the Cumulative-Dose Ledger
 
-## Step 3: Supportive Care and Pre-Medication Verification
+Read `references/dose-verification-rules.md`, Section 4. For each agent with cumulative toxicity, list every prior dose by date and source, including other facilities, earlier lines and other anthracyclines or anthracenediones. Compute the total after this dose and set it beside the label statement for that agent with the label's revision date, and the latest LVEF or other monitoring result. Never convert between anthracyclines without a sourced ratio.
 
-Verify the following supportive care elements are ordered:
+## Step 6: Check Cycle Day, Interval and Clearance to Treat
 
-**Antiemetic regimen (per ASCO/NCCN emetogenicity classification):**
+Read `references/dose-verification-rules.md`, Sections 5, 6 and 8. Find the actual administration date of Day 1 of the current cycle in the MAR, count the day of cycle on the planned date, and compute the next Day 1. Apply the hold and modify parameters the order set states for that day to labs collected within its window. Each timed check uses its own trigger from the table in Section 8.
 
-| Emetogenic Risk | Pre-Medications |
-|---|---|
-| High (>90%: cisplatin, AC) | NK1 antagonist + 5-HT3 antagonist + dexamethasone ± olanzapine |
-| Moderate (30-90%: carboplatin, oxaliplatin) | 5-HT3 antagonist + dexamethasone ± NK1 antagonist |
-| Low (10-30%: etoposide, taxanes) | Dexamethasone or 5-HT3 antagonist |
-| Minimal (<10%: vincristine, bleomycin) | As needed only |
+## Step 7: Check Route, Handling and Oral Therapy
 
-**Additional supportive care:**
-- Growth factor support (G-CSF/pegfilgrastim) if regimen has >20% febrile neutropenia risk
-- Tumor lysis syndrome prophylaxis (allopurinol or rasburicase) for high-burden hematologic malignancies
-- Hydration protocol for cisplatin (≥1 L NS pre and post with mannitol diuresis)
-- Leucovorin rescue timing for high-dose methotrexate
-- Mesna for ifosfamide or high-dose cyclophosphamide (hemorrhagic cystitis prevention)
-- Dexrazoxane for doxorubicin cumulative doses approaching limit
+Read `references/safety-standards.md`, Sections 3, 4, 6, 7 and 8. Check vinca alkaloid containers and labels, intrathecal separation and delivery, oral antineoplastic prescriptions (in the EHR order, quantity, refills, schedule, medication list), hazardous-drug labeling and CSTD use for administration. A route-safety failure goes to the first line of the output as "Critical: escalate now".
 
----
+## Step 8: Audit the Verification Record
 
-## Step 4: Safety Verification and Independent Double-Check
+Read `references/safety-standards.md`, Sections 5 and 9. For the two-person height and weight check and each of the four verifications, record whether the required elements are documented, who signed, each signer's role, the time, and whether the checks were independent, using the labels Documented, Not documented, Independence not shown or Not yet due. Report missing or non-independent checks as found; never complete them.
 
-Before chemotherapy is released for administration, complete:
+## Step 9: Reconcile, Classify Gaps and Hand Off
 
-1. **Two-pharmacist verification:** Independent dose calculation by a second oncology pharmacist
-2. **Regimen-order match:** Every drug, dose, route, rate, and diluent matches the approved protocol
-3. **Lab clearance:** ANC, platelets, renal function, hepatic function within treatment parameters
-4. **Allergy check:** No known allergies to any regimen component or diluent
-5. **Cumulative dose check:** Lifetime cumulative doses within limits
-6. **Extravasation risk classification:** Vesicant (doxorubicin, vincristine), irritant (carboplatin), or non-vesicant
-7. **Administration precautions:** Central line required for vesicants, infusion rate limits, light-protection
+Complete the reconciliation table, the hand-offs and the open items (`references/output-template.md`, Sections 10 to 12). Check each rule relied on against `references/primary-sources.md` and carry any `[VERIFY]` flag into the output. Set the order-level disposition last.
 
----
+## Checkpoint B: Post-Draft Alignment
 
-## Checkpoint B: Post-Draft Alignment (Mandatory)
-
-1. Does the regimen match the NCCN-recommended protocol for the diagnosis and stage?
-2. Was BSA calculated from measured height and weight, not historical values?
-3. Are all dose modifications applied based on current lab values and prior cycle toxicity?
-4. Is the cumulative lifetime dose tracked for cardiotoxic and pulmonary-toxic agents?
-5. Are antiemetics, growth factors, and other supportive care matched to emetogenicity and febrile neutropenia risk?
-
----
+1. Does the output answer the question asked, for the order and order set version named?
+2. Is every dose figure labeled "protocol-expected, for comparison" or "as ordered", with no instruction to give a dose?
+3. Are BSA, GFR, Calvert doses, cumulative totals and cycle days recomputed from dated source variables, with the arithmetic shown?
+4. Does every cap, tolerance or threshold applied come from the order set, protocol or label, with policy elections named where none does?
+5. Is any route-safety failure in the first line as "Critical: escalate now"?
+6. Are open items owned, with a next action, and does each result that rests on a `[VERIFY]` item say so?
 
 ## Quality Audit
 
-- [ ] Regimen verified against NCCN or primary literature protocol
-- [ ] BSA calculated from current measured height and weight
-- [ ] Each agent dose calculated and compared to protocol dose per m² or kg
-- [ ] Dose modifications applied for current toxicity grades and lab values
-- [ ] Cumulative dose tracking updated for cardiotoxic agents
-- [ ] Vincristine dose capped at 2 mg per administration
-- [ ] Carboplatin dosed by Calvert formula with verified GFR
-- [ ] Antiemetic regimen matched to emetogenicity classification
-- [ ] Growth factor support ordered if febrile neutropenia risk >20%
-- [ ] Independent double-check by second pharmacist completed
-- [ ] Extravasation kit available for vesicant agents
-- [ ] Vincristine dispensed in minibag (never syringe) per ISMP/ASCO/ONS safety standard
-- [ ] Cycle day and treatment calendar verified
-- [ ] Intrathecal medications prepared and labeled separately from IV medications
-
----
+1. The header names the order set version and effective date, the review type and each standard with its edition.
+2. The source register covers every supplied document; nothing is called missing without a search.
+3. Height and weight carry date, unit, source and two-person status; stale, stated or estimated weights are flagged.
+4. BSA is recomputed with the named formula and rounding; any cap or alternative weight is tied to a documented reason or flagged.
+5. Carboplatin rows show creatinine with collection time, the GFR method, the cap applied and its source, and the dose in mg.
+6. Each ordered dose sits beside its protocol-expected comparison with the difference in mg and percent.
+7. The cumulative ledger includes every source of prior doses, states the total after this dose, and cites the label with its revision date.
+8. Cycle day is counted from the actual Day 1 and the hold parameters used are those for that day.
+9. Oral antineoplastics are checked for EHR ordering, quantity, refills and schedule.
+10. Vinca alkaloid container, label and intrathecal separation are checked, and any failure is the first line of the output.
+11. The verification table records signers, roles, times and independence with the four fixed labels, contains nothing completed on anyone's behalf, and every declined part of the request carries its fixed "Declined:" label.
+12. Every conflict is in the reconciliation table, every gap is classified, and every `[VERIFY]` relied on is in the open-items list.
 
 ## Guidelines
 
-- NEVER deviate from an established regimen protocol without oncologist discussion and documentation
-- Vincristine must NEVER be placed in a syringe; dispense only in a minibag to prevent fatal intrathecal administration
-- Always use measured (not historical) height and weight for BSA calculation
-- Carboplatin dosing by Calvert formula requires an accurate GFR; cap GFR at 125 mL/min per FDA guidance to prevent overdosing
-- Track cumulative anthracycline doses in a patient-specific log that persists across treatment episodes
-- Two independent pharmacist verifications are required before chemotherapy leaves the pharmacy
-- Chemotherapy must be prepared in a biological safety cabinet (BSC) or compounding aseptic containment isolator (CACI)
-- All chemotherapy spills must be managed with spill kits following OSHA and NIOSH guidelines
+- The order set governs the order; the label states what was approved; ASCO-ONS, ISMP and USP <800> govern the process. Report each in its own place.
+- ASCO 2021 recommends full weight-based dosing of cytotoxic chemotherapy regardless of obesity. A cap can still be a legitimate prescriber decision; the finding is the missing reason, not the cap itself.
+- The Calvert formula yields mg. A lab eGFR is indexed to 1.73 m² and is not the GFR the formula expects unless the order set says how to convert it.
+- A "2 mg vincristine maximum" is protocol content. Check the order against the protocol in use; the label does not set one.
+- Concurrent review of a course in progress is provisional: a check whose trigger has not occurred is "Not yet due", never a discrepancy.
+- Keep protected health information to what the review needs and de-identify shared drafts.
+
+## Troubleshooting
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| Two weights on the same day | Stated and measured weights, or pounds and kilograms | List both with source and unit; use the measured, verified metric weight; add a reconciliation row; flag a 2.2-fold difference |
+| Order set and published regimen disagree | Superseded version or local modification | Show each difference with its source; check for a documented exception order; route the question to the prescriber and the pharmacy and therapeutics owner |
+| Outside records are scanned or illegible | Image-only faxes | Attempt OCR; if still unreadable, list the record as unreadable and mark the cumulative total provisional |
+| Lab shows only eGFR, no creatinine | Interface displays the calculated value | Request the creatinine and collection time; set the carboplatin element to "Cannot verify" until supplied |
+| Treatment calendar and MAR disagree | Calendar not updated after a delay | The MAR administration date controls; recompute the cycle day and next Day 1 |
+| Verification fields signed but times identical | One person completed both, or a template default | Record as "Independence not shown"; ask for the audit trail |
+| Oral agent appears only on a specialty pharmacy label | Prescribed outside the order set | Record the missing EHR order elements; route reconciliation of the home supply |
+
+## Related Skills
+
+- managing-chemotherapy-toxicity: CTCAE grading and the toxicity-driven choice of a dose level.
+- managing-oncologic-emergencies: tumor lysis, cord compression and other emergencies found during review.
+- managing-renal-dose-adjustments: renal adjustment of supportive and non-antineoplastic medications.
+- managing-hepatic-dose-adjustments: Child-Pugh assessment when a hepatic parameter drives a change.
+- interpreting-echocardiograms: LVEF results behind a cumulative anthracycline decision.
+- reconciling-medications: home oral antineoplastics and supplements across care settings.
+- assessing-drug-interactions: interactions with oral agents and supportive medications.
+- managing-adverse-drug-reactions: hypersensitivity and infusion reactions and their causality.
+- managing-patient-safety-events: reporting a wrong-route, wrong-dose or wrong-day event or near miss.
+- reviewing-medication-safety: high-alert medication risks and ISMP safety barriers beyond a single order.
+- No dedicated skill: no skill's description claims USP <800> or NIOSH hazardous-drug program compliance (facility design, designated person, medical surveillance); this skill checks only order-level labeling and CSTD use, and program questions go to the facility's USP <800> designated person.
+- managing-medication-use-evaluations: protocol-adherence audits across many patients.
+- managing-drug-shortages: substitutions when a regimen drug is unavailable.
+- coordinating-multidisciplinary-cancer-care: sequencing chemotherapy with surgery and radiation.
+
+## Reference Files
+
+- `references/dose-verification-rules.md`: height, weight and BSA rules, caps, Calvert formula and GFR cap, cumulative-dose label statements, cycle day, hold parameters, dose comparison, time-bound checks with their triggers, formulation, pediatric dosing basis and rounding.
+- `references/safety-standards.md`: ASCO-ONS 2024 order elements, exception orders, oral therapy, labeling, the four verifications, intrathecal and vinca rules, ISMP best practices, USP <800>, who may do what.
+- `references/output-template.md`: deliverable sections, dose comparison table, cumulative ledger, verification record, reconciliation table, hand-off table.
+- `references/primary-sources.md`: each authority checked with URL, method and date, what is current as of 2026-10-30, corrections, and the `[VERIFY]` list.

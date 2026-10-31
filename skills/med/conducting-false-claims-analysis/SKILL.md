@@ -1,7 +1,19 @@
 ---
 name: conducting-false-claims-analysis
 language: en
-description: Evaluates billing practices for False Claims Act risk with qui tam and voluntary disclosure considerations. Use when assessing FCA risk, evaluating billing compliance, or considering self-disclosure.
+description: >
+  Evaluates provider-side False Claims Act (31 U.S.C. 3729-3733) and Medicare and Medicaid
+  overpayment exposure. Tests falsity, scienter, Escobar materiality and causation; computes
+  the 401.305 60-day deadline (180-day suspension, 6-year lookback);
+  quantifies from claims or a valid sample; models treble damages, penalties, OIG SDP, CMS
+  SRDP and refunds. Covers FCA exposure, qui tam risk, overpayment quantification and
+  settlement modeling once stark-law-aks-compliance finds noncompliance (1320a-7b(g)
+  causation, Stark-tainted DHS claims); exposure and overpayment quantification for
+  arrangements escalated by conducting-stark-law-analysis; MA risk-adjustment overpayments
+  under 422.326; patterns of unsupported codes; one-sided or add-only chart reviews,
+  raise-only CDI query policies, capture-count incentives; altered or backdated records in
+  appeals and overpayments found during appeal review; subpoena, CID or unsealed qui tam
+  response; 3730(h) retaliation. Counsel's opinion stays in stark-law-aks-compliance.
 tags:
   - process
   - healthcare-compliance
@@ -21,161 +33,169 @@ metadata:
 
 # Conducting False Claims Analysis
 
-A structured methodology for evaluating healthcare billing practices and organizational conduct against False Claims Act (31 U.S.C. §§ 3729–3733) liability standards, including qui tam exposure assessment, reverse false claims analysis, and voluntary self-disclosure evaluation.
+Prepares a provider-side False Claims Act and overpayment analysis for one issue or one set of related issues: an issue matrix, a four-element liability analysis, the 60-day report-and-return clock with each trigger shown, an overpayment quantification, an exposure and settlement model by disclosure path, qui tam and retaliation risk, and hand-offs, in the format of `references/output-template.md`. Its aim is to find, quantify and return what is owed on time and to size exposure accurately so counsel can choose a lawful resolution. Every output is a draft for review by the compliance officer and health care counsel; it is not legal advice, a disclosure or a refund.
 
 ## Why This Skill Exists
 
-The False Claims Act is the federal government's primary healthcare fraud enforcement tool, recovering over $72 billion since 1986 and over $2.68 billion in FY2023 alone, with healthcare consistently accounting for the largest share. The FCA's qui tam provisions allow private relators (whistleblowers) to file suits on the government's behalf and collect 15–30% of recoveries, creating powerful incentive-driven enforcement. The 2009 FERA amendments expanded "obligation" to include the identified overpayment return requirement (the "60-day rule" codified in the ACA at 42 U.S.C. § 1320a-7k(d)), meaning that knowingly retaining an overpayment beyond 60 days of identification constitutes a "reverse false claim." FCA penalties include treble damages plus per-claim penalties of $13,946–$27,894 (2024 amounts, adjusted annually for inflation). Proactive FCA risk assessment prevents catastrophic financial exposure and identifies situations where voluntary self-disclosure can dramatically reduce liability.
+The FCA remains the government's main civil health care fraud tool: in fiscal year 2025, DOJ reported more than $6.8 billion in FCA settlements and judgments, over $5.7 billion of it from health care matters, and a record 1,297 qui tam suits. For a provider, most exposure now arrives through a door it controls: an overpayment that was an honest error when billed becomes an FCA "obligation" once the report-and-return deadline passes. Since January 1, 2025 that deadline runs from the date the provider knowingly receives or retains the overpayment, not from the date it finishes counting, with a suspension of up to 180 days only for a timely, good-faith investigation of related claims. Analyses go wrong on dates, on the damages base, on stale penalty tables, on samples that cannot be extrapolated, and on treating a regulation's text as proof that a violation mattered to the payer. This skill keeps each of those separate and sourced.
 
----
+## Where Mistakes Hide
 
-## Checkpoint A — Intake and Risk Identification
+| Input / Document | What It Is Used For | Where the Error Hides |
+|---|---|---|
+| Audit report, hotline log, email chain showing who learned what and when | Identification date and the start of the 60-day clock | Clock started at quantification, board approval or the consultant's final report instead of the date the entity knowingly received or retained the overpayment; the 180-day suspension claimed for an investigation never begun or not pursued in good faith; suspension counted from the investigation start instead of day 180 after initial identification; the full 60 days restored after the suspension instead of only the unused days; a hospital's cost report date used without asking whether it "corresponds" to this overpayment (401.305(b)(1)(ii)), or ignored when it does |
+| Sample workpapers and extrapolation | Overpayment amount to report, refund or disclose | A probe, judgmental or highest-dollar sample extrapolated to the universe; fewer than 100 items or a lower-bound estimate for an OIG SDP submission; underpayments netted; missing items not counted as errors; frame narrower than the population; no methodology description for a contractor report (401.305(d)(1)) |
+| Claims extract and remittance data for the review period | Lookback window and the claims population | Review cut to the 1-year or 4-year contractor reopening period instead of the 6-year lookback from receipt (401.305(f)); lookback measured from date of service; FCA limitations (3731(b): 6 years, or 3 years from the official's knowledge up to 10) confused with the overpayment lookback |
+| Paid amounts, billed charges, refunds already made | Single damages and the treble base | Treble applied to billed charges or beneficiary cost-sharing instead of program payments; full payment trebled where the theory supports only a differential, or the reverse; prior refunds netted before multiplying with no order stated |
+| Penalty table in a prior memo or template | Per-claim civil penalty range | 2024 amounts ($13,946-$27,894) used for a penalty assessed today; the 2026 "adjustment" assumed although DOJ made none, so the after-July 3, 2025 amounts ($14,308-$28,619) still apply |
+| Regulation, LCD, manual or condition of participation cited as the requirement | Materiality | Materiality concluded from the words "condition of payment" alone; the MAC's or CMS's payment with actual knowledge of the same violation ignored (Escobar) |
+| Emails and policies on how the billing rule was read | Scienter | An objectively reasonable reading adopted after the fact treated as a defense, when SuperValu looks at what the entity actually believed when it billed |
+| Counsel's Stark and AKS conclusions and arrangement facts | Claim set and causation for arrangement-based exposure | AKS-tainted claims counted without the forum's 1320a-7b(g) causation standard (but-for in the First, Sixth and Eighth Circuits; a link in the Third); Stark-tainted DHS claims limited to a causal subset; Stark-only conduct sent to the OIG SDP, or AKS conduct to the CMS SRDP or a MAC refund; the SDP suspension assumed for a submission not "timely made" (SDP 2026, section 1); the circuit assumed from the entity's home though 3732(a) venue reaches other districts |
+| Entity, program and payer identifiers (NPI, TIN, MA or Medicaid plan) | Who owes, under which rule, to whom | 401.305 and its 180-day suspension applied to an MA organization (422.326 has none) or to Medicaid; an MA overpayment clock started before the payment year's applicable reconciliation (final risk adjustment data deadline, 422.326(a)), or the RADV carve-out for a CMS direction under 422.311 ignored; affiliated billing NPIs left out of the population; the parent named as the "person" instead of the entity paid |
+| Appeal packet, addenda, EHR audit log (managing-coding-denials hand-off) | Whether a submitted record is original, and the overpayment behind it | An addendum created after the denial but dated to the service treated as a late entry; the fix proposed is a re-dated replacement and resubmission, a second false record (3729(a)(1)(B)); the underlying claim's own overpayment clock missed |
+| Chart review scope, CDI query policy, coder or provider incentive plan | Scienter and the population to review | Add-only or one-sided chart reviews, raise-only query policies and capture-count incentives treated as coding matters with no FCA weight, or as proof of falsity on their own; the population limited to the claims the selective design touched |
+| HR file, hotline report, restructuring list | Retaliation exposure (3730(h)) | Adverse action against an internal reporter during the review; relator identity pursued; reporter protection limited to employees though contractors and agents are covered |
+| News of Zafirov and similar challenges | Qui tam risk weighting | Relator suits discounted as unconstitutional although the Eleventh Circuit vacated that ruling on September 1, 2026 and every circuit to decide has upheld the Appointments Clause question |
 
-### Intake Questions
+## Ground Rules
 
-1. What triggered this FCA risk assessment—internal audit finding, billing anomaly, compliance hotline report, whistleblower allegation, government inquiry, or proactive review?
-2. What billing practices or claims types are at issue—professional services (CPT), facility services (DRG/APC), laboratory, DME, home health, Part D, Medicaid?
-3. What is the relevant time period for the claims at issue?
-4. What federal healthcare programs are implicated—Medicare, Medicaid, TRICARE, FEHBP, VA?
-5. Is there evidence of knowing submission of false claims, or is this a potential "reckless disregard" or "deliberate ignorance" situation?
-6. Has any current or former workforce member indicated an intention to file a qui tam action?
-7. Are there concurrent Stark Law or AKS violations that could serve as the predicate for FCA liability (false certification theory)?
-8. Has the organization received a subpoena, Civil Investigative Demand (CID), or other government inquiry?
-9. Has the organization identified potential overpayments that may trigger the 60-day return obligation?
-10. Is the organization operating under an existing Corporate Integrity Agreement (CIA) or Certification of Compliance Agreement (CCA)?
+1. **Draft only.** Nothing is filed, refunded, disclosed or sent to a government agency or contractor by this skill. Every output is labeled a draft for the compliance officer and counsel.
+2. **Source-review gate.** Do not call a claim, date or document missing until every supplied file has been opened and searched, with OCR or extraction tried. Classify each gap as an *unknown fact* (when the compliance officer read the audit), a *source conflict* (remittance and dashboard paid amounts differ), an *unverified external lookup* (a state Medicaid rule not in `references/primary-sources.md`) or a *policy election* (which disclosure path to use).
+3. **Hierarchy of authority.** Law: statute, current regulation, preamble, agency protocols, the governing circuit's decisions, other decisions, commentary. Facts: remittance and claims data, then the medical record and audit worksheets, then audit reports, then dashboards, emails and summaries. Counsel's Stark and AKS labels govern the legal characterization of an arrangement. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
+4. **Citation discipline.** Every date, claim count and dollar figure carries a source locator or `[UNVERIFIED]`; every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`. A circuit's rule is named only if it is in the register; otherwise model both readings.
+5. **Identification follows the facts.** Decline to structure, date, word, split or limit findings so as to delay or avoid the 60-day obligation or to keep the entity from "knowing": no stopping or narrowing a review to avoid knowledge, no later identification date than the record shows, no indefinite "under review" status for confirmed errors, no splitting one cause to restart the 180 days, no dropping years inside the lookback. Produce the accurate clock instead.
+6. **Every clock has its own trigger.** Fill the clock table in `references/overpayment-clock-and-disclosure.md`, section 3, with the trigger event and date for each element, weekday included, and list each rejected candidate date with the reason.
+7. **Four elements, four labels.** Falsity, scienter, materiality and causation each get Supported, Contested, Not supported or Undetermined, with evidence. An error without scienter is an overpayment, not FCA liability, until the deadline passes.
+8. **Penalties by assessment date; damages on paid amounts.** Use the 28 C.F.R. 85.5 column for a penalty assessed now and state the column. The damages base is what the program paid, matched to the liability theory.
+9. **No extrapolation without a valid design.** A figure projected from a non-random or undocumented sample is labeled "estimate not reportable: invalid sample"; confirmed errors are reported as the known-claim amount.
+10. **Route follows conduct and counsel.** Use the disclosure path labels exactly. Stark only goes to the CMS SRDP; AKS alone or with Stark to the OIG SDP; error-only overpayments to contractor refund; never both protocols for one arrangement. Where counsel has not characterized the conduct, the label is "Disclosure path: counsel decision required."
+11. **Protect reporters.** Decline to identify a suspected relator or reporter, or to plan or justify adverse action because of a report. Flag every pending adverse action against a reporter for employment counsel.
+12. **Preserve records; never repair them.** Inventory every version of a record at issue with its audit-log timestamps, author and where it was sent. Never create, re-date, re-sign, replace or resubmit a record, and never present a later entry as original; withdrawal or correction of a submission is counsel's decision.
+13. **Conclusions follow the analysis.** Decline to state a fixed conclusion ("scienter not supported", "no overpayment", "not material") regardless of the evidence, or to omit known adverse facts; give the complete analysis instead.
 
-### Required Documents
+## Checkpoint A: Pre-Draft Intake (Mandatory)
 
-- Claims data for the relevant time period and claim types
-- Internal audit reports identifying billing irregularities
-- Compliance hotline reports related to billing concerns
-- Coding and documentation guidelines in effect during the relevant period
-- Medical records supporting the claims at issue (sample)
-- Physician documentation and orders underlying questioned claims
-- Payer contracts and fee schedules
-- Prior overpayment refunds and voluntary disclosure filings
-- Government correspondence (subpoenas, CIDs, inquiry letters)
-- Compliance training records for coding and billing staff
+Collect, from documents where possible:
 
----
+1. Today's date, the requester and role, and whether the work is at counsel's direction.
+2. The entity that received payment: legal name, billing NPIs and TINs, and any affiliates in the claims data.
+3. Programs and payers: Medicare Parts A and B, MA plan or MA organization, Part D, Medicaid (state; fee-for-service or managed care), TRICARE, other.
+4. The issue and its trigger: internal audit, hotline report, contractor or OIG audit, counsel's Stark or AKS finding, an arrangement escalated by conducting-stark-law-analysis, MA risk-adjustment overpayments under 42 C.F.R. 422.326 (one-sided or add-only chart reviews, capture-count incentives), raise-only CDI query policies, altered or backdated records or overpayments found during appeal review (managing-coding-denials), subpoena, CID, unsealed qui tam.
+5. Claims data: claim count, payment dates, paid amounts, billed charges, refunds already made, and cost report due dates if any.
+6. The knowledge timeline: when each person learned of the issue, what they received, and when any investigation of related claims began and ended.
+7. Sample documentation: objective, population, frame, selection method and random-number source, size, review criteria and results.
+8. For arrangement-based issues, the stark-law-aks-compliance hand-off (its Stark, AKS and disclosure path labels, the noncompliant periods, the affected DHS claims or the data needed to identify them, and the federal circuit) or the conducting-stark-law-analysis escalation (the arrangement's operational facts and periods). For coding-driven issues, the sibling's record-level findings, without its conclusions on knowledge or damages.
+9. Evidence bearing on scienter and materiality: emails, policies, education letters, prior denials, payer audits and what the payer did afterwards.
+10. Reporter facts: hotline reports, who raised the issue, and any pending employment action.
 
-## Step 1 — FCA Liability Framework Analysis
+**Defaults if not supplied** (a statute or regulation overrides any default it addresses): program is Medicare Parts A and B, marked `[UNVERIFIED]`; no corresponding cost report applies unless the entity files one and the overpayment is one that report reconciles (ask; compare both dates); the governing circuit is the one where the entity is located, noting that 31 U.S.C. 3732(a) venue can put the case elsewhere; the penalty column is the one for penalties assessed after July 3, 2025, since DOJ made no 2026 adjustment; disclosure path "counsel decision required" until counsel characterizes the conduct.
 
-Evaluate the factual scenario against each FCA liability theory:
+**Hard stops (a partial decline: label only the affected request with the fixed line from `references/output-template.md`, section 1, "Declined: hard stop (<stop name>)", produce what the stop calls for instead, and continue the rest of the analysis):**
+- **Identification structuring**: a request to structure, date, word or limit findings so as to delay or avoid the 60-day obligation, or to minimize or postpone identification (Ground Rule 5): decline that part; produce the accurate clock and the lawful options.
+- **Reporter protection**: a request to identify, unmask or take adverse action against a suspected relator or internal reporter, or to frame discipline around a report: decline that part; flag 3730(h) and route to employment counsel.
+- **No claims data**: no claims data at all (no claim count, payment dates or paid amounts): produce the data request; no exposure figure. A stark-law-aks-compliance hand-off that lists only the data needed is accepted on this basis: build the data request and the clock analysis from it.
+- **Record alteration**: a request to create, re-date, re-sign, replace or resubmit a record, or to present a later entry as original: decline that part; produce the version inventory and route the submitted-record question to counsel.
+- **Fixed conclusion**: a request to state a set conclusion regardless of the analysis, or to leave out known adverse facts (Ground Rule 13): decline that version; produce the complete analysis.
+- **Invalid extrapolation**: a request to present an extrapolated figure as the reportable, refundable or disclosable amount when the sample is not a documented random selection from a defined frame: produce the known-claim amount and a sampling plan request instead of the extrapolated figure.
 
-**Affirmative False Claims (§ 3729(a)(1)(A))**:
-- Knowingly presenting, or causing to be presented, a false or fraudulent claim for payment. This covers: billing for services not rendered, upcoding (billing a higher-level code than documented/performed), unbundling (separately billing components that should be billed as a package), billing for medically unnecessary services, and misrepresenting the provider or site of service.
+**Not hard stops:** an unknown identification date (show each candidate date and the deadline it produces); an unknown circuit rule (`[VERIFY]` and both readings); no counsel analysis of an arrangement (label the path "counsel decision required" and continue); a pending sealed qui tam rumor (note it; do not investigate the relator).
 
-**False Statements (§ 3729(a)(1)(B))**:
-- Knowingly making, using, or causing a false record or statement material to a false or fraudulent claim. This extends to falsifying medical records, documentation, certifications, or other materials that support claim submission.
+## Step 1: Frame the Issue, Entity and Program
 
-**Reverse False Claims (§ 3729(a)(1)(G))**:
-- Knowingly concealing or knowingly and improperly avoiding or decreasing an obligation to pay or transmit money to the government. Post-ACA, this specifically includes failing to return identified overpayments within 60 days of identification per 42 U.S.C. § 1320a-7k(d).
+Read `references/overpayment-clock-and-disclosure.md`, section 1. Record the header and source register from `references/output-template.md`. Name the entity paid, each program and the rule that governs it (401.305, 422.326, statute only for Medicaid). Build the issue matrix, one row per issue and program.
 
-**Implied Certification Theory (Universal Health Services v. United States ex rel. Escobar, 2016)**:
-- Claims that are literally accurate but submitted by an entity in violation of statutory, regulatory, or contractual requirements can be false if: (1) the claim makes specific representations about services provided, and (2) the defendant's failure to disclose noncompliance makes those representations misleading in context. Violations of Stark Law, AKS, or conditions of participation can serve as predicates.
+## Step 2: Fix the Knowledge Timeline and the Clock
 
-**Scienter Standard**:
-- FCA requires "knowing" conduct, defined as: (1) actual knowledge, (2) deliberate ignorance of truth or falsity, or (3) reckless disregard of truth or falsity. Specific intent to defraud is not required.
+Read `references/overpayment-clock-and-disclosure.md`, sections 2 and 3. From the record, find the date the entity knowingly received or retained the first overpayment. Test whether an investigation of related overpayments began, when, and whether it was timely and in good faith. Compute the suspension end as the earlier of completion or day 180 after initial identification, then add only the unused days of the 60. Compare with any cost report due date. Assign the clock label and list rejected candidate dates.
 
----
+## Step 3: Set the Lookback and the Population
 
-## Step 2 — Claims Data Analysis
+Read `references/overpayment-clock-and-disclosure.md`, section 4. Set the 6-year lookback from payment dates. Define the population across every billing NPI, TIN and program. Note the separate FCA limitations dates from `references/fca-liability-and-damages.md`, section 6.
 
-- Identify the universe of potentially affected claims by date range, provider, service type, CPT/HCPCS codes, diagnosis codes, and payer.
-- Calculate the total amount of federal healthcare program payments for affected claims—this is the single damages baseline for FCA exposure (trebled under § 3729(a)(1)).
-- Perform statistical sampling where the claims universe is large, using OIG-accepted methodology (RAT-STATS or equivalent) with appropriate confidence level and precision.
-- Identify patterns: are false claims concentrated in specific providers, departments, service lines, or time periods?
-- Calculate per-claim penalties exposure: number of affected claims × per-claim penalty amount ($13,946–$27,894 per claim as of 2024).
-- Document the methodology for identifying affected claims and the data sources used.
+## Step 4: Quantify
 
----
+Read `references/overpayment-clock-and-disclosure.md`, section 5. Use a full review where feasible. For a sample, check each design element against the path's convention. Report the known-claim amount separately from any estimate; label an estimate from an invalid design "estimate not reportable: invalid sample" and draft the sampling plan request for managing-compliance-audits.
 
-## Step 3 — Qui Tam Exposure Assessment
+## Step 5: Test the Four Elements
 
-Evaluate the risk of whistleblower (qui tam) litigation:
+Read `references/fca-liability-and-damages.md`, sections 1 to 5 and 11. For each issue, label falsity, scienter (what the entity actually believed when it billed), materiality (the requirement's text, what the payer knew, and what the payer did after knowing; payment with actual knowledge makes the label Contested at most) and causation. For arrangement-based issues, take counsel's labels as given, size the claim set under Stark and under the forum's 1320a-7b(g) standard, and send any disagreement back to stark-law-aks-compliance. Record altered records and selective-review designs (add-only reviews, raise-only queries, capture-count incentives) under section 11 and widen the population they touch.
 
-- **Relator Identification**: Assess whether current or former workforce members have knowledge of the billing practices at issue and motivation to file a qui tam action (termination, demotion, compliance reports that were ignored).
-- **Public Disclosure Bar**: Determine whether the allegations are already publicly disclosed through government reports, audits, media, or prior litigation—the public disclosure bar (§ 3730(e)(4)) may limit qui tam standing unless the relator is an "original source."
-- **Seal Period**: If a qui tam is suspected to be under seal, coordinate response carefully—the government has 60 days (frequently extended) to decide whether to intervene, and premature actions can compromise the investigation.
-- **Anti-Retaliation**: Ensure compliance with § 3730(h) anti-retaliation protections—employees who report FCA concerns may not be discharged, demoted, threatened, or discriminated against. Document that any adverse employment actions against potential reporters are supported by legitimate business reasons.
-- **Relator Share**: If the government intervenes, the relator receives 15–25% of recovery; if the government declines and the relator proceeds alone, 25–30%. This creates powerful financial incentives for reporting.
+## Step 6: Model Exposure and Settlement
 
----
+Read `references/fca-liability-and-damages.md`, sections 7 and 8, and `references/overpayment-clock-and-disclosure.md`, sections 6 and 7. Build the exposure table on paid amounts: contractor refund, OIG SDP or CMS SRDP as applicable, and litigated FCA with treble damages and the current penalty range. Show credits on their own line and state the order used. Assign the disclosure path label from the conduct and counsel's characterization.
 
-## Step 4 — Voluntary Disclosure and Remediation Options
+## Step 7: Assess Qui Tam and Retaliation Risk
 
-Evaluate disclosure and remediation pathways:
+Read `references/fca-liability-and-damages.md`, sections 9 and 10. Record who knows the facts, internal reports and responses, public disclosures, any subpoena, CID or unsealed complaint, and every pending adverse action against a reporter. State the Zafirov status as of the review date.
 
-**OIG Self-Disclosure Protocol (SDP)**:
-- Available for entities that identify potential fraud involving federal healthcare programs.
-- Typically results in settlements of 1.5× single damages (vs. 3× under FCA) for matters accepted into the protocol.
-- Requires comprehensive internal investigation, damage calculation, and cooperation with OIG.
-- May protect against exclusion and criminal prosecution in appropriate cases.
+## Step 8: Reconcile, Hand Off and List Open Items
 
-**CMS Voluntary Self-Referral Disclosure Protocol (SRDP)**:
-- Specifically for Stark Law violations.
-- Settlements typically range from 1.0×–1.5× the value of noncompliant financial relationships.
+Complete the reconciliation table, hand-offs and open items in `references/output-template.md`, sections 8 to 10. Check each rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
 
-**60-Day Overpayment Return**:
-- Under 42 U.S.C. § 1320a-7k(d), identified overpayments must be returned within 60 days of identification.
-- Use the applicable claims reopening period (typically 3 years for Medicare per 42 CFR § 405.980) as the lookback period.
-- Failure to return within 60 days creates a reverse false claim and independent FCA liability.
-- Report and return to the appropriate entity: Medicare Administrative Contractor (MAC) for Medicare FFS, managed care organization for MA, state Medicaid agency for Medicaid.
+## Checkpoint B: Post-Draft Alignment
 
-**Refund Without Disclosure**:
-- For simple billing errors without fraud indicators, a refund to the applicable payer may be sufficient without engaging formal self-disclosure protocols.
-- Document the basis for determining the refund route (vs. formal self-disclosure).
-
----
-
-## Step 5 — Prospective Compliance Enhancement
-
-Based on the FCA risk assessment, develop targeted compliance improvements:
-
-- Strengthen pre-submission claims review for identified risk areas—automated edits, pre-billing audits, and coder-physician query processes.
-- Implement retrospective audit programs focused on the claim types and patterns identified in the assessment.
-- Enhance physician documentation education targeting the specific deficiencies identified (medical necessity documentation, procedure coding accuracy, diagnosis specificity).
-- Establish monitoring dashboards for billing anomalies: unusual code frequency, modifier utilization patterns, charge-per-encounter outliers, and denial rate trends.
-- Update compliance training to include the specific FCA risk areas identified, with case studies from relevant DOJ settlements.
-
----
-
-## Checkpoint B — Analysis Validation
-
-1. Confirm all FCA liability theories are analyzed against the specific facts (affirmative false claims, false statements, reverse false claims, implied certification).
-2. Verify the scienter analysis properly distinguishes between actual knowledge, deliberate ignorance, and reckless disregard.
-3. Confirm claims data analysis uses statistically valid sampling methodology where extrapolation is employed.
-4. Verify FCA damages calculation includes both treble damages and per-claim penalties at current inflation-adjusted rates.
-5. Confirm qui tam exposure assessment addresses anti-retaliation compliance.
-6. Validate that the 60-day overpayment return timeline is correctly calculated from the "identification" date.
-7. Confirm voluntary disclosure options are evaluated with comparison of expected outcomes (SDP settlement multiplier vs. FCA treble damages).
-8. Review for parallel criminal liability risk—FCA violations that involve actual knowledge of fraud may implicate the healthcare fraud criminal statute (18 U.S.C. § 1347).
-
----
+1. Does the draft answer the question asked, for the entity and programs actually paid?
+2. Is the identification date taken from the record, with every rejected candidate listed, and does the deadline use only the unused days after any suspension?
+3. Does any estimate rest on a valid design, and is the known-claim amount stated separately?
+4. Is every disclosure path label consistent with counsel's Stark and AKS labels, and are disagreements routed back to counsel?
+5. Has any requested wording, date, scope, record change or set conclusion been checked against Ground Rules 5, 12 and 13 and declined where it applies?
+6. Are open items owned, with the next action and whether they change a deadline?
 
 ## Quality Audit
 
-- [ ] All FCA liability theories analyzed with specific fact pattern application
-- [ ] Scienter standard applied correctly (knowing, deliberate ignorance, reckless disregard)
-- [ ] Claims data universe identified with total affected amount calculated
-- [ ] Statistical sampling methodology documented and defensible
-- [ ] Per-claim penalty exposure calculated at current inflation-adjusted rates
-- [ ] Qui tam exposure assessed including anti-retaliation compliance
-- [ ] 60-Day overpayment return obligation analyzed with identification date determined
-- [ ] Voluntary self-disclosure options evaluated (OIG SDP, CMS SRDP, simple refund)
-- [ ] Implied certification theory applied where Stark/AKS predicate violations exist
-- [ ] Prospective compliance improvements are specific to identified risk areas
-- [ ] Criminal liability risk flagged where actual knowledge of fraud is indicated
-
----
+1. The header names the entity paid (NPIs, TINs), each program, the rule governing each, and the trigger.
+2. Every supplied file appears in the source register with a status; nothing is called missing without a search.
+3. The identification date is sourced to the record, and rejected candidate dates are listed with reasons.
+4. The clock table gives each element its own trigger and date with weekday, and the suspension ends at the earlier of completion or day 180 after initial identification, with only the unused days added.
+5. The lookback is 6 years from receipt (or the rule for that program), not a reopening period.
+6. Any sample is checked element by element against the path's convention, and no invalid estimate is reported.
+7. Falsity, scienter, materiality and causation each carry a label and evidence; materiality states what the payer knew and did.
+8. Scienter rests on what the entity believed when it billed, not on a later reasonable reading.
+9. The damages base is program payments matched to the theory, never billed charges, and credits are shown separately.
+10. The per-claim penalty range uses $14,308-$28,619 for penalties assessed after July 3, 2025, or the 28 C.F.R. 85.5 column then current, with the 2026 no-adjustment notice cited.
+11. The disclosure path label follows the conduct and counsel's characterization, and no arrangement goes to both protocols.
+12. No output delays or avoids identification, repairs or resubmits a record, states a set conclusion, or targets a reporter.
+13. Every `[VERIFY]` relied on appears in the open items with what would settle it, and the draft closes with the review line.
 
 ## Guidelines
 
-- The FCA's scienter standard is lower than criminal fraud—"reckless disregard" suffices, and the Supreme Court's decision in Universal Health Services v. Escobar confirmed that the implied certification theory is viable. Organizations cannot escape liability by deliberately avoiding knowledge of billing problems.
-- The 60-day overpayment return rule has transformed identified overpayments into potential FCA violations. Once an overpayment is "identified," the clock starts—and courts have interpreted "identified" broadly to include when the entity "should have known" through reasonable diligence.
-- Statistical sampling and extrapolation are accepted by courts and the government for FCA damage calculations. Use OIG-endorsed methodology (RAT-STATS) and document the sampling plan, universe, sample selection, and confidence level.
-- Qui tam relators have brought some of the largest healthcare FCA recoveries. Compliance programs that respond inadequately to internal reports create the conditions for successful qui tam actions.
-- Voluntary self-disclosure to OIG typically results in significantly lower penalties than contested FCA litigation, but requires genuine cooperation and a comprehensive internal investigation.
-- FCA liability can arise from Stark Law or AKS violations through the implied certification theory—every claim submitted during a period of non-compliance with these statutes is potentially a false claim.
-- Coordination with qualified healthcare fraud defense counsel is essential for any FCA analysis, particularly when government inquiries are pending or qui tam actions are suspected. This skill produces compliance analysis, not legal advice.
+- Write as if the government, a relator and a court will read the draft. Adverse dates and emails belong in it.
+- Be exact about what is known and what is estimated. A known overpayment can be returned on time while the estimate for related claims is still being built.
+- Keep prospective fixes (edits, education, policy) separate from look-back obligations (report, return, disclose).
+- A settlement range is a model for counsel's decision, never a prediction or a negotiating position.
+- When an instruction conflicts with a rule (report later, narrow the review, use the SRDP for AKS conduct), draft the compliant version and explain the change.
+- Limit protected health information to what the analysis needs; use claim numbers rather than patient names.
+
+## Troubleshooting
+
+| Problem | Likely cause | What to do |
+|---|---|---|
+| Two plausible identification dates | Audit report dated before the compliance officer received it, or an email suggests earlier awareness | Compute the deadline from each, show both, flag the earlier as controlling until counsel decides |
+| Claims extract and remittance disagree on paid amounts | Adjustments, recoupments or crossover payments | Use remittance; add a reconciliation row; recompute the base |
+| Sample workpaper lacks the random-number source or frame | Undocumented or judgmental selection | Treat confirmed errors as known overpayments; label any projection not reportable; request the plan |
+| Scanned audit report or medical records unreadable | Image-only files | Attempt OCR; list unreadable pages and the claims whose status depends on them as Undetermined |
+| Counsel's labels conflict with the facts supplied here | Different periods or arrangement terms | Record both in the reconciliation table; return the conflict to stark-law-aks-compliance |
+| Program unknown for some claims | Payer field missing or MA plan claims mixed with Medicare fee-for-service | Split by payer ID; apply each program's rule; mark unknowns `[UNVERIFIED]` |
+| Subpoena, CID or unsealed complaint arrives mid-review | Government or relator action | Note it, preserve documents, keep the clock running, and route response strategy to litigation counsel |
+
+## Related Skills
+
+- stark-law-aks-compliance: counsel's legal analysis and opinion on Stark and AKS compliance, the forum's 1320a-7b(g) reading, and the final disclosure path; this skill sizes the FCA exposure that follows.
+- conducting-stark-law-analysis: the operational facts of an escalated arrangement (terms as written and as paid, periods, exception elements) when exposure sizing needs them; it escalates to this skill for exposure and overpayment quantification.
+- conducting-anti-kickback-analysis: provider-side safe harbor documentation for a payment arrangement.
+- managing-compliance-audits: designing the audit sample and corrective action plan when a valid sample is needed.
+- auditing-coding-accuracy: claim-level coding review of the sampled or affected claims.
+- managing-risk-adjustment-coding: MA diagnosis support and RADV issues behind an MA risk-adjustment overpayment under 422.326, including two-way review of one-sided or add-only chart reviews.
+- managing-drg-optimization: inpatient DRG documentation support when unsupported codes or one-way (raise-only) query policies drive the overpayment.
+- managing-coding-denials: the appeal itself; it routes altered or backdated records and overpayments found during appeal review here.
+- managing-cdi-programs: compliant, non-leading query wording to replace a raise-only query policy.
+- managing-compliance-programs: program-wide remediation after the finding.
+- whistleblower-protection-policy: drafting an anti-retaliation policy after a reporter issue surfaces.
+- legal-research: 3730(h) case law, circuit rules marked `[VERIFY]`, and state Medicaid overpayment rules; no dedicated skill exists.
+
+## Reference Files
+
+- `references/fca-liability-and-damages.md`: liability theories, the four elements, SuperValu scienter, Escobar materiality, AKS and Stark causation, limitations, damages base, penalty table by assessment date, qui tam and Zafirov, retaliation.
+- `references/overpayment-clock-and-disclosure.md`: which rule applies to whom, identification and suspension, the clock table, lookback and reopening, sampling rules, disclosure paths, settlement models, positions declined.
+- `references/output-template.md`: deliverable sections, labels, issue matrix, element and clock tables, exposure model, reconciliation table, hand-off table.
+- `references/primary-sources.md`: each authority checked with URL, method, what it supports and the date, corrections to the earlier version, and the `[VERIFY]` list.

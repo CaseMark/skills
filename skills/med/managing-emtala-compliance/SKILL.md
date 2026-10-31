@@ -1,7 +1,19 @@
 ---
 name: managing-emtala-compliance
 language: en
-description: Evaluates emergency department practices against EMTALA requirements with documentation checklists. Use when assessing EMTALA compliance, reviewing MSE requirements, or documenting transfer obligations.
+description: >
+  Evaluates hospital compliance with EMTALA (42 U.S.C. 1395dd; 42 C.F.R. 489.24 and 489.20(l),
+  (m), (q), (r); CMS State Operations Manual Appendix V) for one ED encounter or for a hospital
+  program. Builds a timed record; tests whether the individual came to a dedicated
+  emergency department or hospital property (250-yard campus, off-campus departments,
+  ambulances); checks the medical screening examination (MSE) by qualified medical personnel
+  designated in governing-body-approved bylaws, triage versus MSE, registration or insurance
+  delay, LWBS; stabilization versus "stable for transfer", labor and false labor, psychiatric
+  boarding, on-call response, inpatient admission; transfer certification, acceptance, records
+  and transport; recipient hospital duties and the 72-hour report; signage, central log and
+  on-call list; Appendix V tags and current penalty figures. Use for EMTALA audits, complaint or
+  survey response, patient dumping or transfer review. Drafts for compliance and counsel
+  review; never alters records.
 tags:
   - management
   - healthcare-compliance
@@ -21,144 +33,169 @@ metadata:
 
 # Managing EMTALA Compliance
 
-A structured framework for evaluating hospital compliance with the Emergency Medical Treatment and Labor Act (42 U.S.C. § 1395dd, 42 CFR § 489.24), covering medical screening examinations, stabilization requirements, and appropriate transfer obligations.
+Reviews one emergency encounter, or a hospital's EMTALA program, against the statute, the CMS regulations and the current Appendix V interpretive guidelines. The deliverable is a dated review memo: a timed encounter record, a trigger and party analysis, an element-by-element scorecard with Appendix V tags, an administrative checklist, a reconciliation table, prospective corrective actions and hand-offs. Everything it produces is a draft for the compliance officer and healthcare counsel; it is not a survey determination, a legal opinion or a clinical order, and it never changes the record it reviews.
 
 ## Why This Skill Exists
 
-EMTALA imposes an unfunded federal mandate on every Medicare-participating hospital with a dedicated emergency department to provide medical screening and stabilizing treatment to all individuals regardless of ability to pay. CMS enforcement through state survey agencies can result in termination from the Medicare program—an existential threat to any hospital. OIG can impose civil monetary penalties up to $109,491 per violation (for hospitals with more than 100 beds) and $54,746 for responsible physicians, plus potential exclusion from federal healthcare programs. Private causes of action under EMTALA allow patients to recover damages. EMTALA violations frequently overlap with medical malpractice, creating dual liability exposure. Proactive compliance assessment prevents the catastrophic consequences of EMTALA enforcement while ensuring that emergency patients receive the care Congress mandated.
+EMTALA findings turn on definitions and timestamps, not on how the patient did. CMS judges the screening on what was known at the time, treats triage as the start of the MSE rather than the MSE, and asks whether the emergency condition was resolved before transfer, not whether the patient could tolerate the trip. A hospital that gets these wrong risks termination of its Medicare provider agreement on a 23-day track for immediate jeopardy, OIG penalties of up to $136,886 per violation (2025 figure, unchanged for 2026), physician exclusion, and private suits. The guidance also moved in 2025-2026: CMS rescinded its 2022 pregnancy guidance in May 2025, revised the SOM Chapter 5 EMTALA investigation sections in June 2026, and proposed in July 2026 that accrediting organizations survey the administrative requirements. This skill keeps each rule, clock and party separate and keeps the record as it stands.
 
----
+## Where Mistakes Hide
 
-## Checkpoint A — Intake and Facility Assessment
+| Input / Document | What It Is Used For | Where the Error Hides |
+|---|---|---|
+| Medical staff bylaws, rules and department memos naming who may screen | Deciding whether the MSE was performed by qualified medical personnel | A nursing or department memo, job description or competency list treated as the QMP designation when the governing body never approved it; an RN screening a woman in labor and certifying false labor without designation |
+| Triage note, ESI level, "seen" flag in the tracking board | Deciding whether an MSE occurred | Triage or a "provider in triage" glance counted as the MSE; no documented monitoring until an EMC was ruled out |
+| EMS run sheet, ambulance arrival and offload times ("wall time") | When the duty began for an ambulance arrival | The clock started at bed assignment or EMS release instead of arrival on property; patients "parked" on EMS stretchers with no arrival assessment or prioritization documented |
+| Registration audit trail, financial counselor notes, central log LWBS entries | Delay, discouragement and why the individual left | An insurance or network conversation before screening; staff suggesting urgent care or quoting long waits; LWBS coded as the patient's free choice when staff suggested leaving |
+| Campus map, provider-based attestation, off-campus clinic signage and visit mix | Whether the individual came to a DED or hospital property, and which hospital is obligated | An off-campus "urgent care" that is held out for emergencies or meets the one-third test treated as exempt; a parking lot or building within 250 yards treated as off property; a physician office inside the building treated as hospital property |
+| Physician note "stable for transfer", transfer form "stable" box | Whether the EMC was stabilized | Clinical tolerance of the trip read as "stabilized" when the condition still needed surgery, PCI or a specialist the hospital lacked, so no certification was obtained |
+| Transfer form, certification, acceptance log, transfer packet | Appropriate transfer elements | Certification unsigned, implied from the chart, missing a risk-benefit summary, timed long after departure or proposed for backdating; acceptance "per transfer center" with no name or title; signed notes existing at departure but sent later |
+| On-call list, paging log, consultant note | Stabilization within capability and on-call response | Group names instead of physicians; no response-time policy; refusal or delay not recorded in the transfer records; the on-call physician's phone advice treated as an appearance when the treating physician asked for one |
+| L&D triage record and log | Labor, false labor and the L&D log as part of the central log | Contractions without a qualified false-labor certification after observation; "stable" before delivery of the placenta; L&D log not linked to the central log |
+| Psychiatric hold paperwork and ED boarding notes | Stabilization of psychiatric EMCs | A hold, sitter or sedation treated as stabilization; boarding hours with no stabilizing treatment or monitoring documented; a State designated-facility law used to skip screening |
+| Admission order, observation order, bed request | When the EMTALA duty ended | A bed request or observation order treated as inpatient admission; admission used to end the duty without intent to treat |
+| Receiving hospital ED record and intake notes | The recipient's duty to report | The duty assumed to belong to the sending hospital; the 72-hour window run from the wrong event or ignored for a referral relationship |
+| Policy binders, posted signs, CMS memos, penalty tables | Program review and exposure | Rescinded QSO-22-22 quoted as current; signs only in English and Spanish where other languages predominate; superseded penalty figures; the 2026 accreditation proposal treated as final |
 
-### Intake Questions
+## Ground Rules
 
-1. Does the hospital have a "dedicated emergency department" as defined in 42 CFR § 489.24(b)—including both traditional EDs and departments that hold themselves out as providing emergency care on an urgent basis?
-2. What is the hospital's Medicare provider status and last CMS survey date?
-3. Does the hospital maintain an on-call physician list, and what specialties are covered?
-4. What is the hospital's protocol for individuals who "come to the emergency department" including those on hospital property, in hospital-owned ambulances, or in hospital parking lots?
-5. Has the hospital experienced prior EMTALA complaints, CMS citations, or OIG penalties?
-6. Does the hospital operate satellite facilities, urgent care centers, or off-campus emergency departments?
-7. What is the hospital's policy for individuals presenting with psychiatric emergencies?
-8. Does the hospital participate in regional transfer agreements with specialty facilities?
-9. What are the hospital's protocols for labor and delivery emergencies?
-10. How does the hospital document medical screening examinations—structured templates or free-text?
+1. **Draft only.** Every output is a draft for the compliance officer and healthcare counsel. Never state that a hospital violated or complied with EMTALA as a final matter; use the outcome vocabulary in rule 11.
+2. **Source-review gate.** Open and search every supplied document before calling a time, signature or entry missing, including scans and attachments. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example, whether a rule was finalized) or a policy election (for example, the hospital's log retention period).
+3. **Hierarchy of authority.** For rules: the statute, then 42 C.F.R. 489.24, 489.20, 413.65 and part 1003, then Appendix V and SOM Chapter 5 at their current revisions, then current CMS memos (never rescinded ones), then hospital bylaws and policies. For facts: contemporaneous, timed source entries (EHR audit trail, signed forms, central log, paging log) govern over incident summaries, recollections and dashboards. Name every conflict in the reconciliation table; never resolve one silently. Where a court ruling and the CMS reading differ, report both.
+4. **Citation discipline.** Every time, signature and quoted entry carries a source locator, or `[UNVERIFIED]`. Every rule carries its citation and Appendix V tag, or `[VERIFY]`.
+5. **One clock per element.** Each timed element runs from its own trigger: arrival, triage, MSE, on-call request, admission order, certification, acceptance, departure, recipient arrival, reason to believe. Never compute one element from another's anchor.
+6. **Name the party.** For each finding, name who owed the duty: the hospital, the department, the screening QMP, the on-call physician, the transferring physician or the recipient hospital. Penalty tiers depend on the party and on the bed count on the date a penalty is imposed.
+7. **Regulatory words control.** "Stabilized", "comes to the emergency department", "transfer" (which includes discharge), "labor" and "dedicated emergency department" carry their 489.24(b) meanings, not their bedside meanings.
+8. **Never alter the record.** Decline any request to draft, backdate, recharacterize, re-time or delete an entry in an encounter record, central log, on-call list, transfer form or certification so as to avoid or reduce an EMTALA finding. Appendix V states that certifications may not be backdated. A late entry is made only under facility policy, bears its actual date and time, and is labeled late; route the policy question to `managing-medical-records-compliance`.
+9. **Never advise against a required report or disclosure.** Do not recommend withholding or delaying a 489.20(m) report or withholding records from surveyors. The report decision is drafted for counsel, with the facts that give reason to believe.
+10. **Date the guidance.** State the date checked for every figure and guidance status; label proposed rules as proposed.
+11. **Outcome vocabulary.** Encounter elements: Potential deficiency, No deficiency identified, Documentation gap, Cannot determine, or Not applicable, each assigned only by the written label tests in `references/output-template.md`, Section 1 (a missing regulatory "must" is a Potential deficiency; a met requirement missing a detail Appendix V says should be documented is a Documentation gap). Program items: Meets, Partially meets, Does not meet, Cannot determine. "Cannot determine" names the missing fact and who can supply it. A refused part of a request is recorded under the fixed label "Declined in part".
+12. **No clinical orders.** Describe what the record shows; never direct treatment for a current patient.
 
-### Required Documents
+## Checkpoint A: Pre-Draft Intake (Mandatory)
 
-- EMTALA policies and procedures (MSE, stabilization, transfer, on-call)
-- On-call physician schedule (current and past 12 months)
-- Medical screening examination (MSE) documentation templates
-- Transfer certification forms and inter-facility transfer agreements
-- EMTALA training records for ED staff, nursing, registration, and on-call physicians
-- CMS survey reports and any plans of correction (past 5 years)
-- Patient complaint logs related to ED access or transfers
-- Hospital bylaws provisions addressing ED coverage and on-call obligations
-- Central log of individuals presenting to the ED (EMTALA log)
-- Sign and notice postings regarding EMTALA rights (English and Spanish per CMS requirements)
+Collect before Step 1:
 
----
+1. Purpose: complaint response, internal audit of an encounter, recipient-report decision, survey readiness, or plan-of-correction support; and today's date.
+2. The hospital, its type (hospital, CAH, REH), its role (sending, receiving), the department where the individual presented, and the State-licensed, Medicare-certified bed count.
+3. The encounter record with times: central log entry, registration audit trail, triage, MSE note with the author's credential, orders and results, on-call pages and responses, disposition, admission order, transfer form and certification, acceptance, records sent, transport record; for a recipient, its ED record and the sending hospital's paperwork.
+4. The governing documents: bylaws or rules designating QMPs with the governing-body approval date, EMTALA policies, on-call policy, transfer agreements, any community call plan.
+5. For a program review: central log extract (including L&D and psychiatric intake), on-call lists, signage locations and languages, transfer record retention, DED inventory with off-campus sites.
+6. State: the State where the hospital sits, for State law items marked `[VERIFY]`.
 
-## Step 1 — Medical Screening Examination (MSE) Compliance
+Defaults when an input is missing:
 
-Evaluate the hospital's MSE processes against 42 U.S.C. § 1395dd(a):
+- Bed count unknown: show both penalty tiers.
+- QMP designation document not supplied: set the screener-designation element to Cannot determine and request it; do not assume a physician-only rule.
+- Encounter date unknown: apply current guidance and flag that earlier guidance may have applied.
+- Purpose unclear: run an encounter review if an encounter is supplied; otherwise a program review.
 
-- **Trigger Point**: Verify the hospital correctly identifies when EMTALA obligations begin—any individual who "comes to the emergency department" requesting examination or treatment, or any individual on hospital property requesting emergency care. This includes walk-ins, ambulance arrivals, and individuals on hospital grounds.
-- **Qualified Medical Personnel**: Confirm the MSE is performed by a "qualified medical person" (QMP) as defined by hospital bylaws and policies—typically physicians, but may include nurse practitioners or physician assistants if specifically authorized by medical staff bylaws.
-- **Scope of MSE**: Verify the MSE is reasonably calculated to identify the existence of an emergency medical condition (EMC) within the capability of the hospital's ED. The MSE must be the same for all patients with similar presentations regardless of ability to pay, insurance status, race, national origin, or any other factor.
-- **Non-Discrimination**: Assess whether the MSE process creates any screening differences based on insurance status—requiring pre-authorization, insurance verification, or financial screening before the MSE is an EMTALA violation.
-- **Documentation**: Review MSE documentation for completeness—the medical record must support that a screening appropriate to the presenting complaint was performed.
-- **Psychiatric Presentations**: Verify the hospital has a process for MSE of psychiatric emergencies consistent with capabilities, including suicide risk assessment.
-- **Triage vs. MSE**: Confirm the hospital distinguishes between triage (prioritization) and MSE (diagnostic assessment). Triage alone does not satisfy the MSE requirement.
+Hard stops:
 
----
+- No source record for the encounter (only a complaint letter, summary or allegation): build the allegation timeline and a request list; set every element to Cannot determine; assign no Potential deficiency or No deficiency identified.
+- Presentation outside a known DED and the record does not establish whether the location is a DED or on hospital property: do not label the screening duty; list the DED tests and campus facts needed.
+- A request to alter, backdate, recharacterize, re-time or delete any record entry to avoid or reduce an EMTALA finding: decline that part under Ground Rule 8, then continue the review on the record as it stands.
+- A request to withhold or delay a required 489.20(m) report or to withhold records from surveyors: decline that part under Ground Rule 9, then continue.
 
-## Step 2 — Stabilization Requirements
+Route instead of answering: State abortion-law preemption and circuit-specific private-action law (to `legal-research`); orders for a current patient (decline).
 
-If the MSE identifies an emergency medical condition, evaluate compliance with the stabilization obligation under 42 U.S.C. § 1395dd(b):
+## Step 1: Frame the Scope and Date the Authorities
 
-- **EMC Definition**: Confirm the hospital correctly applies the EMC definition—a condition with acute symptoms of sufficient severity such that absence of immediate medical attention could reasonably be expected to result in placing the individual's health in serious jeopardy, serious impairment of bodily functions, or serious dysfunction of any bodily organ or part. For pregnant women, includes active labor.
-- **Stabilization Standard**: The hospital must provide treatment as may be required to stabilize the EMC within the hospital's capability, including available on-call specialists. "Stabilized" means no material deterioration is reasonably likely to result from or occur during a transfer.
-- **Capability Assessment**: Evaluate whether the hospital's capability determination accounts for all available resources—ED staff, on-call physicians, ancillary services, inpatient beds, and operating room capacity.
-- **On-Call Obligations**: Review the on-call physician roster for adequacy—the hospital must maintain a list of on-call physicians who are available to provide stabilizing treatment. Assess response time requirements and compliance with on-call schedule obligations.
-- **On-Call Physician Failure**: Verify protocols exist for when an on-call physician fails to respond within a reasonable time—including escalation, backup call, and documentation requirements. On-call physician failure is a leading cause of EMTALA citations.
-- **Active Labor**: For hospitals with obstetric capabilities, confirm that women in active labor are not transferred unless they request transfer or a physician certifies the benefits of transfer outweigh the risks.
+Read `references/enforcement-and-guidance.md`, Section 1. Restate the question in one line, name the hospital and its role, and list the authorities with dates. If the user's materials cite rescinded guidance, superseded penalty figures or the 2026 accreditation proposal as final, say so in the first lines.
 
----
+## Step 2: Build the Source Register and Encounter Timeline
 
-## Step 3 — Transfer Requirements
+Open every document and complete Sections 2 and 3 of `references/output-template.md`. Record each event with its own time type. Where two sources give different times or dispositions for one event, record both and add a reconciliation row.
 
-Evaluate compliance with appropriate transfer requirements under 42 U.S.C. § 1395dd(c):
+## Step 3: Establish the Trigger, Location and Parties
 
-- **Appropriate Transfer Standard**: A transfer is appropriate only if: (1) the individual or authorized representative requests the transfer (after being informed of EMTALA rights and risks), or (2) a physician certifies in writing that the medical benefits of transfer outweigh the risks, specifying the reasons.
-- **Transfer Certification**: Review transfer certification forms for completeness—physician signature, specific medical reasons the benefits outweigh risks, and documentation that the MSE and stabilizing treatment were provided within the hospital's capability.
-- **Receiving Hospital Obligation**: Confirm the hospital understands its obligation as a receiving facility—a hospital with specialized capabilities must accept appropriate transfers if it has the capacity.
-- **Transfer Requirements**: Verify the transferring hospital: (1) provides medical treatment within its capability to minimize transfer risks, (2) sends all available medical records, (3) obtains receiving hospital acceptance, (4) ensures qualified personnel and appropriate transportation equipment accompany the patient, and (5) meets any other CMS requirements.
-- **Reverse Dumping**: Assess whether the hospital as a receiving facility has ever refused an appropriate transfer when it had capacity and capability—this is an EMTALA violation by the receiving hospital.
-- **Regional Transfer Agreements**: Review transfer agreements with specialty hospitals (trauma centers, burn centers, cardiac care, neonatal, psychiatric) for adequacy and current execution.
+Read `references/emtala-requirements.md`, Sections 1 and 2. Decide which "comes to" route applies, whether the department is a DED (each of the three tests) or on hospital property (campus, 250 yards, excluded structures), and whether the individual was already a patient. Fill the block in Section 4 of the output template and name each obligated party.
 
----
+## Step 4: Test the Medical Screening Examination
 
-## Step 4 — EMTALA Signage, Logging, and Administrative Requirements
+Read `references/emtala-requirements.md`, Section 3. Identify the screener and the document that designates that role, with its governing-body approval. Separate triage from the MSE and look for monitoring until an EMC was ruled out. Check every registration, insurance and financial contact before screening, and for LWBS or AMA, whether anyone suggested leaving. Score each row.
 
-- **Signage**: Verify EMTALA-required signs are posted in the emergency department and other areas where individuals may seek emergency care. Signs must be in English and Spanish (at minimum) and specify the individual's right to examination and treatment regardless of ability to pay.
-- **Central Log**: Confirm the hospital maintains a central log of individuals who come to the ED seeking assistance, including those who refuse treatment or leave without being seen. The log must be maintained for five years.
-- **On-Call List**: Verify the on-call list is maintained, current, and accessible to ED staff 24/7. The list must indicate which physicians are on call for each specialty.
-- **Reporting**: Confirm the hospital has a mechanism for reporting potential EMTALA violations internally and to CMS when a receiving hospital suspects it received an inappropriate transfer.
+## Step 5: Test the EMC Determination, Stabilization and End of the Duty
 
----
+Read `references/emtala-requirements.md`, Sections 4 to 7. Decide whether an EMC was found or should have been on the information then available. For labor, apply the false-labor certification rule; for psychiatric presentations, the protected-and-prevented standard and boarding. Check on-call requests, response times and refusals against policy. Find the event that ended the duty and its time; a bed request or observation order is not an inpatient admission.
 
-## Step 5 — Risk Identification and Corrective Action
+## Step 6: Test the Transfer or Discharge
 
-Classify EMTALA compliance risks and develop targeted corrective actions:
+Read `references/emtala-requirements.md`, Section 8. If the EMC was not resolved when the individual left, score each transfer element separately: basis (request or certification with risk-benefit summary, timed at transfer), treatment before transfer, acceptance with name and title, records available at departure, and transport. A discharge with instructions to go to another hospital is a transfer.
 
-| Risk Area | Common Violations | Corrective Action |
-|-----------|------------------|-------------------|
-| MSE Delays | Financial screening before MSE; triage-only without exam | Eliminate pre-MSE financial process; train registration staff |
-| On-Call Failure | Physician non-response; inadequate specialty coverage | Strengthen on-call requirements in medical staff bylaws; implement backup call systems |
-| Improper Transfer | Missing certification; transfer without stabilization within capability | Standardize transfer checklist; physician education on certification requirements |
-| Psychiatric Boarding | Extended ED holds without stabilization or transfer | Develop psychiatric transfer agreements; advocate for inpatient bed access |
-| Documentation Gaps | MSE not documented; transfer records incomplete | Implement structured MSE templates; audit transfer documentation monthly |
-| Off-Campus Sites | EMTALA obligations not recognized at satellite locations | Train all off-campus staff; post signage; integrate into EMTALA policies |
+## Step 7: Test Recipient Duties and the Report
 
----
+Read `references/emtala-requirements.md`, Section 9, and the clocks table in `references/enforcement-and-guidance.md`, Section 4. For a receiving hospital, decide whether the facts give reason to believe an unstable transfer occurred, compute the 72-hour window from each candidate anchor, and draft the report recommendation for counsel. Label the sending hospital's conduct Cannot determine where its records are not available; the report still goes.
 
-## Checkpoint B — Assessment Validation
+## Step 8: Review the Administrative Program (When in Scope)
 
-1. Confirm MSE policies ensure screening before any financial inquiry or insurance verification.
-2. Verify on-call physician coverage is adequate for the hospital's patient volume and acuity, including specialty backup.
-3. Validate transfer certification forms include all required elements and are consistently completed.
-4. Confirm the hospital's definition of "comes to the emergency department" is consistent with CMS's broad interpretation (including hospital property and hospital-owned ambulances).
-5. Verify psychiatric emergency protocols address the unique challenges of psychiatric stabilization and boarding.
-6. Confirm EMTALA training reaches all relevant personnel—not just ED clinical staff, but also registration, security, triage nurses, and on-call physicians.
-7. Review the EMTALA central log for completeness and five-year retention compliance.
-8. Assess whether the hospital has a mechanism for self-identifying and reporting potential EMTALA violations.
+Read `references/emtala-requirements.md`, Section 10. Complete Section 6 of the output template: signage, central log, on-call list, transfer record retention, reporting procedure, QMP designation and off-campus DED inventory.
 
----
+## Step 9: Add Exposure Context, Reconcile and Hand Off
+
+Read `references/enforcement-and-guidance.md`, Sections 2, 3 and 6. Add the tag map, penalty tier and termination track as context. Complete Sections 7 to 11 of the output template, writing corrective actions as prospective changes only. Check each rule against `references/primary-sources.md` and carry any `[VERIFY]` flag into the open items.
+
+## Checkpoint B: Post-Draft Alignment
+
+1. Does the memo answer the question asked, for the hospital and role asked, with each element scored on its own row?
+2. Is every finding tied to a named party, a regulation and a tag?
+3. Does each timed element run from its own trigger, with the arithmetic shown?
+4. Does any result depend on a `[VERIFY]` item, and would it change if that item reads differently?
+5. Does any sentence suggest changing a past entry, or delaying or withholding a report? Remove it.
+6. Are guidance statuses and penalty figures dated, and is the accreditation proposal labeled proposed?
 
 ## Quality Audit
 
-- [ ] MSE policy ensures screening before financial inquiry for all ED presentations
-- [ ] Qualified medical personnel designation is documented in medical staff bylaws
-- [ ] On-call roster covers all required specialties with backup provisions
-- [ ] Transfer certification form includes physician signature and specific medical justification
-- [ ] Receiving hospital obligations are addressed in policy and transfer agreements
-- [ ] EMTALA signage posted in English and Spanish in all required locations
-- [ ] Central log is maintained with all required data elements and five-year retention
-- [ ] Training covers ED staff, registration, security, and on-call physicians
-- [ ] Psychiatric emergency protocols are specific and address boarding scenarios
-- [ ] Off-campus locations are included in EMTALA compliance program
-- [ ] Prior CMS citations are fully remediated with documented corrective actions
-
----
+1. The header names the hospital, type, role, department, encounter date, today's date and the dated authorities.
+2. Every supplied document appears in the source register with a status.
+3. Every timeline event has a time, a time type, an actor with credential and a source locator.
+4. The trigger block states the "comes to" route, the DED test or campus facts relied on, and the obligated parties.
+5. The screener's QMP status rests on a governing-body-approved document, not a memo or habit.
+6. Triage is not scored as the MSE, and any payment or insurance contact before screening is tested for delay and discouragement.
+7. "Stabilized" is tested as resolution of the EMC (delivery of child and placenta in labor), never as tolerance of transport.
+8. Each transfer element is scored separately, and a certification is credited only if express, written, signed and timed at transfer.
+9. The 72-hour report window is computed from each candidate anchor, and the duty is assigned to the recipient.
+10. Administrative items cite the correct subsection and tag, with signage tested against the population served.
+11. Penalty figures are the 2025 amounts with their date, and no rescinded guidance is cited as current.
+12. No output alters, backdates or recharacterizes a record, or advises against a report; any declined request is shown with its compliant path.
+13. Every `[VERIFY]` relied on appears in the open items with what would settle it.
 
 ## Guidelines
 
-- EMTALA applies to any individual who comes to the emergency department, regardless of immigration status, citizenship, ability to pay, or any other factor. Any screening differences based on non-clinical factors constitute a violation.
-- The MSE is not satisfied by triage alone. Triage is a prioritization tool; the MSE is a diagnostic assessment that must be reasonably calculated to determine whether an EMC exists.
-- "Within the hospital's capability" is interpreted broadly by CMS—if the hospital has the physical resources, equipment, and personnel (including on-call), it must use them for stabilization before transfer.
-- On-call physician response failures are among the most common EMTALA violations. Hospitals must hold physicians accountable through medical staff bylaws enforcement.
-- EMTALA applies to hospital-owned ambulances from the point of contact. Diversion protocols must account for EMTALA obligations once the patient is in the hospital's ambulance.
-- Psychiatric emergencies present unique EMTALA challenges because psychiatric stabilization may require inpatient resources. Extended ED boarding without active stabilization efforts may violate EMTALA.
-- CMS can survey for EMTALA compliance at any time, not just during scheduled surveys. Complaints trigger immediate investigation.
-- This skill produces compliance assessment output, not legal advice. EMTALA compliance decisions should involve qualified healthcare regulatory counsel.
+- Judge the screening and stabilization on what was known at the time; a bad outcome is a reason to look harder, not a finding.
+- An MSE can be brief for a minor complaint and extensive for chest pain; it must be the same one the hospital gives anyone with those signs and symptoms.
+- Asking about insurance is allowed only when it delays nothing and discourages no one; say so plainly rather than banning all registration.
+- A transfer the patient requests still needs a written request after the risks and the hospital's obligations are explained.
+- Prospective fixes (policy, form redesign, training, audits, on-call minutes, signage languages) are the corrective actions; past records stay as they are.
+- Keep protected health information to what the review needs and de-identify drafts that will circulate.
+
+## Troubleshooting
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| Scanned transfer form or certification unreadable | Image-only page | Attempt OCR; if still unreadable, list it as unreadable and set the dependent elements to Cannot determine |
+| Two times for one event (tracking board against nursing note) | Systems record entry and event times differently | Record both with time types; use the timed source entry; add a reconciliation row and state whether the result changes |
+| Log disposition differs from the chart | Log keyed by registration staff | The chart controls for what happened; note the log error as a Documentation gap and a prospective fix |
+| Bylaws excerpt lacks the approval date | Partial copy supplied | Request the governing-body approval record; screener designation is Cannot determine until then |
+| Conflicting accounts of what staff told an LWBS patient | Recollection against written statement | Show both; the timed written statement controls; flag interviews as an open item |
+| Materials quote QSO-22-22 or old penalty amounts | Stale policy binder | Replace with the current status from the enforcement file and list the policy revision as a corrective action |
+
+## Related Skills
+
+- coordinating-emergency-transfers: redesigning the transfer process, form and checklist after this review scores a transfer.
+- documenting-emergency-encounters: improving future ED documentation of the MSE, medical decision-making and disposition.
+- triaging-emergency-presentations: ESI triage method questions, kept separate from whether an MSE occurred.
+- managing-labor-and-delivery: labor documentation and cervical exam practice behind false-labor findings.
+- managing-psychiatric-emergencies: psychiatric assessment and safety evaluation for boarded patients.
+- managing-involuntary-commitments: State hold criteria and documentation, which do not decide whether an EMC exists.
+- managing-medical-staff-credentialing: privileging QMPs once the governing body designates them.
+- managing-medical-records-compliance: late-entry and amendment policy when a record gap is found.
+- managing-conditions-of-participation: CMS survey readiness beyond EMTALA, and CoP duties after inpatient admission.
+- legal-research: no dedicated skill covers State abortion-law preemption or circuit law on private EMTALA suits; route those questions here.
+
+## Reference Files
+
+- `references/emtala-requirements.md`: triggers, DED and campus, MSE and QMP, stabilization, labor, psychiatric boarding, on-call, transfer elements, recipient duties, administrative duties.
+- `references/enforcement-and-guidance.md`: guidance status as of October 30, 2026, survey and termination process, penalties, clocks table, circuit-variable questions, Appendix V tag map.
+- `references/output-template.md`: deliverable sections, encounter timeline, trigger block, element scorecard, program checklist, reconciliation table, declined-request block, hand-offs.
+- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the `[VERIFY]` list.
