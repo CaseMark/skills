@@ -45,9 +45,10 @@ Read each input with this suspicion before relying on it.
 | Input / Document | What It Is Used For | Where the Error Hides |
 |---|---|---|
 | Rate comparison or entity-choice model | Choosing C corporation or pass-through | 21 percent compared with 37 percent alone: no dividend tax or NIIT on distributed C earnings, no 199A deduction for the pass-through, no distribution policy, no exit; the C corporation's retention advantage claimed without the accumulated earnings tax test |
-| Section 199A workpaper | Owner-level tax on pass-through income | Sunset after 2025 still assumed; old $50,000 / $100,000 phase-in; wage and UBIA limit or SSTB exclusion skipped above the threshold; threshold taken from the wrong year; a C corporation given the deduction |
+| Section 199A workpaper | Owner-level tax on pass-through income | Sunset after 2025 still assumed; old $50,000 / $100,000 phase-in; wage and UBIA limit or SSTB exclusion skipped above the threshold; threshold taken from the wrong year; businesses aggregated under Treas. Reg. 1.199A-4 without the 50 percent common ownership test, the SSTB bar and two of the three factors, or aggregation changed from a prior year; a C corporation given the deduction |
 | Stock ledger, charter, bylaws, shareholders' agreement and side letters of an S corporation | S eligibility and one class of stock | A partnership, LLC, corporation or nonresident alien admitted as shareholder; a liquidation preference or priority return in a binding agreement (a governing provision); disproportionate distributions treated as fatal when governing provisions are identical, or ignored when uncorrected |
-| QSBS stock ledger, issuance records and balance sheets at issuance | Section 1202 exclusion at exit | The 3/4/5-year tiers applied to stock acquired on or before July 4, 2025; the $50,000,000 test applied to stock issued after July 4, 2025, or $75,000,000 to earlier stock; a disqualified field (consulting, financial services, health) or a pivot into one; stock issued while an S election was in effect |
+| Trust instruments and QSST or ESBT elections for trust shareholders | Whether a trust is a permitted S corporation shareholder | Stock transferred to a non-grantor trust with no QSST or ESBT election filed within the 16-day-and-2-month period; each potential current beneficiary of an ESBT not tested as a shareholder (a partnership or nonresident alien beneficiary ends the election); a testamentary trust kept past its two-year window |
+| QSBS stock ledger, issuance records and balance sheets at issuance | Section 1202 exclusion at exit | The 3/4/5-year tiers applied to stock acquired on or before July 4, 2025; the $50,000,000 test applied to stock issued after July 4, 2025, or $75,000,000 to earlier stock; a disqualified field (consulting, financial services, health) or a pivot into one; working capital counted as active after two years of existence beyond the 50 percent cap of IRC 1202(e)(6), or non-business real estate over 10 percent of asset value under IRC 1202(e)(7); stock issued while an S election was in effect |
 | Conversion plan (LLC to corporation, C to S, S to C) | Timing of elections and exit | QSBS holding period tacked back to LLC formation; gross assets measured at tax basis instead of the fair market value of contributed property; the Section 1374 recognition period counted from the Form 2553 filing date rather than the first S year; the five-year re-election bar missed |
 | Ownership chart for a holding company and its subsidiaries | Consolidated return, dividends received deduction | A member below 80 percent of value though at 100 percent of vote; convertible or participating preferred treated as excluded stock; a 100 percent DRD claimed for a non-member; an S corporation or foreign corporation listed as a member |
 | Financial statements used for the corporate AMT test | Applicable corporation status | Each corporation tested alone against $1,000,000,000 instead of with every IRC 52(a) or (b) group member; the consolidated return group used as the aggregation group; status treated as tax owed |
@@ -61,7 +62,7 @@ Read each input with this suspicion before relying on it.
 2. **Source-review gate.** Never call a document missing until the inventory has been checked and each file opened, including exhibits, side letters and spreadsheet tabs. Classify every unsettled item as an **unknown fact**, a **source conflict**, an **unverified external lookup** (published rates, state rules, valuations) or a **policy election** (distribution policy, exit year, election choices), with what would settle it.
 3. **Hierarchy of authority.** For facts: executed governing documents, filed elections and IRS acceptance letters, and filed returns govern over the stock ledger and valuation reports, which govern over cap table spreadsheets and models, which govern over emails, memos and summaries. For law: the Code and final regulations govern over revenue procedures and notices, which govern over proposed regulations, which govern over commentary. Name every conflict, show both versions, say which controls and why; never resolve one silently.
 4. **Citation discipline.** Every fact carries a source locator or [UNVERIFIED]; every rule carries its citation from `references/primary-sources.md` or [VERIFY].
-5. **Every rate and threshold carries its tax year.** A figure without a year is incomplete. Inflation-adjusted figures for a year not yet published are [VERIFY].
+5. **Every rate and threshold carries its tax year; every computed date carries its weekday.** A figure without a year is incomplete. Inflation-adjusted figures for a year not yet published are [VERIFY]. A tier or deadline that falls inside a calendar year is computed from an exact transaction date; without one, show the result on each side of the date.
 6. **Two layers, every time.** A comparison computes entity-level and owner-level tax for each alternative under a stated distribution policy and states the break-even payout; a single-layer rate comparison is never the answer.
 7. **Status before savings.** S eligibility, QSBS qualification, consolidated group membership and corporate AMT status are tested before any saving that depends on them is computed. A failed status test removes that saving.
 8. **Regime by date.** Apply the Section 1202 regime by acquisition and issue date, block by block; date each election by its effective date; give each clock its own trigger event.
@@ -85,10 +86,10 @@ Collect these, then build the source-review register (`references/output-templat
 
 **Default fallbacks (each recorded as a policy election or unknown fact):** federal-only analysis with the state layer marked "not modeled" if state facts are missing; payout share shown at 0 percent, break-even and 100 percent if no policy is given; owner rate at the top bracket for the year with the band stated; exit modeled as a stock sale in the year the user names, or at the next Section 1202 tier date if none is named. Payroll and self-employment taxes are stated as not modeled unless wages and compensation are supplied.
 
-**Hard stops (do not produce the blocked item; deliver the analysis up to the stop and report what is needed):**
-- The entities or owners cannot be identified with a federal classification and an owner type for each: no comparison or status conclusion is produced.
-- A Section 1202 conclusion is requested for a block whose acquisition date, issue date or gross assets at issuance is unknown and cannot be bracketed from the file: no exclusion figure for that block.
-- The request is to draft a representation, term sheet clause, investor letter or filing position stating that an S election, QSBS status, consolidated group membership or other status holds, when the file shows a fact that breaks it: the statement is not drafted; the conflict is written up.
+**Hard stops (do not produce the blocked item; list it under Declined parts in `references/output-template.md` with the label DECLINED UNDER HARD STOP; deliver the analysis up to the stop and report what is needed). Each names the parties it tests:**
+- An entity whose tax or status is tested, or an owner whose ownership the test counts, cannot be identified with a federal classification and an owner type. The owners counted are: for S eligibility, every shareholder and each ESBT potential current beneficiary; for affiliation or IRC 52 aggregation, every owner of more than 50 percent by vote or value at any tier, including owners of the parent; for a C versus pass-through comparison, each owner whose tax is computed. No comparison or status conclusion is produced for that entity or owner.
+- A Section 1202 conclusion is requested for a block whose holder's acquisition date, issuer's issue date or issuer's gross assets at issuance is unknown and cannot be bracketed from the file: no exclusion figure for that block.
+- The request is to draft a representation, term sheet clause, investor letter or filing position (including a Form 851 affiliations schedule) stating that an entity's S election, QSBS status, consolidated group membership or other status holds, when the file shows a fact about that entity or its owners that breaks it: the statement is not drafted; the conflict is written up.
 - The request is to backdate, re-date or alter issuance records, election dates, valuations or governing documents to reach a status, holding period or threshold.
 - The request is to present the analysis as a final tax opinion or as advice to a third party.
 
@@ -104,7 +105,7 @@ Before any analysis, check the triggers in Ground Rule 12. A foreign owner, fore
 
 Read `references/s-corp-qsbs-conversion-rules.md` Sections 1 to 6 and `references/entity-choice-and-group-rules.md` Sections 4 to 6. Complete the status table:
 
-- S eligibility: every shareholder's type and residence; every governing provision for distribution and liquidation rights; distribution history against ownership by year.
+- S eligibility: every shareholder's type and residence, each trust's QSST or ESBT election and its filing date, and each ESBT potential current beneficiary; every governing provision for distribution and liquidation rights; distribution history against ownership by year.
 - QSBS by block: regime by date, gross assets before and immediately after issuance (contributed property at fair market value), active business and excluded fields, holding period tier, per-issuer limit.
 - Consolidated group: 80 percent vote and 80 percent value for each member every day, with each class of preferred stock tested under IRC 1504(a)(4).
 - Corporate AMT: the IRC 52(a) or (b) group listed and its AFSI summed against the threshold.
@@ -147,7 +148,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 1. Every comparison shows entity-level and owner-level tax for each alternative under a stated payout share, with the break-even payout share.
 2. The 199A deduction, where used, applies the post-Pub. L. 119-21 rules for the year, names the binding limit and is not given to a C corporation.
 3. Every rate and threshold shows its tax year and citation, or [VERIFY].
-4. Each S corporation shareholder is a permitted shareholder, and every governing provision was read for identical distribution and liquidation rights; disproportionate distributions are classified under Treas. Reg. 1.1361-1(l)(2).
+4. Each S corporation shareholder is a permitted shareholder (trusts with a timely QSST or ESBT election), and every governing provision was read for identical distribution and liquidation rights; disproportionate distributions are classified under Treas. Reg. 1.1361-1(l)(2).
 5. Each QSBS block shows its acquisition and issue dates, the regime that follows, gross assets before and after issuance, the active business test, the tier and the per-issuer limit.
 6. Any conversion shows its effective date, the QSBS acquisition date it creates, gross assets at fair market value and any built-in gain consequence.
 7. The Section 1374 recognition period runs from the first day of the first S year.
@@ -155,7 +156,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 9. The corporate AMT status test aggregates every IRC 52(a) or (b) group member and does not equate status with tax owed.
 10. PTE analysis computes residents and nonresidents separately and addresses equalizing distributions for an S corporation.
 11. Every fact has a source locator or [UNVERIFIED]; every conflict names both sources and the controlling one.
-12. Every routed question has a complete hand-off, and nothing cross-border, transfer pricing or acquisition structuring is analyzed here beyond the hand-off.
+12. Every routed question has a complete hand-off, nothing cross-border, transfer pricing or acquisition structuring is analyzed here beyond the hand-off, and every item a hard stop blocked appears under Declined parts with the label DECLINED UNDER HARD STOP.
 13. The draft-for-review closing line is present and nothing is presented as a tax opinion.
 
 ## Guidelines
@@ -186,7 +187,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - analyzing-m-and-a-tax-implications: buying or selling a business, pre-sale reorganizations, step-up elections, acquired losses and Section 382.
 - analyzing-partnership-tax-structures: allocations, basis, waterfalls and carried interest inside an LLC or partnership alternative.
 - analyzing-state-income-tax: nexus, apportionment and combined reporting beyond the PTE election decision.
-- managing-income-tax-provisions: ASC 740 effects of an entity change or election.
+- managing-tax-provision-preparation: ASC 740 effects of an entity change, election or status loss (deferred taxes, rate reconciliation).
 - analyzing-compensation-tax: equity compensation, Section 409A and Section 280G issues raised by the structure.
 - managing-estate-and-gift-tax: gifts of stock, generational transfers and the estate and gift tax side of succession planning.
 - managing-tax-controversy: an election, status or exclusion already under IRS examination.
@@ -196,5 +197,5 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 
 - `references/entity-choice-and-group-rules.md`: rates by year, the two-layer comparison, Section 199A, AET and PHC, consolidated returns and DRD, corporate AMT, SALT cap and PTE elections, clocks table.
 - `references/s-corp-qsbs-conversion-rules.md`: S eligibility, one class of stock, termination and relief, Section 1374, QSBS regimes and tests, conversions.
-- `references/output-template.md`: deliverable sections, status table, clock table, comparison table, reconciliation checks R1 to R10, issue severity, hand-off table.
+- `references/output-template.md`: deliverable sections, status table, clock table, comparison table, reconciliation checks R1 to R10, issue severity, hand-off table, Declined parts.
 - `references/primary-sources.md`: each authority checked with URL, method and date, conflicts found, and the [VERIFY] list.

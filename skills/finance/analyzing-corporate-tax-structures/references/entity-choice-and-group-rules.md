@@ -18,8 +18,8 @@ U.S. federal rules for comparing a C corporation with a pass-through, for the co
 | Item | Figure | Tax year | Citation |
 |---|---|---|---|
 | Corporate income tax | 21 percent of taxable income, flat, no sunset | Taxable years beginning after Dec. 31, 2017 | IRC 11(b) |
-| Top individual rate | 37 percent; MFJ over $768,700, single over $640,600 | 2026 | IRC 1(j)(2) (made permanent by Pub. L. 119-21); Rev. Proc. 2025-32 sec. 4.01 |
-| Qualified dividends and long-term gain, top rate | 20 percent; MFJ over $613,700, other individuals over $545,500 | 2026 | IRC 1(h), 1(j)(5); Rev. Proc. 2025-32 sec. 4.03 |
+| Top individual rate | 37 percent; MFJ and surviving spouse over $768,700, single and head of household over $640,600, married filing separately over $384,350 | 2026 | IRC 1(j)(2) (made permanent by Pub. L. 119-21); Rev. Proc. 2025-32 sec. 4.01 |
+| Qualified dividends and long-term gain, top rate | 20 percent above the maximum 15 percent rate amount: MFJ and surviving spouse $613,700, head of household $579,600, married filing separately $306,850, all other individuals $545,500 | 2026 | IRC 1(h), 1(j)(5); Rev. Proc. 2025-32 sec. 4.03 |
 | Section 1202 gain not excluded (28-percent rate gain) | Taxed at up to 28 percent | All years | IRC 1(h)(4), (7) |
 | Net investment income tax | 3.8 percent above MAGI of $250,000 (joint) or $200,000 (other); not indexed | All years since 2013 | IRC 1411(a)(1), (b) |
 | 199A threshold and phase-in end | $403,500 / $553,500 joint; $201,750 / $276,750 other; $201,775 / $276,775 married separate | 2026 | IRC 199A(e)(2), (b)(3)(B); Rev. Proc. 2025-32 sec. 4.26 |
@@ -47,6 +47,7 @@ Every comparison computes both layers for each alternative and states the distri
 - Per business: the lesser of 20 percent of QBI or the greater of 50 percent of W-2 wages or 25 percent of W-2 wages plus 2.5 percent of UBIA (IRC 199A(b)(2)); the limit does not apply below the threshold amount and phases in across the range (IRC 199A(b)(3)).
 - Overall cap: the deduction cannot exceed 20 percent of taxable income less net capital gain (IRC 199A(a)).
 - SSTB: fields listed in IRC 1202(e)(3)(A) other than engineering and architecture, plus investing, investment management and trading (IRC 199A(d)(2)); fully excluded above the end of the phase-in range.
+- Aggregation (Treas. Reg. 1.199A-4): businesses may be combined for the wage and UBIA limit only if the same person or group owns 50 percent or more of each for a majority of the year including its last day, all report on the same taxable year, none is an SSTB, and at least two of three factors are met (same or customarily combined products or services; shared facilities or centralized functions; operated in coordination or reliance) (Treas. Reg. 1.199A-4(b)(1)). Once chosen, aggregation must be reported consistently in later years and cannot be added on an amended return except for 2018 (Treas. Reg. 1.199A-4(c)(1)).
 - A C corporation gets no 199A deduction; a comparison that gives the pass-through 37 percent without 199A, or gives the C corporation 21 percent without the dividend layer, is wrong.
 
 ## 4. Accumulated earnings tax and personal holding company tax
@@ -78,7 +79,7 @@ Every comparison computes both layers for each alternative and states the distri
 
 ## 7. SALT cap and state PTE elections
 
-- **SALT cap (individuals):** $40,000 for taxable years beginning in 2025, $40,400 in 2026, 101 percent of the prior year's amount for 2027 through 2029, and $10,000 from 2030; half for married filing separately; reduced by 30 percent of MAGI over $500,000 (2025) or $505,000 (2026), indexed at 101 percent through 2029, but not below $10,000 (IRC 164(b)(6), (7), as amended by Pub. L. 119-21, sec. 70120). Exact 2027 to 2029 figures after rounding are [VERIFY].
+- **SALT cap (individuals):** $40,000 for taxable years beginning in 2025, $40,400 in 2026, 101 percent of the prior year's amount for 2027 through 2029, and $10,000 from 2030; half for married filing separately; reduced by 30 percent of MAGI over $500,000 (2025) or $505,000 (2026), indexed at 101 percent through 2029 (the threshold is halved for married filing separately), but not below $10,000 (IRC 164(b)(6), (7), as amended by Pub. L. 119-21, sec. 70120). Exact 2027 to 2029 figures after rounding are [VERIFY].
 - **Entity-level deduction:** income taxes a state imposes directly on a partnership or S corporation ("Specified Income Tax Payments") are deductible by the entity and are not taken into account in the owner's SALT cap (Notice 2020-75, sec. 3). The enacted IRC 164(b)(6) contains no PTE restriction. Proposed regulations promised by the notice are [VERIFY].
 - **Where PTE elections misfire:**
   - Residents and nonresidents: many states tax resident owners on all income and nonresidents on state-source income only, and some limit the election or the owner credit by residence; a nonresident owner's home state may not credit the PTE tax paid to another state. Compute the federal saving owner by owner and net it against any lost home-state credit [VERIFY each state and year].

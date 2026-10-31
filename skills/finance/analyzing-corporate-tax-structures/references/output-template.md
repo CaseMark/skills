@@ -15,6 +15,7 @@ Produce the header and the sections below, in this order. Put figures in tables;
 9. Section 8. Issues, conflicts and judgment calls
 10. Section 9. Hand-offs
 11. Section 10. Open items and [VERIFY] list
+12. Section 11. Declined parts
 
 ## Header
 
@@ -53,9 +54,9 @@ Add an owner table: owner, type (individual, trust, partnership, corporation, ex
 
 ## 4. Clock table
 
-One row per timed element, each with its own trigger event, computed date, and the source for the trigger date.
+One row per timed element, each with its own trigger event, computed date, and the source for the trigger date. Every date shows its weekday (for example "Tuesday, December 1, 2026"). A tier or deadline inside a calendar year is computed from an exact transaction date; if the user gives only a year, show the result before and after the computed date.
 
-| Element | Trigger event | Trigger date (locator) | Length or test | Computed date | Citation |
+| Element | Trigger event | Trigger date (locator) | Length or test | Computed date (with weekday) | Citation |
 |---|---|---|---|---|---|
 
 ## 5. Two-layer comparison
@@ -126,5 +127,15 @@ Add or remove rows to match the matter.
 |---|---|---|---|---|---|---|
 
 Then each [VERIFY] statement and what would settle it.
+
+## 11. Declined parts
+
+Every part of the request that a Checkpoint A hard stop blocks is listed here, one row each, under the fixed label below. Use the label verbatim; do not paraphrase it. The rest of the deliverable is still produced.
+
+| Label | Part of the request declined | Hard stop that applies | Facts that trigger it (locators) | What would let it proceed |
+|---|---|---|---|---|
+| DECLINED UNDER HARD STOP | | | | |
+
+If no hard stop fired, write "No part declined" and list the hard stops checked.
 
 Close with: "Draft for review by a qualified tax adviser. Not tax, legal or accounting advice, and not a tax opinion."
