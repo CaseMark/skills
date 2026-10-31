@@ -24,14 +24,15 @@ Construction and review rules for each part of an equity valuation model. Read t
 
 - Unlevered cash flow discounted at the cost of equity understates value (the rate carries financial risk the cash flow does not bear); levered cash flow discounted at WACC overstates it. IVS 103 Appendix A20.05 and A20.30 require the discount rate to be consistent with the type of cash flow.
 - Taxes in unlevered cash flow are on EBIT (operating taxes), not on pre-tax income after interest; the interest tax shield lives in the after-tax cost of debt.
-- Nominal cash flows take a nominal rate; real cash flows a real rate. Currency of the cash flow and of the risk-free rate must match.
+- Nominal cash flows take a nominal rate; real cash flows a real rate. Currency of the cash flow and of the risk-free rate must match; cash flows converted from another currency use forward or expected exchange rates consistent with the inflation differential, stated.
+- Banks, insurers and other regulated financial companies: deposits and debt are operating liabilities and regulatory capital limits distributions, so an EV bridge and UFCF at WACC do not fit. Value equity directly (free cash flow to equity after the reinvestment needed to hold regulatory capital, or a dividend discount model) at the cost of equity, and treat capital above the regulatory requirement as excess. (Methodology: A. Damodaran, "Valuing Financial Service Firms".)
 
 ## 2. Unlevered free cash flow build and stock-based compensation
 
 UFCF = EBIT x (1 - operating tax rate) + D&A - capital expenditures - increase in net working capital (+/- other operating non-cash items stated one per row).
 
 - Start from reported EBIT tied to the statements; show each normalization (non-recurring items, owner compensation for a private company) as its own row with its source.
-- Under US GAAP, operating lease cost is a single straight-line lease cost in operating expense (ASC 842-20-25-6), so EBITDA and UFCF are after operating lease cost; finance lease cost is ROU amortization plus interest (ASC 842-20-25-5), so it sits below EBITDA. Under IFRS 16 the lessee presents interest on the lease liability separately from depreciation (IFRS 16.49), so IFRS EBITDA is before lease cost. Section 6 sets the matching bridge treatment.
+- Under US GAAP, an operating lease produces a single lease cost, allocated straight-line unless another systematic and rational basis is more representative of the benefit pattern or the ROU asset has been impaired (ASC 842-20-25-6(a) and 25-7), plus variable lease payments not in the liability and any ROU impairment, all in profit or loss (ASC 842-20-25-6(b) and (c)); with that cost in operating expense, EBITDA and UFCF are after operating lease cost; finance lease cost is ROU amortization plus interest (ASC 842-20-25-5), so it sits below EBITDA. Under IFRS 16 the lessee presents interest on the lease liability separately from depreciation (IFRS 16.49), so IFRS EBITDA is before lease cost. Section 6 sets the matching bridge treatment.
 - Stock-based compensation (SBC). Choose one treatment and state it as a policy election:
   - Default: treat SBC as an operating expense (no add-back) and count only securities outstanding at the valuation date in the share count (Section 7).
   - Alternative: add SBC back as non-cash and model the future share issuance it implies (projected grants diluting the share count or a cash-equivalent deduction).

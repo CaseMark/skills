@@ -3,18 +3,18 @@ name: building-equity-valuation-models
 language: en
 description: >
   Builds and reviews equity valuation models: DCF on unlevered free cash flow at WACC
-  with peer beta relevered to the subject's capital structure; terminal value
-  by Gordon growth and exit multiple with implied-multiple and implied-growth checks;
-  mid-year convention, stub periods; trading comparables (LTM and NTM) and precedent
-  transactions with control premium or discount for lack of control; the enterprise
-  value to equity value bridge (debt, ASC 842 leases, preferred, noncontrolling
-  interests, pension deficits, trapped cash); diluted shares (treasury stock
-  method, convertibles); stock-based compensation, football field,
+  with relevered beta; Gordon growth and exit multiple terminal values with implied
+  multiple and growth checks; mid-year convention, stub periods; trading comparables
+  (LTM, NTM) and precedent transactions with control premium or discount for lack of
+  control; the enterprise value to equity value bridge (debt, ASC 842 leases,
+  preferred, noncontrolling interests, pensions, trapped cash); diluted shares
+  (treasury stock method, convertibles); stock-based compensation; football field,
   sensitivities. States the standard of value (ASC 820 fair value, fair market value,
-  investment value, statutory fair value). Use for DCF, comps, precedents, price targets,
-  value per share, WACC, terminal value, net debt bridge, DCF and comparables used to
-  support the exit multiple in an LBO, or valuation model outputs behind an investment
-  committee memo. Drafts for qualified review.
+  investment value, statutory fair value). Use for DCF, comps, precedents, price
+  targets, value per share, WACC, terminal value, net debt bridge, fair market value of
+  closely held interests with DLOC and DLOM, DCF and comparables used to support the
+  exit multiple in an LBO, or valuation model outputs behind an investment committee
+  memo. Drafts for qualified review.
 tags:
   - modeling
   - equity-research
@@ -46,13 +46,15 @@ Read each input with this suspicion before building from it.
 |---|---|---|
 | Engagement letter, purpose and the subject interest (purchase agreement, buy-sell agreement, accounting Topic, statute) | Standard of value, premise, level of value, which entity and which class of shares | No standard of value stated, or ASC 820 fair value confused with statutory fair value; buyer-specific synergies inside a fair market value; a 100 percent value presented for a minority stake; the parent's shares valued when the interest is in a subsidiary |
 | Management forecast and the unlevered free cash flow build | Explicit-period cash flows | Unlevered flows discounted at the cost of equity, or levered flows at WACC; taxes computed after interest; SBC added back as non-cash while future grants are ignored in the share count; a most-likely case treated as an expected case |
-| Discount rate inputs (peer betas, capital structure, cost of debt, risk-free rate, equity risk premium) | WACC and cost of equity | Peer levered betas used without unlevering and relevering to the subject's capital structure; book weights; the historical coupon used as the cost of debt; risk-free rate or premium filled in from memory or undated |
+| Discount rate inputs (peer betas, capital structure, cost of debt, risk-free rate, equity risk premium) | WACC and cost of equity | Peer levered betas used without unlevering and relevering to the subject's capital structure; book weights; the historical coupon used as the cost of debt; risk-free rate or premium filled in from memory or undated; cash flows in one currency or in real terms discounted at a rate built in another currency or in nominal terms |
 | Terminal value assumptions | Usually most of enterprise value | Perpetual growth above the long-run nominal growth of the economy the cash flows come from; terminal value over about 75 to 80 percent of EV with no explanation; Gordon growth and exit multiple values implying inconsistent multiples or growth; terminal year with capex below D&A at positive growth |
 | Valuation date and discounting calendar | Discount factors | Mid-year factors of 0.5, 1.5, 2.5 used with a stub period; a full first fiscal year counted when part of it precedes the valuation date; net debt taken at a different date from the valuation date |
 | Balance sheet and notes for the EV-to-equity bridge | Net debt and other claims | Finance lease liabilities, preferred stock, noncontrolling interests or pension deficits omitted; operating lease liabilities deducted while UFCF is already after lease cost (or not deducted on an IFRS 16 or EBITDAR basis); cash trapped by exchange controls or needed for operations counted as free; equity-method investments omitted or double counted |
 | Share register, equity plans and convertible terms | Fully diluted shares and per-share value | Basic shares used; options added at gross count rather than by the treasury stock method; out-of-the-money options included; an in-the-money convertible left as debt or an out-of-the-money one converted; TSM priced at a figure inconsistent with the value concluded |
 | Trading comparables (data-provider pulls, peer filings) | Market approach multiples | Peers with different growth or margin profiles used unadjusted; NTM multiples applied to LTM metrics; unaligned fiscal year ends; peer EV built on a different lease or bridge basis than the subject |
 | Precedent transactions | Control-basis multiples | Control premium and synergies applied to a minority stake; stale deals from a different rate environment; equity value multiples mixed with enterprise value multiples |
+| Subject company's business model (banks, insurers, other regulated financial companies) | Choice of method | An EV bridge and UFCF at WACC applied where debt and deposits are operating liabilities and regulatory capital constrains distributions; such companies need free cash flow to equity or a dividend discount model at the cost of equity, with excess capital measured against the regulatory requirement |
+| Entry price or recent arm's-length transaction in the subject interest (fund investment, financing round) | Calibration of a Level 3 fair value | A later ASC 820 mark built from comps or a DCF with no calibration to the entry price that was fair value at initial recognition (ASC 820-10-35-24C); a round price with liquidation preferences read as the value of every class |
 | Target price, deal price or prior mark the user mentions | The answer the user expects | Inputs tuned until the model reaches the number; weights chosen after the fact; a reverse DCF presented as an independent valuation |
 
 ## Ground Rules
@@ -93,7 +95,7 @@ Collect these, then build the source-review register (`references/output-templat
 
 ## Step 1: Scope, Standard of Value and Inventory
 
-Read `references/standards-of-value.md` in full. Fix the standard of value, premise, level of value, subject interest and valuation date, and record any conflict between the user's label and the governing document. Build the source-review register and assumption register. For a supplied model, trace each input cell to a source and list hard-coded values in calculated rows.
+Read `references/standards-of-value.md` in full. Fix the standard of value, premise, level of value, subject interest and valuation date, and record any conflict between the user's label and the governing document. If the subject is a bank, insurer or other regulated financial company, plan an equity-basis method (FCFE or dividend discount) per `references/valuation-mechanics.md` Section 1 instead of an EV bridge. Build the source-review register and assumption register. For a supplied model, trace each input cell to a source and list hard-coded values in calculated rows.
 
 ## Step 2: Forecast and Unlevered Free Cash Flow
 
@@ -109,7 +111,7 @@ Read `references/valuation-mechanics.md` Sections 4 and 5. Set the calendar from
 
 ## Step 5: Trading Comparables and Precedent Transactions
 
-Read `references/valuation-mechanics.md` Sections 8 and 9 and `references/standards-of-value.md` Section 5. Document peer selection with growth and margins; match LTM to LTM and NTM to NTM and calendarize (V11). For precedents, record the stake acquired and premium; adjust or exclude control-basis indications for a minority interest so the level of value matches the subject interest (V12).
+Read `references/valuation-mechanics.md` Sections 8 and 9 and `references/standards-of-value.md` Section 5. Document peer selection with growth and margins; match LTM to LTM and NTM to NTM and calendarize (V11). For precedents, record the stake acquired and premium; adjust or exclude control-basis indications for a minority interest so the level of value matches the subject interest (V12). For an ASC 820 Level 3 mark of an interest bought at a price that was fair value, calibrate to that entry price (`references/standards-of-value.md` Section 4) or list the entry price and model as an unknown fact.
 
 ## Step 6: Enterprise Value to Equity Value Bridge
 
@@ -149,7 +151,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 8. Diluted shares apply the treasury stock method and the convertible test at the converged value.
 9. SBC is either expensed or added back with future dilution modeled, and the treatment is stated.
 10. Comparable multiples match period (LTM or NTM) and basis (EV or equity) to the subject metric, and peer differences in growth and margin are addressed.
-11. Premiums and discounts match the subject interest; no control-basis indication is applied unadjusted to a minority interest.
+11. Premiums and discounts match the subject interest; no control-basis indication is applied unadjusted to a minority interest; a Level 3 fair value is calibrated to any entry price that was fair value, or the gap is an open item.
 12. Every reconciliation check is computed; every conflict names both sources, the controlling one and the effect; every open item has an owner.
 13. The draft-for-review closing line is present and nothing calls the output a conclusion of value or final.
 
@@ -190,7 +192,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - managing-equity-compensation-accounting: SBC accounting, award fair values (Black-Scholes) and expense recognition.
 - managing-pension-fund-obligations: funded status and actuarial assumptions behind the pension deficit used in the bridge.
 - analyzing-earnings-quality: accruals, cash conversion and accounting red flags in the earnings the model capitalizes.
-- managing-estate-and-gift-tax: estate and gift tax planning in which this skill's fair market value of a transferred interest is used.
+- managing-estate-and-gift-tax: estate and gift tax planning and the transfer-tax treatment of a value; this skill models the fair market value of the closely held interest (entity DCF or comparables, DLOC and DLOM as modeled) that it relies on.
 - writing-equity-research-notes: a research note with thesis, valuation, risks and rating justification built on this model.
 - writing-investment-committee-memos: drafting or reviewing the IC memo that turns LBO or valuation model outputs into an IC recommendation; this skill builds the DCF, trading comparables and precedent transaction models behind the memo's valuation section.
 
