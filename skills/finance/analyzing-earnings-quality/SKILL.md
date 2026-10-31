@@ -7,7 +7,7 @@ description: >
   including addbacks or accruals that the QoE report or statements do not support and EBITDA
   addbacks and QoE adjustments an IC memo relies on; labels each adjustment supported,
   recurring, pro forma only, tailored or unsupported; flags "non-recurring" charges that
-  recur, run-rate synergies, capitalized software and contract costs, reserve releases (bad
+  recur, run-rate synergies, capitalized software costs, reserve releases (bad
   debt, warranty, inventory), related-party revenue and one-time gains in operating income;
   measures Sloan accruals, cash conversion (CFO to EBITDA), DSO and DIO, channel stuffing and
   bill-and-hold signals; computes the Beneish M-score with the 1999 coefficients and -1.78
@@ -43,7 +43,7 @@ Read each input with this suspicion before relying on it.
 
 | Input / Document | What It Is Used For | Where the Error Hides |
 |---|---|---|
-| Management or QoE adjusted EBITDA schedule | Starting point for valuation, leverage and covenant figures | "Non-recurring" restructuring, severance or integration charges that appear in each of the last three years; charges added back while same-period gains stay in; bonus overruns, rebates or pre-opening costs treated as one-time |
+| Management or QoE adjusted EBITDA schedule | Starting point for valuation, leverage and covenant figures | "Non-recurring" restructuring, severance or integration charges that appear in each of the last three years; charges added back while same-period gains stay in; bonus overruns, rebates or pre-opening costs treated as one-time; stock-based compensation added back in one period and not another, or with no stated policy |
 | Run-rate, synergy and pro forma adjustments | Forward earnings a buyer or lender may underwrite | Savings not yet realized, or a full year of a contract signed late in the period, added to historical EBITDA; no dis-synergies; reductions larger than the expense historically incurred |
 | Capitalized internal-use software and contract cost schedules | EBITDA and capex | Capitalization rate rising while total spend is flat, lifting EBITDA one for one; commissions moved from the one-year expedient to capitalization; ASU 2025-06 adoption read as a change in activity |
 | Reserve and allowance rollforwards (credit losses, warranty, inventory, returns) | Margin trend | A provision that falls or turns into a credit while aging, claims or slow-moving stock rise; a release in the quarter a target was missed |
@@ -55,6 +55,7 @@ Read each input with this suspicion before relying on it.
 | Scope: which entity, which rules, which report (party and authority) | Deciding what binds and who relied on what | Regulation G applied to a private target's QoE or treated as an assurance; the consolidated group analyzed when the deal is a carve-out; the business combination exemption read as covering the proxy statement; a sell-side QoE treated as the buyer's own work |
 | Related-party and intersegment sales | Revenue and margin quality | Sales to an owner-affiliated customer at above-market prices counted as third-party revenue; related-party terms presumed arm's length (ASC 850-10-50-5) |
 | Income statement classification | Operating income and EBITDA | Gains on asset sales, insurance recoveries or settlements left inside operating income while charges are added back; items moved between operating and non-operating lines between years |
+| Acquisitions, disposals and the LTM build | Comparable periods, growth rates, accruals and day metrics | Acquired revenue counted as organic growth; balance sheet accruals and DSO distorted by acquired receivables and inventory with no pro forma prior period; LTM built with the wrong year-to-date periods or mixed audited and unreviewed months |
 
 ## Ground Rules
 
@@ -64,11 +65,12 @@ Read each input with this suspicion before relying on it.
 4. **Citation discipline.** Every figure carries a source locator (document, page or tab, line or cell) or [UNVERIFIED]. Every rule, CFI, coefficient or threshold carries its citation from `references/primary-sources.md` or [VERIFY].
 5. **Every adjustment gets one label.** Supported, Recurring, Pro forma only, Tailored or Unsupported, using the tests in `references/adjustment-and-non-gaap-rules.md` Section 1. Only Supported items stay in diligence-adjusted EBITDA; pro forma items sit in their own column.
 6. **Detect, never engineer.** Do not choose, size or relabel adjustments to reach a target EBITDA, leverage ratio, covenant level, consensus figure or M-score. Show what the evidence supports and the gap to the target.
-7. **Screens are not findings.** The M-score, accrual ratios and day trends direct the inquiry. Do not state that anyone committed fraud or manipulated earnings; describe the indicator, its size and the evidence that would confirm or clear it.
-8. **Numbers tie before they are interpreted.** Run the reconciliation checks in `references/output-template.md` Section 9; a failed check is reported, not hidden.
-9. **Same definitions across periods and peers.** Use the formulas in `references/metrics-and-formulas.md`; if a source uses another definition, label it and do not mix bases.
-10. **Name the rules that bind.** State whether the company is a registrant and which document a non-GAAP measure appears in before applying Regulation G or Item 10(e).
-11. **Route recognition questions.** Whether revenue was properly recognized (bill-and-hold, principal or agent, variable consideration) is concluded in the revenue recognition workflow; this skill quantifies the amount at stake and lists the evidence.
+7. **Report every material finding.** Do not leave a known material finding (a reserve release, an M-score flag, a failed reconciliation check, a related-party sale) out of the deliverable, move it out of the reader's view, or soften it because the user, management, the sponsor, a lender or the seller asks; show it with its size and source.
+8. **Screens are not findings.** The M-score, accrual ratios and day trends direct the inquiry. Do not state that anyone committed fraud or manipulated earnings; describe the indicator, its size and the evidence that would confirm or clear it.
+9. **Numbers tie before they are interpreted.** Run the reconciliation checks in `references/output-template.md` Section 9; a failed check is reported, not hidden.
+10. **Same definitions across periods and peers.** Use the formulas in `references/metrics-and-formulas.md`; if a source uses another definition, label it and do not mix bases.
+11. **Name the rules that bind.** State whether the company is a registrant and which document a non-GAAP measure appears in before applying Regulation G or Item 10(e).
+12. **Route recognition questions.** Whether revenue or contract costs were properly recognized (bill-and-hold, principal or agent, variable consideration, ASC 340-40 contract costs) is concluded in the revenue recognition workflow; this skill quantifies the amount at stake and lists the evidence.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -87,15 +89,16 @@ Collect these, then build the source-review register (`references/output-templat
 **Hard stops (report what is needed instead):**
 - **No anchor statement.** No income statement prepared under a stated framework (U.S. GAAP or IFRS) for the period under review, so no adjustment can be anchored: stop the whole analysis.
 - **Insufficient periods.** Accruals, cash conversion, day trends or the M-score requested without two consecutive fiscal years of balance sheets (and the cash flow statement for cash conversion): decline those metrics only.
-- **Target-driven adjustments.** The request is to choose, size or relabel adjustments so adjusted EBITDA, leverage, a covenant ratio or an M-score reaches a target: decline that part.
-- **Conduct conclusion or assurance.** The request is to state that the company or a person committed fraud or manipulated earnings, or to present a screen as proof, or to issue the report as an audit, assurance or fairness opinion: decline that part and give the indicators instead.
+- **Target-driven adjustments.** The request, whether from the user, management, the sponsor, a lender or the seller, is to choose, size or relabel adjustments so adjusted EBITDA, leverage, a covenant ratio or an M-score reaches a target: decline that part.
+- **Conduct conclusion or assurance.** The request is to state that the company, its management or any other person committed fraud or manipulated earnings, or to present a screen as proof, or to issue the report as an audit, assurance or fairness opinion: decline that part and give the indicators instead.
+- **Finding suppression.** The request, whether from the user, management, the sponsor, a lender or the seller, is to omit, relocate out of the reader's view or soften a known material finding: decline that part and report the finding in full.
 - **Audited figures set aside.** The user directs that audited statements in the file be set aside for management figures without a written conflict note: stop until the conflict is documented.
 
 A declined part carries the fixed label in `references/output-template.md` Section 11, using the hard stop's bold name, and the rest of the deliverable is completed.
 
 ## Step 1: Inventory, Scope and Register
 
-Open every file and fill the source-review register. Record the entity perimeter, registrant status, periods and units, and build LTM from fiscal year plus current year-to-date less prior year-to-date (check E4). Read `references/adjustment-and-non-gaap-rules.md` Sections 3 and 9 to record which non-GAAP rules bind and what kind of engagement produced any QoE report.
+Open every file and fill the source-review register. Record the entity perimeter, registrant status, periods and units, and build LTM from fiscal year plus current year-to-date less prior year-to-date (check E4). List acquisitions and disposals in the periods and either build pro forma prior periods or exclude their effect before computing growth, accruals or day metrics. Read `references/adjustment-and-non-gaap-rules.md` Sections 3 and 9 to record which non-GAAP rules bind and what kind of engagement produced any QoE report.
 
 ## Step 2: Adjustment Register and Bridge
 
@@ -130,7 +133,7 @@ Complete the red flag inventory with severity, the reconciliation table, the iss
 Before the Quality Audit, re-read the request and confirm:
 - The deliverable answers the purpose stated at intake (diligence, lending, research screen or disclosure review) and names the figure the reader should use.
 - Every instruction that conflicted with a higher-ranked source is written up, and every declined part is labeled.
-- Pro forma figures are never presented as historical earnings, and no screen is presented as a conclusion about conduct.
+- Pro forma figures are never presented as historical earnings, no screen is presented as a conclusion about conduct, and no material finding was left out at anyone's request.
 - The closing line from the template is present.
 
 ## Quality Audit
@@ -148,7 +151,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 9. The M-score uses the 1999 definitions and coefficients, the -1.78 cutoff and a read-out label, and is called a screen.
 10. For registrants, each non-GAAP finding names the document, the rule or CFI and a label; for private companies, Regulation G is not applied.
 11. Every rule and threshold carries a citation or [VERIFY]; no peer norm was supplied from memory.
-12. No adjustment was chosen to reach a target, and no sentence states that anyone committed fraud or manipulated earnings.
+12. No adjustment was chosen to reach a target, no material finding was omitted or softened, and no sentence states that anyone committed fraud or manipulated earnings.
 13. The draft-for-review closing line is present.
 
 ## Guidelines
@@ -174,7 +177,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 
 ## Related Skills
 
-- managing-revenue-recognition: ASC 606 five-step contract analysis behind the bill-and-hold, principal or agent, variable consideration and contract modification flags raised here.
+- managing-revenue-recognition: revenue recognition policy and ASC 606 / IFRS 15 application questions raised here, including recognition conclusions on bill-and-hold (606-10-55-83), principal or agent, variable consideration, contract modifications and ASC 340-40 contract costs; it returns the revenue and gross profit at stake for the bridge.
 - building-lbo-models: carrying diligence-adjusted EBITDA into the LBO model's EBITDA bridge to credit agreement Consolidated EBITDA, debt sizing and sponsor returns.
 - writing-investment-committee-memos: drafting the IC memo and recommendation that relies on these adjustments; this skill supplies the findings, not the recommendation.
 - conducting-working-capital-due-diligence: working capital normalization and the peg calculation for the transaction.

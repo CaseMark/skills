@@ -44,6 +44,18 @@ Five to ten lines: reported EBITDA, management-adjusted or QoE-adjusted EBITDA, 
 | | Management or QoE adjusted EBITDA | | | | | | |
 | | Diligence-adjusted EBITDA | | | | | | |
 
+Label tests (apply in this order; the first label whose test is met applies):
+
+| Label | Separating test |
+|---|---|
+| Tailored | The adjustment changes how GAAP recognizes or measures revenue or expense (not just whether an item is excluded) |
+| Pro forma only | The amount is not in the ledger for the period: run-rate, synergy, full-period effect of a later or late-period event |
+| Unsupported | In the ledger, but no document supports it or the amount does not tie |
+| Recurring | Supported and in the ledger, but a similar item fell in the two-year look-back, is reasonably likely in the two-year look-forward, or is a normal recurring cash operating expense |
+| Supported | Passes all four tests above |
+
+Other graded labels: the M-score read-out turns only on whether M is greater than -1.78 ("Above -1.78 (screen flag)") or not ("At or below -1.78 (no screen flag)"). Non-GAAP findings: Noncompliant when an express requirement or prohibition that applies to the document in question is failed; Staff-view risk when only a CFI says the practice could mislead; Acceptable with disclosure otherwise. Declined parts use Section 11.
+
 State the difference between management or QoE adjusted EBITDA and diligence-adjusted EBITDA in dollars and percent, and, when a price or leverage figure is given, the multiple or leverage on each.
 
 ## 3. Pro forma column
@@ -118,7 +130,7 @@ When a hard stop declines part of a request, open that part with this fixed labe
 
 "Declined - [hard stop name]: [the part requested]. Needed to proceed: [what would allow it, or 'nothing; this part will not be produced']."
 
-Hard stop names: No anchor statement; Insufficient periods; Target-driven adjustments; Conduct conclusion or assurance; Audited figures set aside. For example, "Declined - Target-driven adjustments: identifying addbacks to reach $47.5m of adjusted EBITDA." Complete the rest of the deliverable. A declined part is never replaced by a figure produced another way.
+Hard stop names: No anchor statement; Insufficient periods; Target-driven adjustments; Conduct conclusion or assurance; Finding suppression; Audited figures set aside. For example, "Declined - Target-driven adjustments: identifying addbacks to reach $47.5m of adjusted EBITDA." Complete the rest of the deliverable. A declined part is never replaced by a figure produced another way.
 
 ## 12. Hand-offs
 
@@ -126,7 +138,7 @@ A hand-off names the specific facts the receiving workflow needs; a bare skill n
 
 | To | Why | Facts passed (figures, dates, locators) | Open questions | What this analysis did not do |
 |---|---|---|---|---|
-| managing-revenue-recognition | ASC 606 five-step contract analysis for bill-and-hold, principal or agent, variable consideration and contract modification flags | | | |
+| managing-revenue-recognition | Revenue recognition policy and ASC 606 / IFRS 15 application questions raised in this work, including recognition conclusions on bill-and-hold (606-10-55-83), principal or agent, variable consideration, contract modifications and ASC 340-40 contract costs; it returns the revenue and gross profit at stake, which enter the bridge here | | | |
 | building-lbo-models | Diligence-adjusted EBITDA for the model's bridge to credit agreement Consolidated EBITDA, debt sizing and returns | | | |
 | writing-investment-committee-memos | EBITDA addbacks and QoE adjustments the IC memo relies on; the memo drafts the recommendation | | | |
 | conducting-working-capital-due-diligence | Working capital normalization and the peg | | | |
