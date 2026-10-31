@@ -14,6 +14,7 @@ Working rules for the civil False Claims Act (31 U.S.C. 3729-3733) as applied to
 8. Civil penalties by assessment date
 9. Qui tam mechanics and the Zafirov challenge
 10. Retaliation (3730(h))
+11. Record alteration and selective-review scienter
 
 ## 1. Liability theories
 
@@ -65,6 +66,7 @@ Label rule: Supported needs evidence beyond the text, such as consistent refusal
 
 - **AKS (1320a-7b(g))**: "resulting from" is circuit-variable. But-for causation: First Circuit (Regeneron, 2025), Sixth Circuit (Martin v. Hathaway, 2023), Eighth Circuit (Cairns, 2022). Third Circuit: a "link" between the kickback and at least one claim, less than but-for; temporal proximity alone is not enough (Greenfield, 2018). Other circuits: `[VERIFY]`; model both readings.
 - **Stark**: payment for DHS furnished on a prohibited referral is barred without intent (42 U.S.C. 1395nn(g)(1)); the claim set is every Medicare DHS claim on the physician's referrals during the noncompliant period. FCA liability still needs scienter and materiality.
+- Forum: an FCA action may be brought in any district where any defendant "can be found, resides, transacts business," or where any proscribed act occurred (31 U.S.C. 3732(a)). The circuit where the entity sits is a default, not a certainty; where venue could lie elsewhere, model each plausible circuit's causation rule.
 - The Stark/AKS legal conclusions come from counsel (stark-law-aks-compliance). This skill takes the labels as given, sizes the claim set under each reading, and returns any disagreement to counsel.
 
 ## 6. Statute of limitations (31 U.S.C. 3731(b))
@@ -110,3 +112,24 @@ Penalties are per false claim, set by the date the penalty is assessed, for viol
 - Protects employees, contractors and agents from discharge, demotion, suspension, threats, harassment or other discrimination because of lawful acts in furtherance of an FCA action "or other efforts to stop 1 or more violations," which reaches internal reports.
 - Relief: reinstatement, 2 times back pay, interest, special damages, litigation costs and attorneys' fees. Limitations: 3 years after the retaliation.
 - During any review, flag every pending adverse action against a person who reported the issue, and route it to employment counsel before it is taken.
+
+## 11. Record alteration and selective-review scienter
+
+**Altered or backdated records.** A record created or changed after the claim, the denial or the audit request and presented as original (an addendum dated to the visit, a re-signed order, a merged note) is the classic false record of 3729(a)(1)(B): a false record or statement "material to a false or fraudulent claim." Submitted in an appeal, it is offered to obtain or keep payment, so its tendency to influence payment is direct. Submitted to avoid repaying, it can fall under 3729(a)(1)(G).
+
+- Inventory every version: displayed date, creation and modification timestamps from the EHR audit log, author, signer, and where each version was sent (MAC, QIC, ALJ, auditor, payer).
+- Label falsity and scienter for the record itself, separately from the underlying claim. A late entry disclosed as late, with its own date and author, is not a false record; one dated to look contemporaneous is.
+- The claim behind the record has its own status: if the original record did not support it, it is an overpayment candidate with its own clock.
+- Never repair, re-date, re-sign, replace or resubmit a record, and never advise withdrawing or "correcting" a submission without counsel; a second submission can be a second false record. Criminal exposure and contact with the adjudicator are for counsel.
+
+**Selective-review scienter.** These designs do not make a claim false; each claim's falsity rests on its own record. They are evidence on scienter under 3729(b)(1) as SuperValu reads it, and they widen the population to review:
+
+| Design | Why it bears on scienter | Population it widens |
+|---|---|---|
+| One-sided or add-only chart review (adds supported codes, never deletes unsupported ones) | Unsupported codes seen and left in place are knowingly retained; declining to look for deletions while looking for additions fits deliberate ignorance | Every member and payment year reviewed, both directions; for an MA organization, 422.326 applies to deletions it identifies |
+| Raise-only (one-way) CDI query policy (queries only when a higher-weighted diagnosis could be added) | Shows awareness that documentation is incomplete, acted on only when payment rises | Claims whose CC, MCC or HCC rests on a query or post-discharge addendum |
+| Capture-count incentives (pay per HCC closed, per gap captured, per query agreed) | Motive and pressure; also a possible AKS or Stark question if the payee is a referral source (route to counsel) | Codes captured under the incentive period |
+| Stopping or narrowing a review after errors are found | Deliberate ignorance; the 2024 preamble starts the 60 days on the date the entity acted in deliberate ignorance or reckless disregard (89 FR 98336) | The period the review would have covered |
+
+Record each design with its dates, its owner and its documents, and carry it into the scienter row of the element table.
+

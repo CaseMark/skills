@@ -4,16 +4,16 @@ language: en
 description: >
   Evaluates provider-side False Claims Act (31 U.S.C. 3729-3733) and Medicare and Medicaid
   overpayment exposure. Tests falsity, scienter, Escobar materiality and causation; computes
-  the 60-day deadline under 42 C.F.R. 401.305 (180-day suspension, 6-year lookback);
+  the 401.305 60-day deadline (180-day suspension, 6-year lookback);
   quantifies from claims or a valid sample; models treble damages, penalties, OIG SDP, CMS
-  SRDP and refunds. Covers FCA exposure, qui tam risk, overpayment
-  quantification and settlement modeling once stark-law-aks-compliance finds noncompliance
-  (1320a-7b(g) causation, Stark-tainted DHS claims); exposure and overpayment quantification
-  for arrangements escalated by conducting-stark-law-analysis; MA risk-adjustment overpayments
-  under 422.326; one-sided or add-only chart reviews, raise-only CDI query policies and
-  capture-count incentives; altered or backdated records in appeals and overpayments found
-  during appeal review; subpoena, CID or unsealed qui tam response; 3730(h) retaliation.
-  Counsel's Stark and AKS opinion stays in stark-law-aks-compliance.
+  SRDP and refunds. Covers FCA exposure, qui tam risk, overpayment quantification and
+  settlement modeling once stark-law-aks-compliance finds noncompliance (1320a-7b(g)
+  causation, Stark-tainted DHS claims); exposure and overpayment quantification for
+  arrangements escalated by conducting-stark-law-analysis; MA risk-adjustment overpayments
+  under 422.326; patterns of unsupported codes; one-sided or add-only chart reviews,
+  raise-only CDI query policies, capture-count incentives; altered or backdated records in
+  appeals and overpayments found during appeal review; subpoena, CID or unsealed qui tam
+  response; 3730(h) retaliation. Counsel's opinion stays in stark-law-aks-compliance.
 tags:
   - process
   - healthcare-compliance
@@ -43,15 +43,17 @@ The FCA remains the government's main civil health care fraud tool: in fiscal ye
 
 | Input / Document | What It Is Used For | Where the Error Hides |
 |---|---|---|
-| Audit report, hotline log, email chain showing who learned what and when | Identification date and the start of the 60-day clock | Clock started at quantification, board approval or the consultant's final report instead of the date the entity knowingly received or retained the overpayment; the 180-day suspension claimed for an investigation never begun or not pursued in good faith; suspension counted from the investigation start instead of day 180 after initial identification; the full 60 days restored after the suspension instead of only the unused days |
+| Audit report, hotline log, email chain showing who learned what and when | Identification date and the start of the 60-day clock | Clock started at quantification, board approval or the consultant's final report instead of the date the entity knowingly received or retained the overpayment; the 180-day suspension claimed for an investigation never begun or not pursued in good faith; suspension counted from the investigation start instead of day 180 after initial identification; the full 60 days restored after the suspension instead of only the unused days; a hospital's cost report date used without asking whether it "corresponds" to this overpayment (401.305(b)(1)(ii)), or ignored when it does |
 | Sample workpapers and extrapolation | Overpayment amount to report, refund or disclose | A probe, judgmental or highest-dollar sample extrapolated to the universe; fewer than 100 items or a lower-bound estimate for an OIG SDP submission; underpayments netted; missing items not counted as errors; frame narrower than the population; no methodology description for a contractor report (401.305(d)(1)) |
 | Claims extract and remittance data for the review period | Lookback window and the claims population | Review cut to the 1-year or 4-year contractor reopening period instead of the 6-year lookback from receipt (401.305(f)); lookback measured from date of service; FCA limitations (3731(b): 6 years, or 3 years from the official's knowledge up to 10) confused with the overpayment lookback |
 | Paid amounts, billed charges, refunds already made | Single damages and the treble base | Treble applied to billed charges or beneficiary cost-sharing instead of program payments; full payment trebled where the theory supports only a differential, or the reverse; prior refunds netted before multiplying with no order stated |
 | Penalty table in a prior memo or template | Per-claim civil penalty range | 2024 amounts ($13,946-$27,894) used for a penalty assessed today; the 2026 "adjustment" assumed although DOJ made none, so the after-July 3, 2025 amounts ($14,308-$28,619) still apply |
 | Regulation, LCD, manual or condition of participation cited as the requirement | Materiality | Materiality concluded from the words "condition of payment" alone; the MAC's or CMS's payment with actual knowledge of the same violation ignored (Escobar) |
 | Emails and policies on how the billing rule was read | Scienter | An objectively reasonable reading adopted after the fact treated as a defense, when SuperValu looks at what the entity actually believed when it billed |
-| Counsel's Stark and AKS conclusions and arrangement facts | Claim set and causation for arrangement-based exposure | AKS-tainted claims counted without the forum's 1320a-7b(g) causation standard (but-for in the First, Sixth and Eighth Circuits; a link in the Third); Stark-tainted DHS claims limited to a causal subset; Stark-only conduct sent to the OIG SDP, or AKS conduct to the CMS SRDP or a MAC refund |
-| Entity, program and payer identifiers (NPI, TIN, MA or Medicaid plan) | Who owes, under which rule, to whom | 401.305 and its 180-day suspension applied to an MA organization (422.326 has none) or to Medicaid; affiliated billing NPIs left out of the population; the parent named as the "person" instead of the entity paid |
+| Counsel's Stark and AKS conclusions and arrangement facts | Claim set and causation for arrangement-based exposure | AKS-tainted claims counted without the forum's 1320a-7b(g) causation standard (but-for in the First, Sixth and Eighth Circuits; a link in the Third); Stark-tainted DHS claims limited to a causal subset; Stark-only conduct sent to the OIG SDP, or AKS conduct to the CMS SRDP or a MAC refund; the SDP suspension assumed for a submission not "timely made" (SDP 2026, section 1); the circuit assumed from the entity's home though 3732(a) venue reaches other districts |
+| Entity, program and payer identifiers (NPI, TIN, MA or Medicaid plan) | Who owes, under which rule, to whom | 401.305 and its 180-day suspension applied to an MA organization (422.326 has none) or to Medicaid; an MA overpayment clock started before the payment year's applicable reconciliation (final risk adjustment data deadline, 422.326(a)), or the RADV carve-out for a CMS direction under 422.311 ignored; affiliated billing NPIs left out of the population; the parent named as the "person" instead of the entity paid |
+| Appeal packet, addenda, EHR audit log (managing-coding-denials hand-off) | Whether a submitted record is original, and the overpayment behind it | An addendum created after the denial but dated to the service treated as a late entry; the fix proposed is a re-dated replacement and resubmission, a second false record (3729(a)(1)(B)); the underlying claim's own overpayment clock missed |
+| Chart review scope, CDI query policy, coder or provider incentive plan | Scienter and the population to review | Add-only or one-sided chart reviews, raise-only query policies and capture-count incentives treated as coding matters with no FCA weight, or as proof of falsity on their own; the population limited to the claims the selective design touched |
 | HR file, hotline report, restructuring list | Retaliation exposure (3730(h)) | Adverse action against an internal reporter during the review; relator identity pursued; reporter protection limited to employees though contractors and agents are covered |
 | News of Zafirov and similar challenges | Qui tam risk weighting | Relator suits discounted as unconstitutional although the Eleventh Circuit vacated that ruling on September 1, 2026 and every circuit to decide has upheld the Appointments Clause question |
 
@@ -68,6 +70,8 @@ The FCA remains the government's main civil health care fraud tool: in fiscal ye
 9. **No extrapolation without a valid design.** A figure projected from a non-random or undocumented sample is labeled "estimate not reportable: invalid sample"; confirmed errors are reported as the known-claim amount.
 10. **Route follows conduct and counsel.** Use the disclosure path labels exactly. Stark only goes to the CMS SRDP; AKS alone or with Stark to the OIG SDP; error-only overpayments to contractor refund; never both protocols for one arrangement. Where counsel has not characterized the conduct, the label is "Disclosure path: counsel decision required."
 11. **Protect reporters.** Decline to identify a suspected relator or reporter, or to plan or justify adverse action because of a report. Flag every pending adverse action against a reporter for employment counsel.
+12. **Preserve records; never repair them.** Inventory every version of a record at issue with its audit-log timestamps, author and where it was sent. Never create, re-date, re-sign, replace or resubmit a record, and never present a later entry as original; withdrawal or correction of a submission is counsel's decision.
+13. **Conclusions follow the analysis.** Decline to state a fixed conclusion ("scienter not supported", "no overpayment", "not material") regardless of the evidence, or to omit known adverse facts; give the complete analysis instead.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -84,12 +88,14 @@ Collect, from documents where possible:
 9. Evidence bearing on scienter and materiality: emails, policies, education letters, prior denials, payer audits and what the payer did afterwards.
 10. Reporter facts: hotline reports, who raised the issue, and any pending employment action.
 
-**Defaults if not supplied** (a statute or regulation overrides any default it addresses): program is Medicare Parts A and B, marked `[UNVERIFIED]`; no cost report applies unless the entity files one; the governing circuit is the one where the entity is located; the penalty column is the one for penalties assessed after July 3, 2025, since DOJ made no 2026 adjustment; disclosure path "counsel decision required" until counsel characterizes the conduct.
+**Defaults if not supplied** (a statute or regulation overrides any default it addresses): program is Medicare Parts A and B, marked `[UNVERIFIED]`; no corresponding cost report applies unless the entity files one and the overpayment is one that report reconciles (ask; compare both dates); the governing circuit is the one where the entity is located, noting that 31 U.S.C. 3732(a) venue can put the case elsewhere; the penalty column is the one for penalties assessed after July 3, 2025, since DOJ made no 2026 adjustment; disclosure path "counsel decision required" until counsel characterizes the conduct.
 
 **Hard stops (a partial decline: label only the affected request with the fixed line from `references/output-template.md`, section 1, "Declined: hard stop (<stop name>)", produce what the stop calls for instead, and continue the rest of the analysis):**
 - **Identification structuring**: a request to structure, date, word or limit findings so as to delay or avoid the 60-day obligation, or to minimize or postpone identification (Ground Rule 5): decline that part; produce the accurate clock and the lawful options.
 - **Reporter protection**: a request to identify, unmask or take adverse action against a suspected relator or internal reporter, or to frame discipline around a report: decline that part; flag 3730(h) and route to employment counsel.
 - **No claims data**: no claims data at all (no claim count, payment dates or paid amounts): produce the data request; no exposure figure. A stark-law-aks-compliance hand-off that lists only the data needed is accepted on this basis: build the data request and the clock analysis from it.
+- **Record alteration**: a request to create, re-date, re-sign, replace or resubmit a record, or to present a later entry as original: decline that part; produce the version inventory and route the submitted-record question to counsel.
+- **Fixed conclusion**: a request to state a set conclusion regardless of the analysis, or to leave out known adverse facts (Ground Rule 13): decline that version; produce the complete analysis.
 - **Invalid extrapolation**: a request to present an extrapolated figure as the reportable, refundable or disclosable amount when the sample is not a documented random selection from a defined frame: produce the known-claim amount and a sampling plan request instead of the extrapolated figure.
 
 **Not hard stops:** an unknown identification date (show each candidate date and the deadline it produces); an unknown circuit rule (`[VERIFY]` and both readings); no counsel analysis of an arrangement (label the path "counsel decision required" and continue); a pending sealed qui tam rumor (note it; do not investigate the relator).
@@ -112,7 +118,7 @@ Read `references/overpayment-clock-and-disclosure.md`, section 5. Use a full rev
 
 ## Step 5: Test the Four Elements
 
-Read `references/fca-liability-and-damages.md`, sections 1 to 5. For each issue, label falsity, scienter (what the entity actually believed when it billed), materiality (the requirement's text, what the payer knew, and what the payer did after knowing; payment with actual knowledge makes the label Contested at most) and causation. For arrangement-based issues, take counsel's labels as given, size the claim set under Stark and under the forum's 1320a-7b(g) standard, and send any disagreement back to stark-law-aks-compliance.
+Read `references/fca-liability-and-damages.md`, sections 1 to 5 and 11. For each issue, label falsity, scienter (what the entity actually believed when it billed), materiality (the requirement's text, what the payer knew, and what the payer did after knowing; payment with actual knowledge makes the label Contested at most) and causation. For arrangement-based issues, take counsel's labels as given, size the claim set under Stark and under the forum's 1320a-7b(g) standard, and send any disagreement back to stark-law-aks-compliance. Record altered records and selective-review designs (add-only reviews, raise-only queries, capture-count incentives) under section 11 and widen the population they touch.
 
 ## Step 6: Model Exposure and Settlement
 
@@ -132,7 +138,7 @@ Complete the reconciliation table, hand-offs and open items in `references/outpu
 2. Is the identification date taken from the record, with every rejected candidate listed, and does the deadline use only the unused days after any suspension?
 3. Does any estimate rest on a valid design, and is the known-claim amount stated separately?
 4. Is every disclosure path label consistent with counsel's Stark and AKS labels, and are disagreements routed back to counsel?
-5. Has any requested wording, date or scope change been checked against Ground Rule 5 and declined where it would delay or avoid the obligation?
+5. Has any requested wording, date, scope, record change or set conclusion been checked against Ground Rules 5, 12 and 13 and declined where it applies?
 6. Are open items owned, with the next action and whether they change a deadline?
 
 ## Quality Audit
@@ -146,9 +152,9 @@ Complete the reconciliation table, hand-offs and open items in `references/outpu
 7. Falsity, scienter, materiality and causation each carry a label and evidence; materiality states what the payer knew and did.
 8. Scienter rests on what the entity believed when it billed, not on a later reasonable reading.
 9. The damages base is program payments matched to the theory, never billed charges, and credits are shown separately.
-10. The per-claim penalty range uses $14,308-$28,619 for penalties assessed after July 3, 2025, with the 2026 no-adjustment notice cited.
+10. The per-claim penalty range uses $14,308-$28,619 for penalties assessed after July 3, 2025, or the 28 C.F.R. 85.5 column then current, with the 2026 no-adjustment notice cited.
 11. The disclosure path label follows the conduct and counsel's characterization, and no arrangement goes to both protocols.
-12. No output delays or avoids identification, and no output targets a reporter.
+12. No output delays or avoids identification, repairs or resubmits a record, states a set conclusion, or targets a reporter.
 13. Every `[VERIFY]` relied on appears in the open items with what would settle it, and the draft closes with the review line.
 
 ## Guidelines
@@ -182,6 +188,7 @@ Complete the reconciliation table, hand-offs and open items in `references/outpu
 - managing-risk-adjustment-coding: MA diagnosis support and RADV issues behind an MA risk-adjustment overpayment under 422.326, including two-way review of one-sided or add-only chart reviews.
 - managing-drg-optimization: inpatient DRG documentation support when unsupported codes or one-way (raise-only) query policies drive the overpayment.
 - managing-coding-denials: the appeal itself; it routes altered or backdated records and overpayments found during appeal review here.
+- managing-cdi-programs: compliant, non-leading query wording to replace a raise-only query policy.
 - managing-compliance-programs: program-wide remediation after the finding.
 - whistleblower-protection-policy: drafting an anti-retaliation policy after a reporter issue surfaces.
 - legal-research: 3730(h) case law, circuit rules marked `[VERIFY]`, and state Medicaid overpayment rules; no dedicated skill exists.

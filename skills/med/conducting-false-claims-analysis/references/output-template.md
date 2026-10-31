@@ -38,12 +38,12 @@ Source register, one row per file:
 
 `Declined: hard stop (<stop name>): <the request as made>. Produced instead: <what the stop calls for>.`
 
-Stop names, used exactly: **Identification structuring**; **Reporter protection**; **No claims data**; **Invalid extrapolation**. List every partial decline again in the open items.
+Stop names, used exactly: **Identification structuring**; **Reporter protection**; **Record alteration**; **Fixed conclusion**; **No claims data**; **Invalid extrapolation**. List every partial decline again in the open items.
 
 Per issue, one of each:
 
 - **FCA exposure**: not indicated / overpayment only / potential / undetermined.
-- **Clock**: not started / running / suspended / expired / undetermined (with the deadline date).
+- **Clock**: not started / running / suspended / expired / undetermined (with the deadline date, its weekday and "no roll"; for undetermined, every candidate identification date and the deadline each produces).
 - **Quantification**: known-claim amount / extrapolated estimate (valid design) / estimate not reportable: invalid sample / not yet quantified.
 - **Disclosure path**: none indicated / CMS SRDP / OIG SDP / contractor refund / counsel decision required.
 
@@ -124,6 +124,7 @@ Outbound:
 | managing-compliance-audits | Designing the audit sample and corrective action plan | Population, frame, error definition | Did not draw the sample |
 | auditing-coding-accuracy | Claim-level coding review of sampled claims | Sample list, review criteria | Did not code the claims |
 | managing-risk-adjustment-coding | MA diagnosis support and RADV issues behind an MA overpayment | Unsupported diagnoses, payment years | Did not validate diagnoses |
+| managing-cdi-programs | Replacing a raise-only query policy with compliant, non-leading queries | The policy and the affected query types | Did not write queries |
 | managing-compliance-programs | Program-wide fixes after the finding | Root causes | Did not design the program |
 | whistleblower-protection-policy | Anti-retaliation policy drafting | The retaliation risks found | Did not draft the policy |
 | legal-research | 3730(h) case law, circuit rules marked `[VERIFY]`, state Medicaid overpayment rules; no dedicated skill exists | The question and forum | Did not research the rule |
