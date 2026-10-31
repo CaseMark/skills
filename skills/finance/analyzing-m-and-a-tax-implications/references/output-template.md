@@ -21,6 +21,8 @@ Produce the header and the sections below, in this order, omitting a section onl
 
 - Deal name, perspective (buyer, seller or both), date prepared, "Draft for review by a qualified tax adviser."
 - Signing date, expected closing date, taxable years affected, and the tax law date applied.
+- Every computed date (election deadlines, return due dates, pre-signing valuation date) states its weekday and whether IRC 7503 moves it to the next day that is not a Saturday, Sunday or District of Columbia legal holiday.
+- **Declined parts:** each part of the request not produced, with the hard stop or scope limit that blocked it and what would unblock it; write "Declined parts: none" when nothing was declined.
 
 | File | Type | Date | Rank | Status | Pages or sections read | Note |
 |---|---|---|---|---|---|---|
@@ -54,6 +56,11 @@ Election labels: Available / Available with conditions / Not available, with the
 
 Then, per seller: total contract price or stated maximum selling price, basis, gross profit percentage, 453A exposure, and the effect of an election out.
 
+Withholding on payments to sellers:
+
+| Payee | U.S. or foreign (form on file) | Payment | Regime (1445, 1446(f), 3406 backup, wages) | Amount withheld | Who remits | Exemption document |
+|---|---|---|---|---|---|---|
+
 ## 5. Allocation and step-up value
 
 | Class | Assets | FMV (appraisal locator) | Allocation | Buyer recovery method and first-year amount | Seller gain and character | Buyer draft | Seller draft |
@@ -66,7 +73,7 @@ Then the deemed sale computation where relevant (ADSP, AGUB, tax on the deemed s
 
 ## 6. Tax attributes and 280G
 
-Attributes: NOL and credit schedule by vintage, ownership change test, value of old loss corporation stock and its source, long-term tax-exempt rate and month, annual limit, NUBIG or NUBIL with the threshold test, Notice 2003-65 approach elected, 382(c) continuity.
+Attributes: NOL and credit schedule by vintage, ownership change test, value of old loss corporation stock and its source, long-term tax-exempt rate (adjusted federal long-term rate for each of the 3 calendar months ending with the change month, and the highest of them, under 382(f)(1)), value adjustments under 382(e)(2), (l)(1) and (l)(4), unified loss rule effects under 1.1502-36 for a consolidated seller's loss sale, annual limit, NUBIG or NUBIL with the threshold test, Notice 2003-65 approach elected, 382(c) continuity.
 
 280G: per disqualified individual: base amount, 3x safe harbor, payments contingent on the change, excess parachute, exemption route (small business corporation, or private-company vote with the vote mechanics), waiver status.
 
@@ -98,7 +105,8 @@ Each row is computed, not asserted. A Fail goes to Section 9.
 | T9 | Installment arithmetic | Gross profit percentage x payments = reported gain; basis recovered = payments - gain | | | |
 | T10 | 382 value basis | Limit uses stock value of the loss corporation, adjusted under 382(e)(2) | | | |
 | T11 | Straddle split | Pre-closing plus post-closing portions = full-period tax | | | |
-| T12 | Dates | Each election deadline and each Pub. L. 119-21 effective date matches the transaction date | | | |
+| T12 | Dates | Each election deadline and each Pub. L. 119-21 effective date matches the transaction date; each computed date shows its weekday and any 7503 roll | | | |
+| T13 | Withholding | Every payment to a seller has a withholding regime and an exemption document or an amount withheld | | | |
 
 ## 9. Issues, conflicts and judgment calls
 
@@ -114,13 +122,15 @@ A hand-off names the facts the receiving skill needs; a bare skill name is not a
 | To | Why | Facts passed (figures, dates, locators) | Open questions | What this analysis did not do |
 |---|---|---|---|---|
 | merger-agreement | Drafting tax representations, tax indemnity, straddle and pre-closing period definitions, intended tax treatment, election covenants, earnout and rollover clauses | | | |
-| asset-purchase-agreement or stock-purchase-agreement | Drafting the 1060 allocation schedule clause or the SPA tax article and earnout | | | |
+| asset-purchase-agreement | Drafting the 1060 allocation schedule clause and Form 8594 covenant | | | |
+| stock-purchase-agreement | Drafting the tax article, straddle allocation and earnout of a stock purchase agreement | | | |
 | disclosure-schedules | Scheduling tax audits, elections and open tax matters against the tax representations | | | |
 | due-diligence-report | Tax summary section and non-tax findings that change structure | | | |
 | hsr-filing | HSR value of deferred, contingent and rollover consideration (filing value, not tax treatment) | | | |
 | building-lbo-models | Cash taxes, 163(j), NOL and 382 figures in the model | | | |
 | managing-tax-controversy | Defense of a disclosed audit or proposed adjustment | | | |
-| analyzing-compensation-tax | 280G calculations and 409A for change-in-control payments | | | |
+| analyzing-compensation-tax | 280G calculations, 409A, and compensatory withholding on option cash-outs and transaction bonuses | | | |
+| managing-tax-provision-preparation | ASC 740 effects: deferred taxes on the step-up, uncertain tax positions, rate reconciliation | | | |
 | analyzing-corporate-tax-structures | Domestic entity choice, S corporation eligibility, QSBS qualification and consolidated-group questions | | | |
 | legal-research | Payroll-tax exposure from misclassified workers (no dedicated skill exists) | | | |
 
@@ -128,7 +138,7 @@ Inbound routes this skill accepts (use the same wording when receiving work):
 
 | From | Trigger |
 |---|---|
-| merger-agreement | Structure, intended tax treatment, tax representations, tax indemnity, and the tax treatment of deferred or rollover consideration |
+| merger-agreement | Structure choice, intended tax treatment, tax representations, tax indemnity, the tax treatment of deferred or rollover consideration, allocation, withholding (FIRPTA 1445 certificates and withholding on deal payments, backup withholding on payments to sellers) |
 | disclosure-schedules | Tax representations, tax indemnity, and tax audits and elections disclosed in schedules |
 | due-diligence-report | Tax audits and open tax matters found in diligence, and structure changes that alter tax treatment |
 | hsr-filing | Structure and purchase price allocation, and tax treatment of deferred, contingent and rollover consideration |

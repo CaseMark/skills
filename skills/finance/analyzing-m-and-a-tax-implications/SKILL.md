@@ -2,20 +2,20 @@
 name: analyzing-m-and-a-tax-implications
 language: en
 description: >
-  Evaluates federal income tax effects of buying or selling a business and of
-  reorganizations: stock versus asset purchase; step-up elections under
-  338(h)(10), 336(e) and 338(g); pre-sale reorganizations such as an F
-  reorganization before a sale; converting a corporation into an LLC, a taxable
-  liquidation or deemed sale; 368 reorganizations and continuity of interest;
-  1060 allocation and Form 8594; 197, bonus depreciation, 174A; acquired losses
-  and Section 382 and 382(h); and 280G. Covers the tax treatment of deferred,
-  contingent, earnout and rollover consideration (installment sales under 453 and
-  453A, rollover under 351, 721 or 368); supplies tax analysis behind tax
-  representations, tax indemnity and straddle-period allocation in acquisition
-  agreements; and analyzes tax audits, elections and open tax matters disclosed in
-  schedules or found in diligence. Routes entity choice, S corporation eligibility, QSBS and
-  consolidated-group questions to analyzing-corporate-tax-structures. Drafts for
-  tax adviser review.
+  Evaluates income tax effects of buying or selling a business and of
+  reorganizations: stock or asset purchase; step-up elections (338(h)(10),
+  336(e), 338(g)); pre-sale reorganizations such as an F reorganization before a
+  sale; converting a corporation into an LLC, a taxable liquidation or deemed sale;
+  368 reorganizations and continuity of interest; 1060 allocation and Form 8594;
+  acquired losses and Section 382; and 280G. Covers tax treatment of deferred,
+  contingent, earnout and rollover consideration (453, 453A, 351, 721, 368); deal
+  withholding (FIRPTA 1445 certificates and withholding, backup withholding on
+  payments to sellers); analysis behind tax representations, tax indemnity and
+  straddle-period allocation; and tax audits, elections and open tax matters
+  disclosed in schedules or found in diligence. Routes entity choice, S
+  corporation eligibility, QSBS and consolidated-group questions to
+  analyzing-corporate-tax-structures and compensatory withholding on option
+  cash-outs to analyzing-compensation-tax.
 tags:
   - analysis
   - tax
@@ -33,7 +33,7 @@ metadata:
 
 # Analyzing M&A Tax Implications
 
-Evaluates the U.S. federal income tax consequences of an acquisition, disposition or reorganization for the buyer, the sellers and the target: which structures and elections are available, whether a reorganization or rollover is tax-deferred, how deferred, contingent and rollover consideration is taxed, how the price is allocated, what happens to tax attributes and change-in-control payments, and what the tax representations and tax indemnity must cover. The deliverable follows `references/output-template.md` and ends with ranked issues, hand-offs and open items. Everything it produces is a draft for review by a qualified tax adviser; it is not a tax opinion and not legal, accounting or investment advice.
+Evaluates the U.S. federal income tax consequences of an acquisition, disposition or reorganization for the buyer, the sellers and the target: which structures and elections are available, whether a reorganization or rollover is tax-deferred, how deferred, contingent and rollover consideration is taxed, how the price is allocated, what happens to tax attributes and change-in-control payments, what withholding applies to deal payments, and what the tax representations and tax indemnity must cover. Scope also includes 197 amortization, bonus depreciation, section 174A and 163(j) as they change the value of a step-up. The deliverable follows `references/output-template.md` and ends with ranked issues, hand-offs and open items. Everything it produces is a draft for review by a qualified tax adviser; it is not a tax opinion and not legal, accounting or investment advice.
 
 ## Why This Skill Exists
 
@@ -49,7 +49,10 @@ Deal tax fails on facts about parties and dates more often than on arithmetic. A
 | Rollover, contribution and holding company documents | Deferral for sellers who roll equity | 351 control missed because the sponsor's stock was issued earlier or for property of relatively small value; a partnership rollover with cash triggering a disguised sale; rollover into acquirer stock in a deal that is not a reorganization |
 | Earnout, escrow, holdback and seller note terms | Timing and character of the sellers' gain and the buyer's basis or deduction | Contingent consideration reported at fair value in the year of sale as if fixed; installment default and the election-out rules ignored; 453A interest charge and imputed interest omitted; an earnout forfeited on termination of employment treated as purchase price |
 | Allocation schedule, appraisal and Form 8594 drafts | Basis step-up, recapture and amortization | Classes allocated out of order or above fair market value; residual put anywhere but Class VII; buyer and seller allocations that disagree; no binding written allocation; later adjustments without a supplemental Form 8594 |
-| NOL schedule, prior ownership changes and 382 studies | Value of attributes after closing | 382 limit computed on the sponsor's equity check or enterprise value instead of the loss corporation's stock value; NUBIG or NUBIL threshold not tested; Notice 2003-65 status misstated after the July 2, 2025 withdrawal of the proposed regulations |
+| NOL schedule, prior ownership changes and 382 studies | Value of attributes after closing | 382 limit computed on the sponsor's equity check or enterprise value instead of the loss corporation's stock value; the change month's rate used instead of the highest adjusted federal long-term rate in the 3-month period ending with it; pre-change capital contributions (382(l)(1)) or substantial nonbusiness assets (382(l)(4)) left in value; NUBIG or NUBIL threshold not tested; Notice 2003-65 status misstated after the July 2, 2025 withdrawal of the proposed regulations |
+| Seller group's basis in the target's stock and the target's losses (consolidated seller) | Seller's loss on the sale and the attributes the buyer inherits | Loss on a sale of consolidated-subsidiary stock reported without the unified loss rule of 1.1502-36, which can reduce the seller's stock basis or the target's NOLs and asset basis unless the seller elects otherwise |
+| Funds flow, seller tax forms (W-9, W-8), FIRPTA affidavits and paying agent terms | Withholding on payments to sellers | No nonforeign affidavit or non-USRPHC statement, so 1445 or 1446(f) withholding is missed; backup withholding ignored for sellers without a TIN; option cash-outs paid outside payroll |
+| Deal-cost invoices and engagement letters | Deductibility of transaction costs | Success-based fees deducted at 70 percent without the Rev. Proc. 2011-29 election statement on the original return; facilitative costs deducted |
 | Change-in-control bonuses, severance, option acceleration and employment agreements | 280G exposure | Private-target payments treated as exempt without a vote of more than 75 percent of the voting power after adequate disclosure; disqualified individuals' shares counted in the vote; no waiver, so the vote does not determine the right to payment; the small business corporation exemption missed |
 | Tax representations, tax indemnity and tax covenants in the draft agreement | Who bears pre-closing taxes | No straddle-period allocation; indemnified taxes limited to the target's own taxes, missing 1.1502-6 consolidated liability; the end of the day and next day rules ignored; transaction deductions and the 174A catch-up not allocated |
 | Disclosure schedules, diligence findings, returns and IRS or state correspondence | Open tax matters that change price, escrow or indemnity | Disclosed audits not traced to whose liability they are; prior elections (S election, prior 338, check-the-box) assumed valid without the filed form; payroll-tax misclassification exposure analyzed here instead of routed |
@@ -66,7 +69,7 @@ Deal tax fails on facts about parties and dates more often than on arithmetic. A
 7. **Tests are computed.** COI on the pre-signing date for fixed consideration, 351 control, the (a)(2)(E) 80 percent test and the C reorganization 80 percent test are percentages with the arithmetic shown.
 8. **Classify consideration before valuing it.** Each element is fixed, deferred, contingent, rollover or compensation before any gain is computed; where the documents support two characterizations, compute both.
 9. **One allocation for both sides.** Allocate by the residual method, cap Classes II to VI at fair market value, and show where buyer and seller drafts differ.
-10. **Rules are dated.** Apply the rule in force for the transaction date and taxable year (Pub. L. 119-21 effective dates, monthly federal rates); mark year-dependent figures with their year.
+10. **Rules are dated.** Apply the rule in force for the transaction date and taxable year (Pub. L. 119-21 effective dates, monthly federal rates); mark year-dependent figures with their year. Every computed date states its weekday and whether IRC 7503 moves it to the next day that is not a Saturday, Sunday or legal holiday.
 11. **Analysis, not drafting.** This skill supplies the tax analysis; the agreement skills draft the clauses. Federal income tax is the scope; state, local, foreign, transfer and payroll taxes are flagged and routed.
 12. **No improper aims.** Never back-date an election, contract or binding date, and never set values or allocations without support to reach a tax result.
 
@@ -74,7 +77,7 @@ Deal tax fails on facts about parties and dates more often than on arithmetic. A
 
 Collect these, then build the source-review register (`references/output-template.md`, Header).
 
-1. **Party tax profile:** target's state-law form and federal classification; each seller's identity and classification; consolidated group membership and common parent; S election and QSub history with evidence; buyer type (corporation, partnership, fund).
+1. **Party tax profile:** target's state-law form and federal classification; each seller's identity and classification; consolidated group membership and common parent; S election and QSub history with evidence; buyer type (corporation, partnership, fund); each seller's U.S. or foreign status and the tax forms on file (W-9, W-8, FIRPTA affidavits).
 2. **Deal documents:** LOI or term sheet, draft or executed purchase or merger agreement (consideration, earnout, escrow, rollover, tax article), disclosure schedules, funds flow.
 3. **Consideration terms and dates:** amount and form of each element; signing and expected closing dates; for stock consideration, the share count and the issuer's price on the last business day before signing.
 4. **Basis and value data:** inside asset basis by class, depreciation history, sellers' stock basis, and any appraisal of asset fair values.
@@ -85,7 +88,7 @@ Collect these, then build the source-review register (`references/output-templat
 
 **Default fallbacks (each recorded as a policy election or unknown fact):** 21 percent federal corporate rate (IRC 11(b), confirmed in building-lbo-models); individual rates only as supplied by the user, otherwise [VERIFY]; discount rate and amortization convention stated and tested; fair values from a signed appraisal, otherwise the allocation is labeled illustrative and [UNVERIFIED]; straddle taxes shown under both conventions until the parties choose; state taxes listed as open items. A default never displaces a rule: the residual method, election deadlines and effective dates apply as written.
 
-**Hard stops (do not produce the conclusion; report what is needed):**
+**Hard stops (do not produce the conclusion; list it under the template's "Declined parts" label with what is needed):**
 - No source states the target's federal tax classification and who owns it (or, in an asset deal, the selling entity's classification): no election-availability or structure conclusion.
 - No source states the amount and form of the consideration: no gain, COI, control or allocation computation.
 - The request is to present the analysis as a tax opinion, at an opinion level, or as final for filing or signature.
@@ -105,7 +108,7 @@ Read `references/structure-and-reorganizations.md` Sections 5 to 7. Identify the
 
 ## Step 4: Deferred, Contingent and Rollover Consideration
 
-Read `references/consideration-allocation-and-indemnity.md` Sections 1 to 3. Classify every element of consideration. Apply the installment default, contingent payment basis recovery, 453A, imputed interest and the election-out rules seller by seller. Test each earnout against the compensation indicators; where the answer is mixed, compute purchase price and compensation readings side by side.
+Read `references/consideration-allocation-and-indemnity.md` Sections 1 to 3. Classify every element of consideration. Apply the installment default, contingent payment basis recovery, 453A, imputed interest and the election-out rules seller by seller. Test each earnout against the compensation indicators; where the answer is mixed, compute purchase price and compensation readings side by side. Read Section 9 and identify the withholding on each payment to sellers (FIRPTA 1445 or 1446(f), backup withholding); route compensatory withholding on option cash-outs to analyzing-compensation-tax.
 
 ## Step 5: Allocation and Step-Up Value
 
@@ -113,11 +116,11 @@ Read `references/consideration-allocation-and-indemnity.md` Section 4 and `refer
 
 ## Step 6: Attributes and Change-in-Control Payments
 
-Read `references/consideration-allocation-and-indemnity.md` Sections 5 and 6. Compute the 382 limit from the loss corporation's stock value with the month's long-term tax-exempt rate (or [VERIFY]), test NUBIG or NUBIL, and state the Notice 2003-65 approach. For 280G, compute each disqualified individual's safe harbor and test the exemption route, including the vote mechanics and waivers.
+Read `references/consideration-allocation-and-indemnity.md` Sections 5 and 6. Compute the 382 limit from the loss corporation's stock value, reduced for 382(e)(2) contractions, 382(l)(1) capital contributions and 382(l)(4) nonbusiness assets, times the long-term tax-exempt rate: the highest adjusted federal long-term rate for any month in the 3-calendar-month period ending with the change month (IRC 382(f)(1)), each month's published rate shown or [VERIFY]. For a consolidated seller selling target stock at a loss, apply the unified loss rule of 1.1502-36 and state its effect on the target's attributes. Test NUBIG or NUBIL and state the Notice 2003-65 approach. For 280G, compute each disqualified individual's safe harbor and test the exemption route, including the vote mechanics and waivers.
 
 ## Step 7: Tax Representations, Indemnity and Disclosed Matters
 
-Read `references/consideration-allocation-and-indemnity.md` Sections 7 and 8. Identify whose taxes the indemnity must reach, the pre-closing and straddle periods, and the convention per tax type with both computations. List allocation items. Build the disclosed and diligence matters register and say how each matter is covered.
+Read `references/consideration-allocation-and-indemnity.md` Sections 7 and 8. Identify whose taxes the indemnity must reach, the pre-closing and straddle periods, and the convention per tax type with both computations. List allocation items, including whether the Rev. Proc. 2011-29 safe harbor statement will be attached to the original return. Build the disclosed and diligence matters register and say how each matter is covered.
 
 ## Step 8: Reconcile, Rank Issues and Hand Off
 
@@ -143,7 +146,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 6. Each earnout tied to employment shows the compensation reading and its effect.
 7. The allocation follows class order, caps Classes II to VI at fair market value, puts the residual in Class VII, sums to the consideration, and lists buyer and seller differences.
 8. Pub. L. 119-21 items (bonus depreciation, 174A, 163(j)) are applied by their effective dates.
-9. The 382 limit uses the loss corporation's stock value and a dated long-term tax-exempt rate or [VERIFY]; Notice 2003-65 status is stated as of the check date.
+9. The 382 limit uses the loss corporation's stock value after 382(e)(2), (l)(1) and (l)(4) adjustments and the highest adjusted federal long-term rate of the 3-month period ending with the change month, or [VERIFY]; Notice 2003-65 status is stated as of the check date.
 10. 280G exemption analysis states the vote threshold, the excluded shares and the waiver mechanics, or the small business corporation test.
 11. The indemnity analysis covers 1.1502-6 and other non-target liabilities, straddle periods with both conventions computed, and each disclosed matter.
 12. Every fact has a locator or [UNVERIFIED], every rule a citation or [VERIFY], and no opinion level is expressed.
@@ -180,7 +183,8 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - stock-purchase-agreement: drafting the tax article and earnout of a stock purchase agreement.
 - building-lbo-models: cash taxes, 163(j), NOL and 382 figures inside the sponsor model.
 - modeling-tax-attribute-preservation: detailed 382 modeling and ownership change tracking.
-- analyzing-compensation-tax: 280G calculations, 409A and equity compensation detail.
+- analyzing-compensation-tax: 280G calculations, 409A, equity compensation detail, and compensatory withholding on option cash-outs and transaction bonuses.
+- managing-tax-provision-preparation: ASC 740 questions, including deferred taxes on the step-up and uncertain tax positions in the deal.
 - analyzing-partnership-tax-structures: 704(c), 707 and 752 detail for partnership rollovers and partnership targets.
 - managing-tax-controversy: defending a disclosed audit or proposed adjustment.
 - analyzing-international-tax-planning: cross-border overlay (subpart F, net CFC tested income, BEAT, section 367, treaties).
@@ -192,6 +196,6 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 ## Reference Files
 
 - `references/structure-and-reorganizations.md`: party classification, stock versus asset, 338(g), 338(h)(10), 336(e), F reorganization, section 368 types, COI and COBE, rollover under 351, 721 and 368, Pub. L. 119-21 step-up items, outcome labels.
-- `references/consideration-allocation-and-indemnity.md`: consideration classification, installment and contingent payment rules, 453A, earnouts, 1060 and Form 8594, 382 and 382(h), 280G, tax indemnity and straddle analysis, disclosed matters.
-- `references/output-template.md`: deliverable sections, reconciliation checks T1 to T12, issue severity, hand-offs and inbound routes.
+- `references/consideration-allocation-and-indemnity.md`: consideration classification, installment and contingent payment rules, 453A, earnouts, 1060 and Form 8594, 382 and 382(h), 280G, tax indemnity and straddle analysis, disclosed matters, deal withholding.
+- `references/output-template.md`: deliverable sections, reconciliation checks T1 to T13, the Declined parts label, withholding table, issue severity, hand-offs and inbound routes.
 - `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the [VERIFY] list.
