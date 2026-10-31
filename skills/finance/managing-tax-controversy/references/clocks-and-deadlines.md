@@ -12,6 +12,7 @@ Every clock below has its own trigger event. Never borrow one clock's trigger fo
 6. Appeals intake clocks
 7. Collection due process clocks (IRC 6320, 6330)
 8. BBA partnership clocks (IRC 6225, 6226, 6231, 6234, 6235)
+8A. Third-party summons and innocent spouse clocks (IRC 7609, 6015)
 9. Competent authority (MAP) and APA clocks (Rev. Proc. 2015-40, 2015-41)
 
 ## 1. Counting conventions and the IRC 7503 roll
@@ -91,6 +92,8 @@ The IRS must tell the taxpayer, each time it asks for a consent, of the right to
 | Financial disability | Individual unable to manage financial affairs (physician statement required; not while a spouse or other person is authorized to act) | Periods suspended (6511(h)) | Same suspension |
 | Refund suit | Claim filed; notice of disallowance mailed | Not before 6 months after the claim unless decided; not after 2 years from mailing of the disallowance (6532(a)(1)); extendable by written agreement (Form 907); a filed waiver (Form 2297) starts the 2 years | A claim is a prerequisite to suit (7422(a)) |
 
+Informal claim: a timely written submission that fairly advises the IRS of the nature of the claim can stop the 6511 clock even if it is defective in form, when the defects are remedied by a later amendment and the IRS was not misled (United States v. Kales, 314 U.S. 186 (1941)). Treat it as a rescue argument only: plan to a formal claim on the correct form before the 6511 date, and record the date and content of any earlier letter that might qualify.
+
 Deemed payment dates (6513): early payments on the return due date; withholding on the 15th day of the fourth month after the year ends; estimated tax on the return due date without extensions. Rev. Rul. 2003-41: IRC 7503 adds a filing-extension day to the 3-year look-back only if the return was in fact filed on the rolled day. A return's processing or posting date is not its filing date; use the received date on the transcript or the postmark.
 
 ## 5. Deficiency petition clock (IRC 6213(a)) and its circuit status
@@ -102,7 +105,7 @@ Deemed payment dates (6513): early payments on the return due date; withholding 
 
 | Circuit | Holding | Tolling |
 |---|---|---|
-| 2d | Buller, 160 F.4th 266 (2025): nonjurisdictional | Available; remanded |
+| 2d | Buller, No. 24-1557 (Aug. 14, 2025, amended Nov. 26, 2025; cited as 160 F.4th 266 in Kyick and Maniktala [VERIFY reporter citation]): nonjurisdictional | Available; remanded |
 | 3d | Culp, 75 F.4th 196 (2023): nonjurisdictional | Presumptively available; remanded |
 | 6th | Oquendo, 148 F.4th 820 (2025): nonjurisdictional | Available; case by case; remanded |
 | 8th | Maniktala, No. 25-1366 (Aug. 11, 2026): nonjurisdictional | Available; remanded |
@@ -139,6 +142,16 @@ A timely CDP request suspends levy and the collection, criminal and suit limitat
 | Readjustment petition | FPA mailed | Within 90 days (6234(a)) to Tax Court, district court or Court of Federal Claims | District court and Claims Court require a deposit of the imputed underpayment, penalties and additions first (6234(b)) |
 | Adjustment period | Later of return filed, return due date, or AAR filed | 3 years (6235(a)(1)); or 270 days (plus extensions) after all modification materials are submitted; or 330 days (plus extensions) after the NOPPA | Extendable by agreement before expiry (6235(b)) |
 
+## 8A. Third-party summons and innocent spouse clocks (IRC 7609, 6015)
+
+| Clock | Trigger | Period | Notes |
+|---|---|---|---|
+| Notice of third-party summons | Service of the summons on the third party | IRS must give notice within 3 days after service and no later than the 23rd day before the examination date (7609(a)(1)); mailing to the last known address is sufficient (7609(a)(2)) | Record the mailing date on the notice; it starts the next clock |
+| Petition to quash a third-party summons | Day the notice is given (mailed or served) | Not later than the 20th day after (7609(b)(2)(A)); by the same 20th day, mail a copy of the petition by registered or certified mail to the summoned person and the IRS office named in the notice (7609(b)(2)(B)) | Filed in district court; whether 7503 rolls this court deadline is [VERIFY], so plan to the unrolled day. A taxpayer's petition suspends the 6501 and 6531 periods while pending (7609(e)(1)) |
+| Innocent spouse election under 6015(b) or (c) | IRS begins collection activities against the requesting spouse | Any time after a deficiency is asserted and not later than 2 years after collection activities begin (6015(c)(3)(B); 6015(b)(1)(E)) | (c) requires divorce, legal separation, or not living in the same household for 12 months |
+| Equitable relief request under 6015(f) | Unpaid liability: the collection period under 6502; paid liability: the refund period under 6511 | Before that period expires (6015(f)(2)) | Each liability portion has its own trigger |
+| Tax Court petition for 6015 relief | IRS mails its final determination, or 6 months pass after the election or request with no determination | Any time after the earlier event and not later than the 90th day after the final determination is mailed (6015(e)(1)(A)) | Review is de novo on the administrative record plus newly discovered evidence (6015(e)(7)) |
+
 ## 9. Competent authority (MAP) and APA clocks (Rev. Proc. 2015-40, 2015-41)
 
 Both revenue procedures roll their own deadlines to the next day that is not a Saturday, Sunday or D.C. legal holiday (section 1.03 of each). A treaty's own time limit overrides the revenue procedure (Rev. Proc. 2015-40, sec. 3). Neither procedure had been superseded on 2026-10-30; APA user fees were raised for requests filed after January 1, 2024 (IRS user fee page), and remote signatures and electronic filing were allowed from 2020 (IRS release of May 11, 2020).
@@ -156,4 +169,6 @@ Both revenue procedures roll their own deadlines to the next day that is not a S
 | Bilateral or multilateral APA | Substantive corresponding request filed with the foreign competent authority | Complete U.S. request no later than 60 days after | Rev. Proc. 2015-41, sec. 3.03(2)(b) |
 | APA term consents | Each year of the proposed APA term | Consent to extend the assessment period (general or APMA-standard restricted) when instructed | Rev. Proc. 2015-41, sec. 2.03(3) as summarized in its sec. 1 |
 | APA primary adjustment for an APA year | APA effective date | Amended return within 120 days, permitted only if the original return was timely filed no later than 60 days after the effective date | Rev. Proc. 2015-41, sec. 7 (administering the APA) |
+| APMA prefiling memorandum review (IRS target, not a taxpayer deadline) | Later of the prefiling memorandum date and the date APMA's requested information is submitted | Review generally completed and an oral recommendation given within four weeks | IRM 4.60.3.3.3 (09-08-2025), from LB&I-04-0423-0006 |
+| APMA review and acceptance of an APA request (IRS target) | Filing date of the completed APA request | Review generally completed within eight weeks; a decline needs the APMA director's concurrence and is followed by a decision letter | IRM 4.60.3.3.4 (09-08-2025) |
 

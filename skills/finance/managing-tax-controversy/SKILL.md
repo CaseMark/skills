@@ -48,12 +48,14 @@ Read each input with this suspicion before relying on it.
 |---|---|---|
 | Notice of deficiency (and its envelope and certified mail record) | Tax Court petition deadline under IRC 6213(a) | Days counted from receipt instead of the mailing date; 90 days used for a notice addressed outside the United States (150); a Saturday, Sunday or D.C. holiday (April 16, Inauguration Day) missed as the last day; the "last day to petition" printed on the notice ignored when it is later than the statutory date (6213(a) last sentence) or relied on when it is earlier; tolling treated as available in a circuit that has not allowed it, or in the First Circuit, which holds the deadline mandatory |
 | IRS request for Form 872 or 872-A | Extending the assessment statute | Open-ended 872-A signed without weighing a fixed-date 872, a restricted consent or refusal; the 872-T termination mechanics and the 6511(c) refund-period extension not explained; the Appeals 365-day ASED rule not checked; a consent signed after the ASED treated as valid |
-| Refund claim (Form 1040-X, 1120-X, 843) and the account transcript | Recovering an overpayment | The 3-year window run from the processing date instead of the filing date; the 2-year look-back missed, so the claim recovers only tax paid in the 2 years before filing; withholding and estimated tax treated as paid when remitted instead of on the 6513 deemed dates |
+| Refund claim (Form 1040-X, 1120-X, 843) and the account transcript | Recovering an overpayment | The 3-year window run from the processing date instead of the filing date; the 2-year look-back missed, so the claim recovers only tax paid in the 2 years before filing; withholding and estimated tax treated as paid when remitted instead of on the 6513 deemed dates; an earlier letter that may qualify as an informal claim (Kales) not checked when the formal claim is late |
 | Revenue agent's report, 30-day letter, penalty approval form | Defending the 6662 penalty | Written supervisory approval not requested or tested under the circuit's timing rule and Treas. Reg. 301.6751(b)-1; First Time Abate requested for a 6662 penalty it does not cover; reliance on an adviser asserted without proof the adviser had all relevant facts |
 | Accountant and adviser files, emails, tax accrual workpapers | Privilege calls on IDR and summons responses | IRC 7525 claimed for return preparation, a state matter or a criminal investigation; a Kovel arrangement papered after the fact or run by the accountant instead of counsel; financial-statement workpapers called work product |
 | Exam closing conference notes, Form 4549 or 870 | Agreed and unagreed issues going to Appeals | Facts conceded orally without documentation or written client authority; an agreement form signed that waives the restrictions on assessment for amounts still in dispute; evidence held back for Appeals, which can send the case back to exam |
 | BBA notice of proposed partnership adjustment (NOPPA) | Partnership imputed underpayment | Imputed underpayment paid at the highest rate with no modification request for tax-exempt, corporate or capital-gain partners; the 270-day window counted from the wrong day (statute and regulation differ by one day); the 45-day push-out treated as extendable |
 | Form 2848, partnership representative designation, officer authority | Who may sign consents, protests, petitions and elections | A representative acting outside the taxes and periods on the Form 2848; a partner or manager acting for a BBA partnership when only the partnership representative (through its designated individual) can bind it |
+| Notice of a third-party summons (bank, adviser, employer records) | Petition to quash and privilege objections (IRC 7609) | The 20-day quash window counted from receipt or from the summons date instead of the day notice was given; the copy to the summoned party and the IRS by registered or certified mail omitted; privilege objections held for later, after the window closes |
+| Innocent spouse request (Form 8857) on a joint return | Relief under IRC 6015(b), (c) or (f) and Tax Court review | One window used for all three: (b) and (c) close 2 years after collection begins against the requesting spouse, while (f) runs to the 6502 collection or 6511 refund period; the 90-day Tax Court petition counted from the request instead of the final determination |
 | CDP notice of levy or lien | Collection due process hearing and Tax Court review | Lien window counted from the notice date instead of the end of the 5-business-day period after the lien filing; a missed 30-day window leaving only an equivalent hearing with no Tax Court review |
 | Form 5701 NOPA on a transfer pricing adjustment | Competent authority (MAP) or APA route | An exam closing agreement or Form 870-AD signed before deciding on MAP, limiting relief to a correlative adjustment abroad; the 60-day window after the Appeals opening conference missed; no protective claim filed for the U.S. refund side |
 
@@ -89,6 +91,8 @@ Collect these, then build the source-review register (`references/output-templat
 - **Criminal exposure.** Any sign of a criminal investigation or fraud theory (contact from a special agent or Criminal Investigation, a proposed civil fraud penalty under 6663, an examiner suspending the exam without explanation after fraud questions, a request to alter or withhold records). Stop substantive drafting, preserve deadlines only, and route to criminal tax counsel; 7525 will not protect the work.
 - **No trigger document.** No copy, transcript entry or reliable statement of the date of the triggering notice or event. Do not state a computed due date as settled; give the earliest plausible date and ask for the document.
 - **Improper request.** Any request to backdate, misstate facts, conceal records or mislead the IRS or a court. Decline that part and say why.
+
+Record every part blocked by a hard stop or ground rule in `references/output-template.md` Section 11 under its fixed label, "DECLINED PART:", verbatim.
 - **No authority to sign.** The person directing a consent, protest, petition, claim or BBA election has no documented authority for that tax and period (Form 2848, officer status, or partnership representative). Draft the authority fix first; do not prepare the document for signature.
 
 ## Step 1: Inventory, Posture and Authority
@@ -97,7 +101,7 @@ Build the source-review register; open every file. Fix the stage of the controve
 
 ## Step 2: Clocks Register
 
-Read `references/clocks-and-deadlines.md` in full. List every clock the facts start, each with its own trigger event and source, and compute each by script in the fixed format: assessment statute and any consents, refund windows and look-back limits, the petition period with the date stated on the notice, Appeals intake, CDP windows, BBA windows, MAP and APA windows. State the circuit and the petition deadline's status there. Put any clock within 10 business days, or already passed, at the top of Section 1.
+Read `references/clocks-and-deadlines.md` in full. List every clock the facts start, each with its own trigger event and source, and compute each by script in the fixed format: assessment statute and any consents, refund windows and look-back limits, the petition period with the date stated on the notice, Appeals intake, CDP windows, third-party summons and innocent spouse windows, BBA windows, MAP and APA windows. State the circuit and the petition deadline's status there. Put any clock within 10 business days, or already passed, at the top of Section 1.
 
 ## Step 3: Issue Matrix and Record
 
@@ -121,7 +125,7 @@ Read `references/controversy-rules.md` Section 8. Complete the privilege and rec
 
 ## Step 8: Options, Drafts and Hand-Offs
 
-Read `references/controversy-rules.md` Section 9 and `references/output-template.md` Sections 6 to 10. Rank the options against the clocks and the client's objectives, draft the documents requested, run reconciliation checks C1 to C10, and write complete hand-offs and the open items and [VERIFY] list.
+Read `references/controversy-rules.md` Section 9 and `references/output-template.md` Sections 6 to 11. Rank the options against the clocks and the client's objectives, draft the documents requested, run reconciliation checks C1 to C10, and write complete hand-offs, the open items and [VERIFY] list, and the declined parts.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -147,7 +151,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 10. Any BBA analysis shows the imputed underpayment as proposed and as modified, both readings of the 270-day window, and the 45-day push-out limit; any MAP or APA analysis shows its own clocks.
 11. Every signature-ready document names a signer with documented authority, or the authority fix is drafted instead.
 12. Every rule has a citation or [VERIFY]; every conflict names both sources, the controlling one and why; every open item has an owner and a next action.
-13. The draft-for-review closing line is present.
+13. Every declined part appears under the "DECLINED PART:" label with its reason, and the draft-for-review closing line is present.
 
 ## Guidelines
 
@@ -174,15 +178,15 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 ## Related Skills
 
 - managing-transfer-pricing-compliance: pricing substance behind a proposed 482 adjustment, a MAP position or an APA proposal (method, comparables, range) and 6662(e) documentation.
-- taxpayer-correspondence: routine notice responses and client-facing summaries of tax records once the controversy strategy is set.
-- managing-tax-provision-preparation: ASC 740 reserve and disclosure effects of proposed adjustments and settlements.
+- taxpayer-correspondence: routine notice responses and client-facing summaries of tax records once the controversy strategy is set. Notices of deficiency, protests, consents to extend, refund claims and Tax Court petitions stay with this skill.
+- managing-tax-provision-preparation: uncertain tax position reserves (ASC 740-10) for the controversy exposure, and disclosure effects of proposed adjustments and settlements.
 - analyzing-state-income-tax: state reporting of a federal change and state exposure on the same items.
 - analyzing-partnership-tax-structures: partner-level allocation and outside basis effects of a BBA adjustment or push-out.
 - legal-research: criminal tax exposure, state controversy procedure, federal privilege disputes and circuit law not covered here; no dedicated skill exists for these.
 
 ## Reference Files
 
-- `references/clocks-and-deadlines.md`: counting conventions, the 7503 roll and D.C. holidays, the computation script and fixed format, and every clock (assessment, consents, refund, petition with circuit status, Appeals intake, CDP, BBA, MAP and APA).
-- `references/controversy-rules.md`: exam concessions and agreement forms, protests and Appeals, ex parte rules, 6662 and reasonable cause, 6751(b), FTA and AEP, BBA, privilege, forum choice, MAP and APA procedure.
+- `references/clocks-and-deadlines.md`: counting conventions, the 7503 roll and D.C. holidays, the computation script and fixed format, and every clock (assessment, consents, refund and informal claims, petition with circuit status, Appeals intake, CDP, BBA, third-party summons, innocent spouse, MAP and APA).
+- `references/controversy-rules.md`: exam concessions and agreement forms, protests and Appeals, ex parte rules, 6662 and reasonable cause, 6751(b), FTA and AEP, BBA, privilege, forum choice, MAP and APA procedure with APMA acceptance screening.
 - `references/output-template.md`: deliverable sections, clocks register, issue matrix, penalty and privilege registers, reconciliation checks C1 to C10, hand-off table, open items.
 - `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the [VERIFY] list.

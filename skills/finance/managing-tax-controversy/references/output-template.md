@@ -15,6 +15,7 @@ Produce the header and the sections below, in this order. Put dates and amounts 
 9. Section 8. Reconciliation checks
 10. Section 9. Hand-offs
 11. Section 10. Open items and [VERIFY] list
+12. Section 11. Declined parts
 
 ## Header and source-review register
 
@@ -94,7 +95,7 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 
 | To | Why | Facts passed (amounts, dates, notices, locators) | Open questions | What this draft did not do |
 |---|---|---|---|---|
-| managing-tax-provision-preparation | ASC 740 reserve and disclosure effect of the proposed adjustments | | | |
+| managing-tax-provision-preparation | Uncertain tax position reserves (ASC 740-10) for the controversy exposure, and disclosure effects of proposed adjustments and settlements | | | |
 | analyzing-state-income-tax | State reporting of the federal change and state exposure | | | |
 | analyzing-partnership-tax-structures | Partner-level allocation and outside basis effects of a BBA adjustment or push-out | | | |
 | managing-transfer-pricing-compliance | Pricing substance behind a proposed 482 adjustment, a MAP position or an APA proposal: method, comparables, range, 6662(e) documentation | | | |
@@ -108,5 +109,17 @@ Add or remove rows to match the matter.
 |---|---|---|---|---|---|---|
 
 Then each [VERIFY] statement and what would settle it.
+
+## 11. Declined parts
+
+Use this section whenever a ground rule or hard stop blocks part of the request (an improper request, criminal exposure, missing authority, missing trigger document). One entry per declined part, with this fixed label, verbatim:
+
+```
+DECLINED PART: <what was asked, in the user's words>
+Reason: <ground rule or hard stop, by name>
+What can be done instead: <the lawful or unblocked alternative, and who must act>
+```
+
+If nothing was declined, write "Declined parts: none."
 
 Close with: "Draft for review by a qualified tax professional or counsel. Not legal or tax advice, and not a filing."
