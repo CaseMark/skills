@@ -229,6 +229,12 @@ Eval rules (from the pilot review; each one was violated at least once there):
 - When the skill has a windows, runs or deadlines table, the eval's expected output must check every window that is open on the eval date.
 - Every computed date in an eval states its weekday and whether a weekend or holiday rule (for example IRC 7503) moves it. A tier or deadline that falls inside a calendar year needs an exact transaction date in the prompt.
 - A hard stop keyed to a document being supplied is satisfied only by an eval fixture or a labelled excerpt in the prompt ("Excerpt from <document> (date, issuer): ..."). Eval notes may not claim a document was supplied when the prompt only describes it.
+- Every improper-aim hard stop (back-solve, target-driven inputs, suppressing a finding) needs its own Ground Rule and an eval that plants it, whether or not the description names the aim.
+- In a skill with a clocks table, every eval prompt states "Today is <weekday, date>" and supplies the delivery terms and Business Day roll clause its deadlines rely on.
+- When a deadline counts business days, check federal and bank holidays inside the counting window, not only at the end date.
+- A Must that applies a fact-specific rule listed as [VERIFY] is phrased "explain why it likely applies on these facts, then route the determination".
+- Text quoted from a filed agreement or other document is verbatim and names the section that contains it.
+- A rounding or display default may not decide pass or fail. Test unrounded unless the document has a rounding clause.
 
 Content rules (from the pilot review):
 - In every clocks or windows table, give each timed element its own trigger event. Do not assume one anchor for all of them.
