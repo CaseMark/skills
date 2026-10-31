@@ -113,13 +113,13 @@ Only when requested and when the decision maker's determination is recorded or t
 
 | To | When | Facts passed |
 |---|---|---|
-| aml-compliance-program | A finding requires a change to the BSA/AML program, policy or procedure (SAR clock procedure, threshold-setting policy, QA procedure, no-file documentation election) | Finding, rule, current procedure text, recommended change |
-| managing-sanctions-screening | A potential OFAC or other sanctions match appears in the data | Party, list, transaction, date; this skill does not disposition the match |
-| reviewing-kyc-documentation | A customer file is stale or contradicts the activity and needs CIP, CDD or EDD review | Customer, profile date, activity that contradicts it |
-| managing-model-risk | A statistical or machine-learning scoring layer in the monitoring system needs validation | Model description, outcomes data, below-the-line results |
-| bsa-risk-assessment | Testing shows a product, channel or customer type the risk assessment omits or under-rates | Volumes, alerts, SARs by segment |
-| managing-fraud-operations-banking | The activity is a fraud loss case (account takeover, check fraud) needing recovery work | Accounts, losses, dates |
-| legal-research | A rule outside this skill's register (state law such as NYDFS Part 504 for a non-New York question, casino rules, foreign law); no dedicated skill exists | Jurisdiction, institution type, question |
+| aml-compliance-program | Its description: "Use for an AML policy, BSA program, gap analysis or board approval package". A finding requires a change to the BSA/AML program, policy or procedure (SAR clock procedure, threshold-setting policy, QA procedure, no-file documentation election) | Finding, rule, current procedure text, recommended change |
+| managing-sanctions-screening | Its description: "investigating potential matches". A potential OFAC or other sanctions match appears in the data | Party, list, transaction, date; this skill does not disposition the match |
+| reviewing-kyc-documentation | Its description: "reviewing KYC files". A customer file is stale or contradicts the activity and needs CIP, CDD or EDD review | Customer, profile date, activity that contradicts it |
+| managing-model-risk | Its description: "validating risk models". A statistical or machine-learning scoring layer in the monitoring system needs validation | Model description, outcomes data, below-the-line results |
+| bsa-risk-assessment | Its description: "when business changes trigger reassessment". Testing shows a product, channel or customer type the risk assessment omits or under-rates | Volumes, alerts, SARs by segment |
+| managing-fraud-operations-banking | Its description: "managing fraud cases". The activity is a fraud loss case (account takeover, check fraud) needing investigation and recovery; SAR-decision testing stays here | Accounts, losses, dates |
+| legal-research | Its description: "planning or auditing legal research". A rule outside this skill's register (state law such as NYDFS Part 504 for a non-New York question, casino rules, foreign law); no dedicated skill exists | Jurisdiction, institution type, question |
 
 Open items: | # | Item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Owner | Next action | Blocks conclusion? |
 

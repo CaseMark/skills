@@ -46,7 +46,7 @@ Tests for a threshold change:
 
 1. State the old and new parameters, the effective date, the approver and the documented reason.
 2. Compute alerts and SARs at both settings over the same period, the SARs in the dropped band, and the percent of past SARs lost.
-3. Draw a below-the-line sample from the dropped band (and, for a new scenario, just below its threshold), sized under section 5, reviewed by analysts who do not know it is a test where practicable.
+3. Draw a below-the-line sample from activity in the dropped band since the change took effect, which no longer alerts (and, for a new scenario, from activity just below its threshold), sized under section 5 and reviewed by analysts who do not know it is a test where practicable. Alerts the old setting generated before the change were already reviewed and are back-test evidence, not a test population. Name the population and period the sample's conclusion covers.
 4. Check that the population feeding the scenario is complete (all products, channels and customer types the scenario is meant to cover, including CTR-exempt customers).
 5. Label the threshold Supported, Not supported or Untested under the template test.
 

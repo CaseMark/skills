@@ -2,8 +2,8 @@
 name: auditing-aml-transactions
 language: en
 description: >-
-  Performs and reviews transaction-level BSA/AML testing for U.S. banks, credit
-  unions, money services businesses and broker-dealers: alert and case review
+  Performs and reviews transaction-level BSA/AML testing for U.S. banks, money
+  services businesses and broker-dealers: alert and case review
   and QA sampling, lookbacks, transaction-level testing of monitoring
   thresholds and below-the-line sampling, structuring and CTR aggregation
   across branches and linked accounts, 314(a) match follow-up, SAR decisioning
@@ -176,12 +176,12 @@ Confirm with the user or list as open items:
 
 ## Related Skills
 
-- aml-compliance-program: hand off program and policy design: drafting or reviewing the BSA/AML program, policies and procedures, gap analysis and board approval packages; this skill covers transaction-level testing, lookbacks and SAR narratives.
-- managing-sanctions-screening: hand off potential OFAC or sanctions matches for match investigation and escalation.
-- reviewing-kyc-documentation: hand off customer files whose CIP, CDD or EDD documentation is stale or contradicted by the activity.
-- managing-model-risk: hand off validation of a statistical or machine-learning monitoring or scoring model.
-- bsa-risk-assessment: hand off when testing shows a product, channel or segment the BSA/AML risk assessment omits or under-rates.
-- managing-fraud-operations-banking: hand off fraud-loss cases that need fraud investigation and recovery work.
+- aml-compliance-program: hand off program and policy design (its description: "Use for an AML policy, BSA program, gap analysis or board approval package"): drafting or reviewing the BSA/AML program, policies and procedures; this skill covers transaction-level testing, lookbacks and SAR narratives.
+- managing-sanctions-screening: hand off potential OFAC or sanctions matches (its description: "investigating potential matches") for match investigation and escalation.
+- reviewing-kyc-documentation: hand off customer files whose CIP, CDD or EDD documentation is stale or contradicted by the activity (its description: "reviewing KYC files").
+- managing-model-risk: hand off validation of a statistical or machine-learning monitoring or scoring model (its description: "validating risk models").
+- bsa-risk-assessment: hand off when testing shows a product, channel or segment the BSA/AML risk assessment omits or under-rates (its description: "when business changes trigger reassessment").
+- managing-fraud-operations-banking: hand off fraud-loss cases that need fraud investigation and recovery work (its description: "managing fraud cases"). Split: both skills touch "investigating suspicious activity"; fraud detection, loss investigation and recovery belong there, while testing alert and case dispositions, SAR decisions, SAR timeliness and narratives belongs here.
 - legal-research: hand off state rules such as NYDFS Part 504 outside a DFS-regulated test, casino rules and foreign AML law; no dedicated skill covers them.
 
 ## Reference Files
