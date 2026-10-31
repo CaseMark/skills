@@ -17,6 +17,7 @@ Produce the header and the sections below, in this order, omitting a section onl
 11. Section 10. Issues, conflicts and judgment calls
 12. Section 11. Hand-offs
 13. Section 12. Open items and [VERIFY] list
+14. Section 13. Declined parts
 
 ## Header and source-review register
 
@@ -125,7 +126,8 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 | analyzing-corporate-tax-structures | Domestic entity choice, S corporation, QSBS, consolidated-group and PTE questions | | | |
 | managing-international-withholding-tax | W-8 forms, QI, Forms 1042 and 1042-S, FATCA | | | |
 | analyzing-state-income-tax | State treatment of NCTI, subpart F, 78, 250 and 245A | | | |
-| managing-income-tax-provisions | ASC 740 for NCTI, Pillar Two and uncertain positions | | | |
+| managing-tax-provision-preparation | ASC 740 for NCTI, Pillar Two top-up taxes and uncertain positions | | | |
+| managing-tax-controversy | APA and MAP (competent authority) procedure, Form 5471 penalty defense and open statutes | | | |
 
 Add or remove rows to match the matter.
 
@@ -140,5 +142,9 @@ Hand-ins this skill accepts from sibling skills (answer them in the sections abo
 
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Depends on | Owner | Next action | Changes which output |
 |---|---|---|---|---|---|---|
+
+## 13. Declined parts
+
+Use this exact label for any part of the request a hard stop or Ground Rule 11 blocks: **"Declined part:"** followed by what was asked, the hard stop or rule that blocks it, and what lawful alternative or missing fact would allow the work. Write "None" if nothing was declined.
 
 Close with: "Draft for review by a qualified tax adviser. Not a tax opinion, return position or legal advice."

@@ -52,6 +52,8 @@ International tax figures fail on dates and definitions more than on arithmetic.
 | Subpart F and NCTI high-tax elections, 954(c)(6) analysis | Excluding high-taxed or related-party income | Election assumed rather than evidenced; 18.9 percent threshold tested on the wrong unit; 954(c)(6) treated as expiring after 2025 when it is permanent; the election's effect on the 960(d) tax pool not modeled |
 | GloBE workpapers, OECD Central Record and local QDMTT law | Top-up tax of foreign subsidiaries | Side-by-side safe harbour read as removing QDMTT exposure, treated as automatic, or applied to fiscal years commencing before January 1, 2026; local adoption assumed; covered taxes taken from U.S. calculations |
 | BEAT workpapers | Base erosion minimum tax | 12.5 percent or 10 percent used for a year beginning after 2025 (10.5 percent applies); gross receipts and base erosion percentage tests skipped; payments with full 30 percent withholding not removed |
+| CFC loans, guarantees and pledges for U.S. affiliates | Section 956 inclusions | The 1.956-1(a)(2) reduction assumed for every shareholder when it reaches only corporate shareholders that would get a 245A deduction; individuals, holding-period failures and hybrid cases still include |
+| CFC stock sale documents and Form 5471 filing history | Exit tax cost and exposure | Gain on CFC stock treated as capital gain when 1248 makes it a dividend to the extent of E&P (245A only if held 1 year or more and the 245A tests are met); missed Forms 5471 ignored, though 6038 penalties apply and 6501(c)(8) keeps the statute open |
 | FIRPTA and partnership exit documents | Inbound real estate and partnership dispositions | 15 percent 1445 withholding or 10 percent 1446(f) withholding missed; USRPHC 50 percent test run on book values without the five-year lookback |
 
 ## Ground Rules
@@ -85,8 +87,8 @@ Collect these, then build the source-review register (`references/output-templat
 
 **Default fallbacks (each recorded as a policy election or unknown fact):** foreign taxes credited, not deducted; no high-tax election, 962 election or safe harbour election without evidence; statutory withholding until the LOB is documented; state treatment an open item; amounts in the source currency with the translation rate [UNVERIFIED] if not given.
 
-**Hard stops (do not produce the blocked output; report what is needed):**
-- The owners and ownership percentages of the entity whose tax is being computed are not stated in the file or the request: no CFC, NCTI, 245A or withholding computation for that entity.
+**Hard stops (do not produce the blocked output; report it under the template's "Declined part:" label with what is needed):**
+- The ownership of a foreign corporation in the structure (who holds its stock and in what percentages) and the U.S. shareholder's direct, indirect and constructive interest in it are not stated: no CFC, subpart F, NCTI, 956, 245A or 1248 computation for that corporation. For an inbound payment, the payee's ownership chain up to its owners of record is not stated: no treaty or withholding conclusion for that payment. The owners of a domestic corporation are needed only when its foreign ownership is in question for section 951B or CFC status.
 - The beginning and ending dates of the taxable year of a U.S. shareholder or foreign corporation whose year-dependent liability is being computed are not stated: no computation for that year.
 - A conclusion that a treaty rate applies is requested and neither the treaty text nor a statement of its benefit and LOB articles is available: give the statutory treatment only.
 - The request is to backdate an election beyond the period the regulation allows, to document substance or ownership that did not exist, or to keep a position or transaction from a tax authority or auditor.
@@ -94,7 +96,7 @@ Collect these, then build the source-review register (`references/output-templat
 
 ## Step 1: Inventory, Structure and Taxable Years
 
-Build the source-review register and Sections 1 and 2 of `references/output-template.md`. Open every file. Map each entity, its classification and its owners by period. List every taxable year with its beginning date, then read `references/us-international-rules.md` Section 1 and assign the rule set to each item for each year, naming whose year controls.
+Build the source-review register and Sections 1 and 2 of `references/output-template.md`. Open every file. Note any Form 5471 not filed for a year (6038 penalties; 6501(c)(8) keeps that year open). Map each entity, its classification and its owners by period. List every taxable year with its beginning date, then read `references/us-international-rules.md` Section 1 and assign the rule set to each item for each year, naming whose year controls.
 
 ## Step 2: Ownership Tests and Elections
 
@@ -114,7 +116,7 @@ Read `references/us-international-rules.md` Sections 6 and 9. Build DEI with the
 
 ## Step 6: Repatriation
 
-Read `references/us-international-rules.md` Sections 7 and 8. Source each distribution from PTEP first, then test 245A: foreign-source portion, holding period (count the days and give the date it is or will be met), hybrid deduction accounts, and 245A(d). Compare repatriation pathways by total tax cost for the year of each.
+Read `references/us-international-rules.md` Sections 7 and 8. Source each distribution from PTEP first, then test 245A: foreign-source portion, holding period (count the days and give the date it is or will be met), hybrid deduction accounts, and 245A(d). Test 956 for each U.S. shareholder separately (the 1.956-1(a)(2) reduction reaches only corporate shareholders that would get a 245A deduction) and 1248 on any planned sale of CFC stock. Compare repatriation pathways by total tax cost for the year of each.
 
 ## Step 7: Inbound Payments, Treaties and BEAT
 
@@ -151,7 +153,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 9. Pillar Two exposure shows QDMTT top-up separately from IIR and UTPR and states the SbS election status by fiscal year.
 10. Every election relied on has evidence or is modeled both ways.
 11. Every reconciliation check was computed; every Fail is an issue with severity and owner.
-12. Transfer pricing, domestic entity choice, withholding operations, state treatment and provision accounting are handed off with facts.
+12. Transfer pricing, domestic entity choice, withholding operations, state treatment, provision accounting and APA or MAP procedure are handed off with facts, and any declined part uses the "Declined part:" label.
 13. The draft-for-review closing line is present and nothing is called final or an opinion.
 
 ## Guidelines
@@ -177,13 +179,13 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 
 ## Related Skills
 
-- managing-transfer-pricing-compliance: intercompany pricing, documentation and benchmarking, including arm's-length method, FAR and DEMPE analysis, the pricing of cost sharing buy-ins, platform contributions and 367(d) royalties, and APAs.
+- managing-transfer-pricing-compliance: intercompany pricing, documentation and benchmarking, including arm's-length method, FAR and DEMPE analysis, the pricing of cost sharing buy-ins, platform contributions and 367(d) royalties, and the pricing substance behind an APA.
 - analyzing-corporate-tax-structures: domestic entity choice, S corporation, QSBS, consolidated-group and PTE questions, and the domestic corporate AMT test outside the foreign-parented group rule.
 - managing-international-withholding-tax: W-8 forms, QI and QDD compliance, Forms 1042 and 1042-S, operational treaty claims.
 - analyzing-state-income-tax: state treatment and apportionment of NCTI, subpart F, section 78, section 250 and section 245A amounts.
-- managing-income-tax-provisions: ASC 740 accounting for NCTI, Pillar Two top-up taxes and uncertain positions.
+- managing-tax-provision-preparation: ASC 740 accounting for NCTI, Pillar Two top-up taxes and uncertain positions.
 - analyzing-m-and-a-tax-implications: cross-border acquisition structure, stock versus asset purchases and 338 elections.
-- managing-tax-controversy: IRS examinations, competent authority and treaty disputes.
+- managing-tax-controversy: IRS examinations, APA and MAP (competent authority) procedure, treaty disputes, Form 5471 penalty defense and statutes held open under 6501(c)(8).
 - analyzing-partnership-tax-structures: partnership allocations and outside basis behind 1446 and 864(c)(8) exposures.
 
 ## Reference Files

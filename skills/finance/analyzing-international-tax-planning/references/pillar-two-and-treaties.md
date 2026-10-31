@@ -25,7 +25,7 @@ Pillar Two (GloBE) exposure of foreign subsidiaries, the 2025-2026 side-by-side 
 ## 2. The side-by-side arrangement: what it does and does not do
 
 - History: G7 statement of June 28, 2025 (side-by-side system to fully exclude U.S.-parented groups from the IIR and UTPR, conditioned on removal of proposed section 899, which Pub. L. 119-21 did not enact); Inclusive Framework agreement of January 5, 2026 (147 members) on the Side-by-Side Package; Treasury statement of January 5, 2026.
-- The United States is listed on the OECD Central Record as having a Qualified SbS Regime (Internal Revenue Code of 1986), with the SbS Safe Harbour applicable for fiscal years commencing on or after January 1, 2026 (Central Record current as of May 1, 2026).
+- The United States is listed on the OECD Central Record as having a Qualified SbS Regime (Internal Revenue Code of 1986), with the SbS Safe Harbour applicable for fiscal years commencing on or after January 1, 2026 (Qualified SbS Regimes table as at January 5, 2026; the QDMTT and IIR tables are as at May 1, 2026).
 - Effect: an MNE group whose ultimate parent entity is in a Qualified SbS jurisdiction may **elect** the SbS Safe Harbour, made in Section 1 of the GloBE Information Return. Where it applies, IIR and UTPR top-up tax is deemed zero for all constituent entities, domestic and foreign, including IIRs of intermediate parents.
 - Limits: the election is not automatic; it does not reach fiscal years commencing before January 1, 2026; a jurisdiction that adopts it after that date is expected to do so retroactively, but one that cannot on constitutional grounds implements it from the earliest practical date; and **every group, including one that elects it, remains subject to QDMTTs in every QDMTT jurisdiction**, computed without push-down of CFC or branch taxes (Side-by-Side Package, chapter 1 paragraphs 15, 19 and 23, and chapter 5 paragraph 28 on the effective date).
 - The UPE Safe Harbour covers only domestic profits of groups headquartered in a jurisdiction with a qualified domestic regime; it switches off the UTPR for profits in the UPE jurisdiction.
@@ -40,7 +40,7 @@ Pillar Two (GloBE) exposure of foreign subsidiaries, the 2025-2026 side-by-side 
 5. For fiscal years commencing on or after January 1, 2026: record whether the SbS election is made and where Section 1 of the GIR is filed; IIR and UTPR exposure is zero only with the election in a jurisdiction that recognizes it.
 6. For fiscal years commencing before January 1, 2026: compute IIR and UTPR exposure under each jurisdiction's law; the SbS arrangement does not apply.
 7. Transfer pricing adjustments: GloBE Model Rules Article 3.2.3 requires transactions between constituent entities in different jurisdictions to be recorded at the same arm's-length amount in both entities' accounts (as cited by the sibling skill managing-transfer-pricing-compliance), so a year-end true-up or audit adjustment changes GloBE income and the ETR in two jurisdictions; recompute both and note any QDMTT effect. The adjustment amount itself comes from managing-transfer-pricing-compliance.
-8. U.S. interplay: NCTI on the same income, the creditability of a QDMTT under U.S. rules ([VERIFY] with the tax adviser), and ASC 740 accounting (route to managing-income-tax-provisions).
+8. U.S. interplay: NCTI on the same income, the creditability of a QDMTT under U.S. rules ([VERIFY] with the tax adviser), and ASC 740 accounting for NCTI and Pillar Two top-up taxes (route to managing-tax-provision-preparation).
 
 ## 4. Treaty analysis steps
 

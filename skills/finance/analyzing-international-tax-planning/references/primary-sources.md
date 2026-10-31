@@ -28,6 +28,10 @@ All rows: full text via case.dev; 2026-10-30. URL pattern https://www.law.cornel
 | IRC 59(k)(1), (k)(2) | Applicable corporation: $1 billion 3-year average AFSI; foreign-parented multinational group aggregation with the $100 million own-income test; U.S. trade or business of a foreign corporation treated as a separate domestic corporation |
 | IRC 59A | 10.5% BEAT for taxable years beginning after Dec. 31, 2025 (sec. 70331(d)); bank and dealer +1 point; $500 million and 3% (2%) tests; 59A(c)(2)(B) withholding rule |
 | IRC 59A, 2023 edition: https://www.govinfo.gov/content/pkg/USCODE-2023-title26/html/USCODE-2023-title26-subtitleA-chap1-subchapA-partVII-sec59A.htm | Former 59A(b)(2): scheduled 12.5% and all-credits rule for years after 2025, struck by Pub. L. 119-21 |
+| IRC 956(a); Treas. Reg. 1.956-1(a)(2) (https://www.law.cornell.edu/cfr/text/26/1.956-1) | Investments in U.S. property; inclusion reduced by the hypothetical 245A deduction for corporate U.S. shareholders only |
+| IRC 1248(a), (j) | Gain on CFC stock as a dividend to the extent of E&P; 245A coordination for domestic corporations holding 1 year or more |
+| IRC 6038(b), (c) | Form 5471 penalties: $10,000 per period, up to $50,000 more after notice, and FTC reduction |
+| IRC 6501(c)(8) | Assessment period open until 3 years after required foreign information is furnished; item-limited for reasonable cause |
 | IRC 864(c)(8) | Gain on partnership interests treated as ECI |
 | IRC 881(a), (c)(3)(B) | 30% tax on FDAP of foreign corporations; no portfolio interest for 10-percent shareholders |
 | IRC 894 | Treaty obligations applied with due regard; 894(c) denies reduced withholding on certain items derived through fiscally transparent entities |
@@ -70,7 +74,7 @@ All rows: full text via case.dev; 2026-10-30. URL pattern https://www.law.cornel
 | G7 Statement on Global Minimum Tax (June 28, 2025) | https://home.treasury.gov/news/press-releases/sb0181 | Full text via case.dev; 2026-10-30 | Side-by-side principles; full exclusion of U.S.-parented groups from IIR and UTPR; removal of section 899 |
 | OECD press release (Jan. 5, 2026) | https://www.oecd.org/en/about/news/press-releases/2025/12/international-community-agrees-way-forward-on-global-minimum-tax-package.html | Full text via case.dev; 2026-10-30 | 147-member agreement; five components |
 | OECD, Side-by-Side Package (approved Jan. 5, 2026) | https://www.oecd.org/content/dam/oecd/en/topics/policy-sub-issues/global-minimum-tax/side-by-side-package.pdf | Full text via case.dev; 2026-10-30 | SbS and UPE Safe Harbours; election in GIR Section 1; fiscal years commencing on or after Jan. 1, 2026; QDMTT still applies; stocktake by 2029; TCSH extension and 17% rate for 2026-2027; simplified ETR safe harbour timing |
-| OECD Central Record (web page and updated Central Record PDF) | https://www.oecd.org/en/topics/sub-issues/global-minimum-tax/central-record-of-legislation-with-transitional-qualified-status.html; https://www.oecd.org/content/dam/oecd/en/topics/policy-sub-issues/global-minimum-tax/updated-central-record-for-purposes-of-the-global-minimum-tax.pdf | Full text via case.dev; 2026-10-30 | United States listed as Qualified SbS Regime from Jan. 1, 2026; record current as of May 1, 2026 |
+| OECD Central Record (web page and updated Central Record PDF) | https://www.oecd.org/en/topics/sub-issues/global-minimum-tax/central-record-of-legislation-with-transitional-qualified-status.html; https://www.oecd.org/content/dam/oecd/en/topics/policy-sub-issues/global-minimum-tax/updated-central-record-for-purposes-of-the-global-minimum-tax.pdf | Full text via case.dev; 2026-10-30 | United States listed as Qualified SbS Regime from Jan. 1, 2026 (Qualified SbS Regimes table as at Jan. 5, 2026; QDMTT and IIR tables as at May 1, 2026) |
 | U.S. Treasury statement (Jan. 5, 2026) | https://home.treasury.gov/news/press-releases/sb0350 | Full text via case.dev; 2026-10-30 | U.S. position on the agreement |
 | European Commission Notice C/2026/253 (Jan. 12, 2026) | https://eur-lex.europa.eu/eli/C/2026/253/oj/eng | Full text via case.dev; 2026-10-30 | All EU Member States consented to the January 2026 safe harbours under Directive (EU) 2022/2523, Art. 32 |
 | OECD Pillar Two GloBE Rules Fact Sheets | https://www.oecd.org/content/dam/oecd/en/topics/policy-sub-issues/global-minimum-tax/pillar-two-globe-rules-fact-sheets.pdf | Full text via case.dev; 2026-10-30 | EUR 750 million test (Art. 1.1.1); 15% minimum; top-up formula (Arts. 5.1-5.3); de minimis (Art. 5.5) |
@@ -90,7 +94,7 @@ All rows: full text via case.dev; 2026-10-30. URL pattern https://www.law.cornel
 | State treatment of NCTI, subpart F, 78, 250 and 245A | Not reviewed; route to analyzing-state-income-tax |
 | Hybrid deduction account balances and their carryover on an acquisition | Fact-specific; regulation read |
 | Substance-based income exclusion transition percentages for a given fiscal year | Not looked up |
-| Central Record changes after May 1, 2026 and outcomes of the 2029 stocktake | Re-check each fiscal year |
+| Central Record changes after Jan. 5, 2026 (SbS table) and May 1, 2026 (QDMTT and IIR tables) and outcomes of the 2029 stocktake | Re-check each fiscal year |
 | Foreign interest-limitation, thin capitalization and anti-hybrid rules for any lender or borrower jurisdiction | Local law; not reviewed |
 | Treas. Reg. 1.482-7 cost sharing rules | Not read for this skill; structure only, pricing routed to managing-transfer-pricing-compliance |
 | Legislation enacted after October 30, 2026 | Re-check before use |
