@@ -28,6 +28,7 @@ add the stricter upgrade gates on top.
 import argparse
 import importlib.util
 import json
+import os
 import re
 import subprocess
 import sys
@@ -107,7 +108,7 @@ LEGAL_CI_MAX = 500                     # skill-qa.yml hard limit
 ENRICH_MIN, ENRICH_MAX = 100, 400      # validate_enrichment.py, non-blank lines
 REFS_MIN, REFS_MAX = 2, 4
 EVALS_MIN, EVALS_MAX = 3, 5
-EVAL_KEYS = ["id", "name", "prompt", "expected_output", "files", "expected_behavior"]
+EVAL_KEYS = ["id", "name", "prompt", "expected_output", "files", "expected_behavior", "trap_note"]
 
 # Every upgraded skill carries the full controller anatomy (heading text, lowercase regex).
 REQUIRED_HEADINGS = [
@@ -159,6 +160,31 @@ FILLER_PHRASES = load_filler_phrases()
 
 
 # ── Helpers ─────────────────────────────────────────────────────────────────
+
+_ROOTS = None
+
+
+def vertical_root(domain):
+    """Checkout holding a vertical's work. A git worktree whose branch ends in
+    -<domain> (e.g. claude/keen-edison-d1mcoa-med) wins; otherwise this checkout."""
+    global _ROOTS
+    if _ROOTS is None:
+        _ROOTS = {}
+        try:
+            out = subprocess.run(["git", "worktree", "list", "--porcelain"], cwd=REPO_ROOT,
+                                 capture_output=True, text=True, check=True).stdout
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            out = ""
+        wt = None
+        for line in out.splitlines():
+            if line.startswith("worktree "):
+                wt = Path(line[len("worktree "):])
+            elif line.startswith("branch ") and wt is not None:
+                for d in ("legal", "med", "finance"):
+                    if line.endswith(f"-{d}"):
+                        _ROOTS[d] = wt
+    return _ROOTS.get(domain, REPO_ROOT)
+
 
 def find_slug(slug):
     for b_idx, data in BATCHES.items():
@@ -232,7 +258,7 @@ def trap_map_rows(body):
 # ── Verification ────────────────────────────────────────────────────────────
 
 def verify_skill(domain, slug, path=None):
-    path = Path(path) if path else SKILLS_ROOT / domain / slug
+    path = Path(path) if path else vertical_root(domain) / "skills" / domain / slug
     key = f"{domain}/{slug}"
     exc = EXCEPTIONS.get(key, {})
     skill_file = path / "SKILL.md"
@@ -353,6 +379,12 @@ def verify_skill(domain, slug, path=None):
         errors.append(f"SKILL.md names references/{missing}, which does not exist")
     for orphan in sorted(set(ref_files) - named_in_skill):
         errors.append(f"references/{orphan} is never named in SKILL.md")
+    for rel, text in text_files.items():
+        if rel == "SKILL.md" or not rel.endswith(".md"):
+            continue
+        for named in sorted(set(re.findall(r"references/([A-Za-z0-9._-]+\.md)", text))):
+            if named not in ref_files:
+                errors.append(f"{rel} names references/{named}, which does not exist")
     for name in ref_files:
         text = text_files.get(f"references/{name}", "")
         if re.findall(r"\[[^\]]*?\]\(((?!https?:)[^)]*?\.md)\)", text):
@@ -387,6 +419,8 @@ def verify_skill(domain, slug, path=None):
                     for f in ev["files"]:
                         if not (path / "evals" / f).is_file():
                             errors.append(f"eval #{i} lists files entry evals/{f}, which does not exist")
+                if not (isinstance(ev["trap_note"], str) and ev["trap_note"].strip()):
+                    errors.append(f"eval #{i} trap_note must say why a weak skill fails and that the trap is live")
                 eb = ev["expected_behavior"]
                 if isinstance(eb, str) and eb.endswith(".md") and not (path / "evals" / eb).is_file():
                     errors.append(f"eval #{i} expected_behavior evals/{eb} does not exist")
@@ -403,7 +437,7 @@ def verify_skill(domain, slug, path=None):
 
 
 def inspect_skill(domain, slug):
-    path = SKILLS_ROOT / domain / slug
+    path = vertical_root(domain) / "skills" / domain / slug
     content = (path / "SKILL.md").read_text(encoding="utf-8") if (path / "SKILL.md").is_file() else ""
     fm, body = split_frontmatter(content) if content else (None, None)
     refs = len(list((path / "references").glob("*.md"))) if (path / "references").is_dir() else 0
@@ -430,6 +464,7 @@ def cmd_status():
     print("=" * 92)
     print("TOP-44 SKILLS UPGRADE STATUS (CaseMark/skills)")
     print(f"READY = verify passes with zero errors and zero warnings. Body band {BODY_MIN}-{BODY_MAX} lines.")
+    print("Checkouts: " + ", ".join(f"{d}={vertical_root(d)}" for d in ("legal", "med", "finance")))
     print("=" * 92)
     total = 0
     for b_idx, data in BATCHES.items():
@@ -462,16 +497,18 @@ def render_brief(domain, slug):
         enrich_cmd = "(legal: no enrichment validator)"
     else:
         tag_rule = "preserve the existing tags and metadata blocks exactly; the harness compares them to origin/main"
-        enrich_cmd = f"python3 scripts/validate_enrichment.py --vertical {domain} --only-failures"
+        enrich_cmd = f"cd {vertical_root(domain)} && python3 scripts/validate_enrichment.py --vertical {domain} --only-failures"
     exc = EXCEPTIONS.get(f"{domain}/{slug}")
     exception = f"Exception for this skill: {exc['note']}" if exc else "No exceptions apply to this skill."
     related = ", ".join(overlaps_for(domain, slug)) or "none listed; name any sibling you find"
+    repo = str(vertical_root(domain))
     subs = {
-        "{domain}": domain, "{slug}": slug, "{n}": str(b_idx),
+        "{repo}": repo, "{domain}": domain, "{slug}": slug, "{n}": str(b_idx),
         "{batch_name}": BATCHES[b_idx]["name"], "{lines}": str(st["lines"]),
         "{refs}": str(st["refs"]), "{evals}": str(st["evals"]),
         "{trap}": "yes" if st["trap"] else "no", "{tag_rule}": tag_rule,
-        "{enrichment_cmd}": enrich_cmd, "{related}": related, "{exception}": exception,
+        "{enrichment_cmd}": enrich_cmd,
+        "{casedev}": os.environ.get("CASEDEV_HELPER", "casedev-helper"), "{related}": related, "{exception}": exception,
     }
     out = load_brief_template()
     for k, v in subs.items():

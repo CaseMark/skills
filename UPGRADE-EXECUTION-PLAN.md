@@ -2,7 +2,7 @@
 
 Companion to `UPGRADE-PLAYBOOK.md` and `scripts/run_top15_upgrade.py`. The playbook says *what* each skill must look like. This plan says *how* the work gets done, by whom, in what order, and how it is checked.
 
-Status: **in progress.** Phase 0 (harness hardening) done 2026-10-30. Phase 1 pilot running.
+Status: **in progress.** Phase 0 (harness hardening) done 2026-10-30. Phase 1 pilot authored and reviewed; fix pass running. Eval and content rules from the pilot review are in Appendix A.
 
 ---
 
@@ -56,7 +56,9 @@ Playbook clarifications to apply in the same commit:
 | Reviewer agent | 1 subagent per batch, fresh context | Adversarial review of the batch's 5 bundles: fact-check citations and thresholds against primary sources, test trap maps against evals, check routing between sibling skills. Returns findings per skill. | See the author's reasoning. Edit files. |
 | Fix agent | Author agent resumed via SendMessage | Applies reviewer findings. | Expand scope. |
 
-Authors write only inside `skills/<domain>/<slug>/`, so five can run in one working tree without conflicts. No worktrees needed. Only the orchestrator runs git.
+Each vertical has its own checkout: legal in `/home/user/skills` (branch `claude/keen-edison-d1mcoa`), med in `/home/user/wt-med`, finance in `/home/user/wt-finance` (git worktrees of the vertical branches). Authors write only inside `skills/<domain>/<slug>/` of their vertical's checkout, so five can run in one checkout without conflicts and nothing is copied between trees. Only the orchestrator runs git.
+
+Network limits (found in the pilot; case.dev now works around them, see Appendix A): direct fetches of most primary-source hosts are blocked in this environment, including law.cornell.edu, uscode.house.gov, ecfr.gov, leginfo, justia, qualitynet.cms.gov, cms.gov, ecqi.healthit.gov and pmc.ncbi.nlm.nih.gov. Authors verify through search excerpts restricted to the issuing body's site and label each source "excerpt-confirmed" or `[VERIFY]`. Allowing those hosts in the environment's network settings would let authors read full texts.
 
 ### 3.2 Per-batch pipeline
 
@@ -171,19 +173,19 @@ Decided 2026-10-30: **one PR per vertical.**
 `python3 scripts/run_top15_upgrade.py prompt --slug <slug>` prints this block with the placeholders filled.
 
 ```
-You are upgrading one skill in the CaseMark/skills repo at /home/user/skills.
+You are upgrading one skill in the CaseMark/skills repo. Work in the checkout at {repo} (the {domain} branch). Planning documents are read from /home/user/skills.
 
 Target: skills/{domain}/{slug}   (batch {n}: {batch_name})
 Current state: body {lines} lines, {refs} references, {evals} evals, trap map: {trap}
 {exception}
 
 Read first, in this order:
-1. UPGRADE-PLAYBOOK.md (repo root): the binding spec.
-2. UPGRADE-EXECUTION-PLAN.md sections 4 and 5: vertical rules and definition of done.
-3. skills/legal/form-d-exempt-offering-notice/SKILL.md, its references/, and its evals/evals.json: the model to imitate for structure, trap map, ground rules, and evals.
-4. The current skills/{domain}/{slug}/SKILL.md. Keep whatever in it is accurate and useful.
+1. /home/user/skills/UPGRADE-PLAYBOOK.md: the binding spec.
+2. /home/user/skills/UPGRADE-EXECUTION-PLAN.md sections 4 and 5: vertical rules and definition of done.
+3. /home/user/skills/skills/legal/form-d-exempt-offering-notice/SKILL.md, its references/, and its evals/evals.json: the model to imitate for structure, trap map, ground rules, and evals.
+4. The current {repo}/skills/{domain}/{slug}/SKILL.md. Keep whatever in it is accurate and useful.
 
-Scope: write only inside skills/{domain}/{slug}/. Do not run git. Do not edit any other skill or any script.
+Scope: write only inside {repo}/skills/{domain}/{slug}/. Do not run git. Do not edit any other skill or any script.
 
 Deliverables:
 - SKILL.md. Body (after frontmatter) 140-320 lines, blank lines included.
@@ -206,10 +208,52 @@ Deliverables:
   {"skill_name": "{slug}", "notes": "<what the suite covers>", "evals": [ 3-5 x
     {"id": 1, "name": "<kebab-case>", "prompt": "<realistic user request with the matter facts inline>",
      "expected_output": "<one-sentence summary of a passing answer>", "files": [],
-     "expected_behavior": ["Must: ...", "Must: ...", "Must not: ..."]} ]}
+     "expected_behavior": ["Must: ...", "Must: ...", "Must not: ..."],
+     "trap_note": "<which trap-map row; why a weak skill fails; why the trap is live on these facts>"} ]}
   Each eval targets a named row of the trap map and plants the trap in its facts, so a weak skill fails it. If a fixture is long, put it in evals/fixtures/<name>.md and list "fixtures/<name>.md" in files.
 
-Research: verify every statute, regulation, guideline, threshold, dose, rate, and standard you cite against a primary source with web search (load WebSearch and WebFetch through ToolSearch if they are deferred). Today is 2026-10-30. Record each check in primary-sources.md. Mark anything unconfirmed, jurisdiction-dependent, or year-dependent [VERIFY]. Never invent a citation.
+Eval rules (from the pilot review; each one was violated at least once there):
+- No eval may expect output that one of the skill's own hard stops would block. In each eval's expected_output, name the hard stops you checked.
+- Prove the trap is live on the stated facts. Say why a weak skill fails in the eval's trap_note field, not in expected_output. Recompute every number with a script and put the key figures in the notes.
+- No Must line may depend on a [VERIFY] fact. Confirm the fact, or make the Must require analyzing both readings.
+- Must lines are single, gradable requirements: no "alternatively", no exhaustive claims ("the one criterion left"), and outcome labels taken verbatim from the skill's own vocabulary.
+- Define in the prompt every quantity the arithmetic depends on ("tax EBITDA", "price paid for the target's stock").
+- Check each hard stop's trigger literally against every eval prompt. If a hard stop fires when X is missing, every eval that omits X either supplies it or expects the hard-stop output.
+- A Must line may not require a rule your primary-sources lists as circuit-, state- or forum-variable unless you read that rule for the eval's forum.
+- The hard-stop check covers parties and documents the prompt implies but never names, such as a merger subsidiary, or a term sheet's class definition when only its relief is described.
+- The eval's facts must establish every legal predicate a Must line presumes. For example, before asserting a post-signing breach, state that the representations are remade at closing.
+- A "Must not" that forbids producing what the user asked for needs a hard stop or ground rule behind it. Otherwise phrase it as "not without first ...".
+- Do not require [VERIFY] for a figure a sibling skill has confirmed; cite the sibling instead.
+- Never anchor an eval clock to a trigger your own trap map names as the error.
+- A Must that assigns a noncompliance label must address every cure your own clock table lists.
+- When the skill has a windows, runs or deadlines table, the eval's expected output must check every window that is open on the eval date.
+- Every computed date in an eval states its weekday and whether a weekend or holiday rule (for example IRC 7503) moves it. A tier or deadline that falls inside a calendar year needs an exact transaction date in the prompt.
+- A hard stop keyed to a document being supplied is satisfied only by an eval fixture or a labelled excerpt in the prompt ("Excerpt from <document> (date, issuer): ..."). Eval notes may not claim a document was supplied when the prompt only describes it.
+
+Content rules (from the pilot review):
+- In every clocks or windows table, give each timed element its own trigger event. Do not assume one anchor for all of them.
+- A default that a common statute or rule overrides must say so where the default is stated.
+- If the description carries a search phrase naming an improper aim ("bad faith setup", "upcoding", "back-solve"), the purpose sentence states the legitimate aim, and a Ground Rule, a hard stop and an eval cover the improper one.
+- The trap map includes at least one row on party, authority or scope: who can release, who is in the population, which entity's tax. In your report, list two or three high-frequency traps you considered and left out.
+- Templates and exemplar branches must not contain text the skill's routing sends elsewhere. When routing changes, rewrite or remove the template branch too.
+- If a hard stop says "decline that part", the output template must define how a partial decline is labelled.
+- A hand-off reason must match what the target skill's description actually claims, not just name a slug that exists.
+- Every hard stop names the parties it tests. Check it against owners or affiliates the prompt never names (the requesting entity's own owners, a holding company's parent).
+- Every trigger claimed in the description needs a rules section and at least one Must that exercises it; a claim in name only is a routing gap.
+- Every graded output label needs a written test in the template that separates it from its neighbours.
+- Check every default fallback against any regulation that states a "generally" rule, and say where the regulation overrides the default.
+- When you delete or merge an existing reference file, add a disposition table to primary-sources.md (kept / moved / dropped as an order / dropped as wrong) so nothing useful disappears silently.
+- Every skill you route to must claim that trigger in its own description or scope. If no skill does, route to legal-research (or the vertical's general research skill) and say no dedicated skill exists.
+- If the routing target has not been upgraded yet, list the trigger in your report as unclaimed, so that batch's author adds it.
+- Before writing [VERIFY], try the issuing body's own page, summary, FAQ or training material. Cite only documents you actually saw.
+
+Research: verify every statute, regulation, guideline, threshold, dose, rate, and standard you cite against the primary source itself. Today is 2026-10-30. Use case.dev first; the helper `{casedev}` takes an API path and a JSON body and reads the API key itself (never print, echo, or write the key).
+- Read a known page or PDF in full: `{casedev} /search/v1/contents '{"urls":["<url>"],"text":true}'`. Works for law.cornell.edu, ecfr.gov, govinfo.gov, irs.gov, state legislature PDFs, and most PDFs. It does not render JavaScript pages (qualitynet.cms.gov returns nothing); find a PDF of the same document instead.
+- Find sources: `{casedev} /search/v1/search '{"query":"...","numResults":10}'`. For case law also `{casedev} /legal/v1/find '{"query":"...","numResults":10}'` (it returns mostly court documents; fetch statutes by their official URL instead).
+- Verify case citations: `{casedev} /legal/v1/verify '{"text":"<citations>"}'`. Full text of an opinion: `{casedev} /legal/v1/full-text '{"url":"<url>","maxCharacters":50000,"highlightQuery":"<question>"}'`.
+- Responses can exceed 100,000 characters. Pipe them through python and print only the section you need.
+- In primary-sources.md, record for each authority the URL read, the method ("full text via case.dev" or "search excerpt"), and the date. Prefer the official publisher; a mirror (for example a hospital association's copy of a CMS manual) is acceptable when labeled as one. Paywalled sources such as the FASB Codification stay excerpt-based.
+- WebSearch and WebFetch remain fallbacks. Mark anything still unconfirmed, jurisdiction-dependent, or year-dependent [VERIFY]. Never invent a citation.
 
 Banned text anywhere in the bundle (the harness scans every file):
 - Injection triggers from .github/workflows/skill-qa.yml. Watch for "<word> system: <value>" (write "the coding system is ICD-10-CM"), "new instructions:", "developer mode", "jailbreak", "base64 decode", "eval(", "exec(".
@@ -217,8 +261,8 @@ Banned text anywhere in the bundle (the harness scans every file):
 
 Related skills to route to: {related}
 
-Before you finish, loop until both are clean:
-  python3 scripts/run_top15_upgrade.py verify --slug {slug} --strict
+Before you finish, loop until both are clean (the harness finds your checkout itself):
+  python3 /home/user/skills/scripts/run_top15_upgrade.py verify --slug {slug} --strict
   {enrichment_cmd}
 
 Return: files written with line counts, the trap-map row names, each eval's name and the row it targets, every [VERIFY] item, and anything unresolved.
@@ -235,5 +279,8 @@ For each bundle:
 3. Does each eval actually exercise a trap-map row, and would a weak skill fail it?
 4. Do Checkpoint A hard-stops, Ground Rules, and Quality Audit agree with each other?
 5. Routing: do sibling skills in this batch and the overlap table route to each other cleanly?
+6. For each eval: would a skill that follows its own hard stops and ground rules pass it? Is the trap live on the stated facts? Does any Must depend on a [VERIFY] fact?
+7. Does any default, clock anchor, or rule conflict with a common statute, measure specification, or standard?
+8. Recompute every number in every eval with python.
 Do not edit files. Return findings per skill, ranked by severity, each with file, line, problem, and fix.
 ```
