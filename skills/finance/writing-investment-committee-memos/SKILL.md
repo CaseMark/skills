@@ -45,7 +45,10 @@ An IC memo is an argument for a decision, and arguments drift toward their concl
 |---|---|---|
 | Model returns tab and sponsor cash flow schedule | IRR, MOIC, holding period in the memo | Memo figures copied from an older model version; IRR run on fiscal-year columns instead of dates; MOIC divided by the first check while add-on equity is ignored; gross returns unlabeled; rollover and co-invest shares counted as fund proceeds |
 | Management case and CIM projections | Starting point for cases | The management case renamed "base case"; no sponsor case with diligence haircuts; no downside, or a downside that never tests covenants or liquidity |
-| Exit assumptions | Exit equity and the value-creation bridge | Exit multiple above entry with no support; multiple expansion presented as a value-creation lever; a bridge that does not sum to the equity gain |
+| Exit assumptions | Exit equity and the value-creation bridge | Exit multiple above entry with no support; multiple raised until a case clears the IC hurdle; multiple expansion presented as a value-creation lever; a bridge that does not sum to the equity gain |
+| Fund subscription line and capital-call schedule | Fund-level IRR and the dates LP capital is called | Deal IRR quoted on the dates the facility funded rather than when LPs paid in, or the reverse, with no label; IRR and MOIC not shown with and without the facility |
+| Equity documents (rollover, management incentive plan, option pool, co-invest) | Share of exit equity that reaches the fund | Management incentive plan or option pool dilution left out of exit proceeds, so MOIC and IRR are overstated; incentive plan vesting hurdles ignored in the downside |
+| Tax structure memo and fund structure chart (blockers, withholding) | Whether returns are before or after tax leakage between the company and the fund's investors | Returns quoted before blocker-level tax, withholding on distributions or transfer taxes without saying so; leakage that differs by investor type presented as one figure |
 | Thesis and value-creation plan | Why the committee should invest | Pillars with no KPI, baseline, target date or disconfirming result, so no one can tell later whether the thesis failed |
 | Comparables and precedent transactions | Support for the price | Set chosen after seeing the multiples; low comparables dropped without reason; LTM and NTM mixed; stale transactions from a different rate environment |
 | Commitment letter, term sheet and fee letter | Leverage, pricing and certainty of funds in the returns | Memo leverage or margin better than the papers; flex not run; financing called committed when it is indicative; leverage stated on management EBITDA |
@@ -70,6 +73,7 @@ An IC memo is an argument for a decision, and arguments drift toward their concl
 11. **Comparables and financing are honest.** Comparable criteria come before the results and the full set is shown; financing terms match the commitment papers, including flex.
 12. **Information stays where it belongs.** MNPI is screened and routed to compliance. Any version for LPs, co-investors or other outsiders is a separate draft for compliance review under the rules in `references/regulatory-and-disclosure.md`; this skill never releases it.
 13. **No invented market data.** Multiples, spreads, cap rates and benchmarks come from the user's materials or are marked [VERIFY] with the date needed.
+14. **No result-driven inputs.** Never raise an exit multiple, trim a comparables set, lift a projection or restate a historical figure so that a case clears an IC hurdle or supports a target price. An input changes only for a sourced reason. A request to do otherwise is declined in part and logged; the breakeven value that would clear the hurdle may be shown as a labeled sensitivity, never as the case.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -90,7 +94,7 @@ Collect these, then build the source-review register (`references/output-templat
 - The request asks for IRR, MOIC or other returns figures and no model output, returns schedule or dated cash flows are supplied. Draft the other sections; mark returns "Not provided".
 - The request is to omit, soften, recharacterize as resolved, or move out of the main memo a known material risk, adverse diligence finding, open diligence item or known conflict. Decline that part, label it **Declined in part**, and draft the rest with the item included.
 - The request is to state the recommendation as approved or final, or to record a committee decision or vote that has not occurred.
-- The request is to change cases, comparables or historical figures to reach a target IRR or price without a sourced reason.
+- The request is to change cases, exit multiples, comparables or historical figures to reach a target IRR, hurdle or price without a sourced reason (Ground Rule 14). Decline that part, label it **Declined in part**, keep the case as modeled, and show the breakeven value as a sensitivity.
 - The request is to send memo content containing MNPI beyond the persons cleared to receive it, or to prepare a version for LPs, co-investors or other outsiders as ready to send without compliance review.
 
 ## Step 1: Inventory, Distribution and MNPI Screen
@@ -103,7 +107,7 @@ Read `references/memo-construction-rules.md` Section 1. Rebuild IRR from the dat
 
 ## Step 3: Cases, Exit and Value-Creation Bridge
 
-Read `references/memo-construction-rules.md` Sections 2 and 3. Label the management case, identify the sponsor case and the downside, and record any missing case as "Not modeled" with an owner. Test the exit multiple against entry, add the exit-at-entry row and a contraction case from model outputs, and build the bridge so it sums to the equity gain (checks M6 to M8).
+Read `references/memo-construction-rules.md` Sections 2 and 3. Label the management case, identify the sponsor case and the downside, and record any missing case as "Not modeled" with an owner. Test the exit multiple against entry, add the exit-at-entry row and a contraction case from model outputs, and build the bridge so it sums to the equity gain (checks M6 to M8). Apply Ground Rule 14 to any request to move an input until a case clears a hurdle. Note any subscription-line, incentive-plan or tax-leakage effect on the returns basis (`references/memo-construction-rules.md` Section 1).
 
 ## Step 4: Thesis and KPIs
 
@@ -144,7 +148,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 
 1. Every IRR and MOIC ties to the named model version, IRR is on dated cash flows, MOIC includes every contribution, and gross or net is stated.
 2. The management case is labeled as such; a sponsor case and a downside case are shown or recorded as "Not modeled" with an owner.
-3. Any exit multiple above entry has a documented rationale, an exit-at-entry row and a contraction case.
+3. Any exit multiple above entry has a documented rationale, an exit-at-entry row and a contraction case, and no input was moved to clear a hurdle or price.
 4. The value-creation bridge sums to the equity gain and shows multiple change separately.
 5. Every thesis pillar has a KPI, baseline, target date and disconfirming result.
 6. Comparables criteria precede the results, the full set is shown, and every exclusion has a reason.
@@ -184,6 +188,8 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - building-lbo-models: building or rerunning the model, missing cases, dated sponsor cash flow schedules and alternative financing or exit cases.
 - building-equity-valuation-models: DCF, trading comparables and precedent transaction models behind the valuation section.
 - analyzing-earnings-quality: EBITDA addbacks, accruals and QoE adjustments the memo relies on.
+- analyzing-m-and-a-tax-implications: acquisition structure (stock or asset, step-up elections) and deal withholding behind the tax-leakage line.
+- analyzing-international-tax-planning: withholding and treaty questions on distributions to or from foreign entities in the structure.
 - managing-advertising-compliance: review of any memo content going to LPs, co-investors or other outsiders.
 - managing-co-investment-processes: co-investment allocation, terms and LP communications.
 - managing-fund-formation-documents: reading LPA terms and side letter provisions behind the conflicts table.

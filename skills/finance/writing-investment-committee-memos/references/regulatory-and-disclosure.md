@@ -86,7 +86,7 @@ Every adviser subject to section 204 must establish, maintain and enforce writte
 - List every public issuer the deal touches (a listed seller in a carve-out, a public target, a public borrower, listed peers whose data came from management, a public company in a cross-fund holding).
 - For each, record what nonpublic information was received, under which NDA, and the wall-crossing and restricted-list status; route it to the firm's compliance officer.
 - Keep MNPI in the internal memo only as needed for the decision; never in any external version.
-- No CaseMark finance skill covers information barriers; the hand-off is to the firm's compliance function.
+- No finance skill in this library claims deal-team MNPI handling in its description. managing-trade-surveillance addresses wall-crossing records and the restricted list when reviewing trading, and managing-investment-adviser-compliance addresses the Rule 204A-1 code of ethics; neither covers screening an IC memo. The hand-off is to the firm's compliance function.
 
 ## 9. Checklist for any external version
 

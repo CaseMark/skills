@@ -34,7 +34,16 @@ Produce the header and the sections below, in this order. Use the firm's own IC 
 
 ## 1. Executive summary and proposed recommendation
 
-Proposed recommendation, using one label verbatim: **Proposed: approve**, **Proposed: approve subject to conditions**, **Proposed: decline**, or **Proposed: defer pending diligence**. Follow with the deal team's three-sentence thesis, the headline terms (price, multiple and the EBITDA it applies to, equity check, ownership, leverage at close on credit agreement EBITDA), sponsor-case and downside returns (dated IRR and MOIC, gross or net stated), the top three risks, any diligence item not at **Complete**, and any conflict requiring consent. Every figure equals the body figure (check M13).
+Proposed recommendation, using one label verbatim, chosen by this test:
+
+| Label | Use when |
+|---|---|
+| **Proposed: approve** | The deal team proposes approval and no consent, financing or diligence item remains open that the approval depends on |
+| **Proposed: approve subject to conditions** | The deal team proposes approval but it depends on a named item still open: LPAC or investor consent, a financing condition, or a diligence item that is **In progress** |
+| **Proposed: decline** | The deal team proposes not to proceed |
+| **Proposed: defer pending diligence** | The deal team cannot yet propose approval or decline because a workstream that could change the answer is **Not started** or **In progress** |
+
+ Follow with the deal team's three-sentence thesis, the headline terms (price, multiple and the EBITDA it applies to, equity check, ownership, leverage at close on credit agreement EBITDA), sponsor-case and downside returns (dated IRR and MOIC, gross or net stated), the top three risks, any diligence item not at **Complete**, and any conflict requiring consent. Every figure equals the body figure (check M13).
 
 ## 2. Company, market and deal overview
 
@@ -56,7 +65,7 @@ A pillar without a measurable KPI, a baseline and a disconfirming result is list
 | Downside case | | | | | | | | | | |
 | Exit at entry multiple | | | | | | | | | | |
 
-Then the dated sponsor cash flow schedule (date, event, contribution, distribution, source), the holding period in years, and the value-creation bridge: EBITDA growth at the entry multiple, multiple change on exit EBITDA, net debt reduction and interim distributions, and a total that equals exit equity plus distributions less contributions (check M6). A case the model does not contain is shown as "Not modeled" with an open item, never filled in by hand.
+Then the dated sponsor cash flow schedule (date, event, contribution, distribution, source), the holding period in years, and the value-creation bridge: EBITDA growth at the entry multiple, multiple change on exit EBITDA, net debt reduction and interim distributions, and a total that equals exit equity plus distributions less contributions (check M6). A case the model does not contain is shown as "Not modeled" with an open item, never filled in by hand. "Not modeled" means a model was supplied but lacks the case; "Not provided" means no model output, returns schedule or dated cash flows were supplied at all (the returns hard stop).
 
 ## 5. Valuation and comparables
 
@@ -81,7 +90,15 @@ A mitigant names a mechanism (indemnity and cap, insurance and exclusions, price
 | Workstream | Provider and report date | Status label | Material findings | Effect on price, structure or returns | Open items, owner and date |
 |---|---|---|---|---|---|
 
-Status labels, verbatim: **Complete: no material findings**; **Complete: findings reported**; **In progress**; **Not started**; **Not in scope** (with the reason). A workstream with a reported finding is never **Complete: no material findings**.
+Status labels, verbatim, chosen by this test:
+
+| Label | Use when |
+|---|---|
+| **Complete: no material findings** | The provider's final report is issued and reports no finding that affects price, structure, returns or risk |
+| **Complete: findings reported** | The provider's final report is issued and reports at least one finding, whatever the deal team's view of its materiality |
+| **In progress** | Work has started but the report is a draft, a verbal readout or not yet issued |
+| **Not started** | The workstream is planned but no work has begun |
+| **Not in scope** | The workstream was deliberately excluded; state the reason and who decided |
 
 ## 9. Conflicts, fees and fund constraints
 
@@ -132,7 +149,7 @@ Every row is computed, not asserted. A Fail or Not tested row goes to Section 13
 
 Severity: Critical (a returns figure, leverage figure, known material risk, diligence finding or conflict is wrong or missing); High (a case, comparable set or financing term changes the price or approval conditions); Medium (presentation, or a conflict with a clear controlling source); Low (clean-up).
 
-**Declined requests.** When a hard stop or ground rule blocks part of a request, the rest of the memo is still drafted, and the blocked part is recorded here with the label **Declined in part**:
+**Declined requests.** When a hard stop or ground rule blocks part of a request, the rest of the memo is still drafted, and the blocked part is recorded here with the label **Declined in part**. The label applies only when the skill could have done what was asked and declines it (omitting a finding, moving an input to clear a hurdle, releasing an external version, recording a decision that has not occurred). When an input is simply missing, use "Not provided" or "Not modeled" instead.
 
 | Label | Request (as received) | What was declined | Ground rule or hard stop | What the memo does instead |
 |---|---|---|---|---|

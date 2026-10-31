@@ -18,7 +18,8 @@ Rules for turning model outputs, diligence reports and deal documents into the a
 
 - **Source.** Every returns figure comes from the model's sponsor (or fund) cash flow schedule for a named version and date. The memo restates; it does not recompute a different number unless the reconciliation shows the model is wrong, and then it reports both.
 - **IRR on dates.** IRR is the rate that sets the net present value of dated cash flows to zero, discounting each flow by (1 + r) raised to (days from the first flow / 365): the XIRR convention, confirmed by building-lbo-models. An IRR computed on fiscal-year columns treats a March close and a September exit as whole years apart and misstates the return; replace it with the dated figure and show the difference.
-- **Every flow counts.** Include add-on equity, follow-on investments, dividend recaps, interim distributions and fees paid by the fund in the deal (if the case is net). Sponsor proceeds exclude management rollover, option pool and co-investor shares.
+- **Every flow counts.** Include add-on equity, follow-on investments, dividend recaps, interim distributions and fees paid by the fund in the deal (if the case is net). Sponsor proceeds exclude management rollover, the option pool or management incentive plan (at the vesting and hurdle terms that apply in each case) and co-investor shares.
+- **Tax leakage.** State whether returns are before or after taxes between the company and the fund's investors: blocker-level tax, withholding on distributions and transfer taxes. If leakage differs by investor type, say so rather than quoting one figure. The memo reports the structure memo's conclusions; acquisition structure and deal withholding go to analyzing-m-and-a-tax-implications and cross-border withholding to analyzing-international-tax-planning.
 - **MOIC** = total distributions (realized plus remaining value at exit) / total contributions. A MOIC that divides by the initial check alone, when later contributions exist, is overstated.
 - **Holding period** in years = (exit date - first contribution date) / 365; state it next to every IRR.
 - **Gross or net.** Deal-level returns are gross of fund management fees, fund expenses and carried interest unless the model computes net. Say which on every returns line. Do not label a gross figure "net" or leave it unlabeled. This internal default does not carry over to any version for investors: there the Marketing Rule requires net with gross (see `references/regulatory-and-disclosure.md` Section 6).
@@ -36,6 +37,8 @@ Rules for turning model outputs, diligence reports and deal documents into the a
 | Upside | Optional | Never the only case above the sponsor case's returns hurdle |
 
 If the model has only a management case, the memo shows it labeled "Management case", records "Sponsor case: Not modeled" and "Downside case: Not modeled" as Critical issues with the model owner, and does not invent either case by hand. Alternative exit multiples may be computed from the model's own exit EBITDA and net debt (exit equity = exit EBITDA x multiple - net debt at exit - exit costs), labeled "computed from model outputs".
+
+**Hurdles.** When a case falls below the IC hurdle, the memo says so. It may show the breakeven input (for example, the exit multiple at which the IRR reaches the hurdle) as a labeled sensitivity. It never moves the case's own input to clear the hurdle.
 
 ## 3. Value-creation bridge and exit multiple support
 
