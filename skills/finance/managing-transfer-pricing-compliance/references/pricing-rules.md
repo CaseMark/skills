@@ -9,10 +9,10 @@ U.S. rules are Treas. Reg. 1.482-1 through 1.482-9 under IRC 482, read in full o
 3. Tested party and profit level indicator
 4. Arm's length range, interquartile range and the adjustment point
 5. Data years and loss-making comparables
-6. Taxpayer-initiated (year-end) adjustments
+6. Taxpayer-initiated adjustments, secondary adjustments and blocked income
 7. Services
 8. Intangibles, DEMPE, IRC 367(d) and cost sharing
-9. Intercompany loans
+9. Intercompany loans and guarantees
 10. OECD points that differ from the U.S. regulations
 
 ## 1. Arm's length standard and best method rule
@@ -33,7 +33,7 @@ U.S. rules are Treas. Reg. 1.482-1 through 1.482-9 under IRC 482, read in full o
 
 - 1.482-5(b)(2)(i): the tested party is the participant whose operating profit can be verified with the most reliable data and fewest, most reliable adjustments, and for which reliable comparables exist; in most cases the least complex party that does not own valuable intangibles or unique assets. OECD para. 3.18: the tested party should be consistent with the functional analysis and will most often be the one with the less complex functional analysis.
 - A foreign affiliate can be the tested party if its accounts can be verified and adjusted to the same standards.
-- PLIs, 1.482-5(b)(4): rate of return on capital employed; financial ratios (operating profit to sales; gross profit to operating expenses, often called the Berry ratio); other PLIs, such as operating profit to total costs (net cost plus) for a contract manufacturer, if they reliably measure arm's length income ((b)(4)(iii)). One PLI per range. Use at least the year under review and the two preceding years where multi-year data is used (1.482-5(b)(4)), with the controlled taxpayer's results for the same years (1.482-1(f)(2)(iii)).
+- PLIs, 1.482-5(b)(4): rate of return on capital employed; financial ratios (operating profit to sales; gross profit to operating expenses, often called the Berry ratio); other PLIs, such as operating profit to total costs (net cost plus) for a contract manufacturer, if they reliably measure arm's length income ((b)(4)(iii)). One PLI per range. Multi-year data is the CPM default: 1.482-5(b)(4) says PLIs should be derived from enough years to measure returns reliably and that the period generally should encompass at least the taxable year under review and the two preceding taxable years; 1.482-1(f)(2)(iii)(A) ordinarily requires the tested party's results for the same years. A single-year test is a policy election that needs a stated reason (for example, the tested party's first year of operation).
 
 ## 4. Arm's length range, interquartile range and the adjustment point
 
@@ -51,15 +51,17 @@ U.S. rules are Treas. Reg. 1.482-1 through 1.482-9 under IRC 482, read in full o
 
 ## 5. Data years and loss-making comparables
 
-- 1.482-1(f)(2)(iii)(A): compare with comparables' results for the taxable year under review; multi-year data is permitted and for CPM ordinarily considered, with the tested party's data for the same years. Check every comparable's fiscal year end; mismatched or stale years (a prior year's search rolled forward without an update) are a defect, not a convenience.
+- 1.482-1(f)(2)(iii)(A) starts from the taxable year under review, but (f)(2)(iii)(B) says multi-year data must ordinarily be considered for CPM (1.482-5) and is ordinarily not used for CUP or CUSP. For CPM the three-year period in section 3 is therefore the default, with the tested party's data for the same years. Check every comparable's fiscal year end; mismatched or stale years (a prior year's search rolled forward without an update) are a defect, not a convenience.
 - 1.6662-6(d)(2)(ii)(A)(2): use the most current reliable data available before the end of the taxable year; data obtained after year-end but before filing is kept as principal document (9).
 - 1.482-1(f)(2)(iii)(C): persistent losses among controlled taxpayers may indicate non-arm's length pricing.
 - OECD paras. 3.64 and 3.65: no overriding rule includes or excludes loss-makers; a loss should trigger investigation; exclude where losses do not reflect normal business conditions or reflect risks not comparable to the tested party's; do not reject a comparable on the sole basis of a loss. Para. 3.66: investigate abnormally high profits the same way. Record a reason for every accept or reject; show the range with and without disputed comparables when the decision changes the answer.
 
-## 6. Taxpayer-initiated (year-end) adjustments
+## 6. Taxpayer-initiated adjustments, secondary adjustments and blocked income
 
 - 1.482-1(a)(3): a taxpayer may report on a timely filed return (including extensions) results based on prices different from those charged, to reflect an arm's length result. No untimely or amended return may decrease taxable income based on such adjustments.
 - OECD paras. 3.69 to 3.71 and 4.38: price-setting and outcome-testing approaches both exist; compensating adjustments are not accepted everywhere, so a true-up can produce double taxation. Confirm the counterparty jurisdiction's rule [VERIFY].
+- Secondary adjustments: after a primary 482 adjustment, the cash that the books did not move would otherwise be a secondary adjustment (for example, a deemed dividend or capital contribution). Under Rev. Proc. 99-32 (issued under 1.482-1(g)(3)) a U.S. taxpayer may instead set up an interest-bearing account receivable or payable equal to the primary adjustment and repatriate it free of those secondary consequences. For a taxpayer-initiated adjustment under 1.482-1(a)(3), elect by a statement filed with the return and pay the account within 90 days of filing; for an IRS-initiated adjustment, through a closing agreement with payment within 90 days of its execution. Offsets for bona fide debts, distributions and capital contributions are allowed only within the stated years.
+- Blocked income, 1.482-1(h)(2): a foreign legal restriction counts only if publicly promulgated and generally applicable, remedies for a waiver were exhausted, it expressly prevented payment in any form, and the parties did not circumvent it; otherwise the deferred income method may be elected on a timely return (or an amended return filed before the IRS first contacts the group about the year). In 3M Co. v. Commissioner, 154 F.4th 574 (8th Cir. Oct. 1, 2025), the court held the IRS could not allocate to 3M royalties Brazilian law barred it from receiving, reversing the Tax Court's reliance on the regulation after Loper Bright. Rehearing was denied, and the Supreme Court extended the government's certiorari deadline to June 19, 2026 (No. 25A1233). Whether the rule binds outside the Eighth Circuit, and the case's later history, are [VERIFY]; analyze both the regulation's reading and the 3M reading.
 - A true-up changes the price of goods already imported and services already invoiced: customs value, VAT or GST, withholding tax and the books of both entities. IRC 1059A caps the basis or inventory cost of property imported from a related person at the costs taken into account for customs value. Route the customs and VAT work to managing-indirect-tax-analysis.
 
 ## 7. Services
@@ -76,12 +78,13 @@ U.S. rules are Treas. Reg. 1.482-1 through 1.482-9 under IRC 482, read in full o
 - IRC 367(d): a U.S. person's transfer of intangible property to a foreign corporation in a section 351 or 361 exchange is treated as a sale for contingent payments over the useful life, with annual ordinary income inclusions commensurate with income. IRC 367(d)(4) includes goodwill, going concern value, workforce in place, customer lists and contracts. A contribution of intangibles to a foreign subsidiary is therefore never "no transfer pricing event". Computation and structure route to analyzing-international-tax-planning.
 - Cost sharing (1.482-7): a CSA needs a contemporaneous written contract (k)(1), documentation (k)(2), accounting (k)(3) and a CSA Statement filed by each participant (k)(4); platform contributions require a platform contribution transaction payment.
 
-## 9. Intercompany loans
+## 9. Intercompany loans and guarantees
 
 - 1.482-2(a)(1)(ii)(B): the interest rules apply only to bona fide debt; an alleged loan that is in substance equity is not repriced, it is recharacterized.
-- Safe haven, 1.482-2(a)(2)(iii)(B): a stated rate from 100 percent to 130 percent of the applicable federal rate (AFR) is treated as arm's length; below 100 percent, the rate is set at 100 percent of the AFR compounded semiannually; above 130 percent, at 130 percent compounded semiannually, unless the taxpayer establishes a more appropriate rate under (a)(2)(i). A charged rate between the safe haven limit and the (a)(2)(i) rate is deemed arm's length.
+- Safe haven, 1.482-2(a)(2)(iii)(B): a stated rate from 100 percent to 130 percent of the applicable federal rate (AFR) is treated as arm's length. Below 100 percent (or no interest), (B)(2) sets the rate at 100 percent of the AFR compounded semiannually. Above 130 percent, (B)(3) sets it at 130 percent compounded semiannually unless the taxpayer establishes a more appropriate compound rate under (a)(2)(i); that phrase belongs to the upper limit only. The escape for both directions is the separate "However" sentence in (B)(3): a compound rate charged above the upper limit but below the (a)(2)(i) rate, or below the lower limit but above the (a)(2)(i) rate, is deemed arm's length.
 - AFR term, (a)(2)(iii)(C): short-term for 3 years or less; mid-term over 3 and up to 9 years; long-term over 9 years; in effect on the date the loan is made. Demand loans use the short-term rate for each day outstanding.
 - The safe haven does not apply when: the lender is regularly in the business of lending to unrelated parties ((a)(2)(iii)(D)); principal or interest is in a currency other than U.S. dollars ((a)(2)(iii)(E)); the loan proceeds were borrowed by the lender at the borrower's situs ((a)(2)(ii)); or the term loan predates May 9, 1986. In those cases price under (a)(2)(i): amount, duration, security, credit standing of the borrower, and the prevailing rate for comparable loans between unrelated parties.
+- Guarantees: a financial guarantee is an excluded activity for the services cost method (1.482-9(b)(4)(viii)), so it cannot be charged at cost under that method. Under OECD Chapter X Section D (paras. 10.154 onward), first separate the benefit of implicit support from group membership (passive association, para. 10.156; compare 1.482-9(l)(3)(v)) from the explicit, legally binding guarantee (para. 10.163); a letter of comfort assumes no explicit risk. The yield approach (paras. 10.174 and 10.175) prices the interest spread the explicit guarantee adds, net of implicit support. No guarantee fee is due where the borrower gets no benefit beyond passive association; a fee is expected where an explicit guarantee lowers its rate or raises its borrowing capacity. U.S. treatment of guarantee fees beyond these points is [VERIFY].
 - The safe haven settles only the U.S. rate. The borrower's country applies its own rules and the OECD Chapter X guidance (accurate delineation, borrower credit rating, para. 10.88 onward) [VERIFY by jurisdiction].
 
 ## 10. OECD points that differ from the U.S. regulations

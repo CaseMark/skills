@@ -5,23 +5,24 @@ Produce the header and the sections below, in this order, omitting a section onl
 ## Contents
 
 1. Header and source-review register
-2. Section 1. Scope and controlled transaction inventory
-3. Section 2. Functional analysis and characterization
-4. Section 3. Method selection
-5. Section 4. Benchmarking and accept/reject matrix
-6. Section 5. Range, result and adjustment
-7. Section 6. Intercompany agreements against conduct
-8. Section 7. Year-end adjustment and collateral effects
-9. Section 8. Documentation and penalty-protection status
-10. Section 9. Reconciliation checks
-11. Section 10. Issues, conflicts and judgment calls
-12. Section 11. Hand-offs
-13. Section 12. Open items and [VERIFY] list
+2. Declined parts
+3. Section 1. Scope and controlled transaction inventory
+4. Section 2. Functional analysis and characterization
+5. Section 3. Method selection
+6. Section 4. Benchmarking and accept/reject matrix
+7. Section 5. Range, result and adjustment
+8. Section 6. Intercompany agreements against conduct
+9. Section 7. Year-end adjustment and collateral effects
+10. Section 8. Documentation and penalty-protection status
+11. Section 9. Reconciliation checks
+12. Section 10. Issues, conflicts and judgment calls
+13. Section 11. Hand-offs
+14. Section 12. Open items and [VERIFY] list
 
 ## Header
 
 - Group, entities in scope, taxable years, jurisdictions whose rules are applied, date prepared, "Draft for review by a qualified tax professional."
-- Deliverable type: documentation report (local file or 6662(e) study), benchmarking or range test, year-end true-up computation, agreement review, penalty exposure review, or loan or services pricing review.
+- Deliverable type: documentation report (local file or 6662(e) study), benchmarking or range test, year-end true-up computation, agreement review, penalty exposure review, loan, guarantee or services pricing review, or the pricing analysis behind an APA proposal or MAP position.
 - Return filing date for each year in scope (or "not yet filed") and the source of that date.
 
 | File | Type | Date (as stated on its face) | Rank | Status | Pages, tabs or sections read | Note |
@@ -29,6 +30,14 @@ Produce the header and the sections below, in this order, omitting a section onl
 | name as received | agreement, ledger, statutory accounts, prior study, database export, IDR, APA, email | | 1-4 | Reviewed / Not relevant / Unreadable after attempt / Still needed | | |
 
 Rank: 1 executed agreements, filed returns, audited or statutory accounts, APAs and IRS correspondence; 2 general ledger and trial balance; 3 prior studies, database exports, management schedules; 4 emails, summaries and user statements.
+
+## Declined parts
+
+List every part of the request a hard stop or ground rule blocks, one line each, in this exact form, before Section 1:
+
+`Declined: [part] - [hard stop] - [what would allow it]`
+
+Example: `Declined: dating the study before the return filing date - backdating hard stop - nothing; produce it under its actual completion date`. If nothing was declined, write "Declined parts: none." The rest of the deliverable proceeds on the parts not declined.
 
 ## 1. Scope and controlled transaction inventory
 
@@ -63,6 +72,7 @@ Search strategy (databases, codes, geography, years, screens), then:
 | Item | Value | Basis |
 |---|---|---|
 | Number of accepted comparables (n) | | |
+| Years tested (CPM default: year under review and the two preceding years, 1.482-5(b)(4); a single year is a policy election with its reason) | | |
 | Range applied (full range under 1.482-1(e)(2)(iii)(A), or interquartile range under (e)(2)(iii)(B)) and why | | |
 | 25th percentile (position rule shown) | | 1.482-1(e)(2)(iii)(C) |
 | Median (position rule shown) | | 1.482-1(e)(3) |
@@ -85,13 +95,15 @@ Where a judgment (disputed comparable, multi-year versus single year) changes th
 | Effect | Entity | Amount and direction | Timing (timely filed return?) | Customs or VAT treatment | Withholding | Books of both entities | Owner |
 |---|---|---|---|---|---|---|---|
 
+Then: how the cash moves (Rev. Proc. 99-32 account elected on the return, or the secondary adjustment that results), and any foreign payment restriction tested under 1.482-1(h)(2).
+
 ## 8. Documentation and penalty-protection status
 
 | Principal document (1.6662-6(d)(2)(iii)(B)) | Exists? | Date finalized and evidence | Before return filed? | Note |
 |---|---|---|---|---|
 | 1 Business overview to 10 Index (one row each) | | | | |
 
-Then: specified method reasonableness factors; IDR date and the 30-day due date; penalty threshold arithmetic for any proposed or estimated adjustment; CbC, master file and local file status by jurisdiction.
+Then: specified method reasonableness factors; IDR date and the 30-day due date, each with its weekday and whether IRC 7503 rolls it; penalty threshold arithmetic for any proposed or estimated adjustment; CbC, master file and local file status by jurisdiction.
 
 ## 9. Reconciliation checks
 
@@ -126,8 +138,8 @@ A hand-off names the facts the receiving work needs; a bare skill name is not a 
 | analyzing-international-tax-planning | IRC 367(d), cost sharing structure, Pillar Two GloBE, NCTI, FDDEI, BEAT, treaty and foreign interest limits | | | |
 | analyzing-corporate-tax-structures | Domestic entity, consolidation or state structure questions raised by the pricing | | | |
 | managing-indirect-tax-analysis | Customs value and VAT effects of true-ups and price changes | | | |
-| managing-tax-controversy | IRS examination, IDR strategy, protest, appeals | | | |
-| managing-income-tax-provisions | Provision and uncertain tax position effects | | | |
+| managing-tax-controversy | IRS examination, IDR strategy, protest, appeals, competent authority and APA procedure | | | |
+| managing-tax-provision-preparation | ASC 740 provision and uncertain tax position effects | | | |
 
 Add or remove rows to match the matter.
 

@@ -2,7 +2,7 @@
 name: managing-transfer-pricing-compliance
 language: en
 description: >
-  Drafts and reviews transfer pricing compliance on intercompany pricing under IRC
+  Drafts and reviews transfer pricing compliance for intercompany pricing under IRC
   482, Treas. Reg. 1.482-1 to 1.482-9 and the OECD Transfer Pricing Guidelines:
   functional analysis (FAR, DEMPE), best method and tested party selection, profit
   level indicators, benchmarking and comparable accept/reject review, interquartile
@@ -11,9 +11,10 @@ description: >
   intangible transfers and cost sharing, intercompany loans and the AFR safe haven,
   IRC 6662(e) penalty exposure, 1.6662-6(d) contemporaneous documentation, and Form
   8975 country-by-country reporting. Use for TP study, local file, benchmarking,
-  arm's length range, IDR documentation or TP penalty protection. Cross-border
+  arm's length range, IDR documentation, TP penalties, or the pricing
+  analysis behind an APA proposal or MAP position. Cross-border
   structure, 367(d) and Pillar Two route to analyzing-international-tax-planning;
-  domestic structure to analyzing-corporate-tax-structures. Drafts for tax review.
+  domestic structure to analyzing-corporate-tax-structures. Drafts for review.
 tags:
   - management
   - tax
@@ -52,7 +53,8 @@ Read each input with this suspicion before relying on it.
 | Intercompany agreements | Contract terms, risk allocation and pricing clauses | Agreement contradicts conduct (markup, royalty base, risk borne, who decides); agreement signed after the period it covers; no agreement at all |
 | Service charge allocations | Cost-only or marked-up service fees | Services cost method used for excluded activities or core services that fail the business judgment rule; shareholder or duplicative activities charged; BEAT services exception claimed for the markup component or for services that are excluded activities |
 | Intangible transfers, licenses and cost sharing | Who earns the residual return | Legal title treated as the end of the analysis while DEMPE functions stay elsewhere; an outbound contribution of intangibles with no 367(d) analysis; a cost sharing arrangement without a contemporaneous written contract or a platform contribution payment |
-| Intercompany loan agreements | Interest rate | AFR safe haven used for a non-dollar loan, by a lender in the lending business, or for back-to-back funds; the wrong AFR term or month; equity-like debt repriced instead of recharacterized |
+| Intercompany loan and guarantee agreements | Interest rate and guarantee fee | AFR safe haven used for a non-dollar loan, by a lender in the lending business, or for back-to-back funds; the wrong AFR term or month; equity-like debt repriced instead of recharacterized; a guarantee fee charged for implicit group support, or no fee for an explicit guarantee that lowers the borrower's rate |
+| Foreign payment restrictions and cash settlement of adjustments | Blocked income and secondary adjustments | Royalties a foreign law forbids treated as fully allocable without testing 1.482-1(h)(2) or the 3M decision (8th Cir. 2025); a primary adjustment booked with no plan for the cash, so the payment becomes a deemed dividend or capital contribution instead of a Rev. Proc. 99-32 account |
 | Documentation file and return filing dates | Penalty protection under IRC 6662(e) | Study finished after the return was filed, so not contemporaneous; principal documents missing; 30-day production deadline missed; reliance on documentation that does not show why other methods were rejected |
 
 ## Ground Rules
@@ -64,7 +66,7 @@ Read each input with this suspicion before relying on it.
 5. **Conduct over labels.** Characterization follows the functional analysis and actual conduct (Treas. Reg. 1.482-1(d)(3)(ii)(B); OECD Chapter I). Never write a characterization or residual-profit conclusion that the facts in the file contradict.
 6. **The range is computed, not copied.** Recompute every PLI and the quartiles and median by the regulation's percentile rule; report spreadsheet figures only as a reconciling difference.
 7. **Out of range means two numbers.** Quantify the adjustment to the nearest quartile and to the median, and state which a self-initiated true-up uses and why.
-8. **Dates are facts.** Documentation status depends on when each document was finalized and when the return was filed. Never backdate, redate or describe a document as contemporaneous unless it existed when the return was filed.
+8. **Dates are facts.** Documentation status depends on when each document was finalized and when the return was filed. Never backdate, redate or describe a document as contemporaneous unless it existed when the return was filed. Every computed date states its weekday and whether IRC 7503 rolls a weekend or holiday deadline to the next business day; where 7503's reach is unsettled, say so, mark it [VERIFY], and plan to the earlier business day.
 9. **Outcome-neutral selection.** The tested party, PLI, comparable set and agreement terms are chosen on the facts, never to reach a margin, rate or adjustment named in advance. Report a requested target as a constraint the analysis does not adopt.
 10. **Both sides, all taxes.** Every adjustment is traced to the counterparty's books and return and to customs, VAT and withholding; foreign effects are [VERIFY] by jurisdiction.
 11. **Stay in lane.** Price the transaction here; route structure, 367(d) computations, Pillar Two and other cross-border regimes, and domestic structure to the skills in Related Skills, with the facts they need.
@@ -83,10 +85,10 @@ Collect these, then build the source-review register in `references/output-templ
 8. **Agreements:** executed intercompany agreements with schedules, and any APA or ruling.
 9. **Dates:** return filing date for each year, the date each document was finalized, and any IDR date.
 
-**Default fallbacks (each recorded as a policy election or unknown fact):** U.S. rules where a U.S. return is affected and foreign rules marked [VERIFY]; the interquartile range where comparables are not shown to meet 1.482-1(e)(2)(iii)(A); the comparables' data for the year under review unless the study supports multi-year data; for a loan, the AFR the user supplies for the month the loan was made, otherwise [VERIFY]; a missing agreement treated as terms imputed from conduct.
+**Default fallbacks (each recorded as a policy election or unknown fact):** U.S. rules where a U.S. return is affected and foreign rules marked [VERIFY]; the interquartile range where comparables are not shown to meet 1.482-1(e)(2)(iii)(A); for CPM, profit level indicators over at least the taxable year under review and the two preceding taxable years because Treas. Reg. 1.482-5(b)(4) generally calls for that period for the comparables and 1.482-1(f)(2)(iii)(A) ordinarily requires the tested party's results for the same years (this overrides any single-year default); a single year only where the facts justify it, recorded as a policy election; CUP and CUSP on the year under review (1.482-1(f)(2)(iii)(B)); for a loan, the AFR the user supplies for the month the loan was made, otherwise [VERIFY]; a missing agreement treated as terms imputed from conduct.
 
 **Hard stops (do not produce the blocked output; report what is needed):**
-- The request is to backdate or redate a study or agreement, or to describe documentation as in existence when the return was filed when it was not. Decline that part; an exposure analysis and a correctly dated report may proceed.
+- The request is to backdate or redate a study or agreement, or to describe documentation as in existence when the return was filed when it was not. Decline that part and record it in the Declined parts section of `references/output-template.md` with the label `Declined: [part] - [hard stop] - [what would allow it]`; an exposure analysis and a correctly dated report may proceed. The same label records any other partial decline below.
 - The request is to choose the tested party, PLI or comparables, or rewrite agreements, to reach a margin, rate or adjustment named in advance.
 - The request is to present the draft as final, as an opinion, or as assurance of penalty protection.
 - A benchmarking, range or true-up deliverable has no financial data for the tested party from any source, so no PLI can be computed.
@@ -110,11 +112,11 @@ Read `references/pricing-rules.md` Section 5. Check the search strategy against 
 
 ## Step 5: Range, Result and Year-End Adjustment
 
-Read `references/pricing-rules.md` Sections 4 and 6. State whether the full range or the interquartile range applies and why. Compute the quartiles and median by position (R4), compute the tested party's PLI from reconciled financials (R2), and test it. If outside, quantify the adjustment to the nearest quartile and to the median (R5) and state the choice. A self-initiated adjustment must appear on a timely filed return. Trace the true-up to both entities' books, customs value and VAT (R6), and route those effects.
+Read `references/pricing-rules.md` Sections 4 and 6. State whether the full range or the interquartile range applies and why. Compute the quartiles and median by position (R4), compute the tested party's PLI from reconciled financials (R2), and test it. If outside, quantify the adjustment to the nearest quartile and to the median (R5) and state the choice. A self-initiated adjustment must appear on a timely filed return. Trace the true-up to both entities' books, customs value and VAT (R6), and route those effects. Plan how the cash will move: a Rev. Proc. 99-32 account elected on the return, or a secondary adjustment (deemed dividend or capital contribution). Where a foreign law blocks payment, test 1.482-1(h)(2) and the 3M decision before allocating.
 
-## Step 6: Services, Intangibles and Loans
+## Step 6: Services, Intangibles, Loans and Guarantees
 
-Read `references/pricing-rules.md` Sections 7 to 9 for the transaction types in scope. For services, test services cost method eligibility condition by condition and apply the benefit test. For intangibles, identify every transfer, license or contribution, test legal ownership against DEMPE, and flag any outbound transfer for 367(d) or cost sharing analysis. For loans, confirm bona fide debt, then test each safe haven condition (currency, lender's business, situs of funds, AFR term and month) before using it; otherwise list the credit and market data needed under 1.482-2(a)(2)(i). Recompute interest (R10).
+Read `references/pricing-rules.md` Sections 7 to 9 for the transaction types in scope. For services, test services cost method eligibility condition by condition and apply the benefit test. For intangibles, identify every transfer, license or contribution, test legal ownership against DEMPE, and flag any outbound transfer for 367(d) or cost sharing analysis. For loans, confirm bona fide debt, then test each safe haven condition (currency, lender's business, situs of funds, AFR term and month) before using it; otherwise list the credit and market data needed under 1.482-2(a)(2)(i). Recompute interest (R10). For a guarantee, separate implicit group support from the explicit commitment and price only the benefit the explicit guarantee adds.
 
 ## Step 7: Intercompany Agreements Against Conduct
 
@@ -180,8 +182,8 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - analyzing-international-tax-planning: cross-border structure, 367(d) inclusions and outbound restructurings, cost sharing structure, Pillar Two GloBE effects of TP adjustments, NCTI, FDDEI, BEAT, treaties and foreign interest limits.
 - analyzing-corporate-tax-structures: domestic structure, entity selection, consolidation and state nexus questions raised by the pricing.
 - managing-indirect-tax-analysis: customs value and VAT or GST effects of prices and year-end true-ups.
-- managing-tax-controversy: IRS examination strategy, IDR negotiation, protests and appeals of a proposed 482 adjustment, competent authority and APA requests.
-- managing-income-tax-provisions: provision and uncertain tax position effects of TP exposure and true-ups.
+- managing-tax-controversy: IRS examination strategy, IDR negotiation, protests and appeals of a proposed 482 adjustment, and the competent authority and APA procedure; this skill drafts the pricing analysis behind the APA proposal or MAP position.
+- managing-tax-provision-preparation: ASC 740 provision and uncertain tax position effects of TP exposure and true-ups.
 - managing-intercompany-transactions: booking, settlement, netting and elimination of intercompany charges once priced.
 - managing-subsidiary-financing: designing intercompany debt, guarantees and structural subordination before the interest rate is priced.
 

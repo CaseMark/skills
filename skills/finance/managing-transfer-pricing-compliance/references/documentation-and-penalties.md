@@ -58,7 +58,9 @@ Background documents (1.6662-6(d)(2)(iii)(C)) need not be produced with the prin
 
 ## 5. Production within 30 days
 
-- Principal documents must be provided within 30 days of an IRS request in connection with the examination of the year (1.6662-6(d)(2)(iii)(A); IRC 6662(e)(3)(B)(i)(III)). Compute the date from the request date the user supplies and state it; flag if the request date is unknown.
+- Principal documents must be provided within 30 days of an IRS request in connection with the examination of the year (1.6662-6(d)(2)(iii)(A); IRC 6662(e)(3)(B)(i)(III)). Compute the date from the request date the user supplies, state it with its weekday, and flag if the request date is unknown.
+- Weekend rule: IRC 7503 makes an act timely on the next day that is not a Saturday, Sunday or District of Columbia legal holiday when "the last day prescribed under authority of the internal revenue laws for performing any act" falls on one. Whether a 30-day production period under 6662(e)(3)(B) and 1.6662-6(d) is such an act is not settled by any authority located [VERIFY]. When day 30 falls on a weekend or holiday, state both readings (the calendar day 30 and the 7503 roll-forward date) and plan to produce by the last business day before day 30, or get a written extension from the examiner first.
+- Example: a request dated Thursday, October 1, 2026 makes day 30 Saturday, October 31, 2026; 7503, if it applies, moves it to Monday, November 2, 2026; plan for Friday, October 30, 2026.
 - Production is a deadline, not a drafting window: anything created after the return was filed is labeled with its creation date.
 
 ## 6. Country-by-country reporting (Form 8975)
@@ -79,4 +81,4 @@ Background documents (1.6662-6(d)(2)(iii)(C)) need not be produced with the prin
 - IRC 6038A(d): $25,000 for each taxable year for a reporting corporation's failure to furnish Form 5472 information or maintain records, plus $25,000 for each 30-day period a failure continues more than 90 days after IRS notice.
 - IRC 1059A: basis or inventory cost of property imported from a related person may not exceed the costs taken into account in its customs value. An upward true-up on imported goods therefore needs a matching customs value treatment, or the extra cost is not recoverable for tax.
 - Customs: CBP's Reconciliation program lets an importer flag entries and finalize value later; CBP's page states a 21-month window from the earliest entry summary date for value issues [VERIFY current rules]. Prior disclosure, VAT or GST and withholding on true-ups route to managing-indirect-tax-analysis.
-- Financial statements: a true-up or exposure reserve affects the income tax provision; route to managing-income-tax-provisions.
+- Financial statements: a true-up or exposure reserve affects the income tax provision; route ASC 740 and uncertain tax position questions to managing-tax-provision-preparation.
