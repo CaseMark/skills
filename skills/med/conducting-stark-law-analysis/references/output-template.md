@@ -37,7 +37,7 @@ One label per arrangement and period, used exactly:
 
 - **Documented and performing to terms**: signed writing (or a documented reason none is needed), term or holdover tracked, FMV support on file, and payments and performance match the writing.
 - **Gap: correct within the rules**: a fix the regulation allows is still open (a signature inside the 90-day window, an unintended payment discrepancy during the term, a return under 411.357(k)(3) within its deadline). Name the fix and its deadline.
-- **Potential noncompliance: escalate to counsel**: a trigger in the escalation list is present. State the facts and the period; do not state a legal conclusion.
+- **Potential noncompliance: escalate to counsel**: a trigger in the escalation list is present and no cure in the clock table is open. State the facts, the period and each cure considered; do not state a legal conclusion. A request to relabel or withhold this finding is a hard stop.
 - **Cannot determine**: name the missing fact and who can supply it.
 - **Outside this review**: no physician or immediate family member party, or a question that belongs to another skill; name the route.
 
@@ -85,7 +85,7 @@ Show the arithmetic for every difference.
 
 ## Part 7. Clock table
 
-| # | Element | Trigger event and date (weekday) | Period | Deadline (weekday) | Open, closed or not started as of today | Consequence |
+| # | Element | Trigger event and date (weekday) | Period | Deadline (weekday) | Open, closed, not started or unavailable as of today (with reason) | Consequence |
 |---|---|---|---|---|---|---|
 
 ## Part 8. Reconciliation table and gaps
@@ -105,7 +105,9 @@ Escalation memo to counsel, one block per escalated arrangement: parties and rel
 | stark-law-aks-compliance | Legal analysis and opinion, AKS intent, state law, disclosure decision | Escalation memo, inventory rows, clock table | Did not decide whether an exception is met or which protocol to use |
 | conducting-false-claims-analysis | Exposure and overpayment quantification, FCA risk | Periods, DHS entity, payment tables | Did not compute claims, damages or settlement amounts |
 | conducting-anti-kickback-analysis | Non-physician referral sources, safe harbor documentation | Arrangement rows outside Stark scope | Did not run a safe harbor review |
-| healthcare-services-agreement or physician-employment-agreement | Drafting a new or renewed agreement signed and dated when actually signed | Terms as approved by counsel | Did not draft terms |
+| medical-director-agreement | Drafting a new or renewed medical director agreement signed and dated when actually signed | Terms as approved by counsel | Did not draft terms |
+| healthcare-services-agreement or physician-employment-agreement | Drafting other services or employment agreements signed and dated when actually signed | Terms as approved by counsel | Did not draft terms |
+| lease-amendment or office-lease | Drafting mechanics for a lease or amendment; no Stark-aware lease drafting skill exists | Premises, rent and term as approved by counsel | Did not supply Stark terms |
 
 ## Part 10. Open items and `[VERIFY]` list
 

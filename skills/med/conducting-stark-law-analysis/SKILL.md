@@ -46,7 +46,8 @@ Stark payment denial needs no intent and reaches every DHS claim a physician ref
 | Executed agreement, signature pages, e-signature logs | Writing, signature and term | Database "active" flag accepted without the executed copy; the 90-day rule counted from the request date instead of the noncompliance date, applied to a rate change (411.354(d)(1)(ii)(C)), or applied where set in advance or FMV also fails |
 | Expiration dates and payments after expiry | Holdover tracking | Expired agreements paid month to month with no holdover test; a holdover on changed terms, added space or a new rate; a holdover resting on FMV support that no longer covers it; 411.353(h) reconciliation window run from the wrong date |
 | Payment register against contract rate and cap | As written versus as paid | A fixed monthly amount accepted because it is under the cap when the contract pays per documented hour; an intended rate change treated as an error; a retroactive "true-up" |
-| Duty logs, timesheets, call logs | As performed | Medical directorship stipends paid with logs missing or blank; logs completed in a batch at year end and filed as if contemporaneous; hours below the minimum; duplicate directorships for the same duties |
+| Duty logs, timesheets, call logs | As performed | Medical directorship stipends paid with logs missing or blank; logs completed in a batch at year end and filed as if contemporaneous; hours below the minimum; duplicate directorships for the same duties; call stipends paid for days the physician was not on the call schedule or did not take call |
+| Recruitment, retention and timeshare files | Arrangements with their own exceptions and record rules | Recruitment money passed through a practice without the practice's signature or the 6-year cost and pass-through records (411.357(e)(4)); income-guarantee cost allocations above incremental cost; retention payments without a written outside offer or repeated within 5 years (411.357(t)); a timeshare used as a de facto lease, for advanced imaging or lab equipment, or with a possessory interest (411.357(y)) |
 | Lease, space map, room schedules, badge data, equipment logs | Space and equipment as used | Extra rooms, sessions or equipment used beyond the lease at no charge; lessor use of exclusive space; per-click charges on lessor-referred patients |
 | Nonmonetary compensation and gift log | Calendar-year limits | Items counted against the wrong year's limit or a fiscal year; gift cards counted as nonmonetary; appreciation-event gifts left out of the total; the 411.357(k)(3) return used twice in 3 years or for a planned excess |
 | Group practice compensation plan and payroll calculations | Productivity bonuses and profit shares | Bonus computed on technical-component or ancillary revenue the physician orders rather than personally performs; DHS profits split by service line in a component under five physicians; plan as written differs from payroll's method |
@@ -65,6 +66,8 @@ Stark payment denial needs no intent and reaches every DHS claim a physician ref
 9. **No backdating.** Never date a signature, agreement, amendment, log, attestation or approval earlier than the day it is actually signed or created, and never prepare a document meant to look as if it existed earlier. A record prepared late carries its real date and is labeled as prepared after the fact. Gaps are fixed through the rules that allow fixes, prospective agreements signed when signed, and escalation.
 10. **Referral data stays out of pay and contract decisions.** Do not design or recommend a bonus, rate, tier, renewal or termination criterion that uses a physician's referrals or capture rate. Review where referral data goes; send intent questions to counsel.
 11. **Escalate, do not adjudicate.** Potential noncompliance goes to counsel with the facts assembled. Identification under 42 C.F.R. 401.305, the disclosure path, and AKS intent are counsel's decisions; quantification goes to conducting-false-claims-analysis.
+12. **Never omit, soften or delay a finding to counsel.** A finding keeps the label the facts support and goes into the escalation memo in the same draft, whoever asks otherwise. A planned prospective fix (starting to invoice, signing a new agreement) is reported as a next step, not as a reason to relabel the past period.
+13. **Test every cure before the label.** Before labeling a period "Potential noncompliance: escalate to counsel", list each cure in the clock table (90-day writing and signature rule, correction during the term, 411.353(h) reconciliation, 411.353(f) temporary noncompliance, holdover, 411.357(k)(3) return) and state whether it is open, closed or unavailable, and why.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -82,7 +85,7 @@ Collect before Step 1:
 
 Defaults when an input is missing (a statute or regulation overrides any default it addresses):
 
-- Review period not stated: the 12 months ending today, stated in the header.
+- Review period not stated: the 12 months ending today, stated in the header. Once potential noncompliance is found, the period examined for that arrangement is set by counsel under the 6-year lookback in 42 C.F.R. 401.305(f), not by this default.
 - Signature date not shown: treat it as an unknown fact; never infer it from the effective date.
 - No FMV refresh policy: report "No FMV refresh policy" as a control gap and apply no interval of your own.
 - Payment with no matching agreement: add it to the inventory as an unmatched payment, label "Cannot determine", and request the agreement.
@@ -92,7 +95,7 @@ Hard stops (label the affected part "Declined: hard stop", explain, and continue
 
 - A request to backdate a signature, agreement, amendment, log or approval, to date any document earlier than it is signed or created, or to prepare a document meant to appear contemporaneous. Offer the lawful options: a writing signed and dated when signed, prospective terms, labeled after-the-fact attestations, and escalation.
 - A request to design or draft compensation, bonus, renewal or termination terms that use referral volume, value or capture rate, or to use a referral dashboard to rank physicians for pay or contracting.
-- A request to omit, soften or withhold from counsel a known finding of potential noncompliance.
+- A request to omit, soften, relabel, delay or withhold from counsel a known finding of potential noncompliance (Ground Rule 12).
 
 Stop before testing (produce the request list only):
 
@@ -126,7 +129,7 @@ Read `references/arrangement-review-rules.md`, sections 6 and 7. For each plan c
 
 ## Step 7: Labels, Clocks and Escalation
 
-Read `references/arrangement-review-rules.md`, section 8, and `references/limits-and-clocks.md`, sections 3 to 5. Assign one label per arrangement and period. Fill the clock table. Assemble the escalation memo for counsel with the facts in section 4 of the limits file, and the hand-offs.
+Read `references/arrangement-review-rules.md`, section 8, and `references/limits-and-clocks.md`, sections 3 to 5. Assign one label per arrangement and period. Fill the clock table, and for each escalated period record every cure considered and why it is open, closed or unavailable (Ground Rule 13). Assemble the escalation memo for counsel with the facts in section 4 of the limits file, and the hand-offs.
 
 ## Step 8: Assemble and Check Sources
 
@@ -151,14 +154,14 @@ If the user does not answer, recommend first matching payments to executed agree
 3. Immediate family members and physician-owned entities are in the party map.
 4. Each arrangement has an executed-copy check with signature dates, or is "Cannot determine" with the missing document named.
 5. Every expired arrangement still paid has a holdover test: term at least 1 year, met at expiry, same terms, continues to meet the exception including FMV.
-6. No 90-day writing and signature window is applied to a compensation change, or counted from anything but the noncompliance date.
+6. No 90-day writing and signature window is applied to a compensation change or counted from anything but the noncompliance date, and every escalated period lists each cure considered with its status.
 7. Payments are compared with the written rate per period, with arithmetic shown, and directorship payments are compared with logs.
 8. Space and equipment use is compared with what the lease specifies.
 9. Limits use the calendar year of receipt, the CMS figure for that year, no cash equivalents, and appreciation-event gifts.
 10. Group plan components are tied to personally performed, incident-to or ordered services and to a 411.352(i) condition.
 11. Referral data uses are listed, and nothing recommends using referrals in pay or contract decisions.
 12. Labels are used exactly as in `references/output-template.md`; no legal conclusion, disclosure choice or penalty estimate appears.
-13. No document is backdated or recommended to be; late records carry their real dates.
+13. No document is backdated or recommended to be; late records carry their real dates; no finding is relabeled, softened or withheld from counsel.
 
 ## Guidelines
 
@@ -185,14 +188,16 @@ If the user does not answer, recommend first matching payments to executed agree
 - stark-law-aks-compliance: counsel's legal analysis and opinion on whether an exception is met, AKS intent, state law, and the disclosure decision (CMS SRDP or OIG SDP).
 - conducting-false-claims-analysis: exposure and overpayment quantification, FCA risk and settlement modeling once potential noncompliance is escalated.
 - conducting-anti-kickback-analysis: provider-side safe harbor documentation for arrangements with non-physician referral sources.
-- healthcare-services-agreement: drafting a new or renewed directorship or services agreement, signed and dated when actually signed.
+- medical-director-agreement: drafting a new or renewed medical director agreement with Stark and AKS safeguards, signed and dated when actually signed.
+- healthcare-services-agreement: drafting other professional services agreements, such as call coverage, signed and dated when actually signed.
+- lease-amendment and office-lease: drafting mechanics for a new lease or amendment; neither is Stark-aware and no Stark-aware lease drafting skill exists, so counsel (through stark-law-aks-compliance) supplies the Stark terms.
 - physician-employment-agreement: drafting employment terms once counsel has approved the compensation structure.
 - managing-compliance-programs: program-wide policies, training, auditing plans and the arrangements tracking policy itself.
 - legal-research: state self-referral or licensure questions not covered by stark-law-aks-compliance; no dedicated med skill exists.
 
 ## Reference Files
 
-- `references/arrangement-review-rules.md`: party map, inventory reconciliation, document and performance tests, FMV file, group practice plans, referral-tracking controls, escalation triggers.
+- `references/arrangement-review-rules.md`: party map, inventory reconciliation, document and performance tests (including recruitment, retention, timeshare and call coverage), FMV file, group practice plans, referral-tracking controls, escalation triggers.
 - `references/limits-and-clocks.md`: calendar-year limits for 2023-2026, counting rules, clock table with each trigger, facts for counsel's disclosure decision, date arithmetic.
 - `references/output-template.md`: review status and finding labels, inventory, document and performance tests, limits tracker, clock table, reconciliation table, escalation package, hand-off table.
 - `references/primary-sources.md`: each authority read with URL, method, date and what it supports; corrections to the prior version; the `[VERIFY]` list.
