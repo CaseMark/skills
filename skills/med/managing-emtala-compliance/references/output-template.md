@@ -33,6 +33,20 @@ Produce the header and the sections below in order. Use only the sections the sc
 
 Program rows use Meets / Partially meets / Does not meet / Cannot determine. "Cannot determine" names the missing fact and who can supply it.
 
+Label tests for encounter elements. Apply them in order and use the first label whose test is met:
+
+| Label | Written test |
+|---|---|
+| Not applicable | The element does not arise on the facts (for example, no transfer occurred); state why |
+| Cannot determine | A source needed to decide whether the element was met is missing or unreadable and can be obtained; name it and who holds it |
+| Potential deficiency | The statute or regulation itself requires the act or document (a "must" in 42 U.S.C. 1395dd, 42 C.F.R. 489.24 or 489.20), and the complete record shows it was not done or not done in the required form |
+| Documentation gap | The regulatory requirement is shown met by other evidence in the record, and what is missing is a detail that Appendix V says should be documented, or a defect in a secondary record (log, form field) that the primary record contradicts |
+| No deficiency identified | The record shows the requirement met, including every detail Appendix V says should be documented |
+
+Example: 489.24(e)(2)(ii)(B) requires that the receiving facility agreed to accept; Appendix V says the transferring hospital should document the accepting person's name and title. An acceptance entry with a time but no name or title meets the Documentation gap test. A missing signed certification fails a regulatory "must" (489.24(e)(1)(ii)) and meets the Potential deficiency test.
+
+Fixed label for a refused part of a request: "Declined in part". Use it verbatim in the Section 8 block whenever any part of a request is declined under Ground Rule 8 or 9 while the rest of the review proceeds.
+
 ## 2. Source register
 
 | Source | Type | Date range | Status | Note |
@@ -96,14 +110,14 @@ Corrective actions change policies, forms, training, staffing, logs going forwar
 If any request was declined, add:
 
 ```
-Declined: <the requested alteration, backdating, recharacterization, deletion, or non-reporting>
+Declined in part: <the requested alteration, backdating, recharacterization, deletion, or non-reporting>
 Reason: Ground Rule 8 or 9; App. V A-2409 ("Certifications may not be backdated") where it applies
 Compliant path: <dated late entry under policy | report now | counsel review>
 ```
 
 ## 9. Exposure context
 
-Label as context, not a determination: Appendix V tags implicated; CMP tier by bed count with the dated figure; whether the facts suggest immediate jeopardy (a CMS judgment); mitigating and aggravating factors under 42 C.F.R. 1003.520; termination track if cited.
+Label as context, not a determination: Appendix V tags implicated; CMP tier by bed count with the dated figure; whether the facts suggest immediate jeopardy (a CMS judgment); mitigating and aggravating factors under 42 C.F.R. 1003.520; termination track if cited, with each plan-of-correction window from the clocks table in the enforcement file on its own trigger (the letter date), the weekday stated for every computed date, and any window marked `[VERIFY]` there carried as an open item.
 
 ## 10. Hand-offs
 

@@ -25,6 +25,7 @@ Rules below were read in full text on October 30, 2026 (see the primary sources 
   4. Is in a non-hospital-owned ambulance on hospital property. A call or telemetry from a non-hospital ambulance off property does not trigger the duty; a hospital in diversionary status may redirect it, but if the crew disregards diversion and arrives on property, the individual has come to the ED.
 - Not covered: an individual who is already a "patient" (began a scheduled outpatient encounter, or an inpatient) (Reg (b)); an inpatient admitted for elective care (Reg (d)(2)(ii)). The hospital Conditions of Participation protect these patients instead (App. V, A-2406).
 - Nonemergency requests at a DED still need screening appropriate to the presentation (Reg (c)).
+- Ambulance offload ("wall time"): App. V (A-2406) says hospitals that deliberately delay moving an individual from an EMS stretcher to an ED bed "do not thereby delay the point in time at which their EMTALA obligation begins"; the duty starts on arrival on hospital property. Asking EMS to stay with the individual can be reasonable when staff are occupied (for example, with multiple major traumas), but the hospital must still assess the individual on arrival, prioritize the MSE and judge whether EMS can monitor the individual. "Parking" can also breach the emergency services CoP, 42 C.F.R. 482.55.
 
 ## 2. Dedicated emergency department, hospital property and the 250-yard campus
 
