@@ -50,6 +50,7 @@ An impermissible use or disclosure of PHI is presumed to be a breach unless the 
 | Business associate agreement and vendor notice letter | Business associate timing and the covered entity's own clock | A BAA term shorter than 60 days ignored; the vendor's notice date used as the covered entity's discovery when the vendor is its agent; "independent contractor" wording treated as settling agency |
 | Misdirected email, fax or chart access log (party and scope) | Exception analysis | Misdirected PHI inside the workforce treated as automatically excepted, when exception (ii) needs a recipient authorized to access PHI at the same entity and exception (i) needs good faith, scope of authority and no further use |
 | Program designation, funding and record type (authority and scope) | Choosing the regimes and who must notify | Part 2 records handled only under HIPAA, or a Part 2 program that is not a covered entity told it has no duty; a non-HIPAA app put under HIPAA or under nothing instead of the FTC rule |
+| Website, portal or app tracking inventory (pixels, session replay, analytics SDKs) | Deciding whether data sent to a tracking vendor was an impermissible disclosure | Portal or telehealth tracking dismissed as "just analytics" without a business associate agreement or authorization; or a breach finding built on the vacated part of HHS's bulletin (IP address plus an unauthenticated public page, Am. Hosp. Ass'n v. Becerra, N.D. Tex. June 20, 2024); discovery dated from counsel's review instead of when staff knew the data was flowing |
 | State-law matrix and residence counts | State resident and attorney general notices | A state deadline shorter than 60 days, a different trigger ("determines", "detected") or an attorney general notice missed; a HIPAA deemed-compliance clause read as a full exemption |
 
 ## Ground Rules
@@ -61,7 +62,7 @@ An impermissible use or disclosure of PHI is presumed to be a breach unless the 
 5. **Discovery is a finding of fact.** Place discovery from the record under 164.404(a)(2) and show rejected candidate dates. Never backdate or postpone discovery, and never adopt a date because it gives more time.
 6. **The conclusion follows the analysis.** The four factors are each addressed with evidence before any conclusion. Never draft a risk assessment to a conclusion fixed in advance ("write it up as no breach"), never omit an adverse fact, and say plainly when the evidence does not demonstrate a low probability.
 7. **Presumption and burden.** An impermissible use or disclosure is a breach unless an exception or a demonstrated low probability is documented. Missing evidence counts against the low-probability finding, not for it.
-8. **One clock per notice, each with its own trigger.** Individual, media, HHS, business associate, BAA, Part 2, FTC and each state's resident and attorney general notices are separate rows. Compute every date by script from its trigger date and paste the inputs and outputs. The 60-day figures are outer limits; "without unreasonable delay" can require earlier notice.
+8. **One clock per notice, each with its own trigger.** Individual, media, HHS, business associate, BAA, Part 2, FTC and each state's resident and attorney general notices are separate rows. Compute every date by script from its trigger date, paste the inputs and outputs, and state each date's weekday and whether it rolls (federal clocks never roll; state roll rules are `[VERIFY]` and are not applied until confirmed). The 60-day figures are outer limits; "without unreasonable delay" can require earlier notice.
 9. **Regime first, never merged.** Decide the entity's role for each data flow (covered entity, business associate, Part 2 program, PHR vendor or related entity, service provider) and give each regime and state its own outcome row.
 10. **Outcome vocabulary.** Use the labels in `references/breach-determination-rules.md`, Section 10, verbatim: Not an impermissible use or disclosure; Not a breach: PHI secured (encryption or destruction safe harbor); Not a breach: exception (i), (ii) or (iii) applies; Not a breach: low probability of compromise demonstrated; Presumed breach: notification required; Cannot determine. Add "provisional pending <facts>" when an unchecked fact could change the result.
 11. **Minimum necessary in the draft.** Use counts, data-element names and role labels; keep names, record numbers and diagnoses out of the work product.
@@ -94,8 +95,8 @@ Hard stops (the named output is not produced):
 
 - No facts from which discovery can be placed (no date on which anyone at the entity or its agent learned of the incident): produce the discovery-fact request and the timeline of what is known, and do not compute any deadline.
 - The entity's role for the affected data cannot be determined: list the candidate regimes with what would settle the role, and do not state any regime outcome or deadline.
-- Shifted discovery requested: a discovery date later than the record supports (for example the investigation end date), or any backdating of discovery. Decline to record it, explain 164.404(a)(2), and continue with the date the record supports and its deadlines.
-- Fixed conclusion requested: a "no breach" or low-probability result set in advance, or a risk assessment that leaves out adverse facts. Decline to write it, and continue with the four-factor assessment and the conclusion the evidence supports.
+- Shifted discovery requested: a discovery date later than the record supports (for example the investigation end date), or any backdating of discovery. Decline to record it, log it as "Declined: shifted discovery date", explain 164.404(a)(2), and continue with the date the record supports and its deadlines.
+- Fixed conclusion requested: a "no breach" or low-probability result set in advance, or a risk assessment that leaves out adverse facts. Decline to write it, log it as "Declined: fixed conclusion", and continue with the four-factor assessment and the conclusion the evidence supports.
 
 ## Step 1: Frame the Incident and the Regimes
 
@@ -111,7 +112,7 @@ Read `references/breach-determination-rules.md`, Section 2. Fill the discovery b
 
 ## Step 4: Run the Threshold, Safe Harbor and Exception Questions
 
-Read `references/breach-determination-rules.md`, Sections 3 to 5 and 7 to 9. Answer in order: protected information, impermissible use or disclosure, secured or not, each exception's conditions. Test encryption against the HHS guidance, including key custody, device state and every copy. For Part 2 records apply 42 C.F.R. 2.16(b); for a non-HIPAA app apply 16 C.F.R. Part 318, which has no low-probability test.
+Read `references/breach-determination-rules.md`, Sections 3 to 5 and 7 to 9. Answer in order: protected information, impermissible use or disclosure (including disclosures to tracking-technology vendors), secured or not, each exception's conditions. Test encryption against the HHS guidance, including key custody, device state and every copy. For Part 2 records apply 42 C.F.R. 2.16(b); for a non-HIPAA app apply 16 C.F.R. Part 318, which has no low-probability test.
 
 ## Step 5: Run the Four-Factor Risk Assessment
 

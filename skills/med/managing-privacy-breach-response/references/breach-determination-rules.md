@@ -50,6 +50,8 @@ The FTC rule does not apply to a covered entity or to an entity "to the extent t
 
 An entity may notify without performing a risk assessment (HHS Breach Notification Rule page).
 
+Online tracking technologies (pixels, session replay, analytics SDKs on websites, portals and apps) raise question 2. HHS's bulletin "Use of Online Tracking Technologies by HIPAA Covered Entities and Business Associates" treats tracking on user-authenticated pages (patient portals, telehealth) as generally having access to PHI, so a disclosure to the vendor without a permission, an authorization or a business associate agreement is impermissible and goes to Sections 4 to 6. On June 20, 2024, Am. Hosp. Ass'n v. Becerra, No. 4:23-cv-1110 (N.D. Tex.), vacated the bulletin to the extent it says HIPAA is triggered when a technology connects an IP address with a visit to an unauthenticated public page about specific health conditions or providers; HHS's page says it is evaluating next steps. Do not rest a breach finding on that vacated theory. For non-HIPAA apps, sharing with an ad platform without authorization is a "breach of security" under 16 C.F.R. 318.2. Discovery for a tracking incident is when someone at the entity knew or should have known the data was flowing, not when counsel completed the review.
+
 ## 4. The secured-PHI safe harbor (encryption and destruction)
 
 HHS guidance (hhs.gov breach notification guidance, content last reviewed July 26, 2013):
@@ -63,7 +65,7 @@ HHS guidance (hhs.gov breach notification guidance, content last reviewed July 2
 
 | Exception | Every condition must hold | Common misuse |
 |---|---|---|
-| (i) Unintentional acquisition, access or use by a workforce member or person acting under the entity's authority | Good faith; within the scope of authority; no further use or disclosure not permitted by the Privacy Rule | Applied to snooping (a receptionist browsing a friend's chart is not excepted; 74 FR 42740, 42748) or to a recipient who forwarded or kept the data |
+| (i) Unintentional acquisition, access or use by a workforce member or person acting under the entity's authority | Good faith; within the scope of authority; no further use or disclosure not permitted by the Privacy Rule | Applied to snooping (a receptionist browsing a friend's chart is not excepted) or to a recipient who forwarded or kept the data. It can cover a workforce member who opens a misdirected email, recognizes the error, alerts the sender and deletes it, even without authority to see that PHI (billing-employee example, 74 FR 42740, 42747-48) |
 | (ii) Inadvertent disclosure between persons each authorized to access PHI at the same covered entity, business associate or organized health care arrangement | Sender authorized to access PHI; recipient authorized to access PHI at the same entity or OHCA (not necessarily the same PHI); no further impermissible use or disclosure | Applied because both people are "workforce", when the recipient's role has no PHI access, or applied across separate legal entities |
 | (iii) Good faith belief that the unauthorized recipient could not reasonably have retained the information | A documented basis (for example papers handed to the wrong patient and taken back at once) | Applied to a mailed letter, an email, or a fax that reached an outside party and was not returned unread |
 

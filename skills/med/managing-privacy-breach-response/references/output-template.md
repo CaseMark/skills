@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and the sections below in order. Dates are ISO (YYYY-MM-DD) with the weekday; every fact names its source. Keep PHI out of the draft: use counts, data-element names and de-identified case labels.
+Produce the header and the sections below in order. Dates are ISO (YYYY-MM-DD) with the weekday and whether the date rolls (federal clocks never roll); every fact names its source. Keep PHI out of the draft: use counts, data-element names and de-identified case labels.
 
 ## Contents
 
@@ -86,8 +86,8 @@ Threshold results: HHS (500 or more); media per state (more than 500; FTC 500 or
 
 ## 7. Clocks table
 
-| # | Notice | Regime | Trigger event | Trigger date (source) | Rule | Computed deadline | Days left from today | Status |
-|---|---|---|---|---|---|---|---|---|
+| # | Notice | Regime | Trigger event | Trigger date (source) | Rule | Computed deadline (with weekday) | Rolls if weekend or holiday? | Days left from today | Status |
+|---|---|---|---|---|---|---|---|---|---|
 
 One row per notice per regime per state, each with its own trigger. Paste the script inputs and outputs under the table. Mark outer limits as "outer limit; without unreasonable delay governs".
 
@@ -107,7 +107,7 @@ Typical rows: incident ticket date against the investigation memo's "discovery" 
 | Gap or request | Class (unknown fact / source conflict / unverified external lookup / policy election / declined) | Effect | Who resolves | Next step |
 |---|---|---|---|---|
 
-A declined request (backdating discovery, a fixed "no breach" conclusion, omitting facts) is recorded with the reason and the honest alternative.
+A declined request is recorded with one of these labels, verbatim, then the reason and the honest alternative: "Declined: shifted discovery date" (a later, earlier or otherwise unsupported discovery date) or "Declined: fixed conclusion" (a result set in advance, or adverse facts left out).
 
 ## 11. Hand-offs
 
