@@ -1,12 +1,13 @@
 # Primary Sources and Verification Register
 
-Checked on October 30, 2026. Full texts were read through the case.dev API (`/search/v1/contents` for pages and filings, `/legal/v1/verify` for the reporter citation check); search results were found with `/search/v1/search` and `/legal/v1/find`. The FASB Accounting Standards Codification (login required) was not opened; its paragraphs are taken from the Deloitte DART Debt Roadmap and the PwC Viewpoint Codification mirror, each labeled as a secondary reproduction. LSTA model provisions are member-only and were not read. Re-check every item before relying on it in a deliverable; FASB projects and the Serta remand are moving.
+Checked on October 30, 2026; the two filed agreements were re-read and the Federal Reserve holiday schedule added on October 31, 2026. Full texts were read through the case.dev API (`/search/v1/contents` for pages and filings, `/legal/v1/verify` for the reporter citation check); search results were found with `/search/v1/search` and `/legal/v1/find`. The FASB Accounting Standards Codification (login required) was not opened; its paragraphs are taken from the Deloitte DART Debt Roadmap and the PwC Viewpoint Codification mirror, each labeled as a secondary reproduction. LSTA model provisions are member-only and were not read. Re-check every item before relying on it in a deliverable; FASB projects and the Serta remand are moving.
 
 ## Contents
 
 1. Authorities checked
 2. Filed credit agreements used as worked references
-3. Unconfirmed, member-only, or fact-dependent: treat as [VERIFY]
+3. Corrections made on review (2026-10-31)
+4. Unconfirmed, member-only, or fact-dependent: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -28,16 +29,27 @@ Checked on October 30, 2026. Full texts were read through the case.dev API (`/se
 | Serta certiorari | https://www.supremecourt.gov/docket/docketfiles/html/public/24-1322.html | Full text via case.dev; 2026-10-30 | Rehearing denied Feb. 18, 2025; petition denied Nov. 10, 2025 |
 | Serta remand decision | https://www.govinfo.gov/content/pkg/USCOURTS-txsb-4_23-ap-09001/pdf/USCOURTS-txsb-4_23-ap-09001-1.pdf | Full text via case.dev; 2026-10-30 | Memorandum opinion entered July 7, 2026: breach of the sharing clause; $261.13 million damages, 9.00 percent prejudgment interest, several liability |
 | Ocean Trails CLO VII v MLN Topco Ltd., 2024 NY Slip Op 06660 (1st Dept Dec. 31, 2024) | https://law.justia.com/cases/new-york/appellate-division-first-department/2024/index-no-651327-23-appeal-no-2918-case-no-2024-00169.html | Full text via case.dev; 2026-10-30 | "Purchase by way of assignment ... at any time" exception covered the Mitel uptier; claims dismissed |
+| Federal Reserve holidays observed, 2026-2030 (K.8) | https://www.federalreserve.gov/aboutthefed/k8.htm | Full text via case.dev; 2026-10-31 | 2026: Nov. 11, Nov. 26, Dec. 25; 2027: Jan. 1, Jan. 18, Feb. 15, May 31; Good Friday is not listed; a starting point for New York bank closures in Business Day counts |
 | LSTA Model Credit Agreement Provisions | https://www.lsta.org/content/model-credit-agreement-provisions-mcaps-july-21-2026/; https://www.lsta.org/content/model-credit-agreement-provisions-for-private-corporate-credit-deals-pcc-mcaps-july-21-2026/ | Landing pages read via case.dev; documents member-only; 2026-10-30 | Current BSL MCAPs and PCC MCAPs are dated July 21, 2026; BSL MCAPs cover tax, yield protection, agency, assignment, defaulting lender and disqualified institution provisions, not financial covenant definitions |
 
 ## 2. Filed credit agreements used as worked references
 
 | Agreement | URL read | Method; date | Provisions relied on |
 |---|---|---|---|
-| Agreement W: Credit Agreement dated Oct. 21, 2026 among Westrock Beverage Solutions, LLC, Westrock Coffee Company and Coöperatieve Rabobank U.A., New York Branch, as agent (Exhibit 10.1, accession 0001104659-26-117845) | https://www.sec.gov/Archives/edgar/data/1806347/000110465926117845/tm2627822d1_ex10-1.htm | Full text via case.dev; 2026-10-30 | Adjusted Consolidated EBITDA (litigation $1.0m and public company $2.5m sublimits; 12-month run-rate window; 15 percent cap after giving effect through Dec. 31, 2026; 25 percent Aggregate Adjustment Cap before giving effect from Mar. 31, 2027; deemed quarterly EBITDA); Available Amount; Test Period; Specified Equity Contribution; Required Lenders and class votes; 5.04 (90 and 45 days; 10 Business Day certificate); 5.05(a); 5.11 compliance certificate; 6.09 covenant grid and step-up election; 7.01(a), (c), (d), (e); 7.02 cure; 9.08 amendments |
-| Agreement V: Amended and Restated Revolving Credit Agreement dated Oct. 17, 2025 among Greenlight Acquisition Corporation, VM Consolidated, Inc. and Bank of America, N.A., as agent (Exhibit 10.1, accession 0001193125-25-242530) | https://www.sec.gov/Archives/edgar/data/1682745/000119312525242530/vrrm-ex10_1.htm | Full text via case.dev; 2026-10-30 | Consolidated EBITDA; Pro Forma Cost Savings (24 months, no percentage cap); Consolidated Fixed Charge Coverage Ratio; Default; Required Lenders; 1.11 business-day rule; 9.01 (45 and 90 days); 10.11 springing covenant and equity cure; 11.01, 11.03 |
+| Agreement W: Credit Agreement dated Oct. 21, 2026 among Westrock Beverage Solutions, LLC, Westrock Coffee Company and Coöperatieve Rabobank U.A., New York Branch, as agent (Exhibit 10.1, accession 0001104659-26-117845) | https://www.sec.gov/Archives/edgar/data/1806347/000110465926117845/tm2627822d1_ex10-1.htm | Full text via case.dev; 2026-10-30, re-read 2026-10-31 | Section 1.01 definitions of Business Day, Capitalized Lease Obligations (operating leases under GAAP as in effect on Dec. 31, 2021), Consolidated Total Net Debt ("as of any date of determination"), Secured Net Leverage Ratio and Total Net Leverage Ratio (debt as of the last day of the Test Period), Unrestricted Cash Amount (capped at 100 percent of EBITDA), Fixed Charge Coverage Ratio; 1.02(g) GAAP-change mechanism; 1.02(h) fair value and convertible debt; 1.04 Business Day roll; no rounding clause found; Adjusted Consolidated EBITDA (litigation $1.0m and public company $2.5m sublimits; 12-month run-rate window; 15 percent cap after giving effect through Dec. 31, 2026; 25 percent Aggregate Adjustment Cap before giving effect from Mar. 31, 2027; deemed quarterly EBITDA); Available Amount; Test Period; Specified Equity Contribution; Required Lenders and class votes; 5.04 (90 and 45 days; 10 Business Day certificate); 5.05(a); 5.11 compliance certificate; 6.09(a) Secured Net Leverage Ratio grid and step-up election; 6.09(b) Fixed Charge Coverage Ratio of 1.20 to 1.00; 7.01(a), (c), (d), (e), (f) cross-default; 7.02 cure; 9.08 amendments |
+| Agreement V: Amended and Restated Revolving Credit Agreement dated Oct. 17, 2025 among Greenlight Acquisition Corporation, VM Consolidated, Inc. and Bank of America, N.A., as agent (Exhibit 10.1, accession 0001193125-25-242530) | https://www.sec.gov/Archives/edgar/data/1682745/000119312525242530/vrrm-ex10_1.htm | Full text via case.dev; 2026-10-30 | Consolidated EBITDA; Pro Forma Cost Savings (24 months, no percentage cap); Consolidated Fixed Charge Coverage Ratio; Default; Required Lenders; 1.11 business-day rule; 9.01 (45 and 90 days); 10.11 springing covenant and equity cure; 11.01, 11.03; 13.07(a) GAAP-change mechanism, no ASC 805 effect, leases on Closing Date GAAP; 13.07(b) ratio rounding clause |
 
-## 3. Unconfirmed, member-only, or fact-dependent: treat as [VERIFY]
+## 3. Corrections made on review (2026-10-31)
+
+| Item | Before | After | Source |
+|---|---|---|---|
+| Agreement W debt measurement date | Attributed "as of the last day of the Test Period" to Consolidated Total Net Debt | Consolidated Total Net Debt is "as of any date of determination"; the test-date wording sits in the Secured Net Leverage Ratio (the Section 6.09(a) covenant) and Total Net Leverage Ratio definitions | Agreement W Section 1.01 |
+| Agreement W covenants | Grid described without naming the ratio | Section 6.09(a) Secured Net Leverage Ratio grid; 6.09(b) Fixed Charge Coverage Ratio of 1.20 to 1.00 | Agreement W Section 6.09 |
+| Rounding | Two-decimal default | Test unrounded unless the agreement has a rounding clause; Agreement V 13.07(b) has one, Agreement W none found | Agreements V and W |
+| Equity cure terms | Window only after quarter end | Contribution may be made during the fiscal quarter; written notice of intention required | Agreement W definition of Specified Equity Contribution |
+| Business Day roll | Agreement V 1.11 only | Agreement W 1.04 added | Agreement W Section 1.04 |
+
+## 4. Unconfirmed, member-only, or fact-dependent: treat as [VERIFY]
 
 | Statement | Status |
 |---|---|
@@ -47,5 +59,7 @@ Checked on October 30, 2026. Full texts were read through the case.dev API (`/se
 | Timing and content of the FASB proposed ASU on subjective acceleration clauses | No exposure draft as of 2026-10-30; decisions are tentative |
 | Where IAS 1 paragraphs 69 to 76ZA sit after IFRS 18 takes effect (periods beginning on or after Jan. 1, 2027) | Not reviewed |
 | Whether an exercised equity cure means the lender "lost" its call right for ASC 470-10-45-11(a) | Contract and fact-specific; for the accountant |
+| New York bank closures beyond the Federal Reserve K.8 list for a given count | K.8 read; a specific agreement's Business Day definition may differ |
+| Whether a cure count keyed to the "required" delivery date runs from the stated date or the Business Day-extended date when the agreement is silent | Contract reading; confirm with counsel |
 | Market norms for add-back caps, cure counts and springing thresholds | Agreements W and V are examples, not a survey; take terms only from the user's agreement |
 | State-law or forum differences in reading "open market purchase" and similar exceptions | Serta (Fifth Circuit applying New York law) and Mitel (New York Appellate Division) read different clauses; other forums not reviewed |

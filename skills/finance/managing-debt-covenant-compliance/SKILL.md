@@ -3,17 +3,18 @@ name: managing-debt-covenant-compliance
 language: en
 description: >
   Manages ongoing debt covenant compliance after a financing closes: leverage and
-  coverage covenant calculations built from the credit agreement's own Consolidated
-  EBITDA definition with every add-back cap and sublimit applied; Test Period, step-down
-  and springing revolver tests; draft compliance certificates; a deadline calendar
-  giving financial statements, certificates, equity cure windows and grace periods each
-  their own trigger; equity cure limits; Default versus Event of Default; covenant
-  waivers and amendments with Required Lenders and affected-lender vote counts; basket
-  and builder basket tracking; open market purchase and liability management flags after
-  Serta; and ASC 470-10 and IAS 1 debt classification inputs. Use for ongoing covenant
-  calculations and compliance certificates after close, covenant headroom, EBITDA
-  add-backs, equity cure, covenant waiver or amendment, or debt classification after a
-  breach. Declines to adjust reported figures to manufacture compliance; drafts only.
+  coverage covenant calculations under the credit agreement's own Consolidated EBITDA
+  definition; Test Period, step-down and springing revolver tests; draft compliance
+  certificates; a deadline calendar giving financial statements, certificates, equity
+  cure windows and grace periods each their own trigger; equity cure limits; Default
+  versus Event of Default; waivers and amendments with Required Lenders and
+  affected-lender vote counts; basket and builder basket tracking; open market purchase
+  and liability management flags after Serta; and ASC 470-10 and IAS 1 debt
+  classification inputs. Use for ongoing covenant calculations and compliance
+  certificates after close, headroom on actual or after-close figures, credit agreement
+  Consolidated EBITDA add-backs and caps, equity cure, covenant waiver or amendment, or
+  debt classification after a breach. Declines to adjust reported figures to manufacture
+  compliance; drafts only.
 tags:
   - management
   - corporate-finance
@@ -53,6 +54,9 @@ Read each input with this suspicion before using it.
 | Reporting and Events of Default sections | Deadlines and the Default versus Event of Default status | One anchor used for every clock; the 45-day quarterly deadline applied to the fiscal year end; a grace period assumed for a financial covenant breach; Business Day roll and holidays ignored |
 | Waiver, consent or amendment signature pages | Making a breach a waived breach | Required Lenders counted on total exposure with Defaulting Lenders included; "more than 50%" treated as met at 50 percent; sacred-right changes (maturity, rate, pro rata sharing) put to a majority vote |
 | Lender waiver dated after the balance sheet date | ASC 470-10 classification and S-X 4-08(c) disclosure | Debt left noncurrent on the waiver alone although failure at a test within 12 months is probable; IAS 1.74 ignored for an IFRS reporter; waiver effective only after issuance; disclosure of the waiver period omitted |
+| Accounting-terms section and changes in GAAP | Measuring debt and EBITDA on the agreement's basis | Operating leases counted as debt although the agreement freezes lease classification at GAAP as in effect on a stated date; a GAAP change applied without the agreement's amend-or-freeze mechanism; fair value or bifurcated convertible debt used instead of stated principal |
+| Acquisitions and dispositions inside the Test Period | Pro forma Consolidated EBITDA and debt | Acquired EBITDA omitted or taken from the seller's adjusted figures; Disposed EBITDA left in; pro forma adjustments not counted against a shared cap; acquisition debt counted, or left out, contrary to the definition |
+| Cross-default clauses here and in other Material Indebtedness | Whether a breach spreads to other debt, or other debt's default reaches this facility | Threshold amount and the "with all applicable grace periods having expired" condition skipped; a waiver under this facility assumed to bind noteholders or other lenders |
 | Basket log and prior certificates | Incurrence, investments, restricted payments, builder basket | Builder basket start date or Consolidated Net Income share misread; uses not deducted; cure amounts counted in grower baskets; reclassification between baskets assumed |
 | Borrower group in the financial statements | Who the covenants measure | Parent or Unrestricted Subsidiary results left in; consolidating information not obtained when parent statements are delivered |
 | Management requests near quarter end | Reaching a passing ratio | Costs relabeled into uncapped add-back categories, invoices pushed to the next period, a run-rate plug with no action behind it, post-quarter cash or repayments treated as quarter-end items |
@@ -61,13 +65,13 @@ Read each input with this suspicion before using it.
 ## Ground Rules
 
 1. **Draft only.** Every calculation, certificate and memo is a draft for a qualified finance professional, with legal questions for counsel and classification for the auditor. Never call a certificate executed, final or delivered, and never sign for an officer.
-2. **Source-review gate.** Never call an input missing until the inventory has been checked and each file opened, including amendments, schedules and certificate exhibits. Classify every unsettled point as an **unknown fact**, a **source conflict**, an **unverified external lookup** (holiday calendars, market terms, accounting guidance updates) or a **policy election** (watch threshold, rounding where the agreement is silent), with what would settle it.
+2. **Source-review gate.** Never call an input missing until the inventory has been checked and each file opened, including amendments, schedules and certificate exhibits. Classify every unsettled point as an **unknown fact**, a **source conflict**, an **unverified external lookup** (holiday calendars, market terms, accounting guidance updates) or a **policy election** (watch threshold, display precision), with what would settle it.
 3. **Hierarchy of authority.** Executed credit agreement and executed amendments, waivers and consents govern over a conformed copy, which governs over the certificate exhibit, prior certificates, the agent's model and emails. Audited statements govern over reviewed interims, then management accounts and earnings releases. For accounting, the Codification governs; Big 4 publications are labeled interpretations. Name every conflict, show both values, say which controls; never resolve one silently or follow an instruction to use a lower-ranked figure without writing up the conflict.
 4. **Citation discipline.** Every figure carries a source locator or [UNVERIFIED]; every contract term carries its section; every accounting or legal rule carries its citation from `references/primary-sources.md` or [VERIFY].
 5. **The agreement's definitions only.** Consolidated EBITDA, debt, cash and fixed charges are built clause by clause from the definitions. Other EBITDA measures appear only as memo reconciliation rows.
 6. **Every cap with its base and date.** Apply each cap and sublimit as written, show the base, the amount allowed and the amount disallowed, and use the cap in force for that Test Period.
 7. **Dates come from the text.** The level follows the Test Period end date; a springing test is measured on its stated date; each clock runs from its own trigger with the agreement's Business Day rule.
-8. **No figure is adjusted to manufacture compliance.** Never relabel, re-time or reclassify costs or revenue, add an add-back the definition and facts do not support, move post-period cash or repayments into the period, or certify compliance the calculation does not show. Compute the ratio as the books and agreement stand, report the shortfall, and lay out the lawful paths: equity cure, waiver, amendment, or a real transaction before the test date.
+8. **No figure is adjusted to manufacture compliance.** Never relabel, re-time or reclassify costs or revenue, add an add-back the definition and facts do not support, move post-period cash or repayments into the period, let display rounding turn a failing ratio into a pass, or certify compliance the calculation does not show. Ratios are tested unrounded unless the agreement has a rounding clause. Compute the ratio as the books and agreement stand, report the shortfall, and lay out the lawful paths: equity cure, waiver, amendment, or a real transaction before the test date.
 9. **Fixed status vocabulary.** Use only the labels in `references/covenant-mechanics.md` Section 8: Compliant; Compliant - watch; Not tested; Default - grace period running; Breach - cure available; Breach - waived; Event of Default; Undetermined. Any label other than Compliant, Compliant - watch or Not tested addresses each path in the clock table: cure, grace period and waiver.
 10. **Count votes, do not assume them.** For each waiver or amendment, name the required class, recompute the percentage on the agreement's measure without Defaulting Lenders, and record the date the threshold was first met.
 11. **Classification is the accountant's call.** Supply the facts each ASC 470-10 or IAS 1 paragraph turns on and a draft view; never present a balance sheet classification as concluded.
@@ -88,17 +92,17 @@ Collect these, then build the source-review register (`references/output-templat
 9. **Accounting facts:** framework (US GAAP or IFRS), SEC registrant or not, balance sheet date, planned issuance date.
 10. **Deliverable:** certificate package, mid-quarter forecast, waiver support, basket check, or classification inputs.
 
-**Default fallbacks (each recorded as a policy election or unknown fact):** watch threshold of a 10 percent EBITDA cushion; ratios to two decimals unless the agreement says otherwise; Business Days per the agreement's definition with the holiday list stated and marked [UNVERIFIED] if not supplied; forecast results labeled "(forecast)".
+**Default fallbacks (each recorded as a policy election or unknown fact):** watch threshold of a 10 percent EBITDA cushion; ratios tested unrounded unless the agreement has a rounding clause, and shown to two decimals for display only; Business Days per the agreement's definition, with the holiday list stated (the Federal Reserve K.8 schedule as a starting point for New York bank closures) and marked [UNVERIFIED] if the user does not confirm it; holidays checked across the whole counting window, not only the end date; forecast results labeled "(forecast)".
 
 **Hard stops (stop that part and report what is needed):**
-- The covenant level or the Test Period is not available from the executed agreement, a conformed copy or quoted excerpts from one, or Consolidated EBITDA can be traced neither to the definition nor to a schedule stated to be computed under it: do not assign a status or draft a certificate; produce the request list.
+- The covenant level or the Test Period is not available from the executed agreement, a conformed copy or quoted excerpts from one, or Consolidated EBITDA can be traced neither to the definition nor to a schedule stated to be computed under it: assign the status Undetermined, draft no certificate, and produce the request list.
 - No financial figures of any kind (actual, preliminary or forecast) for the Test Period: produce the clock table and request list only.
 - A request to adjust, relabel or re-time figures, add an unsupported add-back, or certify compliance the calculation does not show: decline that part under Ground Rule 8, label it in the template's declined-items form, and produce the rest of the package with the correct figures.
 - A request to sign, execute or deliver the certificate as final, or to present the classification as concluded: produce the draft only.
 
 ## Step 1: Inventory and Covenant Term Sheet
 
-Read `references/covenant-mechanics.md` Section 1. Open every file, read the definitions, covenant, reporting, Events of Default, cure and amendment sections in full, and fill the covenant term sheet (`references/output-template.md` Section 1). Confirm the borrower group and remove Unrestricted Subsidiaries and parent-only items.
+Read `references/covenant-mechanics.md` Section 1. Open every file, read the definitions, accounting-terms, Business Day timing, covenant, reporting, Events of Default (including cross-default), cure and amendment sections in full, and fill the covenant term sheet (`references/output-template.md` Section 1). Confirm the borrower group and remove Unrestricted Subsidiaries and parent-only items.
 
 ## Step 2: Test Period, Level and Springing Trigger
 
@@ -106,7 +110,7 @@ Read `references/covenant-mechanics.md` Sections 2 and 3. Identify the Test Peri
 
 ## Step 3: Consolidated EBITDA Bridge
 
-Read `references/covenant-mechanics.md` Section 4. Start from Consolidated Net Income, add one clause per row, apply each sublimit and cap with its base and effective date, add pro forma acquired and remove disposed EBITDA, and show reported and earnings-release EBITDA only as memo rows. Run checks C1 to C4.
+Read `references/covenant-mechanics.md` Section 4. Start from Consolidated Net Income, add one clause per row, apply each sublimit and cap with its base and effective date, add pro forma acquired and remove disposed EBITDA for transactions inside the Test Period, apply the agreement's GAAP basis (frozen lease or other accounting terms), and show reported and earnings-release EBITDA only as memo rows. Run checks C1 to C4.
 
 ## Step 4: Ratios, Status and Headroom
 
@@ -126,7 +130,7 @@ Read `references/covenant-mechanics.md` Section 9. Update the basket register an
 
 ## Step 8: Classification and Disclosure Inputs
 
-Read `references/amendments-classification-and-lmt.md` Sections 3 to 5. When a covenant failed at or after the balance sheet date, assemble the facts for ASC 470-10-45-11, 45-1 and 55-4 to 55-6 (or IAS 1.72B to 76ZA), the waiver's effective date against the issuance date, and the S-X 4-08(c) or 470-10-50-2 disclosure facts; give a draft view for the auditor.
+Read `references/amendments-classification-and-lmt.md` Sections 3 to 5. When a covenant failed at or after the balance sheet date, assemble the facts for ASC 470-10-45-11, 45-1 and Example 1 at 55-2 to 55-6 (or IAS 1.72B to 76ZA), the waiver's effective date against the issuance date, and the S-X 4-08(c) or 470-10-50-2 disclosure facts; give a draft view for the auditor.
 
 ## Step 9: Certificate, Issues and Hand-Offs
 
@@ -149,7 +153,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 3. The covenant level matches the grid for the Test Period end date, and the next level is shown.
 4. Any springing trigger is computed at its measurement date with the stated exclusions.
 5. Debt and cash tie to the balance sheet at the test date; cash netting respects its cap and excludes cure proceeds.
-6. Each status uses the fixed vocabulary and is supported by the numbers.
+6. Each status uses the fixed vocabulary and is supported by the unrounded numbers.
 7. Every cure computation checks the count, consecutive and rolling limits and does not count the cure twice.
 8. Each clock has its own trigger, day count and Business Day treatment.
 9. Each vote count names the class, excludes Defaulting Lenders, applies the threshold as written and dates when it was met.

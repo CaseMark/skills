@@ -32,6 +32,8 @@ Produce the header and the sections below, in this order. Put numbers in tables;
 | Item | Agreement text (quoted or paraphrased) | Section | Note |
 |---|---|---|---|
 | Covenant, ratio and level for this Test Period | | | Level set by Test Period end date |
+| Accounting terms: GAAP-change mechanism, frozen lease or other accounting rules, rounding clause | | | |
+| Cross-default threshold and conditions | | | |
 | Next two levels and their dates | | | |
 | Springing condition, measurement date | | | |
 | Test Period definition | | | |
@@ -55,15 +57,15 @@ Produce the header and the sections below, in this order. Put numbers in tables;
 
 ## 3. Covenant calculations and status
 
-| Covenant | Numerator | Denominator | Ratio | Level | Status | Basis | EBITDA cushion ($ and %) | Debt capacity | Next level at current figures |
-|---|---|---|---|---|---|---|---|---|---|
+| Covenant | Numerator | Denominator | Ratio (unrounded) | Rounding clause applied? | Level | Status | Basis | EBITDA cushion ($ and %) | Debt capacity | Next level at current figures |
+|---|---|---|---|---|---|---|---|---|---|---|
 
-Status uses only: Compliant; Compliant - watch; Not tested; Default - grace period running; Breach - cure available; Breach - waived; Event of Default; Undetermined. For Not tested, show the springing computation beneath the table.
+Pass or fail is decided on the unrounded ratio unless the agreement has a rounding clause, which is then applied exactly. Status uses only: Compliant; Compliant - watch; Not tested; Default - grace period running; Breach - cure available; Breach - waived; Event of Default; Undetermined. For Not tested, show the springing computation beneath the table.
 
 ## 4. Clocks
 
-| Element | Trigger event | Trigger date | Period and day count (calendar or Business Days) | Due date | Business Day roll applied? | Source |
-|---|---|---|---|---|---|---|
+| Element | Trigger event | Trigger date | Period and day count (calendar or Business Days) | Holidays inside the window | Due date and weekday | Business Day roll applied? | Open on the preparation date? | Source |
+|---|---|---|---|---|---|---|---|---|
 
 One row per element; each row names its own trigger.
 
