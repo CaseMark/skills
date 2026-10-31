@@ -49,6 +49,7 @@ Coding denials are lost on procedure more often than on merit. A redetermination
 | MA plan letter citing internal criteria or a screening tool | Inpatient and medical necessity denials | Plan criteria treated as binding although 422.101(b)(6) limits them and 412.3 governs admissions; the 2-midnight presumption argued as binding on the plan; a prior concurrent approval (422.138(c)) overlooked |
 | Party, contract status and reviewer authority | Choosing the appeal route and objections | A contracted hospital filing a 422.582 reconsideration its agreement routes to contract dispute; a non-contracted hospital omitting the waiver of liability; a RAC clinical validation finding (prohibited by the RAC SOW) argued only on the merits |
 | Medical record, addenda, query responses, late entries | Evidence for the appeal | An addendum or query answer written after the claim or after the denial presented as original; entries without date and author; evidence first produced at the ALJ level, where it is excluded without good cause |
+| Calendar for the deadline (weekends, federal holidays, payer or mailroom closures) | Setting the target receipt date | A deadline on a Saturday, Sunday or holiday assumed to roll to the next business day although the rule (for example 422.582(b)) or the contract has no roll provision; a submission planned for a day the receiving office is closed |
 | Peer-to-peer notes and RAC discussion records | Informal resolution | Oral overturn never confirmed in writing; outcome, participants and reference number not recorded; written appeal deadline allowed to lapse while waiting |
 | Rebill, reopening and Part B decisions | Choosing between correction and appeal | Part A appeal pursued past the 1-year Part B window measured from the "Through" date; a higher DRG sought after the 60-day 412.60(d) window; a reopening requested while the same issue is under appeal |
 
@@ -60,18 +61,18 @@ Coding denials are lost on procedure more often than on merit. A redetermination
 4. **Citation discipline.** Every clinical value, quotation and date carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every rule carries its citation or `[VERIFY]`; every year-dependent figure carries its year.
 5. **Record integrity.** Never draft, merge, backdate or re-date a clinical entry, and never present documentation created or altered after the claim or the denial as original. A late entry is disclosed with its own date and author. If asked otherwise, record a Declined request and continue with the record as it stands. If altered entries were already submitted, stop drafting that appeal and route to conducting-false-claims-analysis and compliance.
 6. **Classify before arguing.** Label each denied item coding validation, clinical validation, medical necessity or status, or technical (`references/denial-analysis-rules.md`, Section 1). The argument must answer that type.
-7. **Every clock has its own trigger.** Compute each deadline separately with its trigger, rule and arithmetic, and say who must receive it. Never carry one payer's presumption or window to another.
+7. **Every clock has its own trigger.** Compute each deadline separately with its trigger, rule and arithmetic, its weekday, and who must receive it. Never carry one payer's presumption or window to another. A deadline that falls on a weekend or holiday does not roll unless the rule or contract provides one; set the target receipt date to the prior business day.
 8. **Lock the payer and the party.** Name the product (Medicare FFS, MA HMO or PPO, commercial, ERISA plan, Medicaid) and the hospital's contract status before choosing a route. A contracted MA hospital follows its agreement; a non-contracted one follows 422.582 with a waiver of liability.
 9. **Definitions come from the contract.** Apply the clinical definition the contract or policy in force on the date of service names. If it is not supplied, treat it as a policy election `[VERIFY]` and show the record under each candidate definition.
 10. **Respect reviewer limits.** Raise scope objections first: a RAC may not perform clinical validation or look back more than 3 years; an MA plan may not deny on unposted internal criteria or after its own approval except as 422.138(c) allows.
-11. **Recommendation vocabulary.** Each denied item gets one of: Appeal, Correct and rebill, Request reopening, Accept denial, or Hold: <fact>. Each deadline is Open, Urgent (10 days or fewer) or Expired: good cause only. A refused request is a Declined request with the rule behind it.
+11. **Recommendation vocabulary.** Each denied item gets one of: Appeal, Correct and rebill, Request reopening, Accept denial, or Hold: <fact>. Each deadline is Open, Urgent (10 days or fewer) or Expired: good cause only. A refused request is a Declined request with the rule behind it. The test for each label is in `references/output-template.md`, Section 12.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
 Collect before Step 1:
 
 1. Today's date and the purpose: single-claim appeal, batch of related denials, pre-appeal triage, or denial-pattern review.
-2. The denial notice itself (letter, ERA or portal notice) with its date, issuer and reference, any demand letter, and any earlier appeal decisions.
+2. The denial notice itself (letter, ERA or portal notice), or a labelled excerpt giving its date, issuer, reference and key text, plus any demand letter and earlier appeal decisions.
 3. Payer and product, the hospital's contract status, and for commercial or contracted MA claims the contract or provider manual sections on appeals and clinical definitions.
 4. Claim data: bill type, "From" and "Through" dates, codes billed, DRG or status billed and as revised, amount at issue.
 5. The medical record as billed for the issue in dispute (or quoted excerpts with date, time and author), plus every addendum, query and late entry with its creation date.
@@ -85,7 +86,7 @@ Defaults when an input is missing:
 
 Hard stops (do not draft appeal arguments):
 
-- No denial notice, remittance or audit letter, only a description of one: produce the intake list and stop; no deadline is computed from a description.
+- No denial notice, remittance or audit letter, and no labelled excerpt of one ("Excerpt from the denial notice" giving its date, issuer, reference and the reviewer's stated reason), only an unlabelled description: produce the intake list and stop; no deadline is computed from a description.
 - Payer or product unknown, so no appeal route can be selected.
 - No record documentation at all for the issue in dispute (neither the record nor dated, attributed excerpts): compute the clocks, list what is needed, and stop before the argument.
 - A request to create, alter, merge, backdate or re-date documentation, or to present a post-claim or post-denial entry as original: decline that part as a Declined request, then continue with the record as it stands.
@@ -132,7 +133,7 @@ Draft the letter from the skeleton in `references/output-template.md`, Section 6
 
 1. The header names the payer, product, contract status, dates of service and current level.
 2. The denial register lists every notice with date, issuer and reference.
-3. Each clock row shows trigger, rule, arithmetic, deadline, receiving entity and status, and no two rows share an anchor by assumption.
+3. Each clock row shows trigger, rule, arithmetic, deadline with its weekday, target receipt date, receiving entity and status, and no two rows share an anchor by assumption.
 4. Medicare and MA deadlines apply the 5-day presumed receipt; commercial deadlines use the contract's own trigger.
 5. Any ALJ or court threshold is the one for the calendar year of filing, with the computation shown.
 6. Each denied item is classified, and clinical validation arguments rest on the contract's definition with a criterion table, not on I.A.19 alone.

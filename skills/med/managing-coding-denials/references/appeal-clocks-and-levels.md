@@ -17,6 +17,7 @@ Rules checked October 30, 2026 against the sources in `references/primary-source
 - Receipt is presumed 5 calendar days after the date on the notice, unless there is evidence to the contrary: redetermination (42 CFR 405.942(a)(1)), reconsideration (405.962(a)(1)), ALJ (405.1002(a)(3)), Council (405.1102(a)(2)), court (405.1136(c)(2)).
 - A request is filed on the date the contractor, QIC, OMHA office or Council receives it (405.942(a)(2), 405.962(a)(2), 405.1002(a)(4), 405.1102(a)(3)).
 - The date a denials team, coder or business office first saw the letter is not evidence of when the provider received it. Evidence to the contrary is a dated mailroom log, envelope or portal receipt showing a later receipt by the party.
+- Weekends and holidays: the regulations above contain no roll provision. Report the weekday of every deadline and target receipt by the prior business day when the deadline falls on a weekend or holiday; for contracts, apply only a roll provision the contract states.
 - A late request needs a written good-cause showing (405.942(b)); the examples are illness, destroyed records, misleading contractor information, non-receipt of the notice, or a timely filing sent to the wrong government agency. Internal workload is not on the list.
 
 ## 2. Medicare fee-for-service appeal levels

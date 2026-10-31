@@ -16,6 +16,7 @@ Produce the header and sections in order. Every date shows its trigger and sourc
 10. Section 9. Gaps
 11. Section 10. Hand-offs
 12. Section 11. Open items, declined requests and `[VERIFY]` list
+13. Section 12. Label tests
 
 ## Header
 
@@ -35,13 +36,15 @@ Denial register: notice type (ERA, demand letter, review results letter, organiz
 
 Clock table, one row per timed element, each with its own trigger:
 
-| Element | Trigger event and date | Rule | Arithmetic | Must be received by | Received by whom |
-|---|---|---|---|---|---|
-| Redetermination | Notice date + 5 days presumed receipt | 405.942 | notice + 5 + 120 | | MAC |
-| Recoupment stop | Demand letter date | 405.379(d) | day 41 | | MAC |
-| Part B inpatient window | Through date | 414.5(c); 424.44 | through date + 1 calendar year | | MAC |
-| MA reconsideration | Organization determination notice date + 5 | 422.582(b) | notice + 5 + 60 | | Plan or named delegate |
-| Commercial appeal | Trigger named in the contract | Contract section | | | Payer address in contract |
+| Element | Trigger event and date | Rule | Arithmetic | Deadline | Weekday | Target receipt | Received by whom |
+|---|---|---|---|---|---|---|---|
+| Redetermination | Notice date + 5 days presumed receipt | 405.942 | notice + 5 + 120 | | | | MAC |
+| Recoupment stop | Demand letter date | 405.379(d) | day 41 | | | | MAC |
+| Part B inpatient window | Through date | 414.5(c); 424.44 | through date + 1 calendar year | | | | MAC |
+| MA reconsideration | Organization determination notice date + 5 | 422.582(b) | notice + 5 + 60 | | | | Plan or named delegate |
+| Commercial appeal | Trigger named in the contract | Contract section | | | | | Payer address in contract |
+
+Roll rule: a deadline on a Saturday, Sunday or holiday does not move unless the rule or contract says so; when it does not, the target receipt date is the prior business day. Neither 405.942 nor 422.582(b) contains a roll provision.
 
 Say which threshold year applies to any ALJ or court request and show the amount-in-controversy computation.
 
@@ -115,3 +118,21 @@ Typical rows: denial letter's summary of the record against the record itself; E
 Declined requests: each request declined, the rule behind it, and what was done instead.
 
 Close with: "Draft for coder, CDI, denials and compliance review. Appeal outcome depends on payer adjudication and the record as billed."
+
+## 12. Label tests
+
+| Label | Use it when |
+|---|---|
+| Coding validation | The reviewer disputes code assignment, sequencing or discharge status against the provider's documentation |
+| Clinical validation | The reviewer accepts that the provider documented the diagnosis but disputes that the patient had it |
+| Medical necessity or status | The reviewer disputes that the admission or service was reasonable and necessary, or the inpatient status |
+| Technical | The denial rests on filing, authorization, duplicate, eligibility or missing-records rules |
+| Appeal | The record as billed supports the billed code or status, and an appeal route with an open or good-cause deadline exists |
+| Correct and rebill | The record supports a different code, status or claim type, and a correction route is still open |
+| Request reopening | The error is clerical, or the rule routes the request to reopening (405.980(a)(2)-(3)), and no appeal of the issue is pending |
+| Accept denial | The record as billed does not support the billed item and no correction route would change the result |
+| Hold: <fact> | A named fact, document or contract term decides which of the above applies and is not yet in hand |
+| Open | The target receipt date is more than 10 days after today |
+| Urgent (10 days or fewer) | The target receipt date is 10 or fewer days after today and has not passed |
+| Expired: good cause only | The deadline has passed; only a good-cause or vacate request remains |
+| Declined request | The user asked for something a Ground Rule or hard stop forbids; name the rule and what was done instead |
