@@ -1,6 +1,6 @@
 # Fixture: Larch Specialty Insurance Company, commercial general liability
 
-Excerpt from the Larch Specialty Insurance Company claims data extract for the 2025 reserve study (extract dated Thursday, January 29, 2026). Data valued as of December 31, 2025. All amounts are USD thousands, net of reinsurance, and include DCC. The extract ties to Schedule P Parts 2 and 3 for Other Liability – Occurrence for these accident years.
+Excerpt from the Larch Specialty Insurance Company claims data extract for the 2025 reserve study (extract dated Thursday, January 29, 2026). Data valued as of December 31, 2025. All amounts are USD thousands, net of reinsurance, and include DCC. For Other Liability – Occurrence and these accident years, the paid triangle ties to Schedule P Part 3, and the reported triangle ties to Schedule P Part 2 minus Part 4 (a derived line, because Part 2 includes bulk and IBNR reserves).
 
 ## Cumulative paid loss and DCC by accident year and age (months)
 

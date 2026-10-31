@@ -23,7 +23,7 @@ Mechanics and selection rules for property and casualty unpaid claim estimates. 
 
 - Record the accounting date (separates paid from unpaid), the valuation date (data cut-off) and the review date (information cut-off), as ASOP No. 43 section 4.1(d) requires them in the communication.
 - Basis of every triangle: paid or reported (case incurred); cumulative or incremental; gross, ceded or net; with or without DCC; net or gross of salvage and subrogation received; accident, policy, report or underwriting year; units.
-- Tie the latest diagonal to Schedule P Part 1 by line (and to Parts 2 and 3 for the history), or to the general ledger for a GAAP-only entity. The Actuarial Report must show the data used was neither created nor destroyed (2026 ASI, Actuarial Opinion paragraph 7.C).
+- Tie the data under Schedule P's own line definitions: paid to Part 3; reported (paid plus case) to the derived line Part 2 minus Part 4, because Part 2 is incurred including bulk and IBNR; latest-year unpaid to Part 1. Use the general ledger for a GAAP-only entity. The Actuarial Report must show the data used was neither created nor destroyed (2026 ASI, Actuarial Opinion paragraph 7.C).
 - Identify large losses, catastrophe events, commutations, pooling changes, retroactive reinsurance (excluded from Schedule P) and line remapping before computing any factor.
 
 ## 2. Age-to-age factor selection

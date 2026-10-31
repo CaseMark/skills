@@ -97,7 +97,7 @@ For the statutory year-end in question, list each window in `references/statutor
 
 | # | Check | Test | Result (Pass / Fail / Not run) | Difference |
 |---|---|---|---|---|
-| R1 | Latest diagonal ties | Analysis paid and reported by year = Schedule P Parts 1 to 3 (or ledger) | | |
+| R1 | Latest diagonal ties | By year and line, under the form's own line definitions: analysis paid = Schedule P Part 3; analysis reported (paid plus case) = Part 2 minus Part 4, a derived line because Part 2 includes bulk and IBNR; latest-year unpaid = Part 1 (or ledger for GAAP-only) | | |
 | R2 | Unpaid identity | Ultimate - paid = case + IBNR, by year | | |
 | R3 | Triangle arithmetic | Incremental sums to cumulative; link ratios recompute | | |
 | R4 | CDF build | Product of selected factors x tail = CDF at each age | | |
@@ -130,7 +130,7 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 | To | Why | Facts passed (figures, dates, locators) | Open questions | What this analysis did not do |
 |---|---|---|---|---|
 | Appointed Actuary or other credentialed actuary | Opinion type, materiality, risk of material adverse deviation, signature | | | |
-| analyzing-earnings-quality | Whether reserve releases or prior-year development were used to manage reported earnings | | | |
+| analyzing-earnings-quality | The earnings-management question only, under its "earnings manipulation screen", "reserve releases" and "one-time gains in operating income" wording; loss reserve adequacy stays in this analysis | | | |
 | managing-reinsurance-programs | Reinsurer credit and counterparty evaluation | | | |
 | managing-insurance-regulatory-filings | Schedule P, Schedule F and annual statement schedule preparation | | | |
 

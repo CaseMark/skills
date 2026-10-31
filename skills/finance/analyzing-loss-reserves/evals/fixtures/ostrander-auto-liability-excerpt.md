@@ -2,7 +2,7 @@
 
 ## A. Excerpt from the 2025 reserve study, Exhibit 3 (dated Friday, February 20, 2026)
 
-Commercial auto liability, reported loss and DCC, net of reinsurance, USD thousands, accident years 2016 to 2025, valued December 31, 2025. The study's reported triangle (Exhibit 2, ten accident years at 12 to 120 months) ties to Schedule P Part 2 for Commercial Auto/Truck Liability/Medical.
+Commercial auto liability, reported loss and DCC, net of reinsurance, USD thousands, accident years 2016 to 2025, valued December 31, 2025. The study's reported triangle (Exhibit 2, ten accident years at 12 to 120 months) ties to Schedule P Part 2 minus Part 4 for Commercial Auto/Truck Liability/Medical (a derived line, because Part 2 includes bulk and IBNR reserves).
 
 Selected age-to-age factors for the later ages:
 

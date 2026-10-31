@@ -23,7 +23,7 @@ State insurance law and regulation of the domiciliary state govern; the 2026 Ann
 
 ## 2. ASOP No. 43 (unpaid claim estimates)
 
-Doc. No. 159, last revised May 2011, in force on 2026-10-30. The ASB approved a proposal to revise it in 2025 and a task force was being formed; no exposure draft had been issued.
+Doc. No. 159, adopted June 2007 and effective for work products produced on or after September 1, 2007, updated for deviation language effective May 1, 2011; in force on 2026-10-30. The ASB approved a proposal to revise it in 2025 and a task force was being formed; no exposure draft had been issued.
 - Scope: unpaid claims for events that have occurred by the accounting date, gross, net or of recoverables; excludes health benefit plans under ASOP Nos. 5 and 42 (but covers workers compensation medical); addresses the undiscounted value and points to ASOP No. 20 for discounting (section 1.2).
 - 3.1 purpose or use; 3.2 constraints disclosed if they create significant risk; 3.3 scope: intended measure (an actuarial central estimate is an expected value over reasonably possible outcomes; "best estimate" is not enough identification), gross or net, collectibility, types of claim adjustment expense, claims covered.
 - 3.6.1 multiple methods unless reliance on one is reasonable and disclosed; 3.6.2 assumptions with no known significant bias and not internally inconsistent, with sensitivity to reasonable alternatives; 3.6.4 interaction of recoverables; 3.6.5 gross versus net; 3.6.6 external conditions (economic, judicial, social); 3.6.7 changing conditions, including claims practice and reinsurance program changes; 3.6.8 uncertainty.
@@ -55,7 +55,7 @@ Revised as "Analysis of Property/Casualty Cash Flows, Including Discounting", Do
 
 ## 6. SSAP No. 65 (discounting and P&C contracts)
 
-- Paragraph 10: except fixed and reasonably determinable payments such as workers compensation tabular indemnity reserves and long-term disability claims, P&C loss reserves shall not be discounted; no LAE reserves shall be discounted.
+- Paragraph 10 (as numbered in the AICPA guide's quotation; [VERIFY] against the current manual): except fixed and reasonably determinable payments such as workers compensation tabular indemnity reserves and long-term disability claims, P&C loss reserves shall not be discounted; no LAE reserves shall be discounted.
 - Exhibit A of SSAP No. 65 gives guidelines for states that prescribe or permit nontabular discounting; whether a state does so is state-specific.
 - Paragraph 14: disclose whether any unpaid losses or LAE are discounted.
 - High-deductible policies: reserves net of the deductible, with no credit for uncollectible amounts due from the insured (paragraph 35).
@@ -67,7 +67,7 @@ Reinsurance recoverables on unpaid case and IBNR losses and LAE are netted again
 
 ## 8. Schedule P structure
 
-Seven parts plus interrogatories (2026 ASI): Part 1 detail of premiums, losses and loss expenses (including anticipated salvage and subrogation, column 23); Part 2 incurred net losses and DCC at each year-end; Part 3 cumulative paid net losses and DCC, with closed claim counts; Part 4 bulk and IBNR reserves on net losses and DCC; Part 5 claim counts (direct and assumed); Part 6 earned premium history; Part 7 loss-sensitive contracts. Ten years for all lines plus a prior row; amounts in thousands; incurred year by accident date, report date (claims-made), policy issue date or discovery date; pooled companies report their share. AO is not in Parts 2 to 4.
+Seven parts plus interrogatories (2026 ASI): Part 1 detail of premiums, losses and loss expenses (including anticipated salvage and subrogation, column 23); Part 2 incurred net losses and DCC at each year-end (paid plus case plus bulk plus IBNR, so a paid-plus-case triangle ties to Part 2 minus Part 4); Part 3 cumulative paid net losses and DCC, with closed claim counts; Part 4 bulk and IBNR reserves on net losses and DCC; Part 5 claim counts (direct and assumed); Part 6 earned premium history; Part 7 loss-sensitive contracts. Ten years for all lines plus a prior row; amounts in thousands; incurred year by accident date, report date (claims-made), policy issue date or discovery date; pooled companies report their share. AO is not in Parts 2 to 4.
 
 ## 9. NAIC Annual Statement Instructions, Actuarial Opinion (2026)
 

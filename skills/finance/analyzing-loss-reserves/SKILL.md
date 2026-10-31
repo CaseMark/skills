@@ -78,7 +78,7 @@ Read each input with this suspicion before projecting from it.
 Collect these, then fill the source-review register (`references/output-template.md`, Header).
 
 1. **Entity and scope:** legal entity, NAIC number, pool participation and lead company, lines, accident years, purpose, and which reserves are in scope (loss, DCC, AO, premium items).
-2. **Loss data:** paid and reported triangles by accident year (or Schedule P Parts 2 and 3), claim counts, case reserves on the latest diagonal, with the basis of each.
+2. **Loss data:** paid and reported triangles by accident year (or Schedule P: paid from Part 3; reported, meaning paid plus case, as the derived line Part 2 minus Part 4), claim counts, case reserves on the latest diagonal, with the basis of each.
 3. **Exposure:** earned premium by year, rate changes for on-leveling, or another exposure base.
 4. **Carried reserves:** case, IBNR, DCC and AO, gross and net, by line and year; Annual Statement Exhibit A amounts if statutory.
 5. **Prior work:** the last reserve study or Actuarial Report, selected factors, tails and ELRs, and the prior point and range.
@@ -87,10 +87,10 @@ Collect these, then fill the source-review register (`references/output-template
 8. **Basis:** statutory, GAAP or other; discounting and any state prescribed or permitted practice; materiality standard if one is set.
 9. **Analysis date** and the statutory year-end in question, for the filing calendar check.
 
-**Default fallbacks (each stated in the assumption register):** all-year volume-weighted factors as a starting point only, never as a selection without review; an exponentially decaying tail fitted to the last observed factors when no tail study exists, labeled Judgmental; an ELR from on-level, trended mature-year ultimate loss ratios when no pricing study exists; undiscounted reserves (SSAP No. 65 paragraph 10 overrides any user default to discount, except tabular workers compensation indemnity, long-term disability or a state prescribed or permitted practice); intended measure an actuarial central estimate unless the user names another.
+**Default fallbacks (each stated in the assumption register):** all-year volume-weighted factors as a starting point only, never as a selection without review; an exponentially decaying tail fitted to the last observed factors when no tail study exists, labeled Judgmental; an ELR from on-level, trended mature-year ultimate loss ratios when no pricing study exists; undiscounted reserves (SSAP No. 65 overrides any user default to discount, except tabular workers compensation indemnity, long-term disability or a state prescribed or permitted practice); intended measure an actuarial central estimate unless the user names another.
 
 **Hard stops.** Each tests the parties named; check them against parties the request implies but does not name (a parent holding company, a pool lead, a buyer or seller, the CFO acting for the board).
-- **No loss data.** A projection of ultimate or unpaid losses is requested for an entity or line, and no paid or reported loss history by accident, report or policy year for that entity or line is in the file (triangle, Schedule P Parts 2 and 3, or a claims extract, supplied as a document or a labeled excerpt). Stop the projection for that line; list what is needed. Netting, reclassifying or comparing an estimate the file already contains is not a projection.
+- **No loss data.** A projection of ultimate or unpaid losses is requested for an entity or line, and no paid or reported loss history by accident, report or policy year for that entity or line is in the file (triangle, Schedule P Parts 2 to 4, or a claims extract, supplied as a document or a labeled excerpt). Stop the projection for that line; list what is needed. Netting, reclassifying or comparing an estimate the file already contains is not a projection.
 - **Target-driven selection.** Anyone (the user, management, the board, a parent or pool lead, a buyer, seller, lender or rating agency) asks that a factor, tail, ELR, trend, weight, point or range be chosen or moved so a reserve, IBNR, release, ratio, earnings, surplus, RBC, IRIS result or covenant reaches a stated figure. Decline that part.
 - **Opinion or sign-off.** The request is to issue, sign, date or finalize an SAO or AOS, to write the OPINION paragraph's conclusion or the risk of material adverse deviation answer in the name of the Appointed Actuary or any other actuary, or to state that a credentialed actuary reached a conclusion she has not reached. Decline that part; prepare the exhibits and decision list instead.
 - **Out-of-scope reserves.** An adequacy conclusion is requested, for the company, an affiliate or a pool member, on life, annuity or long-duration A&H reserves (contract reserves, long-term care, Actuarial Guideline LI) or health benefit plan claim liabilities. Decline that part.
@@ -104,7 +104,7 @@ Open every file and fill the source-review register. Record the entity, pool sha
 
 ## Step 2: Data Reconciliation and Diagnostics
 
-Read `references/reserving-methods.md` Sections 1 and 7 and `references/statutory-and-gaap-rules.md` Section 8. Tie the data used to Schedule P Parts 1 to 3 or the ledger (check R1). Run the diagnostics: paid to reported ratios, average case per open claim, disposal rates, large losses, and any calendar-year diagonal effect. Record each operational change with its date and evidence.
+Read `references/reserving-methods.md` Sections 1 and 7 and `references/statutory-and-gaap-rules.md` Section 8. Tie the data used to Schedule P or the ledger under the form's own line definitions: paid to Part 3, reported to the derived line Part 2 minus Part 4 (Part 2 includes bulk and IBNR), latest-year unpaid to Part 1 (check R1). Run the diagnostics: paid to reported ratios, average case per open claim, disposal rates, large losses, and any calendar-year diagonal effect. Record each operational change with its date and evidence.
 
 ## Step 3: Factor and Tail Selection
 
@@ -124,7 +124,7 @@ Read `references/reserving-methods.md` Sections 10 to 12 and `references/statuto
 
 ## Step 7: Carried Reserve Position and Development History
 
-Read `references/output-template.md` Sections 7 and 9. Assign the carried position label on each basis with its test, and compute one-year development and the AOS item E test from Schedule P Part 2 and surplus. Treat any release as a question of whether the re-estimate supports it; hand earnings-management questions to analyzing-earnings-quality.
+Read `references/output-template.md` Sections 7 and 9. Assign the carried position label on each basis with its test, and compute one-year development and the AOS item E test from Schedule P Part 2 and surplus. Treat any release as a question of whether the re-estimate supports it; hand only the earnings-management question to analyzing-earnings-quality (its "earnings manipulation screen").
 
 ## Step 8: Regulatory and Disclosure Workpapers
 
@@ -184,7 +184,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 
 ## Related Skills
 
-- analyzing-earnings-quality: whether reserve releases or prior-year development were used to manage reported earnings and how they affect normalized earnings; this skill supplies the adequacy re-estimate.
+- analyzing-earnings-quality: the earnings-management question only, under the "earnings manipulation screen", "reserve releases" and "one-time gains in operating income" wording of its description: whether a loss reserve release reported as favorable prior-year development is lifting reported earnings and how normalized earnings treat it. Its "reserve releases (bad debt, warranty, inventory)" claim does not cover insurer loss reserves, so the actuarial adequacy of the release stays here.
 - managing-reinsurance-programs: reinsurer credit and counterparty evaluation behind a collectibility concern raised here.
 - managing-insurance-regulatory-filings: preparing Schedule P, Schedule F, risk-based capital and other annual statement schedules.
 - managing-claims-analysis: claims department severity and frequency trending and case reserve monitoring behind a case adequacy change.

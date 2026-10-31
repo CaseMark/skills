@@ -19,7 +19,7 @@ Net 99.0; gross 126.0.
 
 ## D. Bellmont Indemnity Company one-year development and surplus (company share), USD millions
 
-One-year development is the change in the estimate of prior accident years' losses and LAE during the calendar year, as measured by Schedule P, Part 2 Summary; positive is adverse.
+One-year development is the change in the estimate of prior accident years' net losses and DCC during the calendar year, as measured by Schedule P, Part 2 Summary; positive is adverse.
 
 | Calendar year | One-year development | Policyholders' surplus at the prior year-end |
 |---|---|---|
