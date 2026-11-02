@@ -7,7 +7,8 @@ description: >-
   reporting to satisfy the "best notice practicable" standard. Use after class
   certification or when seeking settlement approval. Trigger when user mentions
   class notice, notice plan, communication plan, Rule 23(c)(2)(B), claims
-  administrator, or CAFA notice.
+  administrator, or CAFA notice. The CAFA 28 U.S.C. 1715 notice package to
+  officials and its clock go to class-action-settlement.
 ---
 
 # Class Notice Communication Plan

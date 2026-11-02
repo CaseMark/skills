@@ -5,7 +5,8 @@ description: >-
   Drafts a Stock Purchase Agreement for 100% stock acquisitions in
   middle-market M&A transactions. Covers purchase price with working capital
   adjustments, escrow, earnouts, seller reps and warranties with disclosure
-  schedules, indemnification, restrictive covenants, and closing mechanics.
+  schedules, indemnification, tax matters (straddle-period allocation, tax
+  cooperation), restrictive covenants, and closing mechanics.
   Trigger keywords: "stock purchase agreement", "SPA", "stock acquisition",
   "definitive purchase agreement", "M&A closing document", "share purchase".
 tags:

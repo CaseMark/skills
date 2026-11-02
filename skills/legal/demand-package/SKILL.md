@@ -1,7 +1,7 @@
 ---
 name: demand-package
 language: en
-description: Compiles pre-suit or pre-settlement demand packages for U.S. commercial litigation plaintiffs. Assembles demand letter, damages calculation, and exhibit set. Use when drafting demand packages, pre-litigation settlement demands, or breach-and-cure notices.
+description: Compiles pre-suit or pre-settlement demand packages for U.S. commercial litigation plaintiffs. Assembles demand letter, damages calculation, and exhibit set. Use when drafting demand packages, pre-litigation settlement demands, or breach-and-cure notices. The demand letter itself goes to demand-letter; this skill assembles the package.
 tags:
   - drafting
   - letter

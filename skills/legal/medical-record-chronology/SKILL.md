@@ -1,7 +1,7 @@
 ---
 name: medical-record-chronology
 language: en
-description: "Creates verified, Bates-cited chronological summaries of medical records for litigation. Extracts treatment timelines, providers, diagnoses, procedures, medications, and causation evidence with every clinical fact traceable to a specific Bates range. Identifies gaps, inconsistencies, pre-existing conditions, and records needing follow-up. Flags unverifiable claims rather than dropping them. Use this skill whenever the user asks for a medical chronology, medical summary, treatment timeline, or records review in a personal injury, medical malpractice, workers comp, or disability case, and any time medical records are produced for analysis, even if the user does not say the word 'chronology'."
+description: "Creates verified, Bates-cited chronological summaries of medical records for litigation. Extracts treatment timelines, providers, diagnoses, procedures, medications, and causation evidence with every clinical fact traceable to a specific Bates range. Identifies gaps, inconsistencies, pre-existing conditions, and records needing follow-up. Flags unverifiable claims rather than dropping them. Use this skill whenever the user asks for a medical chronology, medical summary, treatment timeline, or records review in a personal injury, medical malpractice, workers comp, or disability case, and any time medical records are produced for analysis, even if the user does not say the word 'chronology'. Quality-measure abstraction or clinical review of one encounter (SEP-1, stroke or ACS measures, fetal heart rate strip interpretation, suicide risk documentation, medication reconciliation) goes to the matching med skill."
 tags:
   - litigation
   - analysis
