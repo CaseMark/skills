@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and the sections below, in this order. Put figures in tables. Every fact carries a source locator (document, page, schedule, line or paragraph) or [UNVERIFIED]; every rule carries its citation and year from `primary-sources.md` or [VERIFY]. State the as-of date, the currency and the tax years once in the header.
+Produce the header and the sections below, in this order. Put figures in tables. Every fact carries a source locator (document, page, schedule, line or paragraph) or [UNVERIFIED]; every rule carries its citation and year from `primary-sources.md` or the label "Confirm before use:". State the as-of date, the currency and the tax years once in the header.
 
 ## Contents
 
@@ -18,7 +18,7 @@ Produce the header and the sections below, in this order. Put figures in tables.
 12. Section 11. Issues and judgment calls
 13. Section 12. Declined and not prepared items
 14. Section 13. Hand-offs
-15. Section 14. Open items and [VERIFY] list
+15. Section 14. Open items and items to confirm before use
 16. Label tests
 
 ## Header
@@ -80,7 +80,7 @@ Steps in order: gross estate; deductions; taxable estate; adjusted taxable gifts
 
 ## 9. State layer
 
-Domicile state and any state where real or tangible property sits; each state's estate or inheritance tax as read for the year with its citation, or "not modeled" with [VERIFY].
+Domicile state and any state where real or tangible property sits; each state's estate or inheritance tax as read for the year with its citation, or "not modeled" with the label "Confirm before use:".
 
 ## 10. Reconciliation checks
 
@@ -127,7 +127,7 @@ A hand-off names the facts the receiving workflow needs.
 
 Add or remove rows to match the matter, using the Related Skills list in SKILL.md.
 
-## 14. Open items and [VERIFY] list
+## 14. Open items and items to confirm before use
 
 | # | Open item | Gap class (unknown fact, source conflict, unverified external lookup, policy election) | Depends on | Owner | Next action | Changes which result |
 |---|---|---|---|---|---|---|

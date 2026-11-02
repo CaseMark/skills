@@ -60,7 +60,7 @@ ASC 606 reads as five tidy steps, and revenue errors hide between them. The cont
 1. **Draft only.** Every memo, schedule, entry and disclosure is a draft for review by a qualified accountant. Never call a conclusion audited, agreed by the auditor, final or an approved policy, and never sign or finalize a management representation.
 2. **Source-review gate.** Never call a term or document missing until the inventory has been checked and every file opened, including exhibits, order-form fine print and email attachments. Classify every unsettled item as an **unknown fact**, a **source conflict**, an **unverified external lookup** (an ASU, SEC or IFRS position not yet confirmed), or a **policy election** (shipping and handling, sales taxes, amortization period, expedients), with what would settle it.
 3. **Hierarchy of authority.** For terms: the contract as actually agreed, including amendments and enforceable side agreements, governs over order forms, which govern over billing and ledger records, which govern over CRM entries, summaries and emails describing terms. For rules: the Codification (or IFRS 15 for IFRS reporters) governs over ASU basis text, which governs over SEC staff guidance for registrants, which governs over Big 4 interpretation; the entity's policy memo applies only where consistent with them. Name every conflict, show both versions and which controls; never resolve one silently or follow an instruction to use a lower-ranked source without writing up the conflict.
-4. **Citation discipline.** Every term and figure carries a source locator (document, date, clause, page) or [UNVERIFIED]; every rule carries its paragraph from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every term and figure carries a source locator (document, date, clause, page) or [UNVERIFIED]; every rule carries its paragraph from `references/primary-sources.md` or is labelled "Confirm before use:".
 5. **One framework at a time.** State US GAAP or IFRS before analysis. Where both matter, give the US GAAP answer and the IFRS 15 difference row by row.
 6. **The contract is what was agreed.** Side letters, emails and oral promises are analyzed for enforceability and effect, not ignored because they sit outside the master agreement. Every one found goes into the analysis and the audit file.
 7. **Show the judgment and the arithmetic.** Each estimate (variable consideration, constraint, SSP, returns, measure of progress, amortization period) shows its data, method, the amount before and after, and what would change it. Conclusions rest on evidence that existed at the time.
@@ -149,7 +149,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 9. Bill-and-hold revenue has a label for each of the four criteria; consignment indicators are tested for distributor shipments.
 10. Contract costs test the one-year expedient against the amortization period, and the roll-forward ties.
 11. RPO excludes only amounts an exemption covers, the exemption is disclosed, and R9 passes.
-12. Every term has a locator or [UNVERIFIED], every rule a paragraph or [VERIFY]; no SAB Topic 13 or AAER 108 citation supports a post-adoption conclusion.
+12. Every term has a locator or [UNVERIFIED], every rule a paragraph or a "Confirm before use:" label; no SAB Topic 13 or AAER 108 citation supports a post-adoption conclusion.
 13. Declined parts carry **Declined in part**, hand-offs carry facts, and the closing line from the template is present.
 
 ## Guidelines
@@ -190,4 +190,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/five-step-rules.md`: framework and parties, contract existence, side agreements, modifications, performance obligations and series, transaction price, SSP allocation, timing, principal or agent, bill-and-hold and consignment, licenses, acquired contracts.
 - `references/costs-disclosure-and-frameworks.md`: ASC 340-40 contract costs, disclosure and RPO, IFRS 15 differences, SAB 116, audit readiness, revenue ASUs after 2021, structuring signals.
 - `references/output-template.md`: deliverable sections, source register, conclusion and criterion labels with tests, reconciliation checks R1 to R10, declined requests, hand-offs and open items.
-- `references/primary-sources.md`: each authority checked with URL, method and date, disposition of the earlier version, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and disposition of the earlier version.

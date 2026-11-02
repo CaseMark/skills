@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and the sections below, in this order; omit a section only by writing "Not in scope" with the reason. Put numbers in tables and keep prose short. Every figure and term carries a source locator (document, date, section or clause, page) or [UNVERIFIED]; every rule carries a paragraph citation or [VERIFY]. State currency and units once.
+Produce the header and the sections below, in this order; omit a section only by writing "Not in scope" with the reason. Put numbers in tables and keep prose short. Every figure and term carries a source locator (document, date, section or clause, page) or [UNVERIFIED]; every rule carries a paragraph citation or the label "Confirm before use:". State currency and units once.
 
 ## Contents
 
@@ -16,7 +16,7 @@ Produce the header and the sections below, in this order; omit a section only by
 10. Section 9. Issues, conflicts and judgment calls
 11. Section 10. Declined requests
 12. Section 11. Hand-offs
-13. Section 12. Open items and [VERIFY] list
+13. Section 12. Open items and items to confirm before use
 14. Label tests
 
 ## Header and source-review register
@@ -127,7 +127,7 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 
 Add or remove rows to match the matter.
 
-## 12. Open items and [VERIFY] list
+## 12. Open items and items to confirm before use
 
 | # | Open item | Gap class | Depends on | Owner | Next action | Changes which conclusion |
 |---|---|---|---|---|---|---|

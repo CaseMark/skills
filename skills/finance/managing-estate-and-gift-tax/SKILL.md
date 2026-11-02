@@ -62,14 +62,14 @@ Read each input with this suspicion before relying on it.
 1. **Draft only.** Every figure, status and recommendation is a draft for review by a qualified estate and gift tax adviser. Never call a conclusion final, an opinion, or a return ready to sign.
 2. **Source-review gate.** Never call a document missing until the inventory has been checked and each file opened, including schedules, attachments and exhibits. Classify every unsettled item as an **unknown fact**, a **source conflict**, an **unverified external lookup** (published figures, state law, values) or a **policy election** (gift splitting, portability, 2032, 6166, GST allocation), with what would settle it.
 3. **Hierarchy of authority.** For facts: executed instruments, filed returns and IRS letters govern over appraisals and account statements, which govern over inventories, ledgers and models, which govern over emails, memos and summaries. For law: the Code and final regulations govern over revenue procedures and rulings, which govern over proposed regulations, which govern over commentary. Name every conflict, show both versions, say which controls and why; never resolve one silently.
-4. **Citation discipline.** Every fact carries a source locator or [UNVERIFIED]; every rule carries its citation from `references/primary-sources.md` or [VERIFY].
-5. **Every figure carries its year.** Use the BEA and annual exclusion for the year of each gift and the BEA for the year of death. The BEA is $15,000,000 for 2026 and indexed after 2026 with no scheduled reduction; a figure for a year not yet published is [VERIFY].
+4. **Citation discipline.** Every fact carries a source locator or [UNVERIFIED]; every rule carries its citation from `references/primary-sources.md` or the label "Confirm before use:".
+5. **Every figure carries its year.** Use the BEA and annual exclusion for the year of each gift and the BEA for the year of death. The BEA is $15,000,000 for 2026 and indexed after 2026 with no scheduled reduction; a figure for a year not yet published is labelled "Confirm before use:".
 6. **Right person, right return.** For each figure, name whose exclusion, consent, election or return it is: donor, consenting spouse, decedent, last deceased spouse, executor or trustee. Only the executor of the deceased spouse's estate elects portability; only both spouses together split gifts, and for every gift to third parties that year.
 7. **Clocks by script.** Each deadline has its own trigger from `references/deadlines-and-elections.md`, is computed by script, and shows its weekday and whether IRC 7503 moves it. Check every window open on the as-of date. A filing extension never extends payment.
 8. **No altered records.** Never backdate, re-date or alter a gift document, assignment, trust instrument or amendment, Crummey notice, appraisal, valuation date or signature, and never report a transfer in a year or at a date the executed documents contradict. A transfer is documented when it actually happens; a missed date is reported with its cure, not papered over.
 9. **Value is supported, then disclosed.** A value for a closely held or hard-to-value interest comes from an appraisal or the financial data the disclosure regulation lists; the valuation itself is routed to building-equity-valuation-models. This skill tests the value against the transfer-tax rules (2031, 2512, Chapter 14, inclusion, penalties) and the disclosure requirements. A request aimed at a direction ("as low as possible", "the less the IRS sees the better") is answered with the supported figure, the disclosure label and its consequences; no finding is left out of the deliverable to reach it.
 10. **Inclusion and basis together.** Test every transferred asset for inclusion under 2035, 2036, 2038 and 2042 before relying on a discount or an exclusion from the estate, and give a basis step-up only to property in the gross estate.
-11. **State law is read, not assumed.** A state estate or inheritance tax figure comes from the state statute for the year, or the state layer is marked "not modeled" with [VERIFY].
+11. **State law is read, not assumed.** A state estate or inheritance tax figure comes from the state statute for the year, or the state layer is marked "not modeled" with the label "Confirm before use:".
 12. **Scope.** U.S. citizens and residents under federal transfer tax. Nonresident aliens, treaties, instrument drafting, valuation models and IRS disputes are routed with a complete hand-off (Related Skills).
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
@@ -84,7 +84,7 @@ Collect these, then build the source-review register (`references/output-templat
 6. **Estate facts:** gross estate inventory, deductions claimed, prior Form 706 of a deceased spouse, any filing or payment extension already requested.
 7. **States:** domicile and the location of real and tangible property.
 
-**Default fallbacks (each recorded as a policy election or unknown fact):** state layer "not modeled" if the state statute was not read; deadlines shown without extensions, with the extended date as a separate row (but an income tax extension for the year extends Form 709 under IRC 6075(b)(2), so ask before using the April 15 default); projections after 2026 use the 2026 BEA labelled a [VERIFY] proxy, which understates an indexed amount; no gift splitting unless both spouses consent, because consent is all-or-nothing for the year; deductions shown as zero only when the user says so.
+**Default fallbacks (each recorded as a policy election or unknown fact):** state layer "not modeled" if the state statute was not read; deadlines shown without extensions, with the extended date as a separate row (but an income tax extension for the year extends Form 709 under IRC 6075(b)(2), so ask before using the April 15 default); projections after 2026 use the 2026 BEA labelled "Confirm before use:" as a proxy, which understates an indexed amount; no gift splitting unless both spouses consent, because consent is all-or-nothing for the year; deductions shown as zero only when the user says so.
 
 **Hard stops (deliver everything else and label the blocked part as Section 12 of the template requires):**
 - **H1.** The donor or decedent, or any spouse whose exclusion, DSUE, consent or marital deduction the result uses (including a predeceased or later deceased spouse and a consenting spouse), cannot be identified with citizenship or residence and the date of each gift or death: no exclusion, DSUE or tax figure for that person.
@@ -123,7 +123,7 @@ Read `references/transfer-tax-rules.md` Sections 2, 11 and 12. Compute the gift 
 
 ## Step 8: Reconcile, Issues, Hand-Offs and Open Items
 
-Complete reconciliation checks R1 to R11 in `references/output-template.md` Section 10; each Fail becomes an issue. Rank issues by the template's severity rule. List declined and not prepared items with the template's labels verbatim. Write complete hand-offs and the open items and [VERIFY] list from `references/primary-sources.md`.
+Complete reconciliation checks R1 to R11 in `references/output-template.md` Section 10; each Fail becomes an issue. Rank issues by the template's severity rule. List declined and not prepared items with the template's labels verbatim. Write complete hand-offs and the open items and items to confirm before use.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -169,7 +169,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 | Inventory value and statement value differ | Different valuation dates or a stale inventory | The statement at the valuation date controls; show both and the date of each |
 | Executor and surviving spouse give different facts about a prior return | Return not located | Treat filing as an unverified external lookup; show the portability result under each version |
 | A memo states a figure or rule the statute contradicts | Stale law or misquoted commentary | The statute controls; record the conflict in Section 11 |
-| State rules unclear for the year | Recent amendment or repeal | Mark [VERIFY] with the state and year; show the federal result alone |
+| State rules unclear for the year | Recent amendment or repeal | Label "Confirm before use:" with the state and year; show the federal result alone |
 
 ## Related Skills
 
@@ -199,4 +199,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/transfer-tax-rules.md`: figures by year, tax computation, BEA and anti-clawback, portability, gifts and Crummey rights, adequate disclosure, GST, inclusion, valuation and Chapter 14, basis, 6166 and 6161, noncitizen spouses and states.
 - `references/deadlines-and-elections.md`: clock table with a trigger per element, the date script, IRC 7503 and DC holidays, window status labels, election traps.
 - `references/output-template.md`: deliverable sections, ledger and review tables, clock table, reconciliation checks R1 to R11, decline labels, hand-off table, label tests.
-- `references/primary-sources.md`: each authority checked with URL, method and date, conflicts found, disposition of the prior stub, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, conflicts found, and disposition of the prior stub.

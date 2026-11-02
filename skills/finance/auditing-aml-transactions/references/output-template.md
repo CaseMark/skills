@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and the parts below in this order. Tables for detail, short sentences for conclusions. Every computed date shows its weekday; every figure carries a source locator (file, tab, row, case ID) or `[UNVERIFIED]`; every rule carries its citation from `references/primary-sources.md` or `[VERIFY]`.
+Produce the header and the parts below in this order. Tables for detail, short sentences for conclusions. Every computed date shows its weekday; every figure carries a source locator (file, tab, row, case ID) or `[UNVERIFIED]`; every rule carries its citation from `references/primary-sources.md` or the label "Confirm before use:".
 
 ## Contents
 
@@ -12,7 +12,7 @@ Produce the header and the parts below in this order. Tables for detail, short s
 6. Part 5. Findings and judgment calls
 7. Part 6. SAR narrative draft (when requested)
 8. Part 7. Reconciliation table
-9. Part 8. Hand-offs, open items and `[VERIFY]` list
+9. Part 8. Hand-offs, open items and items to confirm before use
 10. Label tests
 
 ## Header
@@ -109,7 +109,7 @@ Only when requested and when the decision maker's determination is recorded or t
 | No-file documentation | | SAR FAQ Q4 | FFIEC manual or procedure | | |
 | Model risk guidance | | SR 26-2 (Apr. 17, 2026) | any SR 11-7 or OCC 2011-12 citation | | |
 
-## Part 8. Hand-offs, open items and `[VERIFY]` list
+## Part 8. Hand-offs, open items and items to confirm before use
 
 | To | When | Facts passed |
 |---|---|---|
@@ -123,7 +123,7 @@ Only when requested and when the decision maker's determination is recorded or t
 
 Open items: | # | Item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Owner | Next action | Blocks conclusion? |
 
-`[VERIFY]` list: statement, why unconfirmed, what settles it.
+Items to confirm before use (each labelled "Confirm before use:"): statement, why unconfirmed, what settles it.
 
 Close with: "Draft for review by the BSA/AML officer. Not a SAR filing decision, not an examination conclusion, and not legal advice."
 

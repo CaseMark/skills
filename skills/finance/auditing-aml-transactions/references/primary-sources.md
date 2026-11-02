@@ -10,7 +10,6 @@
 6. Rule status notes
 7. Corrections to the prior version of this skill
 8. Disposition of the former AML-RED-FLAGS.md
-9. `[VERIFY]` list
 
 ## 1. How these sources were checked
 
@@ -94,17 +93,3 @@ The former reference was merged into `references/testing-methods-and-typologies.
 | Named comprehensively sanctioned countries (North Korea, Iran, Cuba, Syria, Crimea) | Dropped as wrong (Syria regulations removed 2025) and as stale-prone | Instruction to check current OFAC and FATF lists |
 | FinCEN advisory number for human trafficking | Dropped as unverified; typology kept | Methods file, section 8 |
 | "Within 24-48 hours" rapid movement window | Kept as an indicator, not a rule | Methods file, section 8 |
-
-## 9. `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Whether a SAR due date on a weekend or federal holiday moves to the next business day | No rule read addresses it (also open in aml-compliance-program) | FinCEN SAR filing instructions or FAQ |
-| Text of FinCEN's 314(a) FAQs and FIN-2012-G001 | Read only as summarized in the FFIEC manual | FinCEN documents |
-| SAR narrative content standards beyond the FFIEC manual's SAR quality passage | FFIEC Appendix L and FinCEN narrative guidance not read | Those documents |
-| SAR rules for casinos, card clubs and housing GSEs (1021.320, 1030.320) | Not read | eCFR |
-| Federal Reserve 12 C.F.R. 208.62 and NCUA 748.1 tiers | Not read; OCC and FDIC tiers read | eCFR |
-| NYDFS Part 504 provisions beyond 504.3 (annual certification) | Not read | 3 NYCRR 504.4 |
-| Current OFAC program list and FATF high-risk lists on a review date | Change frequently | OFAC and FATF websites on the date |
-| Any later FFIEC manual revision of the SAR section to reflect the 2025 FAQs | Banner says an update is pending | bsaaml.ffiec.gov |
-| The agencies' planned request for information on model risk and AI | Announced, not located | Federal Register |

@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and sections below in this order. Numbers go in tables; prose stays short. Every figure carries a source locator, a register ID or [UNVERIFIED]. State currency and units once (for example USD thousands, matching Schedule P) and do not mix units.
+Produce the header and sections below in this order. Numbers go in tables; prose stays short. Every figure carries a source locator, a register ID or [UNVERIFIED]. Every rule carries its citation or the label "Confirm before use:". State currency and units once (for example USD thousands, matching Schedule P) and do not mix units.
 
 ## Contents
 
@@ -19,7 +19,7 @@ Produce the header and sections below in this order. Numbers go in tables; prose
 13. Section 12. Issues, conflicts and judgment calls
 14. Section 13. Declined parts
 15. Section 14. Hand-offs
-16. Section 15. Open items and [VERIFY] list
+16. Section 15. Open items and items to confirm before use
 
 ## Header
 
@@ -136,11 +136,11 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 
 Add or remove rows to match the matter.
 
-## 15. Open items and [VERIFY] list
+## 15. Open items and items to confirm before use
 
 | # | Open item | Gap class | Depends on | Owner | Next action | Changes which output |
 |---|---|---|---|---|---|---|
 
-Then each [VERIFY] statement and what would settle it.
+Then each statement labelled "Confirm before use:" and what would settle it.
 
 Close with: "Draft for review by a credentialed actuary. Not a Statement of Actuarial Opinion, not an Actuarial Opinion Summary and not legal, accounting or investment advice."

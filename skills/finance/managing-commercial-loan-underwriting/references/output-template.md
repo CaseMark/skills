@@ -18,7 +18,7 @@ Produce the header and the sections below, in this order. Numbers go in tables; 
 12. Section 11. Issues, conflicts and exceptions
 13. Section 12. Declined requests
 14. Section 13. Hand-offs
-15. Section 14. Open items and [VERIFY] list
+15. Section 14. Open items and items to confirm before use
 
 ## Header
 
@@ -104,7 +104,7 @@ Finding labels:
 - **Compliant**: the facts show each requirement of the rule is met.
 - **Noncompliant - remediate**: a requirement that applied on the facts was not met (for example a notice sent after its deadline, a missing board approval). State the remediation and that compliance staff must review it.
 - **Not yet applicable**: the rule's compliance date or trigger has not occurred on the memo date.
-- **Open - needs counsel**: the result turns on a legal reading, a [VERIFY] item or a fact the skill cannot settle.
+- **Open - needs counsel**: the result turns on a legal reading, an item labelled "Confirm before use:" or a fact the skill cannot settle.
 
 ## 9. Proposed risk rating
 
@@ -153,7 +153,7 @@ A hand-off names the facts the receiving workflow needs and quotes the phrase in
 
 Add or remove rows to match the matter.
 
-## 14. Open items and [VERIFY] list
+## 14. Open items and items to confirm before use
 
 | # | Open item | Gap class | Owner | Next action | Changes which test or finding |
 |---|---|---|---|---|---|

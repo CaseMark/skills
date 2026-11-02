@@ -63,7 +63,7 @@ Read each input with this suspicion before projecting from it.
 1. **Draft only.** Every estimate, range, label and exhibit is a draft for review by a credentialed actuary. Never call it final, signed, approved or an opinion; never state that reserves "make a reasonable provision", are "deficient" or are "redundant".
 2. **Source-review gate.** Never call data missing until the inventory is checked and each file opened, including Schedule P parts, treaty schedules and claims memos. Classify every gap as an **unknown fact**, a **source conflict**, an **unverified external lookup** (industry factors, benchmark tails, reinsurer ratings), or a **policy election** (method weights, tail choice, intended measure), with what would settle it.
 3. **Hierarchy of authority.** State insurance law, then the NAIC Annual Statement Instructions and SSAPs (statutory) or ASC 944 (GAAP), then ASOPs, then practice notes. For data, the filed Annual Statement and Schedule P govern over a reserve study's exhibits, which govern over management summaries and email. Name every conflict, show both values, say which controls and why; never resolve one silently.
-4. **Citation discipline.** Every figure carries a source locator (document, exhibit, part, column, line or cell) or [UNVERIFIED]; every rule carries its citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every figure carries a source locator (document, exhibit, part, column, line or cell) or [UNVERIFIED]; every rule carries its citation from `references/primary-sources.md` or is labelled "Confirm before use:".
 5. **No target-driven reserves.** Factors, tails, ELRs, trends, method weights and the selected point come from the evidence. Decline any request, from anyone, to choose them so the reserve, IBNR, a loss or combined ratio, earnings, surplus, RBC, an IRIS ratio or a covenant reaches a stated figure.
 6. **Independent ELR.** A business plan, budget or target loss ratio is never the a priori ELR; it may appear only as a labeled sensitivity beside an independent ELR and the Cape Cod ELR.
 7. **Every assumption labeled.** Each factor, tail, ELR, trend and weight is Supported, Judgmental or Unsupported under `references/reserving-methods.md` Section 14; an Unsupported assumption is an issue, not a footnote.
@@ -132,7 +132,7 @@ Read `references/statutory-and-gaap-rules.md` Sections 9 to 11. For statutory wo
 
 ## Step 9: Issues, Declines and Hand-offs
 
-Complete the reconciliation table (R1 to R10); every Fail becomes an issue ranked by the template's severity rule. Write declined parts with the fixed label, complete hand-offs, and the open items and [VERIFY] list.
+Complete the reconciliation table (R1 to R10); every Fail becomes an issue ranked by the template's severity rule. Write declined parts with the fixed label, complete hand-offs, and the open items and items to confirm before use.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -158,7 +158,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 10. The carried position label matches its written test on each basis, and the range basis is disclosed.
 11. Prior-year development and the item E test use unrounded ratios from Schedule P Part 2 and the company's own share.
 12. No declined part is replaced by a figure produced another way, and no opinion language appears.
-13. Every figure has a source locator or [UNVERIFIED], every rule a citation or [VERIFY], and the closing line from the template is present.
+13. Every figure has a source locator or [UNVERIFIED], every rule a citation or a "Confirm before use:" label, and the closing line from the template is present.
 
 ## Guidelines
 
@@ -180,7 +180,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 | Only a reserve study summary is supplied | No underlying data | Review the study's assumptions and labels; any new projection is blocked under No loss data |
 | Treaty terms unclear for ceded IBNR | Missing treaty or schedule | Show net under the stated assumption with [UNVERIFIED] and the gross-to-net sensitivity |
 | Study and Annual Statement carried amounts differ | Timing, late adjustments or pool share | Use the filed amount; write up the conflict |
-| Benchmark factors requested but not provided | Unverified external lookup | Mark [VERIFY] with the source needed; do not fill from memory |
+| Benchmark factors requested but not provided | Unverified external lookup | Label "Confirm before use:" with the source needed; do not fill from memory |
 
 ## Related Skills
 
@@ -199,4 +199,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/reserving-methods.md`: data checks, factor and tail selection, chain ladder, B-F, Cape Cod, Berquist-Sherman adjustments, paid-incurred reconciliation, trend, LAE, salvage and subrogation, reinsurance, ranges and assumption labels.
 - `references/statutory-and-gaap-rules.md`: hierarchy, ASOP Nos. 43, 36 and 20, SSAP Nos. 55, 65 and 62R, Schedule P, the 2026 NAIC actuarial opinion instructions, the filing calendar and ASC 944 disclosures.
 - `references/output-template.md`: deliverable sections, assumption register, carried position and item E label tests, reconciliation checks R1 to R10, declined-part label, hand-off table.
-- `references/primary-sources.md`: each authority checked with URL, method and date, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date.

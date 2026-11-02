@@ -7,7 +7,6 @@ Checked October 30 to November 2, 2026. Statutes were read in full through the c
 1. Authorities checked
 2. Conflicts and corrections found
 3. Disposition of the prior stub
-4. Unconfirmed, year-dependent or state-variable: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -67,7 +66,7 @@ All rows: full text via case.dev, read 2026-10-30 or 2026-10-31, unless the meth
 |---|---|---|---|
 | 2026 BEA | Prior stub and pre-2025 commentary: exemption "sunsets" in 2026 | IRC 2010(c)(3) as amended: $15,000,000 for 2026, indexed, no sunset | Sunset scenarios dropped; legislative-change scenarios are policy elections, not current law |
 | Anti-clawback exceptions | Some commentary treats the 2022 exceptions as in force | Current 20.2010-1(c)(3) is "[Reserved]"; Unified Agenda lists the rule as pending | Present as proposed |
-| Annual exclusion source | Prior stub: [VERIFY] | Rev. Proc. 2025-32 sec. 4.42: $19,000 for 2026 | Confirmed |
+| Annual exclusion source | Prior stub: no figure given | Rev. Proc. 2025-32 sec. 4.42: $19,000 for 2026 | Confirmed |
 | Section 2704 risk | Prior stub: "regulatory risk" | The 2016 proposed 2704 regulations were not reviewed; the statute was read | Statute only; proposed rules not cited |
 
 ## 3. Disposition of the prior stub
@@ -80,22 +79,4 @@ All rows: full text via case.dev, read 2026-10-30 or 2026-10-31, unless the meth
 | Workflow step 6 (vehicle recommendations: GRAT, IDGT, SLAT, dynasty, QPRT, charitable) | Moved: transfer-tax effects stay; instrument drafting routed to ilit, qprt, charitable-remainder-trust or legal-research; structure design to conducting-wealth-transfer-analysis |
 | Workflow step 8 (international) | Dropped as an order: nonresident alien estate tax and treaties routed to legal-research; noncitizen spouse rules kept |
 | Output list | Kept and replaced by `output-template.md` |
-| Quality Checks | Kept and expanded as the Quality Audit; "mark all thresholds [VERIFY]" replaced by dated, confirmed figures |
-
-## 4. Unconfirmed, year-dependent or state-variable: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| 2027 and later BEA, GST exemption, annual exclusion, noncitizen spouse exclusion, 2032A cap and 6166 amount | Not published as of 2026-10-31 |
-| 2023 figures (BEA, annual exclusion) | Not checked |
-| Whether and when the 2022 anti-clawback exceptions become final, and their final terms | Proposed only; latest agenda lists Long-Term Actions, 07/2027 |
-| Whether a given partnership or LLC gift is a present interest under Hackl | Depends on the agreement's distribution and transfer terms; Hackl is Seventh Circuit authority affirming the Tax Court, other circuits not read |
-| Whether written Crummey notice is legally required and the minimum withdrawal period | Not settled in the sources read; follow the instrument |
-| Annual exclusion for withdrawal rights of contingent beneficiaries (Estate of Cristofani v. Commissioner, 97 T.C. 74 (1991), citation verified only) | Opinion not read; not relied on |
-| Current procedure for 2642(g) relief for late GST allocations and elections | Not read |
-| 2701 and 2702 valuation computations | Regulations not read |
-| Which state's statewide holidays apply under Treas. Reg. 301.7503-1(b) for a given filing | Depends on the IRS office; e-filing practice not reviewed |
-| Whether IRC 7503 moves the Rev. Proc. 2022-32 fifth-anniversary date | Not addressed in the revenue procedure |
-| Each state's estate or inheritance tax: threshold, rate, portability, gift add-back, apportionment | State-variable and year-variable; read the statute |
-| 2032A eligibility, QDOT terms, nonresident alien situs rules and treaties | Not reviewed; routed |
-| Treas. Reg. 20.2042-1 incidents of ownership through a controlled corporation | Not read |
+| Quality Checks | Kept and expanded as the Quality Audit; the earlier instruction to mark all thresholds as unconfirmed replaced by dated, confirmed figures |

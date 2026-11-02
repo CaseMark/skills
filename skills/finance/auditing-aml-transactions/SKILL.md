@@ -60,7 +60,7 @@ Transaction testing fails on anchors and populations, not on typologies. A QA te
 1. **Draft only.** Every test result, finding and narrative is a draft for the BSA/AML officer. Never call a review final, examination-ready or accepted, never file anything, and never sign off a report to a regulator.
 2. **Source-review gate.** Never call a record missing until the inventory is checked and each file opened, including every tab of an extract and every case note. Classify each open item as an **unknown fact** (determination date not in the file), a **source conflict** (case timestamp against analyst note), an **unverified external lookup** (current OFAC or FATF list), or a **policy election** (sampling confidence, continuing-activity cadence, no-file write-ups).
 3. **Hierarchy of authority.** For law: 31 U.S.C. and 31 C.F.R. Chapter X, then the banking agencies' SAR rules, then an enforcement order's terms for its own scope, then interagency FAQs and FinCEN guidance, then the FFIEC manual, then non-binding model risk guidance, then institution policy and vendor documents. For facts: system-of-record transaction data and core extracts, then case management records and timestamps, then case narratives, then summaries, spreadsheets and emails. Name each conflict in the reconciliation table (the FFIEC manual's no-file documentation passage against FAQ Q4) and state which controls; never resolve one silently.
-4. **Citation discipline.** Every figure carries a locator (file, tab, row, case ID) or `[UNVERIFIED]`; every rule carries its citation from `references/primary-sources.md` or `[VERIFY]`. Never invent a threshold, deadline or citation.
+4. **Citation discipline.** Every figure carries a locator (file, tab, row, case ID) or `[UNVERIFIED]`; every rule carries its citation from `references/primary-sources.md` or is labelled "Confirm before use:". Never invent a threshold, deadline or citation.
 5. **Institution type sets the rule.** Determine each tested entity's type before testing; use that type's threshold, clock and exemption rules (`references/aml-reporting-rules.md`, section 1).
 6. **Each clock from its own trigger.** The SAR clock runs from determination, never from the alert, case closure or drafting date; each other element uses its own trigger. Dates show weekdays; no weekend roll-forward is assumed.
 7. **Elections are labeled.** Continuing-activity reviews, written no-file rationales, alert-review time standards and sampling parameters are institution choices. Test compliance with the institution's choice; never call an election a legal requirement or its absence a violation.
@@ -125,7 +125,7 @@ Read `references/aml-reporting-rules.md`, sections 5 to 7. Aggregate cash in and
 
 ## Step 8: Independence, Narrative and Assembly
 
-Read `references/testing-methods-and-typologies.md`, sections 6 and 7. Label the independence of each reviewer, tester and vendor. When asked, draft the SAR narrative in the template's order. Fill the windows table for every element relevant on the review date, rank findings by the template's severity tests, complete the reconciliation table, hand-offs, open items and `[VERIFY]` list, and assign the status label.
+Read `references/testing-methods-and-typologies.md`, sections 6 and 7. Label the independence of each reviewer, tester and vendor. When asked, draft the SAR narrative in the template's order. Fill the windows table for every element relevant on the review date, rank findings by the template's severity tests, complete the reconciliation table, hand-offs, open items and items to confirm before use, and assign the status label.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -190,4 +190,4 @@ Confirm with the user or list as open items:
 - `references/aml-reporting-rules.md`: SAR thresholds and clocks by institution type, clocks table, determination, continuing activity and no-file elections, CTR aggregation and exemptions, structuring, 314(a), confidentiality.
 - `references/testing-methods-and-typologies.md`: alert and case tests, threshold and below-the-line testing, monitoring validation after April 2026, lookback scope, sampling math, independence, narratives and SAR QA, red flag typologies and severity.
 - `references/output-template.md`: deliverable layout, status and partial-decline labels, test tables, windows table, findings severity, reconciliation, hand-offs and label tests.
-- `references/primary-sources.md`: authorities checked with URL, method and date, corrections, disposition of the former red-flags reference, and the `[VERIFY]` list.
+- `references/primary-sources.md`: authorities checked with URL, method and date, corrections, and disposition of the former red-flags reference.

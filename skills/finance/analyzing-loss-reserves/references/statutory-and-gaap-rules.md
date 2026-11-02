@@ -55,7 +55,7 @@ Revised as "Analysis of Property/Casualty Cash Flows, Including Discounting", Do
 
 ## 6. SSAP No. 65 (discounting and P&C contracts)
 
-- Paragraph 10 (as numbered in the AICPA guide's quotation; [VERIFY] against the current manual): except fixed and reasonably determinable payments such as workers compensation tabular indemnity reserves and long-term disability claims, P&C loss reserves shall not be discounted; no LAE reserves shall be discounted.
+- Paragraph 10 (as numbered in the AICPA guide's quotation; the numbering is not confirmed against the current manual, so check it there before citing): except fixed and reasonably determinable payments such as workers compensation tabular indemnity reserves and long-term disability claims, P&C loss reserves shall not be discounted; no LAE reserves shall be discounted.
 - Exhibit A of SSAP No. 65 gives guidelines for states that prescribe or permit nontabular discounting; whether a state does so is state-specific.
 - Paragraph 14: disclose whether any unpaid losses or LAE are discounted.
 - High-deductible policies: reserves net of the deductible, with no credit for uncollectible amounts due from the insured (paragraph 35).
@@ -80,7 +80,7 @@ Seven parts plus interrogatories (2026 ASI): Part 1 detail of premiums, losses a
 
 ## 10. Filing calendar
 
-Each element has its own trigger. Dates are NAIC defaults; a state may set a different date or a weekend rule, so confirm with the domiciliary state's law ([VERIFY] per state). The ASI states no weekend rule.
+Each element has its own trigger. Dates are NAIC defaults; a state may set a different date or a weekend rule, so confirm with the domiciliary state's law (varies by state). The ASI states no weekend rule.
 
 | Element | Trigger | Window |
 |---|---|---|

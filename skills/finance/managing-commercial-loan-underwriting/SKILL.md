@@ -63,7 +63,7 @@ Read each input with this suspicion before drafting from it.
 1. **Draft only.** Every spread, test, label and memo is a draft for credit officer review. Never approve, decline, commit, sign as a credit officer, or describe the output as an approval or commitment.
 2. **Source-review gate.** Never call a document missing until the inventory has been checked and each file opened, including schedules, tax return statements, appraisal addenda and policy excerpts. Classify every unsettled item as an **unknown fact**, a **source conflict**, an **unverified external lookup** (insider list, UCC search, flood determination, credit report) or a **policy election** (DSCR definition where the policy is silent, living expense figure, stress case), with what would settle it.
 3. **Hierarchy of authority.** For figures: audited over reviewed over compiled statements, then tax returns, then company-prepared statements, then the relationship manager's summary. For terms: the institution's written credit policy and the approved term sheet over emails and verbal instructions. For law: the regulation in force on the memo date over guidance, and guidance over practice. Name every conflict, show both values, say which controls and why; never resolve one silently.
-4. **Citation discipline.** Every figure carries a source locator (document, page, schedule, line) or [UNVERIFIED]. Every regulatory statement carries its citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every figure carries a source locator (document, page, schedule, line) or [UNVERIFIED]. Every regulatory statement carries its citation from `references/primary-sources.md` or is labelled "Confirm before use:".
 5. **Institution policy sets the thresholds.** Minimum DSCR, maximum LTV, advance rates, amortization limits and leverage limits come from the institution's policy. Never invent one; a test with no policy level is "Not tested - policy not supplied".
 6. **Coverage is cash, and the population is complete.** DSCR uses cash available for debt service, not EBITDA, unless the written policy says otherwise; global cash flow includes every guarantor and every affiliate the policy requires, with their debt service, and lists who was excluded and why.
 7. **No adjusting the spread to meet a threshold.** Adjustments follow documents. A request to add back, reclassify, omit or substitute figures, or to change the DSCR method or the global population, so that a policy minimum, covenant or approval target is met, or to make a figure as high or as low as possible, is declined in that part; a request that defers to the standard ("unless policy requires otherwise") is followed by applying the standard and labelled "Deferred to standard"; the draft shows the actual figures, the gap and legitimate options.
@@ -132,7 +132,7 @@ Fill template Section 4 with a result label per test, using the written tests th
 
 ## Step 9: Issues, Hand-offs and Open Items
 
-Rank issues by the template's severity rule. Write each hand-off with the facts the receiving workflow needs, and list open items with gap class, owner and next action. Mark every [VERIFY] item.
+Rank issues by the template's severity rule. Write each hand-off with the facts the receiving workflow needs, and list open items with gap class, owner and next action. Label every uncertain item "Confirm before use:".
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -176,7 +176,7 @@ Rank issues by the template's severity rule. Write each hand-off with the facts 
 | Appraisal effective date is old or the engagement letter is missing | Validity or independence unknown | Treat as "Indicative - not value of record" until engagement and review are confirmed |
 | Policy excerpt missing for a test | Policy not supplied | Mark "Not tested - policy not supplied" and list as a policy election |
 | Insider list not available | Screen not run | Record an unverified external lookup; recommendation becomes "Not ready for decision" if the screen could change a requirement |
-| A regulatory status looks stale | Year-dependent rule | Check `references/primary-sources.md` and mark [VERIFY] with the date needed |
+| A regulatory status looks stale | Year-dependent rule | Check `references/primary-sources.md` and label it "Confirm before use:" with the date needed |
 
 ## Related Skills
 
@@ -202,4 +202,4 @@ Each line quotes the phrase in the target's description that claims the hand-off
 - `references/underwriting-rules.md`: spreading, CADS and DSCR, global cash flow, disallowed adjustments, structure and useful life, covenant headroom, collateral and LTV, risk rating and policy tests.
 - `references/regulatory-overlays.md`: appraisal and evaluation rules, supervisory LTV limits, CRE concentration and workout statements, Regulation O, Regulation B notices and signatures, Section 1071, leveraged lending status, SBA SOP, clock table and default overrides.
 - `references/output-template.md`: deliverable sections, recommendation, policy test, value and finding labels with their tests, reconciliation checks, declined requests, hand-offs and open items.
-- `references/primary-sources.md`: each authority checked with URL, method and date, the disposition of the prior version's content, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and the disposition of the prior version's content.

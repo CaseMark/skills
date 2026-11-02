@@ -34,7 +34,7 @@ Every timed element has its own trigger event. Compute each date by script from 
 | C18 | Three-year lookback | Each transfer of an interest or release of a power | Within three years before death | IRC 2035(a); 2038(a)(1) |
 | C19 | Proposed anti-clawback lookback | Each release of an interest or power that would have caused inclusion | Within 18 months before death | Proposed Treas. Reg. 20.2010-1(c)(3)(i)(D) (not final) |
 | C20 | Annual exclusion year | Calendar year | Gifts completed by December 31 | IRC 2503(b) |
-| C21 | Crummey withdrawal window | Each contribution, or notice, as the instrument provides | Period stated in the trust instrument | Trust instrument; notice practice [VERIFY] |
+| C21 | Crummey withdrawal window | Each contribution, or notice, as the instrument provides | Period stated in the trust instrument | Trust instrument; notice practice varies, so follow the instrument |
 | C22 | Estate tax assessment period | Date the Form 706 is filed | Three years | IRC 6501(a), (b)(1) |
 | C23 | Gift tax payment | Close of the calendar year of the gift | April 15 of the following year; a C13 extension does not extend payment | IRC 6151(a); Treas. Reg. 25.6081-1(c) |
 
@@ -72,7 +72,7 @@ Rules for the output:
 
 - IRC 7503: when the last day for an act falls on a Saturday, Sunday or legal holiday, the act is timely on the next day that is none of these. Extensions are included in finding the last day. It applies to acts by taxpayers (returns, payments, petitions, claims) and by the IRS (notices, assessment, collection) (Treas. Reg. 301.7503-1(a)).
 - Legal holidays are those of the District of Columbia under D.C. Code 28-2701 (Treas. Reg. 301.7503-1(b)): New Year's Day; Martin Luther King, Jr.'s Birthday (third Monday in January); Washington's Birthday (third Monday in February); District of Columbia Emancipation Day (April 16); Memorial Day (last Monday in May); Juneteenth (June 19); Independence Day (July 4); Labor Day (first Monday in September); Indigenous Peoples' Day (second Monday in October); Veterans Day (November 11); Thanksgiving (fourth Thursday in November); Christmas (December 25); Inauguration Day every fourth year. A holiday on a Saturday is observed the preceding Friday; on a Sunday, the following Monday.
-- A statewide legal holiday in the state where the IRS office is located also counts for a filing at that office (301.7503-1(b)). Which state applies to a given filing is [VERIFY].
+- A statewide legal holiday in the state where the IRS office is located also counts for a filing at that office (301.7503-1(b)). Which state applies to a given filing depends on the receiving IRS office; confirm it before relying on a roll.
 - Example: an assessment period ending Sunday, April 15, 2029 moves past Monday, April 16, 2029 (DC Emancipation Day) to Tuesday, April 17, 2029.
 
 ## 4. Checking windows on the as-of date

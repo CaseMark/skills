@@ -6,7 +6,6 @@ Checked October 30 and 31, 2026. Full texts were read through the case.dev API (
 
 1. Authorities checked
 2. Disposition of the earlier version of this skill
-3. Unconfirmed, year-dependent or jurisdiction-dependent: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -42,18 +41,6 @@ The earlier SKILL.md had no reference files. Its content was handled as follows.
 |---|---|
 | Five-step workflow and paragraph anchors (25-1, 25-14, 32-2, 32-28, 25-27) | Kept; expanded in `references/five-step-rules.md` |
 | "Threshold typically > 1 year" for financing | Rewritten: the one-year rule is a practical expedient (606-10-32-18), not a threshold for significance |
-| Modification treatment "[VERIFY against entity's modification policy]" | Dropped as wrong: modification accounting follows 606-10-25-12 and 25-13, not entity policy |
-| SSP methods "[VERIFY per entity elections]" | Kept with the residual-approach limits in 606-10-32-34 |
+| Modification treatment tied to the entity's modification policy | Dropped as wrong: modification accounting follows 606-10-25-12 and 25-13, not entity policy |
+| SSP methods tied to entity elections | Kept with the residual-approach limits in 606-10-32-34 |
 | Output memo sections and quality checks | Moved into `references/output-template.md` and the Quality Audit |
-
-## 3. Unconfirmed, year-dependent or jurisdiction-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| FASB Updates issued after ASU 2026-03 | The FASB list read was a cached copy; check for later Updates amending Topic 606 or 340-40 |
-| Paragraph number 606-10-50-16 for the non-PBE RPO election | Text read on the mirror; the paragraph label was not displayed beside it |
-| Enforceability of a side letter, email or oral promise under the governing contract law, and an employee's authority to bind the entity | Jurisdiction- and fact-dependent; route to legal-research |
-| AICPA AU-C 240 presumption for audits of non-issuers | Not read; the PCAOB rules above apply to issuer audits only |
-| Industry practice (AICPA Revenue Recognition Guide, TRG memos) for a specific industry | Not reviewed; cite only after reading |
-| SEC staff comment letter themes on revenue for the current year | Not reviewed |
-| PBE status of a given entity | Fact-dependent; confirm from the entity's filings or securities |

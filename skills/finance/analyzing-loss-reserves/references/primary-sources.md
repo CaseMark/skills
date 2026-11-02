@@ -7,7 +7,6 @@ Checked on October 30, 2026 through the case.dev API: full texts read with `/sea
 1. Authorities checked
 2. CAS reserving literature read
 3. Disposition of the prior SKILL.md content
-4. Unconfirmed, state-variable or year-dependent: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -48,17 +47,3 @@ No reference files existed before. The prior 82-line SKILL.md was rewritten.
 | Output headings | Moved: `references/output-template.md` |
 | "Adequate / likely deficient / likely redundant" conclusion | Dropped as wrong for this skill: replaced by carried position labels, because deficient and redundant are ASOP No. 36 opinion types reserved to the opining actuary |
 | Quality Checks | Moved into the Quality Audit |
-
-## 4. Unconfirmed, state-variable or year-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Current SSAP No. 55, No. 62R and No. 65 paragraph numbers | Read from the 2017 Academy copy and the AICPA guide (Oct. 2024) excerpts; the current AP&P Manual was not opened |
-| Whether a domiciliary state prescribes or permits nontabular discounting, and the rates | State-specific; not reviewed for any state |
-| State AOS and Actuarial Report due dates and any weekend or holiday rule | NAIC defaults confirmed; state law not reviewed |
-| 2027 Annual Statement Instructions | Not adopted or not located as of the check date |
-| Revision of ASOP No. 43 | Proposal approved in 2025; no exposure draft located |
-| Discounting of short-duration claim liabilities under U.S. GAAP | Only the ASC 944-40-50-5 disclosure was read; measurement guidance not reviewed |
-| Industry development factors, benchmark tails and trend rates | External lookups; take from the user's materials with a source |
-| The term "AOD" | Not used in the 2026 P/C Annual Statement Instructions; this skill covers the AOS and the Accepted Actuarial Designation |
-| Actuarial Guideline LI and A&H long-duration reserve rules | Noted for routing only; not reviewed |

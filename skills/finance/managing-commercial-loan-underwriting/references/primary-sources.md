@@ -6,7 +6,6 @@ Checked October 30 to November 2, 2026. Full texts were read through the case.de
 
 1. Authorities checked
 2. Disposition of the prior version's content
-3. Unconfirmed, year-dependent or inference: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -56,18 +55,3 @@ The prior SKILL.md was an 84-line outline with no references. Its content was ha
 | Credit memo outline and output list | Moved | `references/output-template.md` |
 | Quality checks | Kept, expanded | SKILL.md Quality Audit |
 | Guarantor analysis for owners over 20 percent | Replaced; population follows the institution's policy, and the insider screen covers owners of 10 percent or more | Ground Rules 6 and 10 |
-
-## 3. Unconfirmed, year-dependent or inference: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Federal Reserve status of the 2013 leveraged lending guidance for state member banks | SR 13-3 page shows no rescission; no Federal Reserve withdrawal located (same finding as building-lbo-models) |
-| Final form and effective date of the 2026 Regulation O and FDIC insider lending proposals | Comment period open to November 4, 2026; re-check before any memo relies on the new thresholds |
-| FDIC August 6, 2026 insider lending proposal contents | Only the Federal Register title and date were seen |
-| SOP 50 10 8.1 applicability by SBA loan number date | Industry report only; confirm in the SOP text |
-| Interaction of court stays of the 2023 Section 1071 rule with the 2026 revised rule | CFPB page notes the stays; effect on the 2028 date not stated |
-| Whether a lender may collect Section 1071 demographic data before January 1, 2027 under a 1002.5(a)(4) paragraph | Turns on whether the lender is currently a covered institution under 1002.105(b); route to compliance counsel |
-| Whether an application from a newly formed single-purpose entity buying an existing property is an application "to start a business" under comment 9(a)(3)-1 | Fact-specific; the skill explains why the 30-day rule likely applies and routes the determination to compliance |
-| State-law rules on spouse signatures for jointly owned or community property under 1002.7(d)(2)-(4) | State-variable; not reviewed |
-| Credit union (NCUA) appraisal, insider and commercial lending rules | Out of scope; not reviewed |
-| Institution-specific thresholds, risk rating scales and exception authority | Come from the institution's policy in every matter |
