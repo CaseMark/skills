@@ -1,6 +1,6 @@
 # Primary Sources and Verification Register
 
-Checked October 30-31, 2026. Statutes were read in full through the case.dev API (`/search/v1/contents`) from law.cornell.edu, whose U.S. Code text and notes reflect Pub. L. 119-21 (July 4, 2025); regulations from law.cornell.edu (eCFR text); revenue procedures and rulings as irs.gov PDFs. Re-check before relying on any item in a client deliverable: inflation-adjusted figures change every year and the 2022 anti-clawback exceptions may be finalized.
+Checked October 30 to November 2, 2026. Statutes were read in full through the case.dev API (`/search/v1/contents`) from law.cornell.edu, a mirror of the official U.S. Code whose text and notes reflect Pub. L. 119-21 (July 4, 2025); regulations from law.cornell.edu, a mirror of the eCFR; every law.cornell.edu row below is a mirror, not the official publisher; revenue procedures and rulings as irs.gov PDFs. Re-check before relying on any item in a client deliverable: inflation-adjusted figures change every year and the 2022 anti-clawback exceptions may be finalized.
 
 ## Contents
 
@@ -25,12 +25,13 @@ All rows: full text via case.dev, read 2026-10-30 or 2026-10-31, unless the meth
 | Rev. Proc. 2020-45 | https://www.irs.gov/pub/irs-drop/rp-20-45.pdf | Full text | 2021: BEA $11,700,000; annual exclusion $15,000 (secs. 3.41, 3.43) |
 | Treas. Reg. 20.2010-1 | https://www.law.cornell.edu/cfr/text/26/20.2010-1 | Full text | Anti-clawback special rule (c), computational rules and Examples 1-4; (c)(3) reserved |
 | REG-118913-21, 87 Fed. Reg. 24918 (Apr. 27, 2022) | https://www.govinfo.gov/content/pkg/FR-2022-04-27/pdf/2022-08865.pdf | Full text | Proposed (c)(3) exceptions: includible transfers under 2035-2038 and 2042, unpaid enforceable promises, 2701 and 2702 transfers, 18-month releases; 5 percent de minimis; proposed applicability to decedents dying on or after Apr. 27, 2022 once final |
-| Unified Agenda, RIN 1545-BQ22 (Fall 2024) | https://www.reginfo.gov/public/do/eAgendaViewRule?RIN=1545-BQ22&pubId=202410 | Full text | Final rule stage; final action listed 12/2024; no final rule appears in the current regulation text |
-| Treas. Reg. 20.2010-2 | https://www.law.cornell.edu/cfr/text/26/20.2010-2 | Full text | Timely filing for portability; no 301.9100-3 relief for estates required to file; election on a complete return; estimated values (a)(7)(ii); DSUE computation (c) |
+| Unified Agenda, RIN 1545-BQ22 (Fall 2024, Spring 2025 and the latest entry, published as 2026) | https://www.reginfo.gov/public/do/eAgendaViewRule?RIN=1545-BQ22&pubId=202410; ...&pubId=202504; ...&pubId=202510; publication list at https://www.reginfo.gov/public/do/eAgendaViewRule?RIN=1545-BQ22 | Full text, read 2026-11-02 | Fall 2024: final rule stage, final action 12/2024; Spring 2025: final rule stage, 05/2026; latest: Long-Term Actions, final action 07/2027; no final rule appears in the current regulation text |
+| Treas. Reg. 20.2010-2 | https://www.law.cornell.edu/cfr/text/26/20.2010-2 | Full text | Appointed and non-appointed executors (a)(6)(i), (ii); timely filing for portability; no 301.9100-3 relief for estates required to file; election on a complete return; estimated values (a)(7)(ii); DSUE computation (c) |
 | Treas. Reg. 20.2010-3 | https://www.law.cornell.edu/cfr/text/26/20.2010-3 | Full text | Last deceased spouse; no DSUE if the last deceased spouse had none or no election; remarriage and divorce; previously applied DSUE (b) |
 | Rev. Proc. 2022-32 | https://www.irs.gov/pub/irs-drop/rp-22-32.pdf | Full text | Late portability election to the fifth anniversary of death; scope conditions sec. 3.01; return heading sec. 4.01; protective refund claims sec. 5; effective July 8, 2022 |
 | IRC 2503; Treas. Reg. 25.2503-3 | https://www.law.cornell.edu/uscode/text/26/2503; https://www.law.cornell.edu/cfr/text/26/25.2503-3 | Full text | Annual exclusion for present interests; 2503(e) tuition and medical; future interest definition |
 | Crummey v. Commissioner, 397 F.2d 82 (9th Cir. 1968) | https://www.courtlistener.com/opinion/280774/d-clifford-crummey-v-commissioner-of-internal-revenue/; citation verified via case.dev `/legal/v1/verify` | Full text | Demand right in the trust instrument gives a present interest, including for minors (exclusions for David and Mark allowed; Janet's affirmed) |
+| Hackl v. Commissioner, 335 F.3d 664 (7th Cir. 2003) | https://law.resource.org/pub/us/case/reporter/F3/335/335.F3d.664.02-3094.02-3093.html (mirror); citation verified via case.dev `/legal/v1/verify` | Full text, read 2026-11-02 | LLC units are future interests where the manager controls distributions and transfers need consent, so donees lack substantial present economic benefit; burden on the taxpayer; Tax Court affirmed |
 | IRC 2513; Treas. Reg. 25.6019-2 | https://www.law.cornell.edu/uscode/text/26/2513; https://www.law.cornell.edu/cfr/text/26/25.6019-2 | Full text | Split gifts: citizenship or residence, consent for all gifts of the year, consent timing; when each spouse files |
 | IRC 6019 | https://www.law.cornell.edu/uscode/text/26/6019 | Full text | Gift tax return requirement |
 | IRC 6501 | https://www.law.cornell.edu/uscode/text/26/6501 | Full text | Three-year period (a); early return (b)(1); gifts not shown (c)(9) |
@@ -87,7 +88,8 @@ All rows: full text via case.dev, read 2026-10-30 or 2026-10-31, unless the meth
 |---|---|
 | 2027 and later BEA, GST exemption, annual exclusion, noncitizen spouse exclusion, 2032A cap and 6166 amount | Not published as of 2026-10-31 |
 | 2023 figures (BEA, annual exclusion) | Not checked |
-| Whether and when the 2022 anti-clawback exceptions become final, and their final terms | Proposed only |
+| Whether and when the 2022 anti-clawback exceptions become final, and their final terms | Proposed only; latest agenda lists Long-Term Actions, 07/2027 |
+| Whether a given partnership or LLC gift is a present interest under Hackl | Depends on the agreement's distribution and transfer terms; Hackl is Seventh Circuit authority affirming the Tax Court, other circuits not read |
 | Whether written Crummey notice is legally required and the minimum withdrawal period | Not settled in the sources read; follow the instrument |
 | Annual exclusion for withdrawal rights of contingent beneficiaries (Estate of Cristofani v. Commissioner, 97 T.C. 74 (1991), citation verified only) | Opinion not read; not relied on |
 | Current procedure for 2642(g) relief for late GST allocations and elections | Not read |

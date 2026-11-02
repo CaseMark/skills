@@ -119,11 +119,11 @@ A hand-off names the facts the receiving workflow needs.
 
 | To | Trigger | Facts passed (figures, dates, locators) | Open questions | What this analysis did not do |
 |---|---|---|---|---|
-| building-equity-valuation-models | Fair market value of a closely held interest: the appraisal of the entity interest, the DCF or comparables, and discounts for lack of control or marketability as modeled | | | This skill kept the transfer-tax treatment: 2031 and 2512 standard, Chapter 14, adequate disclosure, inclusion, penalties |
-| ilit | Drafting an irrevocable life insurance trust or other Crummey trust instrument | | | |
-| flp-agreement | Drafting a family limited partnership agreement | | | |
-| legal-research | No dedicated skill exists: GRAT, SLAT, IDGT or dynasty trust instruments, QDOT terms, state estate or inheritance tax law, nonresident alien estate tax and treaties, 2032A eligibility, Crummey notice law | | | |
-| managing-tax-controversy | An estate or gift tax return under IRS examination, a statute extension, a protest or a Tax Court petition | | | |
+| building-equity-valuation-models | Fair market value of a closely held interest: the appraisal of the entity interest, the DCF or comparables, and discounts for lack of control or marketability as modeled. Its description: "States the standard of value (ASC 820 fair value, fair market value, ...)" and "discount for lack of control" | | | This skill kept the transfer-tax treatment: 2031 and 2512 standard, Chapter 14, adequate disclosure, inclusion, penalties |
+| ilit | Drafting a trust that will hold life insurance, with or without Crummey withdrawal rights. Its description: "Use when drafting ILITs, life insurance trusts, estate tax exclusion trusts, or Crummey trusts"; its body is built around insured policies, so a Crummey trust without insurance goes to legal-research | | | |
+| flp-agreement | Drafting a family limited partnership agreement. Its description: "Use when drafting FLP agreements, family partnership documents, or estate planning partnership structures" | | | |
+| legal-research | No dedicated skill exists: GRAT, SLAT, IDGT, dynasty or non-insurance Crummey trust instruments, modifying an irrevocable trust, QDOT terms, state estate or inheritance tax law, nonresident alien estate tax and treaties, 2032A eligibility, Crummey notice law. Its description: "Guides legal research from issue framing through authority collection" | | | |
+| managing-tax-controversy | An estate or gift tax return under IRS examination, a statute extension, a protest, a Tax Court petition or a penalty defense. Its description: "Use for IRS audit, protest, notice of deficiency, Tax Court petition, statute extension, refund claim, penalty abatement" | | | |
 
 Add or remove rows to match the matter, using the Related Skills list in SKILL.md.
 
@@ -141,7 +141,7 @@ Use each label only when its test is met; when two seem to fit, the test decides
 | Label set | Label | Test |
 |---|---|---|
 | Interest | Present interest | The donee (or a trust beneficiary under a withdrawal right in the instrument when the gift was made) can use, possess or withdraw the property now |
-| Interest | Future interest | Use, possession or enjoyment begins later, or the only access is a trustee's discretion; no annual exclusion |
+| Interest | Future interest | Use, possession or enjoyment begins later, or the only access is a trustee's discretion, or (for an entity interest) a manager or general partner controls distributions and transfer is restricted (Hackl); no annual exclusion |
 | Interest | Not determinable | The instrument or the transfer date is missing |
 | Disclosure | Adequately disclosed | Every item in Treas. Reg. 301.6501(c)-1(f)(2)(i)-(v) is on the return or attached, or a (f)(3) appraisal replaces item (iv) |
 | Disclosure | Not adequately disclosed | Any (f)(2) item is missing and no (f)(3) appraisal supplies item (iv); the gift tax period stays open |

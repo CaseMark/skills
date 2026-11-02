@@ -51,7 +51,7 @@ Read each input with this suspicion before relying on it.
 | People, marriage and citizenship records (who gave, who consented, who is executor) | Whose exclusion, consent, election and marital deduction apply | Split gifts assumed without both spouses' consent or for only some gifts of the year; a noncitizen spouse given an unlimited marital deduction; a skip person misidentified; the surviving spouse acting for the deceased spouse's estate when someone else is executor |
 | Trust instrument, Crummey provisions and contribution records | Annual exclusion and GST treatment of trust gifts | Exclusion claimed with no withdrawal right in the instrument; a withdrawal right added after the transfer; contribution dates not matched to the instrument; the trust assumed to receive automatic GST allocation when it is not a GST trust, or an automatic allocation left in place where it wastes exemption |
 | Form 709 as filed, attachments and the appraisal behind it | Starting the gift tax statute and fixing the value | A closely held interest reported with "per appraisal" and no attachment; no 100 percent entity value or discount description; an appraiser who is a family member or employee; the statute assumed closed when it never started |
-| Partnership, LLC or company agreements and the donor's retained roles | Discounts and estate inclusion | Discounts claimed while the donor keeps control of distributions or the income (2036), a release within three years of death (2035), or a lapse or liquidation restriction Chapter 14 disregards; the discount used without valuation support |
+| Partnership, LLC or company agreements and the donor's retained roles | Discounts and estate inclusion | Discounts claimed while the donor keeps control of distributions or the income (2036), a release within three years of death (2035), or a lapse or liquidation restriction Chapter 14 disregards; an annual exclusion taken for an interest whose distributions the donor's entity controls (Hackl); the discount used without valuation support |
 | Grantor trust instrument and basis records | Income tax basis after death | Step-up assumed for assets of an irrevocable grantor trust outside the estate, contrary to Rev. Rul. 2023-2; adjusted taxable gifts to that trust left out of the estate tax base |
 | Buy-sell or redemption agreement and company-owned life insurance | Value of a decedent's closely held shares | The redemption obligation netted against the insurance proceeds, which Connelly v. United States rejects; the agreement price taken as the estate tax value without IRC 2703 |
 | Deadline calendar and election checklist | Form 706, 709, portability, 2032, 6166, GST and split-gift timing | One anchor used for every deadline; nine months counted as 270 days; a weekend or DC holiday not rolled under IRC 7503; a filing extension treated as an extension to pay; 6166 or 2032 lost by a late return |
@@ -67,7 +67,7 @@ Read each input with this suspicion before relying on it.
 6. **Right person, right return.** For each figure, name whose exclusion, consent, election or return it is: donor, consenting spouse, decedent, last deceased spouse, executor or trustee. Only the executor of the deceased spouse's estate elects portability; only both spouses together split gifts, and for every gift to third parties that year.
 7. **Clocks by script.** Each deadline has its own trigger from `references/deadlines-and-elections.md`, is computed by script, and shows its weekday and whether IRC 7503 moves it. Check every window open on the as-of date. A filing extension never extends payment.
 8. **No altered records.** Never backdate, re-date or alter a gift document, assignment, trust instrument or amendment, Crummey notice, appraisal, valuation date or signature, and never report a transfer in a year or at a date the executed documents contradict. A transfer is documented when it actually happens; a missed date is reported with its cure, not papered over.
-9. **Value is supported, then disclosed.** A value for a closely held or hard-to-value interest comes from an appraisal or the financial data the disclosure regulation lists; the valuation itself is routed to building-equity-valuation-models. This skill tests the value against the transfer-tax rules (2031, 2512, Chapter 14, inclusion, penalties) and the disclosure requirements.
+9. **Value is supported, then disclosed.** A value for a closely held or hard-to-value interest comes from an appraisal or the financial data the disclosure regulation lists; the valuation itself is routed to building-equity-valuation-models. This skill tests the value against the transfer-tax rules (2031, 2512, Chapter 14, inclusion, penalties) and the disclosure requirements. A request aimed at a direction ("as low as possible", "the less the IRS sees the better") is answered with the supported figure, the disclosure label and its consequences; no finding is left out of the deliverable to reach it.
 10. **Inclusion and basis together.** Test every transferred asset for inclusion under 2035, 2036, 2038 and 2042 before relying on a discount or an exclusion from the estate, and give a basis step-up only to property in the gross estate.
 11. **State law is read, not assumed.** A state estate or inheritance tax figure comes from the state statute for the year, or the state layer is marked "not modeled" with [VERIFY].
 12. **Scope.** U.S. citizens and residents under federal transfer tax. Nonresident aliens, treaties, instrument drafting, valuation models and IRS disputes are routed with a complete hand-off (Related Skills).
@@ -91,7 +91,7 @@ Collect these, then build the source-review register (`references/output-templat
 - **H2.** A remaining-exclusion, GST-exemption or tax figure is requested and the prior taxable gifts and GST allocations of the donor or decedent, and of a consenting spouse for any split year, are unknown and cannot be bracketed from filed Forms 709 or a statement that none were filed: that figure is not prepared.
 - **H3.** The request is to backdate, re-date or alter a gift document, assignment, trust instrument or amendment, Crummey notice, appraisal, valuation date or signature of the donor, a spouse, a trustee, an executor or an appraiser, or to report a transfer at a date the executed documents contradict: that part is declined.
 - **H4.** The donor, a consenting spouse or the executor asks for a Form 706 or 709 reporting value for an interest not traded on an established exchange, and neither an appraisal or valuation report (supplied as a file or a labelled excerpt) nor the financial data listed in Treas. Reg. 301.6501(c)-1(f)(2)(iv) is in the file: no reporting value is drafted.
-- **H5.** The request is to present the work as a final return, a tax opinion, or advice addressed to a third party (lender, buyer, beneficiary, court).
+- **H5.** The donor, a spouse, the executor, a trustee or an adviser asks to present the work as a final return, a tax opinion, or advice addressed to a third party (lender, buyer, beneficiary, court).
 
 ## Step 1: Inventory, People and Routing
 
@@ -140,7 +140,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 1. Every BEA, annual exclusion and GST figure shows its year and source, and nothing assumes a 2026 sunset.
 2. The exemption ledger ties to prior Forms 709 and current gifts, and remaining exclusion equals BEA plus usable DSUE minus cumulative taxable gifts.
 3. DSUE comes only from the last deceased spouse, with the election status label and the person who must elect.
-4. Each trust gift's annual exclusion rests on a withdrawal right in the instrument on the transfer date.
+4. Each trust gift's annual exclusion rests on a withdrawal right in the instrument on the transfer date, and each entity-interest gift's exclusion is tested under Hackl.
 5. Split gifts, if used, cover all of both spouses' gifts for the year and show both returns where required.
 6. Each reported gift of a closely held interest has its disclosure label and the missing (f)(2) or (f)(3) items.
 7. Each trust transfer has a GST classification, the GST trust test result, and an allocation or election plan by the timely Form 709 date.
@@ -174,7 +174,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 ## Related Skills
 
 - building-equity-valuation-models: fair market value of a closely held interest, including the appraisal of the entity interest, DCF, comparables and discounts for lack of control or marketability as modeled; this skill keeps the transfer-tax treatment of that value.
-- ilit: drafting an irrevocable life insurance trust or another Crummey trust instrument.
+- ilit: drafting a trust that will hold life insurance, including its Crummey withdrawal rights; a Crummey trust without insurance goes to legal-research.
 - flp-agreement: drafting a family limited partnership agreement.
 - qprt: drafting a qualified personal residence trust under IRC 2702.
 - charitable-remainder-trust: drafting a CRAT or CRUT.
@@ -182,7 +182,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - last-will-and-testament: drafting or reviewing a will.
 - shareholder-agreement: drafting buy-sell terms in a shareholder agreement.
 - deed-of-gift: drafting the deed for a gift of real or personal property.
-- legal-research: no dedicated skill exists for GRAT, SLAT, IDGT or dynasty trust instruments, QDOT terms, state estate and inheritance tax law, nonresident alien estate tax and treaties, 2032A eligibility, or Crummey notice law.
+- legal-research: no dedicated skill exists for GRAT, SLAT, IDGT, dynasty or non-insurance Crummey trust instruments, modifying an irrevocable trust, QDOT terms, state estate and inheritance tax law, nonresident alien estate tax and treaties, 2032A eligibility, or Crummey notice law.
 - managing-tax-controversy: an estate or gift tax return under IRS examination, a statute extension, a protest, a Tax Court petition or a penalty defense.
 - analyzing-corporate-tax-structures: S election and QSBS consequences when closely held stock is given or passes at death.
 - conducting-wealth-transfer-analysis: designing transfer structures and comparing trust designs across family goals.
