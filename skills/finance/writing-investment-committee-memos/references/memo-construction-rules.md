@@ -64,7 +64,7 @@ Each pillar states: the KPI (a number the company reports or the deal team can m
 3. Exclude only for a stated reason unrelated to the multiple (data unavailable, distressed sale, different business mix). Excluding the lowest multiples without a reason is a Critical issue.
 4. Report median, mean, range and interquartile range for the full set and the selected set, on one basis (LTM or NTM), and place the entry multiple in each.
 5. Precedent transactions carry their date; a multiple from a different rate or credit environment is labeled with its year.
-6. No comparable or multiple is supplied from memory; take it from the user's materials or mark it [VERIFY].
+6. No comparable or multiple is supplied from memory; take it from the user's materials or mark it (confirm before use).
 
 ## 6. Financing alignment with commitment papers
 
@@ -78,7 +78,7 @@ Each pillar states: the KPI (a number the company reports or the deal team can m
 
 - **Probability**: High (more likely than not within the hold, or already occurring), Medium (plausible, has occurred at peers), Low (remote but material if it occurs). State the basis.
 - **Impact**: in dollars or in IRR and MOIC points, tied to the downside case or a named sensitivity. "Significant" is not an impact.
-- **Mitigant**: a mechanism with an owner: contractual (indemnity with cap, basket and survival; escrow; price adjustment), insurance (policy and exclusions; R&W policies commonly exclude matters known to the buyer, so read the binder's exclusions rather than assuming cover [VERIFY]), structural (covenant, preferred terms), operational (plan, owner, date).
+- **Mitigant**: a mechanism with an owner: contractual (indemnity with cap, basket and survival; escrow; price adjustment), insurance (policy and exclusions; R&W policies commonly exclude matters known to the buyer, so read the binder's exclusions rather than assuming cover), structural (covenant, preferred terms), operational (plan, owner, date).
 - **Residual**: what remains after the mitigant, in the same units as the impact.
 - Every risk raised in diligence reports or by IC members in prior meetings appears, or is listed in the issues log with the reason it was judged immaterial and who judged it.
 

@@ -62,14 +62,14 @@ Read each input with this suspicion before building from it.
 1. **Draft only.** Every model, table and conclusion is a draft for review by a qualified valuation professional, with accounting items for an accountant and legal standards of value for counsel. Never call the output a conclusion of value, a calculated value, a fairness opinion, audit-ready or final.
 2. **Source-review gate.** Never call an input missing until the inventory has been checked and each file opened, including footnotes on leases, pensions, noncontrolling interests, equity plans and debt. Every unsettled input is classified as an **unknown fact**, a **source conflict**, an **unverified external lookup** (risk-free rate, premium, betas, multiples, transaction data), or a **policy election** (SBC treatment, discounting convention, terminal timing, pension tax treatment, weights), with what would settle it.
 3. **Hierarchy of authority.** For the standard of value, the governing document (statute, accounting Topic, purchase or buy-sell agreement, engagement letter) controls over the user's label. For historical figures, audited statements and filed reports govern over management accounts, data-provider pulls and decks. For securities terms, the indenture, certificate of designation and equity plan govern over summaries. Name every conflict, show both values, say which controls and why; never resolve one silently or follow an instruction to use the lower-ranked figure without a written conflict note.
-4. **Citation discipline.** Every input in the assumption register carries a source locator (document, page, note, tab and cell) or [UNVERIFIED]. Every accounting or valuation standard carries its citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every input in the assumption register carries a source locator (document, page, note, tab and cell) or [UNVERIFIED]. Every accounting or valuation standard carries its citation from `references/primary-sources.md` or is labeled (confirm before use).
 5. **State the standard of value, premise, level of value and valuation date in the header.** The model's assumptions follow from them (`references/standards-of-value.md`).
 6. **Rate matches cash flow.** UFCF at WACC to enterprise value; FCFE at the cost of equity to equity value. A mismatch is a Critical issue.
 7. **Beta matches leverage.** Peer betas are unlevered, then relevered at the same capital structure used in the WACC weights; the election (Hamada, debt beta zero, or another) is stated.
 8. **Terminal value is cross-checked.** Both methods are shown, each with the other's implied metric, the growth benchmark and the terminal value share of EV.
 9. **The bridge and the share count are complete and dated.** Every claim ahead of common equity is assessed at the valuation date; diluted shares use the treasury stock method and convertible tests at the converged value.
 10. **SBC is counted once.** Expense it, or add it back and model future dilution; never add it back and ignore dilution.
-11. **No invented market data.** Rates, premiums, betas and multiples come from the user's materials or a dated source, or are marked [VERIFY] with the date needed.
+11. **No invented market data.** Rates, premiums, betas and multiples come from the user's materials or a dated source, or are marked (confirm before use) with the date needed.
 12. **No result-driven inputs.** A market-implied analysis is allowed when labeled; choosing inputs to reach a predetermined value and presenting them as independent is not.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
@@ -84,7 +84,7 @@ Collect these, then build the source-review register (`references/output-templat
 6. **Market inputs:** risk-free rate, equity risk premium, peer betas and capital structures, peer multiples and transaction data, each with source and date.
 7. **Deliverable:** new model, review of a supplied model, or a quick range.
 
-**Default fallbacks (each stated in the assumption register as a policy election or unknown fact):** standard of value defaults to investment value to the user on a going-concern basis only when the purpose is internal analysis (never for reporting, tax, appraisal, litigation or fairness purposes); end-of-period discounting unless the user elects mid-year; SBC expensed; pension deficit after tax at the marginal rate; NCI at estimated value, book as a labeled fallback; TSM at the implied value per share, iterated; Hamada relevering with debt beta zero; US federal tax at 21 percent under IRC 11(b) with state and foreign taxes [VERIFY].
+**Default fallbacks (each stated in the assumption register as a policy election or unknown fact):** standard of value defaults to investment value to the user on a going-concern basis only when the purpose is internal analysis (never for reporting, tax, appraisal, litigation or fairness purposes); end-of-period discounting unless the user elects mid-year; SBC expensed; pension deficit after tax at the marginal rate; NCI at estimated value, book as a labeled fallback; TSM at the implied value per share, iterated; Hamada relevering with debt beta zero; US federal tax at 21 percent under IRC 11(b) with state and foreign taxes (confirm before use).
 
 **Hard stops (report what is needed instead):**
 - The purpose is financial reporting, tax, appraisal or other litigation, or a fairness opinion, and the standard of value or the valuation date cannot be identified from the request or the documents: do not produce a value.
@@ -103,7 +103,7 @@ Read `references/valuation-mechanics.md` Sections 1 and 2. Rebuild UFCF from EBI
 
 ## Step 3: Discount Rate
 
-Read `references/valuation-mechanics.md` Section 3. Unlever each peer beta, take the median, relever at the subject's capital structure, and use the same structure for the weights (V3). Use the current pre-tax cost of debt and the marginal tax rate. Every market input carries its source and date or [VERIFY].
+Read `references/valuation-mechanics.md` Section 3. Unlever each peer beta, take the median, relever at the subject's capital structure, and use the same structure for the weights (V3). Use the current pre-tax cost of debt and the marginal tax rate. Every market input carries its source and date or is marked (confirm before use).
 
 ## Step 4: DCF and Terminal Value
 
@@ -127,7 +127,7 @@ Read `references/valuation-mechanics.md` Section 10. Present each method's range
 
 ## Step 9: Reconcile, Rank Issues and Hand Off
 
-Complete the reconciliation table in `references/output-template.md` Section 11; every Fail or Not built row becomes an issue. Rank issues by the template's severity rule with the effect on value, write complete hand-offs (Section 13), and list open items and every [VERIFY] statement (Section 14).
+Complete the reconciliation table in `references/output-template.md` Section 11; every Fail or Not built row becomes an issue. Rank issues by the template's severity rule with the effect on value, write complete hand-offs (Section 13), and list open items and every statement marked "Confirm before use:" (Section 14).
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -144,7 +144,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 1. The header states the standard of value, premise, level of value, subject interest and valuation date, and the assumptions follow them.
 2. UFCF is discounted at WACC (or FCFE at the cost of equity), and operating taxes are on EBIT.
 3. Peer betas are unlevered and relevered at the capital structure used in the WACC weights; weights sum to 100 percent.
-4. Every market input has a source and date or [VERIFY]; none came from memory.
+4. Every market input has a source and date or is marked (confirm before use); none came from memory.
 5. Discount factors match the valuation date, any stub period and the stated convention.
 6. Terminal value appears by both methods with the implied multiple, the implied growth, the growth benchmark and the TV share of EV, and a share above about 75 to 80 percent is explained.
 7. The bridge assesses debt, finance and operating leases (on the matching basis), preferred, NCI, pensions, cash restrictions and non-operating assets at the valuation date.
@@ -174,7 +174,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 | Filings are scans or footnotes unreadable | Image PDFs | Attempt extraction; if still unreadable, record it, use the best lower-ranked source with [UNVERIFIED], and list the dependent outputs |
 | Supplied model and filing disagree on debt or shares | Model built on an older quarter | Use the filing at the valuation date; write up the conflict and the effect |
 | User's label conflicts with the governing document's standard of value | Informal language ("fair value" meaning fair market value) | Follow the governing document; record a source conflict |
-| Peer data undated or from an unknown provider | Pasted pull | Mark [VERIFY] with the date needed; do not rely on it for the concluded range |
+| Peer data undated or from an unknown provider | Pasted pull | Mark (confirm before use) with the date needed; do not rely on it for the concluded range |
 
 ## Related Skills
 
@@ -201,4 +201,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/standards-of-value.md`: standards and premises of value, VS Section 100, IVS (effective January 31, 2025), ASC 820 fair value and hierarchy, premiums and discounts by subject interest.
 - `references/valuation-mechanics.md`: cash flow and rate matching, UFCF and SBC, WACC relevering, discounting calendar, terminal value cross-checks, EV-to-equity bridge with ASC 842 leases, treasury stock method and convertibles, comparables, precedents, weighting.
 - `references/output-template.md`: deliverable sections, partial-decline label, assumption register, reconciliation checks V1 to V13, issue severity, hand-off table.
-- `references/primary-sources.md`: each authority checked with citation, method and date, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with citation, method and date.

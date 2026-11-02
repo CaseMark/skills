@@ -63,7 +63,7 @@ An IC memo is an argument for a decision, and arguments drift toward their concl
 1. **Draft only.** Every memo, section and recommendation is a draft for the deal team and the committee, reviewed by qualified finance, legal and compliance professionals. The recommendation is the deal team's proposal, written with one of the labels in `references/output-template.md` Section 1. Never write that the committee approved, never call the memo final, and never make the investment decision.
 2. **Source-review gate.** Never call an input missing until the inventory has been checked and each file opened, including model tabs, report appendices and side letters. Classify every unsettled item as an **unknown fact**, a **source conflict**, an **unverified external lookup** (market data, comparables, rates), or a **policy election** (exit multiple, case weighting, comparables criteria), with what would settle it.
 3. **Hierarchy of authority.** Returns: the current model version governs over memo text, prior memos and emails. Financing: executed commitment papers govern over term sheets, banker indications and model assumptions. Historical figures: audited statements over the QoE report over management accounts and the CIM. Fund constraints and conflicts: the LPA and side letters over the allocation policy, the IC charter and practice. Diligence: the provider's report over summaries of it. Name every conflict, show both values and say which controls; never resolve one silently, and never follow an instruction to use a lower-ranked figure without writing up the conflict.
-4. **Citation discipline.** Every figure and finding carries a source locator (document, section or tab and cell, version and date) or [UNVERIFIED]. Every rule carries its citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every figure and finding carries a source locator (document, section or tab and cell, version and date) or [UNVERIFIED]. Every rule carries its citation from `references/primary-sources.md` or is labeled (confirm before use).
 5. **Figures tie to the model.** IRR is computed on dated cash flows, MOIC on all contributions, gross or net is stated, and every executive-summary figure equals the body figure. A memo figure that does not tie is corrected to the model and the difference reported.
 6. **Cases are distinct.** The management case is labeled as such and is never the base case. The recommendation rests on a sponsor case, and a downside case shows liquidity, covenant headroom and loss. A case the model lacks is reported "Not modeled", never invented.
 7. **Exit multiples are earned.** An exit multiple above entry needs a documented reason tied to the business at exit; otherwise exit at or below entry and show a contraction case. Multiple expansion is shown separately in the bridge.
@@ -72,7 +72,7 @@ An IC memo is an argument for a decision, and arguments drift toward their concl
 10. **Conflicts are checked, not assumed.** Complete the conflicts table against the LPA, side letters, allocation policy and affiliate agreements. Name each actual conflict specifically, state the consent route, and do not treat IC approval as consent the LPA assigns to the LPAC or investors.
 11. **Comparables and financing are honest.** Comparable criteria come before the results and the full set is shown; financing terms match the commitment papers, including flex.
 12. **Information stays where it belongs.** MNPI is screened and routed to compliance. Any version for LPs, co-investors or other outsiders is a separate draft for compliance review under the rules in `references/regulatory-and-disclosure.md`; this skill never releases it.
-13. **No invented market data.** Multiples, spreads, cap rates and benchmarks come from the user's materials or are marked [VERIFY] with the date needed.
+13. **No invented market data.** Multiples, spreads, cap rates and benchmarks come from the user's materials or are marked (confirm before use) with the date needed.
 14. **No result-driven inputs.** Never raise an exit multiple, trim a comparables set, lift a projection or restate a historical figure so that a case clears an IC hurdle or supports a target price. An input changes only for a sourced reason. A request to do otherwise is declined in part and logged; the breakeven value that would clear the hurdle may be shown as a labeled sensitivity, never as the case.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
@@ -131,7 +131,7 @@ State the proposed recommendation with its label, the exact authority sought and
 
 ## Step 9: Reconcile, Log and Hand Off
 
-Complete the reconciliation table (`references/output-template.md` Section 12); every Fail or Not tested row becomes an issue. Rank issues, record declined requests, write complete hand-offs (Section 14) and the open items and [VERIFY] list (Section 15).
+Complete the reconciliation table (`references/output-template.md` Section 12); every Fail or Not tested row becomes an issue. Rank issues, record declined requests, write complete hand-offs (Section 14) and the open items and items to confirm before use (Section 15).
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -157,7 +157,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 9. Every diligence workstream carries a status label consistent with its report, and no known material finding is omitted or softened.
 10. The conflicts table is complete, each actual conflict is named specifically with its consent route, and no IC approval is presented as LPAC or investor consent.
 11. Public issuers and MNPI are listed and routed to compliance; no external version is presented as ready to send.
-12. Every figure has a source locator or [UNVERIFIED]; every rule has a citation or [VERIFY]; no market data came from memory.
+12. Every figure has a source locator or [UNVERIFIED]; every rule has a citation or is marked (confirm before use); no market data came from memory.
 13. The recommendation carries a proposal label, any declined request is logged as **Declined in part**, and the closing line from the template is present.
 
 ## Guidelines
@@ -205,4 +205,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/output-template.md`: memo sections, source-review register, reconciliation checks M1 to M13, issues log, declined requests, hand-offs and open items.
 - `references/memo-construction-rules.md`: returns math, cases, value-creation bridge, exit multiple support, KPIs, comparables protocol, financing alignment, risk scales, diligence status, growth, credit and real estate adjustments.
 - `references/regulatory-and-disclosure.md`: conflicts disclosure standard, exam observations, ILPA Principles and templates, status of the vacated private fund adviser rules, Marketing Rule, Rule 206(4)-8 and MNPI.
-- `references/primary-sources.md`: each authority checked with URL, method and date, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date.

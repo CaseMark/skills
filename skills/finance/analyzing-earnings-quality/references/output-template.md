@@ -17,7 +17,7 @@ Produce the header and the sections below, in this order. Put numbers in tables;
 11. Section 10. Issues, conflicts and judgment calls
 12. Section 11. Declined parts
 13. Section 12. Hand-offs
-14. Section 13. Open items and [VERIFY] list
+14. Section 13. Open items and items to confirm before use
 
 ## Header
 
@@ -147,11 +147,11 @@ A hand-off names the specific facts the receiving workflow needs; a bare skill n
 
 Add or remove rows to match the matter.
 
-## 13. Open items and [VERIFY] list
+## 13. Open items and items to confirm before use
 
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Depends on | Owner | Next action | Changes which output |
 |---|---|---|---|---|---|---|
 
-Then each [VERIFY] statement and what would settle it.
+Then each statement marked "Confirm before use:" and what would settle it.
 
 Close with: "Draft for review by a qualified accounting and finance professional. Not an audit, review, examination or agreed-upon procedures report, not a fairness opinion, not legal advice, and not a finding that any person committed fraud or manipulated earnings."

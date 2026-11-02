@@ -6,7 +6,6 @@ Checked on October 30, 2026. Full texts were read through the case.dev API (`/se
 
 1. Authorities checked
 2. Figures confirmed by a sibling skill
-3. Unconfirmed, fact-dependent or jurisdiction-dependent: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -35,16 +34,3 @@ Checked on October 30, 2026. Full texts were read through the case.dev API (`/se
 |---|---|---|
 | XIRR convention: dated flows discounted on a 365-day year from the first date | building-lbo-models, references/primary-sources.md (Microsoft Support, "XIRR function") | IRR on dated cash flows (memo-construction-rules Section 1) |
 | OCC and FDIC withdrawal of the 2013 leveraged lending guidance on Dec. 5, 2025 | building-lbo-models, references/primary-sources.md (OCC release NR 2025-119) | Leverage norms are not a regulatory cap (memo-construction-rules Section 6) |
-
-## 3. Unconfirmed, fact-dependent or jurisdiction-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Whether a given co-investment teaser, LP update or memo excerpt is an "advertisement" | Definition read in full; application turns on audience, solicitation and content, for compliance to decide |
-| Whether a given fact about a public issuer is material and nonpublic | Fact-specific; for the compliance officer |
-| Federal Reserve position on the 2013 leveraged lending guidance | Open in building-lbo-models; not needed here |
-| Whether ILPA Principles or templates bind a particular fund | Only through the LPA or a side letter; read those documents |
-| Non-U.S. regimes (for example, the EU AIFMD and UK marketing rules) for non-U.S. investors or advisers | Not reviewed |
-| State-registered or exempt reporting adviser obligations under state law | Not reviewed |
-| Representations-and-warranties insurance exclusions for known issues | Market practice; read the policy or binder |
-| Market data (comparable multiples, credit spreads, cap rates) | Change daily; take from the user's materials with dates |

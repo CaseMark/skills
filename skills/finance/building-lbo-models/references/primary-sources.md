@@ -6,7 +6,6 @@ Checked on October 30, 2026, in two passes the same day. The first pass used web
 
 1. Authorities checked
 2. Corrections made on full-text review
-3. Unconfirmed, year-dependent or inference: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -32,7 +31,7 @@ Checked on October 30, 2026, in two passes the same day. The first pass used web
 | Debt issuance cost presentation | https://storage.fasb.org/ASU%202015-03.pdf | Full text via case.dev; 2026-10-30 | ASU 2015-03 amended 835-30-45-1A (direct deduction from the face amount of the note, not a deferred charge) and 835-30-45-3 (amortization reported as interest expense) |
 | Revolver issuance costs | ASU 2015-15 (SEC staff announcement); Deloitte DART Debt Roadmap sec. 5.4 | Search excerpt; 2026-10-30 | Line-of-credit costs may be deferred as an asset and amortized ratably over the term, drawn or not |
 | Leveraged lending guidance withdrawn | https://www.occ.gov/news-issuances/news-releases/2025/nr-ia-2025-119.html; OCC Bulletin 2025-44 and FDIC press release (search excerpts) | Release: full text via case.dev; others: search excerpt; 2026-10-30 | OCC and FDIC rescinded the 2013 Interagency Guidance on Leveraged Lending and the 2014 FAQs on Dec. 5, 2025; general safe-and-sound lending principles apply; a 6.0x leverage figure is not a current OCC or FDIC supervisory threshold |
-| Federal Reserve SR 13-3 | https://www.federalreserve.gov/supervisionreg/srletters/sr1303.htm | Full text via case.dev (cached copy); 2026-10-30 | Page as read shows no rescission notice; see the [VERIFY] list |
+| Federal Reserve SR 13-3 | https://www.federalreserve.gov/supervisionreg/srletters/sr1303.htm | Full text via case.dev (cached copy); 2026-10-30 | Page as read shows no rescission notice; current status not confirmed here |
 | Benchmark rate transition | ARRC materials at newyorkfed.org (Mar. 5, 2021 press release; Oct. 6, 2021 fallback summary); CME Group Term SOFR materials | Search excerpt; 2026-10-30 | USD LIBOR panel settings ceased after June 30, 2023; CME Term SOFR is the ARRC-recommended forward-looking term rate |
 | XIRR | Microsoft Support, "XIRR function" | Search excerpt; 2026-10-30 | Dated cash flows discounted on a 365-day year from the first date; iterative solve |
 | Iterative calculation | Microsoft Support, "Remove or allow a circular reference in Excel" and "Change formula recalculation, iteration, or precision in Excel" | Search excerpt; 2026-10-30 | Defaults of 100 iterations and 0.001 maximum change |
@@ -42,26 +41,9 @@ Checked on October 30, 2026, in two passes the same day. The first pass used web
 | Item | Before | After | Source |
 |---|---|---|---|
 | ASC 835-30-45-1A | "Added by ASU 2015-03" | Amended by ASU 2015-03; amortization as interest expense is 835-30-45-3, also amended | ASU 2015-03, amendment paragraph 3 and the 835-30-00-1 table |
-| Pre-2018 NOL carryforward | [VERIFY] | 20 taxable years following the loss year (IRC 172(b)(1)(A)(ii)(I)) | IRC 172 |
+| Pre-2018 NOL carryforward | Left open | 20 taxable years following the loss year (IRC 172(b)(1)(A)(ii)(I)) | IRC 172 |
 | 80 percent limit base | "Taxable income computed before the NOL deduction" | Taxable income computed without the 172, 199A and 250 deductions, less pre-2018 NOLs (IRC 172(a)(2)) | IRC 172 |
-| Bonus depreciation on used property | [VERIFY] in full | Statutory and regulatory used-property test stated; only its application to asset and deemed asset purchases remains [VERIFY] | IRC 168(k)(2)(E); Treas. Reg. 1.168(k)-2(b)(3)(iii) |
-| Commitment fees for 163(j) | "Reserved for future guidance" | Not listed as interest in Treas. Reg. 1.163(j)-1(b)(22); later guidance still [VERIFY] | eCFR 1.163(j)-1 |
+| Bonus depreciation on used property | Left open in full | Statutory and regulatory used-property test stated; only its application to asset and deemed asset purchases is not confirmed here | IRC 168(k)(2)(E); Treas. Reg. 1.168(k)-2(b)(3)(iii) |
+| Commitment fees for 163(j) | "Reserved for future guidance" | Not listed as interest in Treas. Reg. 1.163(j)-1(b)(22); later guidance not checked here | eCFR 1.163(j)-1 |
 
 No eval expectation changed: eval 2 cites ASC 835-30 (ASU 2015-03) without the paragraph verb, and eval 5's NOLs (2019-2023) are all post-2017, so the 80 percent cap of $33.52m (80 percent of $41.9m) and the $14.0m Section 382 limit are unchanged.
-
-## 3. Unconfirmed, year-dependent or inference: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| IRC 448(c) threshold for taxable years beginning in 2027 | The IRS inflation-adjusted items page listed no 2027 revenue procedure on 2026-10-30 |
-| ASC 805-10-25-23 wording | Read as quoted by Deloitte DART; asc.fasb.org returned no text |
-| Commitment fee treatment for 163(j) | Not listed as interest in the final regulation; no later guidance located |
-| Ordering of capitalized interest against carryforwards under Pub. L. 119-21 for taxable years after 2025 | Scope rule confirmed in IRS excerpts; ordering mechanics not located |
-| Whether a given LBO financing step is a redemption or corporate contraction under IRC 382(e)(2) | Statute read in full; application is fact-specific |
-| AHYDO outcome for any specific instrument | Requires the AFR for the issue month and a yield computation by the tax adviser |
-| Long-term tax-exempt rate for a given closing month | Published monthly by revenue ruling; not looked up |
-| Bonus depreciation for the target's existing assets in an asset purchase or deemed asset purchase election | Used-property test confirmed; its application to these structures not reviewed |
-| Federal Reserve status of the 2013 leveraged lending guidance | OCC and FDIC withdrawal confirmed; the copy of SR 13-3 read shows no rescission, and no Federal Reserve rescission was located |
-| Pushdown accounting or IFRS differences for the opening balance sheet | Not reviewed |
-| State, local and foreign income tax effects | Out of scope |
-| Market terms (Term SOFR forward curve, credit spreads, OID levels, sweep percentages, leverage multiples) | Change daily; take from the user's materials or mark [VERIFY] with the date |

@@ -47,7 +47,7 @@ UFCF = EBIT x (1 - operating tax rate) + D&A - capital expenditures - increase i
 - The D/E used to relever is the same capital structure used for the WACC weights. For fair value or fair market value that is a market participant or industry structure; for investment value it may be the owner's planned structure. Say which.
 - Weights at market value (or the target structure), not book. D/V and E/V sum to 100 percent.
 - Pre-tax cost of debt is the current yield the subject would pay (rating, spread or observed yield), not the historical coupon. After-tax cost of debt = pre-tax cost x (1 - marginal tax rate). The US federal corporate rate is 21 percent under IRC 11(b) (confirmed in the sibling skill building-lbo-models); add state and foreign taxes from the user's facts.
-- Risk-free rate and equity risk premium are dated market inputs: take them from the user's materials with the date and source, or mark [VERIFY] with the date needed.
+- Risk-free rate and equity risk premium are dated market inputs: take them from the user's materials with the date and source, or mark (confirm before use) with the date needed.
 
 ## 4. Discounting calendar: valuation date, stub period, mid-year convention
 

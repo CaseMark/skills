@@ -16,7 +16,7 @@ Produce the header and the sections below, in this order. Put numbers in tables;
 10. Section 9. Reconciliation checks
 11. Section 10. Issues, declined items and judgment calls
 12. Section 11. Hand-offs
-13. Section 12. Open items and [VERIFY] list
+13. Section 12. Open items and items to confirm before use
 
 ## Header
 
@@ -132,7 +132,7 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 
 Add or remove rows to match the matter.
 
-## 12. Open items and [VERIFY] list
+## 12. Open items and items to confirm before use
 
 | # | Open item | Gap class (unknown fact, source conflict, unverified external lookup, policy election) | Owner | Next action | Changes which output |
 |---|---|---|---|---|---|

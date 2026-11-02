@@ -6,7 +6,6 @@ Checked on October 30, 2026, with a review fix pass on October 31, 2026 (rows da
 
 1. Authorities checked
 2. Methodology sources (not authorities)
-3. Unconfirmed, forum-variable or date-dependent: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -40,17 +39,3 @@ Checked on October 30, 2026, with a review fix pass on October 31, 2026 (rows da
 | Stout, "ASC 842 and the Impact on Business Valuation" (Oct. 10, 2019) | https://www.stout.com/en/insights/article/asc-842-impact-business-valuation | Full text via case.dev; 2026-10-30 | Net EV with EBITDA after rent versus gross EV with EBITDAR; consistent numerator and denominator |
 
 Gordon growth arithmetic, the implied-growth inversion, mid-year discounting, the TSM iteration and the 75 to 80 percent terminal value review trigger are standard practice and arithmetic, not rules from an authority; the skill states them as elections or review triggers.
-
-## 3. Unconfirmed, forum-variable or date-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Any revision of VS Section 100 | AICPA product page (dated June 5, 2025) shows the 2007 standard; a Business Valuation Resources report of the November 2025 AICPA FVS conference mentions only a "possible update"; no exposure draft located on 2026-10-30 |
-| Valuation Performance Framework: final text, effective date, and whether it is cited by auditors for fund Level 3 marks | Exposure draft only (comments due Dec. 22, 2026); checked 2026-10-31 |
-| Final text of the IVS edition effective January 2028 | Exposure draft only; final edition expected January 2027 |
-| Statutory or judicial fair value in a given state (minority and marketability discounts, synergies, valuation date) | Varies by jurisdiction and case law; only the Delaware statute text was read |
-| ASC paragraph wording | Read through PwC Viewpoint and Deloitte DART excerpts; the FASB Codification was not opened |
-| Long-run nominal growth benchmark | FOMC projections change quarterly; non-US cash flows need the relevant economy's benchmark |
-| Market inputs (risk-free rate, equity risk premium, betas, credit spreads, peer and transaction multiples, control premium studies) | Change daily; take from the user's materials with dates or mark [VERIFY] with the date needed |
-| State, local and foreign tax rates; tax deductibility of pension contributions in a given jurisdiction | Not reviewed |
-| Whether a particular discount for lack of marketability is supportable for a given interest | Fact-specific; requires the valuation professional's support |

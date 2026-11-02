@@ -59,14 +59,14 @@ Read each input with this suspicion before building from it.
 1. **Draft only.** Every model, table and conclusion is a draft for review by a qualified finance professional, with tax items for a tax adviser and accounting items for an accountant. Never call a model final, lender-ready, audited or approved.
 2. **Source-review gate.** Never call an input missing until the inventory has been checked and each file opened, including workbook tabs, footnotes and exhibits to the credit agreement. Every unsettled input is classified as an **unknown fact**, a **source conflict**, an **unverified external lookup** (rates, curves, comparables, published tax rates), or a **policy election** (circularity method, exit multiple, scenario weights), with what would settle it.
 3. **Hierarchy of authority.** For debt terms, the executed credit agreement governs over the commitment letter and term sheet, which govern over a lender or sponsor model and emails. For price, the executed purchase agreement and the funds flow govern over the letter of intent and the IC memo. For historical figures, audited statements govern over the QoE report, which governs over management accounts and the CIM. Name every conflict, show both values, say which controls and why; never resolve one silently, and never follow a user instruction to use a lower-ranked figure without writing up the conflict.
-4. **Citation discipline.** Every input in the assumption register carries a source locator (document, page, section, tab and cell) or [UNVERIFIED]. Every tax or accounting rule carries its citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every input in the assumption register carries a source locator (document, page, section, tab and cell) or [UNVERIFIED]. Every tax or accounting rule carries its citation from `references/primary-sources.md` or is labeled (confirm before use).
 5. **Three EBITDAs, three rows.** Reported, management-adjusted and credit agreement EBITDA stay separate. Debt sizing, leverage tests and the sweep step-down use credit agreement EBITDA; say which figure drives each output.
 6. **The equity check is a plug, so every use is checked.** Sources equal uses to the cent; OID, financing fees, advisory fees and cash to balance sheet each appear or are stated as zero with a source.
 7. **No hard-coded calculated values.** Interest, amortization, sweeps, taxes and returns are formulas. A pasted value inside a calculated row is a defect to report.
 8. **Circularity is an election, disclosed.** Average-balance interest with iteration and a circuit breaker, or beginning-balance interest, either is acceptable; the choice and the convergence test are stated.
 9. **Returns run on dates.** IRR is computed on the dated sponsor cash flow schedule; the exit multiple is an explicit assumption with a rationale and a contraction case.
 10. **Tax rules are dated.** Apply the rule in force for each taxable year; mark year-dependent figures with their year and every tax approximation for tax adviser review.
-11. **No invented market data.** Benchmark curves, spreads, comparables and multiples come from the user's materials or are marked [VERIFY] with the date needed. Never fill them in from memory.
+11. **No invented market data.** Benchmark curves, spreads, comparables and multiples come from the user's materials or are marked (confirm before use) with the date needed. Never fill them in from memory.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
 
@@ -81,7 +81,7 @@ Collect these, then build the source-review register (`references/output-templat
 7. **Tax status:** C corporation or pass-through; existing NOLs; foreign subsidiaries; structure (stock, asset or deemed asset purchase).
 8. **Deliverable:** new model, review of a supplied model, or a paper LBO (quick approximation).
 
-**Default fallbacks (each stated in the assumption register as a policy election or unknown fact):** fees as a percent of the relevant amount with [UNVERIFIED]; minimum cash at the level in the commitment papers, otherwise a stated figure; beginning-balance interest if the user does not want circularity; exit multiple equal to entry only as one case among several, never alone; mid-year or year-end convention stated; base-case tax at 21 percent federal with state taxes [VERIFY].
+**Default fallbacks (each stated in the assumption register as a policy election or unknown fact):** fees as a percent of the relevant amount with [UNVERIFIED]; minimum cash at the level in the commitment papers, otherwise a stated figure; beginning-balance interest if the user does not want circularity; exit multiple equal to entry only as one case among several, never alone; mid-year or year-end convention stated; base-case tax at 21 percent federal with state taxes (confirm before use).
 
 **Hard stops (do not produce returns; report what is needed):**
 - No historical or LTM EBITDA from any source, so no entry value or leverage can be computed.
@@ -123,7 +123,7 @@ Read `references/model-mechanics.md` Section 9. Produce the two-way tables, the 
 
 ## Step 9: Reconcile, Rank Issues and Hand Off
 
-Complete the reconciliation table in `references/output-template.md` Section 10; every Fail or Not built row becomes an issue. Rank issues by the template's severity rule, each with sources in conflict, the controlling source, the effect on equity check, IRR or leverage, and a recommendation. Write complete hand-offs (Section 12) and the open items and [VERIFY] list (Section 13).
+Complete the reconciliation table in `references/output-template.md` Section 10; every Fail or Not built row becomes an issue. Rank issues by the template's severity rule, each with sources in conflict, the controlling source, the effect on equity check, IRR or leverage, and a recommendation. Write complete hand-offs (Section 12) and the open items and items to confirm before use (Section 13).
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -144,10 +144,10 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 5. The circularity election is stated and converged, or beginning-balance interest is disclosed; no pasted values sit in calculated rows.
 6. The balance sheet balances and cash ties across all three statements every period (R4, R5), or the model is labeled a paper LBO with R4 marked Not built.
 7. The 163(j) computation uses the ATI rule for each taxable year and tax interest rather than book interest, deducts debt issuance costs outside the limit, and its carryforward rolls (R13).
-8. NOL usage respects the 80 percent limit and any Section 382 limit, or is marked [VERIFY] for the tax adviser.
+8. NOL usage respects the 80 percent limit and any Section 382 limit, or is marked (confirm before use) for the tax adviser.
 9. IRR is computed on dated cash flows that include every contribution and distribution, sponsor proceeds exclude rollover, co-invest and option pool shares, year 1 reflects any stub period, and MOIC equals distributions over contributions.
 10. The exit multiple has a rationale and at least one contraction case; entry equals exit only as a labeled case.
-11. Every input has a source locator or [UNVERIFIED]; every rule has a citation or [VERIFY]; no market rate or multiple was supplied from memory.
+11. Every input has a source locator or [UNVERIFIED]; every rule has a citation or is marked (confirm before use); no market rate or multiple was supplied from memory.
 12. Every conflict names both sources, the controlling one and the effect; every open item has an owner and next action.
 13. The draft-for-review closing line is present and no statement calls the model final or lender-ready.
 
@@ -171,7 +171,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 | Credit agreement is a scan or only a term sheet is available | Definitions unreadable or not yet final | Attempt extraction; if unreadable, record it, use the term sheet with [UNVERIFIED], and list the dependent outputs |
 | Supplied model and credit agreement disagree on a term | Model built on a superseded draft | Use the executed agreement; write up the conflict and the effect on returns |
 | QoE and CIM EBITDA differ | Different periods or addbacks | Bridge both to reported EBITDA and to credit agreement EBITDA; name the period of each |
-| Tax rate or threshold looks stale | Year-dependent figure | Check `references/primary-sources.md`; mark [VERIFY] with the year needed |
+| Tax rate or threshold looks stale | Year-dependent figure | Check `references/primary-sources.md`; mark (confirm before use) with the year needed |
 
 ## Related Skills
 
@@ -192,4 +192,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/model-mechanics.md`: EBITDA bridge, purchase price, sources and uses, projections, debt schedule, sweep and minimum cash, circularity, exit and returns, sensitivities and credit statistics.
 - `references/tax-and-accounting-rules.md`: corporate rate, IRC 163(j), definition of interest, OID and AHYDO, NOLs and Section 382, bonus depreciation, deal-cost tax and GAAP treatment.
 - `references/output-template.md`: deliverable sections, assumption register, reconciliation checks R1 to R13, issue severity, hand-off table.
-- `references/primary-sources.md`: each authority checked with citation and date, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with citation and date.

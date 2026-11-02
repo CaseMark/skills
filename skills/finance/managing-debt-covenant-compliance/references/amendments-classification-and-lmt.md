@@ -59,7 +59,7 @@ IAS 1 as amended in 2020 and 2022 (Non-current Liabilities with Covenants; EU en
 - Paragraph 74: a breach on or before the reporting date that makes the liability payable on demand makes it current, even if the lender agrees after the reporting date and before authorization not to demand payment.
 - Paragraph 75: noncurrent only if the lender agreed by the reporting date to a grace period ending at least 12 months after it.
 - Paragraph 76ZA: disclose covenant information and the risk of repayment within 12 months.
-So a post-period waiver that helps under ASC 470-10-45-11(a) does not help under IFRS. IFRS 18 replaces IAS 1 for periods beginning on or after January 1, 2027; where these paragraphs sit after that date is [VERIFY].
+So a post-period waiver that helps under ASC 470-10-45-11(a) does not help under IFRS. IFRS 18 replaces IAS 1 for periods beginning on or after January 1, 2027; where these paragraphs sit after that date is not confirmed here; check the current standard for periods beginning on or after that date.
 
 ## 5. Disclosure and standard-setting status as of October 30, 2026
 

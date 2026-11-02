@@ -1,6 +1,6 @@
 {
   "skill_name": "building-lbo-models",
-  "notes": "Adversarial regression suite. Each eval plants one trap from the Where Mistakes Hide table in its facts and is graded on its Must and Must not lines by a human or LLM judge; Should lines are advisory and not graded as pass or fail. Every quantity the arithmetic depends on is defined in the prompt, no Must depends on a [VERIFY] fact, and no eval asks for output a Checkpoint A hard stop would block. Figures were computed with an independent script (fixed-point iteration checked against a closed form for the circular interest, a bisection XIRR solver) on October 30, 2026. Eval 1 targets the management-adjusted EBITDA and market benchmarks rows; eval 2 the sources and uses row; eval 3 the debt schedule and credit agreement rows; eval 4 the returns and exit rows; eval 5 the tax schedule row. Eval 5 depends on Pub. L. 119-21 as in force for taxable years beginning in 2026; re-check if the law changes.",
+  "notes": "Adversarial regression suite. Each eval plants one trap from the Where Mistakes Hide table in its facts and is graded on its Must and Must not lines by a human or LLM judge; Should lines are advisory and not graded as pass or fail. Every quantity the arithmetic depends on is defined in the prompt, and no eval asks for output a Checkpoint A hard stop would block. Figures were computed with an independent script (fixed-point iteration checked against a closed form for the circular interest, a bisection XIRR solver) on October 30, 2026. Eval 1 targets the management-adjusted EBITDA and market benchmarks rows; eval 2 the sources and uses row; eval 3 the debt schedule and credit agreement rows; eval 4 the returns and exit rows; eval 5 the tax schedule row. Eval 5 depends on Pub. L. 119-21 as in force for taxable years beginning in 2026; re-check if the law changes.",
   "evals": [
     {
       "id": 1,
@@ -15,7 +15,7 @@
         "Must: write up the instruction to size on $110.0m as a source conflict with the commitment letter and term sheet controlling.",
         "Must: say that the OCC and FDIC withdrew the 2013 leveraged lending guidance on December 5, 2025, so 6.0x is not a current OCC or FDIC regulatory cap, and that capacity comes from the commitment papers.",
         "Must not: size debt or report leverage on management-adjusted EBITDA without labeling it, or present a 6.0x case as permitted by regulation.",
-        "Should: mark the Federal Reserve's position on the 2013 guidance [VERIFY] if it is mentioned."
+        "Should: note that the Federal Reserve's position on the 2013 guidance was not confirmed here, if it is mentioned."
       ],
       "trap_note": "A weak skill sizes the term loan on the $110.0m the user names and accepts the 6.0x regulatory premise, because it never reads the term sheet's cap or knows the 2013 guidance was withdrawn."
     },
@@ -79,7 +79,7 @@
         "Must: note the small business exemption does not apply (2026 gross receipts threshold $32.0m).",
         "Must: compute taxable income before NOLs of about $41.9m, treat the December 31, 2025 acquisition as a Section 382 ownership change, compute the annual limit as $400.0m times 3.50% = $14.0m, compare it with the 80 percent cap (about $33.52m), use $14.0m of NOLs, and carry $46.0m forward.",
         "Must: show taxable income of about $27.9m and federal tax of about $5.86m, each labeled an approximation for tax adviser review.",
-        "Must: flag that IRC 382(e)(2) reduces the old loss corporation's value for any redemption or other corporate contraction in connection with the change (for example, target-funded payments to sellers) and mark the use of $400.0m as [VERIFY] pending that review.",
+        "Must: flag that IRC 382(e)(2) reduces the old loss corporation's value for any redemption or other corporate contraction in connection with the change (for example, target-funded payments to sellers) and mark the use of $400.0m as (confirm before use) pending that review.",
         "Must: hand the structure and tax conclusions to analyzing-m-and-a-tax-implications or a tax adviser with the figures above.",
         "Must not: apply the EBIT-based ATI rule to 2026, deduct the full $55.0m as interest, add the $3.0m back to ATI, or use all $60.0m of NOLs in 2026."
       ],

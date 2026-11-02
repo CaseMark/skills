@@ -19,7 +19,7 @@ Produce the header and the sections below, in this order. Use the firm's own IC 
 13. Section 12. Reconciliation checks
 14. Section 13. Issues log and declined requests
 15. Section 14. Hand-offs
-16. Section 15. Open items and [VERIFY] list
+16. Section 15. Open items and items to confirm before use
 
 ## Header and source-review register
 
@@ -169,7 +169,7 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 
 Add or remove rows to match the matter.
 
-## 15. Open items and [VERIFY] list
+## 15. Open items and items to confirm before use
 
 | # | Open item | Gap class | Depends on | Owner | Next action | Changes which section |
 |---|---|---|---|---|---|---|

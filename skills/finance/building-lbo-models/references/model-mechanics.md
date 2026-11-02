@@ -78,7 +78,7 @@ Beginning balance
 
 - Mandatory amortization is set by the credit agreement schedule; it is a percent of original principal, not of the beginning balance, unless the agreement says otherwise. Cap it at the outstanding balance.
 - Prepayment waterfall order (which tranche receives the sweep, pro rata or by maturity) comes from the agreement.
-- Floating rate: the benchmark (for example Term SOFR for the stated tenor) plus margin, subject to any floor. A floor applies to the benchmark, not the all-in rate, unless the agreement says otherwise. Use the forward curve the user supplies or mark the rate assumption [VERIFY]; never fill in a market rate from memory.
+- Floating rate: the benchmark (for example Term SOFR for the stated tenor) plus margin, subject to any floor. A floor applies to the benchmark, not the all-in rate, unless the agreement says otherwise. Use the forward curve the user supplies or mark the rate assumption (confirm before use); never fill in a market rate from memory.
 - Revolver: draws whenever cash before revolver falls below minimum cash; repays first when cash is available; commitment fee on the undrawn amount.
 - Fixed-rate notes typically have no amortization and call protection; model any make-whole or call premium on early repayment.
 - Leverage-based margin step-downs depend on the credit agreement EBITDA, not management EBITDA.

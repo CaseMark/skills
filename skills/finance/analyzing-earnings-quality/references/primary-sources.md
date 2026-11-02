@@ -6,7 +6,6 @@ Checked on October 30, 2026, with the Form 8-K and ASU 2025-06 transition rows r
 
 1. Authorities checked
 2. Corrections made on full-text review
-3. Unconfirmed, inference or date-dependent: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -51,15 +50,3 @@ Checked on October 30, 2026, with the Form 8-K and ASU 2025-06 transition rows r
 | -2.22 cutoff | "Usually tied to a five-variable version" | Attributed in secondary sources; origin not located | Batch 8 review; no source found |
 | ASU 2025-06 early adoption | "At the start of an annual period" only | Interim or annual period not yet issued; interim adoption applied from the start of that annual period | ASC 350-40-65-4(b) in ASU 2025-06 |
 | M-score driver ranking | Raw weighted contribution | Contribution relative to a neutral firm (index 1, TATA 0) | Arithmetic; batch 8 review |
-
-## 3. Unconfirmed, inference or date-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Origin of the -2.22 M-score cutoff | Attributed to Beneish in secondary sources; not in Beneish (1999); origin not located. Do not rely on it |
-| Whether the SEC staff revised the non-GAAP CFIs after Dec. 13, 2022 | The page as read and update notices through Oct. 21, 2026 show no revision; re-check the page before relying on it |
-| No AICPA or other U.S. standard specific to QoE engagements | Negative finding from AICPA pages and a 2024 CBV Institute paper; the AICPA quality-of-earnings landing page did not render |
-| ASU 2025-06 adoption by a given company | Effective date confirmed; each company's adoption date and transition method must come from its filings |
-| ASC 350-40 current (pre-ASU 2025-06) stage criteria in detail | Not reopened for this skill; take from the company's policy and the Codification |
-| Industry norms for cash conversion, DSO or accrual levels | Vary by sector and change over time; use the user's peer set or mark [VERIFY] |
-| Revenue recognition conclusions (bill-and-hold, principal or agent, variable consideration) | Outside this skill; route to managing-revenue-recognition |

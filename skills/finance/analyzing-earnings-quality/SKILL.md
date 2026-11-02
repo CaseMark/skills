@@ -62,7 +62,7 @@ Read each input with this suspicion before relying on it.
 1. **Draft only.** Every figure and conclusion is a draft for review by a qualified accounting and finance professional; securities law questions go to counsel. Never call the output an audit, review, QoE assurance, fairness opinion or final.
 2. **Source-review gate.** Never call an input missing until the inventory has been checked and each file opened, including workbook tabs, footnotes and schedules attached to the QoE report. Classify every gap as an **unknown fact**, a **source conflict**, an **unverified external lookup** (peer data, market norms) or a **policy election** (two-year window for a private company, materiality threshold, stock-based compensation treatment, scaling base), with what would settle it.
 3. **Hierarchy of authority.** Audited statements and executed agreements govern over reviewed interims and trial balances, which govern over the QoE report and management schedules, which govern over the CIM, presentations and emails. For rules: statute and SEC regulations, then the Codification, then SEC staff CFIs, then practice literature. Name every conflict, show both values, say which controls and why; never resolve one silently, and never follow an instruction to use a lower-ranked figure without writing up the conflict.
-4. **Citation discipline.** Every figure carries a source locator (document, page or tab, line or cell) or [UNVERIFIED]. Every rule, CFI, coefficient or threshold carries its citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every figure carries a source locator (document, page or tab, line or cell) or [UNVERIFIED]. Every rule, CFI, coefficient or threshold carries its citation from `references/primary-sources.md` or is labeled (confirm before use).
 5. **Every adjustment gets one label.** Supported, Recurring, Pro forma only, Tailored or Unsupported, using the tests in `references/adjustment-and-non-gaap-rules.md` Section 1. Only Supported items stay in diligence-adjusted EBITDA; pro forma items sit in their own column.
 6. **Detect, never engineer.** Do not choose, size or relabel adjustments to reach a target EBITDA, leverage ratio, covenant level, consensus figure or M-score. Show what the evidence supports and the gap to the target.
 7. **Report every material finding.** Do not leave a known material finding (a reserve release, an M-score flag, a failed reconciliation check, a related-party sale) out of the deliverable, move it out of the reader's view, or soften it because the user, management, the sponsor, a lender or the seller asks; show it with its size and source.
@@ -126,7 +126,7 @@ Read `references/adjustment-and-non-gaap-rules.md` Sections 4 to 7 and 10. For e
 
 ## Step 8: Red Flags, Issues and Hand-Offs
 
-Complete the red flag inventory with severity, the reconciliation table, the issues table, any declined parts, the hand-offs with the facts each needs, and the open items and [VERIFY] list, all in the layout of `references/output-template.md`.
+Complete the red flag inventory with severity, the reconciliation table, the issues table, any declined parts, the hand-offs with the facts each needs, and the open items and items to confirm before use, all in the layout of `references/output-template.md`.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -150,7 +150,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 8. Cash conversion is computed on matching periods and every period below 100 percent has quantified drivers.
 9. The M-score uses the 1999 definitions and coefficients, the -1.78 cutoff and a read-out label, and is called a screen.
 10. For registrants, each non-GAAP finding names the document, the rule or CFI and a label; for private companies, Regulation G is not applied.
-11. Every rule and threshold carries a citation or [VERIFY]; no peer norm was supplied from memory.
+11. Every rule and threshold carries a citation or is marked (confirm before use); no peer norm was supplied from memory.
 12. No adjustment was chosen to reach a target, no material finding was omitted or softened, and no sentence states that anyone committed fraud or manipulated earnings.
 13. The draft-for-review closing line is present.
 
@@ -173,7 +173,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 | Only one year of balance sheets | Early-stage company or partial data room | Decline day trends, accruals and M-score under the hard stop; complete the adjustment review |
 | QoE and management schedule conflict | Different versions or periods | Use the higher-ranked document; write up the conflict and the effect |
 | Supplied M-score differs from the recomputation | Inverted GMI or DEPI, wrong signs, wrong scaling or the -2.22 cutoff | Show both calculations variable by variable |
-| Peer figures needed but not provided | Unverified external lookup | Mark [VERIFY] with the data needed; do not fill from memory |
+| Peer figures needed but not provided | Unverified external lookup | Mark (confirm before use) with the data needed; do not fill from memory |
 
 ## Related Skills
 
@@ -193,4 +193,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/metrics-and-formulas.md`: Sloan and cash-flow accruals, cash conversion, DSO, DIO and DPO, Beneish M-score definitions, coefficients and cutoff, reserve, capitalization, revenue-side and classification tests, common errors.
 - `references/adjustment-and-non-gaap-rules.md`: five adjustment labels and tests, scope of Regulation G and Item 10(e), key SEC staff CFIs, disclosure review labels, Article 11 synergies, QoE engagement status, verified SEC enforcement examples.
 - `references/output-template.md`: deliverable sections, adjustment register, reconciliation checks E1 to E12, declined-part label, hand-off table.
-- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and corrections.

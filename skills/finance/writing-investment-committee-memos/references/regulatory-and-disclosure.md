@@ -19,7 +19,7 @@ U.S. rules and guidance that bear on what an IC memo must disclose about conflic
 - The Marketing Rule (17 CFR 275.206(4)-1) applies to advisers registered or required to be registered with the SEC under Advisers Act section 203. Its adopting release states it does not apply to exempt reporting advisers or state-registered advisers.
 - Rule 206(4)-8 applies to any investment adviser to a pooled investment vehicle (an investment company, or a fund excluded by section 3(c)(1) or 3(c)(7) of the Investment Company Act), registered or not.
 - Section 204A requires MNPI policies of every adviser subject to section 204 of the Advisers Act.
-- Ask which adviser entity manages each investing fund and its registration status (Checkpoint A). A non-U.S. or unregistered adviser may face other regimes; mark them [VERIFY] for counsel.
+- Ask which adviser entity manages each investing fund and its registration status (Checkpoint A). A non-U.S. or unregistered adviser may face other regimes; leave those for counsel to confirm.
 
 ## 2. Conflicts: the fiduciary disclosure standard
 

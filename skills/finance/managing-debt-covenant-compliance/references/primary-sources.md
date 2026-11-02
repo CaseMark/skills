@@ -7,7 +7,6 @@ Checked on October 30, 2026; the two filed agreements were re-read and the Feder
 1. Authorities checked
 2. Filed credit agreements used as worked references
 3. Corrections made on review (2026-10-31)
-4. Unconfirmed, member-only, or fact-dependent: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -25,7 +24,7 @@ Checked on October 30, 2026; the two filed agreements were re-read and the Feder
 | AICPA Technical Q&A 3200.17 | As reproduced in Deloitte Roadmap section 13.5.4 (URL in the first row) | Full text via case.dev; 2026-10-30 | Disclosure of waived violations for nonpublic entities |
 | IAS 1 paragraphs 69, 72A, 72B, 74, 75, 76, 76ZA | https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32023R2822 (Commission Regulation (EU) 2023/2822, official EU text) | Full text via case.dev; 2026-10-30 | Post-period waiver does not avoid current classification; grace period must be agreed by the reporting date; financial years starting on or after January 1, 2024 |
 | In re Serta Simmons Bedding, L.L.C., Nos. 23-20181, 23-20450, 23-20363, 23-20451 (5th Cir. Dec. 31, 2024, revised Feb. 14, 2025) | https://www.ca5.uscourts.gov/opinions/pub/23/23-20181-CV0.pdf | Full text via case.dev; 2026-10-30 | "Open market purchase" means a purchase on the secondary market for syndicated loans; the 2020 uptier was not one; reversal, remand, excision of the plan indemnity |
-| Serta reporter citation, 125 F.4th 555 | Westlaw secondary-source title found by case.dev search | Search excerpt; case.dev `/legal/v1/verify` returned "not found"; 2026-10-30 | Cite by docket number and date; see [VERIFY] list |
+| Serta reporter citation, 125 F.4th 555 | Westlaw secondary-source title found by case.dev search | Search excerpt; case.dev `/legal/v1/verify` returned "not found"; 2026-10-30 | Cite by docket number and date; the reporter citation is not confirmed here |
 | Serta certiorari | https://www.supremecourt.gov/docket/docketfiles/html/public/24-1322.html | Full text via case.dev; 2026-10-30 | Rehearing denied Feb. 18, 2025; petition denied Nov. 10, 2025 |
 | Serta remand decision | https://www.govinfo.gov/content/pkg/USCOURTS-txsb-4_23-ap-09001/pdf/USCOURTS-txsb-4_23-ap-09001-1.pdf | Full text via case.dev; 2026-10-30 | Memorandum opinion entered July 7, 2026: breach of the sharing clause; $261.13 million damages, 9.00 percent prejudgment interest, several liability |
 | Ocean Trails CLO VII v MLN Topco Ltd., 2024 NY Slip Op 06660 (1st Dept Dec. 31, 2024) | https://law.justia.com/cases/new-york/appellate-division-first-department/2024/index-no-651327-23-appeal-no-2918-case-no-2024-00169.html | Full text via case.dev; 2026-10-30 | "Purchase by way of assignment ... at any time" exception covered the Mitel uptier; claims dismissed |
@@ -48,18 +47,3 @@ Checked on October 30, 2026; the two filed agreements were re-read and the Feder
 | Rounding | Two-decimal default | Test unrounded unless the agreement has a rounding clause; Agreement V 13.07(b) has one, Agreement W none found | Agreements V and W |
 | Equity cure terms | Window only after quarter end | Contribution may be made during the fiscal quarter; written notice of intention required | Agreement W definition of Specified Equity Contribution |
 | Business Day roll | Agreement V 1.11 only | Agreement W 1.04 added | Agreement W Section 1.04 |
-
-## 4. Unconfirmed, member-only, or fact-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Serta reporter citation 125 F.4th 555 | Seen only in a Westlaw document title; case.dev verification returned "not found" |
-| Appeal status of the July 7, 2026 Serta remand judgment | Not checked; confirm on the docket before citing the award |
-| LSTA MCAPs text (July 21, 2026) | Member-only; not read; do not quote |
-| Timing and content of the FASB proposed ASU on subjective acceleration clauses | No exposure draft as of 2026-10-30; decisions are tentative |
-| Where IAS 1 paragraphs 69 to 76ZA sit after IFRS 18 takes effect (periods beginning on or after Jan. 1, 2027) | Not reviewed |
-| Whether an exercised equity cure means the lender "lost" its call right for ASC 470-10-45-11(a) | Contract and fact-specific; for the accountant |
-| New York bank closures beyond the Federal Reserve K.8 list for a given count | K.8 read; a specific agreement's Business Day definition may differ |
-| Whether a cure count keyed to the "required" delivery date runs from the stated date or the Business Day-extended date when the agreement is silent | Contract reading; confirm with counsel |
-| Market norms for add-back caps, cure counts and springing thresholds | Agreements W and V are examples, not a survey; take terms only from the user's agreement |
-| State-law or forum differences in reading "open market purchase" and similar exceptions | Serta (Fifth Circuit applying New York law) and Mitel (New York Appellate Division) read different clauses; other forums not reviewed |

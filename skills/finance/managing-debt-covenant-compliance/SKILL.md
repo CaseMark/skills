@@ -67,7 +67,7 @@ Read each input with this suspicion before using it.
 1. **Draft only.** Every calculation, certificate and memo is a draft for a qualified finance professional, with legal questions for counsel and classification for the auditor. Never call a certificate executed, final or delivered, and never sign for an officer.
 2. **Source-review gate.** Never call an input missing until the inventory has been checked and each file opened, including amendments, schedules and certificate exhibits. Classify every unsettled point as an **unknown fact**, a **source conflict**, an **unverified external lookup** (holiday calendars, market terms, accounting guidance updates) or a **policy election** (watch threshold, display precision), with what would settle it.
 3. **Hierarchy of authority.** Executed credit agreement and executed amendments, waivers and consents govern over a conformed copy, which governs over the certificate exhibit, prior certificates, the agent's model and emails. Audited statements govern over reviewed interims, then management accounts and earnings releases. For accounting, the Codification governs; Big 4 publications are labeled interpretations. Name every conflict, show both values, say which controls; never resolve one silently or follow an instruction to use a lower-ranked figure without writing up the conflict.
-4. **Citation discipline.** Every figure carries a source locator or [UNVERIFIED]; every contract term carries its section; every accounting or legal rule carries its citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every figure carries a source locator or [UNVERIFIED]; every contract term carries its section; every accounting or legal rule carries its citation from `references/primary-sources.md` or is labeled (confirm before use).
 5. **The agreement's definitions only.** Consolidated EBITDA, debt, cash and fixed charges are built clause by clause from the definitions. Other EBITDA measures appear only as memo reconciliation rows.
 6. **Every cap with its base and date.** Apply each cap and sublimit as written, show the base, the amount allowed and the amount disallowed, and use the cap in force for that Test Period.
 7. **Dates come from the text.** The level follows the Test Period end date; a springing test is measured on its stated date; each clock runs from its own trigger with the agreement's Business Day rule.
@@ -134,7 +134,7 @@ Read `references/amendments-classification-and-lmt.md` Sections 3 to 5. When a c
 
 ## Step 9: Certificate, Issues and Hand-Offs
 
-Draft the certificate on the agreement's exhibit (`references/output-template.md` Section 8), unsigned. Rank issues, list declined items in the template form, write complete hand-offs, and list open items and [VERIFY] items.
+Draft the certificate on the agreement's exhibit (`references/output-template.md` Section 8), unsigned. Rank issues, list declined items in the template form, write complete hand-offs, and list open items and every item marked "Confirm before use:".
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -159,7 +159,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 9. Each vote count names the class, excludes Defaulting Lenders, applies the threshold as written and dates when it was met.
 10. Classification inputs cite the paragraph each fact serves and are marked for the auditor.
 11. No figure was relabeled, re-timed or plugged; any such request appears as a declined item.
-12. Every figure has a source locator or [UNVERIFIED], every rule a citation or [VERIFY], and every open item an owner.
+12. Every figure has a source locator or [UNVERIFIED], every rule a citation or is marked (confirm before use), and every open item an owner.
 13. The certificate is unsigned and marked draft, and the closing line is present.
 
 ## Guidelines
@@ -205,4 +205,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/covenant-mechanics.md`: reading the agreement, Test Period and step-downs, springing tests, Consolidated EBITDA caps, ratios and headroom, clock table, equity cures, status vocabulary, basket register.
 - `references/amendments-classification-and-lmt.md`: consent thresholds, Serta and Mitel, ASC 470-10 and IAS 1 classification, disclosure, FASB project status.
 - `references/output-template.md`: deliverable sections, bridge and status tables, clock table, reconciliation checks C1 to C11, declined-item form, hand-off table.
-- `references/primary-sources.md`: each authority and filed agreement checked, with URL, method and date, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority and filed agreement checked, with URL, method and date.

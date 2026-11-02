@@ -18,7 +18,7 @@ Produce the header and the sections below, in this order. Put numbers in tables;
 12. Section 11. Reconciliation checks
 13. Section 12. Issues, conflicts and judgment calls
 14. Section 13. Hand-offs
-15. Section 14. Open items and [VERIFY] list
+15. Section 14. Open items and items to confirm before use
 
 ## Header
 
@@ -146,11 +146,11 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 
 Add or remove rows to match the matter.
 
-## 14. Open items and [VERIFY] list
+## 14. Open items and items to confirm before use
 
 | # | Open item | Gap class | Depends on | Owner | Next action | Changes which output |
 |---|---|---|---|---|---|---|
 
-Then each [VERIFY] statement and what would settle it.
+Then each statement marked "Confirm before use:" and what would settle it.
 
 Close with: "Draft for review by a qualified valuation professional. Not a conclusion of value, fairness opinion, or investment, tax, accounting or legal advice."
