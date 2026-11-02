@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and the sections below, in this order. Put figures in tables; keep prose short. Every fact carries a source locator (document, page, section, tab or cell) or [UNVERIFIED]; every rule carries its citation and tax year from `primary-sources.md` or [VERIFY]. State the currency, units and tax year once in the header.
+Produce the header and the sections below, in this order. Put figures in tables; keep prose short. Every fact carries a source locator (document, page, section, tab or cell) or [UNVERIFIED]; every rule carries its citation and tax year from `primary-sources.md` or the label "Confirm before use:". State the currency, units and tax year once in the header.
 
 ## Contents
 
@@ -14,7 +14,7 @@ Produce the header and the sections below, in this order. Put figures in tables;
 8. Section 7. Reconciliation checks
 9. Section 8. Issues, conflicts and judgment calls
 10. Section 9. Hand-offs
-11. Section 10. Open items and [VERIFY] list
+11. Section 10. Open items and confirm-before-use list
 12. Section 11. Declined parts
 
 ## Header
@@ -50,7 +50,7 @@ Add an owner table: owner, type (individual, trust, partnership, corporation, ex
 | Affiliated group membership (vote and value) | | IRC 1504(a) | | | |
 | CAMT applicable corporation (aggregated) | | IRC 59(k)(1) | | | |
 | AET exposure; PHC tests | | IRC 531-537; 541-542 | | | |
-| PTE election eligibility by state | | State statute [VERIFY] | | | |
+| PTE election eligibility by state | | State statute (varies by state) | | | |
 
 ## 4. Clock table
 
@@ -121,12 +121,12 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 
 Add or remove rows to match the matter.
 
-## 10. Open items and [VERIFY] list
+## 10. Open items and confirm-before-use list
 
 | # | Open item | Gap class (unknown fact, source conflict, unverified external lookup, policy election) | Depends on | Owner | Next action | Changes which result |
 |---|---|---|---|---|---|---|
 
-Then each [VERIFY] statement and what would settle it.
+Then each statement labeled "Confirm before use:" and what would settle it.
 
 ## 11. Declined parts
 

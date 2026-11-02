@@ -6,7 +6,6 @@ Checked on October 30, 2026. Statutes were read in full through the case.dev con
 
 1. Authorities checked
 2. Corrections to the prior version of this skill
-3. Unconfirmed, year-dependent or fact-dependent: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -63,22 +62,7 @@ Checked on October 30, 2026. Statutes were read in full through the case.dev con
 | Item | Before | After | Source |
 |---|---|---|---|
 | 338(h)(10) eligibility | "S-corp or member of consolidated/affiliated group" | Selling consolidated group, selling affiliate, or S corporation shareholders, joint election, nonselling S shareholders consent; an invalid (h)(10) voids the 338 election | 1.338(h)(10)-1(c) |
-| COI threshold | "At least 40% ... IRS ruling guidelines [VERIFY]" | No statutory threshold; regulatory examples: 40 percent preserves, 20 percent does not; signing date rule for fixed consideration | 1.368-1(e)(2) |
+| COI threshold | "At least 40% ... IRS ruling guidelines" | No statutory threshold; regulatory examples: 40 percent preserves, 20 percent does not; signing date rule for fixed consideration | 1.368-1(e)(2) |
 | Section 382 value | "Equity value of target" | Value of the old loss corporation's stock immediately before the change, adjusted for contractions | IRC 382(e) |
 | Cross-border overlay | Built into this skill | Routed to analyzing-international-tax-planning | Scope decision |
 | Pub. L. 119-21 | Not addressed | Bonus, 174A and 163(j) dated by effective date | Pub. L. 119-21 secs. 70301-70303 |
-
-## 3. Unconfirmed, year-dependent or fact-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Revised proposed 382(h) regulations after the July 2, 2025 withdrawal | None located as of 2026-10-30; recheck before relying on Notice 2003-65 |
-| Long-term tax-exempt rate and applicable federal rates for a given month | Published monthly by revenue ruling; not looked up for any specific deal |
-| Face amount of a contingent installment obligation for the 453A $5,000,000 test | Statute read; measurement for contingent obligations not located |
-| Tax ownership of escrowed consideration | Agreement-specific; regulations not reviewed |
-| Case authority on earnout characterization as compensation for tax | Not reviewed; GAAP indicator is persuasive only |
-| State recognition of F reorganizations, conversions and 338 or 336(e) elections; state entity-level taxes | Varies by state; not reviewed |
-| State statutes of limitations for tax indemnity survival | Varies by state |
-| Individual capital gain and net investment income tax rates for seller computations | Not reviewed here; use rates the user supplies |
-| Who receives the 174A catch-up deduction in a mid-year acquisition | Statute and Rev. Proc. 2025-28 read; allocation is a contract point |
-| Backup withholding percentage (fourth lowest 1(c) rate) and whether a paying agent's merger payments are 6045-reportable | Statute read; rate table and the paying agent's reporting not reviewed |

@@ -64,7 +64,7 @@ Read each input with this suspicion before relying on it.
 1. **Draft only.** Every memo, clock and document is a draft for a qualified tax professional or counsel. Never call a document ready to file or sign, and never state that a deadline has been met for a filing you did not see stamped or acknowledged.
 2. **Source-review gate.** Never call a document missing until the inventory has been checked and each file opened, including envelopes, transcripts and attachments. Classify every gap as an **unknown fact**, a **source conflict**, an **unverified external lookup** (current case law, IRS rates, treaty terms) or a **policy election** (whether to protest, consent, petition or pay), with what would settle it.
 3. **Hierarchy of authority.** For law: the Code, then final regulations, then precedent of the circuit to which the case is appealable (the Tax Court follows it under Golsen), then Tax Court precedent, then revenue procedures and rulings, then the IRM and IRS publications, then commentary. For facts: the IRS notice and certified mail record, then the IRS transcript, then the filed return and executed agreements, then examiner workpapers, then client summaries and recollection. Name every conflict (for example, the BBA 270-day statute against its regulation), show both readings, say which controls and why, and plan to the earlier date; never resolve a conflict silently or follow an instruction to use a lower-ranked source without writing the conflict up.
-4. **Citation discipline.** Every fact carries a source locator (document, page, transcript code and date) or [UNVERIFIED]. Every rule carries its citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every fact carries a source locator (document, page, transcript code and date) or [UNVERIFIED]. Every rule carries its citation from `references/primary-sources.md` or the label "Confirm before use:".
 5. **Every clock has its own trigger and is recomputed by script.** Use the script and fixed format in `references/clocks-and-deadlines.md` Section 2, apply the 7503 roll only to a raw last day on a weekend or D.C. holiday, and show the competing reading where one exists.
 6. **Tolling is never a plan.** Whatever the circuit, the plan is to file by the earlier of the statutory date and the date on the notice. Equitable tolling is described only as a remedy argument after a miss, with the circuit's actual holding.
 7. **Penalties are tested, not assumed.** For each penalty, compute it, test the threshold, test 6751(b) approval under the governing timing rule, and test reasonable cause on the record; say which defenses fail as plainly as which succeed.
@@ -125,7 +125,7 @@ Read `references/controversy-rules.md` Section 8. Complete the privilege and rec
 
 ## Step 8: Options, Drafts and Hand-Offs
 
-Read `references/controversy-rules.md` Section 9 and `references/output-template.md` Sections 6 to 11. Rank the options against the clocks and the client's objectives, draft the documents requested, run reconciliation checks C1 to C10, and write complete hand-offs, the open items and [VERIFY] list, and the declined parts.
+Read `references/controversy-rules.md` Section 9 and `references/output-template.md` Sections 6 to 11. Rank the options against the clocks and the client's objectives, draft the documents requested, run reconciliation checks C1 to C10, and write complete hand-offs, the open items and confirm-before-use list, and the declined parts.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -150,7 +150,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 9. No fact is conceded without written authorization and a source; every protest fact has a locator.
 10. Any BBA analysis shows the imputed underpayment as proposed and as modified, both readings of the 270-day window, and the 45-day push-out limit; any MAP or APA analysis shows its own clocks.
 11. Every signature-ready document names a signer with documented authority, or the authority fix is drafted instead.
-12. Every rule has a citation or [VERIFY]; every conflict names both sources, the controlling one and why; every open item has an owner and a next action.
+12. Every rule has a citation or the label "Confirm before use:"; every conflict names both sources, the controlling one and why; every open item has an owner and a next action.
 13. Every declined part appears under the "DECLINED PART:" label with its reason, and the draft-for-review closing line is present.
 
 ## Guidelines
@@ -160,7 +160,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - Quote the date printed on any notice exactly, and keep it separate from the computed date.
 - Present the government's strongest argument on each issue alongside the client's; Appeals settles on hazards, not advocacy.
 - Prefer a fixed-date or restricted consent negotiated in writing over an open-ended consent, unless the matter's facts justify open-ended terms; say which.
-- Keep interest and penalty figures labeled as estimates until the IRS computation is in hand; quarterly interest rates are [VERIFY].
+- Keep interest and penalty figures labeled as estimates until the IRS computation is in hand; quarterly interest rates change each quarter, so confirm the current rate.
 - State-level controversies follow state procedure; flag them and hand off rather than applying federal clocks.
 
 ## Troubleshooting
@@ -189,4 +189,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/clocks-and-deadlines.md`: counting conventions, the 7503 roll and D.C. holidays, the computation script and fixed format, and every clock (assessment, consents, refund and informal claims, petition with circuit status, Appeals intake, CDP, BBA, third-party summons, innocent spouse, MAP and APA).
 - `references/controversy-rules.md`: exam concessions and agreement forms, protests and Appeals, ex parte rules, 6662 and reasonable cause, 6751(b), FTA and AEP, BBA, privilege, forum choice, MAP and APA procedure with APMA acceptance screening.
 - `references/output-template.md`: deliverable sections, clocks register, issue matrix, penalty and privilege registers, reconciliation checks C1 to C10, hand-off table, open items.
-- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and corrections.

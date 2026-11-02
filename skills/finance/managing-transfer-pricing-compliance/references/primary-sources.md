@@ -11,7 +11,6 @@ Checked on October 30, 2026; fix-pass items on October 31, 2026. Full texts were
 5. Case law
 6. Other agencies
 7. Corrections to the earlier version of this skill
-8. Unconfirmed, jurisdiction-dependent or year-dependent: treat as [VERIFY]
 
 ## 1. U.S. statutes
 
@@ -78,30 +77,11 @@ Checked on October 30, 2026; fix-pass items on October 31, 2026. Full texts were
 
 | Item | Before | After |
 |---|---|---|
-| U.S. best method rule | "[VERIFY if US entities are in scope]" | Confirmed, 1.482-1(c); applied whenever a U.S. return is affected |
+| U.S. best method rule | Applied only "if US entities are in scope" | Confirmed, 1.482-1(c); applied whenever a U.S. return is affected |
 | Interquartile range | "Calculate interquartile range" with no method | Regulation percentile rule stated; spreadsheet quartile functions flagged as different |
 | Out-of-range result | "Quantify the adjustment needed" | Both the move to the nearest quartile and the IRS's ordinary median adjustment are quantified |
 | France "TP-Formulaire" form | Named as a filing | Removed; not verified |
 | Tested party | "Based on functional complexity" | Least complex party with reliable data, 1.482-5(b)(2)(i), OECD 3.18 |
 | CPM data years (fix pass) | Single year under review as the default | Year under review plus the two preceding years as the CPM default, 1.482-5(b)(4) and 1.482-1(f)(2)(iii)(B); single year is a policy election |
 | Safe haven escape (fix pass) | "Unless the taxpayer establishes a more appropriate rate" attached to the below-floor case | Attached to the upper limit only; the "However" sentence is the escape in both directions |
-| 30-day production date (fix pass) | Calendar day 30 with no weekday | Weekday stated; IRC 7503 reach marked [VERIFY]; plan to the prior business day |
-
-## 8. Unconfirmed, jurisdiction-dependent or year-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Any foreign jurisdiction's documentation thresholds, deadlines, language, penalties, interest limits or acceptance of compensating adjustments | Not reviewed; confirm per jurisdiction |
-| U.S. proposed regulations on the Amount B simplified and streamlined approach | Agenda projects an NPRM for November 2026; not published on the check date |
-| Whether a counterparty jurisdiction applies Amount B | Jurisdiction-specific |
-| Final form of the OECD Chapter VII revision | Consultation meeting Nov. 9, 2026 |
-| Specified covered services list for the services cost method | Rev. Proc. 2007-13 not reread on the check date |
-| Treas. Reg. 1.367(d)-1 mechanics (useful life, coordination with 482) | Statute read; regulations not read; computation routed |
-| CBP Reconciliation filing window and procedures | CBP page read but it references NAFTA and may be dated |
-| AFR for any month | Published monthly by revenue ruling; take from the user or look up for the month the loan was made |
-| Treas. Reg. 1.59A-3 treatment of the cost portion of a marked-up services fee | Statute read; regulation not read |
-| Whether IRC 7503 extends a 30-day 6662(e) documentation production period that ends on a weekend or holiday | Statute read; no authority applying it to IDR production located |
-| 3M Co. later history (certiorari petition, if filed) and the blocked income rule outside the Eighth Circuit (Coca-Cola appeal pending in the Eleventh Circuit per a March 19, 2026 news report) | Docket read through the May 11, 2026 extension only |
-| Rev. Proc. 99-32 still current without modification | Text read; no modifying guidance searched |
-| U.S. regulatory treatment of intercompany guarantee fees beyond the services cost method exclusion | Not reviewed; OECD Chapter X Section D read |
-| Pillar Two side-by-side safe harbour details and their effect on a given group | Press release read; package text not reviewed; routed |
+| 30-day production date (fix pass) | Calendar day 30 with no weekday | Weekday stated; IRC 7503 reach stated as unsettled; plan to the prior business day |

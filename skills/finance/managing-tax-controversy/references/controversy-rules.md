@@ -1,6 +1,6 @@
 # Controversy Rules: Exam, Appeals, Penalties, BBA, Privilege
 
-Substantive and procedural rules the workflow applies after the clocks are set. Each rule was read in the source on 2026-10-30; citations, URLs and the [VERIFY] list are in `references/primary-sources.md`.
+Substantive and procedural rules the workflow applies after the clocks are set. Each rule was read in the source on 2026-10-30; citations and URLs are in `references/primary-sources.md`.
 
 ## Contents
 
@@ -61,7 +61,7 @@ Substantive and procedural rules the workflow applies after the clocks are set. 
 | 9th Cir. (Laidlaw's, 29 F.4th 1066 (2022)) | Before assessment, while the supervisor still has discretion to approve |
 | 11th Cir. (Kroner, 48 F.4th 1272 (2022); Battat (2025), cert. denied Apr. 27, 2026) | Before assessment; the statute regulates assessment, not communications to the taxpayer |
 | 5th Cir. (Swift, 144 F.4th 756 (2025), cert. denied Apr. 20, 2026) | Before assessment or, if earlier, before the supervisor loses discretion |
-| 10th Cir. (Minemyer, unpublished (2023)); 2d Cir. (Chai, 851 F.3d 190 (2017)) | Listed by the government and the Tax Court with the circuits accepting pre-assessment timing; Chai ties approval to the notice of deficiency or the answer asserting the penalty [VERIFY the exact Chai rule before relying on it] |
+| 10th Cir. (Minemyer, unpublished (2023)); 2d Cir. (Chai, 851 F.3d 190 (2017)) | Listed by the government and the Tax Court with the circuits accepting pre-assessment timing; Chai ties approval to the notice of deficiency or the answer asserting the penalty (the exact Chai rule is not confirmed here; read the opinion before relying on it) |
 | Tax Court, cases appealable elsewhere | Clay, 152 T.C. 223 (2019); Belair Woods, 154 T.C. 1 (2020); Frost, 154 T.C. 23 (2020): approval before the first formal communication of a definite decision to assert the penalty. Computer Sciences Corp., 165 T.C. No. 8 (2025) (4th Cir. venue) found approval timely even under the reading most favorable to the taxpayer and rejected an APA "reasoned decision" challenge |
 
 - Workflow: get the approval form (Civil Penalty Approval Form or equivalent) and the first communication proposing the penalty; identify the individual who first proposed it and that person's immediate supervisor; record the dates of proposal, approval, notice mailing and assessment; apply the rule of the circuit where the case is appealable, and the regulation where its date applies. A late or missing approval is a complete defense to that penalty; an approval that is timely under the governing rule ends the argument.
@@ -78,7 +78,7 @@ Substantive and procedural rules the workflow applies after the clocks are set. 
 - Authority: the partnership representative has sole authority to act for the partnership; if none is designated the IRS may select one (6223(a)). Partners are bound by the partnership's actions and by final decisions (6223(b)). Confirm the designation (and, for an entity representative, the designated individual) before anything is signed or elected.
 - Imputed underpayment (6225(b)): net the adjustments within each 702(a) category, disregard reallocation decreases, and apply the highest rate in effect for the reviewed year under section 1 or 11 (37 percent individual for years after 2017 under 1(j); 21 percent corporate under 11(b)).
 - Modifications (6225(c)), each requiring partner-level substantiation and IRS approval (6225(c)(8)): amended returns or the alternative payment procedure by reviewed-year partners; tax-exempt partners (portion allocable to a partner that would not owe tax because of its 168(h)(2) status; not to the extent the income would be taxable to it, such as unrelated business taxable income); rate modification for C corporation partners and for individuals' capital gains and qualified dividends (no lower than the highest rate for that partner type and income); certain publicly traded partnership passive losses; others by guidance. Deadline and its statute-versus-regulation counting conflict: `references/clocks-and-deadlines.md` Section 8.
-- Push-out (6226): within 45 days after the FPA the partnership may elect to have reviewed-year partners take the adjustments into account; partners then pay with the correction amounts in the year the statement is furnished. Compare the push-out cost (partner rates, interest computed at a higher rate under 6226(c) [VERIFY the rate before quoting it], partner-level attributes) with paying the modified imputed underpayment.
+- Push-out (6226): within 45 days after the FPA the partnership may elect to have reviewed-year partners take the adjustments into account; partners then pay with the correction amounts in the year the statement is furnished. Compare the push-out cost (partner rates, interest computed at a higher rate under 6226(c) (confirm the rate before quoting it), partner-level attributes) with paying the modified imputed underpayment.
 - Sequence: NOPPA, then modification submissions within the 270-day window, then FPA no earlier than 270 days after the NOPPA, then 45 days for push-out and 90 days for a petition. An imputed underpayment computed without considering modifications overstates the partnership's liability whenever tax-exempt, corporate or capital-gain partners hold a share.
 
 ## 8. Privilege: IRC 7525, Kovel and work product
@@ -94,7 +94,7 @@ Substantive and procedural rules the workflow applies after the clocks are set. 
 | Forum | Payment first? | Trigger and deadline | Notes |
 |---|---|---|---|
 | Tax Court (deficiency) | No | Notice of deficiency; 90 or 150 days (6213(a)) | Assessment barred while the petition is pending; precedent of the appeal circuit governs (Golsen) |
-| District court or Court of Federal Claims (refund) | Full payment of the assessed amount [VERIFY full-payment application to divisible taxes] | Refund claim, then suit no earlier than 6 months after the claim and within 2 years after disallowance (6532(a)) | Claim must have been timely under 6511 |
+| District court or Court of Federal Claims (refund) | Full payment of the assessed amount (whether this applies to divisible taxes is not confirmed here; check before relying on it) | Refund claim, then suit no earlier than 6 months after the claim and within 2 years after disallowance (6532(a)) | Claim must have been timely under 6511 |
 | BBA readjustment | Deposit required outside the Tax Court (6234(b)) | FPA; 90 days (6234(a)) | Venue for appeal: partnership's principal place of business (7482(b)) |
 | CDP review in Tax Court | No | Notice of determination; 30 days (6330(d)(1)) | Underlying liability only if no prior opportunity |
 

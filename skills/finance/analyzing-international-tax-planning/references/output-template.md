@@ -16,7 +16,7 @@ Produce the header and the sections below, in this order, omitting a section onl
 10. Section 9. Reconciliation checks
 11. Section 10. Issues, conflicts and judgment calls
 12. Section 11. Hand-offs
-13. Section 12. Open items and [VERIFY] list
+13. Section 12. Open items and confirm-before-use list
 14. Section 13. Declined parts
 
 ## Header and source-review register
@@ -138,7 +138,7 @@ Hand-ins this skill accepts from sibling skills (answer them in the sections abo
 | managing-transfer-pricing-compliance | 367(d) inclusions and outbound restructurings or transfers of intangibles; cost sharing arrangement structure; Pillar Two / GloBE effects of transfer pricing adjustments; NCTI, FDDEI and BEAT computations; treaty and foreign interest-limitation questions on intercompany loans |
 | analyzing-corporate-tax-structures | Foreign owners or foreign subsidiaries of a domestic structure; CFCs, treaties, and inbound and outbound structures; the corporate AMT applicable-corporation test for foreign-parented groups (section 59(k)(2)) |
 
-## 12. Open items and [VERIFY] list
+## 12. Open items and confirm-before-use list
 
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Depends on | Owner | Next action | Changes which output |
 |---|---|---|---|---|---|---|

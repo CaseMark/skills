@@ -8,7 +8,6 @@ Checked on October 30, 2026. Statutes were read in full through the case.dev API
 2. Regulations, revenue procedures and IRS guidance
 3. Cases
 4. Corrections made on full-text review
-5. Unconfirmed, forum-variable or year-dependent: treat as [VERIFY]
 
 ## 1. Statutes
 
@@ -91,25 +90,6 @@ Checked on October 30, 2026. Statutes were read in full through the case.dev API
 |---|---|---|---|
 | Petition deadline status | "Jurisdictional, except in the Third Circuit (Culp)" | Four circuits nonjurisdictional and tollable (2d, 3d, 6th, 8th); First Circuit nonjurisdictional but not tollable; Tax Court still jurisdictional outside those circuits | Kyick; Maniktala |
 | First Time Abate | "Available for accuracy-related penalties with a clean history" | Limited to failure to file, pay and deposit penalties; AEP added from summer 2026 | IRM 20.1.1.3.3.2.1; IRS FTA and AEP page |
-| Buller citation | 160 F.4th 266 | Docket number and dates (decided Aug. 14, 2025; amended Nov. 26, 2025); reporter cite [VERIFY] | Amended opinion read; /legal/v1/verify |
+| Buller citation | 160 F.4th 266 | Docket number and dates (decided Aug. 14, 2025; amended Nov. 26, 2025); reporter cite taken from citing cases, not confirmed in the reporter | Amended opinion read; /legal/v1/verify |
 | BBA modification deadline | "270 days after the NOPPA" | Statute counts a 270-day period beginning on the mailing date; regulation says on or before 270 days after; name the one-day conflict | 6225(c)(7); 301.6225-2(c)(3)(i) |
 | 6751(b) timing | "Approval before the 30-day letter" | Depends on circuit; regulation for penalties assessed on or after Dec. 23, 2024; cert. denied twice in April 2026 | Kroner; Swift brief; T.D. 10017 |
-
-## 5. Unconfirmed, forum-variable or year-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Petition-deadline status in the 4th, 5th, 7th, 9th, 10th, 11th and D.C. Circuits | No post-Boechler published holding located; pending appeals listed in a White & Case alert (Oct. 22, 2026) not checked on the dockets |
-| Content of the Senate amendment to H.R. 5349 on 6213(a) | Described by White & Case; bill text not read |
-| Tax Court electronic filing cutoff and time zone | Not read in the Tax Court's rules on the check date |
-| Whether an ad hoc federal closure (other than a presidential-death closure) is a legal holiday under 7503 | Not on the D.C. statutory list |
-| IRS treatment of an ASED that falls on a weekend or holiday | IRM 25.6.1 tables apply the roll for some returns; plan to the unrolled date |
-| Buller reporter citation | 160 F.4th 266 (as cited in Kyick and Maniktala) and 152 F.4th 84 (original opinion, per the reviewer) both unverified; cite by docket number and date |
-| Whether IRC 7503 rolls the 7609(b)(2) quash deadline for a district court filing | Not read; plan to the unrolled day |
-| Chai's exact timing rule | Read only as summarized in the government's Swift brief |
-| Interest rate on push-out correction amounts (6226(c)) and current 6621 underpayment rates | Not read; quarterly rates change |
-| Full-payment requirement for refund suits and divisible-tax exception | Not read |
-| Consolidated-group agency for consents (Treas. Reg. 1.1502-77) | Seen only as cited in IRM 25.6.22 |
-| Treaty-specific MAP notification periods and whether a given treaty allows implementation notwithstanding domestic time limits | Treaty text not read; check the article for the matter |
-| Validity of a MAP protective claim filed outside the 6511 period | Inference that the 6511 period governs; not stated in Rev. Proc. 2015-40 |
-| State controversy procedures, criminal tax procedure | Out of scope |

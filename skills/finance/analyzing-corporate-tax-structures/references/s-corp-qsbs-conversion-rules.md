@@ -63,9 +63,9 @@ The regime turns on the date the taxpayer acquired the stock (Pub. L. 119-21, se
 | Gross assets test | $50,000,000 for stock issued on or before July 4, 2025 | $75,000,000 for stock issued after July 4, 2025 (Pub. L. 119-21, sec. 70431(c)), indexed for taxable years beginning after 2026 (IRC 1202(d)(1)) |
 
 - The new holding-period tiers apply by **acquisition date**; the $75,000,000 test applies by **issue date**. For original-issue stock these coincide; check both.
-- Gain not excluded because of the percentage is "section 1202 gain" taxed as 28-percent rate gain (IRC 1(h)(4), (7)); its application to the new 50 and 75 percent tiers follows the statutory definition but no IRS guidance was located [VERIFY].
+- Gain not excluded because of the percentage is "section 1202 gain" taxed as 28-percent rate gain (IRC 1(h)(4), (7)); its application to the new 50 and 75 percent tiers follows the statutory definition but no IRS guidance was located here; confirm the treatment before relying on it.
 - The 7 percent AMT preference applies only to stock acquired on or before Sept. 27, 2010 (IRC 57(a)(7)).
-- Which taxable year governs the post-2026 indexing of the $75,000,000 amount for a given issuance, and the 2027 figures, are [VERIFY].
+- Which taxable year governs the post-2026 indexing of the $75,000,000 amount for a given issuance, and the 2027 figures, are not confirmed here; these are annual figures, so confirm the current year's amount.
 
 ## 6. QSBS: qualification tests
 

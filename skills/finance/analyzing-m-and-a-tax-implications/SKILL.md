@@ -63,7 +63,7 @@ Deal tax fails on facts about parties and dates more often than on arithmetic. A
 1. **Draft only.** Every conclusion is a draft for review by a qualified tax adviser. Never call the analysis a tax opinion, final, or ready to file, and never express an opinion level ("will", "should", "more likely than not"); state Qualifies, Fails or Uncertain with reasons.
 2. **Source-review gate.** Never call an item missing until the inventory has been checked and every file opened, including schedules, exhibits, election forms and IRS acceptance letters. Classify every unsettled item as an **unknown fact**, a **source conflict**, an **unverified external lookup** (monthly federal rates, state rules, appraisals not provided) or a **policy election** (discount rate, straddle convention, structure choice), with what would settle it.
 3. **Hierarchy of authority.** Executed agreements, filed returns, filed election forms and government notices govern over draft agreements, LOIs and schedules in draft, which govern over models, summaries and emails. A signed appraisal governs over management estimates of fair value. Name every conflict, show both versions, say which controls and why; never resolve one silently, and never follow an instruction to use a lower-ranked source without writing up the conflict.
-4. **Citation discipline.** Every fact carries a source locator (document, section, page or schedule number) or [UNVERIFIED]. Every rule carries its citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every fact carries a source locator (document, section, page or schedule number) or [UNVERIFIED]. Every rule carries its citation from `references/primary-sources.md` or the label "Confirm before use:".
 5. **Whose tax first.** Classify every party (target, each seller, buyer, holding companies) and its filing group before any structure conclusion; an election's availability, the reorganization's parties and the indemnity's scope all depend on that table.
 6. **Every election has a maker, a form and a deadline.** State all three for each election considered, and label it Available, Available with conditions or Not available.
 7. **Tests are computed.** COI on the pre-signing date for fixed consideration, 351 control, the (a)(2)(E) 80 percent test and the C reorganization 80 percent test are percentages with the arithmetic shown.
@@ -86,7 +86,7 @@ Collect these, then build the source-review register (`references/output-templat
 7. **Compensation arrangements:** change-in-control bonuses, severance, equity acceleration, employment terms tied to earnouts.
 8. **Deliverable and perspective:** buyer, seller or both; structure comparison, election analysis, reorganization or rollover test, consideration memo, allocation, indemnity analysis, or diligence tax section.
 
-**Default fallbacks (each recorded as a policy election or unknown fact):** 21 percent federal corporate rate (IRC 11(b), confirmed in building-lbo-models); individual rates only as supplied by the user, otherwise [VERIFY]; discount rate and amortization convention stated and tested; fair values from a signed appraisal, otherwise the allocation is labeled illustrative and [UNVERIFIED]; straddle taxes shown under both conventions until the parties choose; state taxes listed as open items. A default never displaces a rule: the residual method, election deadlines and effective dates apply as written.
+**Default fallbacks (each recorded as a policy election or unknown fact):** 21 percent federal corporate rate (IRC 11(b), confirmed in building-lbo-models); individual rates only as supplied by the user, otherwise labeled "Confirm before use:"; discount rate and amortization convention stated and tested; fair values from a signed appraisal, otherwise the allocation is labeled illustrative and [UNVERIFIED]; straddle taxes shown under both conventions until the parties choose; state taxes listed as open items. A default never displaces a rule: the residual method, election deadlines and effective dates apply as written.
 
 **Hard stops (do not produce the conclusion; list it under the template's "Declined parts" label with what is needed):**
 - No source states the target's federal tax classification and who owns it (or, in an asset deal, the selling entity's classification): no election-availability or structure conclusion.
@@ -116,7 +116,7 @@ Read `references/consideration-allocation-and-indemnity.md` Section 4 and `refer
 
 ## Step 6: Attributes and Change-in-Control Payments
 
-Read `references/consideration-allocation-and-indemnity.md` Sections 5 and 6. Compute the 382 limit from the loss corporation's stock value, reduced for 382(e)(2) contractions, 382(l)(1) capital contributions and 382(l)(4) nonbusiness assets, times the long-term tax-exempt rate: the highest adjusted federal long-term rate for any month in the 3-calendar-month period ending with the change month (IRC 382(f)(1)), each month's published rate shown or [VERIFY]. For a consolidated seller selling target stock at a loss, apply the unified loss rule of 1.1502-36 and state its effect on the target's attributes. Test NUBIG or NUBIL and state the Notice 2003-65 approach. For 280G, compute each disqualified individual's safe harbor and test the exemption route, including the vote mechanics and waivers.
+Read `references/consideration-allocation-and-indemnity.md` Sections 5 and 6. Compute the 382 limit from the loss corporation's stock value, reduced for 382(e)(2) contractions, 382(l)(1) capital contributions and 382(l)(4) nonbusiness assets, times the long-term tax-exempt rate: the highest adjusted federal long-term rate for any month in the 3-calendar-month period ending with the change month (IRC 382(f)(1)), each month's published rate shown or labeled "Confirm before use:". For a consolidated seller selling target stock at a loss, apply the unified loss rule of 1.1502-36 and state its effect on the target's attributes. Test NUBIG or NUBIL and state the Notice 2003-65 approach. For 280G, compute each disqualified individual's safe harbor and test the exemption route, including the vote mechanics and waivers.
 
 ## Step 7: Tax Representations, Indemnity and Disclosed Matters
 
@@ -124,7 +124,7 @@ Read `references/consideration-allocation-and-indemnity.md` Sections 7 and 8. Id
 
 ## Step 8: Reconcile, Rank Issues and Hand Off
 
-Complete Section 8 of `references/output-template.md`; every Fail becomes an issue. Rank issues by the template's severity rule with the tax effect and who bears it. Write complete hand-offs (Section 10) and the open items and [VERIFY] list (Section 11).
+Complete Section 8 of `references/output-template.md`; every Fail becomes an issue. Rank issues by the template's severity rule with the tax effect and who bears it. Write complete hand-offs (Section 10) and the open items and confirm-before-use list (Section 11).
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -146,10 +146,10 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 6. Each earnout tied to employment shows the compensation reading and its effect.
 7. The allocation follows class order, caps Classes II to VI at fair market value, puts the residual in Class VII, sums to the consideration, and lists buyer and seller differences.
 8. Pub. L. 119-21 items (bonus depreciation, 174A, 163(j)) are applied by their effective dates.
-9. The 382 limit uses the loss corporation's stock value after 382(e)(2), (l)(1) and (l)(4) adjustments and the highest adjusted federal long-term rate of the 3-month period ending with the change month, or [VERIFY]; Notice 2003-65 status is stated as of the check date.
+9. The 382 limit uses the loss corporation's stock value after 382(e)(2), (l)(1) and (l)(4) adjustments and the highest adjusted federal long-term rate of the 3-month period ending with the change month, or labeled "Confirm before use:"; Notice 2003-65 status is stated as of the check date.
 10. 280G exemption analysis states the vote threshold, the excluded shares and the waiver mechanics, or the small business corporation test.
 11. The indemnity analysis covers 1.1502-6 and other non-target liabilities, straddle periods with both conventions computed, and each disclosed matter.
-12. Every fact has a locator or [UNVERIFIED], every rule a citation or [VERIFY], and no opinion level is expressed.
+12. Every fact has a locator or [UNVERIFIED], every rule a citation or the label "Confirm before use:", and no opinion level is expressed.
 13. Hand-offs name the facts passed, and the draft-for-review closing line is present.
 
 ## Guidelines
@@ -171,7 +171,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 | Buyer and seller allocations disagree | No binding schedule in the agreement | Show both against the residual method; recommend an agreed schedule before either Form 8594 is filed |
 | Pre-signing stock price not given | Only closing prices in the file | Treat as unknown fact; the COI label is Uncertain until the price is supplied |
 | Disclosed audit concerns another group member | Consolidated return liability | Apply 1.1502-6; treat as a target liability for indemnity purposes |
-| A rule's current status is unclear | Pub. L. 119-21 guidance or regulations in motion | Check `references/primary-sources.md`; mark [VERIFY] with the date needed |
+| A rule's current status is unclear | Pub. L. 119-21 guidance or regulations in motion | Check `references/primary-sources.md`; label it "Confirm before use:" with the date needed |
 
 ## Related Skills
 
@@ -198,4 +198,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/structure-and-reorganizations.md`: party classification, stock versus asset, 338(g), 338(h)(10), 336(e), F reorganization, section 368 types, COI and COBE, rollover under 351, 721 and 368, Pub. L. 119-21 step-up items, outcome labels.
 - `references/consideration-allocation-and-indemnity.md`: consideration classification, installment and contingent payment rules, 453A, earnouts, 1060 and Form 8594, 382 and 382(h), 280G, tax indemnity and straddle analysis, disclosed matters, deal withholding.
 - `references/output-template.md`: deliverable sections, reconciliation checks T1 to T13, the Declined parts label, withholding table, issue severity, hand-offs and inbound routes.
-- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and corrections.

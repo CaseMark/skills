@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and the sections below, in this order, omitting a section only when the request does not reach it and saying so in one line. Numbers go in tables. Every figure carries a source locator, a register ID or [UNVERIFIED]; every rule carries a citation from `primary-sources.md` or [VERIFY]. State the currency and units once in the header.
+Produce the header and the sections below, in this order, omitting a section only when the request does not reach it and saying so in one line. Numbers go in tables. Every figure carries a source locator, a register ID or [UNVERIFIED]; every rule carries a citation from `primary-sources.md` or the label "Confirm before use:". State the currency and units once in the header.
 
 ## Contents
 
@@ -15,7 +15,7 @@ Produce the header and the sections below, in this order, omitting a section onl
 9. Section 8. Reconciliation checks
 10. Section 9. Issues, conflicts and judgment calls
 11. Section 10. Hand-offs
-12. Section 11. Open items and [VERIFY] list
+12. Section 11. Open items and confirm-before-use list
 
 ## Header and source-review register
 
@@ -144,11 +144,11 @@ Inbound routes this skill accepts (use the same wording when receiving work):
 | hsr-filing | Structure and purchase price allocation, and tax treatment of deferred, contingent and rollover consideration |
 | analyzing-corporate-tax-structures | Buying or selling a business, including pre-sale reorganizations such as an F reorganization before a sale; step-up elections; acquired losses and Section 382; converting a corporation into an LLC, a taxable liquidation or deemed sale |
 
-## 11. Open items and [VERIFY] list
+## 11. Open items and confirm-before-use list
 
 | # | Open item | Gap class | Depends on | Owner | Next action | Changes which conclusion |
 |---|---|---|---|---|---|---|
 
-Gap classes: unknown fact, source conflict, unverified external lookup, policy election. Then each [VERIFY] statement and what would settle it.
+Gap classes: unknown fact, source conflict, unverified external lookup, policy election. Then each statement labeled "Confirm before use:" and what would settle it.
 
 Close with: "Draft for review by a qualified tax adviser. Not a tax opinion and not legal, accounting or investment advice."

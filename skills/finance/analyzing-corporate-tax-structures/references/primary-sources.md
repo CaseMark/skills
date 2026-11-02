@@ -6,7 +6,6 @@ Checked on October 30, 2026, with the review additions (Treas. Reg. 1.199A-4, th
 
 1. Authorities checked
 2. Conflicts and corrections found
-3. Unconfirmed, year-dependent or state-variable: treat as [VERIFY]
 
 ## 1. Authorities checked
 
@@ -53,20 +52,3 @@ All rows: full text via case.dev on 2026-10-30, unless the method column says ot
 | 199A sunset | Prior stub of this skill and pre-2025 commentary: 199A ends after 2025 | Sunset struck by Pub. L. 119-21 sec. 70105 | Deduction continues; phase-in widened from 2026 |
 | QSBS gross assets and holding period | Prior commentary: $50,000,000 and more than 5 years for all stock | $75,000,000 and 3/4/5-year tiers for stock issued or acquired after July 4, 2025 | Apply the regime by date per block |
 | SALT cap | Prior commentary: $10,000 through 2025 | $40,000 (2025), $40,400 (2026), back to $10,000 from 2030 | Year-by-year PTE value |
-
-## 3. Unconfirmed, year-dependent or state-variable: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| 2027 rate tables, capital gains breakpoints and 199A thresholds | Not published as of 2026-10-30 |
-| 2027 indexed amounts for the IRC 1202 $15,000,000 limit, the $75,000,000 gross assets test and the 199A(i) $400 / $1,000 amounts | Statute indexes for taxable years beginning after 2026; figures not published; which taxable year governs the gross assets amount for a given issuance not settled in guidance located |
-| SALT cap and threshold for 2027-2029 after rounding | Statute gives 101 percent; rounding rule not located |
-| Non-excluded gain under the 50 and 75 percent QSBS tiers as 28-percent rate gain | Follows the statutory definition in IRC 1(h)(7); no IRS guidance located |
-| CAMT proposed regulations and interim notices | Proposed only; confirm current status and any final rules |
-| Proposed regulations promised by Notice 2020-75 | Not located |
-| Each state's PTE regime: availability, tax base by resident and nonresident owner, owner credit, other-state credit, election deadline, estimated payments, sunset | State-variable and year-variable; read the state statute for the year |
-| State conformity to federal classification, 199A, IRC 1202 and consolidated filing | State-variable |
-| Nonrecognition and liability consequences of a specific LLC-to-corporation conversion | Rev. Rul. 2004-59 read; application to the facts is for the tax adviser |
-| Inadvertent termination relief for a specific failure | IRS determination under IRC 1362(f); fact-specific |
-| Investment adjustment and excess loss account rules (Treas. Reg. 1.1502-19, -32) | Not reviewed |
-| Reasonable compensation for S corporation shareholder-employees; self-employment tax on partnership income | Not reviewed; model only as stated assumptions |

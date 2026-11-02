@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and the sections below, in this order. Put dates and amounts in tables; keep prose short. Every fact carries a source locator (document, page or line, transcript code) or [UNVERIFIED]; every rule carries its citation from `references/primary-sources.md` or [VERIFY]. Omit a section only when the request does not reach it, and say so in one line.
+Produce the header and the sections below, in this order. Put dates and amounts in tables; keep prose short. Every fact carries a source locator (document, page or line, transcript code) or [UNVERIFIED]; every rule carries its citation from `references/primary-sources.md` or the label "Confirm before use:". Omit a section only when the request does not reach it, and say so in one line.
 
 ## Contents
 
@@ -14,7 +14,7 @@ Produce the header and the sections below, in this order. Put dates and amounts 
 8. Section 7. Draft documents
 9. Section 8. Reconciliation checks
 10. Section 9. Hand-offs
-11. Section 10. Open items and [VERIFY] list
+11. Section 10. Open items and confirm-before-use list
 12. Section 11. Declined parts
 
 ## Header and source-review register
@@ -103,12 +103,12 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 
 Add or remove rows to match the matter.
 
-## 10. Open items and [VERIFY] list
+## 10. Open items and confirm-before-use list
 
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Depends on | Owner | Next action | Changes which date or amount |
 |---|---|---|---|---|---|---|
 
-Then each [VERIFY] statement and what would settle it.
+Then each statement labeled "Confirm before use:" and what would settle it.
 
 ## 11. Declined parts
 

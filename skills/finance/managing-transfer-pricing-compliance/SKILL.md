@@ -61,14 +61,14 @@ Read each input with this suspicion before relying on it.
 
 1. **Draft only.** Every analysis, range and conclusion is a draft for review by a qualified tax professional. Never call it final, an opinion, or penalty protection.
 2. **Source-review gate.** Never call an input missing until the inventory has been checked and each file opened, including spreadsheet tabs, agreement schedules and database exports. Classify every unsettled item as an **unknown fact**, a **source conflict**, an **unverified external lookup** (foreign rules, AFRs, comparable financials, database data) or a **policy election** (point in range, multi-year versus single year, disputed comparable), and say what would settle it.
-3. **Hierarchy of authority.** Executed agreements, filed returns, statutory or audited accounts, APAs and IRS correspondence govern over the general ledger, which governs over studies, database exports and management schedules, which govern over emails and user statements. For legal rules, the statute and regulations govern over IRS guidance, which governs over the OECD Guidelines for U.S. purposes; for a foreign return, that country's law governs [VERIFY]. Name every conflict, show both values, say which controls and why; never resolve one silently.
-4. **Citation discipline.** Every figure carries a source locator or [UNVERIFIED]; every rule carries a citation from `references/primary-sources.md` or [VERIFY].
+3. **Hierarchy of authority.** Executed agreements, filed returns, statutory or audited accounts, APAs and IRS correspondence govern over the general ledger, which governs over studies, database exports and management schedules, which govern over emails and user statements. For legal rules, the statute and regulations govern over IRS guidance, which governs over the OECD Guidelines for U.S. purposes; for a foreign return, that country's law governs (foreign law varies; check it before relying on it). Name every conflict, show both values, say which controls and why; never resolve one silently.
+4. **Citation discipline.** Every figure carries a source locator or [UNVERIFIED]; every rule carries a citation from `references/primary-sources.md` or the label "Confirm before use:".
 5. **Conduct over labels.** Characterization follows the functional analysis and actual conduct (Treas. Reg. 1.482-1(d)(3)(ii)(B); OECD Chapter I). Never write a characterization or residual-profit conclusion that the facts in the file contradict.
 6. **The range is computed, not copied.** Recompute every PLI and the quartiles and median by the regulation's percentile rule; report spreadsheet figures only as a reconciling difference.
 7. **Out of range means two numbers.** Quantify the adjustment to the nearest quartile and to the median, and state which a self-initiated true-up uses and why.
-8. **Dates are facts.** Documentation status depends on when each document was finalized and when the return was filed. Never backdate, redate or describe a document as contemporaneous unless it existed when the return was filed. Every computed date states its weekday and whether IRC 7503 rolls a weekend or holiday deadline to the next business day; where 7503's reach is unsettled, say so, mark it [VERIFY], and plan to the earlier business day.
+8. **Dates are facts.** Documentation status depends on when each document was finalized and when the return was filed. Never backdate, redate or describe a document as contemporaneous unless it existed when the return was filed. Every computed date states its weekday and whether IRC 7503 rolls a weekend or holiday deadline to the next business day; where 7503's reach is unsettled, say so, label it "Confirm before use:", and plan to the earlier business day.
 9. **Outcome-neutral selection.** The tested party, PLI, comparable set and agreement terms are chosen on the facts, never to reach a margin, rate or adjustment named in advance. Report a requested target as a constraint the analysis does not adopt.
-10. **Both sides, all taxes.** Every adjustment is traced to the counterparty's books and return and to customs, VAT and withholding; foreign effects are [VERIFY] by jurisdiction.
+10. **Both sides, all taxes.** Every adjustment is traced to the counterparty's books and return and to customs, VAT and withholding; foreign effects vary by jurisdiction and are labeled "Confirm before use:".
 11. **Stay in lane.** Price the transaction here; route structure, 367(d) computations, Pillar Two and other cross-border regimes, and domestic structure to the skills in Related Skills, with the facts they need.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
@@ -85,7 +85,7 @@ Collect these, then build the source-review register in `references/output-templ
 8. **Agreements:** executed intercompany agreements with schedules, and any APA or ruling.
 9. **Dates:** return filing date for each year, the date each document was finalized, and any IDR date.
 
-**Default fallbacks (each recorded as a policy election or unknown fact):** U.S. rules where a U.S. return is affected and foreign rules marked [VERIFY]; the interquartile range where comparables are not shown to meet 1.482-1(e)(2)(iii)(A); for CPM, profit level indicators over at least the taxable year under review and the two preceding taxable years because Treas. Reg. 1.482-5(b)(4) generally calls for that period for the comparables and 1.482-1(f)(2)(iii)(A) ordinarily requires the tested party's results for the same years (this overrides any single-year default); a single year only where the facts justify it, recorded as a policy election; CUP and CUSP on the year under review (1.482-1(f)(2)(iii)(B)); for a loan, the AFR the user supplies for the month the loan was made, otherwise [VERIFY]; a missing agreement treated as terms imputed from conduct.
+**Default fallbacks (each recorded as a policy election or unknown fact):** U.S. rules where a U.S. return is affected and foreign rules labeled "Confirm before use:"; the interquartile range where comparables are not shown to meet 1.482-1(e)(2)(iii)(A); for CPM, profit level indicators over at least the taxable year under review and the two preceding taxable years because Treas. Reg. 1.482-5(b)(4) generally calls for that period for the comparables and 1.482-1(f)(2)(iii)(A) ordinarily requires the tested party's results for the same years (this overrides any single-year default); a single year only where the facts justify it, recorded as a policy election; CUP and CUSP on the year under review (1.482-1(f)(2)(iii)(B)); for a loan, the AFR the user supplies for the month the loan was made, otherwise labeled "Confirm before use:"; a missing agreement treated as terms imputed from conduct.
 
 **Hard stops (do not produce the blocked output; report what is needed):**
 - The request is to backdate or redate a study or agreement, or to describe documentation as in existence when the return was filed when it was not. Decline that part and record it in the Declined parts section of `references/output-template.md` with the label `Declined: [part] - [hard stop] - [what would allow it]`; an exposure analysis and a correctly dated report may proceed. The same label records any other partial decline below.
@@ -124,11 +124,11 @@ Compare each agreement clause with invoicing and conduct (Section 6 of the templ
 
 ## Step 8: Documentation, Penalty Protection and Reporting
 
-Read `references/documentation-and-penalties.md` in full. Map the file to the ten principal documents with their finalization dates and the return filing date (R8). Compute the 30-day production date from any IDR. For any proposed or estimated adjustment, show the penalty threshold arithmetic. Confirm Form 8975, Form 5472 and foreign local file obligations, with foreign items [VERIFY]. Check consistency across the CbC report, master file and local files (R9).
+Read `references/documentation-and-penalties.md` in full. Map the file to the ten principal documents with their finalization dates and the return filing date (R8). Compute the 30-day production date from any IDR. For any proposed or estimated adjustment, show the penalty threshold arithmetic. Confirm Form 8975, Form 5472 and foreign local file obligations, with foreign items labeled "Confirm before use:". Check consistency across the CbC report, master file and local files (R9).
 
 ## Step 9: Reconcile, Rank Issues and Hand Off
 
-Complete the reconciliation table (`references/output-template.md` Section 9); every Fail becomes an issue. Rank issues by the template's severity rule, each with the sources in conflict, the controlling source, the effect by entity and year, and a recommendation. Write complete hand-offs (Section 11) and the open items and [VERIFY] list (Section 12).
+Complete the reconciliation table (`references/output-template.md` Section 9); every Fail becomes an issue. Rank issues by the template's severity rule, each with the sources in conflict, the controlling source, the effect by entity and year, and a recommendation. Write complete hand-offs (Section 11) and the open items and confirm-before-use list (Section 12).
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -153,7 +153,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 9. Safe haven, services cost method and 367(d) conclusions each list the conditions tested.
 10. Every principal document has a finalization date compared with the return filing date; no document is called contemporaneous without that comparison (R8).
 11. Penalty arithmetic shows each threshold as "lesser of" with gross receipts, and the rate applied.
-12. Every figure has a source locator or [UNVERIFIED], every rule a citation or [VERIFY], and every foreign rule is [VERIFY].
+12. Every figure has a source locator or [UNVERIFIED], every rule a citation or the label "Confirm before use:", and every foreign rule carries that label.
 13. The closing line from the template is present and nothing is called final, an opinion, or penalty protection.
 
 ## Guidelines
@@ -175,7 +175,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 | Agreement and invoices disagree | Agreement outdated or never implemented | Treat the executed agreement as rank 1 for its terms and conduct as evidence of substance; write up the conflict |
 | Return filing date unknown | Not in the file | Ask; until then mark contemporaneous status as unknown fact, never as met |
 | Foreign counterpart rejects the U.S. range or point | Different rules or practice | Show both readings, flag double tax exposure, route MAP or APA questions |
-| User supplies an AFR with no month or term | Lookup incomplete | Ask for the loan date and term; mark the safe haven test [VERIFY] until supplied |
+| User supplies an AFR with no month or term | Lookup incomplete | Ask for the loan date and term; label the safe haven test "Confirm before use:" until supplied |
 
 ## Related Skills
 
@@ -192,4 +192,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/pricing-rules.md`: best method rule, comparability, tested party and PLIs, interquartile range computation and adjustment point, data years and loss-makers, year-end adjustments, services, intangibles and 367(d), loans and the safe haven, OECD differences, Amount B and Pillar Two notes.
 - `references/documentation-and-penalties.md`: IRC 6662(e) thresholds, 1.6662-6(d) requirements, contemporaneous filing-date test, ten principal documents, 30-day production, Form 8975, master and local files, 6038A, 1059A and customs.
 - `references/output-template.md`: deliverable sections, source register, tables, reconciliation checks R1 to R10, severity, hand-offs and open items.
-- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and corrections.

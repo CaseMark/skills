@@ -23,8 +23,8 @@ Every clock below has its own trigger event. Never borrow one clock's trigger fo
 - Years: the same calendar date N years later (a February 29 trigger maps to February 28).
 - IRC 7503: when the last day for an act falls on a Saturday, Sunday or legal holiday, the act is timely on the next day that is none of those. "Legal holiday" means a District of Columbia legal holiday (and, for an act at an IRS office outside D.C., a statewide holiday in that office's state). IRC 6213(a) repeats the rule for the petition period.
 - D.C. legal holidays (D.C. Code 28-2701; list repeated in IRM 25.6.1): January 1; third Monday in January; January 20 every fourth year (Inauguration Day, next in 2029; Monday if January 20 is a Sunday); third Monday in February; April 16 (D.C. Emancipation Day); last Monday in May; June 19; July 4; first Monday in September; second Monday in October; November 11; fourth Thursday in November; December 25. A holiday falling on Saturday is observed the preceding Friday; on Sunday, the following Monday. A January 1 falling on Saturday makes the preceding December 31 a holiday.
-- Ad hoc closures (a day of mourning, an executive-order closure) are not on the statutory list. IRM 25.6.1 treats a presidential-death closure as extending the ASED and RSED to the next business day; treat any other closure as [VERIFY] and plan to the unrolled date.
-- Timely mailing: IRC 7502 deems a document delivered by U.S. mail or a designated private delivery service to be filed on the postmark date if the postmark falls within the period. An e-filed Tax Court petition is timed by the court's own filing platform; [VERIFY] the court's current electronic-filing cutoff before relying on a same-day filing.
+- Ad hoc closures (a day of mourning, an executive-order closure) are not on the statutory list. IRM 25.6.1 treats a presidential-death closure as extending the ASED and RSED to the next business day; treat any other closure as unconfirmed and plan to the unrolled date.
+- Timely mailing: IRC 7502 deems a document delivered by U.S. mail or a designated private delivery service to be filed on the postmark date if the postmark falls within the period. An e-filed Tax Court petition is timed by the court's own filing platform; confirm the court's current electronic-filing cutoff before relying on a same-day filing.
 - Early return: a return filed before its due date is deemed filed on the due date for IRC 6501 (6501(b)(1)) and 6511 (6513(a)). IRC 7503 does not move the deemed filing date (IRM 25.6.1, citing Rev. Rul. 81-269).
 
 ## 2. Computation script and output format
@@ -70,7 +70,7 @@ Other reading:  <date> - <why> | none.  Plan to the earlier date.
 
 | Clock | Trigger | Period | Notes |
 |---|---|---|---|
-| General ASED | Return filed (early return deemed filed on due date) | 3 years after (6501(a)) | Do not apply a 7503 roll to the IRS's assessment date for planning; IRM 25.6.1 tables apply the roll to some return types [VERIFY for the return at issue] |
+| General ASED | Return filed (early return deemed filed on due date) | 3 years after (6501(a)) | Do not apply a 7503 roll to the IRS's assessment date for planning; IRM 25.6.1 tables apply the roll to some return types; check the rule for the return at issue |
 | Substantial omission | Return filed | 6 years (6501(e)(1)(A)) | Omitted gross income over 25 percent of gross income stated; for a trade or business, gross income is gross receipts before cost of sales; an overstatement of basis counts as an omission; amounts adequately disclosed do not count. Also 6 years for an omission over $5,000 attributable to a 6038D foreign financial asset, and for 951(a) inclusions (6501(e)(1)(C)) |
 | Unlimited | False or fraudulent return with intent to evade; willful attempt to evade (non-income taxes); no return filed | Any time (6501(c)(1)-(3)) | A fraud allegation triggers the Checkpoint A criminal-exposure hard stop |
 | Foreign information returns | Date the information required under 6038, 6038A, 6038B, 6038D, 6046, 6046A, 6048 (and certain PFIC elections) is furnished | Not before 3 years after (6501(c)(8)); limited to related items if failure was due to reasonable cause | The whole return can stay open |
@@ -105,13 +105,13 @@ Deemed payment dates (6513): early payments on the return due date; withholding 
 
 | Circuit | Holding | Tolling |
 |---|---|---|
-| 2d | Buller, No. 24-1557 (Aug. 14, 2025, amended Nov. 26, 2025; cited as 160 F.4th 266 in Kyick and Maniktala [VERIFY reporter citation]): nonjurisdictional | Available; remanded |
+| 2d | Buller, No. 24-1557 (Aug. 14, 2025, amended Nov. 26, 2025; cited as 160 F.4th 266 in Kyick and Maniktala; reporter citation not confirmed): nonjurisdictional | Available; remanded |
 | 3d | Culp, 75 F.4th 196 (2023): nonjurisdictional | Presumptively available; remanded |
 | 6th | Oquendo, 148 F.4th 820 (2025): nonjurisdictional | Available; case by case; remanded |
 | 8th | Maniktala, No. 25-1366 (Aug. 11, 2026): nonjurisdictional | Available; remanded |
 | 1st | Kyick Holdings, No. 25-1429 (Aug. 17, 2026): nonjurisdictional but mandatory | Not available |
-| 9th | Organic Cannabis, 962 F.3d 1082 (2020) (pre-Boechler, noting a long jurisdictional reading); Atighi (unpublished, 2022): jurisdictional | Pending appeals reported [VERIFY] |
-| 4th, 5th, 7th, 10th, 11th, D.C. | No post-Boechler published holding located; older or unpublished decisions treat it as jurisdictional; appeals pending in several [VERIFY] | Treat as unavailable |
+| 9th | Organic Cannabis, 962 F.3d 1082 (2020) (pre-Boechler, noting a long jurisdictional reading); Atighi (unpublished, 2022): jurisdictional | Pending appeals reported; check current status |
+| 4th, 5th, 7th, 10th, 11th, D.C. | No post-Boechler published holding located; older or unpublished decisions treat it as jurisdictional; appeals pending in several; check current status | Treat as unavailable |
 
 Planning rule in every circuit: file by the earlier of the statutory due date and the date on the notice. Equitable tolling is a remedy argument after a miss (diligence plus an extraordinary circumstance, decided case by case), never a planning date. Legislation to make the deadline tollable (H.R. 5349, passed by the Senate with an amendment on September 30, 2026) was not law on 2026-10-30.
 
@@ -147,7 +147,7 @@ A timely CDP request suspends levy and the collection, criminal and suit limitat
 | Clock | Trigger | Period | Notes |
 |---|---|---|---|
 | Notice of third-party summons | Service of the summons on the third party | IRS must give notice within 3 days after service and no later than the 23rd day before the examination date (7609(a)(1)); mailing to the last known address is sufficient (7609(a)(2)) | Record the mailing date on the notice; it starts the next clock |
-| Petition to quash a third-party summons | Day the notice is given (mailed or served) | Not later than the 20th day after (7609(b)(2)(A)); by the same 20th day, mail a copy of the petition by registered or certified mail to the summoned person and the IRS office named in the notice (7609(b)(2)(B)) | Filed in district court; whether 7503 rolls this court deadline is [VERIFY], so plan to the unrolled day. A taxpayer's petition suspends the 6501 and 6531 periods while pending (7609(e)(1)) |
+| Petition to quash a third-party summons | Day the notice is given (mailed or served) | Not later than the 20th day after (7609(b)(2)(A)); by the same 20th day, mail a copy of the petition by registered or certified mail to the summoned person and the IRS office named in the notice (7609(b)(2)(B)) | Filed in district court; whether 7503 rolls this court deadline is not confirmed here, so plan to the unrolled day. A taxpayer's petition suspends the 6501 and 6531 periods while pending (7609(e)(1)) |
 | Innocent spouse election under 6015(b) or (c) | IRS begins collection activities against the requesting spouse | Any time after a deficiency is asserted and not later than 2 years after collection activities begin (6015(c)(3)(B); 6015(b)(1)(E)) | (c) requires divorce, legal separation, or not living in the same household for 12 months |
 | Equitable relief request under 6015(f) | Unpaid liability: the collection period under 6502; paid liability: the refund period under 6511 | Before that period expires (6015(f)(2)) | Each liability portion has its own trigger |
 | Tax Court petition for 6015 relief | IRS mails its final determination, or 6 months pass after the election or request with no determination | Any time after the earlier event and not later than the 90th day after the final determination is mailed (6015(e)(1)(A)) | Review is de novo on the administrative record plus newly discovered evidence (6015(e)(7)) |
@@ -160,7 +160,7 @@ Both revenue procedures roll their own deadlines to the next day that is not a S
 |---|---|---|---|
 | Earliest MAP request (U.S.-initiated adjustment) | IRS communicates the proposed adjustment amount in writing (Form 5701 NOPA or Form 4549) | Not accepted before that date | Rev. Proc. 2015-40, sec. 3.04 |
 | MAP request for an issue already protested to Appeals | Opening conference with Appeals | No later than 60 days after; issue severed from the protest; no Appeals ADR invoked and no Form 870-AD or closing agreement on it | Rev. Proc. 2015-40, sec. 6.04(3) |
-| Treaty notification (foreign-initiated or one-country request) | Event the treaty names (for example, the foreign notice of adjustment) | The number of years the treaty specifies | Rev. Proc. 2015-40, sec. 12; treaty-specific [VERIFY the treaty article for the matter] |
+| Treaty notification (foreign-initiated or one-country request) | Event the treaty names (for example, the foreign notice of adjustment) | The number of years the treaty specifies | Rev. Proc. 2015-40, sec. 12; treaty-specific; check the treaty article for the matter |
 | Protective claim for the U.S. refund side | Reason to believe a tax authority action has resulted or is likely to result in a competent authority issue | Must be a valid IRC 6402 claim; file within the IRC 6511 period for the competent authority year (Section 4) to keep the refund available | Rev. Proc. 2015-40, sec. 11.02; the 6511 timing is an inference from the claim requirement, confirm for the year |
 | Annual notification of protective claim | Close of each taxable year after the year the protective claim was filed, until the MAP request is filed | No later than the timely filing date of the return for that later year | Rev. Proc. 2015-40, sec. 11.05(1) |
 | Statute extension during MAP | IRS request to extend the assessment period for years covered by the request (including ACAP years) | Before the ASED for each year | Refusing is a ground to deny or end assistance (Rev. Proc. 2015-40, sec. 7.02(2)(c)); a consent also extends the refund period (6511(c)) |

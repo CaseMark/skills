@@ -20,7 +20,7 @@ Pillar Two (GloBE) exposure of foreign subsidiaries, the 2025-2026 side-by-side 
 - Top-up tax percentage = 15% minus jurisdictional ETR (Article 5.2.1). Excess profit = net GloBE income minus the substance-based income exclusion (payroll and tangible asset carve-out, Article 5.3). Jurisdictional top-up tax = top-up percentage times excess profit, plus additional current top-up tax, minus any qualified domestic minimum top-up tax (Article 5.2.3).
 - Charging rules in order: a qualified domestic minimum top-up tax (QDMTT) in the low-taxed jurisdiction itself; then the income inclusion rule (IIR) at the parent; then the undertaxed profits rule (UTPR) on other group members.
 - De minimis exclusion (Article 5.5): average GloBE revenue under EUR 10 million and average GloBE income under EUR 1 million in a jurisdiction, on a three-year basis.
-- Safe harbours agreed January 5, 2026: Simplified ETR Safe Harbour (available from 2027, or 2026 in some circumstances); Transitional CbCR Safe Harbour extended to fiscal years beginning on or before December 31, 2027 but not including a year ending after June 30, 2029, with a 17% transition rate for 2026 and 2027; Substance-based Tax Incentive Safe Harbour; Side-by-Side and UPE Safe Harbours. Whether a given jurisdiction's domestic law has adopted each one is [VERIFY] per jurisdiction; the European Commission notice C/2026/253 (January 12, 2026) confirms all EU Member States consented to them under Article 32 of Directive (EU) 2022/2523.
+- Safe harbours agreed January 5, 2026: Simplified ETR Safe Harbour (available from 2027, or 2026 in some circumstances); Transitional CbCR Safe Harbour extended to fiscal years beginning on or before December 31, 2027 but not including a year ending after June 30, 2029, with a 17% transition rate for 2026 and 2027; Substance-based Tax Incentive Safe Harbour; Side-by-Side and UPE Safe Harbours. Whether a given jurisdiction's domestic law has adopted each one varies by jurisdiction; check each jurisdiction's law before relying on it; the European Commission notice C/2026/253 (January 12, 2026) confirms all EU Member States consented to them under Article 32 of Directive (EU) 2022/2523.
 
 ## 2. The side-by-side arrangement: what it does and does not do
 
@@ -34,18 +34,18 @@ Pillar Two (GloBE) exposure of foreign subsidiaries, the 2025-2026 side-by-side 
 ## 3. Pillar Two analysis steps for a U.S.-parented group
 
 1. Confirm scope (EUR 750 million test) and the fiscal years at issue.
-2. Identify every jurisdiction with a QDMTT and its status on the Central Record; read the local law or mark it [VERIFY].
+2. Identify every jurisdiction with a QDMTT and its status on the Central Record; read the local law or label it "Confirm before use:".
 3. For each low-taxed jurisdiction: GloBE income, adjusted covered taxes, ETR, SBIE, top-up percentage and excess profit; test each available safe harbour (TCSH, simplified ETR, de minimis) under local adoption.
 4. Compute QDMTT exposure; it survives the SbS election.
 5. For fiscal years commencing on or after January 1, 2026: record whether the SbS election is made and where Section 1 of the GIR is filed; IIR and UTPR exposure is zero only with the election in a jurisdiction that recognizes it.
 6. For fiscal years commencing before January 1, 2026: compute IIR and UTPR exposure under each jurisdiction's law; the SbS arrangement does not apply.
 7. Transfer pricing adjustments: GloBE Model Rules Article 3.2.3 requires transactions between constituent entities in different jurisdictions to be recorded at the same arm's-length amount in both entities' accounts (as cited by the sibling skill managing-transfer-pricing-compliance), so a year-end true-up or audit adjustment changes GloBE income and the ETR in two jurisdictions; recompute both and note any QDMTT effect. The adjustment amount itself comes from managing-transfer-pricing-compliance.
-8. U.S. interplay: NCTI on the same income, the creditability of a QDMTT under U.S. rules ([VERIFY] with the tax adviser), and ASC 740 accounting for NCTI and Pillar Two top-up taxes (route to managing-tax-provision-preparation).
+8. U.S. interplay: NCTI on the same income, the creditability of a QDMTT under U.S. rules (not confirmed here; confirm with the tax adviser), and ASC 740 accounting for NCTI and Pillar Two top-up taxes (route to managing-tax-provision-preparation).
 
 ## 4. Treaty analysis steps
 
 1. Identify the payee that is the beneficial owner and its residence under the treaty's residence article; a certificate of residence proves residence only.
-2. Read the specific treaty, protocols and Treasury technical explanation. Mark rates and articles [VERIFY] until read.
+2. Read the specific treaty, protocols and Treasury technical explanation. Label rates and articles "Confirm before use:" until read.
 3. Test the LOB article item by item (Section 5). Record which test is met and the evidence, or that none is.
 4. Apply the benefit article (dividends, interest, royalties, business profits) and its own conditions (ownership threshold, holding period, special tax regime or expatriated entity rules).
 5. If no treaty benefit is available, apply the statutory rate (30% under 881 and 1442 for a foreign corporation) and any statutory exemption (portfolio interest, 871(i) deposits).
@@ -67,7 +67,7 @@ Many U.S. treaties in force follow earlier models with different LOB tests, and 
 
 - Dividends (Article 10): 5% where the beneficial owner is a company that has owned directly at least 10% of the payor's vote and value for the 12-month period ending on the date entitlement is determined; 15% otherwise; 0% for qualifying pension funds; special rules for RICs, REITs and expatriated entities.
 - Interest (Article 11) and royalties (Article 12): generally exempt at source, subject to special tax regime, notional deduction and contingent interest exceptions.
-- Actual treaties differ; every treaty rate in a deliverable carries the treaty name, article and protocol, or [VERIFY].
+- Actual treaties differ; every treaty rate in a deliverable carries the treaty name, article and protocol, or the label "Confirm before use:".
 
 ## 7. State conformity
 

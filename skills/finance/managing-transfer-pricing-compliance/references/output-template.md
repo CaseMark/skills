@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and the sections below, in this order, omitting a section only when the deliverable type in Checkpoint A excludes it (say so in one line). Put figures in tables. Every figure carries a source locator (document, page or tab, cell) or [UNVERIFIED]; every rule carries a citation from the primary sources file or [VERIFY]. State currency and units once.
+Produce the header and the sections below, in this order, omitting a section only when the deliverable type in Checkpoint A excludes it (say so in one line). Put figures in tables. Every figure carries a source locator (document, page or tab, cell) or [UNVERIFIED]; every rule carries a citation from the primary sources file or the label "Confirm before use:". State currency and units once.
 
 ## Contents
 
@@ -17,7 +17,7 @@ Produce the header and the sections below, in this order, omitting a section onl
 11. Section 9. Reconciliation checks
 12. Section 10. Issues, conflicts and judgment calls
 13. Section 11. Hand-offs
-14. Section 12. Open items and [VERIFY] list
+14. Section 12. Open items and confirm-before-use list
 
 ## Header
 
@@ -143,7 +143,7 @@ A hand-off names the facts the receiving work needs; a bare skill name is not a 
 
 Add or remove rows to match the matter.
 
-## 12. Open items and [VERIFY] list
+## 12. Open items and confirm-before-use list
 
 | # | Open item | Gap class (unknown fact, source conflict, unverified external lookup, policy election) | Depends on | Owner | Next action | Changes which output |
 |---|---|---|---|---|---|---|

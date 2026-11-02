@@ -49,7 +49,7 @@ Typical S corporation sequence: shareholders form Newco and contribute the targe
 - The contribution and QSub election are a reorganization under section 368(a)(1)(F) when the requirements of Treas. Reg. 1.368-2(m)(1) are met. The S election continues for Newco, Newco takes a new EIN and the old target keeps its EIN (Rev. Rul. 2008-18, Situation 1).
 - Related events before or after a potential F reorganization generally do not cause it to fail (1.368-2(m)(3)(ii)). The sale that follows is taxable, but the F step is not a taxable event; never report gain on it.
 - Because the converted LLC is disregarded, the buyer's purchase of its interests is a purchase of assets: cost basis, 1060 allocation and Form 8594, with no 338 election needed and no risk of a broken S election defeating a 338(h)(10).
-- Check before relying on the steps: the S election's validity (single class of stock, eligible shareholders), state recognition of the F reorganization and conversion, and any state entity-level tax [VERIFY by state].
+- Check before relying on the steps: the S election's validity (single class of stock, eligible shareholders), state recognition of the F reorganization and conversion, and any state entity-level tax; these vary by state, so check the governing state's rule.
 
 ## 5. Tax-free reorganizations under section 368
 

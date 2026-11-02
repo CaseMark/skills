@@ -61,14 +61,14 @@ Read each input with this suspicion before relying on it.
 1. **Draft only.** Every comparison, status conclusion and recommendation is a draft for review by a qualified tax adviser. Never call a conclusion final, an opinion, or confirmed for a third party.
 2. **Source-review gate.** Never call a document missing until the inventory has been checked and each file opened, including exhibits, side letters and spreadsheet tabs. Classify every unsettled item as an **unknown fact**, a **source conflict**, an **unverified external lookup** (published rates, state rules, valuations) or a **policy election** (distribution policy, exit year, election choices), with what would settle it.
 3. **Hierarchy of authority.** For facts: executed governing documents, filed elections and IRS acceptance letters, and filed returns govern over the stock ledger and valuation reports, which govern over cap table spreadsheets and models, which govern over emails, memos and summaries. For law: the Code and final regulations govern over revenue procedures and notices, which govern over proposed regulations, which govern over commentary. Name every conflict, show both versions, say which controls and why; never resolve one silently.
-4. **Citation discipline.** Every fact carries a source locator or [UNVERIFIED]; every rule carries its citation from `references/primary-sources.md` or [VERIFY].
-5. **Every rate and threshold carries its tax year; every computed date carries its weekday.** A figure without a year is incomplete. Inflation-adjusted figures for a year not yet published are [VERIFY]. A tier or deadline that falls inside a calendar year is computed from an exact transaction date; without one, show the result on each side of the date.
+4. **Citation discipline.** Every fact carries a source locator or [UNVERIFIED]; every rule carries its citation from `references/primary-sources.md` or the label "Confirm before use:".
+5. **Every rate and threshold carries its tax year; every computed date carries its weekday.** A figure without a year is incomplete. Inflation-adjusted figures for a year not yet published are labeled "Confirm before use:". A tier or deadline that falls inside a calendar year is computed from an exact transaction date; without one, show the result on each side of the date.
 6. **Two layers, every time.** A comparison computes entity-level and owner-level tax for each alternative under a stated distribution policy and states the break-even payout; a single-layer rate comparison is never the answer.
 7. **Status before savings.** S eligibility, QSBS qualification, consolidated group membership and corporate AMT status are tested before any saving that depends on them is computed. A failed status test removes that saving.
 8. **Regime by date.** Apply the Section 1202 regime by acquisition and issue date, block by block; date each election by its effective date; give each clock its own trigger event.
 9. **Right taxpayer, right group.** Say whose tax each line is (entity, owner, consolidated group, aggregation group) and which persons a test counts. Never substitute the consolidated group for the IRC 52 group or a single entity for either.
 10. **No altered records.** Never backdate, re-date or restate issuance records, elections, valuations or governing documents to reach a status or holding period, and never draft a statement that a status holds when the file shows a fact that breaks it.
-11. **State law is read, not assumed.** State PTE rules, credits and conformity come from the state statute for the year or are [VERIFY]; residents and nonresidents are computed separately.
+11. **State law is read, not assumed.** State PTE rules, credits and conformity come from the state statute for the year or are labeled "Confirm before use:"; residents and nonresidents are computed separately.
 12. **Domestic scope.** Cross-border structure goes to analyzing-international-tax-planning, intercompany pricing outside the consolidated return rules goes to managing-transfer-pricing-compliance, and acquisition or disposition structure goes to analyzing-m-and-a-tax-implications, each with a complete hand-off.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
@@ -123,7 +123,7 @@ Read `references/entity-choice-and-group-rules.md` Sections 1 to 3. For each alt
 
 ## Step 6: State Layer and PTE Elections
 
-Read `references/entity-choice-and-group-rules.md` Section 7. Compute the SALT cap for each owner and year through 2030, the PTE tax base and credit owner by owner (residents and nonresidents separately), any loss of a home-state credit, and, for an S corporation, the equalizing distributions the one-class rule requires. State rules not read for the year stay [VERIFY].
+Read `references/entity-choice-and-group-rules.md` Section 7. Compute the SALT cap for each owner and year through 2030, the PTE tax base and credit owner by owner (residents and nonresidents separately), any loss of a home-state credit, and, for an S corporation, the equalizing distributions the one-class rule requires. State rules not read for the year stay labeled "Confirm before use:".
 
 ## Step 7: Sensitivities
 
@@ -131,7 +131,7 @@ Run the sensitivities in Section 6 of `references/output-template.md`: payout sh
 
 ## Step 8: Reconcile, Rank Issues and Hand Off
 
-Complete the reconciliation checks R1 to R10 in `references/output-template.md` Section 7; each Fail becomes an issue. Rank issues by the template's severity rule, each with the sources in conflict, the controlling source, the effect on status or tax, and a recommendation with its alternative. Write complete hand-offs and the open items and [VERIFY] list from `references/primary-sources.md`.
+Complete the reconciliation checks R1 to R10 in `references/output-template.md` Section 7; each Fail becomes an issue. Rank issues by the template's severity rule, each with the sources in conflict, the controlling source, the effect on status or tax, and a recommendation with its alternative. Write complete hand-offs and the open items and confirm-before-use list.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -147,7 +147,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 
 1. Every comparison shows entity-level and owner-level tax for each alternative under a stated payout share, with the break-even payout share.
 2. The 199A deduction, where used, applies the post-Pub. L. 119-21 rules for the year, names the binding limit and is not given to a C corporation.
-3. Every rate and threshold shows its tax year and citation, or [VERIFY].
+3. Every rate and threshold shows its tax year and citation, or the label "Confirm before use:".
 4. Each S corporation shareholder is a permitted shareholder (trusts with a timely QSST or ESBT election), and every governing provision was read for identical distribution and liquidation rights; disproportionate distributions are classified under Treas. Reg. 1.1361-1(l)(2).
 5. Each QSBS block shows its acquisition and issue dates, the regime that follows, gross assets before and after issuance, the active business test, the tier and the per-issuer limit.
 6. Any conversion shows its effective date, the QSBS acquisition date it creates, gross assets at fair market value and any built-in gain consequence.
@@ -178,7 +178,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 | Balance sheet at a stock issuance missing | Gross assets test not determinable | Bracket from the nearest balance sheets and capital raised; if it cannot be bracketed, the QSBS hard stop applies to that block |
 | Financial statements cover only some group members | Corporate AMT aggregation incomplete | List the missing IRC 52 members and mark status Not determinable rather than computing it from part of the group |
 | A memo or article states a different threshold than the statute | Stale or misquoted commentary | The statute controls; record the conflict in Section 8 |
-| State PTE rules unclear for the year | Recent amendment or sunset | Mark [VERIFY] with the state and year; show the federal result with and without the election |
+| State PTE rules unclear for the year | Recent amendment or sunset | Label it "Confirm before use:" with the state and year; show the federal result with and without the election |
 
 ## Related Skills
 
@@ -198,4 +198,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/entity-choice-and-group-rules.md`: rates by year, the two-layer comparison, Section 199A, AET and PHC, consolidated returns and DRD, corporate AMT, SALT cap and PTE elections, clocks table.
 - `references/s-corp-qsbs-conversion-rules.md`: S eligibility, one class of stock, termination and relief, Section 1374, QSBS regimes and tests, conversions.
 - `references/output-template.md`: deliverable sections, status table, clock table, comparison table, reconciliation checks R1 to R10, issue severity, hand-off table, Declined parts.
-- `references/primary-sources.md`: each authority checked with URL, method and date, conflicts found, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and conflicts found.

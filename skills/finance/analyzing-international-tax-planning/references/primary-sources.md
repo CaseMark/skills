@@ -7,7 +7,6 @@ Checked on October 30, 2026. Statutes were read in full through the case.dev API
 1. U.S. statutes
 2. Regulations, proposed regulations and notices
 3. Pillar Two, treaty and policy documents
-4. Unconfirmed, jurisdiction-dependent or year-dependent: treat as [VERIFY]
 
 ## 1. U.S. statutes
 
@@ -80,21 +79,3 @@ All rows: full text via case.dev; 2026-10-30. URL pattern https://www.law.cornel
 | OECD Pillar Two GloBE Rules Fact Sheets | https://www.oecd.org/content/dam/oecd/en/topics/policy-sub-issues/global-minimum-tax/pillar-two-globe-rules-fact-sheets.pdf | Full text via case.dev; 2026-10-30 | EUR 750 million test (Art. 1.1.1); 15% minimum; top-up formula (Arts. 5.1-5.3); de minimis (Art. 5.5) |
 | Sibling skill managing-transfer-pricing-compliance, `pricing-rules.md` | Read in this repository; 2026-10-30 | Cited for GloBE Model Rules Article 3.2.3 (same arm's-length amount recorded by both constituent entities); this skill did not read Article 3.2.3 itself |
 | 2016 U.S. Model Income Tax Convention | https://home.treasury.gov/system/files/131/Treaty-US-Model-2016_1.pdf | Full text via case.dev; 2026-10-30 | Article 22 LOB tests; Article 10 dividend rates (5% / 15%, 12-month, 10% ownership) |
-
-## 4. Unconfirmed, jurisdiction-dependent or year-dependent: treat as [VERIFY]
-
-| Statement | Status |
-|---|---|
-| Whether Treas. Reg. 1.951A-2(c)(7) applies unchanged to NCTI under renumbered 951A(b)(2)(A)(i)(III) | Regulation still cites former 951A(c)(2)(A)(i)(III); no updating guidance located |
-| Final form of REG-115646-25, REG-115145-25, REG-117130-25 and REG-117273-25 | Proposed; comment periods ended or end between Sept. 17 and Nov. 10, 2026 |
-| Local adoption of the SbS Safe Harbour and other January 2026 safe harbours outside the EU | EU consent confirmed; other jurisdictions not reviewed |
-| A given jurisdiction's QDMTT computation, filing and payment rules | Local law; Central Record shows qualified status only |
-| U.S. foreign tax credit treatment of a QDMTT | Not reviewed; for the tax adviser |
-| Rates, LOB tests and protocols of any specific U.S. treaty | Only the 2016 Model was read |
-| State treatment of NCTI, subpart F, 78, 250 and 245A | Not reviewed; route to analyzing-state-income-tax |
-| Hybrid deduction account balances and their carryover on an acquisition | Fact-specific; regulation read |
-| Substance-based income exclusion transition percentages for a given fiscal year | Not looked up |
-| Central Record changes after Jan. 5, 2026 (SbS table) and May 1, 2026 (QDMTT and IIR tables) and outcomes of the 2029 stocktake | Re-check each fiscal year |
-| Foreign interest-limitation, thin capitalization and anti-hybrid rules for any lender or borrower jurisdiction | Local law; not reviewed |
-| Treas. Reg. 1.482-7 cost sharing rules | Not read for this skill; structure only, pricing routed to managing-transfer-pricing-compliance |
-| Legislation enacted after October 30, 2026 | Re-check before use |

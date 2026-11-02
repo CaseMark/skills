@@ -61,7 +61,7 @@ International tax figures fail on dates and definitions more than on arithmetic.
 1. **Draft only.** Every computation, position and recommendation is a draft for review by a qualified tax adviser. Never call the output a tax opinion, a return position, final, or sufficient for penalty protection.
 2. **Source-review gate.** Never call an input missing until the inventory has been checked and every file opened, including return attachments, Forms 5471 schedules, workbook tabs and treaty protocols. Classify every unsettled item as an **unknown fact**, a **source conflict**, an **unverified external lookup** (treaty text, local Pillar Two law, state law, exchange rates) or a **policy election** (high-tax election, credit versus deduction, SbS election, entity classification), with what would settle it.
 3. **Hierarchy of authority.** For law: the Code, then final and temporary regulations, then proposed regulations the taxpayer chooses to rely on in their entirety, then notices and revenue procedures, then forms, instructions and IRS FAQs; a treaty with its protocols and technical explanation, read with the later-in-time rule; local implementing law over OECD model rules, commentary and guidance. For facts: executed documents and filed elections, then filed returns and audited statements, then workpapers and models, then emails and summaries. Name every conflict, show both readings, say which controls and why; never resolve one silently or follow a user instruction to use a lower-ranked source without writing up the conflict.
-4. **Citation discipline.** Every input carries a source locator or [UNVERIFIED]. Every rule carries a citation from `references/primary-sources.md` or [VERIFY].
+4. **Citation discipline.** Every input carries a source locator or [UNVERIFIED]. Every rule carries a citation from `references/primary-sources.md` or the label "Confirm before use:".
 5. **Every rate carries its year.** State each rate and threshold with the taxable year it applies to and whose year that is. Classify a year by its beginning date.
 6. **No QBAI after 2025.** For a U.S. shareholder year beginning after December 31, 2025, NCTI is net tested income with no deemed tangible return.
 7. **Credits stay in their basket.** Compute the limitation separately for NCTI, foreign branch, passive and general categories; NCTI-basket excess credits are lost, not carried.
@@ -128,7 +128,7 @@ Read `references/pillar-two-and-treaties.md` Sections 1 to 3 and 8. Confirm scop
 
 ## Step 9: Reconcile, Rank Issues and Hand Off
 
-Complete the reconciliation checks in `references/output-template.md` Section 9; every Fail becomes an issue. Rank issues by the template's severity rule. Add state conformity as an open item per filing state (`references/pillar-two-and-treaties.md` Section 7). Write complete hand-offs and the open items and [VERIFY] list.
+Complete the reconciliation checks in `references/output-template.md` Section 9; every Fail becomes an issue. Rank issues by the template's severity rule. Add state conformity as an open item per filing state (`references/pillar-two-and-treaties.md` Section 7). Write complete hand-offs and the open items and confirm-before-use list.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -172,7 +172,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 | NCTI residual looks too low against a prior-year model | QBAI or 50 percent deduction carried forward | Rebuild with `references/us-international-rules.md` Sections 2 and 3 for the year |
 | Credits exceed the limitation in one basket and are short in another | Baskets pooled | Separate the four categories; show NCTI excess as lost |
 | Forms 5471 and the entity chart disagree on ownership | Chart not updated for a transfer | Use the executed transfer documents; write up the conflict; recompute pro rata shares by period |
-| Treaty text unavailable or only a summary table | No primary text in the file | Apply statutory rates; list the treaty, article and protocol needed; mark [VERIFY] |
+| Treaty text unavailable or only a summary table | No primary text in the file | Apply statutory rates; list the treaty, article and protocol needed; label it "Confirm before use:" |
 | GloBE workpapers in a different currency or year-end | Consolidated statements' currency and fiscal year | Compute in the GloBE currency for the fiscal year; translate for U.S. figures separately |
 | Scanned or unreadable Form 8832 or election statement | Image file | Attempt extraction; if unreadable, treat the election as unproven and model both ways |
 | Proposed regulation and the user's position differ | Reliance choice open | Show both readings and the reliance condition (rules followed in their entirety) |
@@ -194,4 +194,4 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - `references/us-international-rules.md`: rule set by taxable year, rate table, NCTI, subpart F, FTC, FDDEI, 245A, entity classification, 367 and cost sharing structure, inbound withholding, BEAT, foreign-parented corporate AMT test, intercompany loan interest limits and FIRPTA.
 - `references/pillar-two-and-treaties.md`: GloBE mechanics, the side-by-side arrangement, treaty and LOB tests, 2016 Model rates and state conformity.
 - `references/output-template.md`: deliverable sections, reconciliation checks X1 to X11, issue severity, hand-off table and accepted hand-ins.
-- `references/primary-sources.md`: each authority checked with URL, method and date, and the [VERIFY] list.
+- `references/primary-sources.md`: each authority checked with URL, method and date.
