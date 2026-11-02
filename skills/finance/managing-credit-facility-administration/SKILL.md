@@ -1,7 +1,7 @@
 ---
 name: managing-credit-facility-administration
 language: en
-description: Tracks revolving credit facility compliance with borrowing base, covenant calculations, and amendment documentation. Use when managing credit facilities, calculating borrowing availability, or tracking covenants.
+description: Tracks revolving credit facility compliance with borrowing base, covenant calculations, and amendment documentation. Use when managing credit facilities, calculating borrowing availability, or tracking covenants. Leverage and coverage covenant calculations, compliance certificates and equity cures go to managing-debt-covenant-compliance; this skill covers borrowing base, availability and draw administration.
 tags:
   - management
   - corporate-finance

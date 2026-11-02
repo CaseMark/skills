@@ -1,7 +1,7 @@
 ---
 name: conducting-cost-of-capital-analysis
 language: en
-description: Calculates WACC components with equity risk premium, beta estimation, and debt cost measurement. Use when calculating cost of capital, estimating WACC, or analyzing discount rates.
+description: Calculates WACC components with equity risk premium, beta estimation, and debt cost measurement. Use when calculating cost of capital, estimating WACC, or analyzing discount rates. Use for a stand-alone WACC study; a WACC built inside a DCF model goes to building-equity-valuation-models.
 tags:
   - process
   - corporate-finance

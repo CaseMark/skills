@@ -1,7 +1,7 @@
 ---
 name: managing-lease-accounting
 language: en
-description: Structures ASC 842 lease analysis with classification, measurement, and disclosure requirements. Use when managing lease accounting, classifying leases, or calculating right-of-use assets.
+description: Structures ASC 842 lease analysis with classification, measurement, and disclosure requirements. Use when managing lease accounting, classifying leases, or calculating right-of-use assets. First-time ASC 842 adoption and transition from ASC 840 go to managing-lease-accounting-asc842.
 tags:
   - management
   - corporate-finance

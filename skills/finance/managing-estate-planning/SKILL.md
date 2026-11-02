@@ -1,7 +1,7 @@
 ---
 name: managing-estate-planning
 language: en
-description: Structures estate plan analysis with trust review, tax efficiency, and legacy documentation. Use when analyzing estate plans, reviewing trust structures, or planning wealth transfer.
+description: Structures estate plan analysis with trust review, tax efficiency, and legacy documentation. Use when analyzing estate plans, reviewing trust structures, or planning wealth transfer. Federal estate, gift and GST tax computations and returns go to managing-estate-and-gift-tax.
 tags:
   - management
   - wealth-management

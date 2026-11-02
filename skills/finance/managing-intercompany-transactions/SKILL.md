@@ -1,7 +1,7 @@
 ---
 name: managing-intercompany-transactions
 language: en
-description: Structures intercompany pricing with transfer pricing documentation and arm's-length analysis. Use when managing transfer pricing, documenting intercompany transactions, or ensuring arm's-length compliance.
+description: Structures the intercompany framework by onboarding new entities and cataloging intercompany flows (sales, services, royalties, financing, guarantees). Use when onboarding a subsidiary into the intercompany framework or cataloging intercompany flows. Arm's-length pricing, benchmarking, intercompany agreements tested against conduct, master file, local file and country-by-country documentation go to managing-transfer-pricing-compliance.
 tags:
   - management
   - corporate-finance

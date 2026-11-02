@@ -185,6 +185,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - managing-sec-reporting: 10-K and 10-Q content requirements beyond the non-GAAP findings.
 - managing-debt-covenant-compliance: covenant calculation methodology and compliance certificates under an existing credit agreement.
 - building-equity-valuation-models: DCF and comparable company valuation built on the adjusted earnings.
+- analyzing-loss-reserves: the adequacy re-estimate of an insurer's loss and LAE reserves behind a reserve release or prior-year development; this skill judges the earnings effect (its description: "prior-year development and the adequacy side of reserve releases").
 - legal-research: securities law exposure, antifraud or enforcement questions; no dedicated finance skill covers them.
 
 ## Reference Files

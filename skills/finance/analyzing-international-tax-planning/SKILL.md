@@ -187,6 +187,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - analyzing-m-and-a-tax-implications: cross-border acquisition structure, stock versus asset purchases and 338 elections.
 - managing-tax-controversy: IRS examinations, APA and MAP (competent authority) procedure, treaty disputes, Form 5471 penalty defense and statutes held open under 6501(c)(8).
 - analyzing-partnership-tax-structures: partnership allocations and outside basis behind 1446 and 864(c)(8) exposures.
+- analyzing-m-and-a-tax-implications: FIRPTA certificates and 1445 withholding on payments to sellers in an acquisition (its description: "deal withholding (FIRPTA 1445 certificates and withholding, backup withholding on payments to sellers)"); this skill keeps FIRPTA on inbound real estate and partnership dispositions outside a deal.
 
 ## Reference Files
 

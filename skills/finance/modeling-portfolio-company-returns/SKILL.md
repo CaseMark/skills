@@ -1,7 +1,7 @@
 ---
 name: modeling-portfolio-company-returns
 language: en
-description: Builds PE return models with entry/exit multiples, leverage analysis, and value creation attribution. Use when modeling PE returns, calculating IRR/MOIC, or attributing value creation drivers.
+description: Builds PE return models with entry/exit multiples, leverage analysis, and value creation attribution. Use when modeling PE returns, calculating IRR/MOIC, or attributing value creation drivers. The pre-signing LBO model and sponsor returns at entry go to building-lbo-models; this skill covers projected and realized returns and value creation attribution for held companies.
 tags:
   - modeling
   - private-equity

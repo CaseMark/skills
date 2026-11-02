@@ -187,6 +187,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 ## Related Skills
 
 - building-lbo-models: pre-close model, debt sizing and projected covenant headroom; this skill takes over ongoing covenant calculations and compliance certificates after close.
+- managing-commercial-loan-underwriting: setting covenant levels and headroom when a commercial loan is underwritten, before close (its description: "covenant levels with headroom").
 - analyzing-covenant-compliance: stressed-case or surveillance review of covenant headroom, cure rights and default triggers for a credit or trading view, rather than the borrower's periodic certificate.
 - analyzing-earnings-quality: add-backs or accruals that the statements do not support.
 - managing-credit-facility-administration: borrowing base certificates, availability and ABL reporting.
@@ -196,7 +197,8 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - managing-cash-flow-forecasting: liquidity forecasts behind minimum liquidity tests and cure funding.
 - analyzing-corporate-restructuring: restructuring alternatives and Chapter 11 options when a waiver is not available.
 - loan-forbearance: drafting a lender-protective forbearance agreement after an Event of Default.
-- legal-research: interpreting sharing exceptions, "open market purchase" and other non-pro-rata proposals; no dedicated skill claims liability management analysis.
+- legal-research: interpreting sharing exceptions, "open market purchase" and other non-pro-rata proposals; no skill gives the legal reading of those provisions (its description: "planning or auditing legal research").
+- analyzing-liability-management-transactions (skills/capital): uptier, drop-down and covenant-stripping transaction economics (its description: "Evaluates uptier exchanges, drop-down transactions, and covenant-stripping maneuvers").
 
 ## Reference Files
 

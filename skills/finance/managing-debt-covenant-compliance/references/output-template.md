@@ -127,7 +127,7 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 | analyzing-earnings-quality | Add-backs or accruals the statements do not support | | | |
 | managing-credit-facility-administration | Borrowing base, availability and ABL reporting | | | |
 | managing-sec-reporting | 10-Q or 10-K debt footnote and default disclosure | | | |
-| legal-research | Interpretation of sharing exceptions, "open market purchase" and other non-pro-rata proposals; no dedicated skill claims this | | | |
+| legal-research | Interpretation of sharing exceptions, "open market purchase" and other non-pro-rata proposals; no skill gives the legal reading of these provisions | | | |
 | loan-forbearance | Lender-side forbearance agreement after an Event of Default | | | |
 
 Add or remove rows to match the matter.

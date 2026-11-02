@@ -177,6 +177,7 @@ Confirm with the user or list as open items:
 ## Related Skills
 
 - aml-compliance-program: hand off program and policy design (its description: "Use for an AML policy, BSA program, gap analysis or board approval package"): drafting or reviewing the BSA/AML program, policies and procedures; this skill covers transaction-level testing, lookbacks and SAR narratives.
+- sar-filing: completing the FinCEN SAR form (Form 111 fields) and the filing package once the institution decides to file (its description: "Drafts FinCEN Suspicious Activity Reports (Form 111)"); decisioning, narrative drafting and SAR QA stay here.
 - managing-sanctions-screening: hand off potential OFAC or sanctions matches (its description: "investigating potential matches") for match investigation and escalation.
 - reviewing-kyc-documentation: hand off customer files whose CIP, CDD or EDD documentation is stale or contradicted by the activity (its description: "reviewing KYC files").
 - managing-model-risk: hand off validation of a statistical or machine-learning monitoring or scoring model (its description: "validating risk models").

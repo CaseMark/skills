@@ -1,7 +1,7 @@
 ---
 name: drafting-credit-memos
 language: en
-description: Creates structured credit memos with borrower analysis, risk assessment, and recommendation justification. Use when writing credit memos, documenting credit decisions, or presenting credit recommendations.
+description: Creates structured credit memos with borrower analysis, risk assessment, and recommendation justification. Use when writing credit memos, documenting credit decisions, or presenting credit recommendations. A lender's commercial loan underwriting package and credit memo go to managing-commercial-loan-underwriting.
 tags:
   - drafting
   - fixed-income

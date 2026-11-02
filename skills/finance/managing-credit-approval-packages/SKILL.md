@@ -1,7 +1,7 @@
 ---
 name: managing-credit-approval-packages
 language: en
-description: Creates credit approval memoranda with borrower analysis, deal structure, and risk mitigation documentation. Use when preparing credit packages, documenting loan recommendations, or presenting to credit committee.
+description: Creates credit approval memoranda with borrower analysis, deal structure, and risk mitigation documentation. Use when preparing credit packages, documenting loan recommendations, or presenting to credit committee. Underwriting analysis for a new commercial loan (spreads, DSCR, global cash flow, collateral, policy exceptions) goes to managing-commercial-loan-underwriting.
 tags:
   - management
   - commercial-banking

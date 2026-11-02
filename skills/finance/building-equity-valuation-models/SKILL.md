@@ -187,7 +187,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - managing-fair-value-measurement: ASC 820 hierarchy classification and valuation technique documentation for a reported fair value.
 - managing-impairment-testing: goodwill and long-lived asset impairment tests using these values.
 - managing-business-combinations: purchase price allocation after an acquisition.
-- managing-lease-accounting-asc842: measuring the lease liabilities used in the bridge.
+- managing-lease-accounting: measuring the lease liabilities used in the bridge (its description: "ASC 842 lease analysis with classification, measurement, and disclosure requirements").
 - analyzing-convertible-bonds: convertible structure, equity sensitivity, credit floor and conversion premium beyond the conversion test.
 - managing-equity-compensation-accounting: SBC accounting, award fair values (Black-Scholes) and expense recognition.
 - managing-pension-fund-obligations: funded status and actuarial assumptions behind the pension deficit used in the bridge.

@@ -195,6 +195,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - managing-fund-formation-documents: reading LPA terms and side letter provisions behind the conflicts table.
 - managing-value-creation-plans: turning thesis KPIs into a post-close tracking plan.
 - managing-credit-approval-packages: a bank or lender credit committee package instead of a fund IC memo.
+- managing-commercial-loan-underwriting: a bank or nonbank lender's commercial loan underwriting package and credit memo for its credit committee, rather than a fund IC memo (its description: "Drafts commercial loan underwriting packages and credit memos for banks and nonbank lenders").
 - building-real-estate-pro-formas: the property cash flows behind a real estate memo.
 - modeling-cap-table-scenarios: ownership, dilution and preference waterfalls for growth equity memos.
 - drafting-investment-memos: general investment memoranda that are not addressed to an investment committee for approval.

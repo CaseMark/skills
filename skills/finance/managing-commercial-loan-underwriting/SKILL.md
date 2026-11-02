@@ -189,7 +189,7 @@ Each line quotes the phrase in the target's description that claims the hand-off
 - analyzing-property-valuations ("performing appraisal analysis"): a technical review of the appraisal's approaches and assumptions.
 - managing-construction-lending ("managing construction loans, tracking draw requests"): draw schedules, budget and completion risk.
 - managing-sba-lending ("processing SBA loans, verifying eligibility, or preparing SBA packages"): SBA eligibility and guaranty requirements under the SOP in effect.
-- drafting-credit-memos ("writing credit memos"): formatting a finished memo once the analysis here is complete.
+- drafting-credit-memos ("writing credit memos"): investor-side credit memos on bonds, loan participations or held positions for a portfolio or credit committee, rather than a lender's underwriting package.
 - managing-credit-portfolio-risk ("measuring concentration risk"): portfolio concentration and stress testing beyond one loan's pro forma.
 - building-lbo-models ("reviewing a sponsor or lender model"): the LBO model behind an acquisition loan.
 - term-loan-agreement ("covenant package"): drafting the loan agreement once terms are approved.

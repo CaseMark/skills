@@ -1,7 +1,7 @@
 ---
 name: conducting-wealth-transfer-analysis
 language: en
-description: Structures intergenerational wealth transfer with gifting strategies, trust design, and tax impact modeling. Use when planning wealth transfer, modeling gift strategies, or designing transfer structures.
+description: Structures intergenerational wealth transfer with gifting strategies, trust design, and tax impact modeling. Use when planning wealth transfer, modeling gift strategies, or designing transfer structures. Federal transfer-tax treatment (exclusions, GST allocation, Forms 706 and 709, valuation penalties) goes to managing-estate-and-gift-tax.
 tags:
   - process
   - wealth-management

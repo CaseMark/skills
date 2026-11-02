@@ -1,7 +1,7 @@
 ---
 name: analyzing-covenant-compliance
 language: en
-description: Reviews financial covenant compliance calculations with cure provisions and default trigger analysis. Use when checking covenant compliance, calculating coverage ratios, or evaluating covenant headroom.
+description: Reviews financial covenant compliance calculations with cure provisions and default trigger analysis. Use when checking covenant compliance, calculating coverage ratios, or evaluating covenant headroom. Takes stressed-case and surveillance reviews of headroom, cure rights and default triggers for a lender, investor or trading view; the borrower's periodic compliance certificate goes to managing-debt-covenant-compliance.
 tags:
   - analysis
   - fixed-income

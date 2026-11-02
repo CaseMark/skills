@@ -184,7 +184,7 @@ Confirm each statement is true of the draft; fix the draft if one is not.
 - managing-indirect-tax-analysis: customs value and VAT or GST effects of prices and year-end true-ups.
 - managing-tax-controversy: IRS examination strategy, IDR negotiation, protests and appeals of a proposed 482 adjustment, and the competent authority and APA procedure; this skill drafts the pricing analysis behind the APA proposal or MAP position.
 - managing-tax-provision-preparation: ASC 740 provision and uncertain tax position effects of TP exposure and true-ups.
-- managing-intercompany-transactions: booking, settlement, netting and elimination of intercompany charges once priced.
+- managing-consolidation-reporting: intercompany reconciliation and elimination entries once charges are priced (its description: "elimination entries and intercompany reconciliation").
 - managing-subsidiary-financing: designing intercompany debt, guarantees and structural subordination before the interest rate is priced.
 
 ## Reference Files
