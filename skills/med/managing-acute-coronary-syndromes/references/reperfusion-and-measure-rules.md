@@ -50,14 +50,14 @@ Each row names its framework, its own start event, stop event and target. Never 
 | Cardiac rehabilitation referral | 2025 guideline and 2017 measure (score separately) | Admission | Referral to an outpatient CR program | Before discharge | 2025 guideline, 10.5.3 rec 1 (1, A); 2017 PM-12 |
 | CMR in MINOCA work-up | Definition document | Presentation | CMR | Ideally within 2 weeks | Fifth UDMI 2026, Section 11 (citing practice guidelines) |
 
-The 2025 guideline text (JACC PDF and Circulation full text, including the Figure 6 caption) was searched for a door-to-needle number and a door-in-door-out number and states neither; Figure 6, the care-system pathway, is an image that was not read, so the statement that the guideline sets no such number is `[VERIFY]`. The 30-minute targets used here come from the measures (PM-7, PM-10, CMS996v6); the CMS996 rationale attributes the 30-minute fibrinolysis target to the 2013 STEMI guideline.
+The 2025 guideline text (JACC PDF and Circulation full text, including the Figure 6 caption) was searched for a door-to-needle number and a door-in-door-out number and states neither; Figure 6, the care-system pathway, is an image that was not read, so the statement that the guideline sets no such number is not confirmed here (confirm before use). The 30-minute targets used here come from the measures (PM-7, PM-10, CMS996v6); the CMS996 rationale attributes the 30-minute fibrinolysis target to the 2013 STEMI guideline.
 
 ## 3. First medical contact: three definitions
 
 | Source | Definition |
 |---|---|
 | 2025 ACS guideline (footnote to 3.1.1) | "The time point when the patient is initially assessed by a health care professional who can obtain and interpret the ECG and deliver initial interventions (eg, defibrillation)." For EMS-transported patients the goal runs from FMC by EMS to reperfusion. |
-| NCDR Chest Pain-MI Registry v3.2 | The steering subcommittee kept "date and time when the patient was first evaluated by EMS before arrival at the first facility" for EMS-transported patients (JACC: Advances, Sept. 14, 2026). The data dictionary itself was not read `[VERIFY]`. |
+| NCDR Chest Pain-MI Registry v3.2 | The steering subcommittee kept "date and time when the patient was first evaluated by EMS before arrival at the first facility" for EMS-transported patients (JACC: Advances, Sept. 14, 2026). The data dictionary itself was not read; confirm the element definition before relying on it. |
 | 2017 PM-11 | FMC "at or before ED arrival at STEMI referral facility". |
 | CMS996v6 | Uses no FMC; every interval starts at ED arrival. |
 
@@ -66,14 +66,14 @@ For a walk-in patient the guideline definition can point to arrival, triage or t
 ## 4. CMS STEMI eCQM CMS996v6 (CY 2026 reporting)
 
 - Population: all ED encounters for patients 18 or older at the start of the encounter with a STEMI diagnosis during an ED encounter that ends in the measurement period; denominator equals the initial population. Episode-based: report each ED encounter.
-- Population turns on a STEMI diagnosis recorded during the ED encounter, identified through the measure's value sets in the QDM specification (CMS996-v6.3.000; value sets not read `[VERIFY]`). A STEMI diagnosis first made after the ED encounter (on the floor, or only in the cath lab after ED departure) does not meet the initial-population wording. The review never moves a case into or out of the population by its own ECG reading; a documentation question goes to a compliant query.
+- Population turns on a STEMI diagnosis recorded during the ED encounter, identified through the measure's value sets in the QDM specification (CMS996-v6.3.000; value sets not read; confirm them before scoring). A STEMI diagnosis first made after the ED encounter (on the floor, or only in the cath lab after ED departure) does not meet the initial-population wording. The review never moves a case into or out of the population by its own ECG reading; a documentation question goes to a compliant query.
 - Arrest and shock: v6 excludes cardiopulmonary arrest, intubation and mechanical circulatory assist placement or removal within 24 hours before or during the ED encounter; cardiogenic shock alone is not on the v6 exclusion list. In the 2017 measures, cardiac arrest and cardiogenic shock are denominator exceptions (PM-8) only when a medical reason for delay is documented.
 - Numerator: ED arrival to fibrinolysis 30 minutes or fewer; or PCI within 90 minutes of arrival; or discharge to an acute care facility within 45 minutes of arrival. Guidance: use PCI device deployment time, not procedure start time.
 - Denominator exclusions (v6, summarized): allergic reaction to a thrombolytic during the encounter; bleeding or bleeding diathesis, known malignant intracranial neoplasm, known structural cerebral vascular lesion, advanced dementia, pregnancy, or allergy to thrombolytics present at the start; active oral anticoagulant therapy at the start or within 90 days; within 24 hours before or during the encounter, aortic dissection or ruptured aneurysm, angina with documented spasm, heart or ventricular aneurysm, Takotsubo syndrome, severe neurologic impairment, mechanical circulatory assist placement or removal, intubation, or cardiopulmonary arrest or traumatic or prolonged CPR over 10 minutes; major surgery within 21 days; ischemic stroke, significant facial or closed head trauma, or peptic ulcer within 90 days; intracranial or intraspinal surgery within 90 days; expired in the ED; left against medical advice; hospice in the prior 6 months or active at the start.
 - Denominator exceptions (v6): fibrinolytic therapy at another facility within 24 hours; a documented reason for not giving fibrinolytic therapy within 30 minutes; a documented reason for not performing PCI within 90 minutes.
 - Reporting: required in Hospital OQR for CY 2026 (three self-selected quarters, deadline May 17, 2027); v7 applies to CY 2027. OP-2 and OP-3 (chart-abstracted fibrinolysis within 30 minutes; median time to transfer) were removed after Q1 2023 encounters.
-- Program scope: Hospital OQR applies to hospitals defined in section 1886(d)(1)(B) and paid under the OPPS (42 CFR 419.46(a)-(b)). A hospital not paid under the OPPS, such as a critical access hospital, is outside that rule; critical access hospitals reported the former OP-2 and OP-3 through the voluntary MBQIP program, and whether MBQIP now includes the STEMI eCQM is `[VERIFY]`. Ask which program the facility reports under before scoring.
-- How the measure treats a patient who bypasses the receiving hospital's ED straight to the cath lab is not stated on the measure page `[VERIFY]`.
+- Program scope: Hospital OQR applies to hospitals defined in section 1886(d)(1)(B) and paid under the OPPS (42 CFR 419.46(a)-(b)). A hospital not paid under the OPPS, such as a critical access hospital, is outside that rule; critical access hospitals reported the former OP-2 and OP-3 through the voluntary MBQIP program, and whether MBQIP now includes the STEMI eCQM is not confirmed here. Ask which program the facility reports under before scoring.
+- How the measure treats a patient who bypasses the receiving hospital's ED straight to the cath lab is not stated on the measure page; confirm with the measure steward before scoring such a case.
 
 ## 5. 2017 AHA/ACC STEMI/NSTEMI performance measures used here
 
@@ -113,7 +113,7 @@ These measures count "STEMI or its equivalent" (hyperacute T waves, true posteri
 
 - Intermediate or high risk and a revascularization candidate: invasive approach during hospitalization (1, A). Low risk: routine or selective invasive approach (1, A); selective-invasive patients should have noninvasive testing or CCTA before discharge.
 - Refractory angina or hemodynamic or electrical instability: immediate invasive strategy (1, C-LD); supportive text gives under 2 hours from admission and immediate transfer from a non-PCI-capable hospital.
-- High risk: early invasive within 24 hours is reasonable (2a, B-R). Supportive text lists GRACE over 140, diabetes, age over 75 and elevated biomarkers as favoring earlier angiography. The Figure 8 list of high-risk features was not extractable `[VERIFY]`.
+- High risk: early invasive within 24 hours is reasonable (2a, B-R). Supportive text lists GRACE over 140, diabetes, age over 75 and elevated biomarkers as favoring earlier angiography. The Figure 8 list of high-risk features was not extractable, so the list is not confirmed here; check the published figure.
 - GRACE 2.0 and TIMI scores (Table 5) stratify risk in suspected or confirmed ACS; they are not diagnostic tools.
 
 ## 8. Discharge and secondary prevention documentation items

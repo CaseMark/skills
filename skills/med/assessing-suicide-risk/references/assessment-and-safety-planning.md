@@ -62,8 +62,6 @@ Steps on the plan:
 5. Professionals and agencies to contact in a crisis, including a crisis line (the form's example is 988) and the nearest emergency department.
 6. Making the environment safer: a plan for lethal means safety. The website states this applies even if the person names no specific plan.
 
-The website also shows an optional further step `[VERIFY]` its content.
-
 Form permissions (suicidesafetyplan.com, Forms page): individual use is permitted; written permission from the authors is needed to change wording, translate, or program the form into an electronic medical record or other digital application. Building the form into an EHR is therefore a policy election for the organization, not a drafting decision.
 
 Evidence: Stanley et al., JAMA Psychiatry 2018;75(9):894-900, a cohort comparison in VA emergency departments (1,640 adults; 1,186 intervention, 454 comparison): the Safety Planning Intervention with structured telephone follow-up (first contact attempted within 72 hours of discharge) was associated with 45 percent fewer suicidal behaviors over 6 months (3.03 against 5.29 percent; odds ratio 0.56, 95% CI 0.33-0.95) and doubled odds of attending outpatient mental health care (odds ratio 2.06). The Joint Commission cites this study as the reference for EP 6.
@@ -80,7 +78,7 @@ Integrity checks for a plan in the record: written in the person's words; specif
 - Sentinel Event Alert 56: assess access to firearms and other means such as prescription medications and chemicals, and discuss removing or locking them up during crisis periods.
 - Training resource: CALM (Counseling on Access to Lethal Means), listed by the Suicide Prevention Resource Center.
 - A firearm owned by another household member is still access. "Denies access" without a question about the household is not an answer; record the exact question and reply.
-- Temporary transfer of firearms and extreme risk protection orders are state law `[VERIFY]` for the jurisdiction.
+- Temporary transfer of firearms and extreme risk protection orders are state law and vary by jurisdiction; check the governing state's rule before relying on it.
 
 ## 6. Transitions, follow-up and crisis resources
 

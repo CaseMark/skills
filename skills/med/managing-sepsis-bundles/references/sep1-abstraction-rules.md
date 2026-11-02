@@ -1,6 +1,6 @@
 # SEP-1 Abstraction Rules
 
-Working summary of the CMS Severe Sepsis and Septic Shock: Management Bundle (SEP-1) for chart-abstracted review. It is a map to the manual, not a substitute for it. The governing text is the Specifications Manual for National Hospital Inpatient Quality Measures for the discharge date: the SEP-1 measure information form, the algorithm, and the Alphabetical Data Dictionary. Rules cited "DD, <element>" were read in that data element of the v5.18a Alphabetical Data Dictionary (KHA Quality mirror of the CMS manual, hosted by the Kentucky Hospital Association; see `references/primary-sources.md`). Every sub-rule marked `[VERIFY]` was not found in that text, usually because it sits in the measure information form or algorithm, which were not read; confirm it before a pass or fail depends on it.
+Working summary of the CMS Severe Sepsis and Septic Shock: Management Bundle (SEP-1) for chart-abstracted review. It is a map to the manual, not a substitute for it. The governing text is the Specifications Manual for National Hospital Inpatient Quality Measures for the discharge date: the SEP-1 measure information form, the algorithm, and the Alphabetical Data Dictionary. Rules cited "DD, <element>" were read in that data element of the v5.18a Alphabetical Data Dictionary (KHA Quality mirror of the CMS manual, hosted by the Kentucky Hospital Association; see `references/primary-sources.md`). Sub-rules marked "confirm before use" were not found in that text, usually because they sit in the measure information form or algorithm, which were not read; confirm them in the manual before a pass or fail depends on them.
 
 ## Contents
 
@@ -23,8 +23,8 @@ Working summary of the CMS Severe Sepsis and Septic Shock: Management Bundle (SE
 | 01/01/2027 to 12/31/2027 | 5.19 | CMS notice 2026-57-IP and the eCQI Resource Center notice, July 1, 2026; v5.19 includes updated SEP-1 abstraction guidance |
 
 - Pick the version by discharge date, never by today's date or the abstraction date.
-- The CMS IQR notice announcing v5.18 (listserve 2025-66-IP, June 24, 2025) states that the manual updates the chart-abstracted SEP-1 measure and removes the COVID-19 exclusion from the Initial Patient Population. A checklist that still excludes U07.1 is stale for 2026 discharges. The v5.18a data dictionary contains no COVID-19 abstraction instruction. Read the 5.18 release notes for their exact wording before quoting them `[VERIFY]`.
-- SEP-1 is reported in the Hospital IQR Program (since FY 2017) and was adopted into the Hospital VBP Program Safety domain beginning with the FY 2026 program year (FY 2024 IPPS/LTCH PPS final rule). Program weights, baselines and later rule changes are year-specific `[VERIFY]`.
+- The CMS IQR notice announcing v5.18 (listserve 2025-66-IP, June 24, 2025) states that the manual updates the chart-abstracted SEP-1 measure and removes the COVID-19 exclusion from the Initial Patient Population. A checklist that still excludes U07.1 is stale for 2026 discharges. The v5.18a data dictionary contains no COVID-19 abstraction instruction. The 5.18 release notes were not read here; read them for their exact wording before quoting them.
+- SEP-1 is reported in the Hospital IQR Program (since FY 2017) and was adopted into the Hospital VBP Program Safety domain beginning with the FY 2026 program year (FY 2024 IPPS/LTCH PPS final rule). Program weights, baselines and later rule changes are year-specific; confirm the current year's values before relying on them.
 
 ## 2. Population and exclusions
 
@@ -32,16 +32,16 @@ Working summary of the CMS Severe Sepsis and Septic Shock: Management Bundle (SE
 
 **Leaving the measure population.** Severe sepsis not present is not an exclusion: the case never enters the measure population (outcome "Not in population"). It is neither a pass nor a fail.
 
-**Denominator exclusions.** The data dictionary defines the exclusion elements below; the algorithm that applies them was not read, so the length-of-stay and discharge-within-6-hours rules rest on CMS training `[VERIFY]`. An excluded case leaves the denominator entirely; none of its elements is scored.
+**Denominator exclusions.** The data dictionary defines the exclusion elements below; the algorithm that applies them was not read, so the length-of-stay and discharge-within-6-hours rules rest on CMS training and are marked "confirm before use". An excluded case leaves the denominator entirely; none of its elements is scored.
 
 | Exclusion | Rule in v5.18a | Common error |
 |---|---|---|
-| Length of stay over 120 days | The Admission Date element accepts only dates 120 days or less before discharge; the exclusion itself is in the measure information form `[VERIFY]` | Counting from ED arrival instead of the admission date |
+| Length of stay over 120 days | The Admission Date element accepts only dates 120 days or less before discharge; the exclusion itself is in the measure information form (confirm before use) | Counting from ED arrival instead of the admission date |
 | Transfer in from another hospital or an ambulatory surgery center | Yes for a transfer from an outside hospital's inpatient, outpatient, ED or observation department, any LTAC, an acute rehab or psychiatric hospital (inside or outside), or a DMAT; No for an urgent care center, clinic, hospice, SNF, nursing home, assisted living, dialysis center, an outpatient department inside the hospital, or a site with the same CMS Certification Number; No when documentation conflicts and nothing supports one setting (DD, Transfer From Another Hospital or ASC) | Treating a clinic, SNF or same-system outpatient site as an acute transfer |
 | Directive for comfort or palliative care | Physician, APN or PA documentation of comfort measures only, palliative care or another inclusion term, before or within 6 hours after severe sepsis presentation (the septic shock element uses septic shock presentation); a DNR order is expressly not comfort care; pre-arrival documentation other than a state-authorized portable order does not count (DD, Directive for Comfort Care or Palliative Care) | Treating a DNR or DNI order as comfort measures only; counting "discussion of comfort measures" or "pt on hospice at home" |
 | Clinical trial | Enrollment in a trial studying sepsis, severe sepsis or septic shock, shown only by a signed consent form (DD, Clinical Trial) | Excluding for an unrelated trial |
-| Discharge within 6 hours of severe sepsis presentation | Discharge time is when the patient left acute care, left AMA or expired (DD, Discharge Time); the 6-hour rule is in the algorithm `[VERIFY]` | Scoring the 3-hour elements and calling the case a fail; the exclusion removes the whole case |
-| Antibiotic started more than 24 hours before presentation | The abstractor takes the first dose of an antibiotic that was also started more than 24 hours before presentation, looking back no more than 72 hours (DD, Broad Spectrum or Other Antibiotic Administration Time); how the algorithm scores that case is `[VERIFY]` | Counting oral doses, which the antibiotic element excludes |
+| Discharge within 6 hours of severe sepsis presentation | Discharge time is when the patient left acute care, left AMA or expired (DD, Discharge Time); the 6-hour rule is in the algorithm (confirm before use) | Scoring the 3-hour elements and calling the case a fail; the exclusion removes the whole case |
+| Antibiotic started more than 24 hours before presentation | The abstractor takes the first dose of an antibiotic that was also started more than 24 hours before presentation, looking back no more than 72 hours (DD, Broad Spectrum or Other Antibiotic Administration Time); how the algorithm scores that case is not confirmed here (confirm before use) | Counting oral doses, which the antibiotic element excludes |
 | Administrative contraindication to care | Physician, APN, PA or nurse documentation that the patient or authorized advocate refused a blood draw, IV or IO fluids, or IV or IO antibiotic (septic shock element: vasopressor), or left against medical advice, before or within 6 hours after presentation (DD, Administrative Contraindication to Care) | Inferring refusal from a missed draw |
 
 ## 3. Severe sepsis present and severe sepsis presentation time
@@ -78,7 +78,7 @@ Each timed element has its own trigger and clock. Do not run every septic shock 
 | Vasopressor | Persistent hypotension after the target crystalloid volume | Septic shock presentation | Started, or already infusing, by 6 hours after; an agent from Appendix C Table 5.2, IV or IO (DD, Vasopressor Administration) |
 | Repeat volume status and tissue perfusion assessment | Septic shock present (persistent hypotension or initial lactate of 4 or more) | Septic shock presentation | From the Crystalloid Fluid Administration Time (the infusion start) through 6 hours after septic shock presentation (DD, Repeat Volume Status and Tissue Perfusion Assessment Performed) |
 
-The v5.18a antibiotic element ("Broad Spectrum or Other Antibiotic Administration", updated in v5.18) names routes and times but no antibiotic table, and the v5.18a index has no separate antibiotic selection element. CMS Q&A for earlier versions required one agent from the monotherapy table or agents from two classes on the combination table, both started in the window. Whether v5.18a still applies those tables, and their numbers and contents, is `[VERIFY]` in the algorithm and Appendix C; state it as a dependency, never assume it either way.
+The v5.18a antibiotic element ("Broad Spectrum or Other Antibiotic Administration", updated in v5.18) names routes and times but no antibiotic table, and the v5.18a index has no separate antibiotic selection element. CMS Q&A for earlier versions required one agent from the monotherapy table or agents from two classes on the combination table, both started in the window. Whether v5.18a still applies those tables, and their numbers and contents, is not confirmed here and sits in the algorithm and Appendix C; state it as a dependency, never assume it either way.
 
 SEP-1 is all-or-none: one failed element fails the case. A case that is excluded or not in the population is neither a pass nor a fail.
 
@@ -91,7 +91,7 @@ All from DD, Crystalloid Fluid Administration, unless noted.
 - Weight: the weight in the fluid order, then the weight closest before the order, then the closest after; pounds divided by 2.2 and rounded to a whole kilogram. Ideal, predicted, adjusted or dosing weight is used only when a physician, APN or PA documents obesity or a BMI over 30, documents that the ideal weight sets the target volume, and the ideal weight is in the record; the abstractor does not calculate it.
 - An order counts toward the target only if it states the fluid type, the volume, and a rate or duration ("bolus" or "wide open" suffices); an order missing any of these is not used. Completion must be shown by a rate, a duration or an end time with the start time.
 - Acceptable fluids are crystalloid or balanced crystalloid solutions (0.9 percent saline, lactated Ringer's, Normosol, PlasmaLyte, Isolyte), IV or IO only. Fluids at 125 mL/hour or less do not count; flushes do not count; crystalloid used to dilute medications may count. Colloids enter only through the lesser-volume reason above. Blood products are not on the list.
-- The element has a separate value when the patient has an implanted VAD, the patient or advocate refused IV fluids, or no fluids were ordered because measured cardiac output, cardiac index, stroke volume, stroke volume index or carotid flow time showed the patient was not fluid responsive; how the algorithm scores that value is `[VERIFY]`.
+- The element has a separate value when the patient has an implanted VAD, the patient or advocate refused IV fluids, or no fluids were ordered because measured cardiac output, cardiac index, stroke volume, stroke volume index or carotid flow time showed the patient was not fluid responsive; how the algorithm scores that value is not confirmed here (confirm before use).
 
 ## 7. Persistent hypotension, vasopressors and reassessment
 
@@ -114,7 +114,7 @@ All from DD, Crystalloid Fluid Administration, unless noted.
 ## 9. Frequent abstraction errors
 
 - Crystalloid clock run from septic shock presentation when the trigger was initial hypotension.
-- An oral, test or IM dose counted for the antibiotic element, or older-version antibiotic tables applied to a 2026 discharge without stating the `[VERIFY]` dependency.
+- An oral, test or IM dose counted for the antibiotic element, or older-version antibiotic tables applied to a 2026 discharge without stating the open dependency.
 - Repeat lactate clock anchored to the initial lactate instead of presentation time.
 - Antibiotic judged against one hour (an SSC aspiration) instead of the SEP-1 3-hour window.
 - 30 mL/kg required for a lactate between 2 and 3.9 with no hypotension.

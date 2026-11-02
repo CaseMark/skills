@@ -56,7 +56,7 @@ Stroke reviews go wrong on clocks and versions more often than on care. Four fra
 1. **Draft only; no orders.** Every output is a draft for a clinician and a stroke coordinator. Never phrase guideline content as an order for a patient: no doses, agents, rates or eligibility decisions for a current patient. State what the guideline says, what the record shows, and leave the decision to the treating team.
 2. **Source-review gate.** Do not call a time, score, note or result missing until every supplied document has been opened and searched, including scanned and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a measure rule not confirmed in the current manual) or a policy election (for example the facility's choice of agent or BP protocol).
 3. **Hierarchy of authority.** For clinical comparison: the AHA/ASA guideline in force on the care date (AIS 2026 from January 26, 2026; ICH 2022), with any later society guideline on a narrower question (for example the NCS/SCCM 2026 focused update on antithrombotic-associated ICH) shown as its own row under its issuer's name, then the FDA label, then facility protocol; a label or protocol that differs is named as a conflict, never merged into "the standard". For measures: the Joint Commission manual version for the discharge date, then its data dictionary, then facility abstraction notes. For facts: primary entries (code stroke form, physician notes, MAR administration times, flowsheet readings, imaging timestamps) govern over dashboards, tracking boards and registry extracts. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every timestamp, score and quoted note carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every clinical value carries its guideline, section and year, and every measure rule its manual version, or `[VERIFY]`.
+4. **Citation discipline.** Every timestamp, score and quoted note carries a source locator (document, date and time, author role) or the label "(confirm before use)". Every clinical value carries its guideline, section and year, and every measure rule its manual version, or the label "(confirm before use)".
 5. **Name the framework on every conclusion.** Write "AIS 2026 §4.3 rec 7: not consistent", "STK-4 v2026B1: not in population", "Target: Stroke: DTN 50 minutes, within the 60-minute band". Never merge them into one pass or fail.
 6. **Every clock runs from its own trigger.** Standard IVT and EVT from LKW; DWI-FLAIR selection from symptom recognition; wake-up perfusion selection from the midpoint of sleep; door-to-needle and DIDO from arrival; post-IVT blood pressure and neuro checks from IVT start; ICH reversal from diagnosis. Show each in the clock block from `references/output-template.md`.
 7. **Compute LKW; never copy it.** List every LKW candidate with source and reject each one not used, with the reason. A wake-up stroke's LKW is when the patient was last known normal, not when the deficit was found.
@@ -128,14 +128,14 @@ Read `references/measure-abstraction-rules.md`, Sections 2 to 7. Confirm the pop
 
 ## Step 9: Reconcile, List Gaps and Hand Off
 
-Complete the reconciliation table, gaps and query candidates, hand-offs and open items (`references/output-template.md`, Sections 6 to 9). Check each rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
+Complete the reconciliation table, gaps and query candidates, hand-offs and open items (`references/output-template.md`, Sections 6 to 9). Check each rule relied on against `references/primary-sources.md` and carry its "Confirm before use:" flag into the output.
 
 ## Checkpoint B: Post-Draft Alignment
 
 1. Does the output answer the question asked, with each framework on its own row and named with its version?
 2. Is LKW computed with rejected candidates listed, and does every window run from its own trigger?
 3. Are contraindications compared with the list for the care date, with label and order-set conflicts named?
-4. Does any result depend on a `[VERIFY]` item, and would it change if that item reads differently?
+4. Does any result depend on a "Confirm before use:" item, and would it change if that item reads differently?
 5. Is anything phrased as an order, a dose for a patient, or advice to change documentation? Remove it.
 6. Are open items owned, with a next action?
 
@@ -153,7 +153,7 @@ Complete the reconciliation table, gaps and query candidates, hand-offs and open
 10. Measure scope is checked: certification level, sending or receiving hospital, population and exclusions.
 11. ICH reviews show reversal timing from diagnosis, the agent against the AHA/ASA 2022 guideline, the NCS/SCCM 2026 update and current US availability, and the CSTK-04 INR rule kept apart from clinical thresholds.
 12. No patient-directed dose, agent or order appears; no step suggests altering documentation.
-13. Every `[VERIFY]` relied on appears in the open-items list with what would settle it.
+13. Every "Confirm before use:" item relied on appears in the open-items list with what would settle it.
 
 ## Guidelines
 
@@ -198,4 +198,4 @@ Complete the reconciliation table, gaps and query candidates, hand-offs and open
 - `references/stroke-clinical-rules.md`: AIS 2026 and ICH 2022 content: clocks with triggers, agents and doses, 2026 risk gradient and label conflicts, BP by time point, EVT windows, transfer, early care, reversal.
 - `references/measure-abstraction-rules.md`: Joint Commission version lock, populations, LKW and arrival data elements, STK-4 logic, CSTK-01, CSTK-04, STK-OP-1, Target: Stroke goals.
 - `references/output-template.md`: deliverable sections, timestamp ledger, clock block, guideline comparison, measure scorecard, reconciliation table, hand-off table.
-- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the sources not read.

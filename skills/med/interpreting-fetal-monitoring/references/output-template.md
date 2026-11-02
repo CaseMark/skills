@@ -14,7 +14,7 @@ Produce the header and sections in order. Every tracing feature carries a strip 
 8. Section 7. Responses on the timeline (retrospective)
 9. Section 8. Reconciliation table
 10. Section 9. Gaps and hand-offs
-11. Section 10. Open items and `[VERIFY]` list
+11. Section 10. Open items and confirm-before-use list
 
 ## Header
 
@@ -101,7 +101,7 @@ Typical rows: charted category against tracing; EFM clock against EHR clock; nur
 | managing-newborn-assessments | Neonatal condition at birth | Delivery time, final segment | No neonatal assessment or cord gas opinion |
 | managing-patient-safety-events | Event reporting and root cause | Reconciliation and response tables | No causal analysis |
 
-## 10. Open items and `[VERIFY]` list
+## 10. Open items and confirm-before-use list
 
 | # | Open item | Depends on | Owner | Next action | Could change a category? |
 |---|---|---|---|---|---|

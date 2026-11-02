@@ -1,6 +1,6 @@
 # Stroke Clinical Rules (Guideline Layer)
 
-Guideline content for comparing what happened in an encounter with what the guidelines recommend. Every value carries its source and year. Nothing here is an order for a patient; the review reports what the guideline says and what the record shows, and a clinician decides. Checked October 30, 2026; locators and the `[VERIFY]` items are in `references/primary-sources.md`.
+Guideline content for comparing what happened in an encounter with what the guidelines recommend. Every value carries its source and year. Nothing here is an order for a patient; the review reports what the guideline says and what the record shows, and a clinician decides. Checked October 30, 2026; locators and source status are in `references/primary-sources.md`.
 
 ## Contents
 
@@ -20,7 +20,7 @@ Guideline content for comparing what happened in an encounter with what the guid
 |---|---|---|
 | AHA/ASA 2026 Guideline for the Early Management of Patients With AIS (Prabhakaran et al., Stroke, published online Jan. 26, 2026, doi 10.1161/STR.0000000000000513) | Current. Section 1.4 states it replaces the 2018 guideline and its 2019 update | Every ischemic stroke recommendation below, cited "AIS 2026 §x, rec n (COR, LOE)" |
 | AHA/ASA 2018 guideline with 2019 update (Powers et al., Stroke 2019;50:e344-e418) | Superseded for care after Jan. 26, 2026 | Only for care delivered before that date, or to explain an older order set |
-| AHA/ASA 2022 Guideline for Spontaneous ICH (Greenberg et al., Stroke 2022;53:e282-e361) | No AHA/ASA replacement found `[VERIFY]` | ICH blood pressure and anticoagulant reversal |
+| AHA/ASA 2022 Guideline for Spontaneous ICH (Greenberg et al., Stroke 2022;53:e282-e361) | No AHA/ASA replacement found in this review; confirm no newer version exists before citing it as current | ICH blood pressure and anticoagulant reversal |
 | Neurocritical Care Society and Society of Critical Care Medicine (NCS/SCCM), Treatment of Antithrombotic-Associated Intracranial Hemorrhage in Adults: A Focused Guideline Update (Neurocrit Care, published Sept. 24, 2026, doi 10.1007/s12028-026-02601-4) | Current; non-AHA; updates the 2016 NCS/SCCM guideline on five questions | Reversal-agent choice for factor Xa inhibitors, platelet transfusion, desmopressin, small IPH; shown as its own row, never merged with AHA/ASA 2022 |
 | FDA labels (TNKase, revised 2/2025; Activase) | Current labels; narrower than the guideline in places | Label-versus-guideline conflicts; never silently merged with the guideline |
 | Facility stroke protocol and order sets | Policy election | Local thresholds and agent choice; a conflict with the guideline is named, not resolved |
@@ -42,7 +42,7 @@ Anchor definitions:
 | Extended IVT, wake-up, perfusion selection | Midpoint of sleep (halfway between LKW and waking) | Within 9 hours of the midpoint; salvageable penumbra on automated perfusion imaging | AIS 2026 §4.6.3 rec 2(a) (2a, B-R) |
 | Extended IVT, known LKW, perfusion selection | LKW | 4.5 to 9 hours; salvageable penumbra on automated perfusion imaging | AIS 2026 §4.6.3 rec 2(b) (2a, B-R) |
 | IVT for LVO when EVT not possible | LKW or onset | 4.5 to 24 hours; salvageable penumbra; directed by experienced clinicians | AIS 2026 §4.6.3 rec 3 (2b, B-R) |
-| Brain imaging | Hospital arrival `[VERIFY]` (the recommendation names no anchor) | As rapidly as possible, for example within 25 minutes | AIS 2026 §3.2 rec 2 (1, B-NR) |
+| Brain imaging | Hospital arrival (the recommendation names no anchor; confirm the anchor the facility uses) | As rapidly as possible, for example within 25 minutes | AIS 2026 §3.2 rec 2 (1, B-NR) |
 | Pre-IVT blood pressure | Before IVT start | SBP below 185 and DBP below 110 | AIS 2026 §4.3 rec 5 (1, B-NR) |
 | Post-IVT blood pressure | IVT start | Below 180/105 for at least the first 24 hours | AIS 2026 §4.3 rec 7 (1, B-R) |
 | Post-IVT BP and neuro checks | IVT start | Every 15 min for 2 h, every 30 min for 6 h, hourly until 24 h | AIS 2026 Table 7 |
@@ -70,19 +70,19 @@ Anchor definitions:
 
 ## 4. Contraindications: 2026 gradient of risk, 2019 list, FDA labels
 
-AIS 2026 replaced the 2019 checklist with Table 8, "Other Situations Wherein Thrombolysis is Deemed to Be Considered", a colour-graded risk table (§4.6.5 knowledge gaps text). The table body did not extract from the guideline PDF; the rows below come from the Guideline Central pocket edition of the 2026 guideline (its Table 6) `[VERIFY]` against the published Table 8.
+AIS 2026 replaced the 2019 checklist with Table 8, "Other Situations Wherein Thrombolysis is Deemed to Be Considered", a colour-graded risk table (§4.6.5 knowledge gaps text). The table body did not extract from the guideline PDF; the rows below come from the Guideline Central pocket edition of the 2026 guideline (its Table 6); check them against the published Table 8 before relying on them.
 
 | Tier | Rows read (Guideline Central pocket edition) |
 |---|---|
 | Absolute | Acute spinal cord injury within 3 months; intra-axial neoplasm; infective endocarditis; severe coagulopathy or thrombocytopenia (platelets under 100,000/mm3, INR over 1.7, aPTT over 40 s or PT over 15 s); aortic arch dissection; ARIA or amyloid immunotherapy; CT with extensive clear hypodensity; CT with hemorrhage; moderate to severe TBI within 14 days; intracranial or spinal surgery within 14 days |
 | Relative | Pre-existing disability; DOAC exposure within 48 hours (individual decision: last dose time, renal function, severity, EVT access, reversal agents and assays; document all of it); ischemic stroke within 3 months; prior ICH; major non-CNS trauma 14 days to 3 months; major non-CNS surgery within 10 days; GI or GU bleeding within 21 days; intracranial arterial dissection; intracranial vascular malformation; STEMI within 3 months; acute pericarditis; left atrial or ventricular thrombus; systemic active malignancy; pregnancy and post-partum; dural puncture within 7 days; arterial puncture of a noncompressible vessel within 7 days; TBI or neurosurgery 14 days to 3 months |
-| Low concern | Per a secondary summary only: remote GI bleeding, history of MI, possible stroke mimic, unruptured intracranial aneurysm `[VERIFY]` |
+| Low concern | Per a secondary summary only: remote GI bleeding, history of MI, possible stroke mimic, unruptured intracranial aneurysm; check the published Table 8 before relying on this tier |
 
 Where the older sources differ:
 - The 2019 update and many order sets list prior ICH and ischemic stroke within 3 months as exclusions; the 2026 table grades both as relative. Report which list the order set used and the care date.
-- The ECASS III extra exclusions for 3-4.5 hours (age over 80, NIHSS over 25, diabetes with prior stroke, any oral anticoagulant) are not part of the 2026 table `[VERIFY]` that no 2026 row restores them.
+- The ECASS III extra exclusions for 3-4.5 hours (age over 80, NIHSS over 25, diabetes with prior stroke, any oral anticoagulant) are not part of the 2026 table as read here; confirm in the published Table 8 that no row restores them.
 - TNKase label (revised 2/2025): start "within 3 hours after the onset of stroke symptoms"; contraindicated for AIS with active internal bleeding, intracranial or intraspinal surgery or trauma within 2 months, known bleeding diathesis, current severe uncontrolled hypertension, intracranial neoplasm, AVM or aneurysm, and active intracranial hemorrhage. History of ICH and ischemic stroke within 3 months are label contraindications for STEMI only. The label's 3-hour window and the guideline's 4.5 hours conflict; name the conflict and the facility's election.
-- Activase label window and contraindication list: not read in this pass `[VERIFY]`.
+- Activase label window and contraindication list: not read in this pass; check the current label.
 
 ## 5. Blood pressure by time point
 
@@ -117,7 +117,7 @@ AIS 2026 §4.7.2 (anterior circulation proximal LVO of the ICA or M1 unless stat
 - Hospitals without 24/7 thrombectomy should have transfer protocols for fast, safe transfer of patients potentially eligible for EVT (AIS 2026 §2.9 rec 2, COR 1, C-EO) and primary stroke centers should rapidly perform and read CTA or MRA (rec 3, COR 1).
 - EVT-capable hospitals should track door-to-puncture, reperfusion and long-term outcomes (rec 5, COR 1).
 - Prehospital destination: direct transport to the closest EVT-capable hospital may be considered where rapid interhospital transfer is not well functioning (AIS 2026 Top Things to Know, item 2).
-- Door-in-door-out has no numeric guideline target in AIS 2026 `[VERIFY]`; the measure is STK-OP-1 (median minutes), described in `references/measure-abstraction-rules.md`.
+- Door-in-door-out has no numeric guideline target in AIS 2026 as read here (confirm before use); the measure is STK-OP-1 (median minutes), described in `references/measure-abstraction-rules.md`.
 
 ## 8. Early in-hospital care
 
@@ -132,5 +132,5 @@ AIS 2026 §4.7.2 (anterior circulation proximal LVO of the ICA or M1 unless stat
 - VKA with INR 2.0 or more: 4F-PCC in preference to FFP (rec 2, COR 1, B-R), followed by IV vitamin K (rec 3, COR 1). VKA with INR 1.3-1.9: PCC may be reasonable (rec 4, 2b). These INR thresholds apply to warfarin, not to factor Xa inhibitors.
 - Factor Xa inhibitor: andexanet alfa reasonable (rec 5, 2a, B-NR); 4F-PCC or aPCC when a specific agent is unavailable (synopsis).
 - NCS/SCCM focused update (Sept. 24, 2026), a separate issuer: Recommendation 1-1 suggests 4F-PCC rather than andexanet alfa for factor Xa inhibitor-associated spontaneous ICH (conditional, moderate certainty); 1-2 the same for traumatic ICH (conditional, very low certainty); 2-1 suggests against platelet transfusion for spontaneous IPH on antiplatelets without neurosurgery; 2-2 suggests transfusion for spontaneous IPH on aspirin needing neurosurgery; 4-1 makes no recommendation on treating anticoagulant effects in small IPH (generally under 5-10 mL). Report it beside the AHA/ASA 2022 row with its own name and strength. Dabigatran: idarucizumab reasonable (rec 6, 2a). Heparin: protamine (synopsis).
-- Andexanet alfa (Andexxa) US status: FDA safety communication, AstraZeneca ended US sales on Dec. 22, 2025 and requested withdrawal of the BLA; FDA considers its risks to outweigh benefits. An order set or note that names andexanet as first line for US care after that date is out of date; the AHA/ASA 2022 guideline text has not been revised `[VERIFY]`, while the NCS/SCCM 2026 update already favours 4F-PCC.
-- Aneurysmal SAH (nimodipine, CSTK-06) is outside this file; use the current AHA/ASA aneurysmal SAH guideline `[VERIFY]` version.
+- Andexanet alfa (Andexxa) US status: FDA safety communication, AstraZeneca ended US sales on Dec. 22, 2025 and requested withdrawal of the BLA; FDA considers its risks to outweigh benefits. An order set or note that names andexanet as first line for US care after that date is out of date; the AHA/ASA 2022 guideline text has not been revised as far as this review found (confirm before use), while the NCS/SCCM 2026 update already favours 4F-PCC.
+- Aneurysmal SAH (nimodipine, CSTK-06) is outside this file; use the current AHA/ASA aneurysmal SAH guideline; confirm the current version.

@@ -7,7 +7,6 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 1. Sources checked
 2. Confirmed statements
 3. Corrections to the earlier version of this skill
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -64,14 +63,3 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 | PHQ-9 item 9 | "score of 1 or more requires further assessment" | Kept, plus: a zero is not low risk; item 9 is not an assessment | Simon 2013; VA/DoD 2024 |
 | Suicide rank | 11th leading cause, over 49,000 deaths | 48,824 deaths in 2024, rank 10 (FastStats); Joint Commission's NPG page still says 11th | CDC; NPG 8 page |
 | Malpractice claim | "single most common basis for successful malpractice litigation" | Removed; not verified | None found |
-
-## 4. `[VERIFY]` list
-
-1. C-SSRS generic screener (2026): which items map to the low, moderate and high color bands (colors were not captured in the text read).
-2. Content of the optional additional step shown on the Stanley-Brown website.
-3. Any 2027 revision to NPG.08.01.01 or NPSG.15.01.01, and whether the BHC program moves to National Performance Goals (none found on the date checked).
-4. Suicide goal in other accreditation programs (ambulatory, home care): not reviewed.
-5. PSS-3 items, scoring and age range (named by SEA 56 and the AAP; developer instructions not read).
-6. State law for involuntary holds, duty to protect, minors' consent, collateral disclosure and temporary firearm transfer or extreme risk protection orders, for the jurisdiction at issue.
-7. Simon 2013 journal pagination (the PMC author manuscript was read; the published title differs).
-8. Which ASQ version an organization has adopted where its policy predates the 9/29/25 tool (treat as an unknown fact for the organization; the tool text itself is confirmed).

@@ -57,7 +57,7 @@ Suicide caused 48,824 U.S. deaths in 2024, and 27,593 of them (56.5 percent) inv
 1. **Draft only.** Every output is a draft for a qualified clinician (or, in review mode, for the reviewer and the clinician). It supports and never replaces clinical judgment. Never write an observation level, hold, medication or disposition for a patient.
 2. **Source-review gate.** Do not call a screen, note or plan missing until every supplied document has been opened and searched, including scanned and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a requirement not confirmed in the current manual) or a policy election (for example the organization's reassessment interval).
 3. **Hierarchy of authority.** For requirements: law and regulation (CMS CoPs, state law), then the accreditation chapter in force for the program and date, then organization policy, then the tool developer's instructions, then clinical guidelines; a guideline never settles an accreditation question and an accreditation EP never dictates a clinical decision. For facts: the clinician's contemporaneous documentation of the interview and direct observation, then item-level tool records, then nursing and collateral notes, then templated, copied or dashboard text. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every finding carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every requirement carries its issuer and citation or `[VERIFY]`.
+4. **Citation discipline.** Every finding carries a source locator (document, date and time, author role) or the label "(confirm before use)". Every requirement carries its issuer and citation or the label "(confirm before use)".
 5. **Label the layer.** Write "Joint Commission NPG.08.01.01 EP 3 (requirement)", "ASQ tool instruction" or "SAFE-T (recommendation)". Never merge them into one pass or fail.
 6. **The risk level belongs to the clinician.** Never assign a level from a score, a color band or a denial. Never present a level as final, even when asked. Offer the formulation scaffold and the organization's own scale definitions instead.
 7. **Crisis resources stay in.** Every output prints 911 or local emergency services for immediate danger and 988 (call or text 988, chat at 988lifeline.org). If the user indicates that someone is in danger now, lead with those resources before any documentation work.
@@ -126,7 +126,7 @@ Read `references/assessment-and-safety-planning.md`, Section 6. Compare discharg
 
 ## Step 9: Reconcile, List Gaps and Hand Off
 
-Complete Sections 9 to 11 of `references/output-template.md`. Check every requirement relied on against `references/primary-sources.md` and carry any `[VERIFY]` flag into the open items. End with the closing line and crisis resources.
+Complete Sections 9 to 11 of `references/output-template.md`. Check every requirement relied on against `references/primary-sources.md` and carry any "Confirm before use:" flag into the open items. End with the closing line and crisis resources.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -151,7 +151,7 @@ Complete Sections 9 to 11 of `references/output-template.md`. Check every requir
 10. Transition findings quote the organization's policy and invent no timeframe.
 11. Every conflict is in the reconciliation table and every gap is classified.
 12. No content documents, attests or backdates care that did not occur.
-13. 911 and 988 appear, and every `[VERIFY]` relied on is in the open items.
+13. 911 and 988 appear, and every "Confirm before use:" item relied on is in the open items.
 
 ## Guidelines
 
@@ -160,7 +160,7 @@ Complete Sections 9 to 11 of `references/output-template.md`. Check every requir
 - Reassess at the points the organization's policy names; SAFE-T adds first contact, new behavior or ideation, treatment changes and inpatient discharge.
 - For youth, screen without the parent present where possible and gather parent or guardian history; use a trained interpreter for limited English proficiency.
 - Protective factors may not counteract significant acute risk (SAFE-T).
-- Keep protected health information to what the task needs; de-identify shared drafts. Collateral disclosure and holds depend on state law `[VERIFY]`.
+- Keep protected health information to what the task needs; de-identify shared drafts. Collateral disclosure and holds depend on state law, which varies by jurisdiction; check the governing state's rule before relying on it.
 - Do not list the ended 988 "Press 3" option; list 988 call, text and chat, Spanish, veterans press 1, and ASL videophone.
 
 ## Troubleshooting
@@ -196,4 +196,4 @@ Complete Sections 9 to 11 of `references/output-template.md`. Check every requir
 - `references/standards-and-tools.md`: Joint Commission chapters and EPs, population rules, ASQ, C-SSRS, PSS-3 and PHQ-9 item 9.
 - `references/assessment-and-safety-planning.md`: SAFE-T, assessment checklist, formulation limits, Stanley-Brown plan, lethal means counseling, transitions, 988, copy-forward.
 - `references/output-template.md`: deliverable sections, ledger, formulation scaffold, safety plan review, reconciliation and hand-off tables.
-- `references/primary-sources.md`: each authority checked with date and what it supports, corrections, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with date and what it supports, corrections, and the sources not read.

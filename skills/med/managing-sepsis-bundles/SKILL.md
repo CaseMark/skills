@@ -47,7 +47,7 @@ Sepsis is common and lethal: CDC estimates about 1.7 million U.S. adults develop
 | Crystalloid orders, weights and the MAR | 30 mL/kg element | Clock run from septic shock presentation when the trigger was initial hypotension; actual weight used where a provider documented obesity and directed ideal weight, or the reverse; the 10 percent allowance applied to the volume infused; 30 mL/kg demanded for a lactate of 2 to 3.9 without hypotension; non-crystalloid volume counted |
 | Vital sign flowsheet after fluids | Persistent hypotension and the vasopressor element | One low reading in the hour after the infusion treated as persistent hypotension; readings outside that hour counted |
 | Reassessment notes and attestations | Repeat volume status and tissue perfusion assessment | A note timed before the crystalloid start time or more than 6 hours after septic shock presentation; a note rejected because it predates crystalloid completion, which v5.18a does not require; fewer than five of the eight listed parameters counted as a parameter review |
-| Antibiotic administration records and any antibiotic table the version applies | Whether the antibiotic qualifies | An oral dose, a test dose or an order counted; an IM or IO dose counted without documentation that IV access could not be established; older-version monotherapy and combination tables applied to a 2026 discharge without confirming that v5.18a still uses them `[VERIFY]` |
+| Antibiotic administration records and any antibiotic table the version applies | Whether the antibiotic qualifies | An oral dose, a test dose or an order counted; an IM or IO dose counted without documentation that IV access could not be established; older-version monotherapy and combination tables applied to a 2026 discharge without confirming that v5.18a still uses them |
 | Medication administration record and order log | Antibiotic and blood culture elements | Order or verification time used for administration; cultures drawn after the first antibiotic dose; a dose more than 24 hours before presentation not tested against the exclusion |
 | Transfer records, code-status orders, coding abstract | Population and exclusions | A DNR read as comfort measures only; a transfer from a clinic read as an acute transfer; a stale checklist excluding COVID-19 cases for a 2026 discharge; the wrong manual version for the discharge date |
 
@@ -56,7 +56,7 @@ Sepsis is common and lethal: CDC estimates about 1.7 million U.S. adults develop
 1. **Draft only.** Every output is a draft for a clinician and a quality abstractor. Never state that a case is final, submitted or validated, and never phrase guideline content as an order for this patient (no doses, rates or agents directed at the patient).
 2. **Source-review gate.** Do not call any timestamp, note or result missing until every supplied document has been opened and searched, including scanned and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a manual rule not confirmed in the current version) or a policy election (for example the facility's sepsis protocol choice).
 3. **Hierarchy of authority.** For abstraction rules: the CMS manual version for the discharge date (measure information form, algorithm, data dictionary), then CMS Q&A, then facility policy; SSC guidelines never decide a SEP-1 question. For facts: source entries (MAR administration times, specimen collection times, flowsheet vitals, provider notes) govern over dashboards, alert logs, navigator worksheets and abstraction tools. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every timestamp, value and quoted note carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every rule carries its framework and version or `[VERIFY]`.
+4. **Citation discipline.** Every timestamp, value and quoted note carries a source locator (document, date and time, author role) or the label "(confirm before use)". Every rule carries its framework and version or the label "(confirm before use)".
 5. **Name the framework on every conclusion.** Write "SEP-1 v5.18a: met", "SSC Hour-1 Bundle: not begun within the hour" or "Sepsis-3 criteria documented". Never merge frameworks into one pass or fail.
 6. **Lock the version.** Select the SEP-1 manual by discharge date and state it in the header. Manual versions change yearly; v5.18a covers 2026 discharges and v5.19 covers 2027 discharges (CMS notice 2026-57-IP, July 1, 2026).
 7. **Compute time zero; never copy it.** Show the three criteria, their times, the 6-hour span check and any provider documentation in the fixed block from `references/output-template.md`, and list each rejected candidate time with the reason.
@@ -115,7 +115,7 @@ Read `references/sep1-abstraction-rules.md`, Sections 4, 5 and 7. First test for
 
 ## Step 6: Score Each Element
 
-Read `references/sep1-abstraction-rules.md`, Sections 5 to 8. Fill the element scorecard in `references/output-template.md`, Section 5. For the antibiotic row, show the route and the earliest start time in the window, and check the agent against any antibiotic table the version applies (whether v5.18a applies one is `[VERIFY]`). For the crystalloid row, show the trigger and its time, the weight used and why (actual, or ideal with documented obesity), the target, the ordered and infused volumes, and any documented reason for a lower volume. For the vasopressor row, show the readings in the hour after infusion. For the reassessment row, show the note time against the window from the crystalloid start time to 6 hours after septic shock presentation. Then set the case result.
+Read `references/sep1-abstraction-rules.md`, Sections 5 to 8. Fill the element scorecard in `references/output-template.md`, Section 5. For the antibiotic row, show the route and the earliest start time in the window, and check the agent against any antibiotic table the version applies (whether v5.18a applies one is not confirmed here; label it "(confirm before use)"). For the crystalloid row, show the trigger and its time, the weight used and why (actual, or ideal with documented obesity), the target, the ordered and infused volumes, and any documented reason for a lower volume. For the vasopressor row, show the readings in the hour after infusion. For the reassessment row, show the note time against the window from the crystalloid start time to 6 hours after septic shock presentation. Then set the case result.
 
 ## Step 7: Add the Clinical Guideline Overlay (Only When Asked)
 
@@ -123,14 +123,14 @@ Read `references/clinical-criteria-and-ssc.md`, Sections 5 and 6. Compare the le
 
 ## Step 8: Reconcile, List Gaps and Hand Off
 
-Complete the reconciliation table, the gaps and query candidates, the hand-offs, and the open items with every `[VERIFY]` relied on (`references/output-template.md`, Sections 7 to 10). Check each rule you relied on against `references/primary-sources.md`; carry its `[VERIFY]` flag into the output if it has one.
+Complete the reconciliation table, the gaps and query candidates, the hand-offs, and the open items with every "Confirm before use:" item relied on (`references/output-template.md`, Sections 7 to 10). Check each rule you relied on against `references/primary-sources.md`; carry its "Confirm before use:" flag into the output if it has one.
 
 ## Checkpoint B: Post-Draft Alignment
 
 1. Does the output answer the question asked, for the framework asked, with each framework scored on its own row?
 2. Is the version named and correct for the discharge date?
 3. Is time zero computed from criteria, with rejected candidates listed, and does every element use the correct clock?
-4. Does every result that depends on a `[VERIFY]` rule say so, and would the result flip if the rule reads differently?
+4. Does every result that depends on a "Confirm before use:" rule say so, and would the result flip if the rule reads differently?
 5. Is anything phrased as an order or as advice to change documentation? Remove it.
 6. Are open items owned, with a next action?
 
@@ -148,7 +148,7 @@ Complete the reconciliation table, the gaps and query candidates, the hand-offs,
 10. Every exclusion applied is tested against the version in force, and DNR is not equated with comfort measures only.
 11. SSC content appears only in the overlay, cites strength and year, and contains no patient-directed orders.
 12. Every conflict is in the reconciliation table; every gap is classified; no step suggests altering documentation.
-13. Every `[VERIFY]` relied on appears in the open-items list with what would settle it.
+13. Every "Confirm before use:" item relied on appears in the open-items list with what would settle it.
 
 ## Guidelines
 
@@ -170,7 +170,7 @@ Complete the reconciliation table, the gaps and query candidates, the hand-offs,
 | Dashboard or navigator worksheet disagrees with the chart | Tool logic uses alert or order times | The chart entry controls; add a reconciliation row naming the tool's rule |
 | Weight missing or conflicting | Stated, estimated and measured weights differ | List each weight with source and time; apply the version's weight rule; flag if the result changes |
 | User supplies an older abstraction checklist | Version drift | Score against the version for the discharge date and list each checklist rule that differs |
-| Notes say "septic shock" but no qualifying lactate or readings | Provider documentation route | Test the documentation route in the version, then apply its clocks; flag `[VERIFY]` if the route's wording is unconfirmed |
+| Notes say "septic shock" but no qualifying lactate or readings | Provider documentation route | Test the documentation route in the version, then apply its clocks; label it "Confirm before use:" if the route's wording is unconfirmed |
 
 ## Related Skills
 
@@ -189,4 +189,4 @@ Complete the reconciliation table, the gaps and query candidates, the hand-offs,
 - `references/sep1-abstraction-rules.md`: SEP-1 version lock, population, exclusions, time zero, septic shock, element windows, fluid and reassessment rules, timestamp conventions.
 - `references/clinical-criteria-and-ssc.md`: framework comparison, Sepsis-3, SOFA and SOFA-2, screening tools, SSC Hour-1 Bundle, SSC 2026 statements.
 - `references/output-template.md`: deliverable sections, timestamp ledger, time-zero block, element scorecard, reconciliation table, hand-off table.
-- `references/primary-sources.md`: each authority checked with date and what it supports, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with date and what it supports, and the sources not read.

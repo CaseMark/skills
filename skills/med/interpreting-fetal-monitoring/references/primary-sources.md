@@ -7,7 +7,6 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 1. Sources checked
 2. Confirmed statements
 3. Corrections made to the earlier version of this skill
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -57,11 +56,3 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 | Category II late decelerations | "with moderate variability" only | Both wordings shown | NICHD 2008; CPG 10 Box 1 |
 | Viability cutoff of 24 weeks | Stated as a rule | Removed; not in NICHD 2008 or CPG 10 | Both |
 | Variability described as "the single most important indicator" | Stated as fact | Replaced with NICHD 2008 wording on what moderate variability predicts | NICHD 2008 |
-
-## 4. `[VERIFY]` list
-
-1. Rules for care before July 2009 (PB 70, NICHD 1997): not read.
-2. Whether ACOG has issued any correction, clarification or reaffirmation of CPG 10 after October 2025: none found in searches on 2026-10-30, but ACOG's gated status page was not readable.
-3. PB 116 reaffirmation history (not read; moot after CPG 10 except for older care).
-4. Facility policy content (documentation frequency, oxytocin protocol, escalation) for any case: always case-specific.
-5. Rows marked "search excerpt" rest on abstracts; read the full papers before quoting their numbers.

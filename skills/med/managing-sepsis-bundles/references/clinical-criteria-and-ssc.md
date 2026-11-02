@@ -48,7 +48,7 @@ Original SOFA, as tabulated in Sepsis-3 (points 0 to 4):
 
 Catecholamine doses in mcg/kg/min given for at least 1 hour.
 
-SOFA-2 (JAMA, published online October 29, 2025; corrected January 29, 2026) revises the score, keeps six organ systems and renames some (brain, kidney). A note that says "SOFA" without the version is ambiguous after late 2025; record which version was used. SSC 2026 does not adopt SOFA-2: its full text never mentions SOFA-2, cites Sepsis-3 for the definition of sepsis, and applies its recommendations to patients diagnosed with sepsis according to local practice. Whether any revised consensus definition of sepsis adopts SOFA-2 is `[VERIFY]`.
+SOFA-2 (JAMA, published online October 29, 2025; corrected January 29, 2026) revises the score, keeps six organ systems and renames some (brain, kidney). A note that says "SOFA" without the version is ambiguous after late 2025; record which version was used. SSC 2026 does not adopt SOFA-2: its full text never mentions SOFA-2, cites Sepsis-3 for the definition of sepsis, and applies its recommendations to patients diagnosed with sepsis according to local practice. Whether any revised consensus definition of sepsis adopts SOFA-2 is not confirmed here; check current society publications before stating it.
 
 SOFA points never establish SEP-1 severe sepsis: SEP-1 has its own organ dysfunction thresholds (for example platelets under 100,000 and creatinine over 2.0), and GCS is not one of them.
 

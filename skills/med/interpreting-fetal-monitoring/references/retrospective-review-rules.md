@@ -15,7 +15,7 @@ Rules for quality, peer review and medical-legal review of a completed labor. Co
 
 | Date of care | ACOG guidance in force | Items that changed |
 |---|---|---|
-| Before July 2009 | Practice Bulletin 70 (Dec. 2005) and the 1997 NICHD definitions; NICHD 2008 published Sept. 2008 | Not reviewed by this skill: `[VERIFY]` before relying on any rule |
+| Before July 2009 | Practice Bulletin 70 (Dec. 2005) and the 1997 NICHD definitions; NICHD 2008 published Sept. 2008 | Not reviewed by this skill; confirm each rule against its own source before relying on it |
 | July 2009 to Nov. 2010 | PB 106 (July 2009), adopting NICHD 2008 and the three-tier system | Review frequency stated numerically; maternal oxygen listed among Category III efforts |
 | Nov. 2010 to Jan. 2022 | PB 106 and PB 116 (Nov. 2010) | PB 116 management algorithms; tachysystole algorithm; oxygen in the resuscitation table |
 | Jan. 2022 to Sept. 2025 | PB 106, PB 116 and the ACOG Practice Advisory on oxygen (Jan. 2022) | Routine oxygen for fetal resuscitation not recommended with normal maternal saturation |

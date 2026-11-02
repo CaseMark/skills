@@ -7,7 +7,6 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 1. Sources checked
 2. Confirmed statements
 3. Changes from the previous version of this skill
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -65,18 +64,3 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 | New LBBB | Listed as STEMI criterion | Not a STEMI equivalent alone; Sgarbossa criteria | 2025 Table 3; 2022 ECDP |
 | Loading and anticoagulant doses, Killip mortality figures, TIMI and GRACE risk percentages | Stated in the body | Removed: patient-directed doses are out of scope, and the figures were not confirmed in a current source | Ground Rules |
 | DAPT | "minimum 12 months" | At least 1 year if not high bleeding risk, with Class 1 and 2b bleeding-reduction options | 2025, 11.1 |
-
-## 4. `[VERIFY]` list
-
-1. NCDR Chest Pain-MI Registry v3.2 data dictionary text for FMC and other time elements (only the JACC: Advances report of the steering subcommittee decision was read).
-2. How CMS996v6 handles a transfer patient who bypasses the receiving hospital's ED directly to the cath lab (no ED encounter at the receiving hospital); read the measure logic and value sets.
-3. How the CMS996v6 measure logic sequences exclusions and exceptions when a documented reason for not giving fibrinolysis coexists with a transfer outside 45 minutes.
-4. The 2025 guideline Figure 8 list of high-risk features for an early invasive strategy (figure text not extractable).
-5. Coding of Fifth UDMI terms ("primary MI due to SCAD", "secondary MI") in ICD-10-CM; FY 2027 guidelines still use type 1 and type 2 language and no Coding Clinic guidance was found.
-6. How CMS claims-based AMI cohorts (mortality, readmission, payment) treat I21.A1 and I21.A9; methodology reports were not read.
-7. Whether a newer ACC/AHA STEMI/NSTEMI performance measure set or an ACS focused update appears after 2026-10-30.
-8. Every facility-specific hs-cTn threshold and delta: always from the laboratory's own assay documentation, never from this skill.
-9. The 2013 STEMI guideline wording behind the 30-minute fibrinolysis and transfer targets (cited only through the CMS996 rationale and the 2017 measures; the 2013 text was not read).
-10. Whether the 2025 guideline Figure 6 image (care-system pathway) shows a door-in-door-out or door-to-needle number; only its caption was readable.
-11. The CMS996v6 value sets that identify a STEMI diagnosis on the ED encounter (QDM package CMS996-v6.3.000 not read).
-12. Whether MBQIP currently includes the STEMI eCQM for critical access hospitals (the 2023 MBQIP notice said it was under consideration).

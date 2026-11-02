@@ -7,14 +7,13 @@ Checked October 30, 2026, in two passes the same day. The first pass used web-se
 1. Sources checked
 2. Confirmed statements
 3. Corrections made on full-text review
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
 | Source | URL read | Method; date | Supports |
 |---|---|---|---|
 | CMS Specifications Manual v5.18a, Alphabetical Data Dictionary (mirror) | https://www.khaquality.com/wp-content/uploads/2026/03/1b-AlphaDD.pdf (KHA Quality mirror of the CMS manual) | Full text via case.dev; 2026-10-30 | Every "DD, <element>" rule in the SEP-1 rules file: severe sepsis criteria, pregnancy criteria, presentation times, septic shock, lactate, cultures, antibiotic, crystalloid, hypotension, vasopressor, reassessment, exclusion elements |
-| CMS Specifications Manual v5.18a, measure information form, algorithm, Appendix C, release notes | https://qualitynet.cms.gov/inpatient/specifications-manuals (JavaScript; not readable) | Not read | Length-of-stay and discharge-within-6-hours exclusions, antibiotic tables, algorithm outcomes: see the `[VERIFY]` list |
+| CMS Specifications Manual v5.18a, measure information form, algorithm, Appendix C, release notes | https://qualitynet.cms.gov/inpatient/specifications-manuals (JavaScript; not readable) | Not read | Length-of-stay and discharge-within-6-hours exclusions, antibiotic tables, algorithm outcomes: not read here; confirm in the manual before relying on them |
 | v5.18 posting notice, listserve 2025-66-IP (June 24, 2025) | https://www.qualityreportingcenter.com/globalassets/listserves/2025/iqr/2025-66-ip%5Flistserve%5Fiqr%5Fv5.18-specs-manual-posting%5Fvdraft-508.pdf | Full text via case.dev; 2026-10-30 | v5.18 for 01/01/2026-12/31/2026 discharges; SEP-1 updates; COVID-19 exclusion removed from the Initial Patient Population |
 | v5.18a addendum notice, listserve 2025-96-IP (Sept. 19, 2025) | https://www.qualityreportingcenter.com/globalassets/listserves/2025/iqr/2025-96-ip%5Flistserve%5Fiqr%5Fv5.18a-specs-manual-posting%5Fvfinal-508.pdf | Full text via case.dev; 2026-10-30 | Addendum for 2026 discharges; Appendix A.1 Table 4.01 (SEP) updated for FY 2026 codes |
 | v5.18a webinar notice, listserve 2026-41-IP (May 15, 2026) | https://www.qualityreportingcenter.com/globalassets/listserves/2026/iqr/2026-41-ip%5Fsep-1-2026-webinar-listserv%5Ffinal%5F508.pdf | Full text via case.dev; 2026-10-30 | CMS SEP-1 v5.18a review webinar, May 19, 2026; slides on QualityNet (not readable) |
@@ -61,22 +60,11 @@ Checked October 30, 2026, in two passes the same day. The first pass used web-se
 |---|---|---|---|
 | Reassessment window | After crystalloid completion; a note before completion does not count | From the crystalloid infusion start (Crystalloid Fluid Administration Time) to 6 hours after septic shock presentation | DD, Repeat Volume Status and Tissue Perfusion Assessment Performed |
 | Reassessment routes | Attestation, focused exam, or CVP, ScvO2, ultrasound, passive leg raise, fluid challenge | Attestation of exam or systems review; review of five of eight listed parameters; or CVP/RAP, ScvO2, echocardiogram, fluid challenge or passive leg raise, or carotid flow time | Same element |
-| ED triage-time rule | Triage time when all criteria met at triage `[VERIFY]` | No triage rule; earliest ED arrival time for pre-hospital or present-on-arrival documentation; floor arrival for direct admits | DD, Severe Sepsis Presentation Time |
+| ED triage-time rule | Triage time when all criteria met at triage | No triage rule; earliest ED arrival time for pre-hospital or present-on-arrival documentation; floor arrival for direct admits | DD, Severe Sepsis Presentation Time |
 | Blood culture look-back | 48 hours | 24 hours before presentation, or 24 hours before an antibiotic started in the 24 hours before presentation; acceptable-delay exceptions | DD, Blood Culture Collection; Acceptable Delay |
 | Lab timestamps | Collection time, result time "where the manual says so" | Result time for criteria (including the septic shock lactate); draw time for the lactate elements, with supporting times if no draw time | DD, Severe Sepsis Present; Septic Shock Presentation Time; Initial Lactate Level Collection |
 | Fluids that count | Crystalloids only; albumin excluded | Crystalloids or balanced crystalloids at more than 125 mL/hour; colloids only through a documented lesser-volume reason; order must state type, volume and rate or duration | DD, Crystalloid Fluid Administration |
-| Antibiotic tables | Monotherapy and combination tables required | v5.18a antibiotic element names no table; table use for 2026 is `[VERIFY]` | DD, Broad Spectrum or Other Antibiotic Administration |
+| Antibiotic tables | Monotherapy and combination tables required | v5.18a antibiotic element names no table; table use for 2026 not confirmed here | DD, Broad Spectrum or Other Antibiotic Administration |
 | Pregnancy | Not covered | Separate SIRS, hypotension and creatinine thresholds from v5.18 | DD, Pregnant 20 Weeks Through Day 3 Post-delivery |
 | Septic shock timing | Not stated | Septic shock more than six hours after severe sepsis presentation is not present | DD, Septic Shock Present |
-| Evals 1, 4, 5 | Table membership Must; fluid order without a rate; reassessment "after 23:10" | Table question stated as `[VERIFY]` dependency; order given a 90-minute duration; reassessment window from crystalloid start | evals/evals.json |
-
-## 4. `[VERIFY]` list
-
-1. The exact wording of the v5.18 release notes on the COVID-19 change (release notes are on QualityNet and were not readable; the v5.18a data dictionary has no COVID-19 instruction).
-2. Exclusions defined outside the data dictionary: length of stay over 120 days and discharge within 6 hours of presentation (measure information form and algorithm not read).
-3. How the algorithm scores an antibiotic first started more than 24 hours before presentation (the data dictionary sets only the 72-hour look-back for abstracting the dose).
-4. Whether v5.18a applies Appendix C antibiotic tables to the antibiotic element, and their numbers and contents (the v5.18a data dictionary element names no table and has no selection element; Appendix C and the algorithm were not read).
-5. How the algorithm scores Crystalloid Fluid Administration value 4 (VAD, refusal, documented lack of fluid responsiveness).
-6. Hospital VBP weighting, baseline and any change after FY 2027 (program rules not read in full).
-7. Whether any revised consensus definition of sepsis adopts SOFA-2 (SSC 2026 does not).
-8. Sepsis-3, SOFA and Levy 2018 rows rest on search excerpts; read the papers before quoting them.
+| Evals 1, 4, 5 | Table membership Must; fluid order without a rate; reassessment "after 23:10" | Table question stated as an open dependency; order given a 90-minute duration; reassessment window from crystalloid start | evals/evals.json |

@@ -63,7 +63,7 @@ Nearly 90 percent of laboring patients in the United States have electronic feta
 1. **Draft only.** Every output is a draft for a qualified obstetric clinician. Never present it as a final interpretation, a peer review finding, an expert opinion or an order.
 2. **Source-review gate.** Do not call a segment, note or event missing until every supplied file, page and strip panel has been opened and searched, including scanned images. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a rule not confirmed in the guidance in force) or a policy election (for example the facility documentation interval).
 3. **Hierarchy of authority.** For definitions: NICHD 2008 as restated in the ACOG document in force on the date of care, then facility policy for documentation and protocols. For facts: the tracing with its own timestamps governs over flowsheet summaries, charted categories and later narratives; the MAR and flowsheet govern medications and maternal vitals. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every tracing feature carries a strip locator (date, clock range, panel or page, mode) or `[UNVERIFIED]`. Every rule carries its source and year, or `[VERIFY]`.
+4. **Citation discipline.** Every tracing feature carries a strip locator (date, clock range, panel or page, mode) or the label "(confirm before use)". Every rule carries its source and year, or the label "(confirm before use)".
 5. **Confirm the signal before reading it.** A segment with maternal heart rate indicators that the record cannot resolve is "Not categorized (signal source not confirmed)"; a segment the record shows to be maternal (for example a rate matching the maternal pulse, then a different rate once a scalp electrode is applied) is "Not categorized (maternal signal)".
 6. **Measure, then label.** Show the numbers behind each label: onset-to-nadir seconds, nadir minus contraction peak, recurrence fraction, 30-minute contraction average, amplitude range, gestational-age threshold. Measure time from printed time marks, never from an assumed paper speed.
 7. **Categorize by segment.** Assign a category to each timed segment, last, after the components. List Category II higher-risk and protective features from CPG 10 Box 3 whenever the label is Category II.
@@ -145,7 +145,7 @@ Read `references/retrospective-review-rules.md`, Sections 2, 4 and 5. Record the
 
 ## Step 10: Reconcile, List Gaps and Hand Off
 
-Complete `references/output-template.md`, Sections 8 to 10. Check each rule relied on against `references/primary-sources.md` and carry any `[VERIFY]` flag into the open items.
+Complete `references/output-template.md`, Sections 8 to 10. Check each rule relied on against `references/primary-sources.md` and carry any "Confirm before use:" flag into the open items.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -170,7 +170,7 @@ Complete `references/output-template.md`, Sections 8 to 10. Check each rule reli
 10. Every Category II label lists CPG 10 Box 3 higher-risk and protective features present.
 11. Paper speed, scale and the clock offset are recorded; conflicts are in the reconciliation table.
 12. Retrospective drafts record the outcome-blind pass and contain no standard-of-care or causation statement.
-13. Every `[VERIFY]` relied on is in the open items with what would settle it.
+13. Every "Confirm before use:" item relied on is in the open items with what would settle it.
 
 ## Guidelines
 
@@ -216,4 +216,4 @@ Complete `references/output-template.md`, Sections 8 to 10. Check each rule reli
 - `references/nichd-definitions-and-categories.md`: windows with their triggers, definitions, uterine activity, categories, Category II features, maternal heart rate checks, paper speed, source differences.
 - `references/retrospective-review-rules.md`: guidance by date of care, outcome-blind protocol, timeline and clocks, charted interpretation, responses, scope limits.
 - `references/output-template.md`: deliverable sections, segment worksheet, deceleration log, reconciliation and hand-off tables.
-- `references/primary-sources.md`: each authority checked with date and what it supports, corrections, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with date and what it supports, corrections, and the sources not read.

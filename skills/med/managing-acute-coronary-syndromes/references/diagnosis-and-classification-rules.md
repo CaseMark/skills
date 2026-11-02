@@ -81,7 +81,7 @@ Effective October 1, 2026 (guideline section I.C.9.e):
 - I21.9 is the default for unspecified AMI or unspecified type.
 - Non-ischemic myocardial injury (acute, chronic or unspecified): I5A (tabular; new FY 2022; seen on a secondary code site).
 
-The coder assigns codes from provider documentation. When the documentation conflicts ("NSTEMI" in the discharge summary, "demand ischemia" or "troponin leak" in progress notes), the review lists the conflict and routes a non-leading query to `managing-cdi-programs`. How a Fifth UDMI term such as "secondary MI" or "primary MI due to SCAD" should be coded in ICD-10-CM has no official guidance found as of 2026-10-30 `[VERIFY]`.
+The coder assigns codes from provider documentation. When the documentation conflicts ("NSTEMI" in the discharge summary, "demand ischemia" or "troponin leak" in progress notes), the review lists the conflict and routes a non-leading query to `managing-cdi-programs`. How a Fifth UDMI term such as "secondary MI" or "primary MI due to SCAD" should be coded in ICD-10-CM has no official guidance found as of 2026-10-30; confirm current coding guidance before assigning a code.
 
 ## 7. Unstable angina and risk scores
 

@@ -15,7 +15,7 @@ Produce the header and the sections below in order. Two modes share the template
 9. Section 8. Transition and follow-up
 10. Section 9. Reconciliation table
 11. Section 10. Gaps and hand-offs
-12. Section 11. Open items and `[VERIFY]` list
+12. Section 11. Open items and confirm-before-use list
 
 ## Header and crisis line
 
@@ -134,7 +134,7 @@ Typical rows: screen color band against the documented level; copied note agains
 | coordinating-care-transitions | Follow-up and hand-off gaps | Transition table | Did not schedule care |
 | managing-patient-safety-events | Discharge without assessment, a death or attempt in care | Ledger and gaps | Did not classify the event |
 
-## 11. Open items and `[VERIFY]` list
+## 11. Open items and confirm-before-use list
 
 | # | Open item | Depends on | Owner | Next action | Changes a finding? |
 |---|---|---|---|---|---|

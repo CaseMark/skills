@@ -58,7 +58,7 @@ ACS reviews are dominated by clocks and labels, and both are easy to get wrong w
 1. **Draft only.** Every output is a draft for the treating clinicians, quality staff and coders. Never state that a case is final, submitted or validated, and never phrase guideline content as an order for this patient: no agents, doses, routes, durations or procedures directed at the patient.
 2. **Source-review gate.** Do not call a timestamp, tracing, value or note missing until every supplied document has been opened and searched, including scanned files and the records of every facility involved. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a measure logic rule not read) or a policy election (for example the facility's chosen hs-cTn pathway).
 3. **Hierarchy of authority.** For clinical recommendations: the 2025 ACS guideline as corrected, then the documents it defers to (2021 chest pain guideline, AHA MINOCA statement), then facility protocol. For measure results: the measure specification for the reporting period, never the guideline. For definitions: the Universal Definition the record or the request names. For codes: ICD-10-CM Official Guidelines for the discharge date. For facts: source entries (EMS times, ECG acquisition time, specimen collection time, device time in the procedure log, MAR) govern over dashboards, registries and summaries. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every timestamp, value and quoted note carries a source locator (document, facility, date and time, author role) or `[UNVERIFIED]`. Every rule carries its source and year, and its COR and LOE for a guideline statement, or `[VERIFY]`.
+4. **Citation discipline.** Every timestamp, value and quoted note carries a source locator (document, facility, date and time, author role) or the label "(confirm before use)". Every rule carries its source and year, and its COR and LOE for a guideline statement, or the label "(confirm before use)".
 5. **Name the framework on every conclusion.** Write "2025 guideline transfer goal (120 min): not met", "CMS996v6, Hospital A: not in numerator" or "Fourth UDMI type 2 criteria: not documented". Never merge frameworks into one pass or fail.
 6. **Lock the versions.** State the guideline and correction date, the eCQM version for the reporting period (CMS996v6 for CY 2026), the performance measure set (2017), the Universal Definition (Fourth, 2018, or Fifth, 2026) and the ICD-10-CM fiscal year for the discharge date (FY 2027 from October 1, 2026).
 7. **Each clock has its own trigger and timestamp type.** Compute every element from the start event its source names (`references/reperfusion-and-measure-rules.md`, Section 2). Use device time, not procedure start; ED arrival, not registration, unless the source says otherwise; interpretation time, not acquisition or machine read, to close the ECG clock; collection time for troponin samples. Where the anchor is ambiguous (walk-in FMC), compute every plausible reading and say whether the result changes.
@@ -121,7 +121,7 @@ Read `references/reperfusion-and-measure-rules.md`, Sections 2 and 3. Fill the c
 
 ## Step 6: Score the Measures Requested
 
-Read `references/reperfusion-and-measure-rules.md`, Sections 4 and 5. For each measure the user named, test population, exclusions and exceptions before the numerator, and name the attributed facility. Mark any rule you could not read as `[VERIFY]` and say whether it could change the row.
+Read `references/reperfusion-and-measure-rules.md`, Sections 4 and 5. For each measure the user named, test population, exclusions and exceptions before the numerator, and name the attributed facility. Label any rule you could not read "Confirm before use:" and say whether it could change the row.
 
 ## Step 7: Review the Reperfusion Choice and NSTE-ACS Timing
 
@@ -133,7 +133,7 @@ Read `references/reperfusion-and-measure-rules.md`, Section 8. Fill the discharg
 
 ## Step 9: Reconcile, List Gaps and Hand Off
 
-Complete the reconciliation table, gaps and query candidates, hand-offs and open items (`references/output-template.md`, Sections 8 to 11). Check each rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
+Complete the reconciliation table, gaps and query candidates, hand-offs and open items (`references/output-template.md`, Sections 8 to 11). Check each rule relied on against `references/primary-sources.md` and carry its "Confirm before use:" flag into the output.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -142,7 +142,7 @@ Complete the reconciliation table, gaps and query candidates, hand-offs and open
 3. Does every clock row show its own start event, stop event and timestamp type, with alternative anchors where FMC is ambiguous?
 4. Is every measure row attributed to a facility, with population, exclusions and exceptions tested before the numerator?
 5. Is any sentence phrased as an order, a final diagnosis, a final ECG read, a code assignment or a suggestion to change documentation? Remove it.
-6. Does every result that depends on a `[VERIFY]` rule say so, and would it flip if the rule reads differently?
+6. Does every result that depends on a "Confirm before use:" rule say so, and would it flip if the rule reads differently?
 
 ## Quality Audit
 
@@ -158,12 +158,12 @@ Complete the reconciliation table, gaps and query candidates, hand-offs and open
 10. MINOCA, if present, is treated as a working diagnosis with the missing work-up listed.
 11. Fibrinolysis facts are compared with 2025 Table 14 and, separately, with CMS996 exclusions.
 12. The discharge checklist records documentation status only, and counts a CR referral only when placed before discharge.
-13. No dose, order or documentation change is suggested, and every `[VERIFY]` relied on appears in the open-items list.
+13. No dose, order or documentation change is suggested, and every "Confirm before use:" item relied on appears in the open-items list.
 
 ## Guidelines
 
 - The 2025 ACS guideline covers type 1 MI; it refers type 2 MI, SCAD and MINOCA to other documents. Do not apply its reperfusion clocks to a supply-demand presentation without saying so.
-- The 2025 guideline text states FMC-to-device goals (90 and 120 minutes); no door-to-needle or door-in-door-out number was found in its text, but its Figure 6 image was not read `[VERIFY]`. Cite the 30-minute and 45-minute figures as measure targets.
+- The 2025 guideline text states FMC-to-device goals (90 and 120 minutes); no door-to-needle or door-in-door-out number was found in its text, but its Figure 6 image was not read, so that absence is not confirmed here. Cite the 30-minute and 45-minute figures as measure targets.
 - Never delay or criticize reperfusion for a pending troponin; troponin can be below the URL early in STEMI.
 - A measure exclusion removes a case from a denominator; it says nothing about whether care was appropriate.
 - Concurrent review on an open encounter is provisional; windows still open are "Not yet due".
@@ -206,4 +206,4 @@ Complete the reconciliation table, gaps and query candidates, hand-offs and open
 - `references/reperfusion-and-measure-rules.md`: framework map, clock table with a trigger for each element, FMC definitions, CMS996v6, 2017 performance measures, fibrinolysis Table 14 versus measure exclusions, NSTE-ACS timing, discharge items.
 - `references/diagnosis-and-classification-rules.md`: STEMI criteria and equivalents, troponin interpretation, Fourth versus Fifth UDMI, MINOCA, ICD-10-CM FY 2027 mapping, risk scores.
 - `references/output-template.md`: deliverable sections, ledger, clock table, measure scorecard, diagnostic blocks, discharge checklist, reconciliation and hand-off tables.
-- `references/primary-sources.md`: each authority checked with URL, method and date, confirmed statements, changes, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, confirmed statements, changes, and the sources not read.

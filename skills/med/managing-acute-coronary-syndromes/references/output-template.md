@@ -15,7 +15,7 @@ Produce the header and the sections below in order. Every timestamp shows date a
 9. Section 8. Reconciliation table
 10. Section 9. Documentation gaps and query candidates
 11. Section 10. Hand-offs
-12. Section 11. Open items and `[VERIFY]` list
+12. Section 11. Open items and confirm-before-use list
 
 ## Header
 
@@ -121,11 +121,11 @@ A query candidate is a question routed under the facility's query policy, never 
 | managing-cardiac-rehabilitation | CR referral and program enrollment | Diagnosis, procedure, referral status | Did not write an exercise prescription |
 | managing-quality-reporting | Aggregate rates and submission | Case-level results and versions | Did not compute a hospital rate |
 
-## 11. Open items and `[VERIFY]` list
+## 11. Open items and confirm-before-use list
 
 | # | Open item | Depends on | Owner | Next action | Changes a result? |
 |---|---|---|---|---|---|
 
-Then each `[VERIFY]` statement relied on, with the document that would settle it.
+Then each "Confirm before use:" statement relied on, with the document that would settle it.
 
 Close with: "Draft for clinician and quality review. Not a diagnosis, not a code assignment and not an order."

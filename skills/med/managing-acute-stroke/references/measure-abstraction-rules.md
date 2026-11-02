@@ -20,11 +20,11 @@ Performance-measure rules for one encounter. These are abstraction rules, not cl
 | v2026B | 07-01-2026 through 12-31-2026 |
 | v2026B1 (posted 9/14/2026) | 10-01-2026 through 12-31-2026 (4Q26) |
 
-Select the version by discharge date and name it in the header. For a 4Q26 discharge use v2026B1; for 3Q26 use v2026B `[VERIFY]` whether B1 changes any element you rely on for 3Q26.
+Select the version by discharge date and name it in the header. For a 4Q26 discharge use v2026B1; for 3Q26 use v2026B, and confirm whether B1 changes any element you rely on for 3Q26.
 
 Program scope (Joint Commission stroke measures page, read 2026-10-30):
 - Chart-abstracted STK, CSTK, STK-OP, ASR-IP, ASR-OP and STK-VOL measures are used for stroke certification (Acute Stroke Ready, Primary, Thrombectomy-Capable, Comprehensive), each program using its own subset.
-- eSTK-2, eSTK-3, eSTK-5 and eSTK-6 are eCQMs used for accreditation. CMS reporting of the stroke eCQMs in 2026 `[VERIFY]` (the Joint Commission 2026 eCQM webinar cites CMS national averages for STK-2, STK-3 and STK-5).
+- eSTK-2, eSTK-3, eSTK-5 and eSTK-6 are eCQMs used for accreditation. CMS reporting of the stroke eCQMs in 2026 is not confirmed here (the Joint Commission 2026 eCQM webinar cites CMS national averages for STK-2, STK-3 and STK-5).
 - Ask which certification level the hospital holds before applying a CSTK measure; CSTK measures apply to comprehensive stroke centers.
 
 ## 2. Populations and who counts the case
@@ -55,7 +55,7 @@ IV Alteplase Initiation (v2026B1): "Yes" when a hang or infusion time is documen
 
 ## 4. STK measures
 
-Only the STK-4 measure information form was read in full. The other rows come from the v2026B1 set listing, its data-element list and the GWTG-Stroke measure summaries: `[VERIFY]` each against its own measure information form before scoring it.
+Only the STK-4 measure information form was read in full. The other rows come from the v2026B1 set listing, its data-element list and the GWTG-Stroke measure summaries: confirm each against its own measure information form before scoring it.
 
 | Measure | Rule that decides most disputes | Clock (trigger to event) |
 |---|---|---|
@@ -79,11 +79,11 @@ STK-4 detail (v2026B1 algorithm):
 ## 5. CSTK, STK-OP and ASR measures used most in stroke reviews
 
 - CSTK-01 NIHSS score performed: ischemic stroke patients with an initial NIHSS score performed before any acute recanalization therapy (IV or IA thrombolytic or mechanical thrombectomy), or within 12 hours of arrival for patients without recanalization therapy. Data element Initial NIHSS Score Performed: a documented total is required; component scores without a total are "No"; do not infer a total from components; modified or estimated NIHSS and other scales are excluded. RN, physician, APN, PA and teleneurology totals count.
-- CSTK-03 severity measurement for SAH and ICH: initial Hunt and Hess or ICH score with date and time `[VERIFY]` timing rule.
+- CSTK-03 severity measurement for SAH and ICH: initial Hunt and Hess or ICH score with date and time; confirm the timing rule before scoring.
 - CSTK-04 procoagulant reversal for ICH: denominator is ICH patients (Table 8.2b principal diagnosis and Table 8.2c admitting diagnosis) with INR 1.4 or more closest to arrival; numerator is a reversal agent from the inclusion list initiated at this hospital. Included agents: PCC (Kcentra), aPCC, FFP, recombinant factor VIIa, idarucizumab, protamine, andexanet alfa. Vitamin K alone is "No". Algorithm order (v2026B1): principal diagnosis on Table 8.2b; Comfort Measures Only = 1 leaves the population; Clinical Trial = Y leaves it; INR 1.4 or more; admitting diagnosis on Table 8.2c; then agent initiated = numerator, and if no agent, a documented Reason for Not Administering a Procoagulant Reversal Agent = Y also places the case in the numerator (step 8), while N leaves it in the population and out of the numerator. The CSTK-04 INR cut-off (1.4) is a measure rule, not the ICH 2022 clinical threshold (INR 2.0 for 4F-PCC in VKA patients).
-- CSTK-09 arrival time to skin puncture and CSTK-11/12 rapid effective reperfusion: hospital arrival or skin puncture to TICI 2b-3; data elements include Mode of Arrival and Initial NIHSS Less Than 6 `[VERIFY]` thresholds before scoring.
+- CSTK-09 arrival time to skin puncture and CSTK-11/12 rapid effective reperfusion: hospital arrival or skin puncture to TICI 2b-3; data elements include Mode of Arrival and Initial NIHSS Less Than 6; confirm thresholds before scoring.
 - STK-OP-1 door to transfer: median minutes from ED arrival to transfer, reported in strata (1b hemorrhagic; 1d-1i ischemic by thrombolytic before transfer, LVO and MER eligibility; 1c retired 7/1/2021). One case contributes minutes to a median; it does not pass or fail. The measure form cites a 2013 Brain Attack Coalition recommendation that transfers occur within 2 hours of arrival.
-- ASR-OP-1 thrombolytic therapy: drip and ship, for acute stroke ready hospitals `[VERIFY]` timing rule before scoring.
+- ASR-OP-1 thrombolytic therapy: drip and ship, for acute stroke ready hospitals; confirm the timing rule before scoring.
 
 ## 6. Target: Stroke and Get With The Guidelines time goals
 
@@ -93,7 +93,7 @@ AHA Target: Stroke Phase III national goals (brochure; GWTG recognition page rea
 - Honor Roll levels: 75 percent within 60 (Honor Roll); 85 percent within 60 (Elite); 75 percent within 45 and 50 percent within 30 (Elite Plus); door-to-device goal (Advanced Therapy); minimum 6 patients.
 - Suggested intervals for a 60-minute DTN: door to physician 10, stroke team 15, CT start 25, CT read 45 minutes; for 45: 5, 10, 20, 35; for 30: 2.5, 5, 15, 25.
 - The goals are hospital percentages. One case is "DTN 50 minutes: within 60, not within 45 or 30", never "Target: Stroke met".
-- "Door" is hospital arrival. The GWTG-Stroke coding instructions for the door-to-needle measure (AHASTR13) define Arrival Date/Time as "the earliest documented month, day, year and time the patient arrived at the hospital", the same core rule as the Joint Commission element. Use the earliest documented arrival, not triage, registration, stroke-alert, CT or neurologist-arrival time, and state the source used. Whether GWTG also disregards EMS records, as the Joint Commission Only Acceptable Sources list does, `[VERIFY]`.
+- "Door" is hospital arrival. The GWTG-Stroke coding instructions for the door-to-needle measure (AHASTR13) define Arrival Date/Time as "the earliest documented month, day, year and time the patient arrived at the hospital", the same core rule as the Joint Commission element. Use the earliest documented arrival, not triage, registration, stroke-alert, CT or neurologist-arrival time, and state the source used. Whether GWTG also disregards EMS records, as the Joint Commission Only Acceptable Sources list does, is not confirmed here.
 - GWTG collects "Eligibility or Medical Reasons IV Thrombolytic was Initiated Greater than 60, 45, or 30 Minutes After Arrival"; record any such documented reason next to the DTN figure without changing the minutes.
 - GWTG-Stroke achievement measure: IV thrombolysis "arrive by 3.5 hours, treat by 4.5 hours" from LKW. This is a registry measure, not STK-4; do not mix the two.
 

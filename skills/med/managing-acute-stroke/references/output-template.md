@@ -13,7 +13,7 @@ Produce the header and the sections below in order. Every timestamp shows date a
 7. Section 6. Reconciliation table
 8. Section 7. Documentation gaps and query candidates
 9. Section 8. Hand-offs
-10. Section 9. Open items and `[VERIFY]` list
+10. Section 9. Open items and confirm-before-use list
 
 ## Header
 
@@ -106,11 +106,11 @@ A query candidate is a neutral question routed under the facility's query policy
 | managing-quality-reporting | Rates, submission, sampling | Case results and version | Did not compute a hospital rate |
 | managing-cdi-programs | Ambiguous LKW, stroke type or NIHSS documentation | Conflicting entries | Did not draft the query text |
 
-## 9. Open items and `[VERIFY]` list
+## 9. Open items and confirm-before-use list
 
 | # | Open item | Depends on | Owner | Next action | Changes a result? |
 |---|---|---|---|---|---|
 
-Then each `[VERIFY]` statement relied on, with what would settle it.
+Then each "Confirm before use:" statement relied on, with what would settle it.
 
 Close with: "Draft for clinician and stroke-coordinator review. Not a final abstraction, not a peer-review determination and not a clinical order."
