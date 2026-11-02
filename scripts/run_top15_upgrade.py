@@ -359,6 +359,14 @@ def verify_skill(domain, slug, path=None):
                 line = text.count("\n", 0, m.start()) + 1
                 errors.append(f"Injection pattern in {rel}:{line}: {label} (matched {m.group(0)!r})")
 
+    # No author-facing [VERIFY] markers: users review every output, and
+    # skills flag uncertain items in their output with "Confirm before use"
+    for rel, text in text_files.items():
+        idx = text.find("[VERIFY")
+        if idx >= 0:
+            line = text.count("\n", 0, idx) + 1
+            errors.append(f"[VERIFY] marker in {rel}:{line} ({text.count('[VERIFY')} total); phrase as user guidance instead")
+
     # References
     refs_dir = path / "references"
     ref_files = sorted(p.name for p in refs_dir.glob("*.md")) if refs_dir.is_dir() else []
