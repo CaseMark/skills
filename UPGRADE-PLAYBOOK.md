@@ -58,7 +58,7 @@ skills/<domain>/<slug>/
 ├── references/                       # 2 to 4 modular reference guides (1 level deep)
 │   ├── output-template.md            # Deliverable schema + reconciliation table + hand-off table
 │   ├── <domain-rules-or-guide>.md    # Deep technical rules, formulas, statutes, criteria
-│   └── primary-sources.md            # Authoritative sources checked + [VERIFY] items
+│   └── primary-sources.md            # Authoritative sources checked, with dates
 └── evals/                            # Behavioral regression suite
     └── evals.json                    # 3-5 adversarial test prompts targeting the trap map
 ```
@@ -159,7 +159,7 @@ skills/<domain>/<slug>/
 When a sub-agent is assigned a specific skill `skills/<domain>/<slug>`:
 
 1. **Inspect current state:** Read `skills/<domain>/<slug>/SKILL.md`. Identify current line count and missing structural elements.
-2. **Verify primary domain facts:** Use web search to verify statutory citations, regulations, clinical scoring systems, or accounting standards. Mark anything that varies or is jurisdiction-contingent as `[VERIFY]`.
+2. **Verify primary domain facts:** Use web search to verify statutory citations, regulations, clinical scoring systems, or accounting standards. State anything that varies by jurisdiction or year as guidance for the user (for example "check the governing state's rule"), not as settled fact. Skills carry no author-facing [VERIFY] lists; users review every output before use.
 3. **Draft companion references:**
    - Create `references/output-template.md` (deliverable structure, reconciliation worksheet, hand-off table).
    - Create `references/<technical-rules>.md` (deep rules, formulas, checklists).
