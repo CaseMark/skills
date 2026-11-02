@@ -8,7 +8,6 @@
 4. Cases
 5. Secondary sources used only for status
 6. Corrections to the earlier version of this skill
-7. `[VERIFY]` list
 
 ## 1. How these sources were checked
 
@@ -74,24 +73,3 @@ All checks were made on 2026-10-30, with the 3732, 422.326 and SDP section 1 re-
 | Lookback is the reopening period, "typically 3 years" | 6 years from receipt | 401.305(f) |
 | SDP settlements "typically 1.5x"; SRDP "1.0x-1.5x" | SDP minimum multiplier 1.5 on amount paid; minimums $100,000 and $20,000; SRDP multiplier not stated in sources read | OIG SDP 2026; CMS SRDP page |
 | No suspension rules | 401.305(b)(2) and (b)(3) suspensions | 401.305(b) |
-
-## 7. `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| FCA causation standard under 1320a-7b(g) outside the First, Third, Sixth and Eighth Circuits | Not researched | Controlling circuit decisions |
-| Whose knowledge is imputed to an entity for scienter | Circuit-variable; not researched | Controlling circuit decisions |
-| Damages measure for upcoded claims (differential versus full payment) | Courts vary by theory | Controlling circuit decisions |
-| Bornstein order of operations applied to treble damages in the governing circuit | Bornstein construed the earlier double-damages provision | Controlling circuit decisions |
-| Federal versus state share recovery for Medicaid claims | State FCA statutes not read | State statutes and decisions |
-| Part D sponsor rule, 42 C.F.R. 423.360 | Text not read | Current eCFR |
-| Medicaid provider overpayment rules by state | Not researched | State Medicaid statutes and regulations |
-| Whether 1320a-7k(d) reaches a provider paid by an MA or Medicaid managed care plan | Not researched | CMS guidance and case law |
-| When a reverse false claim on a retained overpayment is "committed" for 3731(b) | Not researched | Controlling decisions |
-| CMS SRDP settlement methodology and any multiplier | Not stated on the CMS page read | CMS-10328 protocol text |
-| Whether a certiorari petition is filed in Zafirov, and the remand ruling | Event after 2026-10-30 | Docket |
-| Any 2027 DOJ penalty adjustment | Not yet published | 28 C.F.R. 85.5 after January 2027 |
-| Which overpayments "correspond" to a cost report under 401.305(b)(1)(ii) | Regulation text read; 2016 preamble not read | 81 FR 7654 preamble |
-| Whether an MA organization's 60 days run from identification or from applicable reconciliation when identification comes first | 422.326 text read; preamble not read | 79 FR 29844 preamble and CMS guidance |
-| What "timely made" means for an SDP submission beyond submitting before the deadline | OIG SDP 2026 does not define it | OIG guidance |
-| Criminal exposure for altered records submitted in an appeal | Not researched | Counsel |

@@ -15,7 +15,7 @@ Produce the header and sections in order. Every date shows its trigger and sourc
 9. Section 8. Reconciliation table
 10. Section 9. Gaps
 11. Section 10. Hand-offs
-12. Section 11. Open items, declined requests and `[VERIFY]` list
+12. Section 11. Open items, declined requests and confirm-before-use list
 13. Section 12. Label tests
 
 ## Header
@@ -59,7 +59,7 @@ Say which threshold year applies to any ALJ or court request and show the amount
 | Denial issue | Type | Reviewer's standard | Controlling standard | Record evidence (locator) | Argument | Weakness and response |
 |---|---|---|---|---|---|---|
 
-For clinical validation rows, add the definition applied (with contract section or `[VERIFY]`) and a criterion-by-criterion table: criterion, value, date and time, source, met or not met.
+For clinical validation rows, add the definition applied (with contract section, or labeled "Confirm before use:" when none is supplied) and a criterion-by-criterion table: criterion, value, date and time, source, met or not met.
 
 ## 5. Route election
 
@@ -110,7 +110,7 @@ Typical rows: denial letter's summary of the record against the record itself; E
 | conducting-false-claims-analysis | Altered records, overpayment, pattern of unsupported codes | Findings and dates | Did not assess FCA exposure |
 | managing-observation-stays | Status determination under 412.3 | Timeline and orders | Did not decide status |
 
-## 11. Open items, declined requests and `[VERIFY]` list
+## 11. Open items, declined requests and confirm-before-use list
 
 | # | Item | Depends on | Owner | Next action | Changes the recommendation? |
 |---|---|---|---|---|---|

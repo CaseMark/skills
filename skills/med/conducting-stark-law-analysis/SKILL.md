@@ -58,7 +58,7 @@ Stark payment denial needs no intent and reaches every DHS claim a physician ref
 1. **Draft only.** Every output is a draft for the compliance officer and health care regulatory counsel. Never call a review final, never state that an arrangement satisfies or fails an exception as a legal conclusion, and never decide disclosure. Use the labels in `references/output-template.md`.
 2. **Source-review gate.** Do not call an agreement, signature, log or payment missing until every supplied file has been opened and searched, including scans and e-signature logs, with OCR tried. Classify each open item as an *unknown fact* (whether duty logs exist), a *source conflict* (the payment register differs from the contract rate), an *unverified external lookup* (the CY 2027 limits), or a *policy election* (the organization's FMV refresh interval).
 3. **Hierarchy of authority.** For facts: executed agreements and signed amendments, then payment records (AP, payroll, general ledger), then contemporaneous logs and use records, then valuation reports, then the master contract database and contract-management metadata, then dashboards, emails and summaries. For rules: statute, then current eCFR text, then CMS preamble and CMS web guidance, then OIG guidance (compliance program guidance; corporate integrity agreements only as examples), then facility policy. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every contract term carries document, section and page; every payment carries a register and line or month; every fact carries a source locator or `[UNVERIFIED]`; every rule carries a citation from `references/primary-sources.md` or `[VERIFY]`.
+4. **Citation discipline.** Every contract term carries document, section and page; every payment carries a register and line or month; every fact carries a source locator or `[UNVERIFIED]`; every rule carries a citation from `references/primary-sources.md` or the label "Confirm before use:".
 5. **Inventory before testing.** Reconcile the master list against independent records before testing any arrangement, and record which source revealed each arrangement the list missed.
 6. **Three columns for every arrangement.** Compare compensation as written, as paid and as performed for each period. A difference is a finding even when it is below a cap.
 7. **Clocks from their own triggers.** Compute each window from the trigger its rule uses, with date and weekday, and say whether it is open or closed as of today (`references/limits-and-clocks.md`, section 3). The 90-day writing and signature rule never covers a mid-term compensation change (411.354(d)(1)(ii)(C), confirmed in stark-law-aks-compliance).
@@ -89,7 +89,7 @@ Defaults when an input is missing (a statute or regulation overrides any default
 - Signature date not shown: treat it as an unknown fact; never infer it from the effective date.
 - No FMV refresh policy: report "No FMV refresh policy" as a control gap and apply no interval of your own.
 - Payment with no matching agreement: add it to the inventory as an unmatched payment, label "Cannot determine", and request the agreement.
-- Limits for a year CMS has not posted: `[VERIFY]` and use no estimate.
+- Limits for a year CMS has not posted: label the figure "Confirm before use:" and use no estimate.
 
 Hard stops (label the affected part "Declined: hard stop", explain, and continue the rest of the review):
 
@@ -133,7 +133,7 @@ Read `references/arrangement-review-rules.md`, section 8, and `references/limits
 
 ## Step 8: Assemble and Check Sources
 
-Complete Parts 1 and 8 to 10 of `references/output-template.md`. Check each rule relied on against `references/primary-sources.md` and carry any `[VERIFY]` flag into the open items.
+Complete Parts 1 and 8 to 10 of `references/output-template.md`. Check each rule relied on against `references/primary-sources.md` and carry any "Confirm before use:" label into the open items.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -200,4 +200,4 @@ If the user does not answer, recommend first matching payments to executed agree
 - `references/arrangement-review-rules.md`: party map, inventory reconciliation, document and performance tests (including recruitment, retention, timeshare and call coverage), FMV file, group practice plans, referral-tracking controls, escalation triggers.
 - `references/limits-and-clocks.md`: calendar-year limits for 2023-2026, counting rules, clock table with each trigger, facts for counsel's disclosure decision, date arithmetic.
 - `references/output-template.md`: review status and finding labels, inventory, document and performance tests, limits tracker, clock table, reconciliation table, escalation package, hand-off table.
-- `references/primary-sources.md`: each authority read with URL, method, date and what it supports; corrections to the prior version; the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority read with URL, method, date and what it supports, and corrections to the prior version.

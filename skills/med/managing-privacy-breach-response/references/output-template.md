@@ -16,7 +16,7 @@ Produce the header and the sections below in order. Dates are ISO (YYYY-MM-DD) w
 10. Section 9. Reconciliation table
 11. Section 10. Gaps and declined requests
 12. Section 11. Hand-offs
-13. Section 12. Open items, `[VERIFY]` list and documentation file
+13. Section 12. Open items, confirm-before-use list and documentation file
 
 ## Header
 
@@ -119,11 +119,11 @@ A declined request is recorded with one of these labels, verbatim, then the reas
 | managing-substance-abuse-confidentiality | Part 2 consent and redisclosure questions | Part 2 record subset | Did not decide consent questions |
 | legal-research | State statutes not checked here | State list and counts | Did not confirm those states' rules |
 
-## 12. Open items, `[VERIFY]` list and documentation file
+## 12. Open items, confirm-before-use list and documentation file
 
 | # | Open item | Depends on | Owner | Next action | Changes an outcome or deadline? |
 |---|---|---|---|---|---|
 
-Then each `[VERIFY]` relied on. Then the documentation file to retain for six years (164.530(j)): timeline, discovery block, threshold analysis, risk assessment, counts, clocks, copies of notices and proof of delivery, HHS submission receipt, law enforcement statements, BA correspondence.
+Then each statement labeled "Confirm before use:" that the analysis relies on. Then the documentation file to retain for six years (164.530(j)): timeline, discovery block, threshold analysis, risk assessment, counts, clocks, copies of notices and proof of delivery, HHS submission receipt, law enforcement statements, BA correspondence.
 
 Close with: "Draft for privacy officer and counsel review. Not legal advice; no notice has been sent."

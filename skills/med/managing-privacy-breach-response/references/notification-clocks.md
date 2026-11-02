@@ -28,7 +28,7 @@ Every notice is its own clock with its own trigger. Compute each date with a scr
 
 Notes:
 
-- Subpart D and 16 C.F.R. Part 318 count calendar days and contain no weekend or holiday extension: a 60th day on a Saturday is the deadline (no roll). Every computed date states its weekday and whether it rolls. Whether a state deadline that falls on a weekend rolls depends on that state's general construction law `[VERIFY]`; until confirmed, do not roll it.
+- Subpart D and 16 C.F.R. Part 318 count calendar days and contain no weekend or holiday extension: a 60th day on a Saturday is the deadline (no roll). Every computed date states its weekday and whether it rolls. Whether a state deadline that falls on a weekend rolls depends on that state's general construction law, so check the governing state's rule; until confirmed, do not roll it.
 - 60 days is an outer limit. Waiting to day 60 when the information was ready earlier can be unreasonable delay (74 FR 42740, 42750).
 - Individual notice may go out in more than one mailing as information becomes available (164.404(d)(1)). Substitute notice: fewer than 10 with bad contact data, any reasonable alternative; 10 or more, a 90-day website posting or major media notice plus a toll-free number active 90 days (164.404(d)(2)).
 - HHS accepts an estimate when the count is uncertain and an addendum later (HHS breach reporting page).
@@ -44,7 +44,7 @@ Notes:
 
 - Written statement that notice would impede a criminal investigation or damage national security, specifying a period: delay for that period (164.412(a)).
 - Oral statement: document it and the official's identity; delay no longer than 30 days from the oral statement unless a written statement arrives in that time (164.412(b)).
-- HHS reads 164.412 as tolling the notice periods (78 FR 5566, 5658). How the remaining days are counted after the delay ends is `[VERIFY]`; show the computation used.
+- HHS reads 164.412 as tolling the notice periods (78 FR 5566, 5658). How the remaining days are counted after the delay ends is not settled here; show the computation used.
 - The delay applies to each notice (individual, media, HHS, BA). State statutes have their own law enforcement provisions; apply each separately.
 
 ## 4. Counting affected individuals
@@ -58,14 +58,14 @@ Notes:
 
 ## 5. State overlays checked for this skill
 
-Read from the official statute pages on October 30, 2026. Each row has its own trigger. Any state not listed is `[VERIFY]`: many states set deadlines shorter than 60 days and require attorney general notice, and their definitions differ (computerized data only, name plus element, risk-of-harm exceptions, HIPAA deemed-compliance clauses).
+Read from the official statute pages on October 30, 2026. Each row has its own trigger. Any state not listed has not been checked here, so confirm its statute before relying on it: many states set deadlines shorter than 60 days and require attorney general notice, and their definitions differ (computerized data only, name plus element, risk-of-harm exceptions, HIPAA deemed-compliance clauses).
 
 | State and statute | Notice | Trigger | Deadline | Threshold or condition | HIPAA interaction |
 |---|---|---|---|---|---|
-| California, Civ. Code 1798.82 (as amended by SB 446, effective Jan. 1, 2026) | Residents | Discovery or notification of the breach | Within 30 calendar days; delay allowed for law enforcement or to determine scope and restore integrity | Computerized personal information, including medical and health insurance information with name | (e) deems a covered entity compliant with the content rules of (d) if it complied with HITECH 13402(f); no other exemption. Applying (a)(2) timing to a covered entity rests on that text `[VERIFY]` |
+| California, Civ. Code 1798.82 (as amended by SB 446, effective Jan. 1, 2026) | Residents | Discovery or notification of the breach | Within 30 calendar days; delay allowed for law enforcement or to determine scope and restore integrity | Computerized personal information, including medical and health insurance information with name | (e) deems a covered entity compliant with the content rules of (d) if it complied with HITECH 13402(f); no other exemption. Applying (a)(2) timing to a covered entity rests on that text; confirm before relying on it |
 | California, Civ. Code 1798.82(f) | Attorney General (sample copy) | Date consumers were notified | Within 15 calendar days | More than 500 California residents | Same |
 | California, Health & Safety Code 1280.15 | CDPH and the patient | Detection of the unlawful or unauthorized access, use or disclosure | No later than 15 business days | Licensed clinic, health facility, home health agency, hospice; paper and electronic; internal misdirection within the same facility or system while coordinating care is not unauthorized | Separate from HIPAA; own law enforcement delay rule |
-| New York, Gen. Bus. Law 899-aa(2) | Residents | Discovery | Within 30 days | Computerized private information (includes medical and health insurance information) | If notice is given under HIPAA rules, no additional resident notice (899-aa(2)(b)). Whenever any NY residents are notified, notice also goes to the AG, Department of State and State Police, and to the Department of Financial Services only if the entity is a covered entity under 23 NYCRR 500.1 (filed under 23 NYCRR 500.17), with a template copy (8)(a); whether a HIPAA notice sent after day 30 satisfies the 30-day rule is `[VERIFY]` |
+| New York, Gen. Bus. Law 899-aa(2) | Residents | Discovery | Within 30 days | Computerized private information (includes medical and health insurance information) | If notice is given under HIPAA rules, no additional resident notice (899-aa(2)(b)). Whenever any NY residents are notified, notice also goes to the AG, Department of State and State Police, and to the Department of Financial Services only if the entity is a covered entity under 23 NYCRR 500.1 (filed under 23 NYCRR 500.17), with a template copy (8)(a); whether a HIPAA notice sent after day 30 satisfies the 30-day rule is not confirmed here |
 | New York, 899-aa(9) | Attorney General | The date the covered entity notified HHS | Within 5 business days of notifying HHS | Any breach a covered entity reports to HHS, even if not "private information" | Applies to covered entities |
 | New York, 899-aa(2)(a) | Written determination to AG | Date of the no-notice determination | Within 10 days | Inadvertent disclosure by authorized persons, determined unlikely to cause misuse or harm; affects over 500 NY residents; keep 5 years | State-law exception, separate from HIPAA's |
 | Texas, Bus. & Com. Code 521.053(b) | Residents | Date the entity determines that the breach occurred | Without unreasonable delay; not later than the 60th day, "except as provided by Subsection (d) or as necessary to determine the scope of the breach and restore the reasonable integrity of the data system" | Computerized sensitive personal information, including health information that identifies the individual | No covered-entity exemption found |
@@ -73,7 +73,7 @@ Read from the official statute pages on October 30, 2026. Each row has its own t
 | Washington, RCW 19.255.010(8) | Residents | Discovery | Within 30 calendar days, unless the delay is at law enforcement's request or "due to any measures necessary to determine the scope of the breach and restore the reasonable integrity of the data system" | Personal information (includes medical and health insurance information); not required if not reasonably likely to subject consumers to a risk of harm | A covered entity that complied with HITECH 13402 is deemed compliant (RCW 19.255.030) |
 | Washington, RCW 19.255.010(7) | Attorney General | Discovery | Within 30 days; for a covered entity, on HITECH timing (RCW 19.255.030) | More than 500 Washington residents | Covered entities still notify the AG |
 
-The Texas and Washington scope-and-integrity wording (and California 1798.82(a)(2)(B)) reads as permitting delay past the stated day while those measures are necessary; how far it reaches has no agency guidance read `[VERIFY]`. Treat it as narrow: document each measure and its dates, and never use it to cover a stalled investigation.
+The Texas and Washington scope-and-integrity wording (and California 1798.82(a)(2)(B)) reads as permitting delay past the stated day while those measures are necessary; how far it reaches has no agency guidance read. Treat it as narrow: document each measure and its dates, and never use it to cover a stalled investigation.
 
 "Determines" (Texas) and "detected" (California) are different triggers from HIPAA "discovery". Record each date from the record; do not assume they coincide, and do not postpone a determination to delay a clock.
 
@@ -99,4 +99,4 @@ print(plus_days(discovery, 60))                       # outer limit, calendar da
 print(plus_days(date(2026, 12, 31), 60))              # HHS log for 2026 discoveries
 ```
 
-Business-day clocks depend on the state's holiday calendar; list the holidays used and mark them `[VERIFY]` unless confirmed.
+Business-day clocks depend on the state's holiday calendar; list the holidays used and confirm them against the state's calendar.

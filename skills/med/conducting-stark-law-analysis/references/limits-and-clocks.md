@@ -20,7 +20,7 @@ Limits adjust each calendar year by the CPI-U for the 12 months ending the prece
 | 2024 | $507 | less than $44 | $5,913 |
 | 2025 | $519 | less than $45 | $6,055 |
 | 2026 | $535 | less than $46 | $6,237 |
-| 2027 | Not yet posted when checked; confirm on the CMS CPI-U Updates page `[VERIFY]` | same | same |
+| 2027 | Not yet posted when checked; confirm on the CMS CPI-U Updates page | same | same |
 
 ## 2. Counting rules for the limits
 

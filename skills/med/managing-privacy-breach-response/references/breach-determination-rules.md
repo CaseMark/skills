@@ -93,7 +93,7 @@ HHS fact sheet (July 11, 2016): when ePHI is encrypted by ransomware, a breach h
 - Since the compliance date of the 2024 final rule (February 16, 2026; 89 FR 12472, Feb. 16, 2024, effective April 16, 2024), 45 C.F.R. part 160 and subpart D of part 164 apply to Part 2 programs for breaches of unsecured records "in the same manner" as to covered entities (42 C.F.R. 2.16(b)). "Breach" has the HIPAA meaning; "unsecured record" uses the same HHS guidance (42 C.F.R. 2.11).
 - A Part 2 program that is not a HIPAA covered entity still must notify. OCR began accepting Part 2 breach reports on February 16, 2026 through the HHS portal (HHS press release, Feb. 13, 2026; HHS breach reporting page, last reviewed Feb. 13, 2026).
 - QSOs have no regulatory notice duty; the preamble expects programs to impose one in the QSO agreement.
-- When a covered entity also runs a Part 2 program, identify the Part 2 records separately: whether a use or disclosure was permitted is tested against Part 2 as well as the Privacy Rule `[VERIFY]` (see the primary-sources list).
+- When a covered entity also runs a Part 2 program, identify the Part 2 records separately: whether a use or disclosure was permitted is tested against Part 2 as well as the Privacy Rule; confirm the Part 2 analysis against the facts.
 
 ## 9. FTC Health Breach Notification Rule (non-HIPAA health apps)
 

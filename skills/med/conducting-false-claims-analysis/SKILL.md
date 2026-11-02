@@ -62,7 +62,7 @@ The FCA remains the government's main civil health care fraud tool: in fiscal ye
 1. **Draft only.** Nothing is filed, refunded, disclosed or sent to a government agency or contractor by this skill. Every output is labeled a draft for the compliance officer and counsel.
 2. **Source-review gate.** Do not call a claim, date or document missing until every supplied file has been opened and searched, with OCR or extraction tried. Classify each gap as an *unknown fact* (when the compliance officer read the audit), a *source conflict* (remittance and dashboard paid amounts differ), an *unverified external lookup* (a state Medicaid rule not in `references/primary-sources.md`) or a *policy election* (which disclosure path to use).
 3. **Hierarchy of authority.** Law: statute, current regulation, preamble, agency protocols, the governing circuit's decisions, other decisions, commentary. Facts: remittance and claims data, then the medical record and audit worksheets, then audit reports, then dashboards, emails and summaries. Counsel's Stark and AKS labels govern the legal characterization of an arrangement. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every date, claim count and dollar figure carries a source locator or `[UNVERIFIED]`; every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`. A circuit's rule is named only if it is in the register; otherwise model both readings.
+4. **Citation discipline.** Every date, claim count and dollar figure carries a source locator or `[UNVERIFIED]`; every legal statement carries a citation from `references/primary-sources.md` or the label "Confirm before use:". A circuit's rule is named only if it is in the register; otherwise model both readings.
 5. **Identification follows the facts.** Decline to structure, date, word, split or limit findings so as to delay or avoid the 60-day obligation or to keep the entity from "knowing": no stopping or narrowing a review to avoid knowledge, no later identification date than the record shows, no indefinite "under review" status for confirmed errors, no splitting one cause to restart the 180 days, no dropping years inside the lookback. Produce the accurate clock instead.
 6. **Every clock has its own trigger.** Fill the clock table in `references/overpayment-clock-and-disclosure.md`, section 3, with the trigger event and date for each element, weekday included, and list each rejected candidate date with the reason.
 7. **Four elements, four labels.** Falsity, scienter, materiality and causation each get Supported, Contested, Not supported or Undetermined, with evidence. An error without scienter is an overpayment, not FCA liability, until the deadline passes.
@@ -98,7 +98,7 @@ Collect, from documents where possible:
 - **Fixed conclusion**: a request to state a set conclusion regardless of the analysis, or to leave out known adverse facts (Ground Rule 13): decline that version; produce the complete analysis.
 - **Invalid extrapolation**: a request to present an extrapolated figure as the reportable, refundable or disclosable amount when the sample is not a documented random selection from a defined frame: produce the known-claim amount and a sampling plan request instead of the extrapolated figure.
 
-**Not hard stops:** an unknown identification date (show each candidate date and the deadline it produces); an unknown circuit rule (`[VERIFY]` and both readings); no counsel analysis of an arrangement (label the path "counsel decision required" and continue); a pending sealed qui tam rumor (note it; do not investigate the relator).
+**Not hard stops:** an unknown identification date (show each candidate date and the deadline it produces); an unknown circuit rule (label it "Confirm before use:" and show both readings); no counsel analysis of an arrangement (label the path "counsel decision required" and continue); a pending sealed qui tam rumor (note it; do not investigate the relator).
 
 ## Step 1: Frame the Issue, Entity and Program
 
@@ -130,7 +130,7 @@ Read `references/fca-liability-and-damages.md`, sections 9 and 10. Record who kn
 
 ## Step 8: Reconcile, Hand Off and List Open Items
 
-Complete the reconciliation table, hand-offs and open items in `references/output-template.md`, sections 8 to 10. Check each rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
+Complete the reconciliation table, hand-offs and open items in `references/output-template.md`, sections 8 to 10. Check each rule relied on against `references/primary-sources.md` and label any rule not in the register "Confirm before use:" in the output.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -155,7 +155,7 @@ Complete the reconciliation table, hand-offs and open items in `references/outpu
 10. The per-claim penalty range uses $14,308-$28,619 for penalties assessed after July 3, 2025, or the 28 C.F.R. 85.5 column then current, with the 2026 no-adjustment notice cited.
 11. The disclosure path label follows the conduct and counsel's characterization, and no arrangement goes to both protocols.
 12. No output delays or avoids identification, repairs or resubmits a record, states a set conclusion, or targets a reporter.
-13. Every `[VERIFY]` relied on appears in the open items with what would settle it, and the draft closes with the review line.
+13. Every item labeled "Confirm before use:" that the analysis relies on appears in the open items with what would settle it, and the draft closes with the review line.
 
 ## Guidelines
 
@@ -191,11 +191,11 @@ Complete the reconciliation table, hand-offs and open items in `references/outpu
 - managing-cdi-programs: compliant, non-leading query wording to replace a raise-only query policy.
 - managing-compliance-programs: program-wide remediation after the finding.
 - whistleblower-protection-policy: drafting an anti-retaliation policy after a reporter issue surfaces.
-- legal-research: 3730(h) case law, circuit rules marked `[VERIFY]`, and state Medicaid overpayment rules; no dedicated skill exists.
+- legal-research: 3730(h) case law, circuit rules not in the register, and state Medicaid overpayment rules; no dedicated skill exists.
 
 ## Reference Files
 
 - `references/fca-liability-and-damages.md`: liability theories, the four elements, SuperValu scienter, Escobar materiality, AKS and Stark causation, limitations, damages base, penalty table by assessment date, qui tam and Zafirov, retaliation.
 - `references/overpayment-clock-and-disclosure.md`: which rule applies to whom, identification and suspension, the clock table, lookback and reopening, sampling rules, disclosure paths, settlement models, positions declined.
 - `references/output-template.md`: deliverable sections, labels, issue matrix, element and clock tables, exposure model, reconciliation table, hand-off table.
-- `references/primary-sources.md`: each authority checked with URL, method, what it supports and the date, corrections to the earlier version, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method, what it supports and the date, and corrections to the earlier version.

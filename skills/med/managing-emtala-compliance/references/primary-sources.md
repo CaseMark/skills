@@ -7,7 +7,6 @@ Checked October 30, 2026 through the case.dev API: `/search/v1/contents` for ful
 1. Sources checked
 2. Confirmed statements
 3. Corrections to the earlier version of this skill
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -58,13 +57,3 @@ Checked October 30, 2026 through the case.dev API: `/search/v1/contents` for ful
 | Signs in English and Spanish "per CMS requirements" | Languages understandable by the population served; no fixed language pair | App. V, A-2402 |
 | Central log "must be maintained for five years" | 5 years applies to transfer records; the regulation sets no log retention period | 489.20(r)(1), (r)(3); App. V, A-2405 |
 | Receiving specialized hospital must accept when it "has the capacity" (no exceptions noted) | Also applies without a DED; does not apply to individuals admitted as inpatients at the referring hospital | Reg (f)(1), (f)(2) |
-
-## 4. `[VERIFY]` list
-
-1. Whether the CY 2027 OPPS/ASC final rule (expected November 2026) finalized, changed or dropped the accrediting-organization EMTALA proposal, and its effective date.
-2. Whether CMS posts a revision of Appendix V after Rev. 191; re-open the CMS PDF before citing tag text.
-3. SOM Chapter 3, section 3010 (IJ termination) was not read: whether the 5-calendar-day plan-of-correction window in SOM 5110.2 applies on an EMTALA IJ track; and how the section 3012 survey-date schedule maps onto an EMTALA non-IJ track that SOM 5470.2 starts at the preliminary determination letter.
-4. The next HHS CMP inflation adjustment after the October 2026 CPI-U.
-5. Private-action exposure after inpatient admission outside the Sixth Circuit, and how courts now treat 489.24(d)(2).
-6. The interaction of EMTALA with State abortion laws after the 2025 rescission, by State and circuit.
-7. State law on psychiatric holds, record retention, tort damages for 1395dd(d)(2) actions, and any State EMTALA analog.

@@ -58,11 +58,11 @@ An impermissible use or disclosure of PHI is presumed to be a breach unless the 
 1. **Draft only.** Every output is a draft for the privacy officer and counsel. Never state that notice was sent, that a regulator accepted a filing, or that the analysis is legal advice.
 2. **Source-review gate.** Do not call any log, ticket, contract or list missing until every supplied file has been opened and searched, including scans and attachments. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a state statute not checked here) or a policy election (for example choosing to notify without a risk assessment).
 3. **Hierarchy of authority.** Law: statute and regulation (HITECH 13402, 45 C.F.R. 164.400-414, 42 C.F.R. 2.16, 16 C.F.R. Part 318, state statutes), then agency guidance and preambles, then the BAA or QSO agreement (which can shorten a deadline but never lengthen one), then internal policy. Facts: system logs, tickets, original emails and forensic artifacts govern over incident summaries, vendor letters and memos. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every date, count and factual finding carries a source locator or `[UNVERIFIED]`. Every rule carries its citation or `[VERIFY]` as listed in `references/primary-sources.md`.
+4. **Citation discipline.** Every date, count and factual finding carries a source locator or `[UNVERIFIED]`. Every rule carries its citation from `references/primary-sources.md` or the label "Confirm before use:".
 5. **Discovery is a finding of fact.** Place discovery from the record under 164.404(a)(2) and show rejected candidate dates. Never backdate or postpone discovery, and never adopt a date because it gives more time.
 6. **The conclusion follows the analysis.** The four factors are each addressed with evidence before any conclusion. Never draft a risk assessment to a conclusion fixed in advance ("write it up as no breach"), never omit an adverse fact, and say plainly when the evidence does not demonstrate a low probability.
 7. **Presumption and burden.** An impermissible use or disclosure is a breach unless an exception or a demonstrated low probability is documented. Missing evidence counts against the low-probability finding, not for it.
-8. **One clock per notice, each with its own trigger.** Individual, media, HHS, business associate, BAA, Part 2, FTC and each state's resident and attorney general notices are separate rows. Compute every date by script from its trigger date, paste the inputs and outputs, and state each date's weekday and whether it rolls (federal clocks never roll; state roll rules are `[VERIFY]` and are not applied until confirmed). The 60-day figures are outer limits; "without unreasonable delay" can require earlier notice.
+8. **One clock per notice, each with its own trigger.** Individual, media, HHS, business associate, BAA, Part 2, FTC and each state's resident and attorney general notices are separate rows. Compute every date by script from its trigger date, paste the inputs and outputs, and state each date's weekday and whether it rolls (federal clocks never roll; state roll rules vary by state, so check the governing state's rule and do not apply a roll until confirmed). The 60-day figures are outer limits; "without unreasonable delay" can require earlier notice.
 9. **Regime first, never merged.** Decide the entity's role for each data flow (covered entity, business associate, Part 2 program, PHR vendor or related entity, service provider) and give each regime and state its own outcome row.
 10. **Outcome vocabulary.** Use the labels in `references/breach-determination-rules.md`, Section 10, verbatim: Not an impermissible use or disclosure; Not a breach: PHI secured (encryption or destruction safe harbor); Not a breach: exception (i), (ii) or (iii) applies; Not a breach: low probability of compromise demonstrated; Presumed breach: notification required; Cannot determine. Add "provisional pending <facts>" when an unchecked fact could change the result.
 11. **Minimum necessary in the draft.** Use counts, data-element names and role labels; keep names, record numbers and diagnoses out of the work product.
@@ -89,7 +89,7 @@ Defaults when an input is missing:
 - Business associate agency unclear: compute the covered entity clock both ways and use the earlier date as the working deadline.
 - Encryption standard or key custody not shown: treat the PHI as unsecured; the entity bears the burden of proof.
 - BAA not supplied: use the 60-day regulatory limit and list the BAA as still needed; a common BAA term is shorter, so the contract may override this default.
-- State not checked in `references/notification-clocks.md`: list it as `[VERIFY]` and route to legal-research; do not assume the HIPAA 60 days.
+- State not checked in `references/notification-clocks.md`: label it "Confirm before use:" and route to legal-research; do not assume the HIPAA 60 days.
 
 Hard stops (the named output is not produced):
 
@@ -132,7 +132,7 @@ Read `references/notification-clocks.md`, Section 6. Check the planned content a
 
 ## Step 9: Reconcile, List Gaps and Hand Off
 
-Complete the reconciliation table, the gaps and declined requests, the hand-offs and the open items in `references/output-template.md`, Sections 9 to 12. Check every rule relied on against `references/primary-sources.md` and carry each `[VERIFY]` into the open items.
+Complete the reconciliation table, the gaps and declined requests, the hand-offs and the open items in `references/output-template.md`, Sections 9 to 12. Check every rule relied on against `references/primary-sources.md` and carry each "Confirm before use:" label into the open items.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -140,7 +140,7 @@ Complete the reconciliation table, the gaps and declined requests, the hand-offs
 2. Is discovery placed from the record, with rejected dates listed, and was any request to shift it declined?
 3. Is each of the four factors addressed with evidence before the conclusion, and does the conclusion follow from them?
 4. Does every deadline have its own trigger and a script-computed date, and are passed or imminent deadlines at the top?
-5. Does any result depend on a `[VERIFY]` item, and would it change under the other reading?
+5. Does any result depend on an item labeled "Confirm before use:", and would it change under the other reading?
 6. Is anything phrased as legal advice, as a sent notice, or with unnecessary PHI? Remove it.
 
 ## Quality Audit
@@ -155,9 +155,9 @@ Complete the reconciliation table, the gaps and declined requests, the hand-offs
 8. Ransomware starts from the HHS presumption and "no evidence of exfiltration" is not treated as proof.
 9. Counts are deduplicated and split by state of residence; HHS, HIPAA media, FTC media and state thresholds are applied separately.
 10. Every clock row has its own trigger event and date, a script-computed deadline and days left; BAA and regulatory business associate clocks are separate rows.
-11. Part 2, FTC and state regimes each have their own row when they apply, and unchecked states are `[VERIFY]`.
+11. Part 2, FTC and state regimes each have their own row when they apply, and unchecked states are labeled "Confirm before use:".
 12. Every conflict is in the reconciliation table and every declined request is recorded with its reason.
-13. Every `[VERIFY]` relied on appears in the open items with what would settle it.
+13. Every item labeled "Confirm before use:" that the analysis relies on appears in the open items with what would settle it.
 
 ## Guidelines
 
@@ -178,8 +178,8 @@ Complete the reconciliation table, the gaps and declined requests, the hand-offs
 | Address file and forensic count disagree | Duplicates, household records, stale addresses | Count unique individuals from the source of record; list both counts and the threshold effect |
 | Scanned BAA or unreadable vendor letter | Image-only file | Attempt OCR; if still unreadable, list it as unreadable and compute the regulatory clock with the contractual one marked Cannot determine |
 | User insists on a later discovery date or a "no breach" result | Pressure to gain time or avoid notice | Decline that part under Ground Rules 5 and 6, record it in Section 10, and deliver the honest analysis |
-| States outside the checked list | Statute not verified here | Mark `[VERIFY]`, keep the HIPAA rows, and route the state survey to legal-research |
-| Law enforcement asked for delay by phone | Oral statement | Document the official and the date; delay at most 30 days unless a written statement follows; show the tolling computation as `[VERIFY]` |
+| States outside the checked list | Statute not verified here | Label "Confirm before use:", keep the HIPAA rows, and route the state survey to legal-research |
+| Law enforcement asked for delay by phone | Oral statement | Document the official and the date; delay at most 30 days unless a written statement follows; label the tolling computation "Confirm before use:" |
 
 ## Related Skills
 
@@ -195,4 +195,4 @@ Complete the reconciliation table, the gaps and declined requests, the hand-offs
 - `references/breach-determination-rules.md`: regime map, discovery and imputed knowledge, safe harbor, exceptions, four factors, ransomware, Part 2, FTC rule, outcome vocabulary.
 - `references/notification-clocks.md`: federal clocks table with triggers, business associate and BAA clocks, law enforcement delay, counting rules, checked state overlays, notice content, date script.
 - `references/output-template.md`: deliverable sections, discovery block, factor table, population table, clocks table, reconciliation table, hand-off table.
-- `references/primary-sources.md`: each authority checked with URL, method and date, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method and date.

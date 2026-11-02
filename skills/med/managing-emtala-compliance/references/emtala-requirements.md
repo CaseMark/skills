@@ -71,7 +71,7 @@ Rules below were read in full text on October 30, 2026 (see the primary sources 
 - Psychiatric disturbances and substance-abuse symptoms can be EMCs (Reg (b)). App. V: an individual expressing suicidal or homicidal thoughts or gestures, if determined dangerous to self or others, has an EMC; psychiatric patients are stable "when they are protected and prevented from injuring or harming him/herself or others"; chemical or physical restraint for transport may remove the immediate EMC only temporarily, so stability after restraint needs great care.
 - Boarding in the ED does not end the EMTALA duty. Until the individual is admitted as an inpatient in good faith, stabilized, or appropriately transferred, the hospital must keep providing stabilizing treatment within its capability and keep monitoring in the record.
 - State laws or community plans that route psychiatric or indigent patients to designated facilities are not a defense; the hospital must screen and stabilize or appropriately transfer first (App. V, A-2406, A-2407).
-- Involuntary hold criteria are State law and do not decide whether an EMC exists `[VERIFY: State hold statute]`.
+- Involuntary hold criteria are State law and do not decide whether an EMC exists; the hold statute varies by State, so check the governing State's statute.
 
 ## 7. On-call physicians
 
@@ -113,4 +113,4 @@ Whistleblower protection: no penalty against a physician or QMP who refuses to a
 | 489.20(r)(2) (A-2404) | On-call list as in section 7 | Group names; stale privileges; no backup policy |
 | 489.20(r)(3) (A-2405) | Central log of each individual who comes to the ED seeking assistance and whether the individual refused treatment, was refused treatment, or was transferred, admitted and treated, stabilized and transferred, or discharged; includes L&D, pediatric and other DED logs directly or by reference | Missing LWBS entries; L&D or psych intake not linked; gaps or non-sequential entries |
 
-The regulation sets no retention period for the central log itself; App. V tells surveyors to review at least the prior 6 months. Treat retention beyond that as a policy election, and check State record-retention law `[VERIFY: State law]`.
+The regulation sets no retention period for the central log itself; App. V tells surveyors to review at least the prior 6 months. Treat retention beyond that as a policy election, and check State record-retention law, which varies by State.

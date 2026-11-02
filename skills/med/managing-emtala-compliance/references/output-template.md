@@ -15,7 +15,7 @@ Produce the header and the sections below in order. Use only the sections the sc
 9. Section 8. Gaps, corrective actions and declined requests
 10. Section 9. Exposure context
 11. Section 10. Hand-offs
-12. Section 11. Open items and `[VERIFY]` list
+12. Section 11. Open items and confirm-before-use list
 
 ## Header
 
@@ -117,7 +117,7 @@ Compliant path: <dated late entry under policy | report now | counsel review>
 
 ## 9. Exposure context
 
-Label as context, not a determination: Appendix V tags implicated; CMP tier by bed count with the dated figure; whether the facts suggest immediate jeopardy (a CMS judgment); mitigating and aggravating factors under 42 C.F.R. 1003.520; termination track if cited, with each plan-of-correction window from the clocks table in the enforcement file on its own trigger (the letter date), the weekday stated for every computed date, and any window marked `[VERIFY]` there carried as an open item.
+Label as context, not a determination: Appendix V tags implicated; CMP tier by bed count with the dated figure; whether the facts suggest immediate jeopardy (a CMS judgment); mitigating and aggravating factors under 42 C.F.R. 1003.520; termination track if cited, with each plan-of-correction window from the clocks table in the enforcement file on its own trigger (the letter date), the weekday stated for every computed date, and any window the clocks table marks as not confirmed carried as an open item.
 
 ## 10. Hand-offs
 
@@ -127,11 +127,11 @@ Label as context, not a determination: Appendix V tags implicated; CMP tier by b
 | managing-medical-records-compliance | Late-entry or amendment handling | The gap and the policy question | Did not draft any entry |
 | legal-research | Circuit or State law questions | The question and facts | Did not resolve preemption or private-action law |
 
-## 11. Open items and `[VERIFY]` list
+## 11. Open items and confirm-before-use list
 
 | # | Open item | Depends on | Owner | Next action | Changes a result? |
 |---|---|---|---|---|---|
 
-Then each `[VERIFY]` statement relied on, with what would settle it.
+Then each statement labeled "Confirm before use:" that the analysis relies on, with what would settle it.
 
 Close with: "Draft for compliance officer and counsel review. Not a survey determination, legal opinion or clinical order."

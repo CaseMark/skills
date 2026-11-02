@@ -7,7 +7,6 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 1. Sources checked
 2. Confirmed statements
 3. Corrections made to the earlier skill text
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -58,18 +57,3 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 | State timelines | "30 days in some states"; Texas cited to Health & Safety Code 181.202 | Specific verified rows (CA, NY, TX, WA) with their own triggers; Texas breach notice is Bus. & Com. Code 521.053 |
 | Encryption | Encryption equals safe harbor | Safe harbor only with compliant encryption and an uncompromised key; device state matters |
 | Part 2 | Listed only as a sensitive data category | Separate regime under 42 C.F.R. 2.16(b) |
-
-## 4. `[VERIFY]` list
-
-1. State breach statutes other than California, New York, Texas and Washington: deadlines, attorney general thresholds, whether paper records are covered, and HIPAA deemed-compliance clauses.
-2. Whether Cal. Civ. Code 1798.82(a)(2)'s 30-day timing applies to a HIPAA covered entity (the text of (e) exempts only the (d) content rules; no Attorney General guidance was read).
-3. State holiday calendars for business-day clocks (New York 5 business days; California 15 business days).
-4. How days are counted after a 164.412 law enforcement delay ends (the preamble says the delay tolls the clock; the counting method is not stated).
-5. Whether, for a covered entity that is also a Part 2 program, impermissibility of a use or disclosure of Part 2 records is measured against Part 2's rules (2.16(b) applies subpart D "in the same manner"; the preamble on this point was not read in full).
-6. The Texas "date on which the person determines that the breach occurred" and the Washington risk-of-harm standard: no agency rule or guidance defining them was read.
-7. Security Rule rulemaking: content and dates of any final rule (projected July 2027).
-8. HHS portal form fields and addendum procedure beyond the breach reporting page.
-9. Whether a state deadline falling on a weekend or holiday rolls forward under that state's general construction law (federal subpart D and 16 C.F.R. Part 318 do not roll).
-10. How far the Texas, Washington and California "determine the scope and restore integrity" delay reaches past the stated day.
-11. Whether a HIPAA notice sent after day 30 satisfies New York's 30-day resident rule through 899-aa(2)(b).
-12. HHS's next steps on the tracking technologies bulletin after the June 2024 vacatur.

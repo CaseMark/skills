@@ -62,7 +62,7 @@ EMTALA findings turn on definitions and timestamps, not on how the patient did. 
 1. **Draft only.** Every output is a draft for the compliance officer and healthcare counsel. Never state that a hospital violated or complied with EMTALA as a final matter; use the outcome vocabulary in rule 11.
 2. **Source-review gate.** Open and search every supplied document before calling a time, signature or entry missing, including scans and attachments. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example, whether a rule was finalized) or a policy election (for example, the hospital's log retention period).
 3. **Hierarchy of authority.** For rules: the statute, then 42 C.F.R. 489.24, 489.20, 413.65 and part 1003, then Appendix V and SOM Chapter 5 at their current revisions, then current CMS memos (never rescinded ones), then hospital bylaws and policies. For facts: contemporaneous, timed source entries (EHR audit trail, signed forms, central log, paging log) govern over incident summaries, recollections and dashboards. Name every conflict in the reconciliation table; never resolve one silently. Where a court ruling and the CMS reading differ, report both.
-4. **Citation discipline.** Every time, signature and quoted entry carries a source locator, or `[UNVERIFIED]`. Every rule carries its citation and Appendix V tag, or `[VERIFY]`.
+4. **Citation discipline.** Every time, signature and quoted entry carries a source locator, or `[UNVERIFIED]`. Every rule carries its citation and Appendix V tag, or the label "Confirm before use:".
 5. **One clock per element.** Each timed element runs from its own trigger: arrival, triage, MSE, on-call request, admission order, certification, acceptance, departure, recipient arrival, reason to believe. Never compute one element from another's anchor.
 6. **Name the party.** For each finding, name who owed the duty: the hospital, the department, the screening QMP, the on-call physician, the transferring physician or the recipient hospital. Penalty tiers depend on the party and on the bed count on the date a penalty is imposed.
 7. **Regulatory words control.** "Stabilized", "comes to the emergency department", "transfer" (which includes discharge), "labor" and "dedicated emergency department" carry their 489.24(b) meanings, not their bedside meanings.
@@ -81,7 +81,7 @@ Collect before Step 1:
 3. The encounter record with times: central log entry, registration audit trail, triage, MSE note with the author's credential, orders and results, on-call pages and responses, disposition, admission order, transfer form and certification, acceptance, records sent, transport record; for a recipient, its ED record and the sending hospital's paperwork.
 4. The governing documents: bylaws or rules designating QMPs with the governing-body approval date, EMTALA policies, on-call policy, transfer agreements, any community call plan.
 5. For a program review: central log extract (including L&D and psychiatric intake), on-call lists, signage locations and languages, transfer record retention, DED inventory with off-campus sites.
-6. State: the State where the hospital sits, for State law items marked `[VERIFY]`.
+6. State: the State where the hospital sits, for State law items, which vary by State and need confirming before reliance.
 
 Defaults when an input is missing:
 
@@ -133,14 +133,14 @@ Read `references/emtala-requirements.md`, Section 10. Complete Section 6 of the 
 
 ## Step 9: Add Exposure Context, Reconcile and Hand Off
 
-Read `references/enforcement-and-guidance.md`, Sections 2, 3 and 6. Add the tag map, penalty tier and termination track as context. Complete Sections 7 to 11 of the output template, writing corrective actions as prospective changes only. Check each rule against `references/primary-sources.md` and carry any `[VERIFY]` flag into the open items.
+Read `references/enforcement-and-guidance.md`, Sections 2, 3 and 6. Add the tag map, penalty tier and termination track as context. Complete Sections 7 to 11 of the output template, writing corrective actions as prospective changes only. Check each rule against `references/primary-sources.md` and carry any "Confirm before use:" label into the open items.
 
 ## Checkpoint B: Post-Draft Alignment
 
 1. Does the memo answer the question asked, for the hospital and role asked, with each element scored on its own row?
 2. Is every finding tied to a named party, a regulation and a tag?
 3. Does each timed element run from its own trigger, with the arithmetic shown?
-4. Does any result depend on a `[VERIFY]` item, and would it change if that item reads differently?
+4. Does any result depend on an item labeled "Confirm before use:", and would it change if that item reads differently?
 5. Does any sentence suggest changing a past entry, or delaying or withholding a report? Remove it.
 6. Are guidance statuses and penalty figures dated, and is the accreditation proposal labeled proposed?
 
@@ -158,7 +158,7 @@ Read `references/enforcement-and-guidance.md`, Sections 2, 3 and 6. Add the tag 
 10. Administrative items cite the correct subsection and tag, with signage tested against the population served.
 11. Penalty figures are the 2025 amounts with their date, and no rescinded guidance is cited as current.
 12. No output alters, backdates or recharacterizes a record, or advises against a report; any declined request is shown with its compliant path.
-13. Every `[VERIFY]` relied on appears in the open items with what would settle it.
+13. Every item labeled "Confirm before use:" that the analysis relies on appears in the open items with what would settle it.
 
 ## Guidelines
 
@@ -198,4 +198,4 @@ Read `references/enforcement-and-guidance.md`, Sections 2, 3 and 6. Add the tag 
 - `references/emtala-requirements.md`: triggers, DED and campus, MSE and QMP, stabilization, labor, psychiatric boarding, on-call, transfer elements, recipient duties, administrative duties.
 - `references/enforcement-and-guidance.md`: guidance status as of October 30, 2026, survey and termination process, penalties, clocks table, circuit-variable questions, Appendix V tag map.
 - `references/output-template.md`: deliverable sections, encounter timeline, trigger block, element scorecard, program checklist, reconciliation table, declined-request block, hand-offs.
-- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and corrections.

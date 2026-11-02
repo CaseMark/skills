@@ -1,6 +1,6 @@
 # Overpayment Clock, Quantification and Disclosure Paths
 
-Rules for the report-and-return obligation (42 U.S.C. 1320a-7k(d)), its regulations, overpayment quantification, and the three ways to resolve an identified overpayment. Read in full text on 2026-10-30 unless marked `[VERIFY]`.
+Rules for the report-and-return obligation (42 U.S.C. 1320a-7k(d)), its regulations, overpayment quantification, and the three ways to resolve an identified overpayment. Read in full text on 2026-10-30 unless stated as not read or not confirmed.
 
 ## Contents
 
@@ -19,9 +19,9 @@ Rules for the report-and-return obligation (42 U.S.C. 1320a-7k(d)), its regulati
 |---|---|---|---|---|
 | Provider or supplier, Medicare Parts A and B | 42 C.F.R. 401.305 | Knowingly receives or retains (401.305(a)(2)) | Yes, 401.305(b)(3) | 6 years from receipt (401.305(f)) |
 | Medicare Advantage organization | 42 C.F.R. 422.326 | Knowingly receives or retains (422.326(c)); an overpayment exists only "after applicable reconciliation," the annual final risk adjustment data submission deadline under 422.310(g) (422.326(a)) | Not in the regulation; 60 days "unless otherwise directed by CMS for purposes of § 422.311" (RADV) (422.326(d)) | 6 most recent completed payment years (422.326(f)) |
-| Part D sponsor | 42 C.F.R. 423.360 | Knowingly standard `[VERIFY]` text not read | `[VERIFY]` | 6 years `[VERIFY]` |
-| Medicaid overpayment to a provider | Statute (1320a-7k(d) covers title XIX); no CMS Medicaid regulation located; state rules `[VERIFY]` | Statutory "knowing" | Not in the statute | State rule `[VERIFY]` |
-| Provider paid by an MA plan or Medicaid managed care plan | Plan contract and state law; whether 1320a-7k(d) reaches the provider is `[VERIFY]` | | | |
+| Part D sponsor | 42 C.F.R. 423.360 | Knowingly standard not confirmed (text not read) | Not confirmed here; read the regulation | 6 years, not confirmed here |
+| Medicaid overpayment to a provider | Statute (1320a-7k(d) covers title XIX); no CMS Medicaid regulation located; state rules vary, so check the governing state's rule | Statutory "knowing" | Not in the statute | Varies by state; check the state's rule |
+| Provider paid by an MA plan or Medicaid managed care plan | Plan contract and state law; whether 1320a-7k(d) reaches the provider is not confirmed here; check the plan contract and state law | | | |
 
 A beneficiary is never a "person" under the statute (1320a-7k(d)(4)(C)(ii)). Name the entity that received the payment (billing NPI and TIN), not the parent or the department where the error arose.
 
@@ -29,7 +29,7 @@ A beneficiary is never a "person" under the statute (1320a-7k(d)(4)(C)(ii)). Nam
 
 - **Identified** when the person knowingly receives or retains an overpayment; "knowingly" has the FCA meaning (actual knowledge, deliberate ignorance, reckless disregard). This replaced, effective January 1, 2025, the 2016 standard ("determined, or should have determined through the exercise of reasonable diligence ... and quantified") (89 FR 97710, 98553, Dec. 9, 2024).
 - **When the 60 days start** (89 FR 98336-98337): with an investigation under way, on actual knowledge of the overpayment; with deliberate ignorance or reckless disregard, on the date the person so acted. Quantification is not a precondition: the 60 days run even if the amount is not yet calculated, so as a practical matter the amount must be calculated inside the period.
-- **Deadline** (401.305(b)(1)): the later of 60 days after identification or "the date any corresponding cost report is due, if applicable." Filing cost reports does not by itself make an overpayment "corresponding"; ask whether this overpayment is one the cost report reconciles, record the answer and its source, and compare both dates. Which overpayments correspond is `[VERIFY]` beyond the regulation text (the 2016 preamble was not read).
+- **Deadline** (401.305(b)(1)): the later of 60 days after identification or "the date any corresponding cost report is due, if applicable." Filing cost reports does not by itself make an overpayment "corresponding"; ask whether this overpayment is one the cost report reconciles, record the answer and its source, and compare both dates. Which overpayments correspond is not settled by the regulation text and the 2016 preamble was not read; confirm with counsel.
 - **Suspension for investigation** (401.305(b)(3)): when a person has identified an overpayment and conducts a timely, good-faith investigation for related overpayments from the same or similar cause, the deadline for the initial and related overpayments is suspended until the earlier of (A) the investigation concluding and the aggregate amount being calculated, or (B) 180 days after the initial overpayment was identified. The suspension starts when the investigation starts. After it ends, only the unused part of the 60 days remains: the regulation text does not say this; it comes from the preamble's example (investigation started on day 20, so 40 days remain; 89 FR 98338). No investigation, or one that is not timely or not in good faith: no suspension.
 - **Other suspensions** (401.305(b)(2)): OIG acknowledges an SDP submission (the 2026 SDP, section 1, says the suspension applies "as long as the submission is timely made", so submit before the deadline); CMS acknowledges an SRDP submission; an extended repayment schedule request under 401.603. Each ends on settlement, withdrawal, removal, or rejection or default.
 - **Consequence** (401.305(e); 1320a-7k(d)(3)): an overpayment retained after the deadline is an FCA "obligation." The Civil Monetary Penalties Law also applies (OIG SDP 2026, section 1.B).
@@ -54,7 +54,7 @@ A beneficiary is never a "person" under the statute (1320a-7k(d)(4)(C)(ii)). Nam
 | FCA limitations | Violation; or official's knowledge | 6 years; 3 years (10-year outer limit) | 31 U.S.C. 3731(b) |
 | Retaliation claim | Date of the retaliation | 3 years | 31 U.S.C. 3730(h)(3) |
 
-Show every date with its weekday and state "no roll": neither 401.305 nor 422.326 has a weekend or holiday rule, so do not add one. Where identification is before an MA payment year's applicable reconciliation, whether the 60 days run from identification or from reconciliation is `[VERIFY]`; show both.
+Show every date with its weekday and state "no roll": neither 401.305 nor 422.326 has a weekend or holiday rule, so do not add one. Where identification is before an MA payment year's applicable reconciliation, whether the 60 days run from identification or from reconciliation is not settled here; show both.
 
 ## 4. Lookback and reopening
 
@@ -90,7 +90,7 @@ The Stark and AKS characterization that decides the path is counsel's. When coun
 |---|---|---|
 | OIG SDP, false billing | Minimum multiplier 1.5 times single damages, applied to the amount paid, not claimed; minimum settlement $20,000 | OIG SDP 2026, section 8 |
 | OIG SDP, kickback-related | Generally a multiplier of the remuneration conferred on the referral source; total remuneration disclosed regardless of any lawful purpose; claims-based estimate also required; minimum settlement $100,000 | OIG SDP 2026, sections 3.D, 8 |
-| CMS SRDP | CMS may reduce amounts owed (ACA 6409); no fixed multiplier stated in the sources read `[VERIFY]` | CMS SRDP page |
+| CMS SRDP | CMS may reduce amounts owed (ACA 6409); no fixed multiplier stated in the sources read | CMS SRDP page |
 | Contractor refund | Single overpayment amount | 401.305(d)(1) |
 | Litigated or government-initiated FCA | Treble damages plus per-claim penalties; reduction to double only under 3729(a)(2) | 31 U.S.C. 3729(a) |
 

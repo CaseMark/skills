@@ -7,7 +7,6 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 1. Sources checked
 2. Confirmed statements
 3. Corrections to the earlier version of this skill
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -68,14 +67,3 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 | MA appeals | Reconsideration "by independent review entity" | Plan reconsiders first; IRE reviews affirmed denials; contract providers use the contract | 422.590; CMS guidance |
 | Industry statistics (denial rates, rework cost, overturn rates, benchmarks) | Stated as fact | Removed as unsourced | none found |
 | Addendum before appeal | "Consider requesting an addendum from the provider before appealing" | Post-claim entries are late entries, dated and disclosed; never presented as original | PIM ch. 3, 3.3.2.5; 2026 query brief |
-
-## 4. `[VERIFY]` list
-
-1. CY 2027 amount-in-controversy thresholds ($200 and $2,000 per CMS pages); the Federal Register notice was not read.
-2. Whether a hospital may file a Part B inpatient claim while its Part A appeal is pending, and whether it must withdraw the appeal first (current CMS instruction not found; CMS-1455-R was transitional).
-3. The anchor date for a RAC-initiated redetermination (MAC demand letter or revised determination notice) and the effect, if any, of the RAC discussion period on it.
-4. Whether MACs, UPICs or QIOs may perform clinical validation (PIM 6.5.3 is silent).
-5. The MA amount-in-controversy rule at 422.600 and the ALJ window at 422.602 (relied on the CMS guidance's summary).
-6. Sepsis-2 (2001 consensus) criteria; not read in a primary source.
-7. Each payer's contract, amendment or provider manual: appeal levels, windows, trigger dates, clinical definitions and their effective dates.
-8. State law on external review, prompt pay and Medicaid managed care appeals for the state at issue.

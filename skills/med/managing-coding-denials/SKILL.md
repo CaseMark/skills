@@ -58,12 +58,12 @@ Coding denials are lost on procedure more often than on merit. A redetermination
 1. **Draft only.** Every output is a draft for qualified human review. Never state that an appeal is filed, final or certain to succeed, and never give legal advice on litigation or contract enforcement.
 2. **Source-review gate.** Do not call a document, notice or entry missing until every supplied file has been opened and searched, including scans and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (a rule not confirmed for the current year) or a policy election (a contract term not supplied, or the hospital's choice between routes).
 3. **Hierarchy of authority.** For rules: statute and regulation, then CMS manuals and binding instructions, then contractor statements of work and CMS guidance, then the payer contract and provider manual in force on the date of service, then payer policy, then the denial letter's characterization. For facts: the record as it stood when the claim was billed, with audit trail, governs over later entries, abstracts, denial-letter summaries and vendor worksheets. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every clinical value, quotation and date carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every rule carries its citation or `[VERIFY]`; every year-dependent figure carries its year.
+4. **Citation discipline.** Every clinical value, quotation and date carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every rule carries its citation or the label "Confirm before use:"; every year-dependent figure carries its year.
 5. **Record integrity.** Never draft, merge, backdate or re-date a clinical entry, and never present documentation created or altered after the claim or the denial as original. A late entry is disclosed with its own date and author. If asked otherwise, record a Declined request and continue with the record as it stands. If altered entries were already submitted, stop drafting that appeal and route to conducting-false-claims-analysis and compliance.
 6. **Classify before arguing.** Label each denied item coding validation, clinical validation, medical necessity or status, or technical (`references/denial-analysis-rules.md`, Section 1). The argument must answer that type.
 7. **Every clock has its own trigger.** Compute each deadline separately with its trigger, rule and arithmetic, its weekday, and who must receive it. Never carry one payer's presumption or window to another. A deadline that falls on a weekend or holiday does not roll unless the rule or contract provides one; set the target receipt date to the prior business day.
 8. **Lock the payer and the party.** Name the product (Medicare FFS, MA HMO or PPO, commercial, ERISA plan, Medicaid) and the hospital's contract status before choosing a route. A contracted MA hospital follows its agreement; a non-contracted one follows 422.582 with a waiver of liability.
-9. **Definitions come from the contract.** Apply the clinical definition the contract or policy in force on the date of service names. If it is not supplied, treat it as a policy election `[VERIFY]` and show the record under each candidate definition.
+9. **Definitions come from the contract.** Apply the clinical definition the contract or policy in force on the date of service names. If it is not supplied, treat it as a policy election labeled "Confirm before use:" and show the record under each candidate definition.
 10. **Respect reviewer limits.** Raise scope objections first: a RAC may not perform clinical validation or look back more than 3 years; an MA plan may not deny on unposted internal criteria or after its own approval except as 422.138(c) allows.
 11. **Recommendation vocabulary.** Each denied item gets one of: Appeal, Correct and rebill, Request reopening, Accept denial, or Hold: <fact>. Each deadline is Open, Urgent (10 days or fewer) or Expired: good cause only. A refused request is a Declined request with the rule behind it. The test for each label is in `references/output-template.md`, Section 12.
 
@@ -80,7 +80,7 @@ Collect before Step 1:
 
 Defaults when an input is missing:
 
-- Receipt date unknown: use the regulatory presumption for the payer, labeled as presumed; for commercial payers use the contract's trigger, and if the contract is not supplied, use the notice date and mark it `[VERIFY]`.
+- Receipt date unknown: use the regulatory presumption for the payer, labeled as presumed; for commercial payers use the contract's trigger, and if the contract is not supplied, use the notice date and mark it "Confirm before use:".
 - Contract status unknown for an MA claim: show both routes (422.582 with waiver; contract dispute) and their deadlines, labeled provisional.
 - Clinical definition not supplied: analyze under each candidate definition.
 
@@ -118,7 +118,7 @@ Read `references/denial-analysis-rules.md`, Sections 7 and 8. Fill the route ele
 
 ## Step 7: Draft the Appeal and Hand Off
 
-Draft the letter from the skeleton in `references/output-template.md`, Section 6, answering each denial type in its own section, with dated enclosures. Complete the reconciliation table, gaps, hand-offs and open items (Sections 8 to 11). Check each rule relied on against `references/primary-sources.md` and carry any `[VERIFY]` flag into the open items.
+Draft the letter from the skeleton in `references/output-template.md`, Section 6, answering each denial type in its own section, with dated enclosures. Complete the reconciliation table, gaps, hand-offs and open items (Sections 8 to 11). Check each rule relied on against `references/primary-sources.md` and carry any "Confirm before use:" label into the open items.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -126,7 +126,7 @@ Draft the letter from the skeleton in `references/output-template.md`, Section 6
 2. Is every deadline computed from its own trigger, with presumed receipt where a rule supplies it, and the receiving entity named?
 3. Does the route match the payer, product and contract status, and are scope objections raised before the merits?
 4. Is every clinical value sourced and dated, and does every enclosure predate the claim or carry its own late-entry label?
-5. Does any result depend on a `[VERIFY]` item, and would it change if the item reads the other way?
+5. Does any result depend on an item labeled "Confirm before use:", and would it change if the item reads the other way?
 6. Is anything phrased as a guaranteed outcome, legal advice, or a suggestion to change documentation? Remove it.
 
 ## Quality Audit
@@ -142,7 +142,7 @@ Draft the letter from the skeleton in `references/output-template.md`, Section 6
 9. The route election shows each route's deadline and what it forecloses, including the Part B window and 412.60(d).
 10. Peer-to-peer outcomes are logged with participants, reference number and written confirmation status.
 11. Every conflict is in the reconciliation table and every gap is classified.
-12. Every `[VERIFY]` relied on appears in the open items with what would settle it, and declined requests are listed.
+12. Every item labeled "Confirm before use:" that the analysis relies on appears in the open items with what would settle it, and declined requests are listed.
 
 ## Guidelines
 
@@ -182,4 +182,4 @@ Draft the letter from the skeleton in `references/output-template.md`, Section 6
 - `references/appeal-clocks-and-levels.md`: Medicare FFS levels and clocks, amount in controversy, review contractors, recoupment, reopening and rebilling clocks, Medicare Advantage and commercial routes.
 - `references/denial-analysis-rules.md`: denial taxonomy, I.A.19, contract clinical definitions and Sepsis-3, 2-midnight rule, MA coverage criteria, record integrity, peer-to-peer, route selection.
 - `references/output-template.md`: deliverable sections, clock table, source register, argument map, route election, letter skeleton, reconciliation and hand-off tables.
-- `references/primary-sources.md`: each authority checked with URL, method and date, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method and date.

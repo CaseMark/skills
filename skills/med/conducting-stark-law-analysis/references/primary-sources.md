@@ -8,7 +8,6 @@ All checks were made on 2026-10-30 through the case.dev API (`/search/v1/content
 2. Agency guidance read
 3. Confirmed by the sibling skill
 4. Corrections to the prior version of this skill
-5. `[VERIFY]` list
 
 ## 1. Regulations and statutes read
 
@@ -49,12 +48,3 @@ stark-law-aks-compliance, its primary-sources and stark-rules-and-clocks referen
 | Physician services and in-office ancillary services listed as ownership exceptions under 411.356 | General exceptions in 411.355 | 411.355 read |
 | "There is no de minimis exception" | Nonmonetary compensation (k), incidental benefits (m) and limited remuneration (z) carry dollar limits | 411.357 read |
 | Exception element analysis and legal conclusions | Routed to stark-law-aks-compliance; this skill reviews documents, payments and controls | Execution plan routing split |
-
-## 5. `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| CY 2027 limits for 411.357(k), (m) and (z) | Not posted on the CMS CPI-U Updates page when read | CMS CPI-U Updates page after posting |
-| Whether the September 2026 SRDP revision changed required content beyond the forms | Only the CMS pages were read, not the revised protocol PDF | CMS Voluntary Self-Referral Disclosure Protocol (Revised September 2026) |
-| Full text of 411.355(b) location, supervision and billing conditions | Only the opening of (b) was read | Current eCFR text; legal analysis by counsel |
-| Any state self-referral or licensure rule affecting the organization's arrangements | Not researched here | stark-law-aks-compliance or legal-research |

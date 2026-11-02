@@ -1,6 +1,6 @@
 # FCA Liability, Damages and Qui Tam Rules
 
-Working rules for the civil False Claims Act (31 U.S.C. 3729-3733) as applied to claims paid by Medicare, Medicaid and other federal health care programs. Read in full text on 2026-10-30 unless marked `[VERIFY]`. Statute and case citations are in `references/primary-sources.md`.
+Working rules for the civil False Claims Act (31 U.S.C. 3729-3733) as applied to claims paid by Medicare, Medicaid and other federal health care programs. Read in full text on 2026-10-30 unless stated as not read or not confirmed. Statute and case citations are in `references/primary-sources.md`.
 
 ## Contents
 
@@ -46,7 +46,7 @@ An error with no scienter is an overpayment, not FCA liability, until the 60-day
 - A legally plausible reading of an ambiguous rule, adopted after the fact, is not a defense if the entity believed its claims were inaccurate when it submitted them. "Post hoc interpretations" do not control; the focus is "what the defendant knew when presenting the claim."
 - Deliberate ignorance: aware of a substantial risk of falsity and intentionally avoiding steps to confirm. Reckless disregard: conscious of a substantial and unjustifiable risk and submitting anyway. Both are defined by the defendant's own awareness.
 - Evidence to collect: emails, audit reports and who received them, hotline logs, contractor education letters, prior denials, coding guidance requested and not followed, decisions to stop or narrow a review.
-- Corporate knowledge: whose knowledge is attributed to the entity is circuit-variable `[VERIFY]`; list each person who knew and when.
+- Corporate knowledge: whose knowledge is attributed to the entity is circuit-variable; check the governing circuit's rule and list each person who knew and when.
 
 ## 4. Materiality after Escobar
 
@@ -64,7 +64,7 @@ Label rule: Supported needs evidence beyond the text, such as consistent refusal
 
 ## 5. Causation for AKS-tainted and Stark-tainted claims
 
-- **AKS (1320a-7b(g))**: "resulting from" is circuit-variable. But-for causation: First Circuit (Regeneron, 2025), Sixth Circuit (Martin v. Hathaway, 2023), Eighth Circuit (Cairns, 2022). Third Circuit: a "link" between the kickback and at least one claim, less than but-for; temporal proximity alone is not enough (Greenfield, 2018). Other circuits: `[VERIFY]`; model both readings.
+- **AKS (1320a-7b(g))**: "resulting from" is circuit-variable. But-for causation: First Circuit (Regeneron, 2025), Sixth Circuit (Martin v. Hathaway, 2023), Eighth Circuit (Cairns, 2022). Third Circuit: a "link" between the kickback and at least one claim, less than but-for; temporal proximity alone is not enough (Greenfield, 2018). Other circuits: not confirmed here; model both readings.
 - **Stark**: payment for DHS furnished on a prohibited referral is barred without intent (42 U.S.C. 1395nn(g)(1)); the claim set is every Medicare DHS claim on the physician's referrals during the noncompliant period. FCA liability still needs scienter and materiality.
 - Forum: an FCA action may be brought in any district where any defendant "can be found, resides, transacts business," or where any proscribed act occurred (31 U.S.C. 3732(a)). The circuit where the entity sits is a default, not a certainty; where venue could lie elsewhere, model each plausible circuit's causation rule.
 - The Stark/AKS legal conclusions come from counsel (stark-law-aks-compliance). This skill takes the labels as given, sizes the claim set under each reading, and returns any disagreement to counsel.
@@ -73,7 +73,7 @@ Label rule: Supported needs evidence beyond the text, such as consistent refusal
 
 | Limit | Trigger event | Note |
 |---|---|---|
-| 6 years | Date the violation is committed | Presentment: claim submission. Reverse false claim on a retained overpayment: when the violation is committed is for counsel; a reading that it occurs at the 1320a-7k(d) deadline is `[VERIFY]` |
+| 6 years | Date the violation is committed | Presentment: claim submission. Reverse false claim on a retained overpayment: when the violation is committed is for counsel; a reading that it occurs at the 1320a-7k(d) deadline is not settled here; show the alternative |
 | 3 years | Date material facts are known or reasonably should have been known by the responsible U.S. official | Whichever of the 6-year and 3-year periods ends last; also available in relator suits the government declined (Cochise, 2019) |
 | 10 years | Date the violation is committed | Outer limit on the 3-year rule |
 | Relation back | Government complaint in intervention relates back to the relator's filing date (3731(c)) | |
@@ -84,9 +84,9 @@ The 6-year overpayment lookback (section 2 of the overpayment reference) and the
 
 - Treble damages: 3 times "the amount of damages which the Government sustains" (3729(a)(1)). Reduced to not less than double for a qualifying self-report within 30 days, with full cooperation and no pending action or known investigation (3729(a)(2)).
 - The base is what the program paid, never billed charges. Exclude beneficiary deductibles and coinsurance unless a program paid them.
-- Match the base to the theory: services not rendered or worthless, or claims per se false under 1320a-7b(g) or Stark, use the program payment for the affected claims; an upcoded claim uses the difference between what was paid and what the supported code would have paid `[VERIFY]` (courts measure damages differently by theory and circuit; show the measure chosen and the alternative).
-- Credits: Bornstein (1976) held that the Government's actual damages are multiplied before any subtraction for compensatory payments; it construed the earlier double-damages provision, and its application to the current treble provision in the governing circuit is `[VERIFY]`. Show refunds as a separate line and state the order used.
-- Medicaid: the federal share and the state share may be pursued under different statutes `[VERIFY]` by state.
+- Match the base to the theory: services not rendered or worthless, or claims per se false under 1320a-7b(g) or Stark, use the program payment for the affected claims; an upcoded claim uses the difference between what was paid and what the supported code would have paid (courts measure damages differently by theory and circuit; show the measure chosen and the alternative).
+- Credits: Bornstein (1976) held that the Government's actual damages are multiplied before any subtraction for compensatory payments; it construed the earlier double-damages provision, and its application to the current treble provision in the governing circuit is not confirmed here; check that circuit's rule. Show refunds as a separate line and state the order used.
+- Medicaid: the federal share and the state share may be pursued under different statutes, which varies by state; check the state's law.
 
 ## 8. Civil penalties by assessment date (28 C.F.R. 85.5)
 
@@ -105,7 +105,7 @@ Penalties are per false claim, set by the date the penalty is assessed, for viol
 
 - Relator files under seal for at least 60 days; the government may seek extensions (3730(b)(2)-(3)). Relator share: 15 to 25 percent if the government intervenes, 25 to 30 percent if it declines (3730(d)). Only the government may intervene in or bring a related action while one is pending (3730(b)(5)).
 - Public disclosure bar and original source: 3730(e)(4).
-- Zafirov: the Middle District of Florida held the qui tam provisions violate the Appointments Clause (751 F. Supp. 3d 1293 (M.D. Fla. 2024)). The Eleventh Circuit vacated on September 1, 2026 (No. 24-13581), holding relators are not officers of the United States and joining the Fifth, Sixth, Ninth and Tenth Circuits; it remanded the Take Care and Vesting Clause arguments. Mandate issued September 30, 2026. On remand, the district court set a hearing for November 23, 2026. Whether a certiorari petition is filed is `[VERIFY]`. Treat qui tam suits as viable in every circuit; the remaining arguments are a defense for litigation counsel, not a reason to discount relator risk.
+- Zafirov: the Middle District of Florida held the qui tam provisions violate the Appointments Clause (751 F. Supp. 3d 1293 (M.D. Fla. 2024)). The Eleventh Circuit vacated on September 1, 2026 (No. 24-13581), holding relators are not officers of the United States and joining the Fifth, Sixth, Ninth and Tenth Circuits; it remanded the Take Care and Vesting Clause arguments. Mandate issued September 30, 2026. On remand, the district court set a hearing for November 23, 2026. Whether a certiorari petition is filed is not confirmed here; check the docket. Treat qui tam suits as viable in every circuit; the remaining arguments are a defense for litigation counsel, not a reason to discount relator risk.
 
 ## 10. Retaliation (31 U.S.C. 3730(h))
 

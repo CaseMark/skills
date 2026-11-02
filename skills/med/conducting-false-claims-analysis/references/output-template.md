@@ -14,7 +14,7 @@ Produce the header and the sections below in order. Every date shows its weekday
 8. Section 7. Qui tam and retaliation risk
 9. Section 8. Reconciliation table
 10. Section 9. Hand-offs
-11. Section 10. Open items and `[VERIFY]` list
+11. Section 10. Open items and confirm-before-use list
 
 ## Header
 
@@ -86,7 +86,7 @@ Rejected candidate dates (quantification complete, board meeting, consultant rep
 |---|---|---|---|---|---|---|
 | Contractor refund | | 1 | none | | | |
 | OIG SDP | | at least 1.5 (false billing) or remuneration-based (kickback) | none; $20,000 or $100,000 minimum | | | |
-| CMS SRDP | | `[VERIFY]` | | | | |
+| CMS SRDP | | Not stated in sources read; confirm | | | | |
 | Litigated FCA | | 3 (2 if 3729(a)(2) applies) | $14,308 to $28,619 per claim (assessed after July 3, 2025; no 2026 change) | | | |
 
 ## 7. Qui tam and retaliation risk
@@ -127,9 +127,9 @@ Outbound:
 | managing-cdi-programs | Replacing a raise-only query policy with compliant, non-leading queries | The policy and the affected query types | Did not write queries |
 | managing-compliance-programs | Program-wide fixes after the finding | Root causes | Did not design the program |
 | whistleblower-protection-policy | Anti-retaliation policy drafting | The retaliation risks found | Did not draft the policy |
-| legal-research | 3730(h) case law, circuit rules marked `[VERIFY]`, state Medicaid overpayment rules; no dedicated skill exists | The question and forum | Did not research the rule |
+| legal-research | 3730(h) case law, circuit rules not in the register, state Medicaid overpayment rules; no dedicated skill exists | The question and forum | Did not research the rule |
 
-## 10. Open items and `[VERIFY]` list
+## 10. Open items and confirm-before-use list
 
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Owner | Next action | Changes a deadline or a label? |
 |---|---|---|---|---|---|

@@ -14,7 +14,7 @@ Produce the header and the parts below in order. One row per arrangement and per
 8. Part 7. Clock table
 9. Part 8. Reconciliation table and gaps
 10. Part 9. Escalation package and hand-offs
-11. Part 10. Open items and `[VERIFY]` list
+11. Part 10. Open items and confirm-before-use list
 
 ## Header
 
@@ -109,11 +109,11 @@ Escalation memo to counsel, one block per escalated arrangement: parties and rel
 | healthcare-services-agreement or physician-employment-agreement | Drafting other services or employment agreements signed and dated when actually signed | Terms as approved by counsel | Did not draft terms |
 | lease-amendment or office-lease | Drafting mechanics for a lease or amendment; no Stark-aware lease drafting skill exists | Premises, rent and term as approved by counsel | Did not supply Stark terms |
 
-## Part 10. Open items and `[VERIFY]` list
+## Part 10. Open items and confirm-before-use list
 
 | # | Open item | Arrangement | Owner | Next action | Changes a label? |
 |---|---|---|---|---|---|
 
-Then each `[VERIFY]` statement relied on, with what would settle it.
+Then each statement labeled "Confirm before use:" that the analysis relies on, with what would settle it.
 
 Close with: "Draft for compliance officer and health care regulatory counsel review. Not a legal opinion and not a disclosure decision."
