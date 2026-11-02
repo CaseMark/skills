@@ -2,7 +2,7 @@
 
 Read this file when Step 1 of `../SKILL.md` identifies a statutory pre-suit regime, or whenever the letter's recipient is in a jurisdiction listed below. Statutory pre-suit notice failures can **waive claims entirely** — this is the single highest-stakes failure mode for a demand letter.
 
-Every citation here is a drafting reference, not a legal conclusion. Every pinpoint cite must be verified via `legal-research` before the letter is sent. Marked `[VERIFY]` throughout as a reminder. Statute text for the rows below was re-read on October 30, 2026; the URLs and what was confirmed are in `primary-sources.md`.
+Every citation here is a drafting reference, not a legal conclusion. Every pinpoint cite must be verified via `legal-research` before the letter is sent. Statute text for the rows below was re-read on October 30, 2026; the URLs and what was confirmed are in `primary-sources.md`.
 
 ## Contents
 
@@ -35,7 +35,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 
 ---
 
-## Massachusetts — Ch. 93A § 9 (consumer unfair / deceptive practices) `[VERIFY]`
+## Massachusetts — Ch. 93A § 9 (consumer unfair / deceptive practices)
 
 - **Statute.** Mass. Gen. Laws ch. 93A, § 9(3).
 - **Trigger.** A person injured by a § 2 unfair or deceptive act or practice who sues under § 9 (in practice, consumers). § 9(1) excludes anyone entitled to sue under § 11, the business-to-business section.
@@ -47,11 +47,11 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
   - A statement of the injuries suffered.
 - **Service method.** Mail to the recipient. No statutory specification of certified mail, but certified with return receipt is universal practice to prove delivery.
 - **Response mechanism (leverage hook).** The recipient has 30 days from mailing or delivery of the demand to make a written tender of settlement. If the claimant rejects it and the court later finds the tender reasonable in relation to the injury actually suffered, recovery is limited to the relief tendered (§ 9(3)), and fees incurred after rejection of a reasonable written offer made within the 30 days are denied (§ 9(4)). Separately, a refusal to grant relief upon demand made in bad faith, with knowledge or reason to know of the violation, is a multiplier trigger under § 9(3). This cuts both ways: a weak demand invites a token tender that caps recovery.
-- **Consequence of defect.** Where § 9(3) applies, a compliant demand is a prerequisite to suit; a missing or defective demand is a recurring ground for dismissal of the § 9 claim `[VERIFY]` current case law.
+- **Consequence of defect.** Where § 9(3) applies, a compliant demand is a prerequisite to suit; a missing or defective demand is a recurring ground for dismissal of the § 9 claim; confirm current case law.
 - **Exemplars.** `assets/examples/ma-93a-official-template.md`, `assets/examples/ma-93a-auto-body-repair.md`.
 - **Verification.** `legal-research`: current case law on "reasonable offer," "knowing or willful," and the § 9(3) forfeiture mechanism. `citation-bluebook` for any case cites.
 
-## Texas — DTPA § 17.505 (consumer unfair practices) `[VERIFY]`
+## Texas — DTPA § 17.505 (consumer unfair practices)
 
 - **Statute.** Tex. Bus. & Com. Code § 17.505.
 - **Trigger.** Any consumer claiming violations of the Deceptive Trade Practices Act under § 17.46 et seq.
@@ -64,7 +64,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 - **Exemplar.** No clean exemplar in corpus (MANIFEST coverage gap). Draft from `TEMPLATE.md` statutory-notice branch + this row.
 - **Verification.** `legal-research` for "substantially the same" case law and current treble-damages "knowing / intentional" distinction.
 
-## Texas — Stowers doctrine (common-law bad-faith policy-limits demand) `[VERIFY]`
+## Texas — Stowers doctrine (common-law bad-faith policy-limits demand)
 
 - **Routing.** Any offer to a liability insurer to settle within limits, with or without a deadline, and any pre-answer offer prepared by or with an attorney to settle a Georgia motor-vehicle personal-injury, bodily-injury or death claim, whoever receives it (O.C.G.A. § 9-11-67.1(b)), is drafted with `bad-faith-demand`, which tests the governing statute, the deadline trigger and the lien matrix. This row is background only; this skill's `insurer-claim` branch presents a claim and makes no offer.
 - **Doctrine.** Common-law, from *G.A. Stowers Furniture Co. v. Am. Indem. Co.*, 15 S.W.2d 544 (Tex. Comm'n App. 1929, holding approved). Not a statute. The duty is activated only when (1) the claim is within the scope of coverage, (2) the demand is within policy limits, and (3) its terms are such that an ordinarily prudent insurer would accept it, considering the insured's likely exposure to an excess judgment. *Am. Physicians Ins. Exch. v. Garcia*, 876 S.W.2d 842, 849 (Tex. 1994).
@@ -80,7 +80,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 - **Exemplars.** `assets/examples/pi-ga-witherite-liability-demand.md` and `assets/examples/pi-ga-auto-allen-v-liberty-mutual-demand.md` (Georgia policy-limits offers): read them here only for the liability narrative and specials presentation; their offer terms and deadlines are `bad-faith-demand` territory.
 - **Verification.** `legal-research` on current Texas Stowers evolution (cases refine what counts as a "proper" demand). `citation-bluebook` for good-law status.
 
-## California — CLRA § 1782(a) (consumers' Legal Remedies Act) `[VERIFY]`
+## California — CLRA § 1782(a) (consumers' Legal Remedies Act)
 
 - **Statute.** Cal. Civ. Code § 1782(a).
 - **Trigger.** Before filing an action for damages under the CLRA (§ 1780(a)(1)–(2)).
@@ -94,19 +94,19 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 - **Exemplar.** `assets/examples/clra-ca-fca-jeep-wrangler-lieff-cabraser-demand.md`.
 - **Verification.** `legal-research` for current case law on what constitutes an "appropriate" cure.
 
-## California / Texas / Florida — Construction defect pre-suit regimes `[VERIFY]`
+## California / Texas / Florida — Construction defect pre-suit regimes
 
-- **California — SB 800 / Right to Repair Act.** Cal. Civ. Code §§ 895–945.5. Before filing, written notice to the builder by certified mail, overnight mail, or personal delivery, describing the claim in reasonable detail (§ 910(a)); builder has right to inspect and elect repair; strict timelines; failure bars homeowner's claim for construction defects covered by the Act `[VERIFY]` consequence.
+- **California — SB 800 / Right to Repair Act.** Cal. Civ. Code §§ 895–945.5. Before filing, written notice to the builder by certified mail, overnight mail, or personal delivery, describing the claim in reasonable detail (§ 910(a)); builder has right to inspect and elect repair; strict timelines; failure bars homeowner's claim for construction defects covered by the Act (confirm the consequence against current law).
 - **Texas — RCLA.** Tex. Prop. Code Ch. 27. Written notice by certified mail, return receipt requested, to the contractor's last known address before the 60th day preceding suit, specifying the defects in reasonable detail and supplying discoverable evidence of the defect (§ 27.004(a)); contractor may inspect during the 35 days after it receives the notice and may make a written settlement offer within 60 days after receipt (§ 27.004(b)).
 - **Florida — Ch. 558.** Fla. Stat. § 558.004. Notice of claim served at least 60 days before filing, or at least 120 days for an association representing more than 20 parcels; the notice must refer to Chapter 558. Inspection within 30 days after service (50 for such an association); written response within 45 days after service (75 for such an association).
 - **Exemplar.** No clean exemplar in corpus (MANIFEST coverage gap). Draft from `TEMPLATE.md` statutory-notice branch + careful reading of the governing statute for each.
 - **Verification.** `legal-research` for the specific state's current requirements, inspection rights, and consequence of defect. These regimes change frequently.
 
-## Florida — Medical malpractice Ch. 766 `[VERIFY]`
+## Florida — Medical malpractice Ch. 766
 
 - **Statute.** Fla. Stat. Ch. 766 (Presuit Investigation).
 - **Trigger.** Any action for medical negligence against a health-care provider.
-- **Notice period.** No suit may be filed for **90 days** after the notice is delivered to any prospective defendant (§ 766.106(3)(a)). Statute of limitations tolled during this period `[VERIFY]` tolling mechanics in § 766.106(4).
+- **Notice period.** No suit may be filed for **90 days** after the notice is delivered to any prospective defendant (§ 766.106(3)(a)). Statute of limitations tolled during this period; confirm the tolling mechanics in § 766.106(4).
 - **Required contents.**
   - Notice of Intent to Initiate Litigation, served after the claimant's presuit investigation under § 766.203(2).
   - Verified written medical-expert opinion corroborating reasonable grounds for the claim (§ 766.203).
@@ -117,7 +117,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 - **Exemplar.** No clean exemplar in corpus (MANIFEST coverage gap).
 - **Verification.** `legal-research` for current Ch. 766 requirements and the specific form of expert affidavit required.
 
-## Federal — FDCPA (Fair Debt Collection Practices Act) `[VERIFY]`
+## Federal — FDCPA (Fair Debt Collection Practices Act)
 
 - **Statute.** 15 U.S.C. §§ 1692 et seq. Governs **third-party debt collectors**, not creditors collecting their own debts in their own name (narrow exceptions).
 - **Trigger test.**
@@ -137,7 +137,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 - **Exemplar.** No clean exemplar in corpus (MANIFEST coverage gap).
 - **Verification.** `legal-research`; FDCPA case law evolves. **Also check any state-law analog** — many states (CA Rosenthal Act, NY GBL § 600, etc.) have parallel regimes with their own disclosures.
 
-## Federal — Magnuson-Moss Warranty Act (MMWA) `[VERIFY]`
+## Federal — Magnuson-Moss Warranty Act (MMWA)
 
 - **Statute.** 15 U.S.C. § 2301 et seq. Applies to consumer-product written warranties.
 - **Pre-suit notice.** Under § 2310(e), no action under § 2310(d) for failure to comply with a written or implied warranty or service contract may be brought unless the warrantor is "afforded a reasonable opportunity to cure such failure to comply." A demand letter is the standard mechanism. In a class action the opportunity is afforded by the named plaintiffs, who must then notify the defendant that they act for the class.
@@ -147,7 +147,7 @@ Every citation here is a drafting reference, not a legal conclusion. Every pinpo
 - **Exemplar.** `assets/examples/multistate-mmwa-fca-slack-davis-sanger-demand.md`.
 - **Verification.** `legal-research` for what counts as a "reasonable opportunity to cure" in the governing circuit.
 
-## Defamation — state retraction statutes `[VERIFY]`
+## Defamation — state retraction statutes
 
 Many states require a pre-suit retraction demand as a prerequisite to claiming presumed or punitive damages in libel actions against media defendants. The specific mechanics are state-specific.
 
@@ -180,4 +180,4 @@ Claims / regimes known to have pre-suit requirements but not detailed here (chec
 
 ## Updating this file
 
-This table is a snapshot. Statutes are amended; case law evolves. When `legal-research` returns a newer authority or a changed requirement, update the row and note `[VERIFY]` as lifted.
+This table is a snapshot. Statutes are amended; case law evolves. When `legal-research` returns a newer authority or a changed requirement, update the row.

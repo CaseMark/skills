@@ -8,7 +8,6 @@ Checked on October 30, 2026. Re-check before relying on any rule in a letter tha
 - Rules of professional conduct, evidence rules and ethics opinions checked
 - Cases checked
 - Corrections made to the reference files on October 30, 2026
-- `[VERIFY]` list: unconfirmed, jurisdiction-dependent or practice statements
 
 ## Statutes and regulations checked
 
@@ -73,29 +72,3 @@ Checked on October 30, 2026. Re-check before relying on any rule in a letter tha
 | `TEMPLATE.md` (fix pass) | A `policy-limits` branch that was itself a time-limited offer to settle for the limits, with a lapse date, a "fiduciary duty to settle" statement and a counteroffer-is-rejection sentence | Replaced by an `insurer-claim` branch that presents the claim, makes no offer and sets no lapse date; every offer to a liability insurer, and every pre-answer attorney offer on a Georgia motor-vehicle injury claim (O.C.G.A. § 9-11-67.1(b)), routes to `bad-faith-demand` |
 | `TEMPLATE.md` §7 (fix pass) | "Regulatory referral where appropriate" listed as a consequence of non-payment | Removed; such a referral tied to payment is what Cal. Rule 3.10 Comment [1] bars and what the skill's hard stop declines |
 | `ARCHETYPE-INDEX.md` (fix pass) | Rows 7-8 offered as patterns for policy-limits demands drafted here | Narrative and specials patterns only; their offers belong to `bad-faith-demand` |
-
-## `[VERIFY]` list: unconfirmed, jurisdiction-dependent or practice statements
-
-| Statement | Status and what would settle it |
-|---|---|
-| A defective 93A § 9(3) demand is a recurring ground for dismissal | Statute makes the demand a prerequisite; case law on dismissal not re-read |
-| Stowers practice: 30 days standard; 10-14 days a floor | Practice, not law; `bad-faith-demand` owns time-limited demands |
-| How each state characterizes the insurer's duty to settle (fiduciary or not) | Not checked; jurisdiction-specific |
-| Consequence of a defective CLRA notice (dismissal with or without prejudice) | Case law not re-read |
-| DTPA "substantially the same" and knowing/intentional case law | Statute read; case law not re-read |
-| SB 800 consequence of failing the prelitigation procedure; timelines beyond § 910(a) | Only §§ 910 and 945.5 read |
-| Florida med-mal tolling mechanics under § 766.106(4) | Subsection not read |
-| State debt-collection analogs (Cal. Rosenthal Act, N.Y. GBL § 600, Tex. Fin. Code ch. 392) | Not read |
-| Circuit case law on overshadowing | Statute and Regulation F read; this skill applies a stricter house rule |
-| Constitutional limits on retraction statutes | Not checked |
-| State tort-claims-act windows, EEOC charge deadlines, lemon-law notice rules | Only 28 U.S.C. § 2675(a) read |
-| Lanham Act: role of willfulness in a profits award in the governing circuit | Not checked |
-| Prejudgment interest rates and whether contract rates displace statutory rates | State-specific; not checked |
-| Billed versus paid medical specials and the collateral-source rule | State-specific; not checked |
-| UCC § 2-715(2) and *Hadley v. Baxendale* formulations | Not re-read |
-| Cal. Evid. Code § 1152 scope; 28 U.S.C. § 1391 venue; CLRA § 1780(e) and 42 U.S.C. § 1988 fee provisions | Cited in the references; text not re-read |
-| Model Rule 4.2 "authorized by law" covering a statutory notice served on a registered agent | Inference from Comment [5]; state rules vary |
-| Whether a "reserve all rights, including referral" sentence is permitted | Varies outside California. In California, Rule 3.10 Comment [1] bars stating or implying that criminal or administrative action will be pursued unless the matter settles, and Comment [2] says "all available legal remedies" alone is not a violation; whether a "referral" reservation implies the former turns on the facts (Comment [2]). This skill omits it everywhere as a house rule |
-| Extortion exposure for threats of public exposure outside California | *Flatley* applies California Penal Code §§ 518-523; other states' extortion statutes not read |
-| Qualified litigation privilege for pre-suit letters | Varies by state; not checked |
-| Effective-date and application rules of Georgia's 2024 amendment to § 9-11-67.1 | Current text read; transition rules not read |

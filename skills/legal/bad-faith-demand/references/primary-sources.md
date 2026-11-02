@@ -6,7 +6,6 @@
 2. Statutes and regulations
 3. Cases
 4. Corrections made on full-text review
-5. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -17,7 +16,7 @@ All checks were made on 2026-10-30. The first pass used web-search excerpts of o
 | Authority | URL read | Method; date | What it supports | Status |
 |---|---|---|---|---|
 | O.C.G.A. section 9-11-67.1 (Ga. L. 2024, p. 178, SB 83) | https://law.justia.com/codes/georgia/title-9/chapter-11/article-8/section-9-11-67-1/ (2025 Georgia Code, with history, Code Commission and editor's notes) | Full text via case.dev; 2026-10-30 | (a) bilateral contract; (b) window until answer, attorney-prepared offers, writing; (b)(1)(A)-(G) the only material terms, including the 30-day acceptance and 40-day payment and sworn-statement dates from receipt; (b)(2) records; (c) other terms immaterial; (d) acceptance of material terms in their entirety; (e) no required waiver; (f) clarification not a counteroffer, modification is not clarification, proposed release not a counteroffer; (g) certified mail or statutory overnight delivery, Code section reference, address plus fax or email; (h) payment methods; (i) safe harbor; (j) product liability excluded; SB 83 section 2 applicability to offers on or after April 22, 2024 and July 1, 2024 effective date | Confirmed; corrected (term wording and lettering, effective dates) |
-| O.C.G.A. section 9-11-12 (as amended by Ga. L. 2025, SB 68) | https://law.justia.com/codes/georgia/title-9/chapter-11/article-3/section-9-11-12/ | Full text via case.dev; 2026-10-30 | (j): discovery stayed while a pre-answer motion to dismiss is pending | Confirmed; effect on the 9-11-67.1(b) window `[VERIFY]` |
+| O.C.G.A. section 9-11-12 (as amended by Ga. L. 2025, SB 68) | https://law.justia.com/codes/georgia/title-9/chapter-11/article-3/section-9-11-12/ | Full text via case.dev; 2026-10-30 | (j): discovery stayed while a pre-answer motion to dismiss is pending | Confirmed; effect on the 9-11-67.1(b) window not confirmed here |
 | O.C.G.A. section 9-11-68 | https://law.justia.com/codes/georgia/title-9/chapter-11/article-8/section-9-11-68/ | Full text via case.dev; 2026-10-30 | Offer of settlement in litigation: served more than 30 days after service of the complaint, certified mail or statutory overnight delivery, open 30 days, 75 and 125 percent fee thresholds | Confirmed (spot-check of an excerpt-confirmed row) |
 | Cal. Code Civ. Proc. sections 999-999.5 (Stats. 2022, ch. 719, SB 1155) | https://law.justia.com/codes/california/code-ccp/part-2/title-14/chapter-3-2/section-999/ and sections 999-1 to 999-5 at the same path (2025 California Code) | Full text via case.dev; 2026-10-30 | 999(b)(2) definition: pre-complaint or pre-arbitration offer; 999.1(a)-(g) terms, 30 or 33 days from transmission by method; 999.2 designated address or assigned representative; 999.3 written acceptance, clarification not a counteroffer, written basis for non-acceptance; 999.4(a) substantial compliance, (b) unrepresented claimant; 999.5 auto, motor vehicle, homeowner, commercial premises policies; demands on or after Jan. 1, 2023 | Confirmed |
 | RSMo section 537.058 (L. 2017, H.B. 339 & 714) | https://revisor.mo.gov/main/OneSection.aspx?section=537.058 | Full text via case.dev; 2026-10-30 | Subsection 2: writing, section reference, certified mail return receipt, and all eight material terms; subsection 3 provider and employer lists with authorizations; subsection 4 written acceptance delivered or postmarked; subsection 5 payment not less than 10 days after executed release; subsection 6 no application within 90 days of jury trial; subsection 7 consequence in assignee or for-benefit suits; effective Aug. 28, 2017, no later amendment | Confirmed |
@@ -66,22 +65,3 @@ All checks were made on 2026-10-30. The first pass used web-search excerpts of o
 | Hughes | "Correspondence that is not a clear time-limited demand does not trigger" the duty; multi-claimant rule from commentary | Valid offer within limits triggers the duty; no deadline meant no notice; Miller does not require settling part of multiple claims | Hughes opinion |
 | McAllen | Docket number; "check naming the hospital as a co-payee" | 433 S.W.3d 535; joint check deposited without the hospital's endorsement | McAllen opinion |
 | Garcia pin | 849 for the release requirement | 848-49 for the release requirement; 849 for the three prerequisites | Harvard Caselaw scan of 876 S.W.2d |
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Which 9-11-67.1 text governs an offer made April 22 to June 30, 2024 | Session law applicability date and Act effective date conflict; Code Commission flags it without resolving it | Georgia appellate decision on that window |
-| Effect of Ga. L. 2025, SB 68 (pre-answer motion to dismiss) on the 9-11-67.1(b) window | 9-11-67.1(b) still keys the window to the answer; no decision applies it to a pending motion to dismiss | Georgia appellate decisions |
-| Reductions of Medicare, Medicaid, ERISA and hospital liens | Payer-specific and state-specific | Governing statute, regulation or plan |
-| Standing to release: personal representative, wrongful-death beneficiaries, guardian and court approval rules | State law varies | Governing state statutes |
-| CMS position on future medicals in liability settlements | Not researched | Current CMS guidance |
-| Partial-insured releases (releasing the driver but not the owner) | State law varies | Controlling state cases |
-| Derivative claims sharing the per-person limit | Policy wording and state law | Policy and state cases |
-| Hospital liens outside Texas, workers' compensation and state Medicaid lien statutes | Not researched state by state | Governing state statutes |
-| Medicare status-check or reporting request as a non-counteroffer term | Practice, not rule | State case law on acceptance |
-| Weekend or holiday rollover of statutory demand windows | None of 9-11-67.1, 999.1 or 537.058 addresses it | Each state's general time-computation statute |
-| Clarification requests as counteroffers outside California and Georgia | State law varies | Controlling state cases |
-| Assignment and direct-action rules for failure-to-settle claims | State law varies | Controlling state law |
-| Other states' time-limited demand statutes | Not researched | State code search on the date of drafting |
-| Holdings marked "from commentary" or "from excerpts" in the Cases table (Stowers, Soriano, Comunale, Gruenberg, Harvey, Gallardo) | Opinions not read in full | The opinion text |

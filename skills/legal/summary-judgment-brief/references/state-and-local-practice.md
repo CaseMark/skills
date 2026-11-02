@@ -11,7 +11,7 @@
 7. N.D. Cal. Civil Local Rules 56-2, 7-2 and 7-3
 8. Other forums
 
-Only the rules named below were read in primary text (see `references/primary-sources.md`). For any other district or state, read the current local rule, standing order and judge's individual practices on the drafting date and mark anything unread `[VERIFY]`. Never assume one district's statement-of-facts rule applies in another.
+Only the rules named below were read in primary text (see `references/primary-sources.md`). For any other district or state, read the current local rule, standing order and judge's individual practices on the drafting date and label anything unread "Confirm before use:". Never assume one district's statement-of-facts rule applies in another.
 
 ## 1. Order of reading
 
@@ -29,7 +29,7 @@ Each timed element gets its own row and its own trigger. Show date and weekday; 
 |---|---|---|---|---|
 | Federal default | Last day to move | Close of all discovery | 30 days after, unless a local rule or order sets a different time | FRCP 56(b) |
 | Federal (any) | Motion deadline actually in force | Scheduling order entry or amendment | As the order states | FRCP 16(b)(3)(A), (b)(4) |
-| Federal (any) | Opposition and reply | Service or filing of the motion, or a briefing order | Set by local rule or order `[VERIFY]` per district | Local rules |
+| Federal (any) | Opposition and reply | Service or filing of the motion, or a briefing order | Set by local rule or order; varies by district, so check the district's rule | Local rules |
 | California superior court | Earliest filing | General appearance of each party moved against | After 60 days, or earlier by court order | CCP 437c(a)(1) |
 | California | Notice of motion and papers served | The hearing date (count back) | At least 81 days; plus 5 days if mailed within California, 10 if mailed elsewhere in the U.S., 20 if outside the U.S.; plus 2 court days for fax, express mail or overnight delivery | CCP 437c(a)(2) |
 | California | Latest hearing | The trial date (count back) | No later than 30 days before trial unless the court for good cause orders otherwise | CCP 437c(a)(3) |
@@ -41,7 +41,7 @@ Each timed element gets its own row and its own trigger. Show date and weekday; 
 | Texas (2026) | Written ruling | Hearing or submission date | Within 90 days after | Tex. R. Civ. P. 166a(i) (2026) |
 | New York supreme court | Last day to move | Filing of the note of issue | 120 days after, unless the court sets a date (not earlier than 30 days after); later only with leave on good cause shown | CPLR 3212(a) |
 
-California's computation rules (CCP 12 and 12a) and how they apply when counting backward from a hearing are `[VERIFY]`; when the margin is a day or two, say so and recommend the earlier date.
+California's computation rules (CCP 12 and 12a) and how they apply when counting backward from a hearing are not confirmed here, so check them on the drafting date; when the margin is a day or two, say so and recommend the earlier date.
 
 ## 3. S.D.N.Y. and E.D.N.Y. Local Civil Rule 56.1 (Joint Local Rules effective January 2, 2026)
 
@@ -52,7 +52,7 @@ California's computation rules (CCP 12 and 12a) and how they apply when counting
 - (e) Where all parties have counsel, the movant provides an electronic word-processing copy, and the counterstatement reproduces each movant entry with the response directly beneath it.
 - The 2024 Committee Note says each counterstatement paragraph must admit or deny the truth of the corresponding paragraph.
 - A deemed admission does not win the motion by itself, and an assertion the record does not support is disregarded (Holtz; Vermont Teddy Bear; see `references/rule-56-standards.md`).
-- A July 1, 2026 notice proposed amending 56.1 to bar incorporating the statement by reference into briefs; whether it has been adopted is `[VERIFY]`. Do not incorporate the statement by reference in the meantime; put the argument in the brief.
+- A July 1, 2026 notice proposed amending 56.1 to bar incorporating the statement by reference into briefs; whether it has been adopted is not confirmed here; check the current rule. Do not incorporate the statement by reference in the meantime; put the argument in the brief.
 
 Response vocabulary for each paragraph: "Admitted."; "Admitted for purposes of this motion only."; "Denied." followed by the controverting evidence by pinpoint; "Admitted in part and denied in part" with the split stated; "Denied: the cited material does not support the assertion" quoting the cited page and line (Rule 56(c)(1)(B)); an admissibility objection under Rule 56(c)(2) stated in the same paragraph. Never "Disputed" alone, never argument without evidence, never a blanket denial.
 
@@ -81,7 +81,7 @@ Continuance: if opposition declarations show facts essential to justify oppositi
 
 ## 5. Texas: Rule 166a (Misc. Docket No. 26-9012, final approval Feb. 27, 2026; effective March 1, 2026)
 
-- Applies only to a motion filed on or after March 1, 2026; an older motion follows the prior rule, whose hearing-based deadlines are `[VERIFY]` from the pre-2026 text. The 2026 comment says that, other than the deadline changes, the rewrite is not intended to change the law substantively.
+- Applies only to a motion filed on or after March 1, 2026; an older motion follows the prior rule, whose hearing-based deadlines are not confirmed here (check the pre-2026 text). The 2026 comment says that, other than the deadline changes, the rewrite is not intended to change the law substantively.
 - Title must be "Traditional Motion for Summary Judgment," "No-Evidence Motion for Summary Judgment," or "Combined Motion for Traditional and No-Evidence Summary Judgment" (a wrong title is not grounds for denial); any oral-hearing request goes in the title.
 - A traditional motion states specific grounds; a no-evidence motion states the elements as to which there is no evidence and may be filed only after adequate time for discovery. The 1997 comment: no conclusory or general no-evidence challenges.
 - Response (166a(d)): within 21 days after the motion is filed; the nonmovant must produce any evidence supporting it. A nonmovant needing more time files an affidavit or declaration specifying the reasons (166a(d)(3)). Reply (166a(e)): within 7 days after the response; no new or independent grounds.
@@ -92,7 +92,7 @@ Continuance: if opposition declarations show facts essential to justify oppositi
 
 - CPLR 3212(a): a party may move after issue is joined; the court may set a cutoff no earlier than 30 days after the note of issue; if it sets none, the motion must be made no later than 120 days after the note of issue, except with leave on good cause shown.
 - Brill v. City of New York, 2 N.Y.3d 648, 652 (2004): good cause for a late motion requires a satisfactory explanation for the delay; merit alone does not excuse it.
-- Whether a statement of material facts is required (Uniform Rule 202.8-g and the individual justice's part rules) is `[VERIFY]` on the drafting date.
+- Whether a statement of material facts is required (Uniform Rule 202.8-g and the individual justice's part rules) is not confirmed here; check it on the drafting date.
 
 ## 7. N.D. Cal. Civil Local Rules (read on the court's site 2026-10-30)
 
@@ -102,4 +102,4 @@ Continuance: if opposition declarations show facts essential to justify oppositi
 
 ## 8. Other forums
 
-For every other district and state: record the rule searched, the date and the result; mark statement-of-facts format, deemed-admission consequence, notice period, response and reply deadlines `[VERIFY]`; draft to the stricter reading where feasible and list the item as a Critical open item that blocks filing.
+For every other district and state: record the rule searched, the date and the result; mark statement-of-facts format, deemed-admission consequence, notice period, response and reply deadlines "Confirm before use:"; draft to the stricter reading where feasible and list the item as a Critical open item that blocks filing.

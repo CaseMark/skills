@@ -51,7 +51,7 @@ Coverage opinions go wrong in predictable places. The analyst reads a specimen f
 1. **Draft only.** Nothing is sent, filed or communicated to the other side by this skill. Every output is a draft for attorney review and is never called final.
 2. **Source-review gate.** Never call a document missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (the date the insured learned of the occurrence), *source conflict* (scheduled edition differs from the form in the file), *unverified external lookup* (a state rule not in `references/primary-sources.md`), or *policy election* (a choice for the client or counsel, such as filing a declaratory action).
 3. **Hierarchy of authority.** For the contract: the issued policy (certified copy or complete issued forms matching the schedule), then the underwriting file and binder, then specimen forms, then broker summaries, certificates and letters quoting the policy. For the claim: the operative complaint as filed, then demand letters, then claim notes and interviews. For law: the governing state's statute and highest court, then its intermediate courts, then federal predictions, then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every policy quotation carries form number, edition, section and page; every fact carries a source locator (document and page or paragraph) or `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`, and a state's rule is never attributed to that state by name unless it is in the register. Re-read the current text of each statute relied on before the opinion goes out. Never invent a case, statute, form provision or pin cite.
+4. **Citation discipline.** Every policy quotation carries form number, edition, section and page; every fact carries a source locator (document and page or paragraph) or `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or a "Confirm before use:" label, and a state's rule is never attributed to that state by name unless it is in the register. Re-read the current text of each statute relied on before the opinion goes out. Never invent a case, statute, form provision or pin cite.
 5. **Know the client first.** Identify who the client is (insurer, named insured, additional insured, excess carrier) and the requester's role before any analysis. Never draft coverage advice for the insurer against an insured the drafter represents in the underlying suit, and never use information from the insured's defense to build a coverage defense.
 6. **Governing law before any rule.** Decide choice of law, then apply that state's rule on which materials decide the duty to defend. Use extrinsic facts only as that rule allows; where the rule is unconfirmed, analyze the complaint-only and extrinsic-facts readings and show where they differ.
 7. **Insuring agreement before exclusions.** Analyze insured status, "suit", "damages", injury, "occurrence", territory, trigger and known injury first; then exclusions and their exceptions; then conditions; then other insurance and limits. State who bears the burden at each stage under the governing law.
@@ -76,7 +76,7 @@ Collect, from documents where possible:
 9. Any settlement, judgment or arbitration award already reached.
 10. The question asked (defense only, defense and indemnity, review of a letter, tender response) and the deadline.
 
-**Defaults if not supplied** (a governing statute or conflict rule overrides any default it addresses): governing law is the state where the policy was issued to the named insured, marked `[VERIFY]` and tested against the forum's rule; duty-to-defend materials rule unconfirmed, so both readings are shown; indemnity "not yet determinable"; reservation sent as soon as the ground and facts are confirmed, unless Florida 627.426 or New York 3420(d)(2) sets the clock; formal tone.
+**Defaults if not supplied** (a governing statute or conflict rule overrides any default it addresses): governing law is the state where the policy was issued to the named insured, labelled "Confirm before use:" and tested against the forum's rule; duty-to-defend materials rule unconfirmed, so both readings are shown; indemnity "not yet determinable"; reservation sent as soon as the ground and facts are confirmed, unless Florida 627.426 or New York 3420(d)(2) sets the clock; formal tone.
 
 **Hard stops (label the opinion status "Declined: hard stop"; produce the request, routing or alternative, not the requested opinion):**
 - No policy wording at all (only a certificate, binder, quote, broker summary or a letter quoting the policy): produce the policy request and a list of issues to test once it arrives.
@@ -120,7 +120,7 @@ Read `references/notice-reservation-and-allocation.md`, section 6. Build the pol
 
 ## Step 9: Positions, Indemnity and Assembly
 
-Assign one duty-to-defend label and one duty-to-indemnify label per policy and period from `references/output-template.md`, Part 1, and the opinion status. List the facts that will decide indemnity, the blocking issues ranked by severity, the reconciliation table, next steps, hand-offs and every `[VERIFY]` item with what would settle it.
+Assign one duty-to-defend label and one duty-to-indemnify label per policy and period from `references/output-template.md`, Part 1, and the opinion status. List the facts that will decide indemnity, the blocking issues ranked by severity, the reconciliation table, next steps, hand-offs and every "Confirm before use:" item with what would settle it.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -149,7 +149,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 9. Late notice is not treated as a defense without the governing prejudice rule and burden, or both readings where unconfirmed.
 10. Other-insurance and allocation analysis does not reduce the defense owed to the insured, and tenders are recommended.
 11. Defense and indemnity labels are used exactly as in `references/output-template.md`, one per policy and period.
-12. Every legal statement has a citation from `references/primary-sources.md` or `[VERIFY]`; no state is named for an unverified rule.
+12. Every legal statement has a citation from `references/primary-sources.md` or a "Confirm before use:" label; no state is named for an unverified rule.
 13. The output closes with the draft-for-attorney-review line.
 
 ## Guidelines
@@ -186,4 +186,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/defense-and-indemnity-rules.md`: order of analysis and burdens, policy reconciliation, choice of law, duty-to-defend materials rules by state, insuring agreement checklist, trigger and known injury, exclusions and exceptions, mixed actions, indemnity.
 - `references/notice-reservation-and-allocation.md`: notice and late-notice prejudice, clocks table, reservation and disclaimer content, waiver and estoppel, client identity and independent counsel, other insurance and allocation.
 - `references/output-template.md`: deliverable layout, status and position labels, forms reconciliation, clock format, blocking issues, reconciliation table, letter outline, hand-off table.
-- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked.

@@ -5,7 +5,6 @@
 1. How these sources were checked
 2. Statutes, rules and policy forms
 3. Cases
-4. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -44,25 +43,3 @@ All checks were made on 2026-10-30 through the case.dev research API. "Full text
 | Matter of Viking Pump, Inc., 27 N.Y.3d 244 (2016) | nycourts.gov/reporter/3dseries/2016/2016_03413.htm | Full text via case.dev | Policy language controls allocation and exhaustion; all sums and vertical exhaustion applied to policies with non-cumulation and prior-insurance provisions | 2026-10-30 |
 | State Farm Mut. Auto. Ins. Co. v. Federal Ins. Co., 72 Cal. App. 4th 1422 (1999) | law.justia.com (Cal. App. 4th vol. 72) | Full text via case.dev; citation verified | Absent a conflict precluding it, insurer-retained defense counsel has a dual attorney-client relationship with insurer and insured (citing Unigard) | 2026-10-30 |
 | Employers Ins. of Wausau v. Ehlco Liquidating Trust, 186 Ill. 2d 127 (1999) | law.justia.com (Ill. 1999, No. 84684) | Full text via case.dev | Insurer must defend under reservation or seek declaratory judgment; otherwise estopped from policy defenses if later found to have wrongfully denied, including late-notice defenses; no estoppel where no duty to defend | 2026-10-30 |
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Exact effective date of L. 2008, ch. 388 (commonly reported as January 17, 2009); relevant only to policies issued in 2008 or 2009 | Section 8 read only as quoted by the Insurance Department; enactment date not read | Chapter law text with approval date |
-| Choice-of-law rules in forums other than New York | Not researched | Forum's highest-court conflict decisions |
-| Duty-to-defend materials rule (complaint only, extrinsic facts, or both) in states other than Texas, California, New York and Illinois | Not researched | Controlling state decisions |
-| Late-notice prejudice requirement and burden outside New York | Not researched | Controlling state decisions or statute |
-| Whether missing a claims-made reporting deadline requires prejudice outside New York | Not researched | Controlling state decisions |
-| Trigger theory for continuous injury outside California | Not researched | Controlling state decisions |
-| Allocation method (pro rata, all sums, uninsured years) outside New York | Not researched | Controlling state decisions |
-| Whether other-insurance clauses apply between successive policy periods | State law varies | Controlling state decisions |
-| Whether a defense of the whole suit is owed and any reimbursement right outside California and New York | Not researched | Controlling state decisions |
-| Waiver or estoppel from defending without a timely reservation outside Illinois and New York | Not researched | Controlling state decisions |
-| Independent counsel rules outside California | Not researched | State statute, decisions and ethics opinions |
-| Insurability of punitive damages by state | Public policy varies | Controlling state decisions |
-| Whether faulty workmanship is an "occurrence" | State split | Controlling state decisions |
-| Selective or targeted tender consequences | State law varies | Controlling state decisions |
-| Whether defense counsel represents the insurer as well as the insured (tripartite relationship) outside California | Not researched | Controlling state decisions and ethics opinions |
-| Adopted text of Model Rule 1.8(f) and 1.6 in the governing state | Model text only was read | State rules of professional conduct |
-| Current ISO editions and state-specific amendatory endorsements | Only the CG 00 01 04 13 specimen was read | The issued policy's forms schedule and forms |

@@ -10,7 +10,7 @@ Produce the header and the six parts in this order. Plain sentences; detail in t
 4. Part 3. Reconciliation table (fact to record)
 5. Part 4. Draft brief
 6. Part 5. Statement of facts or responsive statement, objections, Rule 56(d) declaration
-7. Part 6. Hand-offs, open items and `[VERIFY]` list
+7. Part 6. Hand-offs, open items and confirm-before-use list
 
 ## Header
 
@@ -83,7 +83,7 @@ LEGAL STANDARD
 
 ARGUMENT
   I. [Claim or defense] fails / is established because [element]
-     A. Governing rule (substantive law, cited or [VERIFY])
+     A. Governing rule (substantive law, cited or labelled "Confirm before use:")
      B. Record application, fact by fact, with statement paragraphs
      C. The opponent's best evidence, credited, and why the element still fails (movant),
         or why it creates a genuine dispute (nonmovant)
@@ -97,7 +97,7 @@ CONCLUSION AND RELIEF
 [Signature block; certificate of compliance with word or page limits where required; certificate of service]
 ```
 
-The brief does not ask the court to weigh credibility, does not cite a fact missing from the statement, and does not cite authority absent from `references/primary-sources.md` without `[VERIFY]`.
+The brief does not ask the court to weigh credibility, does not cite a fact missing from the statement, and does not cite authority absent from `references/primary-sources.md` without a "Confirm before use:" label.
 
 ## Part 5. Statement of facts or responsive statement, objections, Rule 56(d) declaration
 
@@ -106,7 +106,7 @@ The brief does not ask the court to weigh credibility, does not cite a fact miss
 3. **Evidentiary objections**: paragraph, material, ground (hearsay, foundation, personal knowledge, authentication), the admissible form the proponent would need, and where the objection appears in the papers.
 4. **Rule 56(d) declaration outline** (when needed): facts sought and how; how they would create a genuine dispute on which element; efforts made with dates; why unsuccessful; the order requested (defer, deny, or allow time).
 
-## Part 6. Hand-offs, open items and `[VERIFY]` list
+## Part 6. Hand-offs, open items and confirm-before-use list
 
 **Hand-offs.** A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -124,6 +124,6 @@ The brief does not ask the court to weigh credibility, does not cite a fact miss
 | # | Open item | Depends on | Owner | Next action | Blocks filing? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm-before-use list:** each statement labelled "Confirm before use:", why it is unconfirmed, and what would settle it.
 
 Close with: "Draft for attorney review. Not to be filed until counsel confirms the governing rules and deadlines, every record citation, and the client's authority for any concession."

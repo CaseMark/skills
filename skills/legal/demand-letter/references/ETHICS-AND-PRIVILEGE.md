@@ -2,7 +2,7 @@
 
 Read this file before Step 8 of `../SKILL.md` (tone calibration) and whenever any of the triggers below fires. A demand letter is simultaneously a settlement instrument, a future exhibit, and a regulated communication. Ethics violations and missed disclosures are not style issues — they are grounds for bar discipline, statutory damages against the sender, and dismissal of the underlying claim.
 
-All rule references are to the ABA Model Rules of Professional Conduct. Every state has adopted its own variant; conform to the sending attorney's actual state rules. Citations here are defaults — `[VERIFY]` each one against the governing state. The Model Rule text quoted below was re-read on the ABA site on October 30, 2026 (see `primary-sources.md`).
+All rule references are to the ABA Model Rules of Professional Conduct. Every state has adopted its own variant; conform to the sending attorney's actual state rules. Citations here are defaults — check each one against the governing state. The Model Rule text quoted below was re-read on the ABA site on October 30, 2026 (see `primary-sources.md`).
 
 ## Contents
 
@@ -46,7 +46,7 @@ All rule references are to the ABA Model Rules of Professional Conduct. Every st
 - Every factual assertion → traceable to an exhibit or source, or labeled `[UNVERIFIED — client-provided]`.
 - Fee claim → identify contract section or statutory subsection that authorizes it; if neither, drop the fee claim.
 
-**Anti-hallucination rule.** If `legal-research` or `citation-bluebook` has not been run and an authority is uncertain, mark it `[VERIFY]` inline. Do not publish an unverified citation.
+**Anti-hallucination rule.** If `legal-research` or `citation-bluebook` has not been run and an authority is uncertain, label it "(confirm before use)" inline. Do not publish an unverified citation.
 
 ## Model Rule 4.2 — Communication with Represented Persons
 
@@ -73,7 +73,7 @@ All rule references are to the ABA Model Rules of Professional Conduct. Every st
 
 **In demand-letter context — the "criminal-threat leverage" rule.** The rules differ by state, and this skill applies the strictest version as its house rule.
 - The ABA Model Rules contain no counterpart to DR 7-105(A) of the former Model Code of Professional Responsibility, which barred threatening criminal charges solely to gain an advantage in a civil matter. ABA Formal Opinion 92-363 (1992) reads the Model Rules to permit raising possible criminal charges only when the criminal matter is related to the civil claim, both are warranted by law and fact, and no improper influence over the criminal process is suggested; Rules 4.1, 8.4(b)-(d) and state extortion statutes still apply.
-- Several states keep an express ban. California Rule of Professional Conduct 3.10 (effective November 1, 2018): a lawyer shall not threaten to present criminal, administrative, or disciplinary charges to obtain an advantage in a civil dispute. "Administrative charges" include a complaint to any body that can suspend a license or impose a fine. Identify the sending lawyer's state rule `[VERIFY]` before relying on the ABA position.
+- Several states keep an express ban. California Rule of Professional Conduct 3.10 (effective November 1, 2018): a lawyer shall not threaten to present criminal, administrative, or disciplinary charges to obtain an advantage in a civil dispute. "Administrative charges" include a complaint to any body that can suspend a license or impose a fine. Identify the sending lawyer's state rule before relying on the ABA position.
 
 **Forbidden phrasings — never generate any of these.**
 - "Unless the sum of $X is paid, we will refer this matter to the [District Attorney | United States Attorney | FBI] for criminal prosecution."
@@ -82,14 +82,14 @@ All rule references are to the ABA Model Rules of Professional Conduct. Every st
 - "We will report this to the IRS as tax evasion if payment is not received."
 - "If you do not settle, we will file a bar complaint against you."
 - "We will contact your employer / licensing board / immigration authorities if you do not pay."
-- "Unless you pay, we will take this to the press / your customers / social media." A demand for money coupled with a threat to expose the recipient or accuse it of a crime can be criminal extortion even in a lawyer's pre-litigation letter: *Flatley v. Mauro*, 39 Cal. 4th 299 (2006), held a lawyer's demand letter and calls threatening worldwide media exposure and referral to authorities unless paid were extortion as a matter of law under Cal. Penal Code §§ 518, 519 and 523 (the court stressed its "specific and extreme circumstances"). State extortion statutes differ `[VERIFY]`.
+- "Unless you pay, we will take this to the press / your customers / social media." A demand for money coupled with a threat to expose the recipient or accuse it of a crime can be criminal extortion even in a lawyer's pre-litigation letter: *Flatley v. Mauro*, 39 Cal. 4th 299 (2006), held a lawyer's demand letter and calls threatening worldwide media exposure and referral to authorities unless paid were extortion as a matter of law under Cal. Penal Code §§ 518, 519 and 523 (the court stressed its "specific and extreme circumstances"). State extortion statutes differ; check the governing state's statute.
 
 **Permissible phrasings — what you CAN say.**
 - "This letter does not constitute a threat of criminal prosecution, and nothing herein should be construed as one." (Standard prophylactic — include in §7 of the template when any conduct described could have criminal overlap.)
 - Factual descriptions of conduct that happens to be criminal, when the letter seeks only civil remedies, without a conditional threat linking non-payment to referral.
 - Regulatory references as information ("We note that [agency] maintains jurisdiction over this conduct") — but not as leverage.
 
-**Gray area (jurisdiction-specific `[VERIFY]`).** Statements that "we reserve all rights, including referral to regulatory authorities" are permissible in some jurisdictions, prohibited in others. When in doubt, omit.
+**Gray area (jurisdiction-specific; check the governing state's rule).** Statements that "we reserve all rights, including referral to regulatory authorities" are permissible in some jurisdictions, prohibited in others. When in doubt, omit.
 
 ---
 
@@ -115,7 +115,7 @@ Federal Rule of Evidence 408 (and most state analogs) excludes offers to comprom
 
 - **Admissible for other purposes.** Statements in the letter can still be used to prove bias, negate a contention of undue delay, prove effort to obstruct a criminal investigation, etc.
 - **Admissible in later disputes.** If the demand letter becomes evidence in a different dispute (e.g., a coverage dispute between insurer and insured), FRE 408 may not exclude it.
-- **State variation.** State rules differ in scope. Georgia's current rule is O.C.G.A. § 24-4-408 (2013 evidence code, replacing former § 24-3-37); its subsection (b) excludes conduct or statements made in compromise negotiations without FRE 408's purpose limits, subject to the "another purpose" exceptions in subsection (c). California's analog is Evidence Code § 1152 `[VERIFY]`. Confirm the governing rule before relying on it.
+- **State variation.** State rules differ in scope. Georgia's current rule is O.C.G.A. § 24-4-408 (2013 evidence code, replacing former § 24-3-37); its subsection (b) excludes conduct or statements made in compromise negotiations without FRE 408's purpose limits, subject to the "another purpose" exceptions in subsection (c). California's analog is Evidence Code § 1152 (check the current text). Confirm the governing rule before relying on it.
 - **Business torts.** Some jurisdictions admit demand-letter language to prove a bad-faith-refusal-to-settle claim against an insurer — the whole point of a Stowers/Holt letter is that the insurer's response is admissible in the subsequent coverage action.
 
 **Drafter's rule.** Draft every sentence of every demand letter as if it is admissible. The FRE 408 label is a signal to the recipient and a modest hedge at trial — not a shield against a well-drafted admissibility argument. Factual admissions, conclusory accusations, and defamatory statements belong nowhere in a demand letter, labeled or not.
@@ -219,7 +219,7 @@ Statements in a demand letter are generally protected by a **qualified litigatio
 ## Pre-send checklist (tied to `../SKILL.md` Quality Audit)
 
 - [ ] Rule 3.1: every pleaded claim has source-cited factual support for every element.
-- [ ] Rule 4.1: every citation verified via `legal-research` / `citation-bluebook` or marked `[VERIFY]`.
+- [ ] Rule 4.1: every citation verified via `legal-research` / `citation-bluebook` or labelled "(confirm before use)".
 - [ ] Rule 4.2: if recipient is represented, letter addressed and served to counsel.
 - [ ] Rule 8.4: no criminal-threat leverage; prophylactic disclaimer included where conduct has criminal overlap.
 - [ ] Fee claims backed by verified contract or statute.

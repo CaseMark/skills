@@ -23,7 +23,7 @@ tags:
 
 # Pre-Suit Demand Letter
 
-Produces a draft pre-suit demand letter, with drafting notes (source map, reconciliation table, gap register, clock table, hand-offs and `[VERIFY]` list), in which every assertion is sourced, every theory is verified or flagged, damages carry their methodology, and the deadline is computed from the right trigger. Everything it produces is a draft for review, signature and service by a licensed attorney; this skill drafts, it does not sign, and it does not send. This file is the controller; operational detail lives in `references/`, opened when a step says so.
+Produces a draft pre-suit demand letter, with drafting notes (source map, reconciliation table, gap register, clock table, hand-offs and confirm-before-use list), in which every assertion is sourced, every theory is verified or flagged, damages carry their methodology, and the deadline is computed from the right trigger. Everything it produces is a draft for review, signature and service by a licensed attorney; this skill drafts, it does not sign, and it does not send. This file is the controller; operational detail lives in `references/`, opened when a step says so.
 
 ## Why This Skill Exists
 
@@ -48,7 +48,7 @@ A demand letter is simultaneously a settlement instrument and a future exhibit. 
 1. **Draft only.** Never state or imply that a letter is ready to send. Attorney review, signature and service are required; if the user says "send it," stop and say so.
 2. **Source-review gate.** Before calling any document or fact missing, check what was provided and try to open, extract or OCR it. Classify every remaining gap as an unknown fact, a source conflict, an unverified external lookup (Secretary of State, registered agent, statute currency), or a policy election (client choices such as forum, FRE 408 posture, the demand number).
 3. **Hierarchy of authority.** Executed contract and amendments, then statute and regulation text, then the underlying records (invoices, bank records, medical records), then correspondence, then client summaries, spreadsheets and emails. When sources conflict, name both in the reconciliation table, say which controls and why, and use the controlling value. Never resolve a conflict silently.
-4. **Citation discipline.** Every factual assertion and damages line carries a source locator (exhibit, document, page) or `[UNVERIFIED — client-provided]`. Every statute and case is verified through `legal-research` and `citation-bluebook` or marked `[VERIFY]`. Never invent a citation, registered agent, address or verdict.
+4. **Citation discipline.** Every factual assertion and damages line carries a source locator (exhibit, document, page) or `[UNVERIFIED — client-provided]`. Every statute and case is verified through `legal-research` and `citation-bluebook` or labelled "(confirm before use)". Never invent a citation, registered agent, address or verdict.
 5. **Elements before theories.** Plead a cause of action only when §2 has at least one sourced fact for each element (Model Rule 3.1). If an element is unsupported, drop the theory and tell the user.
 6. **The statute overrides the template.** Where a pre-suit regime applies, its contents, service method and waiting period control over every default in this file.
 7. **No threats of criminal, administrative or disciplinary charges, or of public exposure,** to gain advantage in the civil matter, in any form, including "reserve the right to refer" phrasing (house rule; California Rule 3.10 and its Comment [1] bar stating or implying that such charges will be pursued unless the matter settles; a threat of exposure tied to payment can be extortion).
@@ -105,12 +105,12 @@ Ask every time unless the user says "use defaults" or "just draft." Gather:
 ## Step 3: Articulate Legal Theories
 
 - State primary claims tied to the requested remedy; do not over-plead.
-- Cite specific statutory sections for UDAP and fee-shifting hooks; mark unverified citations `[VERIFY]`.
+- Cite specific statutory sections for UDAP and fee-shifting hooks; label unverified citations "(confirm before use)".
 - Never assert fee recovery without a verified contractual or statutory basis (`references/ETHICS-AND-PRIVILEGE.md`, fee-recovery rule).
 
 **Primary-vs-secondary rule.** The primary claim is the one whose elements are best supported by §2 facts and whose remedy matches the client objective (Checkpoint A item 8). Add a secondary claim only if it independently unlocks a remedy (fees, punitive, treble) or survives a foreseeable defense to the primary.
 
-**Verification trigger.** Every statutory citation goes to `legal-research`; every case citation to `citation-bluebook`. Unverified stays `[VERIFY]` inline.
+**Verification trigger.** Every statutory citation goes to `legal-research`; every case citation to `citation-bluebook`. Unverified stays labelled "(confirm before use)" inline.
 
 ## Step 4: Quantify Damages
 
@@ -172,14 +172,14 @@ Confirm each item before responding. If one fails, fix the draft.
 3. The contractual notice method is used and stated; the deadline is not shorter than any cure period.
 4. Every factual assertion and damages line has a source locator or `[UNVERIFIED — client-provided]`, and the source map in the drafting notes covers all of them.
 5. Every pleaded claim has one sourced fact per element; no conclusory labels without supporting facts.
-6. Every citation is verified through `legal-research` or `citation-bluebook`, or marked `[VERIFY]`.
+6. Every citation is verified through `legal-research` or `citation-bluebook`, or labelled "(confirm before use)".
 7. Damages reconcile: line items sum to the total; each multiplier names its conduct finding and base; interest shows rate, accrual date and source; fees cite a verified clause or subsection; mitigation and credits addressed.
 8. Each deadline is a calendar date computed from its own trigger in the clock table; statutory periods override the 30-day default.
 9. No threat of criminal, administrative or disciplinary charges, or of public exposure, tied to payment; the prophylactic sentence is included where conduct has criminal overlap.
 10. FDCPA and Regulation F content (mini-Miranda, validation information, validation period end date, no overshadowing deadline) is present whenever the sender is a debt collector on a consumer debt.
 11. FRE 408 posture decided under the `references/ETHICS-AND-PRIVILEGE.md` rule; preservation paragraph present, with `spoliation-letter` invoked for high-risk evidence.
 12. Exemplar consulted (name the `assets/examples/` file) or no-match stated; one template branch only; signature block carries the bar number.
-13. Drafting notes include the reconciliation table, gap register, hand-offs and `[VERIFY]` list, and the response says attorney review is required before sending.
+13. Drafting notes include the reconciliation table, gap register, hand-offs and confirm-before-use list, and the response says attorney review is required before sending.
 
 ## Guidelines
 
@@ -225,4 +225,4 @@ Confirm each item before responding. If one fails, fix the draft.
 | `references/DAMAGES-METHODOLOGY.md` | Step 4: every damages category, multiplier base, interest and fees |
 | `references/ETHICS-AND-PRIVILEGE.md` | Steps 3, 7 and 8; represented parties, threats, FRE 408, FDCPA disclosures |
 | `references/ARCHETYPE-INDEX.md` | Step 1 exemplar lookup in `assets/examples/` |
-| `references/primary-sources.md` | Citing a statute or rule; what was checked, when, and the `[VERIFY]` list |
+| `references/primary-sources.md` | Citing a statute or rule; what was checked and when |

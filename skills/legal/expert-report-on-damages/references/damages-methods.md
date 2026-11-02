@@ -24,7 +24,7 @@ Working rules for building the damages analysis: choosing the measure, building 
 | Question | Why it matters | Who decides |
 |---|---|---|
 | Which claims survive (contract, tort, statute, IP), and which measure each allows (expectation, reliance, restitution, royalty, statutory) | A model that does not measure only the damages attributable to the liability theory fails (Comcast Corp. v. Behrend, 569 U.S. 27 (2013), decided at class certification; the principle that the model must match the theory is the useful part here) | Counsel instructs; expert records the instruction as an assumption |
-| Which entity is the plaintiff, and whose losses are being measured | A subsidiary cannot ordinarily recover a parent's, affiliate's or shareholder's losses; consolidated statements overstate a single entity's loss `[VERIFY: governing law on affiliate and shareholder losses]` | Counsel; expert uses entity-level data |
+| Which entity is the plaintiff, and whose losses are being measured | A subsidiary cannot ordinarily recover a parent's, affiliate's or shareholder's losses; consolidated statements overstate a single entity's loss; governing law on affiliate and shareholder losses varies, so check the governing law | Counsel; expert uses entity-level data |
 | Contract limits: consequential-damages waiver, limitation of liability, liquidated damages, exclusive remedy | They may cap or exclude whole categories | Counsel applies the clause; expert computes each category separately so the clause can be applied |
 | Period the law allows: limitations period, contract term, cure periods | Losses outside the period are not recoverable | Counsel; expert shows losses by period so any cut-off can be applied |
 
@@ -82,7 +82,7 @@ If a projection fails the tests, do not adopt it. Present a supported alternativ
 
 ## 5. New and unestablished businesses
 
-- Reasonable certainty: lost profits need not be proven with mathematical precision but may not be speculative. Texas: a new business is not barred merely because it is new; the question is whether profits can be shown by objective facts, figures or data (Texas Instruments, Inc. v. Teletron Energy Mgmt., Inc., 877 S.W.2d 276 (Tex. 1994); Holt Atherton). New York: lost profits of a new venture receive greater scrutiny and must have been within the parties' contemplation for a contract claim (Kenford Co. v. County of Erie, 67 N.Y.2d 257 (1986), as applied in Schonfeld v. Hilliard, 218 F.3d 164 (2d Cir. 2000)). California: the trial court acts as gatekeeper and may exclude a speculative market-share projection for a new venture (Sargon Enters., Inc. v. University of S. Cal., 55 Cal. 4th 747 (2012)). Other states: `[VERIFY]`.
+- Reasonable certainty: lost profits need not be proven with mathematical precision but may not be speculative. Texas: a new business is not barred merely because it is new; the question is whether profits can be shown by objective facts, figures or data (Texas Instruments, Inc. v. Teletron Energy Mgmt., Inc., 877 S.W.2d 276 (Tex. 1994); Holt Atherton). New York: lost profits of a new venture receive greater scrutiny and must have been within the parties' contemplation for a contract claim (Kenford Co. v. County of Erie, 67 N.Y.2d 257 (1986), as applied in Schonfeld v. Hilliard, 218 F.3d 164 (2d Cir. 2000)). California: the trial court acts as gatekeeper and may exclude a speculative market-share projection for a new venture (Sargon Enters., Inc. v. University of S. Cal., 55 Cal. 4th 747 (2012)). Other states vary; check the governing state's rule.
 - Where lost profits of a new venture are too speculative, the market value of a lost income-producing asset (a contract, license or business) may be a recoverable alternative measure (Schonfeld).
 - Useful evidence: the founders' track record in the same business, signed customer commitments, the plaintiff's own early results, a yardstick of comparable start-ups with their survival rate.
 
@@ -95,7 +95,7 @@ If a projection fails the tests, do not adopt it. Present a supported alternativ
 ## 7. Mitigation
 
 - The plaintiff cannot recover losses it reasonably could have avoided; actual mitigation earnings reduce damages (FJC Reference Guide, 4th ed., Mitigation of Losses). Whether mitigation efforts were reasonable is a factfinder question; the expert quantifies.
-- Replacement business offsets the loss only if the plaintiff could not have had both. If it had capacity to serve the replacement customer and the lost one (a "lost volume" position), the replacement profit may not be an offset. That is a fact and law question: compute damages with and without the offset, state the capacity evidence, and flag it for counsel `[VERIFY: governing law on lost-volume claims]`.
+- Replacement business offsets the loss only if the plaintiff could not have had both. If it had capacity to serve the replacement customer and the lost one (a "lost volume" position), the replacement profit may not be an offset. That is a fact and law question: compute damages with and without the offset, state the capacity evidence, and flag it for counsel (governing law on lost-volume claims varies; check the governing law).
 - Measure the offset on the same incremental-margin basis and over the same months as the loss.
 
 ## 8. Overlap between damages categories
@@ -125,7 +125,7 @@ Comparing a value at one date with a sum at another date needs a stated interest
 - Whether prejudgment interest is awarded, from what date, at what rate and whether it compounds are legal questions governed by statute, contract or the court's discretion. Example: New York requires interest on a sum awarded for breach of contract, computed from the earliest ascertainable date or from each item's date, fixed in the verdict and computed by the clerk (N.Y. C.P.L.R. 5001), at 9 percent per year unless a statute provides otherwise (C.P.L.R. 5004). Patent: prejudgment interest should ordinarily be awarded under 35 U.S.C. 284 (General Motors Corp. v. Devex Corp., 461 U.S. 648 (1983)). Post-judgment interest in federal court runs under 28 U.S.C. 1961.
 - The expert does not opine that the plaintiff is entitled to interest or choose the statutory rate. Report damages before interest. If counsel instructs, add a separately labeled illustrative interest schedule stating the instructed rate, accrual dates and compounding.
 - Interest never runs on losses dated after the valuation date.
-- Taxes: when the loss and the award are taxed at the same rate, the adjustments cancel and pretax figures may be used; when treatment differs (capital gain against ordinary income; a non-taxable personal injury award against taxable wages), the difference is a disputed issue to address explicitly (FJC Reference Guide, 4th ed.) `[VERIFY: governing law on tax adjustment]`.
+- Taxes: when the loss and the award are taxed at the same rate, the adjustments cancel and pretax figures may be used; when treatment differs (capital gain against ordinary income; a non-taxable personal injury award against taxable wages), the difference is a disputed issue to address explicitly (FJC Reference Guide, 4th ed.); the governing law on tax adjustment varies, so check it.
 
 ## 11. Reasonable royalty and patent lost profits
 
@@ -137,7 +137,7 @@ Comparing a value at one date with a sum at another date needs a stated interest
 
 ## 12. Unjust enrichment and disgorgement
 
-- Measure the defendant's gain attributable to the wrong: revenue from the tainted sales less the costs the law allows to be deducted, apportioned to the wrongful element. Burden allocations differ by statute (trademark, copyright, trade secret, fiduciary duty) `[VERIFY: governing statute]`.
+- Measure the defendant's gain attributable to the wrong: revenue from the tainted sales less the costs the law allows to be deducted, apportioned to the wrongful element. Burden allocations differ by statute (trademark, copyright, trade secret, fiduciary duty); check the governing statute.
 - Do not add the defendant's gain to the plaintiff's lost profits on the same sales (section 8).
 
 ## 13. Personal economic loss

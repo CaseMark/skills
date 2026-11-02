@@ -35,7 +35,7 @@ The loss that naturally flows from the adverse party's conduct; the amount that 
 |---|---|---|---|
 | Invoices, purchase orders, payment records, proof of tender, contract price terms, market-value evidence | Contract price minus value received; or cost-to-complete; or repair/replacement cost; or (for personal injury) medical specials billed-and-paid | None required if documented by invoice/billing statement; mark `[UNVERIFIED — client-provided]` if client provides only a summary | Inline narrative if one category; table if combined with consequentials |
 
-**Personal injury specifics.** Medical specials have two numbers: **billed** and **paid**. Many jurisdictions limit recovery to the billed amount only if paid by the plaintiff or a non-collateral-source payer (collateral-source rule varies; `[VERIFY]`). In some jurisdictions, the paid amount is the admissible figure. Note both in the demand and state which number the demand is based on.
+**Personal injury specifics.** Medical specials have two numbers: **billed** and **paid**. Many jurisdictions limit recovery to the billed amount only if paid by the plaintiff or a non-collateral-source payer (collateral-source rule varies by jurisdiction; check the governing state's rule). In some jurisdictions, the paid amount is the admissible figure. Note both in the demand and state which number the demand is based on.
 
 **Commercial specifics.** Expectation is the default measure for contract breach. Reliance damages (out-of-pocket costs incurred in reliance on the contract) are an alternative when expectation is speculative — use only one theory per claim.
 
@@ -61,7 +61,7 @@ Double, treble, or punitive damages available under a specific statute when spec
 | MA Ch. 93A § 11 (business claimant) | Not less than 2x and up to 3x actual damages | Willful or knowing violation only; § 11 has no bad-faith-refusal trigger and no pre-suit demand | `legal-research` |
 | TX DTPA § 17.50(b)(1) | "Knowing": economic damages up to 3x, plus mental-anguish damages (not multiplied). "Intentional": up to 3x of economic plus mental-anguish damages | The trier of fact's finding of knowing or intentional conduct; the multiplier base excludes attorneys' fees, costs and prejudgment interest (§ 17.50(e)), and no prejudgment interest runs on the additional damages (§ 17.50(f)) | `legal-research`; `citation-bluebook` for any case-law on the knowing/intentional distinction |
 | MMWA (15 U.S.C. § 2301 et seq.) | No multiplier, but attorney's fees | Warranty breach; consumer-product scope | `legal-research` for scope; see `ARCHETYPE-INDEX.md` for exemplar |
-| Lanham Act § 35 (15 U.S.C. § 1117) | § 1117(a): damages up to 3x actual damages, and profits adjusted to a just sum, as compensation and not a penalty; § 1117(b): treble damages or profits for a counterfeit mark unless extenuating circumstances | Established violation (court's discretion; willfulness is relevant `[VERIFY]` circuit standard); counterfeit use for § 1117(b) | `legal-research`; `citation-bluebook` on the "exceptional case" fee standard |
+| Lanham Act § 35 (15 U.S.C. § 1117) | § 1117(a): damages up to 3x actual damages, and profits adjusted to a just sum, as compensation and not a penalty; § 1117(b): treble damages or profits for a counterfeit mark unless extenuating circumstances | Established violation (court's discretion; willfulness is relevant; the standard varies by circuit, so check the governing circuit's rule); counterfeit use for § 1117(b) | `legal-research`; `citation-bluebook` on the "exceptional case" fee standard |
 | Defend Trade Secrets Act, 18 U.S.C. § 1836(b)(3)(C) | Exemplary damages up to 2x the damages awarded | Willful and malicious misappropriation | `legal-research` |
 | State punitive-damages statutes | Varies | Varies (clear-and-convincing "malice," "oppression," "fraud"; jurisdiction-specific caps) | `legal-research` for the state's standard AND cap |
 
@@ -79,7 +79,7 @@ Interest on unpaid amounts from an accrual date to the date of the demand (or to
 
 **Required disclosure in the letter.** State the rate, the accrual date, and the source (e.g., "9% per annum, from {{DATE}} per {{STATE}} Stat. § {{X}}"). A bare number invites challenge.
 
-**Contract interest.** If the contract specifies an interest rate for unpaid amounts, use that rate (subject to usury caps, jurisdiction-specific). If both contract and statute apply, contract typically controls — `[VERIFY]`.
+**Contract interest.** If the contract specifies an interest rate for unpaid amounts, use that rate (subject to usury caps, jurisdiction-specific). If both contract and statute apply, contract typically controls; this varies by jurisdiction, so check the governing law.
 
 ## Category 5 — Liquidated damages
 

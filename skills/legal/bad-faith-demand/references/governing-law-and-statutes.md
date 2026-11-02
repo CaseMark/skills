@@ -1,6 +1,6 @@
 # Governing Law, Demand Statutes and Deadline Rules
 
-Rules for classifying the claim, choosing the governing standard, testing a demand against a time-limited demand statute, and computing the response deadline. Every statement here was checked on 2026-10-30 against the full statute or opinion text as recorded in `references/primary-sources.md`; anything marked `[VERIFY]` was not confirmed in official text. Re-read the current statute in full before any demand goes out: these statutes were rewritten in 2017, 2022 and 2024 and may change again.
+Rules for classifying the claim, choosing the governing standard, testing a demand against a time-limited demand statute, and computing the response deadline. Every statement here was checked on 2026-10-30 against the full statute or opinion text as recorded in `references/primary-sources.md`; anything labelled "Confirm before use:" or described as not confirmed was not confirmed in official text. Re-read the current statute in full before any demand goes out: these statutes were rewritten in 2017, 2022 and 2024 and may change again.
 
 ## Contents
 
@@ -26,7 +26,7 @@ Rules for classifying the claim, choosing the governing standard, testing a dema
 
 Hard rules:
 - A UM/UIM claim is first-party even though the facts are a car crash with a third-party tortfeasor. Do not write "excess verdict" or Stowers language to the insured's own UM/UIM carrier.
-- A claimant generally has no direct contractual relationship with the tortfeasor's insurer; the failure-to-settle claim belongs to the insured and is usually pursued after an excess judgment by the insured or by assignment `[VERIFY: assignment and direct-action rules by state]`.
+- A claimant generally has no direct contractual relationship with the tortfeasor's insurer; the failure-to-settle claim belongs to the insured and is usually pursued after an excess judgment by the insured or by assignment; assignment and direct-action rules vary by state, so check the governing state's rule before relying on it.
 - Name the classification in the memo and the reason. If the matter has both (claimant's third-party claim plus the client's own UIM claim), produce two separate instruments.
 
 ## 2. Common-law failure-to-settle standards (third-party)
@@ -41,7 +41,7 @@ Hard rules:
 | California | Comunale v. Traders & General Ins. Co., 50 Cal. 2d 654 (1958); Crisci v. Security Ins. Co., 66 Cal. 2d 425 (1967) | Implied covenant; liability for failure to accept a reasonable settlement within limits |
 | Florida | Boston Old Colony Ins. Co. v. Gutierrez, 386 So. 2d 783 (Fla. 1980); Harvey v. GEICO Gen. Ins. Co., 259 So. 3d 1 (Fla. 2018) | Insurer's good-faith duties to the insured judged on the totality of the circumstances; negligence is relevant but is not the standard |
 
-Other states: state the standard only after locating the controlling case; otherwise write the standard as `[VERIFY: <state> failure-to-settle standard]`.
+Other states: state the standard only after locating the controlling case; otherwise write the standard as "Confirm before use: <state> failure-to-settle standard".
 
 ## 3. First-party bad faith and statutory pre-suit notices
 
@@ -59,7 +59,7 @@ Use the checklist for the state whose law governs the claim. A demand that misse
 
 ### Georgia: O.C.G.A. section 9-11-67.1 (as amended by Ga. L. 2024, SB 83)
 
-Scope: offers to settle tort claims for personal injury, bodily injury or death arising from a motor vehicle collision (subsection (a)); not product liability claims, including failure to warn (subsection (j)). Subsection (b) governs offers prepared by or with the assistance of an attorney on behalf of a claimant. Dates: Ga. L. 2024, p. 178, section 2 (SB 83) makes the 2024 text applicable to offers made on or after April 22, 2024, while the Act took effect July 1, 2024; the Code Commission note flags the conflict. Any offer made today is covered either way; for an offer made between April 22 and June 30, 2024, which text governs is `[VERIFY]`. Window: from accrual until the named defendant files an answer, or all named defendants have answered or been found in default (subsection (b)) `[VERIFY: effect of a pre-answer motion to dismiss after Ga. L. 2025, SB 68; section 9-11-67.1 still keys the window to the answer, and section 9-11-12(j) now stays discovery while such a motion is pending, but no appellate decision on the window was found]`.
+Scope: offers to settle tort claims for personal injury, bodily injury or death arising from a motor vehicle collision (subsection (a)); not product liability claims, including failure to warn (subsection (j)). Subsection (b) governs offers prepared by or with the assistance of an attorney on behalf of a claimant. Dates: Ga. L. 2024, p. 178, section 2 (SB 83) makes the 2024 text applicable to offers made on or after April 22, 2024, while the Act took effect July 1, 2024; the Code Commission note flags the conflict. Any offer made today is covered either way; for an offer made between April 22 and June 30, 2024, which text governs is not confirmed here; check before relying on either. Window: from accrual until the named defendant files an answer, or all named defendants have answered or been found in default (subsection (b)) ; the effect of a pre-answer motion to dismiss on the window after Ga. L. 2025, SB 68 is not confirmed here (section 9-11-67.1 still keys the window to the answer, and section 9-11-12(j) now stays discovery while such a motion is pending, but no appellate decision on the window was found), so check current authority before relying on it.
 
 - [ ] In writing; an offer to enter a bilateral contract (subsections (a), (b)); written acceptance of the material terms in their entirety forms it (subsection (d)).
 - [ ] (b)(1)(A) A date by which the offer must be accepted, not less than 30 days from receipt of the offer sent by certified mail or statutory overnight delivery, return receipt requested.
@@ -117,7 +117,7 @@ Acceptance is by written acceptance of the material terms delivered or postmarke
 
 1. Identify the trigger the governing rule uses: receipt (Georgia, Missouri), transmission with a method-based floor (California), insurer's receipt of the department's notice (Florida CRN; see the Harper caveat in section 5), or none (common law).
 2. Use evidence of the trigger: return receipt, carrier tracking, fax confirmation, email delivery record. If receipt is not yet known, compute from the latest plausible receipt date and state the assumption.
-3. Set the stated deadline at or beyond the floor, with a buffer of several business days, as a specific date, time and time zone. Do not set it on a weekend or holiday; whether a statute rolls a weekend expiry forward is `[VERIFY]` in each state.
+3. Set the stated deadline at or beyond the floor, with a buffer of several business days, as a specific date, time and time zone. Do not set it on a weekend or holiday; whether a statute rolls a weekend expiry forward varies by state; check the governing state's rule before relying on it.
 4. Where common law governs, state why the window is reasonable for the volume of records, the number of claimants and any pending insurer requests. A short window is evidence against the demand, and in Florida it bears on the claimant's own good-faith conduct.
 5. Show the computation every time:
 
@@ -134,13 +134,13 @@ Deadline in letter: <date> (<weekday>) <time> <time zone>; buffer <N> days over 
 - California section 999.3: a request for clarification, additional information or an extension is not, by itself, a counteroffer or rejection; an insurer that does not accept must notify the claimant in writing of the basis of its decision before the deadline expires.
 - Georgia section 9-11-67.1(f) (2024 text): recipients may seek clarification of the terms, the release, liens, subrogation claims, standing to release claims, medical bills, medical records and other relevant facts; a written clarification request is not a counteroffer, but an attempt to modify the material terms is not a clarification. If no release is sent with the offer, the recipient's proposed release is not a counteroffer.
 - Missouri and Georgia: written acceptance of the material terms within the period. Treat any additional condition the claimant tries to add outside the listed material terms as a drafting defect.
-- Elsewhere, whether a clarification request is a counteroffer is `[VERIFY]`; respond to every insurer request in writing before the deadline and say whether the deadline is extended.
+- Elsewhere, whether a clarification request is a counteroffer varies by state and is not confirmed here; respond to every insurer request in writing before the deadline and say whether the deadline is extended.
 
 ## 8. Litigation offers and claimant capacity
 
 - A time-limited demand is not a statutory litigation offer. Florida section 768.79 (offer of judgment and demand for judgment) and O.C.G.A. section 9-11-68 (offer of settlement) are fee-shifting devices made in litigation, each with its own form, service and 30-day acceptance rules and fee thresholds (Florida 25 percent; Georgia 75 and 125 percent). Never label a pre-suit demand as one, and never treat a litigation offer as satisfying a time-limited demand statute; if both are wanted, draft them as separate instruments and route the litigation offer to counsel.
-- The demand must come from someone who can deliver the release: a personal representative for a death or estate claim, every required wrongful-death beneficiary or the person the statute authorizes, and a guardian or conservator (with any required court approval) for a minor or incapacitated claimant `[VERIFY: state appointment and approval rules]`. If court approval is needed, the claimant obtains it after acceptance; it is not a condition the insurer must satisfy. Georgia expressly lets the recipient seek clarification of standing to release claims.
+- The demand must come from someone who can deliver the release: a personal representative for a death or estate claim, every required wrongful-death beneficiary or the person the statute authorizes, and a guardian or conservator (with any required court approval) for a minor or incapacitated claimant (appointment and approval rules vary by state; check the governing state's rules). If court approval is needed, the claimant obtains it after acceptance; it is not a condition the insurer must satisfy. Georgia expressly lets the recipient seek clarification of standing to release claims.
 
 ## 9. States not listed here
 
-Several other states regulate time-limited or pre-suit settlement demands by statute or rule. This file does not name them because they were not verified. For any state not listed: search the state code for "time-limited demand" and "settlement offer" provisions before drafting, record the result in the memo, and mark the governing-law row `[VERIFY: no statute located as of <date>]` if none is found.
+Several other states regulate time-limited or pre-suit settlement demands by statute or rule. This file does not name them because they were not verified. For any state not listed: search the state code for "time-limited demand" and "settlement offer" provisions before drafting, record the result in the memo, and mark the governing-law row "Confirm before use: no statute located as of <date>" if none is found.

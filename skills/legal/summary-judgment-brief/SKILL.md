@@ -51,13 +51,13 @@ Summary judgment is decided on the cited record, not on the brief. Motions fail 
 1. **Draft only.** Nothing is filed or served by this skill. Every output is a draft for attorney review and is never called ready to file.
 2. **Source-review gate.** Never call a transcript, exhibit or order missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as an *unknown fact* (the date discovery closed), a *source conflict* (two balance figures), an *unverified external lookup* (a local rule not read in current text), or a *policy election* (whether to concede a fact, cross-move, or seek partial relief).
 3. **Hierarchy of authority.** For facts: sworn testimony and authenticated documents in the record, then discovery responses, then unsworn correspondence; the transcript governs over a summary of it, the executed document over a description of it, the court's docket over a calendar entry. For law: the current rule or statute text and the scheduling order, then controlling appellate cases, then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every fact in the brief and statement carries a record pinpoint or is marked `[UNVERIFIED]` and kept out of the statement until supported. Every legal statement carries a citation from `references/primary-sources.md` or is marked `[VERIFY]`. Never invent a case, a pin cite, a deposition line or a local rule number.
-5. **Burden first.** Build the burden matrix before drafting argument. A party moving on a claim or defense it must prove at trial establishes every element with evidence; only a movant without the trial burden may discharge its initial burden by pointing out an absence of evidence, and in California a moving defendant must still present evidence. In a diversity case, state law decides who bears the burden on a defense (Palmer v. Hoffman). Where the allocation on a defense is unconfirmed, analyze both and mark it `[VERIFY]`.
+4. **Citation discipline.** Every fact in the brief and statement carries a record pinpoint or is marked `[UNVERIFIED]` and kept out of the statement until supported. Every legal statement carries a citation from `references/primary-sources.md` or is labelled "Confirm before use:". Never invent a case, a pin cite, a deposition line or a local rule number.
+5. **Burden first.** Build the burden matrix before drafting argument. A party moving on a claim or defense it must prove at trial establishes every element with evidence; only a movant without the trial burden may discharge its initial burden by pointing out an absence of evidence, and in California a moving defendant must still present evidence. In a diversity case, state law decides who bears the burden on a defense (Palmer v. Hoffman). Where the allocation on a defense is unconfirmed, analyze both and label it "Confirm before use:".
 6. **The record, by pinpoint.** Cite page and line, paragraph, exhibit page or Bates number. Place every cited document in the record through a declarant who can authenticate it, or show the admissible form anticipated (Rule 56(c)(2)); in the Fifth Circuit material need only be capable of presentation in admissible form (LSR Consulting). A party's own pleading is not evidence for that party.
 7. **Admissible form.** Each declaration is on personal knowledge and shows competence. Object to the other side's inadmissible material in the papers under Rule 56(c)(2) (federally no separate motion to strike is needed); in California, object so the objection is made at the hearing.
 8. **No weighing.** The movant argues that the element fails even crediting the nonmovant's evidence; it never asks the court to disbelieve a witness. The nonmovant identifies the conflict and the record supporting each side. Scott v. Harris is invoked only where the record blatantly contradicts an account.
 9. **Truthful declarations only.** Never draft a declaration the declarant cannot make on personal knowledge, or one that contradicts the declarant's prior sworn testimony without acknowledging that testimony and explaining the change, and never describe as undisputed a fact the record contradicts. Offer instead a declaration that confronts and explains the prior testimony with whatever corroborates it, or discovery to obtain the evidence. Rule 56(h) sanctions bad-faith declarations.
-10. **The forum's rules control.** The scheduling order, the judge's individual practices and the local rule override Rule 56(b)'s default; state rules replace it entirely. Read each in current text on the drafting date and compute every deadline from its own trigger. If a rule cannot be read, mark it `[VERIFY]` and list it as a Critical open item.
+10. **The forum's rules control.** The scheduling order, the judge's individual practices and the local rule override Rule 56(b)'s default; state rules replace it entirely. Read each in current text on the drafting date and compute every deadline from its own trigger. If a rule cannot be read, label it "Confirm before use:" and list it as a Critical open item.
 11. **Answer every numbered fact.** An opposition responds to each paragraph of the movant's statement: admit what the record does not genuinely dispute, deny with a pinpoint to admissible evidence, and say when the cited material does not support the assertion. A movant never argues that unanswered facts alone win the motion.
 12. **Scope matches the relief the rule allows.** Identify each claim, defense or part, and the parties for and against whom relief is sought. Request a Rule 56(g) order in the alternative where partial relief is realistic. A nonmovant conceding a fact says "for purposes of this motion only" and has client authority to concede it.
 
@@ -76,7 +76,7 @@ Collect, from documents where possible:
 9. Governing substantive law for each claim and defense, and any controlling authority counsel already relies on.
 10. Client authority to concede any fact or to limit the relief sought.
 
-**Defaults if not supplied** (a scheduling order, local rule or state rule overrides any default it addresses): federal court under FRCP 56; motion deadline 30 days after the close of all discovery under Rule 56(b), which a scheduling order usually displaces and which is marked `[VERIFY]` until the order is read; opposition and reply deadlines `[VERIFY]` from the local rule; Bluebook citation; a statement of undisputed material facts in numbered paragraphs even where not required, unless a local rule or the judge's practices bar one (for example N.D. Cal. Civil L.R. 56-2(a)), in which case the facts with pinpoints go in the brief; no concession of any fact.
+**Defaults if not supplied** (a scheduling order, local rule or state rule overrides any default it addresses): federal court under FRCP 56; motion deadline 30 days after the close of all discovery under Rule 56(b), which a scheduling order usually displaces and which is labelled "Confirm before use:" until the order is read; opposition and reply deadlines per the local rule, labelled "Confirm before use:"; Bluebook citation; a statement of undisputed material facts in numbered paragraphs even where not required, unless a local rule or the judge's practices bar one (for example N.D. Cal. Civil L.R. 56-2(a)), in which case the facts with pinpoints go in the brief; no concession of any fact.
 
 **Hard stops (label the determination "Declined: hard stop"; produce the blocking-issues list and the request or compliant alternative, not the requested paper):**
 - The court cannot be identified, so neither the governing rule nor the clock can be determined.
@@ -84,7 +84,7 @@ Collect, from documents where possible:
 - The facts the motion or opposition depends on cannot be tied to any deposition, declaration, document, admission or discovery response in hand or obtainable: produce a record-gap memo and a declaration or discovery plan instead.
 - A request to draft a declaration the declarant cannot make on personal knowledge, one that contradicts the declarant's prior sworn testimony without acknowledging and explaining it, or a statement describing as undisputed a fact the record contradicts: decline that document, explain why, and offer the compliant alternative under Ground Rule 9.
 
-**Not hard stops:** a filing or hearing date that is missed or infeasible (a Critical item that blocks filing, not drafting; set out leave, continuance or good-cause options); incomplete discovery (Step 4); a local rule or individual practice not yet read (Critical `[VERIFY]` item).
+**Not hard stops:** a filing or hearing date that is missed or infeasible (a Critical item that blocks filing, not drafting; set out leave, continuance or good-cause options); incomplete discovery (Step 4); a local rule or individual practice not yet read (Critical "Confirm before use:" item).
 
 ## Step 1: Fix the Forum and the Clock
 
@@ -116,7 +116,7 @@ Read `references/rule-56-standards.md`, section 9, and for California `reference
 
 ## Step 8: Assemble the Deliverable and Hand-Offs
 
-Lay out the header and Parts 1 to 6 per `references/output-template.md`. Build the reconciliation table from Steps 3 and 5. Complete each hand-off with the facts the receiving skill needs. List every `[VERIFY]` item with what would settle it, drawing on `references/primary-sources.md`.
+Lay out the header and Parts 1 to 6 per `references/output-template.md`. Build the reconciliation table from Steps 3 and 5. Complete each hand-off with the facts the receiving skill needs. List every "Confirm before use:" item with what would settle it, drawing on `references/primary-sources.md`.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -145,7 +145,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 9. No declaration contradicts the declarant's prior sworn testimony without acknowledging and explaining it.
 10. Where discovery is incomplete and the client opposes, a Rule 56(d) or equivalent declaration is drafted and the opposition also meets the merits.
 11. The relief requested identifies each claim, defense or part and each party, fits what the rule allows, and includes alternative partial relief where realistic.
-12. Every legal statement has a citation from `references/primary-sources.md` or `[VERIFY]`; blocking issues are ranked with owners; the output closes with the draft-for-attorney-review line.
+12. Every legal statement has a citation from `references/primary-sources.md` or a "Confirm before use:" label; blocking issues are ranked with owners; the output closes with the draft-for-attorney-review line.
 
 ## Guidelines
 
@@ -165,10 +165,10 @@ Before responding, confirm each statement. If one fails, fix the draft.
 | Scanned exhibits are unreadable | Image-only PDF | Try OCR; list pages that remain unreadable and the facts that depend on them; request clean copies |
 | Two balance or damages figures differ | Transposition, different as-of dates, or interest included in one | Show both in the reconciliation table; use neither in the statement until the declarant reconciles them; consider liability-only relief with a 56(g) request |
 | The scheduling order and local rule give different deadlines | Order modified the default | The order governs for the case; record both; confirm with counsel |
-| Judge's individual practices cannot be found | Not posted or recently changed | Mark `[VERIFY]`; Critical item; check the court website and chambers' instructions |
+| Judge's individual practices cannot be found | Not posted or recently changed | Label "Confirm before use:"; Critical item; check the court website and chambers' instructions |
 | Client's recollection now differs from the deposition | Refreshed memory, misunderstanding, or pressure to create a dispute | Apply Ground Rule 9; collect documents that corroborate; consider Rule 30(e) timing with deposition-errata-sheet |
 | Movant's statement cites deposition pages not in the record | Excerpts omitted from the appendix | Respond that the cited material is not in the record and does not support the assertion; do not supply it |
-| Forum is a state not covered in the references | Not researched | Record the search and date; mark every procedural rule `[VERIFY]`; draft to the stricter reading |
+| Forum is a state not covered in the references | Not researched | Record the search and date; label every procedural rule "Confirm before use:"; draft to the stricter reading |
 
 ## Related Skills
 
@@ -188,4 +188,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/rule-56-standards.md`: federal standard, burden matrix, record support, admissible form, Rule 56(e), Rule 56(d), credibility, sham affidavits, partial relief and 56(g), timing, preservation.
 - `references/state-and-local-practice.md`: order of reading, clocks table with triggers, S.D.N.Y./E.D.N.Y. Local Civil Rule 56.1, California CCP 437c and Rule 3.1350, Texas Rule 166a (2026), New York CPLR 3212.
 - `references/output-template.md`: deliverable layout, readiness labels, burden matrix, clocks, blocking issues, reconciliation table, brief skeleton, statements, objections, 56(d) outline, hand-offs.
-- `references/primary-sources.md`: every authority checked with its source, method, what it supports and the date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its source, method, what it supports and the date checked.

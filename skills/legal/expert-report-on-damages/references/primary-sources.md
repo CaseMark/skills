@@ -5,7 +5,6 @@
 1. How these sources were checked
 2. Rules, statutes and standards
 3. Cases
-4. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -51,17 +50,3 @@ All checks were made on 2026-10-30 through the case.dev API. "Full text via case
 | Georgia-Pacific Corp. v. U.S. Plywood Corp., 318 F. Supp. 1116 (S.D.N.Y. 1970) | Cited in Uniloc | Citation verified; use as described in Uniloc | Hypothetical negotiation factors | 2026-10-30 |
 | Uniloc USA, Inc. v. Microsoft Corp., 632 F.3d 1292 (Fed. Cir. 2011) | cafc.uscourts.gov/opinions-orders/10-1035.pdf | Full text via case.dev | 25 percent rule of thumb inadmissible; entire market value only where the patented feature is the basis for customer demand | 2026-10-30 |
 | EcoFactor, Inc. v. Google LLC, 137 F.4th 1333 (Fed. Cir. 2025) (en banc) | cafc.uscourts.gov/opinions-orders/23-1101.OPINION.5-21-2025_2518737.pdf | Full text via case.dev | Licenses did not support the per-unit rate the expert drew from them; opinion not based on sufficient facts or data; new trial on damages; 2023 amendment clarifies rather than changes the standard | 2026-10-30 |
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Admissibility standard and expert disclosure rule in the forum state | State rules vary and were not researched state by state | The state's evidence code, civil procedure rules and controlling cases on the drafting date |
-| Lost-profits certainty and new-business rules outside Texas, New York and California | Not researched | Controlling state appellate decisions |
-| Whether a plaintiff entity may recover a parent's, affiliate's or shareholder's losses | Governing law varies | Counsel's legal instruction under the governing law |
-| Treatment of replacement business as mitigation versus a lost-volume position | Governing law varies; fact-dependent | Governing contract or UCC law and capacity evidence |
-| Tax adjustment of the award (pretax versus after-tax; gross-up) | Governing law varies | Controlling law for the claim and forum |
-| Compounding and accrual conventions for prejudgment interest, including New York (C.P.L.R. 5004 states a rate but not compounding) and patent cases | Not researched | Governing statute, contract or court decision |
-| Anchor date for the 10-year publications and 4-year testimony windows (report date or service date) | Rule 26(a)(2)(B) says "previous" without naming the anchor | Local practice and the scheduling order; when in conflict, use the earlier start so nothing falls outside |
-| Burden allocation for deductible costs in disgorgement claims | Differs by statute | The governing statute and circuit law |
-| Ethics rules on contingent expert compensation outside the AICPA standard | Not researched | Forum's ethics rules and case law |

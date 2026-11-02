@@ -10,7 +10,7 @@ Produce the header and the six parts in this order. Keep sentences plain; put de
 4. Part 3. Reconciliation table
 5. Part 4. Draft demand letter
 6. Part 5. Exhibit index and delivery log
-7. Part 6. Hand-offs, open items and `[VERIFY]` list
+7. Part 6. Hand-offs, open items and confirm-before-use list
 
 ## Header
 
@@ -100,7 +100,7 @@ The letter states facts and terms. It does not threaten, does not predict a bad 
 | Recipient | Address used (source) | Method | Sent | Received (evidence) | Deadline recomputed from actual receipt? |
 |---|---|---|---|---|---|
 
-## Part 6. Hand-offs, open items and `[VERIFY]` list
+## Part 6. Hand-offs, open items and confirm-before-use list
 
 **Hand-offs.** A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -118,6 +118,6 @@ The letter states facts and terms. It does not threaten, does not predict a bad 
 | # | Open item | Depends on | Owner | Next action | Blocks sending? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm-before-use list:** each statement labelled "Confirm before use:", why it is unconfirmed, and what would settle it.
 
 Close with: "Draft for attorney review. Not to be sent until counsel confirms the governing statute's current text, the limits, and the client's authority."

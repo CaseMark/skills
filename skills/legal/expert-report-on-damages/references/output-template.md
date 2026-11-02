@@ -10,7 +10,7 @@ Produce the header and the six parts in this order. Plain sentences, detail in t
 4. Part 3. Reconciliation table, tie-outs and overlap matrix
 5. Part 4. Draft expert report
 6. Part 5. Schedules, exhibits and materials considered
-7. Part 6. Hand-offs, open items and `[VERIFY]` list
+7. Part 6. Hand-offs, open items and confirm-before-use list
 
 ## Header
 
@@ -111,7 +111,7 @@ Signature: [prepared and signed by the witness after review]
 | Materials considered | Type | Bates or locator | Relied on? | If not relied on, why |
 |---|---|---|---|---|
 
-## Part 6. Hand-offs, open items and `[VERIFY]` list
+## Part 6. Hand-offs, open items and confirm-before-use list
 
 **Hand-offs.** A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -131,6 +131,6 @@ Signature: [prepared and signed by the witness after review]
 | # | Open item | Depends on | Owner | Next action | Blocks signing or service? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm-before-use list:** each statement labelled "Confirm before use:", why it is unconfirmed, and what would settle it.
 
 Close with: "Draft for review by the testifying expert and counsel. The opinions become the expert's only after the expert has performed or directed the analysis, reviewed every figure, and adopted the report. Not to be signed or served until the Critical items are closed."

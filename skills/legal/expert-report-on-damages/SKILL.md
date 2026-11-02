@@ -49,7 +49,7 @@ Damages opinions are excluded or cut down far more often for how the number was 
 1. **Draft only, for the testifying expert.** Nothing is signed, served or filed by this skill. The opinions become the expert's only after the expert performs or directs the analysis and adopts the report, which Rule 26(a)(2)(B) requires to be "prepared and signed by the witness." The draft is never called final or ready to serve.
 2. **Source-review gate.** Never call a document or data set missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (post-event revenue for 2026), *source conflict* (ledger revenue differs from the tax return), *unverified external lookup* (a state's lost-profits rule or interest statute not confirmed), or *policy election* (a choice for counsel or the expert, such as the valuation date or lost-volume treatment).
 3. **Hierarchy of authority.** For facts, in rough order (adapted from the FJC Reference Guide, 4th ed., Data Validity; the placement of budgets, filed returns and interview statements is this skill's own): government data; audited statements and filed returns; records kept in the ordinary course; management reports in the ordinary course; budgets and plans; and last, projections or damages studies prepared for the litigation and interview statements. For law: the current rule or statute text and the scheduling order, then controlling cases, then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every figure, date and assumption carries a source locator (document, Bates, tab and cell) or is marked `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is marked `[VERIFY]`. Never invent a case, rule, rate or pin cite.
+4. **Citation discipline.** Every figure, date and assumption carries a source locator (document, Bates, tab and cell) or is marked `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is labelled "Confirm before use:". Never invent a case, rule, rate or pin cite.
 5. **Counsel instructs on law; the expert quantifies.** The measure, the plaintiff entity, causation standards, contract caps, entitlement to and rate of prejudgment interest, and whether mitigation was reasonable are legal or factfinder questions. Record each instruction as an assumption with its source; the report never states a legal conclusion as an expert opinion.
 6. **Projections are tested, not adopted.** Before relying on any projection, record who prepared it, when, for what purpose, its assumptions, and how earlier budgets compared with actual results. A projection that fails is not the basis of an opinion; present a supported alternative and show the projection only as a labeled sensitivity.
 7. **One entity, one period, one basis.** But-for and actual figures cover the same entity, months and accounting basis. Lost profit is lost revenue times incremental margin, less other avoided costs; actual mitigation is measured the same way.
@@ -74,14 +74,14 @@ Collect, from documents where possible:
 9. Industry data, comparables, licenses, and, for a rebuttal, the opposing report with its schedules and data.
 10. Every assumption counsel wants the expert to make, in writing.
 
-**Defaults if not supplied** (the forum's rules and the governing law override any default they address): federal court applying Fed. R. Civ. P. 26 and FRE 702 as amended in 2023, marked `[VERIFY]` until the forum is confirmed (a state court applies its own disclosure and admissibility rules); valuation date for contract claims at the breach date (contract damages are typically valued as of the breach date) with a trial-date computation alongside, and for other claims at the expected trial date with a date-of-harm computation alongside, either way flagged as a legal question for counsel; prejudgment interest excluded from the damages opinion (the court or clerk adds whatever interest the governing law provides); figures in nominal dollars before taxes, with the tax question flagged; formal report tone.
+**Defaults if not supplied** (the forum's rules and the governing law override any default they address): federal court applying Fed. R. Civ. P. 26 and FRE 702 as amended in 2023, labelled "Confirm before use:" until the forum is confirmed (a state court applies its own disclosure and admissibility rules); valuation date for contract claims at the breach date (contract damages are typically valued as of the breach date) with a trial-date computation alongside, and for other claims at the expected trial date with a date-of-harm computation alongside, either way flagged as a legal question for counsel; prejudgment interest excluded from the damages opinion (the court or clerk adds whatever interest the governing law provides); figures in nominal dollars before taxes, with the tax question flagged; formal report tone.
 
 **Hard stops (label the determination "Declined: hard stop"; produce the blocking-issues list and the request or compliant alternative, not the requested draft):**
 - A request to reach or support a figure chosen in advance, to change or drop an input to hit a number, to present counsel-supplied facts, data or assumptions as the expert's own, or to omit or shorten a required Rule 26(a)(2)(B) element: decline that part and offer the compliant version.
 - No identified claim, measure and plaintiff entity (no pleading and no counsel statement): produce the intake questions instead.
 - No financial or transactional data at all for the plaintiff (or, for a rebuttal, no copy of the opposing report): produce the data request list instead.
 
-**Not hard stops:** a testifying expert not yet named, or a missing CV, testimony list or compensation statement (Critical open items that block signing and service, not drafting); an untested projection (draft on a supported alternative, Critical item); missing post-event actuals (range or stated limitation); an unconfirmed state admissibility standard (`[VERIFY]` and the default).
+**Not hard stops:** a testifying expert not yet named, or a missing CV, testimony list or compensation statement (Critical open items that block signing and service, not drafting); an untested projection (draft on a supported alternative, Critical item); missing post-event actuals (range or stated limitation); an unconfirmed state admissibility standard (label "Confirm before use:" and apply the default).
 
 ## Step 1: Frame the Assignment
 
@@ -121,7 +121,7 @@ Read `references/damages-methods.md`, section 14, and `references/disclosure-and
 
 ## Step 10: Assemble the Report and Disclosures
 
-Read `references/disclosure-and-admissibility.md`, sections 1 to 3 and 8, and lay out the header and Parts 1 to 6 per `references/output-template.md`. Complete the Rule 26(a)(2)(B) checklist, the materials-considered list, the reconciliation table and tie-outs, and the hand-offs. List every `[VERIFY]` item with what would settle it, drawing on `references/primary-sources.md`.
+Read `references/disclosure-and-admissibility.md`, sections 1 to 3 and 8, and lay out the header and Parts 1 to 6 per `references/output-template.md`. Complete the Rule 26(a)(2)(B) checklist, the materials-considered list, the reconciliation table and tie-outs, and the hand-offs. List every "Confirm before use:" item with what would settle it, drawing on `references/primary-sources.md`.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -149,7 +149,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 8. Future losses are discounted once at a stated rate; no interest runs on losses after the valuation date; damages are reported before interest.
 9. No legal conclusion (entitlement to interest, reasonableness of mitigation, contract interpretation, liability) is stated as an expert opinion.
 10. Every figure has a source locator or `[UNVERIFIED]`, and the tie-outs hold or each difference is explained.
-11. Every legal statement has a citation from `references/primary-sources.md` or `[VERIFY]`; no invented authority.
+11. Every legal statement has a citation from `references/primary-sources.md` or a "Confirm before use:" label; no invented authority.
 12. No input was chosen or changed to reach a target figure, and every opinion is no broader than its calculation.
 13. The output closes with the draft-for-expert-review line.
 
@@ -172,7 +172,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 | Management cannot say who prepared the projection | Projection assembled by several people or for financing | Do not rely on it; use a historical or yardstick method; record the attempt |
 | Opposing expert used a different valuation date | Different legal instruction | Show results under both dates; ask counsel which the law requires |
 | Counsel's interest instruction conflicts with the governing statute | Contract rate against statutory rate | Exclude interest from the damages opinion; flag the conflict for counsel |
-| Forum is a state court with different expert rules | Federal template applied by habit | Mark the disclosure and admissibility rows `[VERIFY]`; follow the state rule once confirmed |
+| Forum is a state court with different expert rules | Federal template applied by habit | Label the disclosure and admissibility rows "Confirm before use:"; follow the state rule once confirmed |
 | Request to make the damages reach a number | Settlement or mediation pressure | Decline under Ground Rule 11; offer a sensitivity table over supported ranges |
 
 ## Related Skills
@@ -193,4 +193,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/damages-methods.md`: measure and plaintiff entity, but-for and actual worlds, lost-profits methods and incremental margin, projection tests, new-business rules, causation, mitigation, overlap matrix, discounting, interest and taxes, royalty, disgorgement, personal economic loss, sensitivity.
 - `references/disclosure-and-admissibility.md`: Rule 26(a)(2)(B) checklist, facts or data considered, draft and communication protections, timing and sanctions, FRE 702 (2023), FRE 703 and 1006, state standards, professional standards and compensation.
 - `references/output-template.md`: deliverable layout, readiness labels, blocking issues, reconciliation table, tie-outs and overlap matrix, report skeleton, schedules, hand-off table.
-- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked.

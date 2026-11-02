@@ -11,7 +11,7 @@ Produce the header and the seven parts in this order. Keep sentences plain; put 
 5. Part 4. Blocking issues and judgment calls
 6. Part 5. Reconciliation table
 7. Part 6. Recommended next steps and letter outline
-8. Part 7. Hand-offs, open items and `[VERIFY]` list
+8. Part 7. Hand-offs, open items and confirm-before-use list
 
 ## Header
 
@@ -113,7 +113,7 @@ Re: [Suit caption] / Policy No. [ ] / Period [ ]
 8. Contact for questions.
 ```
 
-## Part 7. Hand-offs, open items and `[VERIFY]` list
+## Part 7. Hand-offs, open items and confirm-before-use list
 
 **Hand-offs.** A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -130,6 +130,6 @@ Re: [Suit caption] / Policy No. [ ] / Period [ ]
 | # | Open item | Gap class | Owner | Next action | Blocks communicating the position? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm-before-use list:** each statement labelled "Confirm before use:", why it is unconfirmed, and what would settle it.
 
 Close with: "Draft for attorney review. Not to be sent until counsel confirms the governing law, the issued policy forms, and every clock in Part 3."

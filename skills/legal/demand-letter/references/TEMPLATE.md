@@ -1,6 +1,6 @@
 # Demand Letter — Template
 
-A single skeleton with three inline branch variants. Pick one branch at Step 1 (see `../SKILL.md`), keep its blocks, delete the other branch markers and their contents, then fill placeholders. Every `{{PLACEHOLDER}}` must be resolved or explicitly marked `[UNVERIFIED — client-provided]` / `[VERIFY]` before the draft leaves the skill.
+A single skeleton with three inline branch variants. Pick one branch at Step 1 (see `../SKILL.md`), keep its blocks, delete the other branch markers and their contents, then fill placeholders. Every `{{PLACEHOLDER}}` must be resolved or explicitly marked `[UNVERIFIED — client-provided]` or "(confirm before use)" before the draft leaves the skill.
 
 ## Contents
 
@@ -159,19 +159,19 @@ As of the date of this letter, {{CURRENT STATUS}}.
 The conduct described above violates {{STATUTE SHORT NAME}}, {{FULL CITATION}}.
 Specifically:
 
-(a) {{ELEMENT 1}} — {{TIE TO §2 FACTS}}. {{CITATION [VERIFY]}}
-(b) {{ELEMENT 2}} — {{TIE TO §2 FACTS}}. {{CITATION [VERIFY]}}
-(c) {{ELEMENT 3}} — {{TIE TO §2 FACTS}}. {{CITATION [VERIFY]}}
+(a) {{ELEMENT 1}} — {{TIE TO §2 FACTS}}. {{CITATION (confirm before use)}}
+(b) {{ELEMENT 2}} — {{TIE TO §2 FACTS}}. {{CITATION (confirm before use)}}
+(c) {{ELEMENT 3}} — {{TIE TO §2 FACTS}}. {{CITATION (confirm before use)}}
 
 {{STATUTE}} provides for {{REMEDIES — actual damages, multipliers, fees, etc.}}.
-See {{CITATION [VERIFY]}}.
+See {{CITATION (confirm before use)}}.
 ```
 <!-- /BRANCH -->
 
 <!-- BRANCH: insurer-claim -->
 ```
 Liability is clear. {{ONE-SENTENCE LIABILITY STATEMENT TIED TO §2 FACTS}}.
-See {{CONTROLLING CASE [VERIFY]}}; {{STATUTE IF ANY [VERIFY]}}.
+See {{CONTROLLING CASE (confirm before use)}}; {{STATUTE IF ANY (confirm before use)}}.
 
 {{INSURED}} owed {{CLIENT}} a duty of {{CARE STANDARD}}, breached that duty
 by {{CONDUCT}}, and proximately caused {{HARM}}.
@@ -190,7 +190,7 @@ Agreement, which provides:
 {{BRIEF APPLICATION — how the facts in §2 breach this clause}}.
 
 [Additionally, the conduct violates {{STATUTORY OR COMMON-LAW THEORY}}. See
-{{CITATION [VERIFY]}}.]   ← include only if it independently unlocks a remedy
+{{CITATION (confirm before use)}}.]   ← include only if it independently unlocks a remedy
                             (fees, punitives, treble damages) OR survives a
                             foreseeable defense to the breach claim.
 ```
@@ -198,7 +198,7 @@ Agreement, which provides:
 
 **Primary-vs-secondary rule (all branches):** State the primary claim (the one with the best-supported elements AND whose remedy matches the client's objective). Add secondary claims only if they independently unlock a remedy the primary does not, OR if they survive a foreseeable defense to the primary. Otherwise omit — over-pleading weakens the letter's credibility as a future exhibit.
 
-**Citation verification:** every statutory cite → `legal-research`; every case cite → `citation-bluebook` for format and good-law status. Unverified → `[VERIFY]` inline.
+**Citation verification:** every statutory cite → `legal-research`; every case cite → `citation-bluebook` for format and good-law status. Unverified → label "(confirm before use)" inline.
 
 ---
 
@@ -218,9 +218,9 @@ of the conduct described above:
 |----------------------------------|---------------|-------------------------------|
 | Direct / expectation             | $ {{AMOUNT}}  | {{EXHIBIT/RECORD}}            |
 | Consequential                    | $ {{AMOUNT}}  | {{EXHIBIT/RECORD}}            |
-| [Statutory multiplier ({{BASIS}})] | $ {{AMOUNT}}  | {{STATUTE CITATION [VERIFY]}} |
-| [Prejudgment interest ({{RATE}})] | $ {{AMOUNT}}  | {{STATUTE/CONTRACT [VERIFY]}} |
-| [Attorney's fees and costs]      | $ {{AMOUNT}}  | {{CONTRACT/STATUTE [VERIFY]}} |
+| [Statutory multiplier ({{BASIS}})] | $ {{AMOUNT}}  | {{STATUTE CITATION (confirm before use)}} |
+| [Prejudgment interest ({{RATE}})] | $ {{AMOUNT}}  | {{STATUTE/CONTRACT (confirm before use)}} |
+| [Attorney's fees and costs]      | $ {{AMOUNT}}  | {{CONTRACT/STATUTE (confirm before use)}} |
 |                                  |               |                               |
 | **Total demand**                 | **$ {{TOTAL}}** |                             |
 
@@ -375,8 +375,8 @@ cc: {{CLIENT NAME}}
 ## Before delivering — branch-consistency checklist
 
 - [ ] Exactly one branch kept; no `<!-- BRANCH: ... -->` markers or alternate-branch text remain in the draft.
-- [ ] Every `{{PLACEHOLDER}}` resolved or marked `[VERIFY]` / `[UNVERIFIED — client-provided]`.
-- [ ] Every legal citation verified via `legal-research` / `citation-bluebook` or marked `[VERIFY]`.
+- [ ] Every `{{PLACEHOLDER}}` resolved or marked "(confirm before use)" / `[UNVERIFIED — client-provided]`.
+- [ ] Every legal citation verified via `legal-research` / `citation-bluebook` or labelled "(confirm before use)".
 - [ ] Deadline is a specific calendar date.
 - [ ] Recipient entity name matches Secretary of State record; notice address matches contract or agent-on-file.
 - [ ] FRE 408 header kept or omitted per the rule in §8; choice is defensible.
@@ -398,4 +398,4 @@ Return the letter, then a short drafting-notes block for the attorney (never sen
 3. **Gap register.** Each open item classified as unknown fact, source conflict, unverified external lookup, or policy election, with the owner and what settles it.
 4. **Clock table.** Each timed element (statutory notice period, response window, contractual cure period, limitations date, letter deadline) with its own trigger event, the computed date, and the source.
 5. **Hand-off table.** Skill, what is handed over, and why: `legal-research` (unverified statute or regime), `citation-bluebook` (case cites), `spoliation-letter` (high-risk evidence), `bad-faith-demand` (any offer to a liability insurer to settle within limits; any pre-answer attorney offer on a Georgia motor-vehicle injury claim), `coverage-opinion` (a coverage position is needed), `anthropic-skills:docx` or `anthropic-skills:pdf` (file deliverable after the Quality Audit).
-6. **`[VERIFY]` list.** Every flagged citation or rule with what would settle it.
+6. **Confirm-before-use list.** Every item labelled "(confirm before use)" with what would settle it.

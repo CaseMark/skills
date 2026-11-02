@@ -51,9 +51,9 @@ A policy-limits demand is judged later, by a court deciding whether the insurer 
 1. **Draft only.** Nothing is sent, served or filed by this skill. Every output is a draft for attorney review, and the letter is never called ready to send.
 2. **Source-review gate.** Never call a document missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (for example, the date of receipt), *source conflict* (two limits figures), *unverified external lookup* (a statute or lien amount not confirmed), or *policy election* (a choice for counsel or client, such as release scope or window length).
 3. **Hierarchy of authority.** For facts: the policy and declarations page, then a sworn statutory disclosure, then insurer letters, then adjuster statements and client recollection. Medical records govern over summaries; executed plan documents govern over recovery-vendor letters; return receipts govern over mail logs. For law: the current statute text, then controlling appellate cases, then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every fact, figure, date and identifier in the letter carries a source locator (document and page or exhibit) or is marked `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is marked `[VERIFY]`. Never invent a case, statute, verdict figure or pin cite.
+4. **Citation discipline.** Every fact, figure, date and identifier in the letter carries a source locator (document and page or exhibit) or is marked `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is labelled "Confirm before use:". Never invent a case, statute, verdict figure or pin cite.
 5. **Classify before drafting.** Decide third-party failure-to-settle or first-party, and say why. Never apply failure-to-settle or excess-exposure framing to the client's own insurer, and never apply first-party notice rules to a tort claimant's demand.
-6. **The governing statute controls the letter.** Where a time-limited demand statute applies, every required term, the delivery method and the minimum window go in. Re-confirm the statute's current full text on the drafting date; if that cannot be done, mark the governing-law row `[VERIFY]` and say so at the top. A demand that misses a statutory term is reported as non-compliant with the consequence, never described as a valid demand.
+6. **The governing statute controls the letter.** Where a time-limited demand statute applies, every required term, the delivery method and the minimum window go in. Re-confirm the statute's current full text on the drafting date; if that cannot be done, label the governing-law row "Confirm before use:" and say so at the top. A demand that misses a statutory term is reported as non-compliant with the consequence, never described as a valid demand.
 7. **Deadlines from the right trigger.** Compute every deadline in the fixed format from the trigger the rule uses (receipt, transmission by method, or the insurer's receipt of a department notice), with a date, weekday, time and time zone, never below the statutory floor.
 8. **An offer the insurer can accept as written.** Within the limit that applies to this claimant; acceptance by a measurable written act; no condition that depends on a third party or that the insurer cannot perform within the window. The release covers every insured of that insurer for the claims released. A narrower release counts as decided only after the memo explains the exposure it leaves on each unreleased insured and the client gives documented release-scope authority; a user's drafting instruction alone is not that decision, so draft the full release and record the narrower one as a judgment call.
 9. **Liens without conditions.** The claimant is responsible for satisfying liens from the proceeds. Where a lienholder can pursue the insurer or defeat the release (Medicare under 42 C.F.R. 411.24(i); a hospital lien under Tex. Prop. Code 55.007), the letter states that the insurer may, at its option, pay that lien amount directly to the lienholder or into an escrow that pays it before the release is delivered, and that using the option is not a counteroffer. A joint check alone may not satisfy a hospital-lien statute (McAllen). A statute that sets lien or payment mechanics controls this default. If asserted liens approach or exceed the offer, that is a Critical item for client counseling.
@@ -77,7 +77,7 @@ Collect, from documents where possible:
 10. Client's documented settlement authority: amount (required to draft), release scope, lien approach and payee (required to send).
 11. Planned delivery method and the address for written acceptance.
 
-**Defaults if not supplied** (a governing statute overrides any default it addresses): pre-suit posture; payment to the client and firm trust account, with the direct-payment or escrow option of Ground Rule 9 for liens; claimant satisfies liens from proceeds; release of every insured of the addressed insurer; window set at the statutory floor plus at least five business days, or 30 days from receipt where no statute applies, marked `[VERIFY]`; formal tone.
+**Defaults if not supplied** (a governing statute overrides any default it addresses): pre-suit posture; payment to the client and firm trust account, with the direct-payment or escrow option of Ground Rule 9 for liens; claimant satisfies liens from proceeds; release of every insured of the addressed insurer; window set at the statutory floor plus at least five business days, or 30 days from receipt where no statute applies, labelled "Confirm before use:"; formal tone.
 
 **Hard stops (label the determination "Declined: hard stop"; produce the blocking-issues list and the request or compliant alternative, not the requested letter):**
 - No documented client authority for the offer amount.
@@ -118,7 +118,7 @@ Use the letter skeleton in `references/output-template.md`, Part 4. Offer within
 
 ## Step 8: Assemble the Deliverable and Hand-Offs
 
-Lay out the header and Parts 1 to 6 per `references/output-template.md`. Build the reconciliation table from Steps 2 to 7. Fill the delivery log. Complete each hand-off with the facts the receiving skill needs. List every `[VERIFY]` item with what would settle it, drawing on `references/primary-sources.md`.
+Lay out the header and Parts 1 to 6 per `references/output-template.md`. Build the reconciliation table from Steps 2 to 7. Fill the delivery log. Complete each hand-off with the facts the receiving skill needs. List every "Confirm before use:" item with what would settle it, drawing on `references/primary-sources.md`.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -145,7 +145,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 7. No acceptance condition depends on a lienholder, a court, a government agency or another third party; the lien clause follows Ground Rule 9, and liens that approach or exceed the offer are flagged Critical.
 8. Every known claimant is in the claimant matrix and any risk of exceeding the occurrence limit is addressed.
 9. Every figure, date and identifier in the letter has a source locator or `[UNVERIFIED]`, and the reconciliation table shows every conflict and the value used.
-10. Every legal statement has a citation from `references/primary-sources.md` or `[VERIFY]`; no invented authority.
+10. Every legal statement has a citation from `references/primary-sources.md` or a "Confirm before use:" label; no invented authority.
 11. The letter contains no threats, no bad faith verdict prediction and no direct communication with a represented insured, and no letter declares the insurer in bad faith or past a lapsed setup deadline.
 12. Blocking issues are ranked and each ends with a recommendation, the alternative and an owner.
 13. The output closes with the draft-for-attorney-review line.
@@ -170,7 +170,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 | The user insists on a 10-day window in a statutory state | Practice habit from a common-law state | Draft at the statutory floor plus buffer; explain the consequence of the shorter window in the memo |
 | The insurer asked for clarification near the deadline | Ambiguous term or missing records | Answer in writing before expiry; state whether the deadline is extended; in California and Georgia, a clarification request is not by itself a counteroffer |
 | Governing state is unclear (loss in one state, policy issued in another) | Choice-of-law question | Flag as a blocking issue for counsel; draft to satisfy the stricter statute where feasible |
-| No statute located for the state | Common-law state or statute not yet researched | Record the search and date; mark `[VERIFY]`; use the common-law elements and a reasoned window |
+| No statute located for the state | Common-law state or statute not yet researched | Record the search and date; label "Confirm before use:"; use the common-law elements and a reasoned window |
 
 ## Related Skills
 
@@ -187,4 +187,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/governing-law-and-statutes.md`: claim classification, failure-to-settle and first-party standards, statutory checklists (Georgia, California, Missouri), Florida section 624.155, deadline computation, acceptance and clarification rules, litigation offers, claimant capacity.
 - `references/liens-and-multiple-claimants.md`: insured-and-limits matrix, lien matrix and rules, claimant matrix and multiple-claimant options, client authority.
 - `references/output-template.md`: deliverable layout, reconciliation table, letter skeleton, exhibit and delivery log, hand-off table.
-- `references/primary-sources.md`: every authority checked with its source, what it supports and the date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its source, what it supports and the date checked.

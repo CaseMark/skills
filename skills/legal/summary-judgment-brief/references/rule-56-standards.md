@@ -14,7 +14,7 @@
 10. Timing under Rule 56(b) and the scheduling order
 11. Preservation after denial
 
-Every citation here appears in `references/primary-sources.md` with how and when it was checked. Circuit-specific glosses are marked `[VERIFY]` unless the circuit case itself was read.
+Every citation here appears in `references/primary-sources.md` with how and when it was checked. Circuit-specific glosses are not confirmed here unless the circuit case itself was read; confirm the forum circuit's formulation before relying on one.
 
 ## 1. The standard
 
@@ -36,7 +36,7 @@ Build one row per claim, defense and element. The first column decides everythin
 Rules that follow from the matrix:
 
 - If the movant fails its initial burden, the motion must be denied even if the nonmovant shows nothing. Fitzpatrick, 2 F.3d at 1116; see Adickes v. S.H. Kress & Co., 398 U.S. 144, 159 (1970) (movant's initial burden), as explained in Celotex, 477 U.S. at 323-26.
-- A plaintiff moving on its own claim and a defendant moving on its own affirmative defense (Rule 8(c)(1) lists release, payment, waiver, statute of limitations and others) are in the second row. Rule 8(c) governs only the manner of pleading; who bears the burden of proof is a question of the governing substantive law, and in a diversity case federal courts apply state law on it. Palmer v. Hoffman, 318 U.S. 109, 117 (1943); Cities Service Oil Co. v. Dunlap, 308 U.S. 208 (1939). Decide choice of law first; if the allocation is not confirmed, analyze both rows and mark it `[VERIFY]`.
+- A plaintiff moving on its own claim and a defendant moving on its own affirmative defense (Rule 8(c)(1) lists release, payment, waiver, statute of limitations and others) are in the second row. Rule 8(c) governs only the manner of pleading; who bears the burden of proof is a question of the governing substantive law, and in a diversity case federal courts apply state law on it. Palmer v. Hoffman, 318 U.S. 109, 117 (1943); Cities Service Oil Co. v. Dunlap, 308 U.S. 208 (1939). Decide choice of law first; if the allocation is not confirmed, analyze both rows and label it "Confirm before use:".
 - Rule 56(c)(1)(B) is the textual home of the "pointing out" route: a party may show that "an adverse party cannot produce admissible evidence to support the fact." The 2010 Committee Note says this route belongs to "a party who does not have the trial burden of production."
 - California does not allow the pure "pointing out" route; see `references/state-and-local-practice.md`.
 
@@ -56,7 +56,7 @@ Rules that follow from the matrix:
 - Celotex, 477 U.S. at 324: the nonmovant need not produce evidence in a form admissible at trial; the question is whether the content could be presented in admissible form.
 - Fifth Circuit: materials cited at summary judgment need only be capable of being presented in a form that would be admissible; declarations showing the documents can be so presented suffice. LSR Consulting, LLC v. Wells Fargo Bank, N.A., 835 F.3d 530, 534 (5th Cir. 2016). The safest practice everywhere is still a sponsoring declarant who can authenticate each document.
 - Rule 56(c)(4): a declaration must be on personal knowledge, set out facts that would be admissible, and show competence. 28 U.S.C. 1746 permits an unsworn declaration under penalty of perjury in place of an affidavit.
-- Typical defects: hearsay with no exception identified; a corporate declarant reciting what others told her; documents with no witness who can lay a foundation; expert opinions with no stated basis. Whether unauthenticated documents may be considered after 2010 varies by circuit; the Fifth Circuit rule is above, others `[VERIFY]`.
+- Typical defects: hearsay with no exception identified; a corporate declarant reciting what others told her; documents with no witness who can lay a foundation; expert opinions with no stated basis. Whether unauthenticated documents may be considered after 2010 varies by circuit; the Fifth Circuit rule is above; other circuits vary, so check the forum circuit's rule.
 - Expert opinions: an opinion that cannot satisfy Fed. R. Evid. 702 cannot be presented in admissible form. As amended in 2023, Rule 702 requires the proponent to demonstrate to the court that it is more likely than not that the testimony helps the trier of fact, rests on sufficient facts or data, uses reliable principles and methods, and reliably applies them; the 2023 Committee Note says this is the Rule 104(a) preponderance standard. Daubert v. Merrell Dow Pharmaceuticals, Inc., 509 U.S. 579 (1993), supplies the gatekeeping framework. Where the expert deadline has not passed, pair a "no expert" motion with the Rule 56(d) analysis in section 6.
 - Rule 56(h): a declaration submitted in bad faith or solely for delay can lead to expenses, fees, contempt or other sanctions.
 
@@ -71,7 +71,7 @@ Rules that follow from the matrix:
 - Text: if a nonmovant shows by affidavit or declaration that, for specified reasons, it cannot present facts essential to justify its opposition, the court may defer or deny the motion, allow time for discovery, or issue another order. The 2010 Note says the party may also seek an order deferring the time to respond. (Former Rule 56(f) was carried forward without substantial change.)
 - Second Circuit content requirements: the affidavit explains (1) what facts are sought and how they are to be obtained, (2) how they are reasonably expected to create a genuine issue of material fact, (3) what effort the affiant made to obtain them, and (4) why the effort was unsuccessful. Hudson River Sloop Clearwater, Inc. v. Dep't of Navy, 891 F.2d 414, 422 (2d Cir. 1989).
 - A request in the memorandum of law is not a substitute; failing to file the affidavit is itself sufficient ground to reject the claim that discovery was inadequate. Paddington Partners v. Bouchard, 34 F.3d 1132, 1137 (2d Cir. 1994).
-- Other circuits use similar elements (for example, Family Home & Fin. Ctr., Inc. v. Fed. Home Loan Mortg. Corp., 525 F.3d 822 (9th Cir. 2008)); confirm the forum circuit's formulation `[VERIFY]`.
+- Other circuits use similar elements (for example, Family Home & Fin. Ctr., Inc. v. Fed. Home Loan Mortg. Corp., 525 F.3d 822 (9th Cir. 2008)); confirm the forum circuit's formulation.
 - Celotex ties the "pointing out" route to "adequate time for discovery." 477 U.S. at 322. An early motion is not untimely under Rule 56(b); prematurity is raised through Rule 56(d), not by calling the motion late.
 - Pair the declaration with an opposition on the merits using the evidence already in hand, so the court can deny on either ground.
 
@@ -87,7 +87,7 @@ Rules that follow from the matrix:
 
 - A party cannot create a genuine issue simply by contradicting its own prior sworn statement without explaining the contradiction or attempting to resolve the disparity. Cleveland v. Policy Mgmt. Sys. Corp., 526 U.S. 795, 806 (1999) (describing the lower courts' "virtual unanimity").
 - Ninth Circuit limits: the court must make a factual determination that the contradiction is a sham, and the inconsistency must be clear and unambiguous; a declaration may elaborate, explain or clarify, and minor inconsistencies from honest discrepancy, mistake or newly discovered evidence do not justify striking it. Van Asdale v. Int'l Game Tech., 577 F.3d 989, 998-99 (9th Cir. 2009) (discussing Kennedy v. Allied Mut. Ins. Co., 952 F.2d 262 (9th Cir. 1991)).
-- Other circuits' formulations `[VERIFY]` before relying on them.
+- Confirm other circuits' formulations before relying on them.
 - For the movant: identify the prior testimony by page:line, quote it, and show the later declaration flatly contradicts it with no explanation.
 - For the nonmovant: a later declaration that changes testimony must acknowledge the earlier testimony, explain the change truthfully (refreshed recollection from a document, a misunderstood question, newly found evidence) and attach whatever corroborates it. A declaration that hides the contradiction is not drafted (SKILL.md Ground Rule 9).
 

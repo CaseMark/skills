@@ -1,6 +1,6 @@
 # Defense and Indemnity Rules
 
-Rules for reading the policy as issued, choosing the governing law, deciding which materials govern the duty to defend, and working through the insuring agreement, trigger, exclusions and indemnity in the right order. Every rule named here was checked on 2026-10-30 as recorded in `references/primary-sources.md`. A state rule that is not in that register is `[VERIFY]` and is not attributed to a named state.
+Rules for reading the policy as issued, choosing the governing law, deciding which materials govern the duty to defend, and working through the insuring agreement, trigger, exclusions and indemnity in the right order. Every rule named here was checked on 2026-10-30 as recorded in `references/primary-sources.md`. A state rule that is not in that register is not confirmed here and is not attributed to a named state.
 
 ## Contents
 
@@ -27,7 +27,7 @@ Work in this order and never skip ahead:
 | 4. Conditions | Notice, cooperation, voluntary payments, consent | Varies; New York puts the prejudice burden by statute (see `references/notice-reservation-and-allocation.md`) | N.Y. Ins. Law 3420(c)(2) |
 | 5. Limits and other insurance | Which limit, which layer, how shared | Contract language | CG 00 01 04 13 Section IV.4 |
 
-For the duty to defend the burden is lighter: in California the insured need only show the claim may fall within coverage and the insurer must prove it cannot (Montrose 1993). State the burden at each stage for the governing state; where the register has no rule for that state, write "burden allocation for [state] `[VERIFY]`" and analyze the claim under both a policyholder-burden and an insurer-burden reading.
+For the duty to defend the burden is lighter: in California the insured need only show the claim may fall within coverage and the insurer must prove it cannot (Montrose 1993). State the burden at each stage for the governing state; where the register has no rule for that state, write "Confirm before use: burden allocation for [state]" and analyze the claim under both a policyholder-burden and an insurer-burden reading.
 
 An exclusion is never the first step. If the insuring agreement is not met (no "occurrence", no insured, outside the policy period), say so and stop; if it is met or potentially met, then turn to exclusions. Mixing the two hides who must prove what, and in New York a denial based on an exclusion carries a disclaimer duty that a lack-of-coverage position does not (Zappone; see the notice and reservation reference).
 
@@ -56,10 +56,10 @@ Decide the governing state before naming any duty-to-defend rule, because the ru
 
 1. Look for a choice-of-law clause in the policy or an amendatory endorsement for a state.
 2. Record the contacts: state of issuance and delivery, insured's principal place of business, location of the insured risk, location of the loss, forum of the underlying suit, forum of any coverage action.
-3. Apply the forum's conflict rule. New York, following Restatement (Second) of Conflict of Laws sections 188 and 193 as described in Zurich Ins. Co. v. Shearson Lehman Hutton, looks to the most significant relationship and, for liability insurance, the principal location of the insured risk unless another state has a more significant relationship on the particular issue. Other forums' conflict rules are `[VERIFY]`.
+3. Apply the forum's conflict rule. New York, following Restatement (Second) of Conflict of Laws sections 188 and 193 as described in Zurich Ins. Co. v. Shearson Lehman Hutton, looks to the most significant relationship and, for liability insurance, the principal location of the insured risk unless another state has a more significant relationship on the particular issue. Other forums' conflict rules vary; check the forum's rule.
 4. If the answer is uncertain, say so, analyze under each candidate state's rule, and show where the outcome changes. Never pick the state whose rule favors the client without saying the choice is contested.
 
-Default when nothing is supplied: analyze under the law of the state where the policy was issued to the named insured, mark it `[VERIFY]`, and show the result under the forum's rule as the alternative. A forum's conflict rule (for example New York's Restatement section 193 approach) overrides this default.
+Default when nothing is supplied: analyze under the law of the state where the policy was issued to the named insured, label it "Confirm before use:", and show the result under the forum's rule as the alternative. A forum's conflict rule (for example New York's Restatement section 193 approach) overrides this default.
 
 ## 4. Which materials decide the duty to defend
 
@@ -74,7 +74,7 @@ How to apply it:
 - Read the latest operative complaint, all counts, and the prayer for relief. Labels do not control; the facts alleged do.
 - In a strict eight-corners state, an insurer-side opinion may not use an adjuster's statement, an insured's admission or an investigation report to deny a defense if the evidence overlaps the merits (intent, negligence, causation) or contradicts the pleading. Record the extrinsic fact as relevant to indemnity and to a reservation.
 - In a state that considers known extrinsic facts, facts that create a potential for coverage trigger the defense even if the complaint omits them; an insured-side opinion should collect and cite them.
-- Where the state's rule is not in the register, write "duty-to-defend materials rule for [state] `[VERIFY]`" and give the result under the complaint-only reading and under the extrinsic-facts reading.
+- Where the state's rule is not in the register, write "Confirm before use: duty-to-defend materials rule for [state]" and give the result under the complaint-only reading and under the extrinsic-facts reading.
 
 ## 5. Insuring agreement checklist (CGL Coverage A)
 
@@ -84,9 +84,9 @@ Verified text of CG 00 01 04 13, Coverage A, paragraph 1.a: "We will pay those s
 |---|---|---|
 | Insured status | Section II, Who Is An Insured (employees are insureds only for acts within the scope of their employment, II.2.a); additional insured endorsements | Which defendant is an insured and why |
 | "Suit" | Section V, definition 18 (civil proceeding; certain arbitrations and ADR with consent) | Whether a lawsuit, arbitration or only a demand letter exists |
-| "Damages" | Coverage A 1.a | Whether the relief sought includes damages (injunctive relief, fines, restitution and punitive damages need separate analysis; insurability of punitive damages is a state public-policy question, `[VERIFY]` by state) |
+| "Damages" | Coverage A 1.a | Whether the relief sought includes damages (injunctive relief, fines, restitution and punitive damages need separate analysis; insurability of punitive damages is a state public-policy question that varies by state; check the governing state's rule) |
 | "Bodily injury" / "property damage" | Section V, definitions; property damage includes physical injury to tangible property and loss of use; electronic data is not tangible property | Which injury is alleged |
-| "Occurrence" | Section V, definition 13: an accident, including continuous or repeated exposure to substantially the same general harmful conditions | Whether the facts alleged describe an accident; whether faulty workmanship is an occurrence varies by state `[VERIFY]` |
+| "Occurrence" | Section V, definition 13: an accident, including continuous or repeated exposure to substantially the same general harmful conditions | Whether the facts alleged describe an accident; whether faulty workmanship is an occurrence varies by state; check the governing state's rule |
 | Coverage territory and policy period | Coverage A 1.b(1) and (2) | Where and when the injury occurred |
 | Known injury | Coverage A 1.b(3), 1.c and 1.d | Whether a listed insured or authorized employee knew of the injury before the period |
 
@@ -95,9 +95,9 @@ Verified text of CG 00 01 04 13, Coverage A, paragraph 1.a: "We will pay those s
 - Occurrence policy (04 13 edition, 1.b(2)): the injury or damage must occur during the policy period. The date of the act, the date of the claim and the date of discovery are different facts; record each separately.
 - Continuation (04 13 edition, 1.c): injury or damage that occurs during the policy period and was not known before it "includes any continuation, change or resumption" of it after the period ends. Damage that began in one period and continued into the next stays within the first policy; it is not moved to the later carrier.
 - The act and the injury can fall in different periods: work done before inception can cause damage during the period, and an exposure-type trigger reading may also reach the policy in force when the work was done. List that earlier carrier for a tender.
-- Continuous or progressive injury: California adopted the continuous injury trigger for third-party liability policies, so every policy in effect while injury continued is potentially triggered (Montrose Chem. v. Admiral, 1995). Other states' trigger rules (injury-in-fact, exposure, manifestation) are `[VERIFY]`; analyze each candidate trigger and list the periods each would reach.
+- Continuous or progressive injury: California adopted the continuous injury trigger for third-party liability policies, so every policy in effect while injury continued is potentially triggered (Montrose Chem. v. Admiral, 1995). Other states' trigger rules (injury-in-fact, exposure, manifestation) vary by state and are not confirmed here; analyze each candidate trigger and list the periods each would reach.
 - Known injury (04 13 edition, 1.b(3)): a listed insured's or authorized employee's knowledge before inception that the injury occurred, in whole or in part, deems later continuation known. Check this for every renewal and every successor carrier.
-- Claims-made policies: record the retroactive date, the date the claim was first made, the date it was reported, the policy period and any extended reporting period. Each is a separate trigger. New York permits a claims-made policy to require the claim be made during the period, a renewal or an extended reporting period (N.Y. Ins. Law 3420(a)(5)); prejudice rules for missed claims-made reporting deadlines elsewhere are `[VERIFY]`.
+- Claims-made policies: record the retroactive date, the date the claim was first made, the date it was reported, the policy period and any extended reporting period. Each is a separate trigger. New York permits a claims-made policy to require the claim be made during the period, a renewal or an extended reporting period (N.Y. Ins. Law 3420(a)(5)); prejudice rules for missed claims-made reporting deadlines elsewhere vary by state; check the governing state's rule.
 
 ## 7. Exclusions and exceptions
 
@@ -112,7 +112,7 @@ Verified text of CG 00 01 04 13, Coverage A, paragraph 1.a: "We will pay those s
 
 - California: in a "mixed" action (some claims at least potentially covered, others not) the insurer must defend the entire action immediately; it may later seek reimbursement only of defense costs allocable solely to claims not even potentially covered, and it bears that burden by a preponderance of the evidence (Buss v. Superior Court).
 - New York: the duty is not defeated because the complaint asserts additional claims outside coverage (Seaboard Surety).
-- Other states: whether a defense of the whole suit is owed, and whether any reimbursement right exists, `[VERIFY]`. A reimbursement right that is not reserved in writing is at risk; put it in the reservation letter if counsel intends to claim it.
+- Other states: whether a defense of the whole suit is owed, and whether any reimbursement right exists, vary by state; check the governing state's rule. A reimbursement right that is not reserved in writing is at risk; put it in the reservation letter if counsel intends to claim it.
 
 ## 9. Duty to indemnify
 
@@ -122,4 +122,4 @@ Verified text of CG 00 01 04 13, Coverage A, paragraph 1.a: "We will pay those s
 
 ## 10. States not listed here
 
-For any state not in `references/primary-sources.md`: record the search made and the date, mark each rule `[VERIFY]`, do not attribute a rule to the state by name, and analyze both readings. Common open questions: whether known extrinsic facts count; whether the whole suit must be defended; trigger theory; whether faulty workmanship is an "occurrence"; insurability of punitive damages; allocation method.
+For any state not in `references/primary-sources.md`: record the search made and the date, label each rule "Confirm before use:", do not attribute a rule to the state by name, and analyze both readings. Common open questions: whether known extrinsic facts count; whether the whole suit must be defended; trigger theory; whether faulty workmanship is an "occurrence"; insurability of punitive damages; allocation method.

@@ -26,7 +26,7 @@ A retained or specially employed testifying expert must provide a written report
 | (v) all other cases in which, during the previous 4 years, the witness testified as an expert at trial or by deposition | Testimony list | Depositions omitted; only trials listed; cases outside damages work omitted |
 | (vi) statement of the compensation to be paid for the study and testimony | Compensation paragraph | Rate omitted; staff rates omitted; fee contingent on outcome |
 
-Also confirm against the scheduling order and any stipulation, which may change the content or format. Count the 10-year and 4-year windows back from the date the report is signed and served, use the earlier start date if those differ, and give each entry its date `[VERIFY: local practice on the anchor date]`.
+Also confirm against the scheduling order and any stipulation, which may change the content or format. Count the 10-year and 4-year windows back from the date the report is signed and served, use the earlier start date if those differ, and give each entry its date. Local practice on the anchor date varies; check the forum's practice.
 
 ## 2. Facts or data considered, and counsel's assumptions
 
@@ -87,10 +87,10 @@ Damages-specific exclusion patterns: projections whose author and assumptions th
 
 ## 7. State standards
 
-State courts apply their own versions. Examples, each to be confirmed for the forum and date `[VERIFY]`: some states follow Daubert-style rules; others keep a general-acceptance (Frye) test for novel methods; California trial courts act as gatekeepers against speculative expert testimony under Evidence Code sections 801 and 802 (Sargon, 55 Cal. 4th 747 (2012)). State disclosure rules may not require a full written report, or may require more. Do not assume federal Rule 26(a)(2)(B) or the 2023 Rule 702 text applies in state court.
+State courts apply their own versions. Examples, each to be confirmed for the forum and date: some states follow Daubert-style rules; others keep a general-acceptance (Frye) test for novel methods; California trial courts act as gatekeepers against speculative expert testimony under Evidence Code sections 801 and 802 (Sargon, 55 Cal. 4th 747 (2012)). State disclosure rules may not require a full written report, or may require more. Do not assume federal Rule 26(a)(2)(B) or the 2023 Rule 702 text applies in state court.
 
 ## 8. Professional standards and compensation
 
 - AICPA Statement on Standards for Forensic Services No. 1 (effective for engagements accepted on or after January 1, 2020) applies to AICPA members in litigation engagements: professional competence, due care, planning and supervision, sufficient relevant data; integrity and objectivity, and a member "should not subordinate his or her opinion to that of any other party"; no expert opinions on a contingent fee unless the AICPA contingent-fee rule allows it; no opinion on the ultimate conclusion of fraud.
 - Non-CPA experts may follow other bodies' standards (NACVA, ASA, economics practice); name the standards actually followed.
-- Compensation contingent on the outcome or amount is a Critical issue for counsel whatever the expert's profession `[VERIFY: forum's ethics rules and case law on contingent expert fees]`.
+- Compensation contingent on the outcome or amount is a Critical issue for counsel whatever the expert's profession; the forum's ethics rules and case law on contingent expert fees vary, so check them.
