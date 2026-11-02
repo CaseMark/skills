@@ -229,6 +229,19 @@ Eval rules (from the pilot review; each one was violated at least once there):
 - When the skill has a windows, runs or deadlines table, the eval's expected output must check every window that is open on the eval date.
 - Every computed date in an eval states its weekday and whether a weekend or holiday rule (for example IRC 7503) moves it. A tier or deadline that falls inside a calendar year needs an exact transaction date in the prompt.
 - A hard stop keyed to a document being supplied is satisfied only by an eval fixture or a labelled excerpt in the prompt ("Excerpt from <document> (date, issuer): ..."). Eval notes may not claim a document was supplied when the prompt only describes it.
+- Every improper-aim hard stop (back-solve, target-driven inputs, suppressing a finding) needs its own Ground Rule and an eval that plants it, whether or not the description names the aim.
+- In a skill with a clocks table, every eval prompt states "Today is <weekday, date>" and supplies the delivery terms and Business Day roll clause its deadlines rely on.
+- When a deadline counts business days, check federal and bank holidays inside the counting window, not only at the end date.
+- A Must that applies a fact-specific rule listed as [VERIFY] is phrased "explain why it likely applies on these facts, then route the determination".
+- Text quoted from a filed agreement or other document is verbatim and names the section that contains it.
+- A rounding or display default may not decide pass or fail. Test unrounded unless the document has a rounding clause.
+- A clock row that every matter of the skill's type triggers (for example a Reg B notice on every credit application) is checked in every eval with its trigger facts supplied, or the expected output says why it does not apply.
+- Improper-aim rules cover directional aims ("a bigger top line", "as low as possible"), not only numeric targets. Where a request defers to the standard ("unless the rules require otherwise"), the template names the label to use.
+- Tie-out claims in fixtures and reconciliation tests hold under the form's own line definitions and name any derived line (for example Schedule P Part 2 minus Part 4).
+- Before fixing a number in a Must, check for well-known contrary authority on the stated facts (for example Hackl on annual exclusions for entity gifts). Neutralize it in the facts or require both readings.
+- A deadline Must keeps the statute's "unless" and "if not earlier" branches.
+- A Must that prescribes a test sample names the population and period the conclusion covers.
+- A routing Must or hand-off row quotes the phrase in the target skill's description that claims the trigger.
 
 Content rules (from the pilot review):
 - In every clocks or windows table, give each timed element its own trigger event. Do not assume one anchor for all of them.
