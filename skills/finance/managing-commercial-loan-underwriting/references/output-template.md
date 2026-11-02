@@ -96,7 +96,7 @@ Value labels: **Value of record** (an appraisal or evaluation the regulation per
 | Appraisal or evaluation | | | | |
 | CRE concentration (institution level, pro forma) | | | | |
 | Regulation O | | | | |
-| Regulation B notice and signatures | | | | |
+| Regulation B notice clock for this application (revenue, completed-application date, deadline or safe harbor with weekday) and signatures | | | | |
 | Section 1071 | | | | |
 | SBA SOP (if SBA) | | | | |
 
@@ -139,15 +139,17 @@ When a hard stop or ground rule blocks part of a request, the rest of the delive
 |---|---|---|---|---|
 | Declined in part | | | | |
 
+When a request defers to the standard (for example "use the add-back unless policy requires otherwise"), nothing is declined: the draft applies the standard and records the request in the same table with the label **Deferred to standard**, stating which standard was applied.
+
 ## 13. Hand-offs
 
-A hand-off names the facts the receiving workflow needs; a bare skill name is not a hand-off.
+A hand-off names the facts the receiving workflow needs and quotes the phrase in the target's description that claims the trigger; a bare skill name is not a hand-off.
 
 | To | Why | Facts passed | Open questions | What this draft did not do |
 |---|---|---|---|---|
-| managing-debt-covenant-compliance | Post-close covenant calculations and compliance certificates | Covenant definitions, levels, first test dates | | |
-| analyzing-earnings-quality | Addbacks or normalization not supported by the statements | | | |
-| legal-research | Regulation O, Regulation B or Section 1071 questions needing a legal reading (no dedicated skill exists) | | | |
+| managing-debt-covenant-compliance | Its description claims "ongoing covenant calculations and compliance certificates after close" | Covenant definitions, levels, first test dates | | |
+| analyzing-earnings-quality | Its description claims "addbacks or accruals that the QoE report or statements do not support" | | | |
+| legal-research | Its description claims "planning or auditing legal research"; no dedicated skill claims Regulation O, Regulation B or Section 1071 questions | | | |
 
 Add or remove rows to match the matter.
 

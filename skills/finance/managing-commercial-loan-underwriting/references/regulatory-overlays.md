@@ -60,10 +60,12 @@ Applies to member banks (12 CFR 215), national banks and federal savings associa
 12 CFR 1002.9 applies to all creditors, bank and nonbank.
 
 - Business applicant with gross revenues of $1 million or less in its preceding fiscal year: notify within 30 days after receiving a completed application (approval, counteroffer or adverse action); 30 days after adverse action on an incomplete application unless a notice of incompleteness is sent; 30 days after adverse action on an existing account; 90 days after a counteroffer the applicant does not accept or use (1002.9(a)(1), (a)(3)(i)). The statement of action may be oral or written; the right-to-reasons disclosure may be given at application.
-- Business applicant over $1 million (and trade credit, factoring-related credit): notify within a reasonable time, orally or in writing; provide written reasons and the ECOA notice if the applicant asks in writing within 60 days (1002.9(a)(3)(ii)).
+- Business applicant over $1 million (and trade credit, factoring-related credit): notify within a reasonable time of receiving a completed application, orally or in writing; provide written reasons and the ECOA notice if the applicant asks in writing within 60 days (1002.9(a)(3)(ii)). Notice within the 30-day timing of 1002.9(a)(1) is deemed reasonable in all instances (comment 9(a)(3)-5), so the memo states that safe-harbor date. The 30-day and 90-day rows of 1002.9(a)(1) apply to these applicants only if the creditor elects to treat all business credit under (a)(3)(i) (comment 9(a)(3)-4).
+- Revenue size: the creditor may rely on the applicant's assertion; applications to start a business fall under 1002.9(a)(3)(i) (comment 9(a)(3)-1). Whether a newly formed single-purpose entity buying an existing property is "starting a business" is a fact question to route; the rule likely applies when the entity has no preceding fiscal year or revenue.
+- Every application triggers a notice: approval (which may be by implication, comment 9(a)(1)-2), counteroffer or adverse action. Refusing credit in substantially the amount or terms requested is adverse action unless the applicant accepts or uses a counteroffer (1002.2(c)(1)(i)); a combined counteroffer and adverse action notice avoids a second notice (comment 9(a)(1)-6). A "Recommend restructure" or a decline therefore always has a notice clock, and the memo states it.
 - Content: action taken, creditor name and address, the ECOA notice in 1002.9(b)(1), the federal agency from Appendix A to Part 1002 (for a bank: the CFPB if total assets exceed $10 billion; otherwise the OCC, the Federal Reserve or the FDIC by charter), and either specific reasons or the right to them within 30 days if requested within 60 days.
 - Reasons must be specific and give the principal reasons. "Internal standards or policies" or failing a scoring threshold are insufficient (1002.9(b)(2)). "Incomplete application" may be the reason only when the missing information prevents a decision (comment 9(a)(1)-3, -4).
-- An application is complete once the creditor has all the information it normally considers (comment 9(a)(1)-1). A creditor that received 150 or fewer applications in the preceding calendar year may notify orally (1002.9(d)). Days are counted as stated; 1002.9 contains no weekend or business-day adjustment.
+- An application is complete once the creditor has received all the information it regularly obtains and considers, including reports by other persons necessary to provide security for the credit or collateral, such as the lender's own appraisal; the creditor must use reasonable diligence to obtain them (1002.2(f); comments 2(f)-6 and 9(a)(1)-1). A clock that has not started is reported as not started, with what will start it. A creditor that received 150 or fewer applications in the preceding calendar year may notify orally (1002.9(d)). Days are counted as stated; 1002.9 contains no weekend, holiday or business-day adjustment and no mailbox rule, so record the date and method of each notice and treat a deadline that falls on a weekend as unmoved.
 
 ## 6. Regulation B: spouse and guarantor signatures
 
@@ -92,7 +94,7 @@ SOP 50 10 8.1 (Lender and Development Company Loan Programs) is effective Octobe
 
 ## 10. Clock table
 
-Check only the rows that apply to the matter; say which rows were checked.
+The Regulation B notice row that fits the applicant's revenue applies to every credit application and is checked in every memo, with the completed-application date, the revenue figure and the weekday of the deadline or safe-harbor date. Check the other rows when the matter triggers them, and say which rows were checked.
 
 | Timed element | Trigger event | Period or date | Weekend or holiday rule | Rule |
 |---|---|---|---|---|
@@ -100,7 +102,7 @@ Check only the rows that apply to the matter; say which rows were checked.
 | Notice after adverse action on an incomplete application | Adverse action taken | 30 days | None stated | 1002.9(a)(1)(ii) |
 | Notice of incompleteness alternative | Receipt of the incomplete application | 30 days | None stated | 1002.9(c)(1) |
 | Counteroffer not accepted or used | Notice of counteroffer | 90 days | None stated | 1002.9(a)(1)(iv) |
-| Notice, business over $1 million | Action taken | Reasonable time | Not applicable | 1002.9(a)(3)(ii) |
+| Notice, business over $1 million | Completed application | Reasonable time; 30 days deemed reasonable | None stated | 1002.9(a)(3)(ii); comment 9(a)(3)-5 |
 | Applicant's request for reasons | Creditor's notification | Request within 60 days; reasons within 30 days of the request | None stated | 1002.9(a)(2)(ii) |
 | Regulation O line approval validity | Board approval of the line | Draws within 14 months need no new approval | Not applicable | 215.4(b)(3) |
 | Section 1071 early collection permitted | 12 months before the compliance date | From Friday, January 1, 2027 | Not applicable | 1002.114(c)(1) |

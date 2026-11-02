@@ -66,11 +66,11 @@ Read each input with this suspicion before drafting from it.
 4. **Citation discipline.** Every figure carries a source locator (document, page, schedule, line) or [UNVERIFIED]. Every regulatory statement carries its citation from `references/primary-sources.md` or [VERIFY].
 5. **Institution policy sets the thresholds.** Minimum DSCR, maximum LTV, advance rates, amortization limits and leverage limits come from the institution's policy. Never invent one; a test with no policy level is "Not tested - policy not supplied".
 6. **Coverage is cash, and the population is complete.** DSCR uses cash available for debt service, not EBITDA, unless the written policy says otherwise; global cash flow includes every guarantor and every affiliate the policy requires, with their debt service, and lists who was excluded and why.
-7. **No adjusting the spread to meet a threshold.** Adjustments follow documents. A request to add back, reclassify, omit or substitute figures, or to change the DSCR method or the global population, so that a policy minimum, covenant or approval target is met, is declined in that part; the draft shows the actual figures, the gap and legitimate options.
+7. **No adjusting the spread to meet a threshold.** Adjustments follow documents. A request to add back, reclassify, omit or substitute figures, or to change the DSCR method or the global population, so that a policy minimum, covenant or approval target is met, or to make a figure as high or as low as possible, is declined in that part; a request that defers to the standard ("unless policy requires otherwise") is followed by applying the standard and labelled "Deferred to standard"; the draft shows the actual figures, the gap and legitimate options.
 8. **Value of record.** LTV is tested only on a value the lender may use: an appraisal or evaluation it engaged or properly accepted and reviewed before the decision, and for a purchase, the lesser of cost and that value. Anything else is "Indicative - not value of record".
 9. **Structure fits the collateral and the covenants fit the actuals.** Amortization never exceeds remaining economic life or the policy maximum. Every covenant is tested on actual figures and given a headroom figure before it is proposed.
 10. **Screen every party.** The borrower, each owner of 10 percent or more, each guarantor and each controlled affiliate is screened against the insider list; insider credit is aggregated, priced like comparable non-insider credit, and sent for board prior approval when Regulation O requires it.
-11. **Regulation B applies to every commercial applicant.** Notices run on the clock that fits the applicant's revenue, from the clock's own trigger, with specific reasons; spouses are never required as guarantors when 1002.7(d) bars it; Section 1071 obligations are stated as of the memo date.
+11. **Regulation B applies to every commercial applicant.** Every application triggers a notice of action taken, so every memo states the notice clock that fits the applicant's revenue, from the completed-application date, with the weekday of the deadline or safe-harbor date (or why the clock has not started); notices give specific reasons; spouses are never required as guarantors when 1002.7(d) bars it; Section 1071 obligations are stated as of the memo date.
 12. **Rules are dated.** State each regulatory status as of the memo date; a proposal is never applied as if final; re-check before relying on any status in `references/regulatory-overlays.md`.
 
 ## Checkpoint A: Pre-Draft Intake (Mandatory)
@@ -85,7 +85,7 @@ Collect these, then build the source-review register (`references/output-templat
 6. **Policy:** the institution's credit policy excerpts for each test, its risk rating scale, its exception authority.
 7. **Institution data where relevant:** total risk-based capital, CRE and construction totals now and 36 months ago, unimpaired capital and surplus, total insider credit.
 8. **Ownership:** every owner of 10 percent or more, and the insider screen result for each party.
-9. **Regulation B facts for a notice:** date the application became complete, applicant's gross revenue for its preceding fiscal year, applications received last year, decision and its reasons.
+9. **Regulation B facts for every application:** date the application became complete (or what is still outstanding), applicant's gross revenue for its preceding fiscal year, applications received last year, the lender's notice delivery practice, and any decision and its reasons.
 
 **Default fallbacks (each disclosed as a policy election or unknown fact):** CADS as defined in `references/underwriting-rules.md` Section 2 where the policy is silent; a stress of revenue down 10 percent and rate up 200 basis points where the policy names none; the guarantor's stated living expenses, else an unknown fact. Where a regulation states the general rule differently, it overrides the default; `references/regulatory-overlays.md` Section 11 lists each override.
 
@@ -152,7 +152,7 @@ Rank issues by the template's severity rule. Write each hand-off with the facts 
 7. LTV uses the lesser of cost and a value of record; every other value is labelled "Indicative - not value of record".
 8. The appraisal or evaluation requirement, engagement and review are tested under the lender's regulation, and CRE concentration ratios are shown pro forma where relevant.
 9. Every party was screened for insider status; insider credit is aggregated, priced at standard terms and routed for board approval with abstention when required.
-10. Each Regulation B clock runs from its own trigger with weekday stated; reasons are specific; the agency matches Appendix A; no barred spouse signature is required.
+10. The Regulation B notice clock for this application is stated (deadline or safe-harbor date with weekday, or why it has not started), and each clock runs from its own trigger; reasons are specific; the agency matches Appendix A; no barred spouse signature is required.
 11. Section 1071 and leveraged lending statements match the status in `references/regulatory-overlays.md` as of the memo date, and no proposal is applied as final.
 12. Every policy test, finding and recommendation label matches its written test, and the draft-for-review closing line is present.
 
@@ -180,19 +180,22 @@ Rank issues by the template's severity rule. Write each hand-off with the facts 
 
 ## Related Skills
 
-- managing-debt-covenant-compliance: post-close covenant calculations, compliance certificates, waivers and headroom monitoring after the loan closes.
-- analyzing-earnings-quality: addbacks or adjustments a QoE report or the statements do not support.
-- managing-commercial-real-estate-lending: property-level CRE underwriting with property valuation, cash flow analysis and environmental review.
-- analyzing-property-valuations: appraisal analysis across income, sales comparison and cost approaches.
-- managing-construction-lending: draw schedules, budget tracking and completion risk for construction loans.
-- managing-sba-lending: SBA eligibility, packaging and guaranty documentation under the SOP in effect.
-- drafting-credit-memos: formatting a finished credit memo when the analysis here is complete.
-- managing-credit-portfolio-risk: portfolio concentration metrics and stress testing beyond one loan's pro forma.
-- building-lbo-models: reviewing a sponsor or lender LBO model behind an acquisition loan.
-- term-loan-agreement: drafting the term loan agreement and covenant package once terms are approved.
-- guaranty-agreement: drafting the guaranty, including payment versus collection and caps.
-- loan-modification-agreement: documenting a CRE accommodation or workout.
-- legal-research: Regulation O, Regulation B or Section 1071 questions that need a legal reading; no dedicated skill exists.
+Each line quotes the phrase in the target's description that claims the hand-off.
+
+- managing-debt-covenant-compliance ("ongoing covenant calculations and compliance certificates after close"): this skill designs and tests covenant levels before closing; that skill calculates and certifies them after closing.
+- writing-investment-committee-memos ("private credit"): this skill drafts a bank or lender credit approval package for a credit officer; that skill drafts a fund's investment committee memo for a private credit investment.
+- analyzing-earnings-quality ("addbacks or accruals that the QoE report or statements do not support"): normalization adjustments that need a QoE-level test.
+- managing-commercial-real-estate-lending ("underwriting CRE loans"): property-level rent roll, operating expense and environmental underwriting.
+- analyzing-property-valuations ("performing appraisal analysis"): a technical review of the appraisal's approaches and assumptions.
+- managing-construction-lending ("managing construction loans, tracking draw requests"): draw schedules, budget and completion risk.
+- managing-sba-lending ("processing SBA loans, verifying eligibility, or preparing SBA packages"): SBA eligibility and guaranty requirements under the SOP in effect.
+- drafting-credit-memos ("writing credit memos"): formatting a finished memo once the analysis here is complete.
+- managing-credit-portfolio-risk ("measuring concentration risk"): portfolio concentration and stress testing beyond one loan's pro forma.
+- building-lbo-models ("reviewing a sponsor or lender model"): the LBO model behind an acquisition loan.
+- term-loan-agreement ("covenant package"): drafting the loan agreement once terms are approved.
+- guaranty-agreement ("lender-required guaranty for loans"): drafting the guaranty.
+- loan-modification-agreement ("documenting workout arrangements"): documenting a CRE accommodation or workout.
+- legal-research ("planning or auditing legal research"): Regulation O, Regulation B or Section 1071 questions that need a legal reading; no dedicated skill claims them.
 
 ## Reference Files
 
