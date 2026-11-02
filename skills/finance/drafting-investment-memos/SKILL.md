@@ -1,7 +1,7 @@
 ---
 name: drafting-investment-memos
 language: en
-description: Creates structured investment memoranda with business description, financial analysis, valuation, and risk assessment for deal review. Use when writing investment memos, preparing deal summaries, or documenting investment recommendations.
+description: Creates structured investment memoranda with business description, financial analysis, valuation, and risk assessment for deal review. Use when writing investment memos, preparing deal summaries, or documenting investment recommendations. Memos addressed to an investment committee for an approval decision go to writing-investment-committee-memos.
 tags:
   - drafting
   - investment-banking

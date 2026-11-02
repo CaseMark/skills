@@ -1,7 +1,7 @@
 ---
 name: managing-lease-accounting-asc842
 language: en
-description: Structures ASC 842 compliance with lease identification, classification, measurement, and transition documentation. Use when implementing ASC 842, classifying leases, or calculating lease liabilities.
+description: Structures ASC 842 compliance with lease identification, classification, measurement, and transition documentation. Use when implementing ASC 842, classifying leases, or calculating lease liabilities. Ongoing classification and measurement after adoption, including lease liabilities used in a valuation bridge, go to managing-lease-accounting.
 tags:
   - management
   - accounting

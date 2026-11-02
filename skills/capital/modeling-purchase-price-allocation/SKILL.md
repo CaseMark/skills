@@ -1,7 +1,7 @@
 ---
 name: modeling-purchase-price-allocation
 language: en
-description: Structures PPA analysis with tangible/intangible asset identification, useful life estimation, and goodwill calculation. Use when modeling purchase accounting, allocating deal price, or estimating amortization impact.
+description: Structures PPA analysis with tangible/intangible asset identification, useful life estimation, and goodwill calculation. Use when modeling purchase accounting, allocating deal price, or estimating amortization impact. Tax allocation under IRC 1060 and Form 8594 goes to analyzing-m-and-a-tax-implications.
 tags:
   - modeling
   - mergers-and-acquisitions

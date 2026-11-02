@@ -1,7 +1,7 @@
 ---
 name: managing-fraud-operations-banking
 language: en
-description: Structures banking fraud detection with transaction monitoring, investigation, and recovery documentation. Use when detecting banking fraud, investigating suspicious activity, or managing fraud cases.
+description: Structures banking fraud detection with transaction monitoring, investigation, and recovery documentation. Use when detecting banking fraud, investigating suspicious activity, or managing fraud cases. AML alert review, SAR decisioning and SAR narratives go to auditing-aml-transactions.
 tags:
   - management
   - commercial-banking

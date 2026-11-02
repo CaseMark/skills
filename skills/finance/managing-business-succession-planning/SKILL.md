@@ -1,7 +1,7 @@
 ---
 name: managing-business-succession-planning
 language: en
-description: Structures business exit and succession planning with valuation, buyer identification, and tax strategy. Use when planning business succession, valuing private businesses, or structuring ownership transitions.
+description: Structures business exit and succession planning with valuation, buyer identification, and tax strategy. Use when planning business succession, valuing private businesses, or structuring ownership transitions. Valuation models go to building-equity-valuation-models; gift or estate tax on the transfer goes to managing-estate-and-gift-tax.
 tags:
   - management
   - wealth-management

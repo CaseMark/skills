@@ -1,7 +1,7 @@
 ---
 name: managing-international-withholding-tax
 language: en
-description: Structures withholding tax analysis with treaty benefit claims and QI/QDD compliance. Use when managing withholding tax, claiming treaty benefits, or ensuring QI compliance.
+description: Structures withholding tax analysis with treaty benefit claims and QI/QDD compliance. Use when managing withholding tax, claiming treaty benefits, or ensuring QI compliance. Covers W-8 documentation, QI and QDD compliance, FATCA and Forms 1042 and 1042-S; treaty and limitation-on-benefits planning for a cross-border structure goes to analyzing-international-tax-planning.
 tags:
   - management
   - tax

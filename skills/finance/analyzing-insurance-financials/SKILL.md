@@ -1,7 +1,7 @@
 ---
 name: analyzing-insurance-financials
 language: en
-description: Structures insurance company financial analysis with combined ratio, reserve adequacy, and capital metrics. Use when analyzing insurance financials, evaluating combined ratios, or assessing reserve strength.
+description: Structures insurance company financial analysis with combined ratio, reserve adequacy, and capital metrics. Use when analyzing insurance financials, evaluating combined ratios, or assessing reserve strength. Actuarial loss and LAE reserve estimates and adequacy re-estimates go to analyzing-loss-reserves.
 tags:
   - analysis
   - insurance
