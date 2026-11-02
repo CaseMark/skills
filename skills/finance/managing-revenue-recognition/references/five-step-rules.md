@@ -82,7 +82,7 @@ Errors: calling a discounted add-on a separate contract; applying a catch-up to 
 - A principal controls an asset it transfers, a right to direct another party's service, or inputs it integrates into a combined output (606-10-55-37A). It reports gross; an agent reports its fee or commission net (606-10-55-37B, 55-38).
 - Indicators of control (606-10-55-39): primary responsibility for fulfillment and acceptability; inventory risk before transfer or after transfer through a return right; discretion in establishing price. Price discretion alone is weak evidence, since agents can have it. The relevance of each depends on the facts (606-10-55-39A).
 - The conclusion is made per specified good or service; an entity can be principal for one and agent for another in the same contract.
-- Revenue size, growth optics, gross margin presentation or peer practice are not indicators. A memo citing them is written up as an error.
+- Revenue size, growth optics, gross margin presentation or peer practice are not 606-10-55-39 indicators. A memo citing them is written up as an error, and a request to present gross for its effect on revenue size is a directional target under Ground Rule 8 (see `references/costs-disclosure-and-frameworks.md` Section 7 for the label when the request defers to the standard).
 
 ## 9. Bill-and-hold, consignment and customer acceptance
 

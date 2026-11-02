@@ -29,7 +29,7 @@ Read the section named in the SKILL.md step. Citations and the dates checked are
 - Original expected duration follows the enforceable term (606-10-25-3), not the invoicing cycle. A three-year non-cancellable subscription billed annually is not a one-year contract.
 - Entities other than PBEs (and certain listed not-for-profit entities and SEC-filing employee benefit plans) may elect to omit the RPO disclosures in 606-10-50-13 to 50-15, may limit quantitative disaggregation, and may omit most contract balance disclosures except 606-10-50-8(a). Confirm PBE status before relying on any election.
 - Disaggregation by categories that depict how economic factors affect revenue (606-10-50-5, 55-89 to 55-91); significant judgments on timing and on transaction price and allocation (606-10-50-17 onward); policy elections and practical expedients used.
-- Pending: ASU 2025-11 makes RPO and contract balance disclosures expressly interim as well as annual, for interim periods within annual periods beginning after December 15, 2027 (PBEs) and December 15, 2028 (others).
+- Interim periods: PBEs (and the listed not-for-profit entities and SEC-filing employee benefit plans) already give interim disaggregation, contract balance, prior-period obligation and RPO disclosures under ASC 270-10-50-1A. ASU 2025-11 supersedes 270-10-50-1A and moves the requirement into Topic 606 itself (for example, 606-10-50-13 and 50-15 now read "for interim and annual reporting periods"), effective for interim periods within annual periods beginning after December 15, 2027 (PBEs) and December 15, 2028 (others). It relocates rather than creates the PBE interim requirement.
 - Interest from a significant financing component is presented apart from revenue (606-10-32-20).
 
 ## 3. IFRS 15 differences that change an answer
@@ -44,7 +44,7 @@ Read the section named in the SKILL.md step. Citations and the dates checked are
 | Noncash consideration | Measured at contract inception | No measurement date specified |
 | Contract cost impairment | Reversal prohibited | Reversal required when conditions improve (paragraph 104) |
 | RPO disclosure | One-year and right-to-invoice exemptions (606-10-50-14) plus variable consideration exemptions in 606-10-50-14A | Same one-year and right-to-invoice expedients (paragraph 121); no variable consideration exemption |
-| Interim disclosure | Disaggregation, contract balances and RPO (pending ASU 2025-11 for the last two) | IAS 34 requires disaggregation |
+| Interim disclosure | Disaggregation, contract balances, prior-period obligations and RPO for PBEs under ASC 270-10-50-1A, moving into Topic 606 under ASU 2025-11 | IAS 34 requires disaggregation |
 | Non-PBE relief | Disclosure elections exist | Applies to all IFRS reporters |
 | Share-based consideration to customers | Measured under ASC 718 (ASU 2019-08, ASU 2025-04) | Not specified; consider IFRS 2, IFRS 15, IAS 32 |
 
@@ -71,16 +71,18 @@ Converged in substance: the five steps, the constraint, the significant financin
 | 2025-04 | Share-based consideration payable to a customer (ASC 718 and 606) | Dec. 15, 2026 (all entities); early adoption permitted |
 | 2025-05 | Credit losses on current accounts receivable and contract assets from ASC 606 transactions: practical expedient for all entities, collection-activity election for non-PBEs | Dec. 15, 2025 |
 | 2025-07 | Share-based noncash consideration from a customer stays in ASC 606 until unconditional; derivatives scope refinements | Dec. 15, 2026 (all entities) |
-| 2025-11 | Interim reporting: RPO and contract balance disclosures in interim periods | Interim periods within annual periods after Dec. 15, 2027 (PBEs); Dec. 15, 2028 (others) |
+| 2025-11 | Interim reporting: supersedes ASC 270-10-50-1A and moves its revenue disclosures into Topic 606 "for interim and annual reporting periods" | Interim periods within annual periods after Dec. 15, 2027 (PBEs); Dec. 15, 2028 (others) |
 
 ASUs 2026-01 to 2026-03 (as listed on the FASB page read) do not amend ASC 606. Re-check the FASB list for later Updates before relying on this table.
 
 ## 7. Signals that a request aims at a target rather than at faithful depiction
 
-The legitimate aim is revenue that depicts the transfer of goods or services in the amount the entity expects to be entitled to. Treat these as requests to structure to a target and apply the no-structuring ground rule and hard stop:
+The legitimate aim is revenue that depicts the transfer of goods or services in the amount the entity expects to be entitled to. A target is any aim stated in terms of the result rather than the facts: a number (revenue of $50.0m, a covenant level) or a direction (a bigger top line, revenue as early as possible, margin as low as possible this year). Treat these as requests to structure to a target and apply the no-structuring ground rule and hard stop:
 - choosing the period, gross or net presentation, SSP, constraint level, or performance obligation split because of the revenue, EBITDA, bonus, covenant, guidance or valuation result it produces;
 - dating, re-signing or re-papering a contract, amendment or acceptance so that it appears to exist before period end when it did not;
 - omitting a side agreement, email or oral promise from the analysis or from the file the auditor receives;
 - drafting documentation after the fact to support a conclusion already booked, without the evidence that existed at the time;
 - asking how to word a contract so revenue can be recognized earlier while the commercial deal stays the same.
 Ordinary contract design for business reasons, explained neutrally (for example, explaining how a distinct, separately priced service would be accounted for), is not structuring.
+
+**A request that defers to the standard.** When a request states a target or directional preference but adds "unless the standard requires otherwise" (or similar), the trigger is met in substance but nothing needs declining: apply the standard and label the preferred treatment in Section 3 of the output template **Position not supported** where the standard does not support it, recording the stated aim in the issues log. Use **Declined in part** instead if the request insists on the treatment after the standard's answer is given.

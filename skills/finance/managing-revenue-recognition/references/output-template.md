@@ -118,12 +118,12 @@ A hand-off names the facts the receiving workflow needs; a bare skill name is no
 
 | To | Why | Facts passed (amounts, periods, locators) | Open questions | What this draft did not do |
 |---|---|---|---|---|
-| analyzing-earnings-quality | Inbound: revenue recognition policy and ASC 606 / IFRS 15 application questions raised in earnings-quality or QoE work, including ASC 606 recognition conclusions flagged in earnings quality review (bill-and-hold (606-10-55-83), principal or agent, variable consideration and contract modifications), are answered here. Outbound: earnings-quality analysis and the QoE adjustment stay with that skill, which receives the quantified revenue and gross profit effect of each conclusion | | | |
-| managing-sec-reporting | 10-K or 10-Q content, MD&A and critical accounting estimate text beyond the ASC 606 notes | | | |
-| managing-audit-preparation | PBC list and auditor inquiry responses for the revenue file | | | |
-| managing-sox-compliance | Control deficiencies over contract review, side agreements or cut-off | | | |
-| managing-business-combinations | Purchase price allocation around acquired contract balances | | | |
-| legal-research | Enforceability of a side agreement or authority to bind under contract law; no finance skill covers it | | | |
+| analyzing-earnings-quality | Inbound: revenue recognition policy and ASC 606 / IFRS 15 application questions raised in earnings-quality or QoE work, including ASC 606 recognition conclusions flagged in earnings quality review (bill-and-hold (606-10-55-83), principal or agent, variable consideration and contract modifications), are answered here. Outbound: that skill "tests quality of earnings (QoE) reports and management adjusted EBITDA" and receives the quantified revenue and gross profit effect of each conclusion | | | |
+| managing-sec-reporting | "Structures SEC filing preparation with 10-K, 10-Q, 8-K content requirements": MD&A and critical accounting estimate text beyond the ASC 606 notes | | | |
+| managing-audit-preparation | "PBC list management, supporting documentation, and inquiry responses" for the revenue file | | | |
+| managing-sox-compliance | "control documentation, testing, and deficiency evaluation" for contract review, side agreements or cut-off | | | |
+| managing-business-combinations | "purchase price allocation, fair value measurement" around acquired contract balances | | | |
+| legal-research | "Guides legal research from issue framing through authority collection, jurisdiction scoping": enforceability of a side agreement or authority to bind under contract law; no finance skill covers it | | | |
 
 Add or remove rows to match the matter.
 
@@ -148,4 +148,4 @@ Close with: "Draft for review by a qualified accountant. Management makes the ac
 | Not evidenced | No document either way; treated as not met for recognition until evidence arrives |
 | Principal | The entity controls the specified good or service before transfer, shown by the 606-10-55-37A route and supported by the indicators |
 | Agent | The entity does not control it before transfer; its promise is to arrange provision by another party |
-| Declined in part | Part of the request falls within a hard stop or Ground Rule 8; that part is not produced, the rest is, and Section 10 records both |
+| Declined in part | Part of the request falls within a hard stop or Ground Rule 8 (numeric or directional target) and insists on the treatment; that part is not produced, the rest is, and Section 10 records both. A target-driven preference that defers to the standard ("unless the standard requires otherwise") is instead labeled Position not supported in Section 3 when the standard does not support it |
