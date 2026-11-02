@@ -12,7 +12,7 @@ Produce the header and the eight parts in this order, one set of conclusions per
 6. Part 5. State law, reliance and exposure
 7. Part 6. Blocking issues, judgment calls and reconciliation table
 8. Part 7. Remediation, disclosure path and arrangement controls
-9. Part 8. Hand-offs, open items and `[VERIFY]` list
+9. Part 8. Hand-offs, open items and items to confirm before use
 
 ## Header
 
@@ -49,7 +49,7 @@ Produce the header and the eight parts in this order, one set of conclusions per
 - **AKS: no safe harbor; risk elevated**: no safe harbor, and a referral-related purpose, a volume-based term, or another risk factor is present.
 - **AKS: undetermined**: a blocking fact prevents a conclusion.
 
-**State law label**: **State law: no issue on verified statutes**, **State law: issue identified**, or **State law: not researched [VERIFY]**.
+**State law label**: **State law: no issue on verified statutes**, **State law: issue identified**, or **State law: not researched (confirm before use)**.
 
 **Disclosure path label**: **Disclosure path: none indicated**, **Disclosure path: CMS SRDP**, **Disclosure path: OIG SDP**, **Disclosure path: contractor refund**, or **Disclosure path: counsel decision required**.
 
@@ -71,11 +71,11 @@ For each arrangement: the exception or exceptions tested, an element table (Elem
 
 ## Part 4. AKS analysis
 
-For each arrangement: remuneration and who gives and receives it; federal program business involved; safe harbor element table; intent evidence for and against, with sources; the governing circuit's intent standard or both readings; FCA causation standard in the circuit or `[VERIFY]`; the AKS label.
+For each arrangement: remuneration and who gives and receives it; federal program business involved; safe harbor element table; intent evidence for and against, with sources; the governing circuit's intent standard or both readings; FCA causation standard in the circuit or "Confirm before use:"; the AKS label.
 
 ## Part 5. State law, reliance and exposure
 
-1. State and other all-payor laws screened (statute, reach, conclusion or `[VERIFY]`).
+1. State and other all-payor laws screened (statute, reach, conclusion or "Confirm before use:").
 2. Advisory opinions and prior opinions: who may rely, what they address, each material factual difference.
 3. Exposure: Stark payment denial and refund (period and DHS claims affected; data needed for quantification; hand off), CMPs, AKS criminal and civil exposure, FCA hand-off.
 
@@ -105,7 +105,7 @@ Judgment calls (restructure, terminate, refund, disclose, seek an advisory opini
 2. Look-back: noncompliant period, affected DHS claims, data needed for quantification; hand off, the 60-day clock and suspension status, and the disclosure path label with reasons.
 3. Arrangement controls tied to the findings: central master list of physician contracts, expiration tracking with renewal lead time, payment-to-contract reconciliation before each payment, time-record requirement for hourly or stipend arrangements, FMV refresh cadence, and an approval step for any rate change.
 
-## Part 8. Hand-offs, open items and `[VERIFY]` list
+## Part 8. Hand-offs, open items and items to confirm before use
 
 **Hand-offs.** A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -123,6 +123,6 @@ Judgment calls (restructure, terminate, refund, disclose, seek an advisory opini
 | # | Open item | Gap class | Owner | Next action | Blocks the opinion? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm before use:** each statement, why it is unconfirmed, and what would settle it.
 
 Close with: "Draft for attorney review. Not to be relied on or shared until counsel confirms the executed documents, the payment history, the governing circuit and state law, and every clock in Part 3."

@@ -52,7 +52,7 @@ Anti-corruption policies fail in predictable places. A U.S.-centric template per
 1. **Draft only.** Nothing is adopted, published or sent to a regulator by this skill. Every output is a draft for counsel's review and is never called final.
 2. **Source-review gate.** Never call an input missing until the supplied files have been checked and opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (whether any entity carries on business in the UK), *source conflict* (the agent contract says fixed fee, the ledger shows a commission), *unverified external lookup* (a local gift cap not in `references/primary-sources.md`), or *policy election* (facilitation-payment election, threshold amounts).
 3. **Hierarchy of authority.** For law: statute (FCPA, FEPA, UK Bribery Act, local written law), then binding court decisions, then agency guidance (Resource Guide, ECCP, MoJ s.9 guidance, SFO guidance), then enforcement policy statements and press releases, then commentary. Enforcement policy never displaces the statute. For company facts: executed contracts, filings and ledger entries govern over summaries, slide decks and the requester's description. Name every conflict in the reconciliation table and say which source controls; never resolve one silently.
-4. **Citation discipline.** Every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`; every company fact carries a source locator or `[UNVERIFIED]`. Re-read the current statute and the current DOJ policy pages before the policy is adopted. Never invent a case, statute, guidance paragraph or enforcement action.
+4. **Citation discipline.** Every legal statement carries a citation from `references/primary-sources.md` or is labelled "Confirm before use:"; every company fact carries a source locator or `[UNVERIFIED]`. Re-read the current statute and the current DOJ policy pages before the policy is adopted. Never invent a case, statute, guidance paragraph or enforcement action.
 5. **Enforcement posture is not the law.** State EO 14209, the June 2025 guidelines and the March 2026 CEP with the date checked, and say that the statute, its penalties and its limitation periods are unchanged. Never remove or weaken a control because of current enforcement priorities.
 6. **Most restrictive applicable law governs the group rule.** Where the UK Bribery Act or local law reaches any part of the group, facilitation payments are prohibited for that part, and the recommended rule is group-wide prohibition with a duress and safety exception. Never draft the FCPA exception for persons the UK Act or local law reaches.
 7. **Purpose before thresholds.** Every gift, meal, trip or other benefit to a foreign official meets the purpose test in `references/program-design-rules.md`, section 3, at any value. Thresholds decide who approves; they never make an expense permissible.
@@ -85,7 +85,7 @@ Collect, from documents where possible:
 - A request to create, backdate or alter a policy version, approval, contract, invoice description or accounting entry to cover a specific past or pending payment.
 - A request for instructions on how to route, split, describe or time a specific payment to an official or intermediary so that it escapes review or accurate recording.
 
-**Not hard stops:** a good-faith request to permit payments the requester believes are lawful facilitating payments, even one that matches a paper-program indicator such as business approval without Compliance, provided nothing is described as improper or hidden (draft the compliant election, say which indicator the request matched, and explain why); issuer status or UK nexus unknown (Critical item; draft both versions); a described past payment that may have been improper (analyze under the policy, mark Critical, hand off to legal-research for counsel); local law unknown (`[VERIFY]` and country annex placeholder).
+**Not hard stops:** a good-faith request to permit payments the requester believes are lawful facilitating payments, even one that matches a paper-program indicator such as business approval without Compliance, provided nothing is described as improper or hidden (draft the compliant election, say which indicator the request matched, and explain why); issuer status or UK nexus unknown (Critical item; draft both versions); a described past payment that may have been improper (analyze under the policy, mark Critical, hand off to legal-research for counsel); local law unknown (labelled "Confirm before use:" with a country annex placeholder).
 
 ## Step 1: Scope Map
 
@@ -121,7 +121,7 @@ Read `references/program-design-rules.md`, sections 6 and 7. Draft acquisition d
 
 ## Step 9: Program Elements and Assembly
 
-Read `references/program-design-rules.md`, sections 8 and 9, and assemble the deliverable in the order of `references/output-template.md`. Map each program element to the three ECCP questions and the six MoJ principles in Part 4. Run every provision against the paper-program indicators; remove any that match. Assign the policy status, list blocking issues by severity, the reconciliation table, clocks, hand-offs and every `[VERIFY]` item.
+Read `references/program-design-rules.md`, sections 8 and 9, and assemble the deliverable in the order of `references/output-template.md`. Map each program element to the three ECCP questions and the six MoJ principles in Part 4. Run every provision against the paper-program indicators; remove any that match. Assign the policy status, list blocking issues by severity, the reconciliation table, clocks, hand-offs and every "Confirm before use:" item.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -150,7 +150,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 9. Third parties are tiered by risk factors, and success-fee and official-recommended intermediaries are High.
 10. The books-and-records section prohibits generic or false descriptions and states there is no materiality threshold.
 11. No provision matches a paper-program indicator, and no hard-stop request was drafted.
-12. Every legal statement has a citation from `references/primary-sources.md` or `[VERIFY]`.
+12. Every legal statement has a citation from `references/primary-sources.md` or is labelled "Confirm before use:".
 13. The output closes with the draft-for-counsel-review line.
 
 ## Guidelines
@@ -188,4 +188,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/anti-corruption-law.md`: scope map, anti-bribery elements, foreign official and instrumentality, facilitating payments and defenses, accounting provisions, penalties, limitation clocks, FEPA, UK Bribery Act, enforcement posture as of 2026-10-30, local law.
 - `references/program-design-rules.md`: risk assessment, facilitation-payment election, gifts and travel rules, third-party tiers and red flags, books-and-records controls, M&A and joint ventures, local-law conflicts, program elements, paper-program indicators.
 - `references/output-template.md`: deliverable layout, status and election labels, scope map, policy sections, gap analysis, blocking issues, reconciliation and clocks, hand-offs, declined output.
-- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked.

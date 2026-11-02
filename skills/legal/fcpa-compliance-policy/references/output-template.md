@@ -1,6 +1,6 @@
 # Output Template
 
-Produce the header and the eight parts in this order. Keep sentences plain; put detail in tables. Every date shows its weekday. Every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`; every company fact carries a source locator or `[UNVERIFIED]`.
+Produce the header and the eight parts in this order. Keep sentences plain; put detail in tables. Every date shows its weekday. Every legal statement carries a citation from `references/primary-sources.md` or is labelled "Confirm before use:"; every company fact carries a source locator or `[UNVERIFIED]`.
 
 ## Contents
 
@@ -11,7 +11,7 @@ Produce the header and the eight parts in this order. Keep sentences plain; put 
 5. Part 4. Program gap analysis
 6. Part 5. Blocking issues and judgment calls
 7. Part 6. Reconciliation table and clocks
-8. Part 7. Hand-offs, open items and `[VERIFY]` list
+8. Part 7. Hand-offs, open items and items to confirm before use
 9. Declined output
 
 ## Header
@@ -101,7 +101,7 @@ Judgment calls (facilitation-payment election, threshold amounts, tier triggers,
 | Element | Trigger event | Trigger date (weekday) and evidence | Period | Date or days elapsed | Source |
 |---|---|---|---|---|---|
 
-## Part 7. Hand-offs, open items and `[VERIFY]` list
+## Part 7. Hand-offs, open items and items to confirm before use
 
 **Hand-offs.** A hand-off carries the facts the receiving workflow needs.
 
@@ -120,9 +120,9 @@ Judgment calls (facilitation-payment election, threshold amounts, tier triggers,
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Owner | Next action | Blocks adoption? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm before use:** each statement, why it is unconfirmed, and what would settle it.
 
-Close with: "Draft for counsel review. Not for adoption until counsel confirms the scope map, the facilitation-payment election, and every [VERIFY] item."
+Close with: "Draft for counsel review. Not for adoption until counsel confirms the scope map, the facilitation-payment election, and every "Confirm before use:" item."
 
 ## Declined output
 

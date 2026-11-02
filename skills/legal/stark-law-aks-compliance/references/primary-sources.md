@@ -7,7 +7,6 @@
 3. Regulations and agency materials
 4. State statutes
 5. Cases
-6. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -72,20 +71,3 @@ All checks were made on 2026-10-30 through the case.dev research API. "Full text
 | United States ex rel. Greenfield v. Medco Health Sols., Inc., 880 F.3d 89 (3d Cir. 2018) | law.justia.com (3d Cir. No. 17-1152) | Full text via case.dev; citation verified | A link between kickback and at least one claim is required; less than but-for causation; temporal proximity alone insufficient | 2026-10-30 |
 | United States ex rel. Kosenske v. Carlisle HMA, Inc., 554 F.3d 88 (3d Cir. 2009) | openjurist.org/554/f3d/88 | Full text via case.dev; citation verified | Once a Stark violation is shown, the defendant bears the burden of proving an exception; a written agreement that did not cover the later arrangement did not satisfy the personal services exception | 2026-10-30 |
 | United States ex rel. Drakeford v. Tuomey, 792 F.3d 364 (4th Cir. 2015) | caselaw.findlaw.com (4th Cir. 2015) | Full text via case.dev; citation verified | Advice-of-counsel defense rejected where the hospital shopped for favorable opinions and ignored negative ones; Stark volume or value issues (decided under pre-2021 regulations) | 2026-10-30 |
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Whether 2026 inflation-adjusted CMP amounts have been published | 45 C.F.R. 102.3 as read shows 2024 and 2025 columns only | Federal Register notice of the 2026 HHS annual adjustment |
-| One-purpose test in the First, Second, Fourth, Sixth, Eighth, Eleventh, D.C. and Federal Circuits | Not researched | Controlling circuit decisions |
-| FCA causation standard under 1320a-7b(g) in circuits other than the First, Third, Sixth and Eighth | Not researched | Controlling circuit decisions |
-| Whether Medicaid claims tainted by a Stark violation support FCA liability | Courts differ; not researched | Controlling circuit decisions |
-| Burden of proving a Stark exception in FCA cases outside the Third Circuit | Not researched | Controlling circuit decisions |
-| How Fla. Stat. 817.505(3)(a) applies to commercial-only patients | Text read; case law not read | Florida appellate decisions |
-| California self-referral rules in Bus. & Prof. Code 650.01-650.02 | Not read | Statute text |
-| Self-referral, anti-kickback, fee-splitting and patient brokering laws of every state other than Florida and California (section 650 only) | Not researched | State statutes and decisions |
-| Whether the September 2026 SRDP revision changed the 6-year lookback or form content | Only the CMS page and the 2025 OMB submission copy were read | CMS Voluntary Self-Referral Disclosure Protocol (Revised September 2026) on cms.gov |
-| Practitioner recruitment safe harbor (1001.952(n)) and the rural-hospital recruitment rule at 411.357(e)(5) and following | Not read in full | Current eCFR text |
-| 411.355 general exceptions other than in-office ancillary services (411.355(b)) | Not read in full | Current eCFR text |
-| Whether 2026 amendments changed Fla. Stat. 400.474 | The 2025 compilation was read | 2026 Florida Statutes on flsenate.gov |

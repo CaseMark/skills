@@ -1,6 +1,6 @@
 # Claim Construction and Infringement Rules
 
-Rules for construing claims and charting infringement of U.S. utility patents. Every rule carries the authority checked in the primary-sources register. A rule marked `[VERIFY]` is not settled by a source read for this skill; analyze both readings where it matters.
+Rules for construing claims and charting infringement of U.S. utility patents. Every rule carries the authority checked in the primary-sources register. A rule noted as not confirmed here is not settled by a source read for this skill; check the governing authority and analyze both readings where it matters.
 
 ## Contents
 
@@ -98,9 +98,9 @@ Sources: 35 U.S.C. 271(b), (c); Global-Tech Appliances v. SEB S.A., 563 U.S. 754
 | Knowledge | Knowledge of the patent and knowledge that the induced acts constitute patent infringement (Global-Tech; Commil) | Knowledge that the combination for which the component was especially designed was both patented and infringing (Aro, 377 U.S. at 488-93) |
 | Willful blindness | Satisfies knowledge: the defendant subjectively believes there is a high probability a fact exists and takes deliberate actions to avoid learning it. Recklessness and negligence do not (Global-Tech) | Same knowledge standard (Global-Tech treats 271(b) and (c) alike) |
 | Intent and conduct | Active inducement: intent to bring about the infringing acts | Sale, offer or import of a material component especially made or adapted for infringing use and not a staple article suitable for substantial noninfringing use |
-| Not a defense | A good-faith belief that the patent is invalid (Commil) | Same reasoning applies `[VERIFY]` for 271(c) |
+| Not a defense | A good-faith belief that the patent is invalid (Commil) | Same reasoning applies; whether it extends to 271(c) is not confirmed here |
 
-- Date the knowledge. Inducement and contributory exposure run only from the date knowledge is shown by evidence (notice letter, citation in prosecution, prior licensing talks, marking seen by the accused, or the complaint itself). Whether service of the complaint alone supplies knowledge for post-filing inducement is decided differently by district courts `[VERIFY]`; state both readings.
+- Date the knowledge. Inducement and contributory exposure run only from the date knowledge is shown by evidence (notice letter, citation in prosecution, prior licensing talks, marking seen by the accused, or the complaint itself). Whether service of the complaint alone supplies knowledge for post-filing inducement is decided differently by district courts; check the forum's cases and state both readings.
 - Under 35 U.S.C. 298, failure to obtain or present advice of counsel may not be used to prove intent to induce.
 
 ## 8. Where the act happens: territorial limits, 271(f) and 271(g)
@@ -113,7 +113,7 @@ Sources: 35 U.S.C. 271(a), (f), (g); Microsoft Corp. v. AT&T Corp., 550 U.S. 437
 - Software: master software sent abroad from which foreign copies are made is not a supplied "component" for those copies (Microsoft v. AT&T). The presumption against extraterritoriality applies.
 - 271(g): importing, or selling, offering or using in the United States, a product made abroad by a process patented in the United States, during the term. No 271(g) liability once the product is materially changed by later processes or becomes a trivial and nonessential component of another product.
 - Where a 271(f) theory succeeds, foreign lost profits are a damages question for the damages expert (WesternGeco); hand off.
-- Method claims practiced partly abroad and systems with servers abroad raise unsettled situs questions `[VERIFY]`; analyze each step's location.
+- Method claims practiced partly abroad and systems with servers abroad raise unsettled situs questions; check the governing circuit's rule and analyze each step's location.
 
 ## 9. Defenses that turn on the accused product's chain of title or its use
 
@@ -121,7 +121,7 @@ Sources: 35 U.S.C. 271(a), (f), (g); Microsoft Corp. v. AT&T Corp., 550 U.S. 437
 
 - Exhaustion: an authorized sale by the patentee or licensee exhausts patent rights in that item, regardless of post-sale restrictions, including authorized sales abroad (Impression Prods. v. Lexmark Int'l, 581 U.S. 360 (2017)). Ask where the accused components came from and whether any supplier is licensed.
 - License and covenant scope: read any license, covenant not to sue, or settlement affecting the patent family before charting.
-- Prior commercial use (35 U.S.C. 273): a defense for a process, or a machine, manufacture or composition used in a manufacturing or other commercial process, when the accused party in good faith commercially used the subject matter in the United States at least 1 year before the earlier of the effective filing date or a public disclosure qualifying under 102(b); proved by clear and convincing evidence (273(a)-(b)). Flag it for counsel; the limits and exceptions in 273(e) `[VERIFY]` were not analyzed.
+- Prior commercial use (35 U.S.C. 273): a defense for a process, or a machine, manufacture or composition used in a manufacturing or other commercial process, when the accused party in good faith commercially used the subject matter in the United States at least 1 year before the earlier of the effective filing date or a public disclosure qualifying under 102(b); proved by clear and convincing evidence (273(a)-(b)). Flag it for counsel; the limits and exceptions in 273(e) were not analyzed here; check them before relying on the defense.
 
 ## 10. Evidence standards for the accused product
 

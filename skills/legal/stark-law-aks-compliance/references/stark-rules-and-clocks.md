@@ -25,7 +25,7 @@ Answer every question in order, with a source locator for each answer. If any an
 | 4 | Is the DHS "entity" the party in the arrangement? | 411.351: the entity performs the DHS or presents the claim, including the party to which payment is reassigned | Analyzing the wrong legal entity in a system |
 | 5 | Is there a financial relationship? | 1395nn(a)(2); 411.354(a)-(c): ownership or investment interest, or a direct or indirect compensation arrangement; remuneration is anything of value, in cash or in kind, with the narrow carve-outs in 411.351 | Ignoring free space, staff, or below-market items as remuneration |
 
-Medicaid: 42 U.S.C. 1396b(s) bars federal matching payments to a State for DHS furnished on a referral that Medicare would deny. Whether that supports False Claims Act liability on Medicaid claims is contested; mark any Medicaid-Stark conclusion `[VERIFY]`.
+Medicaid: 42 U.S.C. 1396b(s) bars federal matching payments to a State for DHS furnished on a referral that Medicare would deny. Whether that supports False Claims Act liability on Medicaid claims is contested; label any Medicaid-Stark conclusion "Confirm before use:".
 
 ## 2. Direct, indirect and stand in the shoes
 
@@ -100,6 +100,6 @@ Compute each from its own trigger, show the date and weekday, and state the cons
 ## 8. Sanctions and burden
 
 - No Medicare payment for DHS furnished on a prohibited referral, and amounts collected must be refunded (1395nn(g)(1)-(2); 411.353(c)-(d)). These consequences do not depend on intent.
-- Civil money penalties need knowledge: up to $15,000 per service for a claim the person knows or should know is prohibited (1395nn(g)(3)) and up to $100,000 per circumvention scheme with a principal purpose of assuring referrals (1395nn(g)(4)). These are statutory amounts; the 2025 inflation-adjusted maximums in 45 C.F.R. 102.3 are $31,670 and $211,146. Whether a 2026 adjustment has issued is `[VERIFY]`.
-- On appeal of a payment denial, the entity bears the burden of persuasion that the service was not furnished on a prohibited referral (411.353(c)(2)). In FCA litigation the Third Circuit placed on the defendant the burden of proving an exception once a violation is shown (Kosenske, 554 F.3d 88); burden allocation in other circuits is `[VERIFY]`.
+- Civil money penalties need knowledge: up to $15,000 per service for a claim the person knows or should know is prohibited (1395nn(g)(3)) and up to $100,000 per circumvention scheme with a principal purpose of assuring referrals (1395nn(g)(4)). These are statutory amounts; the 2025 inflation-adjusted maximums in 45 C.F.R. 102.3 are $31,670 and $211,146. These are annual figures; confirm whether a 2026 adjustment has issued and use the current year's amounts.
+- On appeal of a payment denial, the entity bears the burden of persuasion that the service was not furnished on a prohibited referral (411.353(c)(2)). In FCA litigation the Third Circuit placed on the defendant the burden of proving an exception once a violation is shown (Kosenske, 554 F.3d 88); burden allocation varies by circuit; check the governing circuit's rule before relying on it.
 - Advice of counsel protects only a client that disclosed the facts fully and followed the advice; a client that shopped for favorable opinions while ignoring negative ones lost the defense (Drakeford v. Tuomey, 792 F.3d 364 (4th Cir. 2015)).

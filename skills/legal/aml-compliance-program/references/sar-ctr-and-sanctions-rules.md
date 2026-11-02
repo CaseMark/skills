@@ -40,7 +40,7 @@ Every timed element has its own trigger. Never carry one anchor across rows.
 | 314(a) request | Receipt of FinCEN's information request | Search records expeditiously; report matches in the manner and time frame the request specifies | 1010.520(b)(3) |
 | 314(b) sharing notice | Date of the notice to FinCEN | Effective one year; renew to keep sharing | 1010.540(b)(2) |
 
-Clocks are calendar days except the OFAC clocks, which are business days. Show each computed date with its weekday. Where a SAR due date falls on a weekend or holiday, file earlier; a policy that relies on a roll-forward to the next business day is `[VERIFY]`.
+Clocks are calendar days except the OFAC clocks, which are business days. Show each computed date with its weekday. Where a SAR due date falls on a weekend or holiday, file earlier; this skill does not confirm a weekend or holiday roll-forward rule for SAR deadlines, so a policy that relies on one needs the rule confirmed before use.
 
 Worked pattern for a policy example: determination that activity is suspicious on Monday, September 14, 2026, subject identified: due Wednesday, October 14, 2026. If no subject identified: up to Friday, November 13, 2026. A policy that starts the clock at case closure (say September 30) and adds 60 days produces Sunday, November 29, 2026, 76 days after detection, which is late.
 

@@ -6,7 +6,6 @@
 2. Statutes and regulations
 3. Supreme Court cases
 4. Federal Circuit cases
-5. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -75,21 +74,3 @@ All checks were made on 2026-10-30 through the case.dev research API. "Full text
 | In re EchoStar Commc'ns Corp., 448 F.3d 1294 (Fed. Cir. 2006) | law.justia.com (F3/448/1294) | Full text via case.dev | Relying on advice of counsel waives privilege and work product on the same subject matter; in-house analysis conveyed to executives treated as legal opinion | 2026-10-30 |
 | Knorr-Bremse Systeme Fuer Nutzfahrzeuge GmbH v. Dana Corp., 383 F.3d 1337 (Fed. Cir. 2004) (en banc) | law.justia.com (F3/383/1337) | Full text via case.dev | No adverse inference from invoking privilege or failing to obtain an opinion of counsel | 2026-10-30 |
 | EcoFactor, Inc. v. Google LLC, 137 F.4th 1333 (Fed. Cir. 2025) (en banc) | cafc.uscourts.gov/opinions-orders/23-1101.OPINION.5-21-2025_2518737.pdf | Full text via case.dev | Rule 702 gatekeeping; per-unit royalty opinion from licenses not based on sufficient facts or data; new damages trial | 2026-10-30 |
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Whether the reference patent's own term adjustment counts in its "full statutory term" for a terminal disclaimer | MPEP 1490 and the form do not answer it directly | Federal Circuit authority and the disclaimer text |
-| Scope of the 271(e)(1) safe harbor for research tools and post-approval activity | Statute read; Supreme Court and Federal Circuit decisions not read | Merck KGaA v. Integra and later authority |
-| Whether Commil's invalidity-belief rule applies to 271(c) | Commil decided 271(b) | Later Federal Circuit or district authority |
-| Whether the complaint alone supplies knowledge for post-filing inducement or willfulness | District courts differ | The forum's decisions |
-| Situs of method steps or system use partly abroad | NTP and later situs cases not read | Federal Circuit authority |
-| Limits and exceptions to the prior commercial use defense (35 U.S.C. 273(e)) | Subsections (a)-(c) read; (e) not analyzed | Full text of 273(e) and case law |
-| Length of any term extension for a given patent (35 U.S.C. 156) | Patent-specific | USPTO extension record |
-| Effect of a statutory disclaimer of a claim (253(a)) on pending suits and past damages | Statute read; case law not read | Federal Circuit authority |
-| Marking when both method and apparatus claims are asserted | Crown addresses method-only assertions | Federal Circuit authority |
-| Scope of advice-of-counsel waiver as to trial counsel | In re Seagate not read | Seagate and forum decisions |
-| Whether a draft analysis is protected work product | Depends on anticipation of litigation and forum law | Forum authority and counsel's direction |
-| Local patent rules and contention deadlines | Vary by district | The forum's local patent rules |
-| Current status of any patent (fees, certificates, ownership) | Changes over time | USPTO Patent Center and assignment records on the date of the analysis |

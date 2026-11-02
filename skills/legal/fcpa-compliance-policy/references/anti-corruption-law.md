@@ -105,7 +105,7 @@ Apply to issuers whether or not any bribe is involved.
 | Alternative fine | Greater of twice gross gain or twice gross loss | Same | 18 U.S.C. 3571(d) |
 
 - A fine imposed on an individual for an anti-bribery violation may not be paid, directly or indirectly, by the issuer, domestic concern or person (78ff(c)(3); 78dd-2(g)(3); 78dd-3(e)(3)). The policy must not promise indemnification of individual criminal fines.
-- Current inflation-adjusted civil amounts change annually and are `[VERIFY]` against the SEC and DOJ adjustment tables.
+- Current inflation-adjusted civil amounts change annually; confirm the current amounts against the SEC and DOJ adjustment tables.
 - SEC disgorgement and equitable remedies: see the clocks table below.
 
 ## 7. Limitation periods and other clocks
@@ -163,5 +163,5 @@ This section changes; the policy states it with the date checked and does not dr
 ## 11. Local law
 
 - The written-law defense needs the written law itself; a local lawyer's opinion that a practice is "customary" does not satisfy it.
-- Local law can be stricter (gift caps for public employees, bans on hospitality for procurement staff, domestic anti-bribery codes, corporate liability statutes). Apply the stricter rule and cite it, or mark it `[VERIFY]`.
+- Local law can be stricter (gift caps for public employees, bans on hospitality for procurement staff, domestic anti-bribery codes, corporate liability statutes). Apply the stricter rule and cite it, or state that the local rule is not confirmed here and must be checked before relying on the policy.
 - Local law can conflict with program design: data-protection limits on hotline scope and cross-border transfer of investigation data, works-council consultation, labor-law limits on discipline, and blocking statutes. Name the conflict and route it to local counsel; never resolve it by dropping the control.

@@ -8,7 +8,6 @@
 4. Other regulations and SRO rules
 5. Rulemakings, orders and guidance
 6. Corrections to the prior version of this skill
-7. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -94,17 +93,3 @@ All URLs are ecfr.gov/current/title-31/subtitle-B/chapter-X/... for the section 
 - CIP, CDD and beneficial ownership records: the prior text said five years after account closure for all; 1010.230(i)(2) starts verification records at the date made.
 - OFAC records: the prior text said at least five years; 501.601 now requires ten.
 - SAR deadlines: the prior text gave 30 and 60 days for every institution; MSBs have no 60-day extension.
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Program rule details for casinos, dealers in precious metals, credit card system operators, housing GSEs | Not read | 31 C.F.R. 1021.210, 1027.210, 1028.210, 1030.210 |
-| Whether a board committee may approve the program on the board's behalf | The four regulator rules name the board; delegation not researched | Regulator guidance |
-| State MSB licensing and state AML program requirements | State law varies | State statute and regulator guidance |
-| Whether an entity is an MSB under 1010.100(ff), including fintech program managers | Fact-specific; definition not read | 31 C.F.R. 1010.100(ff) and FinCEN administrative rulings |
-| Weekend or holiday treatment of SAR due dates | No rule found | FinCEN SAR filing instructions |
-| Updated AML/CFT National Priorities | No update seen as of August 2026 (secondary source) | FinCEN publication |
-| Further changes to the IA rule before January 1, 2028, and the companion IA CIP rule | FinCEN stated intent to revisit | FinCEN rulemaking |
-| Payment stablecoin issuer AML and sanctions program rules (proposed April 2026) | Proposed; not read | Federal Register |
-| Exact publication date of the OFAC Framework (2019) | Date not printed in the text read | OFAC publication page |

@@ -13,7 +13,7 @@ Produce the header and nine parts in this order. Put detail in tables; keep sent
 7. Part 6. Infringement theories: actor, place and knowledge
 8. Part 7. Remedy windows and willfulness facts
 9. Part 8. Blocking issues and reconciliation table
-10. Part 9. Hand-offs, open items and `[VERIFY]` list
+10. Part 9. Hand-offs, open items and items to confirm before use
 
 ## Header
 
@@ -128,7 +128,7 @@ Severity: Critical (claim text in force unconfirmed; asserted claim canceled or 
 | Date of knowledge | | letter | testimony | | |
 | Date of first accused sale or use in the U.S. | | | | | |
 
-## Part 9. Hand-offs, open items and `[VERIFY]` list
+## Part 9. Hand-offs, open items and items to confirm before use
 
 **Hand-offs.** A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -148,6 +148,6 @@ Severity: Critical (claim text in force unconfirmed; asserted claim canceled or 
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Owner | Next action | Blocks a claim position? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm before use:** each statement, why it is unconfirmed, and what would settle it.
 
 Close with: "Draft infringement analysis for attorney review. Not an opinion of counsel. Not to be relied on or sent outside the privileged group until counsel confirms the claim text in force, the constructions and the accused-product evidence."

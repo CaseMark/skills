@@ -7,7 +7,6 @@
 3. Cases
 4. Government guidance and policy
 5. Enforcement records
-6. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -62,17 +61,3 @@ All checks were made on 2026-10-30 through the case.dev research API. "Full text
 |---|---|---|---|---|
 | DOJ press release, The Scoular Company DPA (July 17, 2026) | justice.gov/opa/pr/agricultural-company-pay-over-10m-resolve-foreign-bribery-case | Full text via case.dev | About $2,000 per train through customs brokers to Mexican officials to pass inspection, invoiced as "reinspection fees"; conspiracy to violate anti-bribery provisions; no VSD credit under the CEP | 2026-10-30 |
 | Freshfields, FCPA Enforcement Priorities (Oct. 1, 2026); Miller & Chevalier, FCPA Autumn Review 2026 | freshfields.com; millerchevalier.com | Secondary; full text via case.dev | Context only: March 2026 CEP declination, October 2025 corporate indictment, limited SEC activity, Fraud Section renamed August 10, 2026. Not relied on for any rule | 2026-10-30 |
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Current inflation-adjusted FCPA civil penalty amounts (78ff(c)(1)(B), (c)(2)(B); 78dd-2(g); 78dd-3(e)) | Post-2015 tables not in the eCFR text read | SEC annual adjustment release and 28 C.F.R. 85.5 table |
-| Whether the Attorney General extended the EO 14209 review period, and whether DOJ issued FCPA guidance after June 9, 2025 other than the March 2026 CEP | No extension notice found; DOJ guidelines page lists none | DOJ Criminal Division and DAG publication pages on the date of use |
-| SEC FCPA enforcement posture in 2026 | Only secondary reports read | SEC Enforcement Division statements or releases |
-| Full official text of the March 2026 CEP | Read from a law-firm mirror; DOJ summary pages match | The PDF linked from the DOJ Criminal Division CEP page |
-| Local anti-corruption law, gift caps and public-employee rules in each operating country | Not researched | Local statute or counsel's written advice |
-| Whether a given state-owned entity is an instrumentality | Fact-bound under Esquenazi | Ownership, appointment, funding and function evidence for that entity |
-| UK limitation rules and Scottish and Northern Irish prosecution guidance | Not researched; CPS guidance covers England and Wales | Crown Office and PPS NI guidance |
-| Treatment of the Esquenazi factors outside the Eleventh Circuit | Resource Guide reports similar instructions in other circuits; those decisions not read | Controlling circuit decisions |
-| Whether the client is an issuer, a domestic concern, or carries on business in the UK | Company fact | SEC filings; entity chart; UK office and sales records |

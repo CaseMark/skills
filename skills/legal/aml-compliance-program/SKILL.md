@@ -52,7 +52,7 @@ AML programs fail examinations in predictable places, and most of them are visib
 1. **Draft only.** Nothing is filed, adopted or sent. Every output is a draft for counsel and BSA/AML officer review and is never called final or approved.
 2. **Source-review gate.** Never call a document missing until the inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (who the officer reports to), *source conflict* (policy says board approval, minutes show a committee), *unverified external lookup* (a state MSB rule not in `references/primary-sources.md`), or *policy election* (re-certifying beneficial owners at every new account).
 3. **Hierarchy of authority.** For law: 31 U.S.C. and 31 C.F.R. Chapter X as currently in force, then the functional regulator's program rule and SEC-approved SRO rules, then FinCEN orders and exceptive relief, then interagency FAQs and FinCEN guidance, then the FFIEC manual, then proposed rules (never binding), then vendor templates. For facts: board minutes and executed documents, then system configurations and logs, then policy descriptions, then interviews. Name every conflict in the reconciliation table (the FFIEC manual's five-year OFAC retention against 31 C.F.R. 501.601's ten years) and state which controls; never resolve one silently.
-4. **Citation discipline.** Every rule statement carries its section and comes from `references/primary-sources.md`, or is marked `[VERIFY]`. Every fact about the institution carries a source locator (document, page or section) or `[UNVERIFIED]`. Re-read the current eCFR text of each rule relied on before the program goes for approval. Never invent a citation, threshold or deadline.
+4. **Citation discipline.** Every rule statement carries its section and comes from `references/primary-sources.md`, or is labelled "Confirm before use:". Every fact about the institution carries a source locator (document, page or section) or `[UNVERIFIED]`. Re-read the current eCFR text of each rule relied on before the program goes for approval. Never invent a citation, threshold or deadline.
 5. **Institution type first.** Determine each entity's type, regulator and SRO before drafting, and use that type's program, SAR and CDD rules. Never transplant a bank provision into a non-bank program without labeling it a policy election.
 6. **The risk assessment drives the program.** Every section answers a row of the institution's own risk assessment or a stated legal minimum. A high-rated risk without a control is a Critical gap; template text for products not offered is removed or marked not applicable with its basis.
 7. **Current law, labeled.** State what is in force on the date checked. The April 10, 2026 proposed program rule, the 2026 banking agency proposals, and the investment adviser rule before January 1, 2028 are labeled proposed or not yet effective; their elements may be adopted only as labeled design choices.
@@ -118,7 +118,7 @@ Read `references/program-rules-by-institution.md`, section 5. Set role-based tra
 
 ## Step 8: Sanctions Program, Retention and Assembly
 
-Read `references/sar-ctr-and-sanctions-rules.md`, sections 7 and 8. Draft or test the sanctions compliance program as a separate document or chapter with OFAC's five components, its reports and ten-year records. Fill the retention table with start events. Assign the status label and finding labels exactly as in `references/output-template.md`, rank gaps by severity, complete the reconciliation table, hand-offs, open items and every `[VERIFY]` item with what would settle it.
+Read `references/sar-ctr-and-sanctions-rules.md`, sections 7 and 8. Draft or test the sanctions compliance program as a separate document or chapter with OFAC's five components, its reports and ten-year records. Fill the retention table with start events. Assign the status label and finding labels exactly as in `references/output-template.md`, rank gaps by severity, complete the reconciliation table, hand-offs, open items and every "Confirm before use:" item with what would settle it.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -147,7 +147,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 9. No text in the output coaches structuring, exempts customers from SAR decisions, or reveals a SAR; each declined item has a compliant alternative.
 10. OFAC compliance is a separate program or chapter with ten-year records and 10-business-day reports.
 11. Proposed and not-yet-effective rules are labeled as such with the date checked.
-12. Status and finding labels are used exactly as in `references/output-template.md`, and every rule cited is in `references/primary-sources.md` or marked `[VERIFY]`.
+12. Status and finding labels are used exactly as in `references/output-template.md`, and every rule cited is in `references/primary-sources.md` or labelled "Confirm before use:".
 13. The output closes with the draft-for-review line.
 
 ## Guidelines
@@ -166,7 +166,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 | Existing policy is a scanned PDF and partly unreadable | Image-only scan | Try OCR; list unreadable sections; review what is readable and mark dependent findings `[UNVERIFIED]` |
 | Policy, minutes and org chart disagree on the BSA officer or approval body | Stale policy cover page | Use the minutes and org chart; record the conflict in Part 7; list a policy update |
 | Risk assessment ratings conflict with the volumes reported | Methodology not updated | Flag as source conflict; draft to the higher rating; route the refresh to bsa-risk-assessment |
-| Entity looks like both an MSB and a bank program manager | Fintech partnership | Map each role; the bank partner's program covers its customers; the fintech's MSB status is `[VERIFY]` under 1010.100(ff) |
+| Entity looks like both an MSB and a bank program manager | Fintech partnership | Map each role; the bank partner's program covers its customers; the fintech's MSB status is not confirmed here; test it under 1010.100(ff) |
 | User cites a "new FinCEN rule" by name only | Proposal or press coverage | Check its status; if proposed, label it and offer its elements as design choices |
 | Requester wants the program "exam-ready by Friday" with no risk assessment | Time pressure | Draft on described products, status "Not ready: blocking issues," and put the risk assessment first in next steps |
 
@@ -185,4 +185,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/program-rules-by-institution.md`: institution-type rule table, program components, risk assessment linkage, governance and officer tests, independent testing, CDD and beneficial ownership after the CTA changes, rule status as of 2026-10-30.
 - `references/sar-ctr-and-sanctions-rules.md`: clocks table, SAR decision design, continuing activity, CTRs and structuring, SAR confidentiality, declined requests with alternatives, retention schedule, OFAC as a separate regime.
 - `references/output-template.md`: deliverable layout, status and finding labels, rule map, linkage matrix, clock format, severity scale, reconciliation table, hand-off table.
-- `references/primary-sources.md`: every authority checked with URL, method, what it supports and date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with URL, method, what it supports and date checked.

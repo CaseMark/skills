@@ -27,11 +27,11 @@ Identify the institution type from its charter, license, FinCEN registration or 
 | Insurance company (covered products) | 1025.210: program based on its assessment of risks of covered products; integrates agents and brokers | Senior management | Third party or any officer or employee other than the designated compliance officer; includes testing agents and brokers (1025.210(b)(4)) | 1025.320: $5,000 | Yes | No |
 | Loan or finance company (including residential mortgage lenders and originators) | 1029.210: based on its risk assessment; integrates agents and brokers | Senior management | Third party or any officer or employee other than the designated compliance officer (1029.210(b)(4)) | 1029.320: $5,000 | Yes | No |
 | Registered investment adviser and exempt reporting adviser | 1032.210 (published 89 FR 72156) | Board or trustees, or sole proprietor, general partner or similar (1032.210(a)(2)) | Per 1032.210(b) | 1032.320: $5,000; 30 days, 60 if no suspect | Yes | Not under current text |
-| Casinos, card clubs, dealers in precious metals, credit card system operators, housing GSEs | 1021.210, 1027.210, 1028.210, 1030.210 | `[VERIFY]` | `[VERIFY]` | `[VERIFY]` | `[VERIFY]` | No |
+| Casinos, card clubs, dealers in precious metals, credit card system operators, housing GSEs | 1021.210, 1027.210, 1028.210, 1030.210 | Check the cited rule | Check the cited rule | Check the cited rule | Check the cited rule | No |
 
 Investment advisers: the rule's effective date is January 1, 2028, after FinCEN's final rule of December 31, 2025 (91 FR 36, Jan. 2, 2026). Before that date an adviser has no BSA program obligation under Part 1032; a program drafted now is a readiness program and says so. FinCEN said it intends to revisit the rule's substance, so mark any Part 1032 provision relied on as subject to change.
 
-MSBs also register with FinCEN and keep an agent list under 1022.380; the registration, renewal, agent-list and re-registration clocks are in `references/sar-ctr-and-sanctions-rules.md`, section 1. Rules not in the table (state MSB licensing law, state BSA examination statutes, payment stablecoin issuer rules proposed April 2026) are `[VERIFY]` and are named as open items when the institution may be subject to them.
+MSBs also register with FinCEN and keep an agent list under 1022.380; the registration, renewal, agent-list and re-registration clocks are in `references/sar-ctr-and-sanctions-rules.md`, section 1. Rules not in the table (state MSB licensing law, state BSA examination statutes, payment stablecoin issuer rules proposed April 2026) are not confirmed here; check them and name them as open items when the institution may be subject to them.
 
 ## 2. Program components common to every rule
 
@@ -58,7 +58,7 @@ Design test for every program section:
 
 ## 4. Governance: approval body and the BSA/AML officer
 
-Approval body depends on type (table in section 1). Use the body the rule names. For federally regulated banks and credit unions the four regulator rules name the board of directors and require the approval to be noted in the minutes; whether a board committee may approve on the board's behalf is `[VERIFY]` for the regulator.
+Approval body depends on type (table in section 1). Use the body the rule names. For federally regulated banks and credit unions the four regulator rules name the board of directors and require the approval to be noted in the minutes; whether a board committee may approve on the board's behalf varies by regulator; check the regulator's rule before relying on it.
 
 The BSA/AML officer: the rules require designation of an individual responsible for coordinating and monitoring day-to-day compliance (1020.210(a)(2)(iii); 1022.210(d)(2); 1023.210(b)(3)). For banks, the FFIEC manual says appointment alone does not meet the requirement; the board must ensure the officer has appropriate authority, independence and access to resources, and the officer reports regularly to the board, including SAR filing notifications. Indicators the manual lists:
 

@@ -51,7 +51,7 @@ Physician arrangement opinions fail in a few places. The drafter starts with an 
 1. **Draft only.** Nothing is signed, sent to a government agency, or given to the other party by this skill. Every output is a draft for attorney review and is never called final.
 2. **Source-review gate.** Never call a document missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (whether time records exist), *source conflict* (ledger rate differs from the contract rate), *unverified external lookup* (a state statute not in `references/primary-sources.md`), or *policy election* (whether to disclose, refund or restructure).
 3. **Hierarchy of authority.** For facts: executed agreements and signed amendments, then payment ledgers and time records, then valuation reports, then term sheets, emails and summaries. For law: statute, then current regulation, then CMS and OIG preamble guidance, then advisory opinions (binding only as their own terms allow), then the governing circuit's decisions, then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every contract term carries document, section and page; every fact carries a source locator or `[UNVERIFIED]`; every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`. A circuit's or state's rule is named only if it is in the register. Re-read the current statute and eCFR text before the opinion goes out. Never invent a citation, an advisory opinion number or a pin cite.
+4. **Citation discipline.** Every contract term carries document, section and page; every fact carries a source locator or `[UNVERIFIED]`; every legal statement carries a citation from `references/primary-sources.md` or is labelled "Confirm before use:". A circuit's or state's rule is named only if it is in the register. Re-read the current statute and eCFR text before the opinion goes out. Never invent a citation, an advisory opinion number or a pin cite.
 5. **Threshold screen before exceptions.** Confirm a physician or immediate family member, a referral, Medicare-payable DHS, and a direct or indirect financial relationship before testing any Stark exception. If any is absent, label the relationship "Stark: not implicated" and continue with the AKS and state law.
 6. **Two statutes, two analyses.** Stark payment denial and refund are strict liability; Stark CMPs need knowledge; the AKS needs knowing and willful conduct, judged under the governing circuit's intent standard, with no specific intent to violate the statute required (1320a-7b(h)). A Stark exception never establishes AKS compliance; a missed safe harbor is not itself a violation.
 7. **Three separate tests.** Fair market value, commercial reasonableness, and volume or value each get their own evidence and conclusion (85 FR 77530). A valuation report proves only what its scope covers.
@@ -75,7 +75,7 @@ Collect, from documents where possible:
 9. States where the parties operate and services are furnished; the federal circuit.
 10. The question (structure a proposed arrangement, review an existing one, look-back, disclosure decision) and the deadline.
 
-**Defaults if not supplied** (a statute or regulation overrides any default it addresses): payer mix includes Medicare, so DHS screening proceeds, marked `[UNVERIFIED]`; governing circuit is the one where the DHS entity sits; state law "State law: not researched [VERIFY]"; a writing is treated as missing until located; the 90-day writing and signature rule is never assumed available until 411.354(e)(4) is tested; formal tone.
+**Defaults if not supplied** (a statute or regulation overrides any default it addresses): payer mix includes Medicare, so DHS screening proceeds, marked `[UNVERIFIED]`; governing circuit is the one where the DHS entity sits; state law "State law: not researched (confirm before use)"; a writing is treated as missing until located; the 90-day writing and signature rule is never assumed available until 411.354(e)(4) is tested; formal tone.
 
 **Hard stops (label the whole request, or the declined part, "Declined: hard stop"; produce the request, routing or compliant alternative in place of what is declined):**
 - No compensation terms at all: no agreement, term sheet or description of the parties, what is paid, and for what. Produce the document and fact request.
@@ -85,7 +85,7 @@ Collect, from documents where possible:
 When only part of a request is declined, use the partial-decline labelling in `references/output-template.md`, Part 1: "Declined: hard stop" for the declined part, and the status of the remainder on a second line. Analyzing an existing arrangement with a referral-based term is not a hard stop; drafting or adopting that term is.
 - One firm asked to advise both the entity and the physician on the same arrangement without a cleared conflict: route one side to separate counsel.
 
-**Not hard stops:** a missing FMV report or time records (Critical item; status "Not ready: blocking issues"); an unknown state rule (`[VERIFY]` and both readings); a request to sign now with a stated retroactive effective date (not itself a backdate; explain why it does not satisfy set in advance); an arrangement already terminated (look-back analysis).
+**Not hard stops:** a missing FMV report or time records (Critical item; status "Not ready: blocking issues"); an unknown state rule (labelled "Confirm before use:" with both readings); a request to sign now with a stated retroactive effective date (not itself a backdate; explain why it does not satisfy set in advance); an arrangement already terminated (look-back analysis).
 
 ## Step 1: Client, Scope and Inventory
 
@@ -109,7 +109,7 @@ Read `references/aks-state-and-disclosure.md`, sections 1 to 3. Identify the rem
 
 ## Step 6: State Law and Other All-Payor Laws
 
-Read `references/aks-state-and-disclosure.md`, section 4. Screen the states involved and EKRA where a laboratory, recovery home or treatment facility is involved. Name a state's rule only if it is in the register; otherwise mark `[VERIFY]` and hand off to legal-research.
+Read `references/aks-state-and-disclosure.md`, section 4. Screen the states involved and EKRA where a laboratory, recovery home or treatment facility is involved. Name a state's rule only if it is in the register; otherwise label it "Confirm before use:" and hand off to legal-research.
 
 ## Step 7: Reliance
 
@@ -121,7 +121,7 @@ Read `references/aks-state-and-disclosure.md`, section 6. For noncompliant perio
 
 ## Step 9: Assemble the Opinion
 
-Assign the opinion status and one label of each kind per arrangement and period from `references/output-template.md`, Part 1. Add the blocking issues ranked by severity, the reconciliation table, hand-offs, and every `[VERIFY]` item with what would settle it.
+Assign the opinion status and one label of each kind per arrangement and period from `references/output-template.md`, Part 1. Add the blocking issues ranked by severity, the reconciliation table, hand-offs, and every "Confirm before use:" item with what would settle it.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -131,7 +131,7 @@ Confirm with the user or state as open items:
 2. Are the executed agreements, signature dates and payment ledgers confirmed for every period analyzed?
 3. Has counsel accepted the stand-in-the-shoes and DHS conclusions?
 4. Does the client accept the recommended remediation, and who decides the disclosure path?
-5. Are the state-law and circuit items marked `[VERIFY]` assigned to someone?
+5. Are the state-law and circuit items labelled "Confirm before use:" assigned to someone?
 
 If the user does not answer, recommend confirming payments against the contract and the dates of every rate change first; those facts decide most set-in-advance and disclosure questions.
 
@@ -147,7 +147,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 6. Every rate change is tested for set in advance, no 90-day rule is applied to a modification, and every "exception not met" label addresses each cure in the clock table.
 7. Each clock has its own trigger, date with weekday, period and status.
 8. The AKS analysis is separate, with safe harbor elements, intent evidence, and the circuit's standard or both readings.
-9. State and all-payor laws are screened; unverified rules are `[VERIFY]` and routed.
+9. State and all-payor laws are screened; unverified rules are labelled "Confirm before use:" and routed.
 10. Advisory opinion reliance is limited to what the law allows, with factual differences listed.
 11. The disclosure path matches the conduct (Stark only to the SRDP; AKS or both to the OIG SDP), and the 60-day rule is addressed.
 12. Labels are used exactly as in `references/output-template.md`; no document is backdated or recommended to be.
@@ -188,4 +188,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/stark-rules-and-clocks.md`: threshold screen, direct and indirect arrangements, stand in the shoes, the three compensation tests, set in advance, exception element tables, group practice, in-office ancillary services and recruitment, clocks with their triggers, sanctions and burden.
 - `references/aks-state-and-disclosure.md`: AKS elements and one-purpose test by circuit, safe harbors compared with Stark exceptions, FCA causation and penalties, state and all-payor laws, advisory opinion reliance, disclosure protocols and the 60-day rule.
 - `references/output-template.md`: deliverable layout, status and conclusion labels, arrangement matrix, element and clock tables, blocking issues, reconciliation table, remediation and controls, hand-off table.
-- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked.

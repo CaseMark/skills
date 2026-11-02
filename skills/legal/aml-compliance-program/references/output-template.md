@@ -12,7 +12,7 @@ Produce the header and the eight parts in this order. Plain sentences; detail in
 6. Part 5. Clocks and retention
 7. Part 6. Gaps and judgment calls
 8. Part 7. Reconciliation table
-9. Part 8. Hand-offs, open items and `[VERIFY]` list
+9. Part 8. Hand-offs, open items and items to confirm before use
 
 ## Header
 
@@ -109,7 +109,7 @@ Judgment calls (adopting proposed-rule elements early, per-account re-certificat
 | Beneficial ownership threshold and timing | | rule and FIN-2026-R001 | onboarding form | | |
 | OFAC record retention | | 501.601 | policy or FFIEC manual | | |
 
-## Part 8. Hand-offs, open items and `[VERIFY]` list
+## Part 8. Hand-offs, open items and items to confirm before use
 
 **Hand-offs.** A hand-off carries the facts the receiving workflow needs.
 
@@ -128,6 +128,6 @@ Judgment calls (adopting proposed-rule elements early, per-account re-certificat
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Owner | Next action | Blocks board approval? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why unconfirmed, what settles it.
+**Confirm before use:** each statement, why unconfirmed, what settles it.
 
 Close with: "Draft for review by counsel and the BSA/AML officer. Not for board approval until the rule status, the institution-type rules and every Critical item are confirmed."

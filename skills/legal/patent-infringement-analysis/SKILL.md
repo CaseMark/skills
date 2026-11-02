@@ -50,7 +50,7 @@ Infringement analyses fail in predictable places. The analyst charts the claim p
 1. **Draft only.** Nothing is sent to the other side, filed, or given to a business recipient for reliance. Every output is a draft prepared at the direction of counsel for attorney review, and it is never called final or an opinion of counsel.
 2. **Source-review gate.** Never call a document missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (the date the accused party learned of the patent), *source conflict* (the brochure and the schematic describe different seals), *unverified external lookup* (maintenance fee status not yet confirmed on Patent Center, or a rule not in `references/primary-sources.md`), or *policy election* (whether to assert equivalents, whether to seek an opinion of counsel).
 3. **Hierarchy of authority.** For claim text: the latest certificate, then the issued patent, then the published application. For construction: claim language, then specification, then prosecution, reexamination and IPR record, then extrinsic evidence. For the accused product: the ranked evidence in `references/claim-construction-and-infringement-rules.md`, section 10, with source code, schematics and inspection first and marketing last. For law: statute and Supreme Court, then en banc and panel Federal Circuit decisions, then district decisions, then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every claim quotation carries its locator (column and line, or certificate page); every fact about the accused product carries an evidence locator and rank, or `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`. Re-read the current text of each statute relied on. Never invent a case, pin cite, claim text, patent number or document.
+4. **Citation discipline.** Every claim quotation carries its locator (column and line, or certificate page); every fact about the accused product carries an evidence locator and rank, or `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is labelled "Confirm before use:". Re-read the current text of each statute relied on. Never invent a case, pin cite, claim text, patent number or document.
 5. **Know the client and the purpose first.** Record whose side the client is on, who asked, and what the analysis is for. Do not draft, sign, or format the analysis as a formal opinion of counsel, and do not address it for reliance by business people; that is counsel's own work and decision. Treat privilege and distribution as counsel directs.
 6. **Objective analysis, not a set conclusion.** State the evidence and authority on both sides, including what is adverse to the client. Decline a request to reach a stated conclusion regardless of the analysis or to omit known material facts (such as internal copying statements) or controlling authority; offer the complete draft instead.
 7. **Claim text in force, during the term.** Confirm each asserted claim's status and the patent's term before charting. Never chart a canceled claim as asserted or count acts after expiration as infringement.
@@ -124,7 +124,7 @@ Read `references/patent-status-remedies-and-privilege.md`, sections 3 to 6 and 8
 
 ## Step 10: Positions and Assembly
 
-Assign one claim-position label per claim and version and the analysis status from `references/output-template.md`, Part 1. Rank blocking issues, complete the reconciliation table, hand-offs, open items and the `[VERIFY]` list, and close with the template's closing line.
+Assign one claim-position label per claim and version and the analysis status from `references/output-template.md`, Part 1. Rank blocking issues, complete the reconciliation table, hand-offs, open items and every "Confirm before use:" item, and close with the template's closing line.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -154,7 +154,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 10. Every indirect theory has a dated knowledge showing of the patent and of infringement.
 11. The place of each accused act is stated, and no foreign act is charted under 271(a).
 12. The damages window uses 286 from the filing date and 287 from notice, and no damages amount appears.
-13. Every legal statement cites `references/primary-sources.md` or carries `[VERIFY]`, and adverse facts and authority are included.
+13. Every legal statement cites `references/primary-sources.md` or is labelled "Confirm before use:", and adverse facts and authority are included.
 
 ## Guidelines
 
@@ -194,4 +194,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/claim-construction-and-infringement-rules.md`: order of analysis, Phillips construction, 112(f) and nonce terms, all-elements rule, equivalents and its bars, divided infringement, indirect infringement knowledge, territorial reach, exhaustion, evidence ranking.
 - `references/patent-status-remedies-and-privilege.md`: claim version after certificates, term and terminal disclaimers, clocks table, 286 and 287 window, IPR record and estoppel, willfulness and advice of counsel, privilege, damages hand-off.
 - `references/output-template.md`: deliverable layout, status, claim-status, limitation and claim-position labels, construction table, evidence register, claim charts, theories table, reconciliation table, hand-off table.
-- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its URL, method, what it supports and the date checked.
