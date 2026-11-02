@@ -18,7 +18,7 @@ Produce the header and the sections below in order. Put detail in tables. Every 
 12. Section 10. Reconciliation table
 13. Section 11. Gaps and questions for the prescriber
 14. Section 12. Hand-offs
-15. Section 13. Open items and `[VERIFY]` list
+15. Section 13. Open items and "Confirm before use" list
 
 ## Header
 
@@ -164,11 +164,11 @@ Questions are neutral ("The label criterion count is one of three; please confir
 | reconciling-medications | Full list reconciliation across settings | Anticoagulant ledger | Did not reconcile non-anticoagulant drugs |
 | managing-valvular-heart-disease | Valve type or stenosis grade unclear | Echo reports | Did not grade the valve |
 
-## 13. Open items and `[VERIFY]` list
+## 13. Open items and "Confirm before use" list
 
 | # | Open item | Depends on | Owner | Next action | Changes a result? |
 |---|---|---|---|---|---|
 
-Then each `[VERIFY]` statement relied on, with what would settle it.
+Then each "Confirm before use:" statement relied on, with what would settle it.
 
 Close with: "Draft for clinician and pharmacist review. Not an order and not a dosing instruction."

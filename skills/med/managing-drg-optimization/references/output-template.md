@@ -14,12 +14,12 @@ Produce the header and sections below in order. Every code carries its source lo
 8. Section 7. Reconciliation table
 9. Section 8. Declined requests
 10. Section 9. Hand-offs
-11. Section 10. Open items and `[VERIFY]` list
+11. Section 10. Open items and "Confirm before use" list
 
 ## Header
 
 - Case identifier (de-identified), admission date, inpatient order date and time, discharge date, discharge disposition.
-- Payer and payment basis as stated (Medicare FFS on MS-DRG; Medicare Advantage or commercial per contract, `[VERIFY]` unless the contract was read).
+- Payer and payment basis as stated (Medicare FFS on MS-DRG; Medicare Advantage or commercial per contract; "Confirm before use:" unless the contract was read).
 - Versions applied: "ICD-10 MS-DRG Grouper V44 (discharges on or after 10/01/2026)"; "ICD-10-CM Official Guidelines FY 2027"; "ACDIS/AHIMA query practice brief, 2026 update".
 - Review type: pre-bill, retrospective, CDI second-level, or record review for counsel.
 - Preparer note: "Draft for coder, CDI and compliance review."
@@ -66,8 +66,8 @@ Severity drivers counted:   <code: MCC or CC, not excluded>
 Severity codes not counted: <code: excluded with PDX collection nnnn | HAC with POA N or U | unsupported>
 MS-DRG:                     <number and title>
 Draft claim MS-DRG:         <number>   change: <up | down | none>
-Relative weight:            <from corrected Table 5, or [VERIFY]>
-Transfer status:            <full DRG | acute transfer | post-acute transfer per diem [VERIFY] | n/a>
+Relative weight:            <from corrected Table 5, or Confirm before use>
+Transfer status:            <full DRG | acute transfer | post-acute transfer per diem (confirm before use) | n/a>
 ```
 
 ## 6. Query candidates and clinical validation
@@ -98,11 +98,11 @@ Typical rows: worksheet CC list against V44; coder's POA against the ED note; co
 | conducting-false-claims-analysis | Pattern of unsupported codes or one-way query policy | Findings and policy text | Did not assess FCA exposure |
 | managing-observation-stays | Observation status, conversion to inpatient, or prospective Two-Midnight Rule status review | Order times and status notes | Did not decide status |
 
-## 10. Open items and `[VERIFY]` list
+## 10. Open items and "Confirm before use" list
 
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Owner | Next action | Changes the DRG? |
 |---|---|---|---|---|---|
 
-Then each `[VERIFY]` relied on, with what would settle it.
+Then each "Confirm before use:" item relied on, with what would settle it.
 
 Close with: "Draft for coder, CDI and compliance review. Not a final code set and not a query sent to a provider."

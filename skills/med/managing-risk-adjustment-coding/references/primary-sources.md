@@ -7,7 +7,6 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 1. Sources checked
 2. Confirmed statements
 3. Corrections to the prior version of this skill
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -67,15 +66,3 @@ Checked October 30, 2026. Full texts were read through the case.dev contents API
 | Diabetes example | E11.65 raises the HCC factor | Diabetes HCCs 36-38 carry equal factors in the 2024 model | Table VIII-1 |
 | RADV fixes | "Submit deletions to avoid RADV findings" | Delete because the code is unsupported; during an audit, follow CMS's suspension instruction for the sampling frame | MMCM ch. 7; PY 2024 methods §11 |
 | Revenue per 0.100 RAF | Stated as fact | Removed; dollar figures need county rate and bid inputs | No primary source found |
-
-## 4. `[VERIFY]` list
-
-1. Fifth Circuit ruling in Humana v. Kennedy, No. 25-11293, after October 6, 2026, and whether CMS decides to collect extrapolated amounts for PY 2020 or PY 2024.
-2. Reporter citation 801 F. Supp. 3d 624 for the district court opinion: cited by CMS in the PY 2024 methods; case.dev's citation check did not find it.
-3. Acceptable Physician Specialty Types list for PY 2027 (2026 dates of service): not posted when checked; the PY 2026 list was used.
-4. The specific CPT/HCPCS codes, including audio-only codes, in Table 2 of the HHS 2026 benefit year DIY software (a separate file; the instructions were read, the table was not).
-5. HHS-HCC numbers, hierarchies and factors for the 2026 and 2027 benefit years (not read).
-6. Code-level ICD-10-CM to CMS-HCC mappings: this skill relies on HCC labels; confirm each code in the CMS mapping file for the model year.
-7. The ICD-10-CM Alphabetic Index entry linking type 2 diabetes with chronic kidney disease (E11.22): the CDC index zip could not be downloaded through this session's proxy; the I.A.15 rule and the Tabular N18 note were confirmed.
-8. AHA Coding Clinic advice on problem lists and history conditions (subscription source, not read).
-9. The facility's amendment and late-signature policy (policy election for each user).

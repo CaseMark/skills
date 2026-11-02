@@ -52,14 +52,14 @@ Anticoagulant errors run in both directions: too much drug causes bleeding, too 
 | Post-op orders and op note | Resumption time | DOAC or bridging restarted on the evening of a high-bleed-risk procedure; no note that hemostasis is adequate; resumption clocked from the last dose instead of the end of the procedure |
 | Admission order set, MAR, discharge list | Transitions and switches | Prophylactic enoxaparin running with a therapeutic DOAC; apixaban continued "until INR is 2" after warfarin starts although apixaban raises the INR; home drug and formulary substitute both on the discharge list |
 | Reversal protocol, order set, event record | Agent choice and readiness | Idarucizumab given for a factor Xa inhibitor; andexanet listed as first-line after its U.S. sales ended; the Eliquis label's "an agent to reverse ... is available" read as current; Kcentra's VKA-only indication not noted when used for a DOAC |
-| Facility protocol, accreditation binder, collaborative practice agreement | Who may decide and which requirement applies | A protocol citing NPSG.03.05.01 for a 2026 hospital survey; the NPG applied to short-term VTE prophylaxis it excludes; a reviewer treated as authorized to change a dose without a collaborative practice agreement `[VERIFY]` by state |
+| Facility protocol, accreditation binder, collaborative practice agreement | Who may decide and which requirement applies | A protocol citing NPSG.03.05.01 for a 2026 hospital survey; the NPG applied to short-term VTE prophylaxis it excludes; a reviewer treated as authorized to change a dose without a collaborative practice agreement (varies by state; check the governing state's rule) |
 
 ## Ground Rules
 
 1. **Draft only, never an order.** Every output is a draft for the prescribing clinician and pharmacist. State label or guideline content with its citation and the plan's difference from it; never write "give", "start", "hold" or "change to" as an instruction, never produce an order sentence, order-set entry or patient-specific dose.
 2. **Source-review gate.** Do not call a value, note or order missing until every supplied document has been opened and searched, including scanned files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (a label or guideline point not confirmed) or a policy election (a facility protocol choice).
 3. **Hierarchy of authority.** For drug rules: the current FDA label, then the guideline (CHEST 2022 perioperative, CHEST 2021 VTE, 2023 AF guideline), then the facility protocol, then secondary references. For availability, FDA notices govern over label text. For facts: MAR administration times, lab reports with collection dates, measured weights, echo reports and the procedure schedule govern over home lists, discharge summaries, calculators and recall. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every patient value carries a source locator (document, date, author role) or `[UNVERIFIED]`. Every rule carries its label section or guideline statement or `[VERIFY]`.
+4. **Citation discipline.** Every patient value carries a source locator (document, date, author role) or `[UNVERIFIED]`. Every rule carries its label section or guideline statement or "Confirm before use:".
 5. **Outcome vocabulary.** Each item is "Consistent with label", "Discrepancy", "Source conflict", "Cannot determine" or "Not applicable". "Cannot determine" names the missing fact and who can supply it. Use "Consistent with guideline" when the label is silent.
 6. **Count criteria one by one.** Show each dose-adjustment criterion with value, threshold and met or not met before any conclusion.
 7. **Compute CrCl; never copy it.** Use Cockcroft-Gault with the weight the label names, show inputs, and never place an eGFR in a CrCl band.
@@ -135,14 +135,14 @@ Read `references/periprocedural-and-reversal.md`, Sections 8 and 9. Match each a
 
 ## Step 9: Reconcile, List Gaps and Hand Off
 
-Complete the review summary, reconciliation table, gaps and questions, hand-offs and open items in `references/output-template.md`. Check each rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
+Complete the review summary, reconciliation table, gaps and questions, hand-offs and open items in `references/output-template.md`. Check each rule relied on against `references/primary-sources.md` and carry any "Confirm before use:" item into the output.
 
 ## Checkpoint B: Post-Draft Alignment
 
 1. Does the output answer the question asked, for the setting asked, with each item scored separately?
 2. Is any sentence phrased as an order, order sentence or patient dose? Rewrite it as label content plus a question.
 3. Does every dose result show its criteria or CrCl inputs, and every timeline row its own trigger?
-4. Does any result depend on a `[VERIFY]` item, and would it change if that item reads differently?
+4. Does any result depend on a "Confirm before use:" item, and would it change if that item reads differently?
 5. Are the decision owners named (prescriber, proceduralist, P&T) and every open item owned?
 
 ## Quality Audit
@@ -159,7 +159,7 @@ Complete the review summary, reconciliation table, gaps and questions, hand-offs
 10. Bridging is flagged unless a documented high-risk feature supports it; DOAC bridging is a discrepancy without a recorded reason.
 11. Resumption is tied to the end of the procedure and documented hemostasis.
 12. Reversal agents match drug class; andexanet's end of U.S. sales and the Eliquis label statement are named when relevant.
-13. No order, order sentence or patient dose appears anywhere; each declined request carries its fixed "Declined part" label; every `[VERIFY]` relied on is in the open items.
+13. No order, order sentence or patient dose appears anywhere; each declined request carries its fixed "Declined part" label; every "Confirm before use:" item relied on is in the open items.
 
 ## Guidelines
 
@@ -202,4 +202,4 @@ Complete the review summary, reconciliation table, gaps and questions, hand-offs
 - `references/label-dosing-rules.md`: eligibility screens, renal input by label, DOAC, warfarin, enoxaparin and heparin label content, interactions, switching rules, guideline overlays, route and weight extremes, quality measures.
 - `references/periprocedural-and-reversal.md`: timeline inputs, clocks with one trigger each, days-off counting, source conflicts, bridging evidence, restart documentation, transitions, reversal agents, NPG.14.04.01.
 - `references/output-template.md`: deliverable sections, declined-part labels, ledger, CrCl worksheet, timeline, reconciliation table, gaps, hand-offs.
-- `references/primary-sources.md`: each authority checked with URL, method and date, confirmed statements, corrections, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, confirmed statements, and corrections.

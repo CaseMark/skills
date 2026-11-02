@@ -62,7 +62,7 @@ Risk adjustment converts diagnoses into payment. In Medicare Advantage the 2024 
 1. **Draft only.** Every output is a draft for a certified coder, CDI specialist and compliance officer. Never state that a code was submitted, deleted, attested or validated by CMS, and never give legal conclusions.
 2. **Source-review gate.** Do not call a record, signature or date missing until every supplied file has been opened and searched, including scans and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a code-to-HCC mapping not checked in the year's CMS file) or a policy election (for example the plan's late-entry policy).
 3. **Hierarchy of authority.** For rules: statute and regulation (42 CFR part 422; 45 CFR 153.630 for ACA), then the Rate Announcement and HPMS memos for the payment year, then the RADV audit methods for the audited year, then Medicare Managed Care Manual chapter 7 where later documents are silent; the ICD-10-CM Official Guidelines and Coding Clinic govern code assignment; plan and vendor policies rank last. When a coding rule and a payment-eligibility rule point different ways (ICD-10-CM IV.K against the chapter 7 exclusion of diagnostic radiology), name both and apply the eligibility rule to risk adjustment. For facts: the signed encounter note's assessment and plan govern over other parts of the record, which govern over problem lists, claims, vendor files, suspect lists and dashboards. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every diagnosis carries its encounter, date, provider and credential, and the quoted supporting text with a page or line, or `[UNVERIFIED]`. Every rule carries its source and year, or `[VERIFY]`.
+4. **Citation discipline.** Every diagnosis carries its encounter, date, provider and credential, and the quoted supporting text with a page or line, or `[UNVERIFIED]`. Every rule carries its source and year, or "Confirm before use:".
 5. **Documentation-supported coding only.** Code what the eligible encounter supports, at the specificity it supports, and nothing else. Never add a diagnosis the record does not support, never select a code more specific than the provider's words (a CKD stage read from an eGFR, a heart failure type read from an ejection fraction: ICD-10-CM I.A.19), but do apply the classification's own links, such as the I.A.15 "with" presumption, unless the provider documents another cause; never let the factor value influence which code is chosen: compute RAF impact only after the determination.
 6. **Two-way review.** Every retrospective review reads the same records for deletions as well as additions. Unsupported submitted codes are reported as Delete with the same prominence as additions. A review that only adds is not drafted.
 7. **No coding from lists or reports alone.** A problem list, history, medication list, superbill, lab value or imaging report is a lead, never support. MEAT and TAMPER are evidence checklists, not rules; the rule is ICD-10-CM IV.J (the condition required or affected care at that visit).
@@ -125,7 +125,7 @@ Read `references/hcc-model-and-coding-rules.md`, Sections 3 and 4. For every sub
 
 ## Step 5: Map to HCCs, Apply Hierarchies and Compute Impact
 
-Read `references/hcc-model-and-coding-rules.md`, Sections 5 and 6. Map Supported codes with the model year's CMS mapping (flag `[VERIFY]` where not checked), apply the hierarchy table, then show relative factors with segment and source. Sum after the hierarchy, state included and excluded components, and recompute totals with a script. Check every HCC number and label against the model in force; flag V24 categories.
+Read `references/hcc-model-and-coding-rules.md`, Sections 5 and 6. Map Supported codes with the model year's CMS mapping (flag "Confirm before use:" where not checked), apply the hierarchy table, then show relative factors with segment and source. Sum after the hierarchy, state included and excluded components, and recompute totals with a script. Check every HCC number and label against the model in force; flag V24 categories.
 
 ## Step 6: Reconcile Two Ways
 
@@ -141,7 +141,7 @@ Read `references/radv-and-compliance.md`, Section 4. Replace confirm checkboxes 
 
 ## Step 9: Close Out, Route and List Open Items
 
-Complete the reconciliation, gaps, hand-offs and open items in `references/output-template.md`, Sections 2 and 9 to 12. Read `references/radv-and-compliance.md`, Section 5, and route each exposure fact. Check every rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
+Complete the reconciliation, gaps, hand-offs and open items in `references/output-template.md`, Sections 2 and 9 to 12. Read `references/radv-and-compliance.md`, Section 5, and route each exposure fact. Check every rule relied on against `references/primary-sources.md` and carry any "Confirm before use:" item into the output.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -166,7 +166,7 @@ Complete the reconciliation, gaps, hand-offs and open items in `references/outpu
 10. Telehealth, provider type, signature, credential and date rules are applied per program (MA versus ACA).
 11. No step suggests creating, backdating, re-signing or re-linking documentation; queries are non-leading and routed; each declined part carries its fixed label.
 12. Exposure facts are routed to conducting-false-claims-analysis without conclusions on knowledge or damages.
-13. Every `[VERIFY]` relied on appears in the open-items list with what would settle it.
+13. Every "Confirm before use:" item relied on appears in the open-items list with what would settle it.
 
 ## Guidelines
 
@@ -208,4 +208,4 @@ Complete the reconciliation, gaps, hand-offs and open items in `references/outpu
 - `references/hcc-model-and-coding-rules.md`: model and period lock, encounter eligibility, Section IV rules, history-of tests, hierarchies and factors, V24 to V28 changes, ACA differences.
 - `references/radv-and-compliance.md`: two-way review duty, chart review records and addenda, RADV methodology and status, recapture and query design, FCA routing, verified settlements.
 - `references/output-template.md`: deliverable sections, eligibility screen, validation table, HCC impact, two-way reconciliation, RADV packet, hand-offs.
-- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and corrections.

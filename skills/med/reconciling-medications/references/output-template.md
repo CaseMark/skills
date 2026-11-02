@@ -135,7 +135,7 @@ Typical rows: transfer form against outside MAR; fill history against interview;
 | # | Gap | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Affects item | Who can resolve | Next step |
 |---|---|---|---|---|---|
 
-Then every `[VERIFY]` relied on, with what would settle it.
+Then every "Confirm before use:" item relied on, with what would settle it.
 
 ## 11. Hand-offs
 

@@ -7,7 +7,6 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 1. Sources checked
 2. Confirmed statements
 3. Corrections made to the earlier version of this skill
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -53,20 +52,7 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 |---|---|---|---|
 | Sepsis DRG titles | 870 base "no CC", 871 "with CC", 872 "with MCC" | 870 MV more than 96 hours; 871 with MCC; 872 without MCC | V44 MDC 18 |
 | Joint replacement row | 468-470 three-way split | Removed; 466-468 deleted for FY 2027 | 91 FR 49620 |
-| PACT scope | "Over 280 MS-DRGs" | Count not stated; `[VERIFY]` against FY 2027 tables | 42 CFR 412.4 |
+| PACT scope | "Over 280 MS-DRGs" | Count not stated; confirm against FY 2027 tables | 42 CFR 412.4 |
 | HAC | HAC Reduction Program described as the POA payment rule | HAC-POA provision (DRA 5001(c)) distinguished from ACA 3008 program | MLN901046 |
 | Query standard | "AHIMA and ACDIS practice briefs" | 2026 update named, with its format rules | 2026 brief |
 | Revenue estimates | "$10,000-$30,000 per case", "15-20% undercaptured" | Removed as unsourced | none found |
-
-## 4. `[VERIFY]` list
-
-1. AHA Coding Clinic answers that bear on a case (paywalled; not read).
-2. Severity, PDX collection or Part 3 exclusion of any code not listed in `references/drg-coding-rules.md`, Section 4 (Tables 6I, 6J, 6G and 6H were not read as files).
-3. FY 2027 relative weights and GMLOS from corrected Table 5 (not read).
-4. FY 2027 post-acute care transfer qualifying MS-DRG list and its count.
-5. Each payer's contract: payment basis (MS-DRG, APR-DRG, per diem) and any clinical definition it applies, such as Sepsis-3.
-6. NUBC patient discharge status code values (not read).
-7. FY 2027 ICD-10 HAC code list (categories confirmed; code list page not read).
-8. Ventilation-hour counting conventions for 5A1955Z (start and stop points; Coding Clinic, not read). The ICD-10-PCS 2027 guidelines were read and do not address them.
-9. Sepsis-2 and Sepsis-3 definitions rest on the final rule footnote, not the source papers.
-10. HAC payment by POA indicator (Y and W paid; N and U not) rests on the MLN901046 FY 2015 chart; confirm no later change.

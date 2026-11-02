@@ -1,6 +1,6 @@
 # HCC Model and Coding Rules
 
-Rules for locking the model and period, screening each encounter, validating each diagnosis, and mapping supported codes to HCCs. Every rule names its source; the full citation and the date checked are in the primary sources file. Items marked `[VERIFY]` were not confirmed in primary text.
+Rules for locking the model and period, screening each encounter, validating each diagnosis, and mapping supported codes to HCCs. Every rule names its source; the full citation and the date checked are in the primary sources file. Items described as not confirmed here were not confirmed in primary text.
 
 ## Contents
 
@@ -72,7 +72,7 @@ The FY 2027 ICD-10-CM Official Guidelines govern dates of service from October 1
 - IV.F.3: code to the highest specificity the record supports, and no higher.
 - I.A.19: code assignment rests on the provider's diagnostic statement, not on clinical criteria. A coder may not derive a CKD stage from an eGFR, a heart failure type from an ejection fraction or malnutrition severity from weight loss; without the provider's words, code the unspecified form or raise a query candidate.
 - I.B.9: assign only the combination code when it fully identifies the conditions. I50.23 (acute on chronic systolic heart failure) already includes the chronic component, so I50.22 beside it is Not supported.
-- I.A.15: "with" in a code title, the Alphabetic Index or a Tabular instructional note presumes a causal link unless the documentation says the conditions are unrelated. Refusing E11.22 for documented type 2 diabetes and CKD with no other cause stated is an error in the other direction. The N18 note "Code first any associated: diabetic chronic kidney disease (... E11.22 ...)" is confirmed in the FY 2027 Tabular List; the Index entry itself is `[VERIFY]`.
+- I.A.15: "with" in a code title, the Alphabetic Index or a Tabular instructional note presumes a causal link unless the documentation says the conditions are unrelated. Refusing E11.22 for documented type 2 diabetes and CKD with no other cause stated is an error in the other direction. The N18 note "Code first any associated: diabetic chronic kidney disease (... E11.22 ...)" is confirmed in the FY 2027 Tabular List; the Index entry itself is not confirmed here; check the current Alphabetic Index.
 - IV.K: for diagnostic-services-only encounters, code confirmed diagnoses in a physician's interpretation. This is a coding rule for the radiology claim; it does not make diagnostic radiology an acceptable risk adjustment source. Name the conflict when a user cites IV.K.
 - I.B.14: code assignment rests on the documentation of the patient's provider. BMI (Z68) is reported only with an associated reportable diagnosis, such as obesity, documented by the patient's provider.
 
@@ -125,5 +125,5 @@ RADV enrollee data lists label each audited HCC with its model version (for exam
 
 - Concurrent model: benefit-year diagnoses predict the same benefit year's liability. Data come from the issuer's EDGE server. The 2027 benefit year models are recalibrated on 2021-2023 EDGE data (2027 Payment Notice, May 2026).
 - HHS-HCC numbers and hierarchies differ from CMS-HCC numbers (the 2026 DIY instructions use the V08 HHS condition category crosswalk); never carry a CMS-HCC number into an ACA review.
-- Source filtering: HHS filters institutional outpatient and professional claims using allowable CPT/HCPCS service codes listed in the benefit year's "Do It Yourself" (DIY) software instructions. An acceptable service is two-way, real-time interactive communication equivalent to a face-to-face encounter with a professional licensed to diagnose. Certain audio-only codes remain acceptable; asynchronous codes are not (HHS telehealth FAQ, March 11, 2026). Whether a specific code is on the 2026 list is `[VERIFY]` against the DIY instructions.
+- Source filtering: HHS filters institutional outpatient and professional claims using allowable CPT/HCPCS service codes listed in the benefit year's "Do It Yourself" (DIY) software instructions. An acceptable service is two-way, real-time interactive communication equivalent to a face-to-face encounter with a professional licensed to diagnose. Certain audio-only codes remain acceptable; asynchronous codes are not (HHS telehealth FAQ, March 11, 2026). Whether a specific code is on the 2026 list varies by benefit year; check the DIY instructions.
 - HHS-RADV (45 CFR 153.630): an independent initial validation audit (IVA) by an entity the issuer engages, then a second validation audit (SVA) by HHS's contractor, validating medical records "according to industry standards for coding and reporting".

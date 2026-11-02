@@ -67,7 +67,7 @@ Organization-level standards an antineoplastic order and its documentation are c
 
 ## 8. USP <800> hazardous drug handling
 
-- Official December 1, 2019; compendially applicable, to the extent <795> and <797> apply, from November 1, 2023. No revision was found in the USP pages read on 2026-10-30 or in the August 2026 USP presentation to NABP; FAQs updated January 21, 2026. Enforcement rests with state boards and other regulators `[VERIFY]` for the facility's jurisdiction.
+- Official December 1, 2019; compendially applicable, to the extent <795> and <797> apply, from November 1, 2023. No revision was found in the USP pages read on 2026-10-30 or in the August 2026 USP presentation to NABP; FAQs updated January 21, 2026. Enforcement rests with state boards and other regulators and varies by jurisdiction; check the facility's state board and other regulators before relying on it.
 - Scope: drugs on the current NIOSH List of Hazardous Drugs in Healthcare Settings (2024 list, published December 2024). For <800>, "antineoplastic" means drugs in NIOSH Table 1 (revision bulletin official July 1, 2020).
 - Full containment applies to hazardous drug active ingredients and to NIOSH Table 1 antineoplastics that require manipulation. Final dosage forms needing only counting or repackaging may follow an assessment of risk, which must list each drug and dosage form individually.
 - Sterile hazardous drug compounding: an externally vented C-PEC with ISO Class 5 air, such as a Class II BSC or a CACI. CSTDs are recommended for compounding and required for administering NIOSH Table 1 antineoplastics when the dosage form allows.

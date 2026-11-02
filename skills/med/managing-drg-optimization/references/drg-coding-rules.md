@@ -1,6 +1,6 @@
 # DRG Coding Rules
 
-Rules for validating an MS-DRG assignment on one inpatient claim. Each rule names its authority and the place it was read; `references/primary-sources.md` gives the URL and date. Coding Clinic is paywalled and was not read; where a Coding Clinic answer would decide a case, mark it `[VERIFY]`.
+Rules for validating an MS-DRG assignment on one inpatient claim. Each rule names its authority and the place it was read; `references/primary-sources.md` gives the URL and date. Coding Clinic is paywalled and was not read; where a Coding Clinic answer would decide a case, mark it "Confirm before use:".
 
 ## Contents
 
@@ -21,7 +21,7 @@ Rules for validating an MS-DRG assignment on one inpatient claim. Each rule name
 - Severity changes finalized for FY 2027: ten housing codes (Z59.00, Z59.01, Z59.02, Z59.10, Z59.11, Z59.12, Z59.19, Z59.811, Z59.812, Z59.819) moved from CC to NonCC (91 FR 49648; Table 6J.2). The V44 Appendix C CC list, read in full for the Z codes, lists no Z59 code.
 - Requests to change severity that CMS declined: R53.2 functional quadriplegia stays an MCC; E40, E41, E42 and E43 stay MCCs; P01.7 and P03.0 stay NonCC; O63.0 stays NonCC and O63.9 stays a CC (91 FR 49648-49652).
 - Severity lists for FY 2027: Tables 6I (MCC), 6I.1, 6J (CC), 6J.1, 6J.2; CC exclusion changes: Tables 6G.1, 6G.2, 6H.1, 6H.2 (91 FR 49653). New codes and their severity: Table 6A.
-- The correcting notice of Sept. 29, 2026 (FR Doc. 2026-19946) recalculated Table 5 relative weights. Use corrected weights for any payment estimate, and mark any weight not read from corrected Table 5 `[VERIFY]`.
+- The correcting notice of Sept. 29, 2026 (FR Doc. 2026-19946) recalculated Table 5 relative weights. Use corrected weights for any payment estimate, and mark any weight not read from corrected Table 5 "Confirm before use:".
 - A worksheet, encoder table or CDI tip sheet built on an earlier version is a secondary source. When it disagrees with V44 for an FY 2027 discharge, V44 controls and the conflict goes in the reconciliation table.
 
 ## 2. Principal diagnosis (Section II and UHDDS)
@@ -51,7 +51,7 @@ Rules for validating an MS-DRG assignment on one inpatient claim. Each rule name
 - The excluded code is still reported when Section III and the classification require it; only its severity effect is removed.
 - Confirmed V44 entries (Appendix C Part 1): R65.20 MCC, PDX collection 0072 (includes A41.9, A41.51 and the other A40-A41 sepsis codes); R65.21 MCC; J18.9 MCC, collection 0113 (129 codes; does not include A41.9, A41.51 or K26.4); J96.01, J96.02, J96.21 MCC; G93.41 MCC; E43 MCC; E44.0 and E46 CC; N17.0 MCC; N17.9 CC; N39.0 CC (HAC category 6); D62 CC; E87.1 CC; J44.1 CC; R78.81 CC; I50.21, I50.23, I50.33 MCC; R53.2 MCC. I10, E11.9, E78.5 and K21.9 are not on the CC or MCC lists.
 - Split logic matters as much as severity. Families split "MCC / CC / neither" (193-195, 190-192, 377-379) move on a CC; families split only on MCC (871 versus 872) do not. Read the family's split in the Definitions Manual before stating an impact.
-- Confirm any code not listed here against V44 Appendix C before stating its severity or exclusion; otherwise mark it `[VERIFY]`.
+- Confirm any code not listed here against V44 Appendix C before stating its severity or exclusion; otherwise mark it "Confirm before use:".
 
 ## 5. DRG families confirmed in Grouper V44
 
@@ -68,28 +68,28 @@ R65.20 and R65.21 are listed as principal diagnoses in the 870-872 logic, but I.
 Procedures: in the V44 Definitions Manual, a procedure code marked with an asterisk is non-O.R.; every other listed procedure is an O.R. procedure, which can move the case to a surgical DRG in the principal diagnosis's MDC (or to 981-989 when unrelated). O.R. status follows the code, so the root operation decides it.
 
 - ICD-10-PCS Official Guidelines 2027: B3.1a, apply the full root operation definition in the PCS Tables, not the surgeon's term (the coder may correlate "partial resection" to Excision without a query when the match is clear); B3.1b, components integral to the root operation and steps to reach and close the site are not coded separately; B3.5, overlapping musculoskeletal layers are coded to the deepest layer (excisional debridement into muscle is coded to muscle). An operative note that does not show what was removed, or how deep, is a query candidate. Check each resulting code's O.R. status on its V44 page.
-- 5A1955Z (Respiratory Ventilation, Greater than 96 Consecutive Hours) is non-O.R. and is the MV branch of 870. The Medicare Code Editor flags it as inconsistent with length of stay unless ventilation exceeded four consecutive days (Claims Processing Manual ch. 3, 20.2.1, edit 19). Count from documented start and stop times; the conventions for when counting starts and ends (intubation, ED or transfer time, weaning) come from Coding Clinic `[VERIFY]`.
+- 5A1955Z (Respiratory Ventilation, Greater than 96 Consecutive Hours) is non-O.R. and is the MV branch of 870. The Medicare Code Editor flags it as inconsistent with length of stay unless ventilation exceeded four consecutive days (Claims Processing Manual ch. 3, 20.2.1, edit 19). Count from documented start and stop times; the conventions for when counting starts and ends (intubation, ED or transfer time, weaning) come from Coding Clinic, which was not read here; check the current Coding Clinic guidance before relying on a count.
 
 ## 6. Sepsis coding and payer sepsis definitions
 
 - I.C.1.d: severe sepsis needs at least two codes, the systemic infection first and then R65.2-, plus codes for the associated acute organ dysfunction. Organ dysfunction attributed to another cause does not support R65.2-; unclear linkage is queried. With a localized infection present on admission, the systemic infection is sequenced first; if sepsis develops after admission, the localized infection is first.
 - I.A.19 governs: code the provider's documented sepsis. Sepsis-2 (SIRS) and Sepsis-3 (SOFA) are clinical definitions, not coding rules. The FY 2027 final rule notes that no single consensus definition exists (91 FR 49891, footnote 209).
-- A payer that applies Sepsis-3 in clinical validation does so through its contract or policy. Read that document; until read, treat the payer's definition as a policy election `[VERIFY]` and analyze both readings. The coding response is a clinical validation query when indicators look insufficient, not recoding. Reading the contract definition, the clinical validation denial and the appeal go to managing-coding-denials. SEP-1 abstraction is a separate measure (managing-sepsis-bundles).
+- A payer that applies Sepsis-3 in clinical validation does so through its contract or policy. Read that document; until read, treat the payer's definition as a policy election and analyze both readings. The coding response is a clinical validation query when indicators look insufficient, not recoding. Reading the contract definition, the clinical validation denial and the appeal go to managing-coding-denials. SEP-1 abstraction is a separate measure (managing-sepsis-bundles).
 
 ## 7. POA indicators and the HAC payment provision
 
 - POA means present when the order for inpatient admission occurs; conditions that develop in the ED, observation or outpatient surgery before the order are POA (Guidelines, Appendix I).
 - Indicators: Y (present), N (not present), U (documentation insufficient), W (provider clinically unable to determine); exempt codes are unreported. POA questions about timing or linkage are queried; a POA yes/no query must include "unable to determine" (ACDIS/AHIMA 2026).
-- HAC payment provision (DRA 2005, section 5001(c)): for the 14 HAC categories, the case is paid as though the secondary diagnosis were not present when it was not present on admission. CMS pays Y and W, not N and U (MLN901046, FY 2015 chart; confirm no later change `[VERIFY]`). The HAC-POA provision is separate from the HAC Reduction Program (ACA section 3008).
+- HAC payment provision (DRA 2005, section 5001(c)): for the 14 HAC categories, the case is paid as though the secondary diagnosis were not present when it was not present on admission. CMS pays Y and W, not N and U (MLN901046, FY 2015 chart; not confirmed here whether a later chart changed this; confirm the current POA payment chart). The HAC-POA provision is separate from the HAC Reduction Program (ACA section 3008).
 - Never set POA to change payment or quality results. A POA error that removes or adds HAC treatment goes in the reconciliation table with its source.
 
 ## 8. Inpatient status, payer basis and transfers
 
 - MS-DRG review applies only to an inpatient claim. Under 42 CFR 412.3 the patient is an inpatient when formally admitted on an inpatient order (412.3(a)) given at or before admission (412.3(c)); admission is generally appropriate when the admitting physician expects care crossing two midnights (412.3(d)(1)), for inpatient-only procedures (412.3(d)(2)), or by documented judgment for a shorter expected stay (412.3(d)(3)).
-- Medicare Advantage plans must follow 412.3 (42 CFR 422.101(b)(2)). Whether a plan or commercial payer pays on MS-DRG, APR-DRG or another basis is contractual `[VERIFY]` per payer.
+- Medicare Advantage plans must follow 412.3 (42 CFR 422.101(b)(2)). Whether a plan or commercial payer pays on MS-DRG, APR-DRG or another basis is contractual and varies by payer; check each payer's contract.
 - Observation status and conversion go to managing-observation-stays; inpatient-status and 2-midnight denials go to managing-coding-denials. Prospective Two-Midnight Rule status review goes to managing-observation-stays; this skill only confirms the order exists. Contractors that find the stay did not meet Part A requirements deny the claim; a deemed date of admission resets the principal diagnosis (PIM 100-08, ch. 6, 6.5.2).
 - 3-day payment window (42 CFR 412.2(c)(5)): Part B diagnostic services, and nondiagnostic services the hospital does not attest are unrelated, furnished by the hospital or a wholly owned or operated entity on the admission date or the 3 calendar days before it are paid in the inpatient payment. The hospital must put their diagnoses and procedures on the inpatient claim, converting CPT codes to ICD procedure codes, and assigns POA as of the inpatient order (Claims Processing Manual ch. 3, 40.3). A procedure from the window can change the DRG.
-- Transfers (42 CFR 412.4): an acute-care transfer (412.4(b)) or a post-acute care transfer from a qualifying DRG to an excluded hospital or unit, a SNF, home health starting within 3 days, or hospice (412.4(c)) is paid a graduated per diem (412.4(f)). The FY 2027 qualifying list is in the final rule tables `[VERIFY]` the count. A discharge against medical advice is not one of the transfer circumstances in 412.4(b)-(c).
+- Transfers (42 CFR 412.4): an acute-care transfer (412.4(b)) or a post-acute care transfer from a qualifying DRG to an excluded hospital or unit, a SNF, home health starting within 3 days, or hospice (412.4(c)) is paid a graduated per diem (412.4(f)). The FY 2027 qualifying list is in the final rule tables; the count is not confirmed here, so check the FY 2027 tables. A discharge against medical advice is not one of the transfer circumstances in 412.4(b)-(c).
 
 ## 9. Inpatient versus outpatient guideline sections
 

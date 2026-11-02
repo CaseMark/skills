@@ -60,7 +60,7 @@ MS-DRG assignment sets the Medicare inpatient payment for the stay, and most pay
 1. **Draft only.** Every output is a draft for a credentialed coder, a CDI specialist and compliance. Never state that a claim is final, billed or validated by a payer, and never send or word a query as sent.
 2. **Source-review gate.** Do not call any documentation missing until every supplied document has been opened and searched, including scanned and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a code's exclusion not yet read in V44 Appendix C) or a policy election (for example a payer contract's sepsis definition or the facility's query policy).
 3. **Hierarchy of authority.** For rules: ICD-10-CM conventions (Tabular and Index), then the Official Guidelines for the discharge year, the UHDDS definitions, the MS-DRG Definitions Manual for the grouper version, CMS manuals, then payer contracts and facility policy, which never override the classification. For facts: the patient's provider documentation governs; ancillary documentation is a clinical indicator except for the I.B.14 list; coder worksheets, encoder output, CDI worksheets and dashboards are secondary. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every code carries its provider statement with a locator (document, date, author role) or `[UNVERIFIED]`. Every rule carries its source and version, or `[VERIFY]`.
+4. **Citation discipline.** Every code carries its provider statement with a locator (document, date, author role) or `[UNVERIFIED]`. Every rule carries its source and version, or "Confirm before use:".
 5. **Documentation-supported codes only.** The aim is the DRG the record supports. Never add a diagnosis no provider documented, select or resequence a principal diagnosis for payment, change a POA indicator without documentation, or ask a provider to document a condition. Each such request is a "Declined request" (Checkpoint A).
 6. **Lock the version.** Select the grouper and the guideline year by discharge date and state both in the header. V44 and the FY 2027 Guidelines cover discharges from October 1, 2026.
 7. **Principal diagnosis by Section II and UHDDS.** Apply "after study, chiefly responsible for occasioning the admission". Use II.B or II.C only when the facts make the conditions interrelated or equal, and record those facts; relative weight is never a reason.
@@ -85,7 +85,7 @@ Defaults when an input is missing:
 
 - Payer not stated: group under MS-DRG for the discharge date and mark the payer's payment basis as a policy election.
 - POA indicators absent: assign them from the record per Appendix I and mark each U that a query could settle.
-- No grouper output: group from the V44 Definitions Manual; mark any relative weight `[VERIFY]`.
+- No grouper output: group from the V44 Definitions Manual; mark any relative weight "Confirm before use:".
 - Query policy absent: apply the 2026 brief and name the gap.
 
 Hard stops (do not state an MS-DRG):
@@ -121,7 +121,7 @@ Read `references/drg-coding-rules.md`, Sections 3, 6 and 7. For each secondary c
 
 ## Step 6: Check Severity, Exclusions and Group the Case
 
-Read `references/drg-coding-rules.md`, Sections 4 and 5. For each CC or MCC, record the V44 severity, the PDX collection checked and the result, and the family's split. Check each procedure code against the operative report, the PCS root operation definition and its V44 O.R. status, since an O.R. procedure moves the case to a surgical DRG. Confirm that 5A1955Z rests on documented ventilation of more than 96 consecutive hours, and that procedures from the 3-day preadmission window are on the claim. Complete the grouping block in `references/output-template.md`, Section 5, and state the direction of change against the draft claim. Mark any code not confirmed in V44 `[VERIFY]` and say whether it could change the DRG.
+Read `references/drg-coding-rules.md`, Sections 4 and 5. For each CC or MCC, record the V44 severity, the PDX collection checked and the result, and the family's split. Check each procedure code against the operative report, the PCS root operation definition and its V44 O.R. status, since an O.R. procedure moves the case to a surgical DRG. Confirm that 5A1955Z rests on documented ventilation of more than 96 consecutive hours, and that procedures from the 3-day preadmission window are on the claim. Complete the grouping block in `references/output-template.md`, Section 5, and state the direction of change against the draft claim. Mark any code not confirmed in V44 "Confirm before use:" and say whether it could change the DRG.
 
 ## Step 7: Draft Query Candidates and Clinical Validation Items
 
@@ -129,11 +129,11 @@ Read `references/query-compliance.md`. Draft each candidate with the template in
 
 ## Step 8: Check Disposition and Transfer
 
-Read `references/drg-coding-rules.md`, Section 8. Confirm the discharge disposition against the discharge summary and case management notes, and whether a transfer rule applies; mark the FY 2027 qualifying list `[VERIFY]` unless read.
+Read `references/drg-coding-rules.md`, Section 8. Confirm the discharge disposition against the discharge summary and case management notes, and whether a transfer rule applies; mark the FY 2027 qualifying list "Confirm before use:" unless read.
 
 ## Step 9: Reconcile, Hand Off and List Open Items
 
-Complete the reconciliation table, declined requests, hand-offs, and open items (`references/output-template.md`, Sections 7 to 10). Check each rule relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
+Complete the reconciliation table, declined requests, hand-offs, and open items (`references/output-template.md`, Sections 7 to 10). Check each rule relied on against `references/primary-sources.md` and carry any "Confirm before use:" item into the output.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -158,7 +158,7 @@ Complete the reconciliation table, declined requests, hand-offs, and open items 
 9. POA indicators follow Appendix I, and HAC categories are checked for N and U.
 10. Sepsis codes follow the provider's statement and I.C.1.d; payer criteria appear only as a denial-risk note.
 11. Every query candidate has a neutral title, sourced indicators, "Other", and no payment or quality language.
-12. Every declined request, conflict and `[VERIFY]` item appears in its table.
+12. Every declined request, conflict and "Confirm before use:" item appears in its table.
 13. The direction of change is stated, and the DRG is marked provisional when an open item could change it.
 
 ## Guidelines
@@ -179,7 +179,7 @@ Complete the reconciliation table, declined requests, hand-offs, and open items 
 | Scanned or image-only notes | Text search missed them | Open and attempt OCR; if still unreadable, list them as unreadable and mark dependent codes provisional |
 | Attending and consultant disagree on a diagnosis | Conflicting provider documentation | Do not pick one; add a reconciliation row and a query candidate to the attending |
 | Discharge summary lists a diagnosis not found elsewhere | Copy-forward or late documentation | Treat it as the provider's statement unless it conflicts; flag clinical validation if indicators are absent |
-| Code not found in the severity tables read | New FY 2027 code or unread page | Check Table 6A and the V44 Appendix C page; until read, mark `[VERIFY]` and show the DRG with and without it |
+| Code not found in the severity tables read | New FY 2027 code or unread page | Check Table 6A and the V44 Appendix C page; until read, mark "Confirm before use:" and show the DRG with and without it |
 | Payer letter cites a clinical definition | Contract term, not a coding rule | Request the contract language; keep coding per the Guidelines; route the contract-definition dispute and any appeal to managing-coding-denials |
 | User insists on a declined change | Pressure to reach a target DRG | Restate the rule once, keep the declined row, and note the compliance hand-off |
 
@@ -201,4 +201,4 @@ Complete the reconciliation table, declined requests, hand-offs, and open items 
 - `references/drg-coding-rules.md`: version lock and FY 2027 changes, Section II and III rules, CC/MCC and exclusions, V44 families, sepsis, POA and HAC, status and transfers, guideline sections.
 - `references/query-compliance.md`: ACDIS/AHIMA 2026 query rules, formats, when to query, declined requests, query template.
 - `references/output-template.md`: deliverable sections, code ledger, grouping block, reconciliation table, hand-off table.
-- `references/primary-sources.md`: each authority checked with date and what it supports, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with date and and what it supports.

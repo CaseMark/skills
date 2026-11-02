@@ -39,9 +39,9 @@ Every dose, threshold and interval below is FDA label or guideline content, quot
 |---|---|---|
 | Apixaban, NVAF | Serum creatinine (mg/dL) as one of three criteria; not CrCl | Dose-reduction rule names SCr, age and weight (2.1, 8.6) |
 | Rivaroxaban, all adult indications | CrCl bands | "Calculate CrCl based on actual weight" (Table 1 footnote) |
-| Dabigatran, all adult indications | CrCl bands | Equation not named in the sections read `[VERIFY]` |
-| Enoxaparin (Lovenox), all indications | CrCl below 30 mL/min triggers the Table 1 regimens | Equation and weight basis not named in the sections read `[VERIFY]` |
-| Edoxaban, NVAF and VTE | CrCl bands | "Cockcroft-Gault CrCL = (140-age) x (weight in kg) x (0.85 if female) / (72 x creatinine in mg/dL)" (2.1); weight type not specified `[VERIFY]` |
+| Dabigatran, all adult indications | CrCl bands | Equation not named in the sections read; not confirmed here |
+| Enoxaparin (Lovenox), all indications | CrCl below 30 mL/min triggers the Table 1 regimens | Equation and weight basis not named in the sections read; not confirmed here |
+| Edoxaban, NVAF and VTE | CrCl bands | "Cockcroft-Gault CrCL = (140-age) x (weight in kg) x (0.85 if female) / (72 x creatinine in mg/dL)" (2.1); weight type not specified; not confirmed here |
 
 Rules for the worksheet:
 
@@ -106,7 +106,7 @@ The DVT/PE reduction is "any one" of three; the apixaban NVAF reduction is "two 
 
 - Monitoring: INR daily after the first dose until stable in range, then every 1 to 4 weeks (2.4). INR immediately before any dental or surgical procedure.
 - Pharmacodynamics: effect within 24 hours, peak may be delayed 72 to 96 hours; a single dose acts for 2 to 5 days (12.2). An INR therefore reflects doses taken over the preceding days, not the last dose.
-- Targets in label 2.2 (for comparison only): bileaflet or Medtronic Hall mechanical aortic valve in sinus rhythm without left atrial enlargement, INR 2.5 (2.0 to 3.0); tilting-disk or bileaflet mechanical mitral valve, INR 3.0 (2.5 to 3.5); caged-ball or caged-disk valve, INR 3.0 (2.5 to 3.5). An INR above 4.0 adds no benefit in most patients and raises bleeding risk. Valve targets in the current valvular guideline are `[VERIFY]`.
+- Targets in label 2.2 (for comparison only): bileaflet or Medtronic Hall mechanical aortic valve in sinus rhythm without left atrial enlargement, INR 2.5 (2.0 to 3.0); tilting-disk or bileaflet mechanical mitral valve, INR 3.0 (2.5 to 3.5); caged-ball or caged-disk valve, INR 3.0 (2.5 to 3.5). An INR above 4.0 adds no benefit in most patients and raises bleeding risk. Valve targets in the current valvular guideline are not confirmed here; check the current guideline before relying on these label targets.
 - Genotype tables (CYP2C9, VKORC1) inform initial dose ranges (2.3).
 - Heparin overlap: continue full-dose heparin and overlap warfarin for 4 to 5 days and until the INR is in range (2.8).
 
@@ -160,7 +160,7 @@ Lovenox label revised 5/2025 (DailyMed, updated May 28, 2026):
 - No adjustment is recommended for CrCl 30 to < 50 or 50 to 80 mL/min, but all renal impairment needs observation for bleeding (8.7).
 - With warfarin for DVT: start warfarin usually within 72 hours; continue enoxaparin at least 5 days and until INR 2 to 3 (2.2).
 - Contraindicated with HIT within the past 100 days or with circulating antibodies (section 4).
-- Low weight (women < 45 kg, men < 57 kg): higher exposure with non-weight-adjusted prophylactic doses (8.8). Obesity (BMI > 30): prophylactic dosing not fully determined, no consensus for adjustment (8.9). The label does not state which weight the mg/kg regimens use or set a cap; caps and anti-Xa monitoring are facility policy elections `[VERIFY]`.
+- Low weight (women < 45 kg, men < 57 kg): higher exposure with non-weight-adjusted prophylactic doses (8.8). Obesity (BMI > 30): prophylactic dosing not fully determined, no consensus for adjustment (8.9). The label does not state which weight the mg/kg regimens use or set a cap; caps and anti-Xa monitoring are facility policy elections; check facility policy.
 
 Heparin sodium injection label (Pfizer/Hospira, NDA 018916, revised 11/2025):
 

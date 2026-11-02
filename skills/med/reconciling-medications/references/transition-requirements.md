@@ -18,8 +18,8 @@ What each authority requires at admission, transfer and discharge, as read on Oc
 | Accredited program | 2026 chapter | Medication information requirement |
 |---|---|---|
 | Hospital, including hospital clinics | National Performance Goals (NPGs), effective January 1, 2026; they replace the NPSG chapter | NPG.14.05.01, "The hospital maintains and communicates accurate patient medication information" |
-| Critical access hospital | NPGs, effective January 1, 2026; Goal 14 covers medication management | Standard and EP numbering not confirmed `[VERIFY]` |
-| Ambulatory, office-based surgery, home care, nursing care center, behavioral health and others | National Patient Safety Goals, 2026 editions | NPSG.03.06.01, "Maintain and communicate accurate patient medication information" (text read for home care and nursing care center; others `[VERIFY]`) |
+| Critical access hospital | NPGs, effective January 1, 2026; Goal 14 covers medication management | Standard and EP numbering not confirmed here; check the current Critical Access Hospital NPGs |
+| Ambulatory, office-based surgery, home care, nursing care center, behavioral health and others | National Patient Safety Goals, 2026 editions | NPSG.03.06.01, "Maintain and communicate accurate patient medication information" (text read for home care and nursing care center; for other programs, confirm the numbering in that program's 2026 chapter) |
 
 Cite the requirement that matches the organization's program. Citing NPSG.03.06.01 for a hospital survey after January 1, 2026 is out of date; citing NPG.14.05.01 for a nursing care center is wrong.
 
@@ -74,5 +74,5 @@ Evidence of what the patient takes or received: administration records (outside 
 
 - No standard read sets a minimum number of BPMH sources; "more than one source" is WHO and MATCH guidance.
 - No standard read defines review priority tiers; the tiers in the rules file are the skill's convention.
-- Who may take a BPMH (pharmacist, technician, nurse) depends on facility policy and state practice rules `[VERIFY]`.
+- Who may take a BPMH (pharmacist, technician, nurse) depends on facility policy and state practice rules; check both before relying on a role.
 - FDA pregnancy letter categories (A, B, C, D, X) were removed from prescription labeling by the Pregnancy and Lactation Labeling Rule (effective June 30, 2015, with phased conversion); describe pregnancy concerns from current labeling, not a letter.

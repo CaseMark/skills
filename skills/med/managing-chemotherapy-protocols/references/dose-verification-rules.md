@@ -35,7 +35,7 @@ Rules for checking a prescriber's antineoplastic order against the regimen it cl
 ## 3. Carboplatin and the Calvert formula
 
 - Label formula: Total dose (mg) = target AUC (mg/mL·min) × (GFR + 25). The dose is in mg, not mg/m². The original studies measured GFR by 51Cr-EDTA clearance (carboplatin labels on DailyMed and Pfizer Medical). The 2025 KYXATA label states that GFR is commonly calculated as estimated creatinine clearance by Cockcroft-Gault.
-- GFR cap: the NCI CTEP letter of October 22, 2010 states that the GFR used in the Calvert formula should not exceed 125 mL/min when the dose rests on an estimated GFR, giving a maximum dose of target AUC × 150 mL/min (AUC 6: 900 mg; AUC 5: 750 mg; AUC 4: 600 mg). For an abnormally low serum creatinine, it allows estimating GFR with a minimum creatinine of 0.6 mg/dL or capping estimated GFR at 125 mL/min, and says that once the initial dose is set it need not be recalculated for later cycles unless toxicity requires a lower dose. The FDA issued an October 2010 notice on the same point (reported by CAP Today, January 2011); the FDA page itself was not readable `[VERIFY]`. The current US labels read do not state the cap. Apply the cap the order set or protocol states; if it states none, flag the cap question as a policy election and show both doses.
+- GFR cap: the NCI CTEP letter of October 22, 2010 states that the GFR used in the Calvert formula should not exceed 125 mL/min when the dose rests on an estimated GFR, giving a maximum dose of target AUC × 150 mL/min (AUC 6: 900 mg; AUC 5: 750 mg; AUC 4: 600 mg). For an abnormally low serum creatinine, it allows estimating GFR with a minimum creatinine of 0.6 mg/dL or capping estimated GFR at 125 mL/min, and says that once the initial dose is set it need not be recalculated for later cycles unless toxicity requires a lower dose. The FDA issued an October 2010 notice on the same point (reported by CAP Today, January 2011); the FDA page itself was not readable, so the notice is not confirmed here. The current US labels read do not state the cap. Apply the cap the order set or protocol states; if it states none, flag the cap question as a policy election and show both doses.
 - Cockcroft-Gault: CrCl (mL/min) = (140 − age) × weight (kg) × (0.85 if female) / (72 × serum creatinine in mg/dL) (StatPearls, Creatinine Clearance). Use the weight type the order set names (actual, ideal, adjusted).
 - A lab-reported eGFR (CKD-EPI or MDRD) is in mL/min/1.73 m². Do not place it in the Calvert formula unless the order set says how to convert it to mL/min; flag it otherwise.
 - A measured GFR (nuclear or iohexol) or a measured 24-hour creatinine clearance is a different input from an estimate. Use it only if the order set allows that input, and record which input was used. CTEP states that label dosing is designed around measured GFR.
@@ -54,7 +54,7 @@ ASCO-ONS 2024, Standard 4.5.3: cumulative doses are tracked for agents associate
 | Idarubicin (Idamycin PFS, rev. 2/2026) | Increased CHF above 90 mg/m² in adults; include prior anthracyclines and anthracenediones; tolerable limit may be lower after mediastinal radiation |
 | Mitoxantrone (Meitheal) | Cancer patients: symptomatic CHF risk about 2.6% up to 140 mg/m²; multiple sclerosis patients should not receive more than 140 mg/m² |
 
-Converting one anthracycline to "doxorubicin equivalents" uses ratios that are not in these labels `[VERIFY]`; when the total mixes agents, list each agent's total separately and flag the combined assessment for the prescriber.
+Converting one anthracycline to "doxorubicin equivalents" uses ratios that are not in these labels and are not confirmed here; when the total mixes agents, list each agent's total separately and flag the combined assessment for the prescriber.
 
 ## 5. Cycle day and interval
 
@@ -72,7 +72,7 @@ Converting one anthracycline to "doxorubicin equivalents" uses ratios that are n
 
 ## 7. Dose comparison and tolerance
 
-- Compare each ordered dose with the protocol-expected dose computed from verified variables. Report both, the difference in mg and as a percentage, and the order set's rounding or variance rule. If the order set states no variance rule, report the difference and classify the threshold as a policy election `[VERIFY]` against facility policy.
+- Compare each ordered dose with the protocol-expected dose computed from verified variables. Report both, the difference in mg and as a percentage, and the order set's rounding or variance rule. If the order set states no variance rule, report the difference and classify the threshold as a policy election and check it against facility policy.
 - A reduction documented in the order (dose level, percentage, reason) is compared with the protocol's dose-level table; an undocumented reduction is a discrepancy.
 
 ## 8. Time-bound checks
@@ -96,4 +96,4 @@ Each element has its own trigger. Do not run them all from the order date.
 
 - Formulation: the liposomal doxorubicin label (Doxil, rev. 03/2026) says not to substitute it for other doxorubicin hydrochloride products. ISMP Best Practice 1 lists liposomal vincristine among the vinca alkaloids. Match the product named in the order, the order set and the pharmacy label; a dose per m² for one formulation is never carried to the other.
 - Dosing basis: some labels and protocols switch from mg/m² to mg/kg for small patients. The vincristine label gives 1.4 mg/m² for adults, 1.5-2 mg/m² for children, and a 0.05 mg/kg starting dose for children weighing 10 kg or less. The daunorubicin label states its pediatric cumulative threshold as 300 mg/m² over 2 years of age and 10 mg/kg under 2 years. Use the basis the order set or protocol names for the patient's age and weight, and flag an order that uses the other basis.
-- Rounding and banding: neither the ASCO-ONS standards nor the labels read set a rounding percentage or dose bands. Apply the order set's or facility's rule and cite it; with no rule supplied, report the unrounded and ordered doses and classify the rule as a policy election `[VERIFY]` against facility policy.
+- Rounding and banding: neither the ASCO-ONS standards nor the labels read set a rounding percentage or dose bands. Apply the order set's or facility's rule and cite it; with no rule supplied, report the unrounded and ordered doses and classify the rule as a policy election and check it against facility policy.

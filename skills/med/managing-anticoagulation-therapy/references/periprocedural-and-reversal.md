@@ -40,7 +40,7 @@ Guideline and label content for comparison with a plan written by the treating t
 | IV UFH bridging, resume | End of procedure | 24 hours or more after, no bolus, lower-intensity infusion | CHEST 2022 rec 17 |
 | Label minimums before surgery | Procedure time | Apixaban: at least 48 hours (moderate or high bleeding risk) or 24 hours (low); rivaroxaban and edoxaban: at least 24 hours; dabigatran: 1 to 2 days (CrCl 50 or more) or 3 to 5 days (CrCl below 50) | Eliquis 2.4; Xarelto 2.4; Savaysa 2.5; Pradaxa 2.8 |
 
-For CrCl below the floors in AF guideline Table 18 (apixaban 25, rivaroxaban 30, edoxaban 15, dabigatran 30 mL/min), the guideline says few data exist and suggests considering 1 to 3 additional days, especially before high-bleed-risk procedures. Neuraxial procedures carry the boxed spinal/epidural hematoma warning on every DOAC label; anesthesia timing rules belong to the anesthesia team `[VERIFY]` against the current regional anesthesia guidance.
+For CrCl below the floors in AF guideline Table 18 (apixaban 25, rivaroxaban 30, edoxaban 15, dabigatran 30 mL/min), the guideline says few data exist and suggests considering 1 to 3 additional days, especially before high-bleed-risk procedures. Neuraxial procedures carry the boxed spinal/epidural hematoma warning on every DOAC label; anesthesia timing rules belong to the anesthesia team; check the current regional anesthesia guidance.
 
 ## 3. How to count "days off"
 
@@ -99,4 +99,4 @@ From January 1, 2026, the Hospital and Critical Access Hospital programs replace
 - EP 2: approved protocols and guidelines for perioperative management of all patients on oral anticoagulants (bridging, stop timing, restart timing and dosing).
 - EP 3: oral unit-dose products, prefilled syringes or premixed infusion bags when available.
 
-The note excludes routine short-term prophylactic anticoagulation for VTE prevention. Where the other former NPSG.03.05.01 elements (baseline and ongoing INR, education, programmable pumps) now sit, and whether ambulatory and nursing care center programs still use NPSG.03.05.01, are `[VERIFY]`. A hospital protocol that still cites NPSG.03.05.01 or lists andexanet as available is a protocol-update finding, not a patient finding.
+The note excludes routine short-term prophylactic anticoagulation for VTE prevention. Where the other former NPSG.03.05.01 elements (baseline and ongoing INR, education, programmable pumps) now sit, and whether ambulatory and nursing care center programs still use NPSG.03.05.01, are not confirmed here; check the current Joint Commission chapter for the program. A hospital protocol that still cites NPSG.03.05.01 or lists andexanet as available is a protocol-update finding, not a patient finding.

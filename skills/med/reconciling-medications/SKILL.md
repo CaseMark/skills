@@ -62,7 +62,7 @@ Transitions are where medication lists break. WHO High 5s reports that up to 27 
 1. **Draft only.** Every output is a draft for a pharmacist or the responsible prescriber. Never write, rewrite or sign orders or prescriptions, never state a dose, start, stop, resume or switch for this patient, and never call the list final or reconciled.
 2. **Source-review gate.** Do not call a medication, dose or document missing until every supplied document has been opened and searched, including scanned and oddly named files. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a requirement not confirmed for the organization's program) or a policy election (for example who the facility names as the qualified individual).
 3. **Hierarchy of authority.** For requirements: the CMS Condition of Participation and its interpretive guidance, then the accreditation standard for the organization's program, then facility policy, then WHO High 5s and AHRQ MATCH as guidance. For facts: administration records and dated prescriber notes govern over summaries, transfer forms, order-set defaults and auto-generated lists. Name every conflict in the reconciliation table; never resolve one silently.
-4. **Citation discipline.** Every medication line, dose and reason carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every requirement cited carries its standard and year, or `[VERIFY]` as listed in `references/primary-sources.md`.
+4. **Citation discipline.** Every medication line, dose and reason carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every requirement cited carries its standard and year, or "Confirm before use:" where `references/primary-sources.md` does not confirm it.
 5. **Two sources or a label.** Every BPMH line is Confirmed, Single source or Conflicting sources. A home list built from one source type is labeled single source at the top of the worksheet.
 6. **Dispensed is not taken.** A fill, a bottle or a prior list shows what was dispensed or intended. Only the patient, a caregiver or an administration record shows use, and even then say which.
 7. **No reason, no intent.** A difference is Documented change only when a source states the reason. A checkbox, a default or the bare word "intentional" leaves it an Unexplained discrepancy for the prescriber to classify.
@@ -136,7 +136,7 @@ Read `references/transition-requirements.md`, Sections 2 and 6. For a discharge 
 
 ## Step 8: Gaps, Hand-Offs and Sign-Off
 
-Complete the gaps and open items, the hand-off table, any Declined part entries and the reviewer sign-off (`references/output-template.md`, Sections 10 to 13). Check each requirement relied on against `references/primary-sources.md` and carry its `[VERIFY]` flag into the output.
+Complete the gaps and open items, the hand-off table, any Declined part entries and the reviewer sign-off (`references/output-template.md`, Sections 10 to 13). Check each requirement relied on against `references/primary-sources.md` and carry any "Confirm before use:" item into the output.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -161,7 +161,7 @@ Complete the gaps and open items, the hand-off table, any Declined part entries 
 10. Every high-alert line with an item has a detail block and Critical priority; duplicate classes, shared ingredients and documented allergies are checked, with any combined daily amount computed and every allergy conflict in the allergy check.
 11. At discharge, the discharge list, discharge summary and prescriptions are compared with each other, and the discharge information check is complete.
 12. No sentence directs therapy or attests compliance; every discrepancy item ends in a neutral question with an owner; every declined request carries its fixed label.
-13. Every `[VERIFY]` relied on appears in the open items with what would settle it.
+13. Every "Confirm before use:" item relied on appears in the open items with what would settle it.
 
 ## Guidelines
 
@@ -205,4 +205,4 @@ Complete the gaps and open items, the hand-off table, any Declined part entries 
 - `references/reconciliation-rules.md`: medication definition, BPMH sources and labels, interview prompts, comparison pairs, status vocabulary, discrepancy types, priority tiers, high-alert and confused-name lists, substitution and hold rules.
 - `references/transition-requirements.md`: which accreditation standard applies, NPG.14.05.01 and NPSG.03.06.01 elements, WHO High 5s, AHRQ MATCH, CMS 482.43(b) and A-0810, hierarchy of authority.
 - `references/output-template.md`: header, source register, BPMH and comparison worksheets, discrepancy list, high-alert detail, reconciliation table, discharge check, hand-off table, sign-off.
-- `references/primary-sources.md`: each authority checked with URL, method and date, corrections, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, and corrections.

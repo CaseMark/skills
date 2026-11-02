@@ -16,7 +16,7 @@ Produce the header and the sections below in order. Put detail in tables. Every 
 10. Section 9. Verification and documentation record
 11. Section 10. Reconciliation table
 12. Section 11. Hand-offs
-13. Section 12. Open items and `[VERIFY]` list
+13. Section 12. Open items and "Confirm before use" list
 
 ## Header
 
@@ -114,11 +114,11 @@ Typical rows: order weight against flowsheet weight; tracker total against outsi
 | interpreting-echocardiograms | LVEF result behind a cumulative-dose decision | Study dates and reports | Did not interpret the study |
 | managing-patient-safety-events | A wrong-route, wrong-dose or wrong-day event or near miss | The facts and timeline | Did not file the report |
 
-## 12. Open items and `[VERIFY]` list
+## 12. Open items and "Confirm before use" list
 
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Owner | Next action | Changes the disposition? |
 |---|---|---|---|---|---|
 
-Then each `[VERIFY]` statement relied on, with what would settle it.
+Then each "Confirm before use:" statement relied on, with what would settle it.
 
 Close with: "Draft for pharmacist, oncology nurse and prescriber review. Not an order and not a release for preparation or administration."

@@ -7,7 +7,6 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 1. Sources checked
 2. What is current as of 2026-10-30
 3. Corrections made to the earlier version of this skill
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -57,12 +56,3 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 | Carboplatin cap | "Per FDA guidance" | CTEP letter read; FDA notice secondary only; labels silent; order set governs | CTEP 2010; labels |
 | Generic hold table (ANC under 1,000, platelets under 75,000) | Presented as typical modifications | Removed; thresholds come from the order set for the regimen and day | ASCO-ONS 3.9.13 |
 | BSA cap | "Use actual weight unless policy caps BSA" | Cap without documented reason is a discrepancy; ASCO 2021 Recommendation 1 | ASCO 2021 |
-
-## 4. `[VERIFY]` list
-
-1. The text of the October 2010 FDA carboplatin notice (fda.gov ucm228974); only a secondary report was read.
-2. Doxorubicin-equivalent conversion ratios for mixed anthracycline totals; not in the labels read.
-3. State adoption and enforcement of USP <800> for the facility's jurisdiction.
-4. The facility's dose-variance tolerance, weight-change recalculation threshold, BSA rounding rule and dose rounding or banding rule when the order set does not state them; no standard read sets them.
-5. Any NCCN regimen content (not read; subscription). Regimen doses in this skill come only from the user's order set, protocol or a label.
-6. Manufacturer-specific label wording for any product other than those listed in Section 1.

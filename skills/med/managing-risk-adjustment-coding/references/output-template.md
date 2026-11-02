@@ -16,7 +16,7 @@ Produce the header and the sections below in order. Every diagnosis row names it
 10. Section 9. Reconciliation table (conflicts)
 11. Section 10. Gaps and query candidates
 12. Section 11. Hand-offs
-13. Section 12. Open items and `[VERIFY]` list
+13. Section 12. Open items and "Confirm before use" list
 
 ## Header
 
@@ -111,11 +111,11 @@ A query candidate states the clinical indicator and asks the provider to evaluat
 | managing-compliance-audits | Program-level sample design | Error findings by category | Did not design the sample |
 | legal-research | RADV appeal or litigation status (no dedicated skill) | Audit report and dates | Did not advise on appeal rights |
 
-## 12. Open items and `[VERIFY]` list
+## 12. Open items and "Confirm before use" list
 
 | # | Open item | Depends on | Owner | Next action | Changes a result? |
 |---|---|---|---|---|---|
 
-Then each `[VERIFY]` statement relied on, with the document that would settle it.
+Then each "Confirm before use:" statement relied on, with the document that would settle it.
 
 Close with: "Draft for certified coder, CDI and compliance review. Not a submission, deletion or attestation, and not legal advice."

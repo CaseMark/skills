@@ -8,7 +8,6 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 2. Confirmed statements
 3. Corrections to the earlier version of this skill
 4. Disposition of the deleted RECONCILIATION-TEMPLATE.md
-5. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -80,13 +79,3 @@ The earlier reference file was merged into the output template on October 30, 20
 | 7. Unresolved items | Moved | Output template, Section 10, with gap classes |
 | 8. Pharmacist attestation | Dropped | It asserted compliance with NPSG.03.06.01; replaced by the reviewer sign-off in Section 13 with no compliance claim |
 | Usage notes | Kept | Output template, Usage notes |
-
-## 5. `[VERIFY]` list
-
-1. CAH NPG standard and EP numbering for medication information (only the CAH goal list was read).
-2. No Joint Commission crosswalk from NPSG.03.06.01 to NPG.14.05.01 was read; the correspondence rests on comparing the texts.
-3. 2026 NPSG.03.06.01 text for ambulatory, behavioral health, office-based surgery, telehealth, rural health clinic and other programs not read.
-4. State PDMP query mandates and interstate data sharing (state-variable).
-5. Who may collect a BPMH (pharmacy technicians, nurses) under state practice rules and facility policy.
-6. Later editions of the ISMP high-alert and confused-name lists, and the ISMP community and ambulatory high-alert list (not read).
-7. Whether legacy discharge tags still printed in the SOM Appendix A PDF (for example A-0837, Rev. 87) carry any force beside A-0810.

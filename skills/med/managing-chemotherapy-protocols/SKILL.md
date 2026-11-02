@@ -61,7 +61,7 @@ ISMP treats antineoplastics as high-alert medications: an error is more likely t
 2. **No orders, ever.** Every dose figure is labeled "protocol-expected, for comparison" or "as ordered". A request such as "what dose should she get" is answered with the comparison and routed to the prescriber.
 3. **Source-review gate.** Do not call a weight, lab, prior dose or signature missing until every supplied document has been opened and searched, including scans and outside records. Classify each unresolved gap as an unknown fact, a source conflict, an unverified external lookup (for example a label statement not confirmed for this manufacturer) or a policy election (for example the facility's tolerance or recalculation threshold).
 4. **Hierarchy of authority.** For the order: the institution's current order set or the trial protocol, then the product label, then published regimen literature. Organization standards (ASCO-ONS, ISMP, USP <800>) govern process and documentation and never set a clinical dose. For facts: measured, dated source entries (flowsheet, lab report with collection time, MAR, outside records) govern over trackers, calendars, order headers and summaries. Name every conflict in the reconciliation table; never resolve one silently.
-5. **Citation discipline.** Every value carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every rule carries its source and edition (order set version, label revision date, ASCO-ONS 2024 standard number) or `[VERIFY]`.
+5. **Citation discipline.** Every value carries a source locator (document, date and time, author role) or `[UNVERIFIED]`. Every rule carries its source and edition (order set version, label revision date, ASCO-ONS 2024 standard number) or "Confirm before use:".
 6. **Compute; never copy.** Recompute BSA, GFR, Calvert doses, cumulative totals and cycle days from source variables and show the arithmetic. A calculated field in the order is a claim to check.
 7. **Never estimate a dosing variable.** A missing height, weight, creatinine or prior-dose record makes the dependent element "Cannot verify".
 8. **Do not impose or remove a cap.** BSA caps, vincristine maximums and GFR caps come from the order set or protocol. Where the order set is silent, show both readings and classify the question as a policy election.
@@ -134,7 +134,7 @@ Read `references/safety-standards.md`, Sections 5 and 9. For the two-person heig
 
 ## Step 9: Reconcile, Classify Gaps and Hand Off
 
-Complete the reconciliation table, the hand-offs and the open items (`references/output-template.md`, Sections 10 to 12). Check each rule relied on against `references/primary-sources.md` and carry any `[VERIFY]` flag into the output. Set the order-level disposition last.
+Complete the reconciliation table, the hand-offs and the open items (`references/output-template.md`, Sections 10 to 12). Check each rule relied on against `references/primary-sources.md` and carry any "Confirm before use:" item into the output. Set the order-level disposition last.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -143,7 +143,7 @@ Complete the reconciliation table, the hand-offs and the open items (`references
 3. Are BSA, GFR, Calvert doses, cumulative totals and cycle days recomputed from dated source variables, with the arithmetic shown?
 4. Does every cap, tolerance or threshold applied come from the order set, protocol or label, with policy elections named where none does?
 5. Is any route-safety failure in the first line as "Critical: escalate now"?
-6. Are open items owned, with a next action, and does each result that rests on a `[VERIFY]` item say so?
+6. Are open items owned, with a next action, and does each result that rests on a "Confirm before use:" item say so?
 
 ## Quality Audit
 
@@ -158,7 +158,7 @@ Complete the reconciliation table, the hand-offs and the open items (`references
 9. Oral antineoplastics are checked for EHR ordering, quantity, refills and schedule.
 10. Vinca alkaloid container, label and intrathecal separation are checked, and any failure is the first line of the output.
 11. The verification table records signers, roles, times and independence with the four fixed labels, contains nothing completed on anyone's behalf, and every declined part of the request carries its fixed "Declined:" label.
-12. Every conflict is in the reconciliation table, every gap is classified, and every `[VERIFY]` relied on is in the open-items list.
+12. Every conflict is in the reconciliation table, every gap is classified, and every "Confirm before use:" item relied on is in the open-items list.
 
 ## Guidelines
 
@@ -203,4 +203,4 @@ Complete the reconciliation table, the hand-offs and the open items (`references
 - `references/dose-verification-rules.md`: height, weight and BSA rules, caps, Calvert formula and GFR cap, cumulative-dose label statements, cycle day, hold parameters, dose comparison, time-bound checks with their triggers, formulation, pediatric dosing basis and rounding.
 - `references/safety-standards.md`: ASCO-ONS 2024 order elements, exception orders, oral therapy, labeling, the four verifications, intrathecal and vinca rules, ISMP best practices, USP <800>, who may do what.
 - `references/output-template.md`: deliverable sections, dose comparison table, cumulative ledger, verification record, reconciliation table, hand-off table.
-- `references/primary-sources.md`: each authority checked with URL, method and date, what is current as of 2026-10-30, corrections, and the `[VERIFY]` list.
+- `references/primary-sources.md`: each authority checked with URL, method and date, what is current as of 2026-10-30, and corrections.

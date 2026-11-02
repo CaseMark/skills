@@ -7,7 +7,6 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 1. Sources checked
 2. Confirmed statements
 3. Corrections to the earlier version of this skill
-4. `[VERIFY]` list
 
 ## 1. Sources checked
 
@@ -71,15 +70,3 @@ Checked October 30, 2026. Full texts were read through the case.dev API (`/searc
 | Joint Commission | NPSG.03.05.01 | NPG.14.04.01 for Hospital and CAH from January 1, 2026 |
 | Unsourced claims | ISMP ranking, ED visit statistic, TTR 65 percent target, heparin nomogram doses | Removed; not verified in a primary source. Weight-based nomograms stay facility policy elections |
 | Enoxaparin and heparin | "Reduce to 1 mg/kg daily if CrCl < 30"; "80 units/kg bolus, 18 units/kg/hour" | Lovenox Table 1 regimens and heparin label 2.2 and 2.3 content, read in full (fix pass) |
-
-## 4. `[VERIFY]` list
-
-1. The CrCl equation and weight basis for dabigatran (not named in the label sections read).
-2. Which body weight the edoxaban formula intends ("weight in kg"; type not stated).
-3. Current valve INR targets in the ACC/AHA valvular heart disease guideline (only the warfarin label's 2.2 content was read).
-4. Where the remaining former NPSG.03.05.01 elements (baseline and ongoing INR, patient education, programmable pumps) sit in the 2026 hospital manual, and whether ambulatory and nursing care center programs still apply NPSG.03.05.01 in 2026.
-5. State pharmacy practice acts and collaborative practice agreements that let pharmacists adjust anticoagulant doses; this varies by state and was not read.
-6. Neuraxial timing rules from current regional anesthesia guidance (not read).
-7. Labels of other 4F-PCC products (for example Balfaxar) and any product approved for factor Xa inhibitor reversal after October 30, 2026.
-8. The CrCl equation and weight basis behind the Lovenox CrCl below 30 rule, and any facility cap or anti-Xa monitoring policy for enoxaparin at weight extremes.
-9. Whether CHEST publishes a third VTE update or a perioperative update after October 30, 2026.

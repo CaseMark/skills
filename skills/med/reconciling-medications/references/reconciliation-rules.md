@@ -1,6 +1,6 @@
 # Reconciliation Rules: BPMH, Comparison and Discrepancy Vocabulary
 
-Rules for building the best possible medication history (BPMH), comparing it with the list at the transition point, and labeling every row. Sources and dates are in the primary-sources file; anything marked `[VERIFY]` there stays flagged here.
+Rules for building the best possible medication history (BPMH), comparing it with the list at the transition point, and labeling every row. Sources and dates are in the primary-sources file; anything not confirmed there stays flagged here as "Confirm before use:".
 
 ## Contents
 
@@ -34,7 +34,7 @@ The BPMH is a snapshot of what the patient actually takes, which may differ from
 | Prior discharge list, transfer form or after-visit summary | What a prior team intended on that date | Anything that changed since; it repeats any error it contained |
 | Outside MAR (SNF, other hospital) | What was administered there, by date and time | The pre-facility home regimen |
 | Prescriber office or clinic note | What the prescriber started, stopped or changed, and why | Whether the patient followed the change |
-| Prescription drug monitoring program (PDMP) | Controlled-substance dispensing in that state's database | Use; dispensing in other states unless shared; query mandates vary by state `[VERIFY]` |
+| Prescription drug monitoring program (PDMP) | Controlled-substance dispensing in that state's database | Use; dispensing in other states unless shared; query mandates vary by state; check the governing state's rule |
 
 ## 3. BPMH line verification labels
 
