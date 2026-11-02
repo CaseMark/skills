@@ -1,7 +1,7 @@
 ---
 name: reconciling-inpatient-medications
 language: en
-description: Compares admission, inpatient, and discharge medication lists to identify discrepancies. Use when performing medication reconciliation, identifying med changes, or verifying discharge prescriptions.
+description: Checks in-stay medication order continuity during a hospitalization (ICU-to-floor and service transfers, post-operative resumption, holds and resumptions). Use when reviewing transfer orders within the stay, resuming held medications, or checking post-op restarts. The best possible medication history and admission, external transfer and discharge reconciliation go to reconciling-medications.
 tags:
   - reconciliation
   - hospital-medicine

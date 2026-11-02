@@ -1,7 +1,7 @@
 ---
 name: managing-depression-screening
 language: en
-description: Administers and interprets PHQ-9 with severity-based treatment pathways and safety assessment. Use when screening for depression, interpreting PHQ scores, or initiating mental health treatment.
+description: Administers and interprets PHQ-9 with severity-based treatment pathways and safety assessment. Use when screening for depression, interpreting PHQ scores, or initiating mental health treatment. A positive item 9, suicide risk assessment and safety planning go to assessing-suicide-risk.
 tags:
   - management
   - primary-care

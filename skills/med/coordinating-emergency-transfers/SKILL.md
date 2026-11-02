@@ -1,7 +1,7 @@
 ---
 name: coordinating-emergency-transfers
 language: en
-description: Structures EMTALA-compliant inter-facility transfer documentation and stabilization requirements. Use when arranging emergency transfers, ensuring EMTALA compliance, or documenting transfer decisions.
+description: Structures EMTALA-compliant inter-facility transfer documentation and stabilization requirements. Use when arranging emergency transfers, ensuring EMTALA compliance, or documenting transfer decisions. Evaluating whether an encounter or transfer complied with EMTALA goes to managing-emtala-compliance.
 tags:
   - coordination
   - emergency-medicine

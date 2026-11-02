@@ -1,7 +1,7 @@
 ---
 name: coordinating-care-transitions
 language: en
-description: Manages post-hospitalization follow-up with medication reconciliation and readmission prevention. Use when following up after discharge, preventing readmissions, or coordinating transitional care.
+description: Manages post-hospitalization follow-up of the reconciled discharge medication list and readmission prevention. Use when following up after discharge, preventing readmissions, or coordinating transitional care. The reconciliation worksheet and best possible medication history go to reconciling-medications.
 tags:
   - coordination
   - primary-care
