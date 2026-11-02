@@ -1,7 +1,7 @@
 ---
 name: analyzing-anti-trust-risk
 language: en
-description: Evaluates competition law exposure with market definition, HHI analysis, and remedy estimation for proposed transactions. Use when assessing merger clearance risk, analyzing market concentration, or preparing HSR filings.
+description: Evaluates competition law exposure with market definition, HHI analysis, and remedy estimation for proposed transactions. Use when assessing merger clearance risk or analyzing market concentration. HSR reportability, thresholds, fees, waiting periods and the filing itself go to hsr-filing.
 tags:
   - analysis
   - mergers-and-acquisitions

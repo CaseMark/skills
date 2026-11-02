@@ -184,7 +184,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - expert-witness-report-analysis: critiquing an opposing expert's damages report or preparing rebuttal points.
 - expert-witness-designation: serving the Rule 26(a)(2) designation that accompanies the report.
 - expert-deposition: preparing the damages expert to testify or deposing the opposing expert.
-- motion-in-limine: moving to exclude, or defending, damages testimony under Rule 702.
+- legal-research: opposing a Rule 702 challenge to this expert, which no civil skill drafts (motion-in-limine covers criminal defense only); a motion to exclude the opposing expert goes to expert-witness-report-analysis.
 - patent-infringement-analysis: claim scope, infringement and noninfringing alternatives that drive a royalty.
 - building-equity-valuation-models: stand-alone business valuation models outside litigation.
 

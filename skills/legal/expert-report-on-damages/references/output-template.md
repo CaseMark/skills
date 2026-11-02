@@ -120,7 +120,7 @@ Signature: [prepared and signed by the witness after review]
 | expert-witness-designation | Serving the Rule 26(a)(2) disclosure | Expert identity, subject matter, opinions summary, report date, compensation |
 | expert-witness-report-analysis | Critiquing the opposing damages report or preparing rebuttal points | Opposing report, its schedules, the overlap and period tables from this draft |
 | expert-deposition | Preparing the expert to testify or to depose the opposing expert | Opinions, assumptions by source, sensitivity table, weakest points |
-| motion-in-limine | Moving to exclude or defending a Rule 702 challenge | Admissibility checklist, authorities from the primary sources register |
+| expert-witness-report-analysis or legal-research | Moving to exclude or limit the opposing expert under Rule 702 (expert-witness-report-analysis), or opposing a Rule 702 challenge to this expert (legal-research; motion-in-limine covers criminal defense only) | Admissibility checklist, authorities from the primary sources register |
 | economic-loss-report | Personal injury wage-loss and earning-capacity reports | Earnings history, worklife inputs, discount rate basis |
 | expert-report-class-damages | Class-wide damages or a Rule 23 damages model | Liability theory, class definition, data available |
 | patent-infringement-analysis | Patent liability, claim scope or noninfringing alternatives drive the royalty | Accused products, licenses, design-around evidence |

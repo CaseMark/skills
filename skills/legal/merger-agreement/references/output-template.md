@@ -108,7 +108,8 @@ A hand-off carries the facts the receiving workflow needs; a skill name alone is
 | disclosure-schedules | Representations are final enough to schedule against, or a schedule exception drives a representation change | Representation list with section numbers, qualifiers, cross-application standard, known exceptions from diligence |
 | due-diligence-report | A representation, special indemnity or condition depends on a diligence fact not yet confirmed | The provision, the fact needed, the data room locator if any |
 | analyzing-m-and-a-tax-implications | Structure choice, intended tax treatment, tax representations, tax indemnity, the tax treatment of deferred or rollover consideration, allocation, withholding | Structure, consideration mix, entity classifications, intended treatment as instructed |
-| escrow-agreement; proxy-statement; ma-closing-checklist | Ancillary documents or closing logistics (support and rollover agreements stay in this skill) | Escrow amounts and release mechanics; meeting timetable; deliverables list |
+| escrow-agreement; ma-closing-checklist | Ancillary documents or closing logistics (support and rollover agreements stay in this skill) | Escrow amounts and release mechanics; deliverables list |
+| legal-research | Merger proxy or Form S-4 disclosure for a public target (proxy-statement covers annual-meeting DEF 14A proxies only) | Meeting timetable, required vote, structure |
 
 **Open items**, each with owner and next action:
 

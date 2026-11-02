@@ -1,7 +1,7 @@
 ---
 name: ip-infringement-analysis
 language: en
-description: Produces structured IP infringement memoranda evaluating patents, trademarks, copyrights, and trade secrets. Performs claim-by-claim patent comparisons, likelihood-of-confusion trademark tests, substantial similarity copyright assessments, and trade secret misappropriation evaluations with defense and remedies analysis. Use for infringement opinions, pre-filing assessments, cease-and-desist support, licensing disputes, or settlement valuation.
+description: Produces structured IP infringement memoranda evaluating patents, trademarks, copyrights, and trade secrets. Performs claim-by-claim patent comparisons, likelihood-of-confusion trademark tests, substantial similarity copyright assessments, and trade secret misappropriation evaluations with defense and remedies analysis. Use for infringement opinions, pre-filing assessments, cease-and-desist support, licensing disputes, or settlement valuation. U.S. utility patent claim charts and infringement or non-infringement positions go to patent-infringement-analysis.
 tags:
   - litigation
   - analysis

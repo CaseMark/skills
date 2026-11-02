@@ -209,6 +209,8 @@ Confirm each item before responding. If one fails, fix the draft.
 - spoliation-letter: dedicated, itemized preservation demand when Step 5 finds high-risk evidence.
 - bad-faith-demand: any offer to a liability insurer to settle within policy limits (Stowers or a similar regime) and any pre-answer attorney offer on a Georgia motor-vehicle injury claim (O.C.G.A. § 9-11-67.1); hand over the insured, limits, injuries, liens and deadline facts.
 - coverage-opinion: whether a policy covers the claim, duty to defend or indemnify, or a reservation-of-rights position.
+- trademark-cease-and-desist-letter: Lanham Act trademark cease-and-desist demands that must document likelihood of confusion or dilution.
+- notice-to-perform: cure notices under a residential purchase agreement or residential lease.
 - pi-demand-summary: builds the personal-injury damages narrative that feeds §4.
 - demand-package and demand-package-compilation: assemble the letter and exhibits into a transmittable package.
 - settlement-agreement: drafts the release once the recipient accepts.

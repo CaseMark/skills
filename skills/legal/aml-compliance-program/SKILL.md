@@ -177,7 +177,8 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - cip-policy: hand off a standalone customer identification program policy.
 - reviewing-kyc-documentation: hand off review of individual customer files against the CIP, CDD and EDD procedures written here.
 - managing-sanctions-screening: hand off screening design, match investigation and escalation detail for the sanctions program.
-- legal-research: hand off state MSB licensing law, foreign AML law, payment stablecoin issuer rules and other rules outside this skill's register; no dedicated skill covers them.
+- managing-payment-compliance: money transmitter licensing and payment-compliance operations for an MSB.
+- legal-research: hand off the legal reading of state MSB licensing statutes, foreign AML law, payment stablecoin issuer rules and other rules outside this skill's register; no dedicated skill covers them.
 
 ## Reference Files
 

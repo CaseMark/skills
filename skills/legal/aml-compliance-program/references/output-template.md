@@ -120,7 +120,8 @@ Judgment calls (adopting proposed-rule elements early, per-account re-certificat
 | cip-policy | A standalone CIP policy is needed | Institution type, account types, channels, verification methods |
 | reviewing-kyc-documentation | Individual customer files need review against CIP, CDD or EDD standards | The procedures adopted here and the file set |
 | managing-sanctions-screening | Screening design, match investigation or escalation detail for the sanctions program | Sanctions risk assessment, lists, systems, blocking and reporting procedures |
-| legal-research | A rule outside this skill's register: state MSB licensing, foreign AML law, payment stablecoin issuer rules, casino rules; no dedicated skill exists | Jurisdiction, institution type, question |
+| managing-payment-compliance | Money transmitter licensing or payment-compliance operations for an MSB | State footprint, products, current licenses |
+| legal-research | A rule outside this skill's register: the legal reading of state MSB licensing statutes, foreign AML law, payment stablecoin issuer rules, casino rules; no dedicated skill exists | Jurisdiction, institution type, question |
 
 **Open items**, each with owner and next action:
 

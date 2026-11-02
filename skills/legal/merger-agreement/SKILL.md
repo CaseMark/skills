@@ -193,7 +193,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - escrow-agreement: escrow and holdback mechanics once amounts are set.
 - Support, voting and rollover agreements with the target's stockholders in an M&A deal stay in this skill (including the DGCL 203 approval); voting-agreement covers closely held and venture voting agreements, not deal support agreements, and legal-research takes any open 203 question.
 - Sandbagging split: the pro- or anti-sandbagging clause and the Knowledge definitions are drafted here; schedule supplements between signing and closing and the buyer's knowledge at closing go to disclosure-schedules.
-- proxy-statement: stockholder meeting disclosure for a public target.
+- legal-research: stockholder meeting disclosure for a public target (merger proxy statement or Form S-4); proxy-statement covers annual-meeting DEF 14A proxies only, and no skill drafts a merger proxy.
 - ma-closing-checklist: closing deliverables and signature logistics.
 
 ## Reference Files

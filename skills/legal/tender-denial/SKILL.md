@@ -1,7 +1,7 @@
 ---
 name: tender-denial
 language: en
-description: Drafts legally defensible denial letters rejecting tendered defense and indemnification demands. Analyzes indemnification provisions, builds substantive and procedural grounds for denial, preserves rights, and positions client for coverage litigation. Use when denying tender obligations, rejecting indemnification demands, responding to defense tenders, or drafting coverage denial correspondence.
+description: Drafts legally defensible denial letters rejecting tendered defense and indemnification demands. Analyzes indemnification provisions, builds substantive and procedural grounds for denial, preserves rights, and positions client for coverage litigation. Use when denying tender obligations, rejecting indemnification demands, responding to defense tenders, or drafting coverage denial correspondence. An insurer's coverage disclaimer or reservation of rights under a policy goes to coverage-opinion.
 tags:
   - drafting
   - letter

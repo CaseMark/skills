@@ -1,7 +1,7 @@
 ---
 name: due-diligence-summary
 language: en
-description: Produces structured U.S. transactional due diligence summaries with risk ratings, document citations, and follow-up actions. Triggers when the user requests a due diligence summary, diligence report, red-flag memo, or data room analysis for M&A, investment, or partnership transactions.
+description: Produces structured U.S. transactional due diligence summaries with risk ratings, document citations, and follow-up actions. Triggers when the user requests a due diligence summary, diligence report, red-flag memo, or data room analysis for M&A, investment, or partnership transactions. A full red-flag or full-form legal due diligence report with a source-review register, consents table and reconciliation goes to due-diligence-report.
 tags:
   - analysis
   - corporate

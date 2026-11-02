@@ -37,7 +37,7 @@ Source: FTC, Revised Jurisdictional Thresholds for Section 7A of the Clayton Act
 
 The acquiring person pays the fee (16 C.F.R. 803.9(a)); the purchase agreement may allocate it between the parties. The fee tier uses the aggregate value held as a result of the acquisition, including previously held voting securities (803.9(a), example 3), not the incremental purchase.
 
-Civil penalty for failure to comply: up to $53,088 per day (16 C.F.R. 1.98(a), penalties assessed after January 17, 2025). The FTC announced no 2026 adjustment (91 Fed. Reg. 58446, Sept. 15, 2026). Re-check each year.
+Civil penalty for failure to comply: up to $53,088 per day (16 C.F.R. 1.98(a), set by 90 Fed. Reg. 5581 (Jan. 17, 2025) for penalties assessed after January 17, 2025). The FTC made no 2026 adjustment (91 Fed. Reg. 58446, Sept. 15, 2026, following OMB Memorandum M-26-11), so the 2025 amount applies. Re-check each year.
 
 ## 2. The reportability test, in order
 
