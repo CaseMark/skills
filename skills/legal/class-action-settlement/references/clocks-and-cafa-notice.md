@@ -1,6 +1,6 @@
 # Clocks, Scheduling and CAFA Notice
 
-How to build the settlement schedule so that every deadline has its own trigger, and how to serve CAFA notice under 28 U.S.C. 1715. Checked on 2026-10-30 against the sources in `references/primary-sources.md`. Local rules, standing orders and the presiding judge's procedures can add or change deadlines `[VERIFY: local rules and judge's procedures on the drafting date]`.
+How to build the settlement schedule so that every deadline has its own trigger, and how to serve CAFA notice under 28 U.S.C. 1715. Checked on 2026-10-30 against the sources in `references/primary-sources.md`. Local rules, standing orders and the presiding judge's procedures can add or change deadlines; check them on the drafting date.
 
 ## Contents
 
@@ -34,7 +34,7 @@ Give every dated or counted element its own row, its own trigger event and the e
 | Claims deadline | Notice Date (or final approval for automatic payment) | As agreed | Agreement | Administrator declaration |
 | Final approval motion and responses to objections | Objection deadline | As ordered | Court order | Docket |
 | Final approval hearing | Set by the court; not before the 1715(d) date for the order | Court calendar | 1715(d); Rule 23(e)(2) | Order |
-| Effective Date | Final approval plus the later of expiry of appeal time with none filed or final disposition of appeals | Appeal time: Fed. R. App. P. 4(a) `[VERIFY: 30 or 60 days by party]` | Agreement | Docket |
+| Effective Date | Final approval plus the later of expiry of appeal time with none filed or final disposition of appeals | Appeal time: Fed. R. App. P. 4(a); the period varies by party, so confirm which applies | Agreement | Docket |
 | Funding of the settlement fund | As agreed (preliminary approval, final approval or Effective Date) | As agreed | Agreement | Wire confirmation |
 | Distribution to class | Effective Date | As agreed | Agreement | Administrator report |
 | Check-cashing void date and second distribution | Issuance of checks | As agreed | Agreement | Administrator report |
@@ -46,7 +46,7 @@ Give every dated or counted element its own row, its own trigger event and the e
 2. **Opt-out and objection windows run from notice, not from the order.** A deadline counted from the preliminary approval order shrinks when notice is late. Count from the Notice Date and add a floor (for example, "the later of X days after the Notice Date or [date]").
 3. **CAFA runs from filing, not from preliminary approval.** The 10-day clock in 1715(b) starts when the proposed settlement is filed. An agreement that says "within 10 days after preliminary approval" is late whenever preliminary approval comes more than 10 days after filing.
 4. **No final approval order inside the 90 days.** The hearing may be set earlier only if the order issues on or after the 1715(d) date; the safer course is a hearing date on or after it. If a state official is served late, the 90 days run from that later service.
-5. **Re-notice when terms change.** A material change after notice (a broader release, a larger fee request, a new subclass) may require new notice and a new objection window, and a new CAFA notice if the proposed settlement filed with the court changes `[VERIFY: controlling circuit]`.
+5. **Re-notice when terms change.** A material change after notice (a broader release, a larger fee request, a new subclass) may require new notice and a new objection window, and a new CAFA notice if the proposed settlement filed with the court changes; this varies by circuit, so check the controlling circuit.
 6. **Second opt-out.** If a (b)(3) class was certified earlier and members already had an exclusion opportunity, the court may refuse approval unless the settlement affords a new one (Rule 23(e)(4)).
 
 ## 4. CAFA notice under 28 U.S.C. 1715
@@ -69,7 +69,7 @@ Give every dated or counted element its own row, its own trigger event and the e
 7. If feasible, the names of class members residing in each State and their estimated proportionate share of the claims; if not feasible, a reasonable estimate of the number in each State and their proportionate share.
 8. Any written judicial opinion relating to items 3 to 6.
 
-Supplement the notice when later items (final notice forms, hearing dates, opinions) come into existence `[VERIFY: practice; not stated in 1715]`.
+Supplement the notice when later items (final notice forms, hearing dates, opinions) come into existence; this is practice, not stated in 1715, so confirm the court's expectations.
 
 **Consequence of non-compliance (1715(e)).** A class member may refuse to be bound by the settlement if it shows notice was not provided, unless notice was directed to the appropriate federal official and to either the State attorney general or the primary regulator or licensing authority. Section 1715 does not expand officials' authority (1715(f)).
 
@@ -93,7 +93,7 @@ If the trigger has not happened, compute from a stated planning date, label the 
 | Error | Fix |
 |---|---|
 | All deadlines keyed to "entry of the Preliminary Approval Order" | Key opt-out, objection and claims deadlines to the Notice Date; key CAFA to filing |
-| Objection deadline before the fee motion | Move the fee motion at least 14 days before the objection deadline `[VERIFY: judge's preference]` |
+| Objection deadline before the fee motion | Move the fee motion at least 14 days before the objection deadline; confirm the judge's preference |
 | Final approval hearing inside 90 days of CAFA service | Serve CAFA notice within 10 days of filing, or set the hearing after the 1715(d) date |
 | Hearing date computed by formula lands on a weekend or holiday | Ask the court for a date; state "no earlier than" in the proposed order |
 | CAFA notice omitted because the case started in state court and was removed | Removed cases are "class actions" under 1711(2); serve notice |

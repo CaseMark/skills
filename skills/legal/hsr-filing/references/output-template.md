@@ -10,7 +10,7 @@ Produce the header and six parts in this order. Plain sentences; detail in table
 4. Part 3. Reconciliation table
 5. Part 4. Filing preparation workplan
 6. Part 5. Waiting period, closing timeline and pre-closing conduct
-7. Part 6. Hand-offs, open items and `[VERIFY]` list
+7. Part 6. Hand-offs, open items and items to confirm before use
 
 ## Header
 
@@ -100,7 +100,7 @@ Judgment calls (for example: which closing date governs the threshold year, elec
 
 3. **Pre-closing conduct review**: each interim covenant and integration step, its section, the treatment from `references/waiting-period-and-conduct.md`, section 6, and the redraft.
 
-## Part 6. Hand-offs, open items and `[VERIFY]` list
+## Part 6. Hand-offs, open items and items to confirm before use
 
 **Hand-offs.** A hand-off carries the facts; a skill name alone is not a hand-off.
 
@@ -116,6 +116,6 @@ Judgment calls (for example: which closing date governs the threshold year, elec
 | # | Open item | Depends on | Owner | Next action | Blocks filing or closing? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm before use:** each statement not confirmed against a source, why it is unconfirmed, and what would settle it.
 
 Close with: "Draft for attorney review. Thresholds, fees and form requirements change; re-confirm against the FTC's current notice and the PNO before filing and before closing."

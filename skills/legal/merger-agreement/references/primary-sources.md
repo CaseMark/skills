@@ -6,7 +6,6 @@
 2. Statutes and session laws
 3. Cases
 4. Points corrected or updated on full-text review
-5. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -52,25 +51,10 @@ All checks were made on 2026-10-30 through the case.dev API: `/search/v1/content
 
 | Item | Before | After | Source |
 |---|---|---|---|
-| HSR civil penalty | Amount left as `[VERIFY]` | $53,088 per day under 16 C.F.R. 1.98(a), as read on eCFR | eCFR |
+| HSR civil penalty | Amount not stated | $53,088 per day under 16 C.F.R. 1.98(a), as read on eCFR | eCFR |
 | 144(b)(1) | Committee approval summarized without its conditions | Material-facts disclosure to the committee, express delegation of authority to negotiate and reject, approval in good faith and without gross negligence by a majority of the disinterested directors then serving on the committee | 144(b)(1) |
 | Moelis | Treated as current Chancery law prompting 122(18) | Reversed by the Delaware Supreme Court on January 20, 2026 (voidable, not void; laches) | Supreme Court opinion, No. 340, 2024 |
 | 2025 amendment to 144 | "Safe harbor" described generally | Separate tests for non-going-private (any one of three) and going-private (committee and stockholder vote, or fairness) controlling stockholder transactions; majority of votes cast by disinterested stockholders | 144(b), (c) |
 | 2024 amendments | Effective date assumed | August 1, 2024; apply to agreements whenever made, except litigation completed or pending on that date | 84 Del. Laws c. 309, section 6 |
 | Akorn covenant materiality | "Total mix" stated as the standard | Less onerous than common-law material breach; total-mix test adopted as fairly capturing the phrase | Akorn opinion |
 | Cigna | "Indemnity of non-signers is void" | Void only to the extent neither capped nor time-limited, on those facts (entire consideration contingent indefinitely) | Cigna opinion, Conclusion |
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Current HSR size-of-transaction thresholds and filing fees | Adjusted annually; not read here | hsr-filing, current FTC notice |
-| Exchange rules requiring a buyer stockholder vote for a large stock issuance | Exchange rule text not read | Current NYSE or Nasdaq rule |
-| Whether the Delaware Supreme Court has adopted a pro-sandbagging default | Arwood is a Chancery decision | Delaware Supreme Court authority |
-| Whether a clause saying only that representations "survive" sets a contractual limitations period under 8106(c) | Question of construction; not researched | Delaware decisions construing survival clauses |
-| Merger statutes, votes and dissenters' rights of non-Delaware constituents | Not researched | That state's code on the drafting date |
-| Mergers with LLCs or other entities (8 Del. C. 263, 264; 6 Del. C. 18-209) | Not read | Current statute text |
-| "Market" percentages for baskets, caps, survival periods and termination fees | Practice, not law | A dated market study supplied by the user |
-| R&W insurance exclusions, retention and scrape | Policy-specific | The binder and policy |
-| Federal securities rules for proxy and tender offer documents | Not researched | SEC rules; proxy-statement skill |
-| Reporter citations for AB Stable (268 A.3d 198) and Crispo (304 A.3d 567) | Verify tool returned not found | Atlantic Reporter or Westlaw |

@@ -24,7 +24,7 @@ Rules for preparing the filing, computing the waiting period, and reviewing cond
 | Mar. 25, 2026 | FTC and DOJ request public comment on improving the form; FTC "considering engaging in a new rulemaking process" regardless of the appeal | RFI |
 | May 26, 2026 | Fifth Circuit places the appeal in abeyance through Dec. 31, 2026; comment period closed with 55 comments | Government status report (Sept. 22, 2026) |
 
-Working rule on 2026-10-30: prepare the filing on the pre-February 10, 2025 Form and Instructions (FTC Form C4, Instructions rev. 02/04/23) unless the client elects the 2025 form. The eCFR text of Parts 801-803 read on 2026-10-30 still contains the 2024 amendments (for example 803.5(b) and 803.12(c)(1)(iii)); treat any provision amended by 89 Fed. Reg. 89216 as `[VERIFY]` and confirm the text the PNO applies (HSRHelp@ftc.gov) before relying on it. The litigation, the rulemaking, and the reportability tests are separate: the vacatur did not change thresholds, fees, exemptions or waiting periods.
+Working rule on 2026-10-30: prepare the filing on the pre-February 10, 2025 Form and Instructions (FTC Form C4, Instructions rev. 02/04/23) unless the client elects the 2025 form. The eCFR text of Parts 801-803 read on 2026-10-30 still contains the 2024 amendments (for example 803.5(b) and 803.12(c)(1)(iii)); for any provision amended by 89 Fed. Reg. 89216, confirm the text the PNO applies (HSRHelp@ftc.gov) before relying on it. The litigation, the rulemaking, and the reportability tests are separate: the vacatur did not change thresholds, fees, exemptions or waiting periods.
 
 ## 2. Filing mechanics: who files, affidavit, certification, fee
 
@@ -51,7 +51,7 @@ Collection rules:
 - Index every responsive document: title, date, author, recipients (officer or director), item, produced or withheld.
 - A filing that omits responsive documents does not comply with the rules: the agencies may treat it as deficient, so the waiting period has not started (803.10(c)(2)), and the filer is exposed to penalties under 18a(g)(1). A document discovered after filing goes to counsel to decide on supplementing or refiling.
 
-If the client elects the 2025 form, use that form's own instructions; this file does not summarize them `[VERIFY]`.
+If the client elects the 2025 form, use that form's own instructions; this file does not summarize them, so read those instructions directly.
 
 ## 4. Waiting period computation
 
@@ -103,10 +103,10 @@ Enforcement examples:
 | Buyer personnel placed at the target with approval authority; joint sales calls; telling customers about combined pricing; reallocating territories or customers; hiring or firing target staff at the buyer's direction | Not acceptable before expiry |
 | Exchange of current or future prices, costs, bids, strategic plans with a competitor | Only through a clean team of non-operational personnel, aggregated or historical where possible, under a written protocol (FTC Competition Matters, Mar. 20, 2018) |
 | Integration planning (not implementation) | Acceptable when it does not transfer control and uses clean-team limits for sensitive data |
-| Pre-closing payment of purchase price, or the buyer bearing the target's profits and losses before closing | Treat as a possible transfer of beneficial ownership; escalate `[VERIFY]` |
+| Pre-closing payment of purchase price, or the buyer bearing the target's profits and losses before closing | Treat as a possible transfer of beneficial ownership; escalate to antitrust counsel; whether this is a transfer depends on the deal terms |
 
 ## 7. Parallel notices
 
-- **Washington State** (RCW 19.420.020, effective July 27, 2025): a filer with its principal place of business in Washington, or Washington sales of the goods or services involved of at least 20 percent of the filing threshold, or a health care provider doing business there, files a copy of the HSR form with the Attorney General contemporaneously. Other states' adoption of the uniform act is `[VERIFY]`.
-- **Department of War copy**: the PNO notes some filers must send a copy of the HSR filing to the Department of War under section 857 of the FY2024 NDAA; applicability is `[VERIFY]` per deal.
+- **Washington State** (RCW 19.420.020, effective July 27, 2025): a filer with its principal place of business in Washington, or Washington sales of the goods or services involved of at least 20 percent of the filing threshold, or a health care provider doing business there, files a copy of the HSR form with the Attorney General contemporaneously. Other states' adoption of the uniform act is not confirmed here; check each relevant state before relying on this list.
+- **Department of War copy**: the PNO notes some filers must send a copy of the HSR filing to the Department of War under section 857 of the FY2024 NDAA; applicability varies by deal; confirm with counsel for each transaction.
 - Foreign merger control and CFIUS are outside this skill; list them as open items when the facts suggest them.

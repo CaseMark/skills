@@ -52,7 +52,7 @@ Disclosure schedules are where the reps actually get their meaning, and they are
 1. **Draft only.** Nothing is delivered, signed or filed by this skill. Every output is a draft for attorney review, and no schedule is called final.
 2. **Source-review gate.** Never call a document missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (for example, whether a customer's notice was in writing), *source conflict* (two option counts), *unverified external lookup* (a docket status not confirmed), or *policy election* (a choice for counsel or client, such as scheduling a below-threshold item).
 3. **Hierarchy of authority.** The newest agreement draft governs numbering, defined terms and what can be qualified. Executed documents (contracts, pleadings, agency notices, the stock ledger) govern the facts in each disclosure, over the data room index, the diligence report, trackers, and client or banker summaries. For law: the agreement text, then the governing state's controlling cases, then commentary. Name every conflict in the reconciliation table with the value used; never resolve one silently.
-4. **Citation discipline.** Every date, amount, party name and docket or contract identifier in a schedule carries a source locator or is marked `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is marked `[VERIFY]`. Never invent a case, holding or pin cite.
+4. **Citation discipline.** Every date, amount, party name and docket or contract identifier in a schedule carries a source locator or is marked `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is labeled "Confirm before use:". Never invent a case, holding or pin cite.
 5. **The agreement controls what can be qualified.** A schedule qualifies only a rep that refers to it, directly or through an article-level lead-in. If a needed exception has nowhere to go, say so and route the agreement change; never draft a schedule that pretends to qualify an unqualified rep.
 6. **Specific, factual disclosure.** Each item identifies the document or matter and states the fact that makes it an exception, with dates and amounts. A title alone, a data room reference, or a general incorporation clause is not disclosure.
 7. **Express cross-references.** Every disclosure that must qualify more than one rep is cross-referenced in each schedule or repeated there. A "reasonably apparent" clause is a safety net, not the method.
@@ -81,7 +81,7 @@ Collect, from documents where possible:
 - No draft of the agreement's representations article is available: produce the intake request and a blank rep-to-schedule map, not numbered schedules.
 - A request to draft a disclosure that misstates a known fact, or that names a known matter while hiding the fact that makes it an exception: decline that text and offer an accurate disclosure.
 
-**Not hard stops:** missing source documents for a schedule (draft with `[UNVERIFIED]` placeholders and a Critical open item); a rep that cannot be qualified without an agreement change (Critical item and hand-off); an unknown governing law for sandbagging (`[VERIFY]` and analysis under both candidate laws).
+**Not hard stops:** missing source documents for a schedule (draft with `[UNVERIFIED]` placeholders and a Critical open item); a rep that cannot be qualified without an agreement change (Critical item and hand-off); an unknown governing law for sandbagging (label it "Confirm before use:" and analyze under both candidate laws).
 
 ## Step 1: Map the Agreement
 
@@ -113,7 +113,7 @@ Read `references/updates-and-sandbagging.md`. For each supplement or notice, fil
 
 ## Step 8: Assemble the Deliverable and Hand-Offs
 
-Lay out the header and Parts 1 to 6 per `references/output-template.md`. Rank blocking issues, fill the reconciliation table and open items, and complete each hand-off with the facts the receiving skill needs. List every `[VERIFY]` item with what would settle it, drawing on `references/primary-sources.md`.
+Lay out the header and Parts 1 to 6 per `references/output-template.md`. Rank blocking issues, fill the reconciliation table and open items, and complete each hand-off with the facts the receiving skill needs. List every "Confirm before use:" item with what would settle it, drawing on `references/primary-sources.md`.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -142,7 +142,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 9. No legal conclusion, exposure estimate, settlement intention or counsel's advice appears in any disclosure.
 10. Every supplement is classified separately for closing condition, indemnity and termination, each with its agreement section and trigger date; none is called curative without agreement text.
 11. Buyer-knowledge analysis names the governing law and any sandbagging clause, and recommends a reservation of rights where the default requires one.
-12. Every figure and identifier has a source locator or `[UNVERIFIED]`; every legal statement has a citation from `references/primary-sources.md` or `[VERIFY]`.
+12. Every figure and identifier has a source locator or `[UNVERIFIED]`; every legal statement has a citation from `references/primary-sources.md` or a "Confirm before use:" label.
 13. The readiness label is one of the four in `references/output-template.md`, and the output closes with the draft-for-attorney-review line.
 
 ## Guidelines
@@ -166,7 +166,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 | Client insists on "all data room materials are disclosed" | Practice habit or buyer's prior acceptance | Check the agreement; if it does not provide for it, explain the risk (Dura Medic) and draft specific disclosures |
 | Litigation counsel's memo is the only source for a matter | No pleading or demand on file | Describe only the facts the memo reports from documents; request the underlying documents; keep the memo's analysis out |
 | Supplement arrives days before closing | Late-discovered matter | Classify it under Step 7 at once; give counsel the closing-condition, indemnity and termination answers and the reservation-of-rights recommendation |
-| Governing law unclear | Choice-of-law clause missing or contested | Analyze buyer knowledge under each candidate law; mark `[VERIFY]` |
+| Governing law unclear | Choice-of-law clause missing or contested | Analyze buyer knowledge under each candidate law; label it "Confirm before use:" |
 
 ## Related Skills
 
@@ -183,4 +183,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/schedule-drafting-rules.md`: agreement mapping, general terms and each side's position, description standard, cross-references, qualifiers, admissions and privilege, public-company carve-out and filing, consistency checks.
 - `references/updates-and-sandbagging.md`: supplement classification, buyer-knowledge defaults under New York and Delaware law, reservation of rights, R&W insurance, indemnity arithmetic, interim covenant exceptions.
 - `references/output-template.md`: deliverable layout, readiness labels, severity scale, rep-to-schedule map, schedule skeleton, reconciliation table, hand-off table.
-- `references/primary-sources.md`: every authority checked with its source, what it supports and the date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its source, what it supports and the date checked.

@@ -11,7 +11,7 @@ Produce the header and the seven parts in this order. Plain sentences; detail in
 5. Part 4. Price waterfall tie-out
 6. Part 5. Draft agreement or markup
 7. Part 6. Clocks and closing deliverables
-8. Part 7. Hand-offs, open items and `[VERIFY]` list
+8. Part 7. Hand-offs, open items and items to confirm before use
 
 ## Header
 
@@ -98,7 +98,7 @@ For a review: a section-by-section markup table.
 
 Each element takes its own trigger (meeting date, taking of the vote, action by consent, giving of notice, effective date, receipt of the HSR filing by both agencies, signing). Closing deliverables: officer's certificate (bring-down), secretary's certificate, good standing, certificate of merger, payoff letters, invoices for Transaction Expenses, resignations, FIRPTA or W-9 forms as tax counsel directs, escrow agreement, paying agent agreement.
 
-## Part 7. Hand-offs, open items and `[VERIFY]` list
+## Part 7. Hand-offs, open items and items to confirm before use
 
 A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -116,6 +116,6 @@ A hand-off carries the facts the receiving workflow needs; a skill name alone is
 | # | Open item | Gap class | Depends on | Owner | Next action | Blocks signing? |
 |---|---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm before use:** each statement, why it is unconfirmed, and what would settle it.
 
 Close with: "Draft for attorney review. Not for signature until counsel confirms the open items, the current statutory text, and the client's decisions on each judgment call."

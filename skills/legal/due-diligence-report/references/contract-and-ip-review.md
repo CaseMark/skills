@@ -11,7 +11,7 @@
 7. IP chain of title
 8. Open-source licenses
 
-Authorities named here are listed, with the date each was read, in `references/primary-sources.md`. Anything not confirmed there is marked `[VERIFY]`.
+Authorities named here are listed, with the date each was read, in `references/primary-sources.md`. Anything not confirmed there is labeled "Confirm before use:".
 
 ## 1. Source-review protocol for a virtual data room
 
@@ -39,14 +39,14 @@ Read the clause, the definitions it uses ("Change of Control", "Affiliate", "ass
 | Structure | What changes hands | Plain anti-assignment clause | "By operation of law" clause | Express change-of-control clause |
 |---|---|---|---|---|
 | Stock purchase | Ownership of the target's equity; the contracting party is unchanged | Generally not triggered under Delaware law (Meso Scale, discussing Baxter and Branmar) | Generally not triggered | Triggered as defined |
-| Reverse triangular merger (target survives) | Target survives; separate existence of merger sub ends | Delaware: generally not an assignment (Meso Scale, 62 A.3d 62, relying on 8 Del. C. 259(a)); California: SQL Solutions (N.D. Cal. 1991) reached the opposite result `[VERIFY]` | Delaware: not triggered on the Meso Scale facts; other law: judgment call | Triggered as defined |
+| Reverse triangular merger (target survives) | Target survives; separate existence of merger sub ends | Delaware: generally not an assignment (Meso Scale, 62 A.3d 62, relying on 8 Del. C. 259(a)); California: SQL Solutions (N.D. Cal. 1991) reached the opposite result, as described in Meso Scale; the SQL Solutions opinion was not read | Delaware: not triggered on the Meso Scale facts; other law: judgment call | Triggered as defined |
 | Forward or direct merger (target disappears) | Target's contracts vest in the survivor under 8 Del. C. 259(a) | Risk of transfer by operation of law; analyze the clause and governing law | Triggered in most readings | Triggered as defined |
 | Asset purchase | Each assigned contract is transferred by the seller | Consent required where the clause requires it | Consent required | Usually also triggered |
 
 Special cases that override the table:
 
-- **Federal government contracts.** 41 U.S.C. 6305(a) bars transfer of a federal contract; a purported transfer annuls it as far as the Government is concerned. FAR 42.1204(a) lets the Government recognize a successor through a novation agreement after an asset transfer, including one incident to a merger; under 42.1204(b), no novation is needed for a stock purchase with no legal change in the contracting party. Confirm FAR numbering on the date of the report `[VERIFY]`.
-- **Permits, licenses and CFIUS.** A regulator's consent can be needed for a transfer of control even where no contract consent is: an FCC construction permit or station license may not be transferred "by transfer of control of any corporation holding such permit or license" without FCC consent (47 U.S.C. 310(d)). List every permit and license with its change-of-control rule; state licensing regimes vary `[VERIFY]`. Where the buyer group includes a foreign person and the target may be a TID U.S. business, flag whether a mandatory CFIUS declaration applies under 31 C.F.R. 800.401 for regulatory counsel; the analysis itself is `[VERIFY]` for this skill.
+- **Federal government contracts.** 41 U.S.C. 6305(a) bars transfer of a federal contract; a purported transfer annuls it as far as the Government is concerned. FAR 42.1204(a) lets the Government recognize a successor through a novation agreement after an asset transfer, including one incident to a merger; under 42.1204(b), no novation is needed for a stock purchase with no legal change in the contracting party. Confirm FAR numbering on the date of the report.
+- **Permits, licenses and CFIUS.** A regulator's consent can be needed for a transfer of control even where no contract consent is: an FCC construction permit or station license may not be transferred "by transfer of control of any corporation holding such permit or license" without FCC consent (47 U.S.C. 310(d)). List every permit and license with its change-of-control rule; state licensing regimes vary, so check each state's rule. Where the buyer group includes a foreign person and the target may be a TID U.S. business, flag whether a mandatory CFIUS declaration applies under 31 C.F.R. 800.401 for regulatory counsel; this skill does not perform the CFIUS analysis.
 - **Patent and copyright licenses.** A nonexclusive patent license is personal and nonassignable under federal law absent consent (In re CFLC, 89 F.3d 673 (9th Cir. 1996)). Treat an in-license of core IP in a merger as **Judgment call: governing law unsettled** unless the clause or a consent resolves it, and recommend consent.
 - **Contracts held outside the target.** A contract signed by a parent, sister company, founder or affiliate that is not being acquired does not move in a stock deal or merger. It needs an assignment, a new contract or a transition arrangement; label it **Outside the deal perimeter**.
 - **Notice-only clauses** and **termination rights on a change of control** are separate from consent. A counterparty that cannot block the deal may still terminate after it.

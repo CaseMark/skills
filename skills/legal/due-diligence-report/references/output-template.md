@@ -9,7 +9,7 @@
 5. Part 4. Consents, notices and closing deliverables
 6. Part 5. Reconciliation table
 7. Part 6. Open items and supplemental requests
-8. Part 7. Hand-offs and `[VERIFY]` list
+8. Part 7. Hand-offs and items to confirm before use
 
 Produce the header and the seven parts in this order. Use plain sentences and put detail in tables. A red-flag report keeps Parts 1, 2, 4, 6 and 7 and shortens Part 3 to Critical and Significant items; a full-form report keeps every part.
 
@@ -74,7 +74,7 @@ Every figure and every characterization drawn from a summary is traced to the ex
 | # | Open item | Gap class | Affects finding # | Request to seller (index or Q&A reference) | Owner | Needed by |
 |---|---|---|---|---|---|---|
 
-## Part 7. Hand-offs and `[VERIFY]` list
+## Part 7. Hand-offs and items to confirm before use
 
 A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -88,7 +88,7 @@ A hand-off carries the facts the receiving workflow needs; a skill name alone is
 | consent-letter | Each contract labeled Consent required or Notice only | Counterparty, clause, deal description permitted to be disclosed, deadline |
 | due-diligence-checklist | Supplemental request list for gaps | Open items from Part 6 |
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm before use:** each statement, why it is unconfirmed, and what would settle it.
 
 ## Deal protection mapping
 

@@ -51,8 +51,8 @@ A class settlement binds people who never saw the negotiation, so the court acts
 1. **Draft only.** Nothing is signed, filed or served by this skill. Every output is a draft for attorney review and is never described as ready to file.
 2. **Source-review gate.** Never call a document missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (for example, the number of class members with email addresses), *source conflict* (the term sheet and the draft agreement state different class periods), *unverified external lookup* (a circuit rule or local rule not confirmed), or *policy election* (a choice for counsel, such as claims-made versus automatic payment).
 3. **Hierarchy of authority.** For facts: court orders (certification, preliminary approval, scheduling) govern over the agreement's own formulas; the executed agreement governs over a signed term sheet, which governs over a mediator's proposal, emails and summaries; the administrator's data governs over counsel's estimates. For law: the Rule 23 text and CAFA statutes, then the Supreme Court, then the controlling circuit, then local rules, standing orders and the judge's procedures, then other circuits and commentary. Name every conflict in the reconciliation tables and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every figure, date, class count and identifier carries a source locator (document and page or section) or is marked `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is marked `[VERIFY]`. Never invent a case, rule, local rule or pin cite.
-5. **Forum and circuit first.** Identify the court, the circuit and whether the class is certified before analyzing terms. Rule 23 and 28 U.S.C. 1711-1715 apply only in federal court; a state-court settlement follows the state class rule `[VERIFY]`.
+4. **Citation discipline.** Every figure, date, class count and identifier carries a source locator (document and page or section) or is marked `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or is labeled "Confirm before use:". Never invent a case, rule, local rule or pin cite.
+5. **Forum and circuit first.** Identify the court, the circuit and whether the class is certified before analyzing terms. Rule 23 and 28 U.S.C. 1711-1715 apply only in federal court; a state-court settlement follows the state class rule; check that rule.
 6. **Scope matches the case.** The settlement class, class period, released claims and released parties are compared element by element with the complaint and any certification order. Every expansion is stated with its justification or narrowed. The release reaches only claims arising from the identical factual predicate and adequately represented; released parties are named.
 7. **Value as the court will measure it.** Reconcile gross fund to net fund to expected class payout with a sourced claims rate, showing low, expected and high cases and where the residue goes. Never state a gross fund, face value or "available" amount as the benefit to the class when a claims process, cap, coupon or reversion means less will be paid. Report the fee against the gross fund and against fee plus expected class payout.
 8. **Fees and awards disclosed and tested.** Flag clear-sailing and kicker clauses and draft fee reductions to stay with the class. Apply 28 U.S.C. 1712 to coupon relief. Draft service awards only where the controlling circuit permits them; in the Eleventh Circuit, Johnson v. NPAS bars awards that pay a representative for time or for bringing suit.
@@ -118,7 +118,7 @@ Use the article skeleton in `references/output-template.md`, Part 4, for a new a
 
 ## Step 9: Assemble the Deliverable and Hand-Offs
 
-Lay out the header and Parts 1 to 7 per `references/output-template.md`. Rank blocking issues, fill the open-items table with gap classes, complete each hand-off with the facts the receiving skill needs, and list every `[VERIFY]` item drawing on `references/primary-sources.md`.
+Lay out the header and Parts 1 to 7 per `references/output-template.md`. Rank blocking issues, fill the open-items table with gap classes, complete each hand-off with the facts the receiving skill needs, and list every "Confirm before use:" item drawing on `references/primary-sources.md`.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -146,7 +146,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 8. The residual-fund clause states the waterfall; any reversion or cy pres term is justified and disclosed.
 9. Every dated or counted deadline has its own trigger, rule and evidence; CAFA runs from filing; the hearing is not inside the 1715(d) period; the fee motion precedes the objection deadline.
 10. Every agreement made in connection with the proposal is identified, and no objector payment is drafted without a court-approval motion.
-11. Every figure has a locator or `[UNVERIFIED]`, every legal statement a citation or `[VERIFY]`, and each blocking issue ends with a recommendation and an owner.
+11. Every figure has a locator or `[UNVERIFIED]`, every legal statement a citation or a "Confirm before use:" label, and each blocking issue ends with a recommendation and an owner.
 12. The readiness label is one of the four exact labels, and the output closes with the draft-for-attorney-review line.
 
 ## Guidelines
@@ -155,7 +155,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - Disclose problem terms with their justification rather than hoping they go unnoticed; courts and objectors find clear-sailing, kicker and reversion clauses.
 - When a user's requested term conflicts with a rule, statute or controlling case, draft the compliant term and explain the change; do not silently follow or silently change the request.
 - Keep the notice and claim process as simple as the data allow; a claims process that is unduly demanding counts against adequacy under the 2018 Committee Note.
-- Securities (PSLRA), ERISA, wage-and-hour (FLSA collective, PAGA) and state-court settlements have extra requirements not covered here; flag them `[VERIFY]` and hand off.
+- Securities (PSLRA), ERISA, wage-and-hour (FLSA collective, PAGA) and state-court settlements have extra requirements not covered here; label them "Confirm before use:" and hand off.
 - Personal data in class lists and CAFA state rosters is handled under the protective order; send officials only what 1715(b) requires.
 
 ## Troubleshooting
@@ -167,9 +167,9 @@ Before responding, confirm each statement. If one fails, fix the draft.
 | Class data incomplete (no emails, stale addresses) | Defendant's records | State the reach estimate and the supplemental notice method; widen the claims period |
 | Scanned or image-only agreement draft | Signed PDF only | Try OCR; list sections that remain unreadable; request the native file |
 | Preliminary approval order already entered with conflicting dates | Order drafted from an earlier version | The order controls; recompute the clocks table; propose an amended order if a date breaks a rule |
-| Circuit position on service awards not located | Circuit has not ruled | Record the search and date; mark `[VERIFY]`; draft the award as optional and severable |
+| Circuit position on service awards not located | Circuit has not ruled | Record the search and date; label it "Confirm before use:"; draft the award as optional and severable |
 | Objector's counsel proposes a private payment | Professional objector practice | Explain Rule 23(e)(5)(B); offer a motion for approval after a hearing; never draft a private deal |
-| Case pending in state court | Not a "class action" under 1711(2) | Apply the state rule `[VERIFY]`; do not cite 1715 as mandatory |
+| Case pending in state court | Not a "class action" under 1711(2) | Apply the state rule (check it); do not cite 1715 as mandatory |
 
 ## Related Skills
 
@@ -189,4 +189,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/approval-standards-and-terms.md`: Rule 23(e) standards, class and release scope, value and fee denominators, fees and service awards by circuit, coupons, residual funds, allocation, agreements statement and objector payments, other CAFA protections.
 - `references/clocks-and-cafa-notice.md`: Rule 6 computation, the clocks table with one trigger per deadline, ordering rules, CAFA notice under 1715, fixed computation format, common scheduling errors.
 - `references/output-template.md`: deliverable layout, readiness labels, blocking issues, scope, value and clocks reconciliation tables, agreement skeleton, 23(e)(3) statement, CAFA package, hand-off table.
-- `references/primary-sources.md`: every authority checked with its source, what it supports and the date checked, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its source, what it supports and the date checked.

@@ -6,7 +6,6 @@
 2. Rules, statutes and regulations
 3. Cases
 4. Court guidance and dockets
-5. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -68,17 +67,3 @@ All checks were made on 2026-10-30 through the case.dev API: `/search/v1/content
 | Isaacson v. Moses, No. 25-1411 (U.S.) | https://www.supremecourt.gov/search.aspx?filename=/docket/docketfiles/html/public/25-1411.html | Full docket via case.dev; 2026-10-30 | Petition on service awards; response requested; briefs in opposition Sept. 18, 2026; distributed for the Nov. 6, 2026 conference | Confirmed as of 2026-10-30 |
 | Brief in opposition, The New York Times Co., No. 25-1411 | https://www.supremecourt.gov/DocketPDF/25/25-1411/424932/20260918171702284_Moses%20-%20Response%20to%20Cert%20Petition.pdf | Full text via case.dev; 2026-10-30 | Remand history: new $2,375,000 non-reversionary fund; final approval Oct. 10, 2024; Second Circuit affirmed Feb. 10, 2026 | Confirmed |
 | Inside Class Actions, "Federal Circuit Agrees with Majority View" (Apr. 6, 2026) | https://www.insideclassactions.com/2026/04/06/federal-circuit-agrees-with-majority-view-on-class-representative-incentive-awards/ | Full text via case.dev; 2026-10-30 | Reports Nat'l Veterans Legal Servs. Program v. United States (Fed. Cir. Mar. 20, 2026) permitting incentive awards | Secondary source; opinion not read |
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| Disposition of Isaacson v. Moses, No. 25-1411, after the Nov. 6, 2026 conference | Pending on the check date | Supreme Court docket |
-| Federal Circuit service-award holding and reporter citation (Nat'l Veterans Legal Servs. Program) | Known only from a law-firm summary | The opinion |
-| Service-award law in the Third, Fourth, Fifth, Sixth, Eighth, Tenth and D.C. Circuits | Not researched for this skill | Controlling circuit opinions |
-| Whether a material change after notice requires re-notice and new CAFA notice | Circuit- and fact-dependent | Controlling circuit law and the judge's order |
-| Appeal period used to define the Effective Date | Depends on whether a United States party is involved (Fed. R. App. P. 4(a)) | Fed. R. App. P. 4(a) text |
-| Local rules, standing orders and judge-specific procedures (for example, opt-out window floors, sealing of blow provisions, fee-motion lead time) | Vary by district and judge | The district's rules and the judge's procedures page |
-| Practice of supplementing CAFA notice with later-created materials | Not stated in 1715 | Controlling circuit or district practice |
-| Judgment-credit method for bar orders outside the PSLRA (pro tanto, proportionate or capped) | Varies by circuit and state contribution law | Controlling circuit law and the governing contribution statute |
-| State-court class settlements: the state class rule, notice requirements and any state official notice | Outside federal Rule 23 and 1715 | The state's rule and statutes |

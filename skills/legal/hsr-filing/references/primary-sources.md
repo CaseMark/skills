@@ -9,7 +9,6 @@
 5. Litigation over the 2024 rule
 6. Enforcement matters
 7. Corrections to the prior version of this skill
-8. `[VERIFY]` list
 
 ## How these sources were checked
 
@@ -22,7 +21,7 @@ All checks were made on 2026-10-30 through the case.dev API: `/search/v1/content
 | 15 U.S.C. 18a | https://www.law.cornell.edu/uscode/text/15/18a | Full text via case.dev; 2026-10-30 | (a) filing and size tests with "as adjusted" figures; (b)(1) 30 days, 15 for cash tender offer, from receipt; (b)(2) early termination with Federal Register notice; (c)(1), (3), (9), (10) exemptions; (d) form "necessary and appropriate"; (e) second requests; (g)(1) civil penalty; (h) confidentiality; (k) weekend and holiday extension | Confirmed |
 | 16 C.F.R. Part 801 (801.1, 801.2, 801.10, 801.11, 801.13, 801.15, 801.30, 801.50, 801.90) | https://www.ecfr.gov/current/title-16/chapter-I/subchapter-H/part-801 | Full text via case.dev; 2026-10-30 | Secondary acquisitions (801.4); corporate joint venture formation (801.40); person, UPE, control (including LLC and partnership profits or dissolution-asset test, example 2), hold, non-corporate interest, notification thresholds, investment-only definition; acquiring and acquired persons, 801.2(f) non-corporate control; valuation, 60-day fair market value, 45-day market price; size of person, 15-month statements, natural persons, new entities; aggregation, 180-day asset rule; exempt holdings; 801.30 timing; formation of unincorporated entities; avoidance | Confirmed |
 | 16 C.F.R. Part 802 (802.1, 802.2, 802.4, 802.9, 802.21, 802.31, 802.50, 802.51) | https://www.ecfr.gov/current/title-16/chapter-I/subchapter-H/part-802 | Full text via case.dev; 2026-10-30 | Ordinary course and operating unit; new joint venture entity need not file (802.41); real property categories; exempt-asset entities; investment only at 10 percent or less; foreign assets and foreign issuers | Confirmed |
-| 16 C.F.R. Part 803 (803.2, 803.3, 803.5, 803.6, 803.7, 803.9, 803.10, 803.11, 803.12) | https://www.ecfr.gov/current/title-16/chapter-I/subchapter-H/part-803 | Full text via case.dev; 2026-10-30 | Filer; statement of reasons; affidavits; certification; 1-year and 18-month expiry; fee paid by acquiring person; receipt by 5 p.m. ET, start, 11:59 p.m. ET expiry, weekend and holiday roll, second-request extension; early termination; withdraw and refile | Confirmed; eCFR still shows 2024 amendments (see `[VERIFY]`) |
+| 16 C.F.R. Part 803 (803.2, 803.3, 803.5, 803.6, 803.7, 803.9, 803.10, 803.11, 803.12) | https://www.ecfr.gov/current/title-16/chapter-I/subchapter-H/part-803 | Full text via case.dev; 2026-10-30 | Filer; statement of reasons; affidavits; certification; 1-year and 18-month expiry; fee paid by acquiring person; receipt by 5 p.m. ET, start, 11:59 p.m. ET expiry, weekend and holiday roll, second-request extension; early termination; withdraw and refile | Confirmed; eCFR still shows 2024 amendments (see the working rule in `waiting-period-and-conduct.md`) |
 | 16 C.F.R. 1.98(a) | https://www.ecfr.gov/current/title-16/chapter-I/subchapter-A/part-1/subpart-L/section-1.98 and https://www.govinfo.gov/content/pkg/CFR-2026-title16-vol1/pdf/CFR-2026-title16-vol1-sec1-98.pdf | Full text via case.dev; 2026-10-30 | Maximum 7A(g)(1) penalty $53,088 per day for penalties assessed after Jan. 17, 2025, as set by 90 Fed. Reg. 5581 (Jan. 17, 2025), the eCFR source note | Confirmed (annual); 91 Fed. Reg. 58446 (its own row) carries the 2025 amount into 2026 |
 | 5 U.S.C. 6103(a) | https://www.law.cornell.edu/uscode/text/5/6103 | Full text via case.dev; 2026-10-30 | List of legal public holidays used by 18a(k) and 803.10 | Confirmed |
 | RCW 19.420 (Washington Uniform Antitrust Pre-Merger Notification Act) | https://app.leg.wa.gov/RCW/default.aspx?cite=19.420&full=true | Full text via case.dev; 2026-10-30 | Contemporaneous copy of the HSR form to the Attorney General; triggers in 19.420.020 | Confirmed; effective date July 27, 2025 from the Washington AG news release (search excerpt) |
@@ -75,18 +74,3 @@ All checks were made on 2026-10-30 through the case.dev API: `/search/v1/content
 | Thresholds and penalty | "Confirm current amounts" with no figures | 2026 figures with effective date and re-check instruction; penalty $53,088 per day | 91 Fed. Reg. 2133; 16 C.F.R. 1.98(a) |
 | Form | Silent on form version | 2025 form vacated; pre-2025 form accepted; 2025 form optional | FTC forms page; E.D. Tex. opinion |
 | Item 4(c) advice | "Include anything touching competitive factors, even tangentially" | Collect by the Instructions' scope and custodian rule; log withheld documents | HSR Form Instructions, Item 4; 803.3(d) |
-
-## `[VERIFY]` list
-
-| Statement | Why unconfirmed | What settles it |
-|---|---|---|
-| 2027 thresholds, fees and effective date | Not yet published on 2026-10-30 | FTC annual notice (usually January) |
-| Which Part 801-803 text the PNO applies where 89 Fed. Reg. 89216 amended rule text (for example 803.2(b), 803.5(b), 803.12(c)(1)(iii)) | eCFR still shows the 2024 text; PNO statements address the Form and Instructions | PNO confirmation (HSRHelp@ftc.gov) or a Federal Register document |
-| How long the agencies will accept the 2025 form; outcome of the Fifth Circuit appeal; any new rulemaking | Appeal in abeyance through Dec. 31, 2026; rulemaking under consideration | FTC forms page, PNO Special Highlights, Fifth Circuit docket |
-| Content of the 2025 form's document and narrative items | Not summarized in this skill | 2025 Form Instructions, if elected |
-| Treatment of a contingent payment that cannot be reasonably estimated | PNO page says fair market value then governs; specific earn-out structures vary | PNO informal interpretations or HSRHelp@ftc.gov |
-| Whether pre-closing payment or risk-shifting transfers beneficial ownership | Fact-specific | Counsel review against PNO and enforcement history |
-| Department of War copy requirement for a given deal | Not researched | PNO Department of War page and NDAA FY2024 section 857 |
-| Other states' premerger notification statutes | Only Washington researched | State code search on the drafting date |
-| Suspension of early termination in 2021 and its return in 2025 | Seen only in secondary commentary | FTC press releases from those dates |
-| Fifth Circuit order of Mar. 19, 2026 | Order text not read | Fifth Circuit docket No. 26-40094 |

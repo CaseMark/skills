@@ -10,7 +10,7 @@ Produce the header and the six parts in this order. Keep sentences plain; put de
 4. Part 3. Rep-to-schedule map
 5. Part 4. Draft disclosure schedules (or review markup)
 6. Part 5. Reconciliation table
-7. Part 6. Hand-offs, open items and `[VERIFY]` list
+7. Part 6. Hand-offs, open items and items to confirm before use
 
 ## Header
 
@@ -91,7 +91,7 @@ For buyer review, give the seller's text, the proposed change, and the reason, i
 | Share and option counts | | stock ledger | cap table | | |
 | Diligence report finding | | report | schedule entry | | |
 
-## Part 6. Hand-offs, open items and `[VERIFY]` list
+## Part 6. Hand-offs, open items and items to confirm before use
 
 **Hand-offs.** A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -108,6 +108,6 @@ For buyer review, give the seller's text, the proposed change, and the reason, i
 | # | Open item | Gap class (unknown fact / source conflict / unverified external lookup / policy election) | Owner | Next action | Blocks delivery? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm before use:** each statement, why it is unconfirmed, and what would settle it.
 
 Close with: "Draft for attorney review. Not to be delivered until counsel confirms the agreement draft, the cross-reference clause and each disclosure against its source document."

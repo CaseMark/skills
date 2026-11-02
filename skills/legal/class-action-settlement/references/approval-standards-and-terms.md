@@ -1,6 +1,6 @@
 # Approval Standards and Settlement Terms
 
-Rules for testing a class settlement agreement and its approval papers against Fed. R. Civ. P. 23(e) and (h), CAFA (28 U.S.C. 1711-1715) and the controlling case law. Every statement here was checked on 2026-10-30 against the source recorded in `references/primary-sources.md`. Anything marked `[VERIFY]` was not confirmed in a primary source. Rule 23 and circuit law on fees and incentive awards are still moving, so re-check the current rule text and the controlling circuit before filing.
+Rules for testing a class settlement agreement and its approval papers against Fed. R. Civ. P. 23(e) and (h), CAFA (28 U.S.C. 1711-1715) and the controlling case law. Every statement here was checked on 2026-10-30 against the source recorded in `references/primary-sources.md`. Anything labeled "Confirm before use:" was not confirmed in a primary source. Rule 23 and circuit law on fees and incentive awards are still moving, so re-check the current rule text and the controlling circuit before filing.
 
 ## Contents
 
@@ -19,7 +19,7 @@ Rules for testing a class settlement agreement and its approval papers against F
 
 | Question | Why it matters | Rule |
 |---|---|---|
-| Federal or state court? | Rule 23 and CAFA chapter 114 apply only in federal court; 28 U.S.C. 1711(2) defines "class action" as one filed in or removed to a federal district court | State court: apply the state class rule and its notice statute `[VERIFY: state rule]`; do not cite 1715 as mandatory |
+| Federal or state court? | Rule 23 and CAFA chapter 114 apply only in federal court; 28 U.S.C. 1711(2) defines "class action" as one filed in or removed to a federal district court | State court: apply the state class rule and its notice statute (check the state's rule); do not cite 1715 as mandatory |
 | Class already certified, or certified only for settlement? | Rule 23(e) now covers "a class proposed to be certified for purposes of settlement" | Uncertified: the preliminary approval showing must cover likely certification, 23(e)(1)(B)(ii) |
 | Which Rule 23(b) category? | (b)(3) classes get Rule 23(c)(2)(B) notice and an opt-out right; (b)(1) and (b)(2) classes do not | Individualized monetary claims belong in (b)(3), not (b)(2) (Wal-Mart Stores, Inc. v. Dukes, 564 U.S. 338 (2011)) |
 | Which circuit? | Incentive awards, fee scrutiny and coupon rules differ by circuit | Sections 5 and 6 |
@@ -42,7 +42,7 @@ Compare the settlement class with the class pleaded in the operative complaint a
 | Exclusions | Defendant's officers, judges, opt-outs from earlier actions, persons who already released |
 | Subclasses | Groups whose claims differ in value or kind (section 8) |
 
-Every difference is stated in the preliminary approval motion with the reason it is appropriate. The Northern District of California's Procedural Guidance for Class Action Settlements (modified Sept. 5, 2024) requires exactly this explanation for differences in the class and the released claims; other districts may have their own standing order `[VERIFY: local rules and the judge's procedures]`. An expansion that no named representative can represent is a Critical issue: adequacy and typicality must be shown for the class actually being bound.
+Every difference is stated in the preliminary approval motion with the reason it is appropriate. The Northern District of California's Procedural Guidance for Class Action Settlements (modified Sept. 5, 2024) requires exactly this explanation for differences in the class and the released claims; other districts may have their own standing order; check local rules and the judge's procedures. An expansion that no named representative can represent is a Critical issue: adequacy and typicality must be shown for the class actually being bound.
 
 ## 3. Release scope and released parties
 
@@ -50,7 +50,7 @@ Every difference is stated in the preliminary approval motion with the reason it
 - **Drafting test.** For each category in the Released Claims definition, name the pleaded facts it rests on. Strike "relating in any way to the Released Parties' products, business or practices" and any claim type (privacy, TCPA, employment, personal injury) with no shared factual predicate.
 - **Released parties.** Limit to the settling defendants, related entities that are named, and their insurers and agents for the released claims. Strike "all other persons." A non-party released for conduct outside the predicate, or one that contributes nothing, needs a stated reason.
 - **Other pending actions.** List every pending or anticipated action whose claims would be released (2018 Committee Note to 23(e)(1)). Notify counsel in those actions; the N.D. Cal. guidance asks defendants to serve the preliminary approval motion on them within one day of filing.
-- **Partial settlements: bar orders and judgment reduction.** When fewer than all defendants settle, a bar order cutting off non-settling defendants' contribution and indemnity claims against the settling defendant must be paired with a judgment credit that protects them; the Second Circuit upheld a bar order where the proportionate-fault credit adequately compensated non-settling defendants, and remanded on whether the bar should be mutual (Gerber v. MTC Electronic Technologies Co., 329 F.3d 297 (2d Cir. 2003)). In private securities actions the PSLRA requires a bar order on entry of the settlement, barring contribution claims by and against the settling covered person, and reduces any later verdict or judgment by the greater of the settling person's percentage of responsibility or the amount paid (15 U.S.C. 78u-4(f)(7)). Outside the PSLRA, the credit method (pro tanto, proportionate or capped) depends on circuit law and any governing contribution statute `[VERIFY: controlling circuit and state contribution law]`. Give non-settling defendants notice and an opportunity to be heard on the bar order.
+- **Partial settlements: bar orders and judgment reduction.** When fewer than all defendants settle, a bar order cutting off non-settling defendants' contribution and indemnity claims against the settling defendant must be paired with a judgment credit that protects them; the Second Circuit upheld a bar order where the proportionate-fault credit adequately compensated non-settling defendants, and remanded on whether the bar should be mutual (Gerber v. MTC Electronic Technologies Co., 329 F.3d 297 (2d Cir. 2003)). In private securities actions the PSLRA requires a bar order on entry of the settlement, barring contribution claims by and against the settling covered person, and reduces any later verdict or judgment by the greater of the settling person's percentage of responsibility or the amount paid (15 U.S.C. 78u-4(f)(7)). Outside the PSLRA, the credit method (pro tanto, proportionate or capped) depends on circuit law and any governing contribution statute; check the controlling circuit and state contribution law. Give non-settling defendants notice and an opportunity to be heard on the bar order.
 - **(b)(2) classes.** A mandatory class without opt-out should not release individual damages claims (Dukes).
 - **Unknown claims waivers.** Cal. Civ. Code 1542 (as amended effective Jan. 1, 2019) limits a general release to known or suspected claims; a 1542 waiver widens the release and is tested by the same predicate rule.
 - **Matsushita.** A state-court class judgment may release exclusively federal claims and receive full faith and credit where the state's law gives the release that effect (Matsushita Elec. Indus. Co. v. Epstein, 516 U.S. 367 (1996)), so a parallel federal action is not protected by subject matter alone.
@@ -77,10 +77,10 @@ Always reconcile, in this order, with a source for each figure: gross fund; minu
 | Second | Not per se unlawful | Melito v. Experian Mktg. Sols., Inc., 923 F.3d 85 (2d Cir. 2019); Hyland v. Navient Corp., 48 F.4th 110 (2d Cir. 2022); Moses (2023) |
 | Seventh | Permitted; prospect of an award supports the representative's stake | Scott v. Dart, 99 F.4th 1076 (7th Cir. 2024) |
 | Ninth | Permitted | In re Apple Inc. Device Performance Litig., 50 F.4th 769 (9th Cir. 2022) |
-| Federal | Permitted (reported) | Nat'l Veterans Legal Servs. Program v. United States (Fed. Cir. Mar. 20, 2026) `[VERIFY: reporter citation]` |
-| Others | Not located in this review | `[VERIFY: controlling circuit]` |
+| Federal | Permitted (reported) | Nat'l Veterans Legal Servs. Program v. United States (Fed. Cir. Mar. 20, 2026); reported by a secondary source only, opinion not read here |
+| Others | Not located in this review | Check the controlling circuit |
 
-A petition asking the Supreme Court to hold service awards unlawful, Isaacson v. Moses, No. 25-1411, was distributed for the November 6, 2026 conference `[VERIFY: disposition]`. In every circuit, the award must not be conditioned on supporting the settlement, its size must not undermine adequacy, and it must be supported by evidence of the representative's work and risk.
+A petition asking the Supreme Court to hold service awards unlawful, Isaacson v. Moses, No. 25-1411, was distributed for the November 6, 2026 conference, as of 2026-10-30; check the docket for its current status. In every circuit, the award must not be conditioned on supporting the settlement, its size must not undermine adequacy, and it must be supported by evidence of the representative's work and risk.
 
 ## 6. Coupon settlements (28 U.S.C. 1712)
 
@@ -102,7 +102,7 @@ Rule 23(e)(2)(D) asks whether the plan "takes appropriate account of differences
 
 ## 9. Agreements statement and objector payments
 
-- **Rule 23(e)(3).** The parties seeking approval must file a statement identifying any agreement made in connection with the proposal: side letters, supplemental agreements setting an opt-out termination threshold ("blow provision"), fee-sharing and referral agreements, agreements with objectors. Identify each one; whether its terms are filed under seal or reviewed in camera is for the court `[VERIFY: judge's practice]`.
+- **Rule 23(e)(3).** The parties seeking approval must file a statement identifying any agreement made in connection with the proposal: side letters, supplemental agreements setting an opt-out termination threshold ("blow provision"), fee-sharing and referral agreements, agreements with objectors. Identify each one; whether its terms are filed under seal or reviewed in camera is for the court; check the judge's practice.
 - **Rule 23(e)(5)(B).** Unless approved by the court after a hearing, no payment or other consideration may be provided in connection with forgoing or withdrawing an objection, or forgoing, dismissing or abandoning an appeal from approval. The rule does not distinguish by who pays. An objector may withdraw without approval if nothing is given (2018 Committee Note).
 - **Rule 23(e)(5)(C).** If approval is not obtained before an appeal is docketed, the Rule 62.1 indicative-ruling procedure applies while the appeal is pending.
 - **Objection content (23(e)(5)(A)).** The notice and agreement should require an objection to say whether it applies to the objector, a subset or the whole class, and state its grounds with specificity; do not add burdens that chill objections.

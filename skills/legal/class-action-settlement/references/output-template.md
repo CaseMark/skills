@@ -11,13 +11,13 @@ Produce the header and the seven parts in this order. Keep sentences plain; put 
 5. Part 4. Draft agreement articles or redline
 6. Part 5. Approval-paper inserts and Rule 23(e)(3) statement
 7. Part 6. CAFA notice package
-8. Part 7. Hand-offs, open items and `[VERIFY]` list
+8. Part 7. Hand-offs, open items and items to confirm before use
 
 ## Header
 
 - Case caption, court and judge, case number, today's date, the side the user represents, and the preparer note: "Draft for attorney review."
 - Posture: class certified (date, Rule 23(b) category) or proposed for settlement only; settlement stage (term sheet, draft agreement, preliminary approval motion, final approval motion).
-- Governing law: Rule 23 and CAFA chapter 114 (federal), or the state class rule `[VERIFY]`; the controlling circuit; local rules, standing orders and the judge's procedures checked or not.
+- Governing law: Rule 23 and CAFA chapter 114 (federal), or the state class rule (check the state's rule); the controlling circuit; local rules, standing orders and the judge's procedures checked or not.
 - **Source-review register**, one row per file:
 
 | File | Type | Date | Status | Pages read | Note |
@@ -128,7 +128,7 @@ This skill drafts inserts, not the motions. The preliminary approval motion itse
 
 Show the 10-day computation from the filing date and the earliest final approval order date under 1715(d) in the fixed format.
 
-## Part 7. Hand-offs, open items and `[VERIFY]` list
+## Part 7. Hand-offs, open items and items to confirm before use
 
 A hand-off carries the facts the receiving workflow needs; a skill name alone is not a hand-off.
 
@@ -147,6 +147,6 @@ A hand-off carries the facts the receiving workflow needs; a skill name alone is
 | # | Open item | Gap class | Owner | Next action | Blocks signing or filing? |
 |---|---|---|---|---|---|
 
-**`[VERIFY]` list:** each statement, why it is unconfirmed, and what would settle it.
+**Confirm before use:** each statement, why it is unconfirmed, and what would settle it.
 
 Close with: "Draft for attorney review. Not to be signed or filed until counsel confirms the controlling circuit law, the local rules and the judge's procedures, and every Critical item is closed."

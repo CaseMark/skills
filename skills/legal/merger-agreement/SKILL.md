@@ -52,8 +52,8 @@ Merger agreements fail in the definitions and the cross-references, not in the h
 1. **Draft only.** Nothing is signed, delivered to the counterparty or filed by this skill. Every output is a draft for attorney review and is never called final or ready to sign.
 2. **Source-review gate.** Never call a document missing until the inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item in one of four gap classes: *unknown fact* (the cap table count of holders), *source conflict* (LOI price differs from the draft), *unverified external lookup* (a statute, an exchange rule, an HSR threshold not confirmed), or *policy election* (a choice for the client or counsel, such as basket type or bring-down standard).
 3. **Hierarchy of authority.** Facts: signed LOI or term sheet and the client's written instructions, then the charter, bylaws and stock ledger, then the QoE report and diligence memos, then data room summaries, management presentations and deal-team email. Law: the current statute text, then Delaware Supreme Court decisions, then Court of Chancery decisions, then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every figure, share count, date and defined-term choice carries a source locator (document and section or page) or `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`. Never invent a case, statute, pin cite or "market" statistic.
-5. **Current statute text.** Re-read the DGCL sections relied on (251, 261, 262, 268, 228, 144, 147, 122(18)) on the drafting date; if that cannot be done, say so at the top and mark those rows `[VERIFY]`.
+4. **Citation discipline.** Every figure, share count, date and defined-term choice carries a source locator (document and section or page) or `[UNVERIFIED]`. Every legal statement carries a citation from `references/primary-sources.md` or the label "Confirm before use:". Never invent a case, statute, pin cite or "market" statistic.
+5. **Current statute text.** Re-read the DGCL sections relied on (251, 261, 262, 268, 228, 144, 147, 122(18)) on the drafting date; if that cannot be done, say so at the top and label those rows "Confirm before use:".
 6. **Know the side.** Positions are drafted for the represented party. Say which side every recommendation favors, and never describe a term as "market" without a dated source the user supplies.
 7. **Definitions are operative.** No definition is accepted or drafted until its uses are mapped (`references/deal-terms-and-traps.md`, section 1).
 8. **Representations, covenants and conditions stay separate.** Each representation gets its date, its qualifiers and its bring-down standard; each materiality scrape states its purpose.
@@ -79,7 +79,7 @@ Collect, from documents where possible:
 11. Tax intent and any instruction from tax counsel.
 12. Timeline: signing target, outside date, stockholder meeting or consent plan.
 
-**Defaults if not supplied** (each is a policy election stated in the deliverable): Delaware law and the Court of Chancery for the agreement; reverse triangular merger through a newly formed Delaware merger subsidiary (a merger subsidiary that is an LLC or formed elsewhere moves its statute rows to `[VERIFY]`); MAE with carve-outs for general economic, industry, law and GAAP changes, pandemics, war, and announcement, with a disproportionate-effect exception on the economic, industry, law and GAAP, pandemic and war carve-outs only; fundamental representations true in all respects (capitalization de minimis), other representations to an MAE standard (public) or in all material respects (private), with a scrape for the bring-down stated; stockholder approval by a majority of the outstanding stock entitled to vote, which the charter can raise and a controlling stockholder transaction under 144(b) or (c) may require supplementing; private survival of 12 to 18 months for general representations as a negotiating position, not a rule, noting that a period beyond three years needs the 8106(c) contract period; specific performance available to both sides.
+**Defaults if not supplied** (each is a policy election stated in the deliverable): Delaware law and the Court of Chancery for the agreement; reverse triangular merger through a newly formed Delaware merger subsidiary (a merger subsidiary that is an LLC or formed elsewhere moves its statute rows to "Confirm before use:"); MAE with carve-outs for general economic, industry, law and GAAP changes, pandemics, war, and announcement, with a disproportionate-effect exception on the economic, industry, law and GAAP, pandemic and war carve-outs only; fundamental representations true in all respects (capitalization de minimis), other representations to an MAE standard (public) or in all material respects (private), with a scrape for the bring-down stated; stockholder approval by a majority of the outstanding stock entitled to vote, which the charter can raise and a controlling stockholder transaction under 144(b) or (c) may require supplementing; private survival of 12 to 18 months for general representations as a negotiating position, not a rule, noting that a period beyond three years needs the 8106(c) contract period; specific performance available to both sides.
 
 **Hard stops** (label the determination "Declined: hard stop" and produce what the stop calls for):
 - The side represented is unknown: produce a neutral issues list only.
@@ -91,7 +91,7 @@ Collect, from documents where possible:
 
 ## Step 1: Classify the Deal and the Deliverable
 
-Read `references/delaware-mechanics.md`, sections 1 to 3. Record side, structure, public or private, approval path and the deliverable mode. For a non-Delaware constituent, mark its statute rows `[VERIFY]` (section 9).
+Read `references/delaware-mechanics.md`, sections 1 to 3. Record side, structure, public or private, approval path and the deliverable mode. For a non-Delaware constituent, label its statute rows "Confirm before use:" (section 9).
 
 ## Step 2: Complete the Source Review and Reconcile the Term Sheet
 
@@ -127,7 +127,7 @@ Read `references/deal-terms-and-traps.md`, section 7, and `references/delaware-m
 
 ## Step 10: Assemble the Deliverable and Hand-Offs
 
-Lay out the header and Parts 1 to 7 per `references/output-template.md`. Rank blocking issues by the severity rules there. Complete every hand-off with the facts the receiving skill needs. List every `[VERIFY]` item with what would settle it.
+Lay out the header and Parts 1 to 7 per `references/output-template.md`. Rank blocking issues by the severity rules there. Complete every hand-off with the facts the receiving skill needs. List every "Confirm before use:" item with what would settle it.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -156,7 +156,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 9. No release or indemnity binds non-signing holders without consideration, a cap and a time limit.
 10. Vote standards, notices and appraisal steps match the statute's words, and each clock has its own trigger event.
 11. Termination rights, fees, exclusive-remedy and specific performance clauses were read together, and the outside date fits the regulatory timetable.
-12. Every legal statement carries a citation from `references/primary-sources.md` or `[VERIFY]`, and every figure a locator or `[UNVERIFIED]`.
+12. Every legal statement carries a citation from `references/primary-sources.md` or a "Confirm before use:" label, and every figure a locator or `[UNVERIFIED]`.
 13. Blocking issues are ranked; each ends in a recommendation, the alternative and an owner; the output closes with the draft-for-attorney-review line.
 
 ## Guidelines
@@ -178,7 +178,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 | QoE peg cannot be traced to line items | Summary page only | Request the peg schedule; mark the peg `[UNVERIFIED]`; keep the waterfall check open |
 | RWI binder not yet available | Underwriting in progress | Draft seller indemnity as bracketed alternatives; list each known issue as needing a recovery path |
 | HSR status unknown | Filing analysis not done | Treat a filing as possible; keep interim covenants within Ground Rule 9; hand off to hsr-filing |
-| Target incorporated outside Delaware | Different statute | Mark approval, appraisal and filing rows `[VERIFY]`; read that state's statute before drafting mechanics |
+| Target incorporated outside Delaware | Different statute | Label approval, appraisal and filing rows "Confirm before use:"; read that state's statute before drafting mechanics |
 | Two definitions of the same term in the draft and an ancillary | Copied precedent | Name the conflict; propose one definition and an order-of-precedence clause |
 
 ## Related Skills
@@ -201,4 +201,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/deal-terms-and-traps.md`: definitions and the cross-reference map, representations and conditions, bring-down and scrapes, interim covenants and gun-jumping, price mechanics, indemnification and RWI, termination and remedies.
 - `references/delaware-mechanics.md`: DGCL structure and approval paths, appraisal and the clocks table, non-signing holders, 144 and 122(18), 261 and 268, survival and 10 Del. C. 8106.
 - `references/output-template.md`: deliverable layout, severity rules, reconciliation table, defined-term map, waterfall tie-out, markup table, clocks table and hand-off table.
-- `references/primary-sources.md`: every authority checked with its URL, method, date and what it supports, plus the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its URL, method, date and what it supports.

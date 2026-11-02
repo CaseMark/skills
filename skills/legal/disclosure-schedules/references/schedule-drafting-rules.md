@@ -88,7 +88,7 @@ Typical text: information in one section "shall be deemed to apply to and qualif
 ## 6. Admissions, privilege and confidentiality
 
 - Facts, not conclusions. A schedule is the seller's own written statement and can be offered against it (Fed. R. Evid. 801(d)(2)(A) treats a party's own statement offered against it as not hearsay; state evidence rules vary). Describe what was alleged, by whom, when, and the status. Do not write "the Company violated", "likely liable", "exposure is approximately", or an intention to settle.
-- Do not quote, summarize or characterize counsel's advice, reserve analyses or litigation strategy. Disclosing privileged content to a counterparty may waive the privilege; whether a common-interest doctrine protects deal-related sharing depends on the jurisdiction `[VERIFY]`.
+- Do not quote, summarize or characterize counsel's advice, reserve analyses or litigation strategy. Disclosing privileged content to a counterparty may waive the privilege; whether a common-interest doctrine protects deal-related sharing depends on the jurisdiction; check the governing law before relying on it.
 - Third-party confidentiality: a contract may forbid disclosing its terms. Describe the existence of the restriction and the exception without the restricted terms, or obtain consent; flag the conflict.
 - Personal data: no Social Security numbers, home addresses, bank account numbers or health details beyond what the rep requires; use employee identifiers for compensation schedules.
 

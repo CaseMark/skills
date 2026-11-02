@@ -52,7 +52,7 @@ HSR errors are rarely about antitrust theory. They come from arithmetic and iden
 1. **Draft only.** Nothing is filed, certified, paid or closed by this skill. Every output is a draft for antitrust counsel, and no filing is called complete or ready to submit.
 2. **Source-review gate.** Never call a document missing until the matter inventory has been checked and the file opened, with OCR or extraction tried. Classify every open item as one of four gap classes: *unknown fact* (closing date, holdings), *source conflict* (two prices), *unverified external lookup* (a threshold or form status not re-checked today), or *policy election* (form version, fee allocation).
 3. **Hierarchy of authority.** For facts: executed agreements and schedules, then audited financial statements and board resolutions, then registers and funds-flow memos, then emails and summaries. For law: the statute, then the rules, then the Form Instructions, then PNO guidance and informal interpretations (staff views, not binding), then commentary. Name every conflict in the reconciliation table and state which source controls; never resolve one silently.
-4. **Citation discipline.** Every figure, date and percentage carries a source locator (document and section or page) or is marked `[UNVERIFIED]`. Every legal statement cites `references/primary-sources.md` or is marked `[VERIFY]`. Never invent a rule cite, informal interpretation number or enforcement matter.
+4. **Citation discipline.** Every figure, date and percentage carries a source locator (document and section or page) or is marked `[UNVERIFIED]`. Every legal statement cites `references/primary-sources.md` or is labeled "Confirm before use:". Never invent a rule cite, informal interpretation number or enforcement matter.
 5. **Dated thresholds.** Every annually adjusted figure is stated with its notice and effective date (2026 figures: 91 Fed. Reg. 2133, effective February 17, 2026) and an instruction to re-check. The figures in effect at closing govern; if closing may fall after the next annual adjustment, test both years.
 6. **Full value, full holdings.** Value is everything the acquiring person will hold as a result of the acquisition, including previously held securities and every component of consideration, under `references/thresholds-valuation-and-exemptions.md`. Never treat the headline price as the value.
 7. **Persons, not signatories.** Reportability, size of person and filing run at the ultimate parent entity. Show the control chain and the control test applied at each link.
@@ -96,7 +96,7 @@ Read section 3 of the same file. Build the valuation worksheet component by comp
 
 ## Step 3: Apply the Thresholds and Size of Person
 
-Read section 1 (re-check the figures and record the date) and section 2. Run the test in the fixed format of `references/output-template.md`, Part 1. If closing may fall after the next annual adjustment, run it under both years or mark the later year `[VERIFY]`.
+Read section 1 (re-check the figures and record the date) and section 2. Run the test in the fixed format of `references/output-template.md`, Part 1. If closing may fall after the next annual adjustment, run it under both years or label the later year "Confirm before use:".
 
 ## Step 4: Screen the Exemptions
 
@@ -120,7 +120,7 @@ Read section 6. Mark each interim covenant and integration step acceptable or no
 
 ## Step 9: Assemble the Deliverable and Hand-Offs
 
-Lay out the header and Parts 1 to 6 per `references/output-template.md`. Complete each hand-off with facts. List every `[VERIFY]` item from `references/primary-sources.md` that the draft relies on.
+Lay out the header and Parts 1 to 6 per `references/output-template.md`. Complete each hand-off with facts. List under "Confirm before use:" every statement the draft relies on that is not confirmed against `references/primary-sources.md`.
 
 ## Checkpoint B: Post-Draft Alignment
 
@@ -149,7 +149,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 9. The form version and its status date are stated; no vacated requirement is applied as mandatory.
 10. The Item 4(c)/4(d) index covers officer and director custodians, drafts, and a privilege log.
 11. No covenant or integration step gives the buyer operational control or coordinates competitive conduct before expiry; any such request carries the hard-stop label and a compliant alternative.
-12. Every figure has a source locator or `[UNVERIFIED]`, every legal statement a citation or `[VERIFY]`, and the reconciliation table shows each conflict.
+12. Every figure has a source locator or `[UNVERIFIED]`, every legal statement a citation or a "Confirm before use:" label, and the reconciliation table shows each conflict.
 13. The output closes with the draft-for-attorney-review line.
 
 ## Guidelines
@@ -170,7 +170,7 @@ Before responding, confirm each statement. If one fails, fix the draft.
 | Financial statements older than 15 months | New entity or late audit | Use 801.11(e) for an entity without a balance sheet; otherwise request current statements |
 | Client insists an exemption applies | Practice habit or prior deal | Run the condition table; if a condition is unconfirmed, label Undetermined: open items |
 | Closing date uncertain around February | Next annual adjustment | Test under current figures and flag the re-test at the new effective date |
-| eCFR text conflicts with the FTC forms page | eCFR still shows vacated 2024 amendments | Follow the PNO's posted form and mark the rule text `[VERIFY]` |
+| eCFR text conflicts with the FTC forms page | eCFR still shows vacated 2024 amendments | Follow the PNO's posted form and label the rule text "Confirm before use:" |
 | Filing submitted late in the day | After 5 p.m. ET | Receipt is the next business day; recompute every clock |
 
 ## Related Skills
@@ -185,4 +185,4 @@ Before responding, confirm each statement. If one fails, fix the draft.
 - `references/thresholds-valuation-and-exemptions.md`: 2026 thresholds and fees with effective date, reportability test, valuation and aggregation, UPE and control, non-corporate interests, joint venture formation (801.40, 801.50), secondary acquisitions (801.4), size of person, exemption conditions, avoidance.
 - `references/waiting-period-and-conduct.md`: form-version status, filing mechanics, Item 4(c)/4(d), waiting-period computation, early termination and second requests, gun-jumping, parallel notices.
 - `references/output-template.md`: deliverable layout, fixed formats, reconciliation table, timeline, hand-off table.
-- `references/primary-sources.md`: every authority checked with its source, method and date, corrections, and the `[VERIFY]` list.
+- `references/primary-sources.md`: every authority checked with its source, method and date, and corrections.
