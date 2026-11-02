@@ -1,7 +1,7 @@
 ---
 name: managing-psychiatric-emergencies
 language: en
-description: Guides acute psychiatric assessment including safety evaluation and involuntary hold criteria. Use when evaluating psychiatric emergencies, assessing suicidality, or initiating involuntary holds.
+description: Guides acute psychiatric assessment including safety evaluation and involuntary hold criteria. Use when evaluating psychiatric emergencies, assessing suicidality, or initiating involuntary holds. Suicide screen interpretation, structured risk assessment documentation, safety planning and suicide prevention chart audits go to assessing-suicide-risk.
 tags:
   - management
   - emergency-medicine

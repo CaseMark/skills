@@ -1,7 +1,7 @@
 ---
 name: conducting-anti-kickback-analysis
 language: en
-description: Evaluates payment arrangements against Anti-Kickback Statute safe harbors with documentation. Use when analyzing AKS compliance, evaluating compensation arrangements, or documenting safe harbor applicability.
+description: Evaluates payment arrangements against Anti-Kickback Statute safe harbors with documentation. Use when analyzing AKS compliance, evaluating compensation arrangements, or documenting safe harbor applicability. Counsel's AKS intent analysis and opinions go to stark-law-aks-compliance; FCA exposure and overpayment sizing go to conducting-false-claims-analysis.
 tags:
   - process
   - healthcare-compliance

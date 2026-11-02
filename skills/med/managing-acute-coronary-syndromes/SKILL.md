@@ -189,7 +189,7 @@ Complete the reconciliation table, gaps and query candidates, hand-offs and open
 - interpreting-cardiac-catheterization: angiographic findings, culprit lesion and procedural detail.
 - coordinating-emergency-transfers: transfer documentation and stabilization requirements.
 - managing-emtala-compliance: EMTALA questions raised by a delayed or refused transfer.
-- calculating-emergency-risk-scores: computing HEART, GRACE or TIMI scores from documented inputs.
+- calculating-emergency-risk-scores: computing HEART and other validated ED risk scores from documented inputs; no skill claims GRACE or TIMI, so report those as documented.
 - managing-cdi-programs: compliant queries when MI type, injury or MINOCA documentation conflicts.
 - abstracting-clinical-documentation: codeable diagnoses and specificity for the final abstract.
 - managing-quality-reporting: hospital-level rates, eCQM submission and data validation.

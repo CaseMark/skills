@@ -91,7 +91,7 @@ Defaults when an input is missing:
 Hard stops (do not state an MS-DRG):
 
 - No discharge date and no way to identify the grouper version.
-- No inpatient order or the claim is observation or outpatient: say MS-DRG review does not apply and route observation or conversion questions to managing-observation-stays and status denials to managing-coding-denials. No skill currently claims prospective 2-midnight status review; this skill does not perform one.
+- No inpatient order or the claim is observation or outpatient: say MS-DRG review does not apply and route observation or conversion questions to managing-observation-stays and status denials to managing-coding-denials. Prospective Two-Midnight Rule status review goes to managing-observation-stays; this skill does not perform one.
 - No provider documentation supplied, only a code list or grouper output: list the documents needed and stop before validating.
 
 Hard stop on the improper part (decline it as a "Declined request", then continue the compliant review):
@@ -190,7 +190,7 @@ Complete the reconciliation table, declined requests, hand-offs, and open items 
 - managing-coding-denials: MS-DRG downgrade and clinical validation denials, payer or Medicare Advantage contract sepsis definitions (Sepsis-3 or Sepsis-2), inpatient-status and 2-midnight denials, and DRG validation appeals.
 - conducting-false-claims-analysis: patterns of unsupported codes, one-way query policies, or overpayment and self-disclosure questions.
 - auditing-coding-accuracy: sample-based coding audits across many claims.
-- managing-observation-stays: observation status and conversion to inpatient. No skill currently claims prospective 2-midnight status review.
+- managing-observation-stays: observation status, conversion to inpatient, and prospective Two-Midnight Rule status review.
 - managing-sepsis-bundles: SEP-1 abstraction, which uses its own sepsis criteria.
 - managing-risk-adjustment-coding: HCC risk adjustment, which follows different rules from MS-DRG grouping.
 - managing-payer-specific-coding: payer-specific coding policies and contract rules.

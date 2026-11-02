@@ -1,7 +1,7 @@
 ---
 name: auditing-hipaa-compliance
 language: en
-description: Conducts HIPAA compliance assessments with Privacy Rule, Security Rule, and Breach Notification analysis. Use when auditing HIPAA compliance, assessing privacy practices, or reviewing security controls.
+description: Conducts HIPAA compliance assessments with Privacy Rule, Security Rule, and Breach Notification analysis. Use when auditing HIPAA compliance, assessing privacy practices, or reviewing security controls. Incident-level breach determinations, risk assessments and notice clocks go to managing-privacy-breach-response.
 tags:
   - audit
   - healthcare-compliance

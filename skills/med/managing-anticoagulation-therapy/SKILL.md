@@ -191,7 +191,7 @@ Complete the review summary, reconciliation table, gaps and questions, hand-offs
 - managing-venous-thromboembolism-prophylaxis: choosing prophylaxis regimens, which this review only checks for duplication.
 - managing-valvular-heart-disease: grading mitral stenosis or classifying a prosthetic valve when the echo is unclear.
 - reconciling-medications: full medication reconciliation across care settings.
-- reconciling-inpatient-medications: admission, inpatient and discharge list comparison in the hospital.
+- reconciling-inpatient-medications: in-stay order continuity (ICU to floor, post-op resumption, hold and resume); admission and discharge list comparisons go to reconciling-medications.
 - conducting-pre-operative-evaluations: overall surgical risk assessment beyond anticoagulant timing.
 - managing-adverse-drug-reactions: causality assessment and reporting of a bleeding event.
 - reviewing-medication-safety: program-level high-alert medication safeguards.

@@ -1,7 +1,7 @@
 ---
 name: managing-observation-stays
 language: en
-description: Tracks observation status criteria, time-based requirements, and conversion-to-inpatient triggers. Use when managing observation patients, determining inpatient conversion, or documenting observation criteria.
+description: Tracks observation status criteria, time-based requirements, and conversion-to-inpatient triggers. Use when managing observation patients, determining inpatient conversion, or documenting observation criteria. Covers prospective Two-Midnight Rule status determinations; payer status denials and appeals go to managing-coding-denials.
 tags:
   - management
   - hospital-medicine

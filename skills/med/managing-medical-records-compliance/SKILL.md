@@ -1,7 +1,7 @@
 ---
 name: managing-medical-records-compliance
 language: en
-description: Evaluates medical records practices against retention, access, and amendment requirements. Use when auditing medical records, managing record retention, or processing amendment requests.
+description: Evaluates medical records practices against retention, access, amendment, late-entry and addendum, and audit-trail requirements. Use when auditing medical records, managing record retention, processing amendment requests, or reviewing late entries, addenda and audit trails.
 tags:
   - management
   - healthcare-compliance
