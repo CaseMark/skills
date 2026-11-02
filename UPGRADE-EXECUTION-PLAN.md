@@ -58,7 +58,7 @@ Playbook clarifications to apply in the same commit:
 
 Each vertical has its own checkout: legal in `/home/user/skills` (branch `claude/keen-edison-d1mcoa`), med in `/home/user/wt-med`, finance in `/home/user/wt-finance` (git worktrees of the vertical branches). Authors write only inside `skills/<domain>/<slug>/` of their vertical's checkout, so five can run in one checkout without conflicts and nothing is copied between trees. Only the orchestrator runs git.
 
-Network limits (found in the pilot; case.dev now works around them, see Appendix A): direct fetches of most primary-source hosts are blocked in this environment, including law.cornell.edu, uscode.house.gov, ecfr.gov, leginfo, justia, qualitynet.cms.gov, cms.gov, ecqi.healthit.gov and pmc.ncbi.nlm.nih.gov. Authors verify through search excerpts restricted to the issuing body's site and label each source "excerpt-confirmed" or `[VERIFY]`. Allowing those hosts in the environment's network settings would let authors read full texts.
+Network limits (found in the pilot; case.dev now works around them, see Appendix A): direct fetches of most primary-source hosts are blocked in this environment, including law.cornell.edu, uscode.house.gov, ecfr.gov, leginfo, justia, qualitynet.cms.gov, cms.gov, ecqi.healthit.gov and pmc.ncbi.nlm.nih.gov. Authors verify through search excerpts restricted to the issuing body's site and label each source "excerpt-confirmed" or "not read". Allowing those hosts in the environment's network settings would let authors read full texts.
 
 ### 3.2 Per-batch pipeline
 
@@ -94,13 +94,13 @@ Phases 2-4 can overlap two batches at a time after the pilot if throughput matte
 ### 4.1 Legal (14)
 - Tags from the 19 controlled tags only. `disclosure-schedules` needs tags added.
 - Model on `form-d-exempt-offering-notice`: plain prose purpose, `## Why This Skill Exists`, `## Where Mistakes Hide` table, numbered `## Ground Rules`, Checkpoint A, Steps, Checkpoint B, Quality Audit, Guidelines, Troubleshooting, Reference Files.
-- Jurisdiction-contingent law (bad-faith time-limited demand statutes, summary judgment standards, HSR thresholds which adjust every year) is `[VERIFY]` unless confirmed against a primary source with a date.
+- Jurisdiction-contingent law (bad-faith time-limited demand statutes, summary judgment standards, HSR thresholds which adjust every year) is stated with the date it was checked, or as user guidance to confirm the current rule, unless confirmed against a primary source with a date.
 - HSR size-of-transaction thresholds and filing fees change annually. State them with the effective date checked, and instruct the agent to re-confirm.
 
 ### 4.2 Med (15)
 - These already pass enrichment. Restructure, do not discard: keep the required headings, move deep criteria tables out to `references/`, add the trap map, add evals.
 - Preserve `tags` and `metadata` exactly.
-- Clinical thresholds, doses, and time windows each carry the guideline and year (for example Surviving Sepsis Campaign, AHA/ASA, ACC/AHA, NICHD three-tier FHR categories). Anything not confirmed against the guideline text is `[VERIFY]`.
+- Clinical thresholds, doses, and time windows each carry the guideline and year (for example Surviving Sepsis Campaign, AHA/ASA, ACC/AHA, NICHD three-tier FHR categories). Anything not confirmed against the guideline text is stated as user guidance to confirm, not as settled fact.
 - No patient-specific dosing presented as an order. Every output is draft for clinician review.
 - Revenue-cycle skills (DRG, risk adjustment, coding denials) must not phrase as "upcoding" advice; the trap maps should focus on documentation-supported code assignment.
 
@@ -109,7 +109,7 @@ It is both a target and a gold-standard reference, and it was reworked in PR Cas
 
 ### 4.4 Finance (15)
 - Near-full rewrites. Preserve `tags` and `metadata`. Body must clear 100 non-blank lines and hit the 140-320 band.
-- Standards cited by section: ASC 606, ASC 450, IRC sections, Treas. Reg. 1.482, OECD Transfer Pricing Guidelines, BSA/AML (31 CFR Chapter X), SSAP / ASOP for loss reserves. Rates, exemption amounts, and thresholds that change by year (estate and gift exclusion, GILTI/BEAT rates, NCTI changes) are dated or `[VERIFY]`.
+- Standards cited by section: ASC 606, ASC 450, IRC sections, Treas. Reg. 1.482, OECD Transfer Pricing Guidelines, BSA/AML (31 CFR Chapter X), SSAP / ASOP for loss reserves. Rates, exemption amounts, and thresholds that change by year (estate and gift exclusion, GILTI/BEAT rates, NCTI changes) are dated, with user guidance to confirm the current year's figure.
 - Model skills (`building-lbo-models`, `building-equity-valuation-models`) need a reconciliation table in `output-template.md`: sources and uses ties, debt schedule rolls forward, balance sheet balances.
 
 ### 4.5 Overlaps that need explicit routing
@@ -133,7 +133,7 @@ Each pair names the other in a Related Skills section and in its description's s
 4. 2-4 references, each under 100 lines or opening with `## Contents`; `output-template.md` and `primary-sources.md` always present.
 5. 3-5 evals, each aimed at a named row of the trap map.
 6. Reviewer findings resolved or explicitly deferred with a reason in the commit message.
-7. Every `[VERIFY]` item listed in `references/primary-sources.md`.
+7. No `[VERIFY]` markers or open-items lists in the bundle. Unconfirmed or variable points are phrased as user guidance; outputs flag uncertain items with "Confirm before use". Users review every output before use (owner decision, Nov 2, 2026).
 
 ---
 
@@ -159,7 +159,7 @@ Decided 2026-10-30: **one PR per vertical.**
 
 | Risk | Mitigation |
 |---|---|
-| Plausible but wrong citations, thresholds, or doses | Reviewer agent with fresh context verifies against primary sources; unconfirmed items are `[VERIFY]`; human domain review before merge (the gold standards are labeled pilot pending expert review for the same reason). |
+| Plausible but wrong citations, thresholds, or doses | Reviewer agent with fresh context verifies against primary sources; unconfirmed points are phrased as user guidance; users review every output before use, and expert review before merge was dropped by owner decision. |
 | Agents drift outside their directory | Brief forbids it; orchestrator checks `git status` against the expected paths before each commit. |
 | Injection-pattern false positives (`system:`) | H1/H2/H10; phrasing ban in brief. |
 | Med skills lose content that currently passes | Brief says restructure; orchestrator diffs heading sets before and after. |
@@ -203,7 +203,7 @@ Deliverables:
     ## Troubleshooting  (degraded, unreadable, or conflicting inputs)
     ## Related Skills  (plain-text slugs with one line each on when to hand off; never markdown links)
     ## Reference Files  (one line per file in references/)
-- references/: 2-4 .md files, flat. Always output-template.md (deliverable schema, reconciliation table, hand-off table) and primary-sources.md (each authority checked, with citation, what it supports, and the date checked; then a [VERIFY] list). Add 1-2 domain-rules files. Name every file in SKILL.md as references/<file>.md. No links from one reference file to another .md file. A file over 100 lines opens with ## Contents.
+- references/: 2-4 .md files, flat. Always output-template.md (deliverable schema, reconciliation table, hand-off table) and primary-sources.md (each authority checked, with citation, what it supports, and the date checked; no [VERIFY] list). Add 1-2 domain-rules files. Name every file in SKILL.md as references/<file>.md. No links from one reference file to another .md file. A file over 100 lines opens with ## Contents.
 - evals/evals.json:
   {"skill_name": "{slug}", "notes": "<what the suite covers>", "evals": [ 3-5 x
     {"id": 1, "name": "<kebab-case>", "prompt": "<realistic user request with the matter facts inline>",
@@ -215,7 +215,7 @@ Deliverables:
 Eval rules (from the pilot review; each one was violated at least once there):
 - No eval may expect output that one of the skill's own hard stops would block. In each eval's expected_output, name the hard stops you checked.
 - Prove the trap is live on the stated facts. Say why a weak skill fails in the eval's trap_note field, not in expected_output. Recompute every number with a script and put the key figures in the notes.
-- No Must line may depend on a [VERIFY] fact. Confirm the fact, or make the Must require analyzing both readings.
+- No Must line may depend on an unconfirmed fact. Confirm the fact, or make the Must require analyzing both readings.
 - Must lines are single, gradable requirements: no "alternatively", no exhaustive claims ("the one criterion left"), and outcome labels taken verbatim from the skill's own vocabulary.
 - Define in the prompt every quantity the arithmetic depends on ("tax EBITDA", "price paid for the target's stock").
 - Check each hard stop's trigger literally against every eval prompt. If a hard stop fires when X is missing, every eval that omits X either supplies it or expects the hard-stop output.
@@ -223,7 +223,7 @@ Eval rules (from the pilot review; each one was violated at least once there):
 - The hard-stop check covers parties and documents the prompt implies but never names, such as a merger subsidiary, or a term sheet's class definition when only its relief is described.
 - The eval's facts must establish every legal predicate a Must line presumes. For example, before asserting a post-signing breach, state that the representations are remade at closing.
 - A "Must not" that forbids producing what the user asked for needs a hard stop or ground rule behind it. Otherwise phrase it as "not without first ...".
-- Do not require [VERIFY] for a figure a sibling skill has confirmed; cite the sibling instead.
+- Do not hedge a figure a sibling skill has confirmed; cite the sibling instead.
 - Never anchor an eval clock to a trigger your own trap map names as the error.
 - A Must that assigns a noncompliance label must address every cure your own clock table lists.
 - When the skill has a windows, runs or deadlines table, the eval's expected output must check every window that is open on the eval date.
@@ -232,7 +232,7 @@ Eval rules (from the pilot review; each one was violated at least once there):
 - Every improper-aim hard stop (back-solve, target-driven inputs, suppressing a finding) needs its own Ground Rule and an eval that plants it, whether or not the description names the aim.
 - In a skill with a clocks table, every eval prompt states "Today is <weekday, date>" and supplies the delivery terms and Business Day roll clause its deadlines rely on.
 - When a deadline counts business days, check federal and bank holidays inside the counting window, not only at the end date.
-- A Must that applies a fact-specific rule listed as [VERIFY] is phrased "explain why it likely applies on these facts, then route the determination".
+- A Must that applies an unconfirmed, fact-specific rule is phrased "explain why it likely applies on these facts, then route the determination".
 - Text quoted from a filed agreement or other document is verbatim and names the section that contains it.
 - A rounding or display default may not decide pass or fail. Test unrounded unless the document has a rounding clause.
 - A clock row that every matter of the skill's type triggers (for example a Reg B notice on every credit application) is checked in every eval with its trigger facts supplied, or the expected output says why it does not apply.
@@ -258,7 +258,7 @@ Content rules (from the pilot review):
 - When you delete or merge an existing reference file, add a disposition table to primary-sources.md (kept / moved / dropped as an order / dropped as wrong) so nothing useful disappears silently.
 - Every skill you route to must claim that trigger in its own description or scope. If no skill does, route to legal-research (or the vertical's general research skill) and say no dedicated skill exists.
 - If the routing target has not been upgraded yet, list the trigger in your report as unclaimed, so that batch's author adds it.
-- Before writing [VERIFY], try the issuing body's own page, summary, FAQ or training material. Cite only documents you actually saw.
+- Before treating a point as unconfirmed, try the issuing body's own page, summary, FAQ or training material. Cite only documents you actually saw.
 
 Research: verify every statute, regulation, guideline, threshold, dose, rate, and standard you cite against the primary source itself. Today is 2026-10-30. Use case.dev first; the helper `{casedev}` takes an API path and a JSON body and reads the API key itself (never print, echo, or write the key).
 - Read a known page or PDF in full: `{casedev} /search/v1/contents '{"urls":["<url>"],"text":true}'`. Works for law.cornell.edu, ecfr.gov, govinfo.gov, irs.gov, state legislature PDFs, and most PDFs. It does not render JavaScript pages (qualitynet.cms.gov returns nothing); find a PDF of the same document instead.
@@ -266,7 +266,7 @@ Research: verify every statute, regulation, guideline, threshold, dose, rate, an
 - Verify case citations: `{casedev} /legal/v1/verify '{"text":"<citations>"}'`. Full text of an opinion: `{casedev} /legal/v1/full-text '{"url":"<url>","maxCharacters":50000,"highlightQuery":"<question>"}'`.
 - Responses can exceed 100,000 characters. Pipe them through python and print only the section you need.
 - In primary-sources.md, record for each authority the URL read, the method ("full text via case.dev" or "search excerpt"), and the date. Prefer the official publisher; a mirror (for example a hospital association's copy of a CMS manual) is acceptable when labeled as one. Paywalled sources such as the FASB Codification stay excerpt-based.
-- WebSearch and WebFetch remain fallbacks. Mark anything still unconfirmed, jurisdiction-dependent, or year-dependent [VERIFY]. Never invent a citation.
+- WebSearch and WebFetch remain fallbacks. Phrase anything still unconfirmed, jurisdiction-dependent, or year-dependent as user guidance to confirm; do not use [VERIFY] markers. Never invent a citation.
 
 Banned text anywhere in the bundle (the harness scans every file):
 - Injection triggers from .github/workflows/skill-qa.yml. Watch for "<word> system: <value>" (write "the coding system is ICD-10-CM"), "new instructions:", "developer mode", "jailbreak", "base64 decode", "eval(", "exec(".
@@ -278,7 +278,7 @@ Before you finish, loop until both are clean (the harness finds your checkout it
   python3 /home/user/skills/scripts/run_top15_upgrade.py verify --slug {slug} --strict
   {enrichment_cmd}
 
-Return: files written with line counts, the trap-map row names, each eval's name and the row it targets, every [VERIFY] item, and anything unresolved.
+Return: files written with line counts, the trap-map row names, each eval's name and the row it targets, any points left unconfirmed, and anything unresolved.
 ```
 
 ## Appendix B: Reviewer agent brief (template)
@@ -292,7 +292,7 @@ For each bundle:
 3. Does each eval actually exercise a trap-map row, and would a weak skill fail it?
 4. Do Checkpoint A hard-stops, Ground Rules, and Quality Audit agree with each other?
 5. Routing: do sibling skills in this batch and the overlap table route to each other cleanly?
-6. For each eval: would a skill that follows its own hard stops and ground rules pass it? Is the trap live on the stated facts? Does any Must depend on a [VERIFY] fact?
+6. For each eval: would a skill that follows its own hard stops and ground rules pass it? Is the trap live on the stated facts? Does any Must depend on an unconfirmed fact? Are there any [VERIFY] markers left (there should be none)?
 7. Does any default, clock anchor, or rule conflict with a common statute, measure specification, or standard?
 8. Recompute every number in every eval with python.
 Do not edit files. Return findings per skill, ranked by severity, each with file, line, problem, and fix.
